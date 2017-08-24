@@ -3,9 +3,9 @@
 	<html>
 	<head>
 		<!-- <title>Login Page</title> -->
-		<link rel="stylesheet" href="assets/css/login/login.css" type="text/css" />
-		  
- 		 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">
+		<!-- <link rel="stylesheet" href="assets/css/login/login.css" type="text/css" /> -->
+
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">
 	</head>
 
 	<body onload='document.f.j_username.focus();'>
@@ -17,8 +17,7 @@
 		</div>
 	</c:if>
 
-
-		<!-- <div id="fullscreen_bg" class="fullscreen_bg"/>
+	<!-- <div id="fullscreen_bg" class="fullscreen_bg"/>
 
 	<div class="container">
 	<form action="j_spring_security_check" name="f" method="post" class="form-signin">
@@ -35,20 +34,24 @@
 			</form>
 
 			
-		</div> -->
+	</div> -->
 
 	<div id="login">
-      <form  action="j_spring_security_check" name="f" method="post" class="form-signin">
-        <span class="fontawesome-user"></span>
-          <input type="text" id="user" name="j_username" placeholder="Username">
-       
-        <span class="fontawesome-lock"></span>
-          <input type="password"  name="j_password" id"pass" placeholder="Password">
-        
-        <input type="submit" value="Login">
+	<form  action="j_spring_security_check" name="f" method="post" class="form-signin">
+				<span class="fontawesome-user"></span>
+				<input type="text" id="user" name="j_username" placeholder="Username">
 
-		</form>
+				<span class="fontawesome-lock"></span>
+				<input type="password"  name="j_password" id"pass" placeholder="Password">
 
+			<!-- 	<input type="submit" value="Login"> -->
+					
+			<button class="btn btn-lg btn-primary btn-block" type="submit" name="Submit" value="Submit">
+					Sign In
+			</button>
 
+	</form>
+
+	</div>
 	</body>
 	</html>
