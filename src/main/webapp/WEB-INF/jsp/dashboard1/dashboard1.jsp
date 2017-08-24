@@ -1,4 +1,4 @@
-			<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+		<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 		    pageEncoding="ISO-8859-1"%>
 		<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
@@ -8,12 +8,8 @@
 		<meta charset="utf-8" />
 			<link rel="icon" type="image/png" href="assets/img/favicon.ico">
 			<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-
-			<title>Light Bootstrap Dashboard by Creative Tim</title>
-
 			<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
 		    <meta name="viewport" content="width=device-width" />
-
 
 		    <!-- Bootstrap core CSS     -->
 		    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
@@ -24,10 +20,8 @@
 		    <!--  Light Bootstrap Table core CSS    -->
 		    <link href="assets/css/light-bootstrap-dashboard.css" rel="stylesheet"/>
 
-
 		    <!--  CSS for Demo Purpose, don't include it in your project     -->
 		    <link href="assets/css/demo.css" rel="stylesheet" />
-
 
 		    <!--     Fonts and icons     -->
 		    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -37,24 +31,16 @@
 		  <body>
 		  	<div class="wrapper">
 		    <div class="sidebar" data-color="purple" data-image="assets/img/sidebar-5.jpg">
-
-		    <!--
-
-		        Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
-		        Tip 2: you can also add an image using data-image tag
-
-		    -->
-
 		    	<div class="sidebar-wrapper">
 		            <div class="logo">
-		                <a href="http://www.creative-tim.com" class="simple-text">
-		                    Creative Tim
+		                <a href="http://www.cprvision.com" class="simple-text">
+		                    CPR Vision
 		                </a>
 		            </div>
 
 		            <ul class="nav">
 		                <li class="active">
-		                    <a href="dashboard.html">
+		                    <a href="dashboard1.html">
 		                        <i class="pe-7s-graph"></i>
 		                        <p>Dashboard</p>
 		                    </a>
@@ -65,7 +51,7 @@
 		                        <p>User Profile</p>
 		                    </a>
 		                </li>
-		                <li>
+		         <!--        <li>
 		                    <a href="table.html">
 		                        <i class="pe-7s-note2"></i>
 		                        <p>Table List</p>
@@ -94,13 +80,13 @@
 		                        <i class="pe-7s-bell"></i>
 		                        <p>Notifications</p>
 		                    </a>
-		                </li>
+		                </li> 
 						<li class="active-pro">
 		                    <a href="upgrade.html">
 		                        <i class="pe-7s-rocket"></i>
 		                        <p>Upgrade to PRO</p>
 		                    </a>
-		                </li>
+		                </li>-->
 		            </ul>
 		    	</div>
 		    </div>
@@ -381,7 +367,7 @@
 
 		        <footer class="footer">
 		            <div class="container-fluid">
-		                <nav class="pull-left">
+		              <!--   <nav class="pull-left">
 		                    <ul>
 		                        <li>
 		                            <a href="#">
@@ -407,7 +393,7 @@
 		                </nav>
 		                <p class="copyright pull-right">
 		                    &copy; 2016 <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
-		                </p>
+		                </p> -->
 		            </div>
 		        </footer>
 
@@ -445,7 +431,7 @@
 
 		        	$.notify({
 		            	icon: 'pe-7s-gift',
-		            	message: "Welcome to <b>Light Bootstrap Dashboard</b> - a beautiful freebie for every web developer."
+		            	message: "Welcome to CRMXS"
 
 		            },{
 		                type: 'info',
