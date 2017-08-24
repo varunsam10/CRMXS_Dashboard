@@ -9,7 +9,6 @@
 		</head>
 
 		<body onload='document.f.j_username.focus();'>
-			
 			<c:if test="${not empty error}">
 			<div class="errorblock">
 				Your login was unsuccessful. <br />
