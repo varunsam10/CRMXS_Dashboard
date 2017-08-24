@@ -101,14 +101,14 @@
     background: -webkit-linear-gradient(right, #76b852, #8DC26F);
     background: -moz-linear-gradient(right, #76b852, #8DC26F);
     background: -o-linear-gradient(right, #76b852, #8DC26F);
-    background: linear-gradient(to left, #76b852, #8DC26F);
-    background-image: url(../../../assets/img/login_backg.jpg);*/
+    background: linear-gradient(to left, #76b852, #8DC26F);*/
+    background-image: url(../../../assets/img/login_backg.jpg);
     font-family: "Roboto", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;      
   }
   
-  .background-image {
+/*   .background-image {
   position: fixed;
   left: 0;
   right: 0;
@@ -133,4 +133,4 @@
   margin-left: 20px;
   margin-right: 20px;
   filter:none;
-}
+} */
