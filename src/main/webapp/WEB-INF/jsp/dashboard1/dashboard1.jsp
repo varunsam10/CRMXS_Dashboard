@@ -117,7 +117,7 @@
 		                                    <span class="notification">5</span>
 		                              </a>
 		                              <ul class="dropdown-menu">
-		                                <li><a href="#">Notification 1</a></li>
+		                                <li><a href="#">Notification 1</a></li>f
 		                                <li><a href="#">Notification 2</a></li>
 		                                <li><a href="#">Notification 3</a></li>
 		                                <li><a href="#">Notification 4</a></li>
