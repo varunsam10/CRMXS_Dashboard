@@ -8,6 +8,7 @@ target/
 .project
 .settings
 .springBeans
+src/main/webapp/WEB-INF/config/security-config.xml
 
 ### IntelliJ IDEA ###
 .idea
