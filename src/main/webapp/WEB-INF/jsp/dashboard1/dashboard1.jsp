@@ -27,6 +27,13 @@
 		    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 		    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
 		    <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+		    
+		    <style>
+		    html {
+    			overflow-y: hidden
+			}
+		    </style>
+		    
 		  </head>
 		  <body>
 		  	<div class="wrapper">
@@ -117,7 +124,7 @@
 		                                    <span class="notification">5</span>
 		                              </a>
 		                              <ul class="dropdown-menu">
-		                                <li><a href="#">Notification 1</a></li>f
+		                                <li><a href="#">Notification 1</a></li>
 		                                <li><a href="#">Notification 2</a></li>
 		                                <li><a href="#">Notification 3</a></li>
 		                                <li><a href="#">Notification 4</a></li>
@@ -193,10 +200,10 @@
 		                    <div class="col-md-8">
 		                        <div class="card">
 		                            <div class="header">
-		                                <h4 class="title">Users Behavior</h4>
-		                                <p class="category">24 Hours performance</p>
+		                                <h4 class="title">Letter Frequency</h4>
+		                                <p class="category">Per Paragraph</p>
 		                            </div>
-		                            <div class="content">
+		                            <!-- <div class="content">
 		                                <div id="chartHours" class="ct-chart"></div>
 		                                <div class="footer">
 		                                    <div class="legend">
@@ -209,7 +216,219 @@
 		                                        <i class="fa fa-history"></i> Updated 3 minutes ago
 		                                    </div>
 		                                </div>
-		                            </div>
+		                            </div> -->
+		                            
+		                            <div class="bar-chart">
+                            <style>
+
+							  .bar{
+							    fill: steelblue;
+							  }
+							
+							  .bar:hover{
+							    fill: brown;
+							  }
+							
+								.axis {
+								  font: 10px sans-serif;
+								}
+							
+								.axis path,
+								.axis line {
+								  fill: none;
+								  stroke: #000;
+								  shape-rendering: crispEdges;
+								}
+							
+								</style>
+							
+							
+							
+								
+							<script src="http://d3js.org/d3.v3.min.js"></script>
+							
+							<script>
+							// set the dimensions of the canvas
+							var margin = {top: 20, right: 0, bottom: 70, left: 50},
+							    width = 650 - margin.left - margin.right,
+							    height = 400 - margin.top - margin.bottom;
+							
+							
+							// set the ranges
+							var x = d3.scale.ordinal().rangeRoundBands([0, width], .05);
+							
+							var y = d3.scale.linear().range([height, 0]);
+							
+							// define the axis
+							var xAxis = d3.svg.axis()
+							    .scale(x)
+							    .orient("bottom")
+							
+							
+							var yAxis = d3.svg.axis()
+							    .scale(y)
+							    .orient("left")
+							    .ticks(10);
+							
+							
+							// add the SVG element
+							var svg = d3.select(".bar-chart").append("svg")
+							    .attr("width", width + margin.left + margin.right)
+							    .attr("height", height + margin.top + margin.bottom)
+							  .append("g")
+							    .attr("transform", 
+							          "translate(" + margin.left + "," + margin.top + ")");
+							
+							
+							// load the data
+							var data = [
+								{
+									"Letter": "A",
+									"Freq": 20	
+								},
+								{
+									"Letter" : "B",
+									"Freq": 12
+								},
+								{
+									"Letter" : "C",
+									"Freq": 47
+								},
+								{
+									"Letter" : "D",
+									"Freq": 34
+								},
+								{
+									"Letter" : "E",
+									"Freq" : 54
+								},
+								{
+									"Letter" : "F",
+									"Freq" : 21
+								},
+								{
+									"Letter" : "G",
+									"Freq" : 57
+								},
+								{
+									"Letter" : "H",
+									"Freq" : 31
+								},
+								{
+									"Letter" : "I",
+									"Freq" : 17
+								},
+								{
+									"Letter" : "J",
+									"Freq" : 5
+								},
+								{
+									"Letter" : "K",
+									"Freq" : 23
+								},
+								{
+									"Letter" : "L",
+									"Freq" : 39
+								},
+								{
+									"Letter" : "M",
+									"Freq" : 29
+								},
+								{
+									"Letter" : "N",
+									"Freq" : 33
+								},
+								{
+									"Letter" : "O",
+									"Freq" : 18
+								},
+								{
+									"Letter" : "P",
+									"Freq" : 35
+								},
+								{
+									"Letter" : "Q",
+									"Freq" : 11
+								},
+								{
+									"Letter" : "R",
+									"Freq" : 45
+								},
+								{
+									"Letter" : "S",
+									"Freq" : 43
+								},
+								{
+									"Letter" : "T",
+									"Freq" : 28
+								},
+								{
+									"Letter" : "U",
+									"Freq" : 26
+								},
+								{
+									"Letter" : "V",
+									"Freq" : 30
+								},
+								{
+									"Letter" : "X",
+									"Freq" : 5
+								},
+								{
+									"Letter" : "Y",
+									"Freq" : 4
+								},
+								{
+									"Letter" : "Z",
+									"Freq" : 2
+								}
+								]
+							
+							    data.forEach(function(d) {
+							        d.Letter = d.Letter;
+							        d.Freq = +d.Freq;
+						
+							  // scale the range of the data
+							  x.domain(data.map(function(d) { return d.Letter; }));
+							  y.domain([0, d3.max(data, function(d) { return d.Freq; })]);
+							
+							  // add axis
+							  svg.append("g")
+							      .attr("class", "x axis")
+							      .attr("transform", "translate(0," + height + ")")
+							      .call(xAxis)
+							    .selectAll("text")
+							      .style("text-anchor", "end")
+							      .attr("dx", "-.8em")
+							      .attr("dy", "-.55em")
+							      .attr("transform", "rotate(-90)" );
+							
+							  svg.append("g")
+							      .attr("class", "y axis")
+							      .call(yAxis)
+							    .append("text")
+							      .attr("transform", "rotate(-90)")
+							      .attr("y", 5)
+							      .attr("dy", ".71em")
+							      .style("text-anchor", "end")
+							      .text("Frequency");
+							
+							
+							  // Add bar chart
+							  svg.selectAll("bar")
+							      .data(data)
+							    .enter().append("rect")
+							      .attr("class", "bar")
+							      .attr("x", function(d) { return x(d.Letter); })
+							      .attr("width", x.rangeBand())
+							      .attr("y", function(d) { return y(d.Freq); })
+							      .attr("height", function(d) { return height - y(d.Freq); });
+							
+							});
+							
+							</script>
+                            
+                            </div>
 		                        </div>
 		                    </div>
 		                </div>
