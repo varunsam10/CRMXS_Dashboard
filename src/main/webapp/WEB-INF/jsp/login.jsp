@@ -29,6 +29,8 @@
 	margin: 0 auto 100px;
 	padding: 45px;
 	text-align: center;
+	border: 2px solid;
+    border-radius: 38px;
 	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 	}
 	.form input {
@@ -46,7 +48,7 @@
 	font-family: "Roboto", sans-serif;
 	text-transform: uppercase;
 	outline: 0;
-	background: #4CAF50;
+	background: #332f6d;
 	width: 100%;
 	border: 0;
 	padding: 15px;
@@ -57,7 +59,7 @@
 	cursor: pointer;
 	}
 	.form button:hover,.form button:active,.form button:focus {
-	background: #43A047;
+	background: #332f6d;
 	}
 	.form .message {
 	margin: 15px 0 0;
@@ -107,6 +109,8 @@
 	body {
 
 	background-image: url(.../../assets/img/login_backg.jpg);
+	background-size: 100% 100%;
+    background-repeat: no-repeat;
 	font-family: "Roboto", sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;      
