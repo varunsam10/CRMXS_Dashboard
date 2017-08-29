@@ -53,9 +53,9 @@
 				<%-- <a class="btn btn-primary" href="addGoal.html"> Add Goal » </a>
 				<sec:authorize ifAnyGranted="ROLE_ADMIN">
 					<a class="btn btn-primary" href="editGoal.html"> Edit Goal » </a>
-				</sec:authorize>
-				<a class="btn btn-primary" href="addMinutes.html"> Add Exercise
-					Minutes » </a>  --%>
+				</sec:authorize>--%>
+				<a class="btn btn-primary" href="dashboard2.html"> Dashboard
+					2 » </a>  
 				<a class="btn btn-primary" href="dashboard1.html">
 					Dashboard1 » </a>
 			</div>
