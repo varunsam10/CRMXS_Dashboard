@@ -200,9 +200,9 @@
 		                    <div class="col-md-8">
 		                        <div class="card">
 		                            <div class="header">
-		                                <h4 class="title">Letter Frequency</h4>
-		                                <p class="category">Per Paragraph</p>
-		                            </div>
+		                                <h4 class="title">Fruit Stats</h4>
+		                                <p class="category">Annual Sales</p>
+		                            </div>	
 		                            <!-- <div class="content">
 		                                <div id="chartHours" class="ct-chart"></div>
 		                                <div class="footer">
@@ -219,7 +219,7 @@
 		                            </div> -->
 		                            
 		                            <div class="bar-chart">
-                            <style>
+<!--                             <style>
 
 							  .bar{
 							    fill: steelblue;
@@ -239,6 +239,35 @@
 								  stroke: #000;
 								  shape-rendering: crispEdges;
 								}
+								
+								.d3-tip {
+								  line-height: 1;
+								  font-weight: bold;
+								  padding: 12px;
+								  background: rgba(0, 0, 0, 0.8);
+								  color: #fff;
+								  border-radius: 2px;
+								}
+								
+								/* Creates a small triangle extender for the tooltip */
+								.d3-tip:after {
+								  box-sizing: border-box;
+								  display: inline;
+								  font-size: 10px;
+								  width: 100%;
+								  line-height: 1;
+								  color: rgba(0, 0, 0, 0.8);
+								  content: "\25BC";
+								  position: absolute;
+								  text-align: center;
+								}
+								
+								/* Style northward tooltips differently */
+								.d3-tip.n:after {
+								  margin: -1px 0 0 0;
+								  top: 100%;
+								  left: 0;
+								
 							
 								</style>
 							
@@ -246,6 +275,7 @@
 							
 								
 							<script src="http://d3js.org/d3.v3.min.js"></script>
+							<script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
 							
 							<script>
 							// set the dimensions of the canvas
@@ -270,6 +300,14 @@
 							    .orient("left")
 							    .ticks(10);
 							
+							var tip = d3.tip()
+							  .attr('class', 'd3-tip')
+							  .offset([-10, 0])
+							  .html(function(d) {
+							    return "<strong>Frequency:</strong> <span style='color:red'>" + d.Freq + "</span>";
+							  })
+
+							
 							
 							// add the SVG element
 							var svg = d3.select(".bar-chart").append("svg")
@@ -279,7 +317,7 @@
 							    .attr("transform", 
 							          "translate(" + margin.left + "," + margin.top + ")");
 							
-							
+							svg.call(tip);
 							// load the data
 							var data = [
 								{
@@ -387,7 +425,8 @@
 							    data.forEach(function(d) {
 							        d.Letter = d.Letter;
 							        d.Freq = +d.Freq;
-						
+							    });
+							    
 							  // scale the range of the data
 							  x.domain(data.map(function(d) { return d.Letter; }));
 							  y.domain([0, d3.max(data, function(d) { return d.Freq; })]);
@@ -422,13 +461,204 @@
 							      .attr("x", function(d) { return x(d.Letter); })
 							      .attr("width", x.rangeBand())
 							      .attr("y", function(d) { return y(d.Freq); })
-							      .attr("height", function(d) { return height - y(d.Freq); });
+							      .attr("height", function(d) { return height - y(d.Freq); })
+							      .on('mouseover', tip.show)
+							      .on('mouseout', tip.hide)
+
+								
 							
-							});
 							
-							</script>
+							
+							function type(d) {
+								  d.Freq = +d.Freq;
+								  return d;
+								}
+
+							
+							</script> -->
+							
+							
+							  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3plus/1.8.0/d3plus.full.min.js"></script>
+									  <style type="text/css">
+									  svg {
+									    font: 10px sans-serif;
+									    shape-rendering: crispEdges;
+									  }
+									
+									  .axis path,
+									  .axis line {
+									    fill: none;
+									    stroke: #000;
+									  }
+									 
+									  path.domain {
+									    stroke: none;
+									  }
+									 
+									  .y .tick line {
+									    stroke: #ddd;
+									  }
+									  </style>
+									
+									
+									<script type="text/javascript">
+									
+									// Setup svg using Bostock's margin convention
+									
+									var margin = {top: 20, right: 100, bottom: 35, left: 30};
+									
+									var width = 650 - margin.left - margin.right,
+									    height = 400 - margin.top - margin.bottom;
+									
+									var svg = d3.select(".bar-chart")
+									  .append("svg")
+									  .attr("width", width + margin.left + margin.right)
+									  .attr("height", height + margin.top + margin.bottom)
+									  .append("g")
+									  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+									
+									
+									/* Data in strings like it would be if imported from a csv */
+									
+									var data = [
+									  { year: "2006", redDelicious: "10", mcintosh: "15", oranges: "9", pears: "6" },
+									  { year: "2007", redDelicious: "12", mcintosh: "18", oranges: "9", pears: "4" },
+									  { year: "2008", redDelicious: "05", mcintosh: "20", oranges: "8", pears: "2" },
+									  { year: "2009", redDelicious: "01", mcintosh: "15", oranges: "5", pears: "4" },
+									  { year: "2010", redDelicious: "02", mcintosh: "10", oranges: "4", pears: "2" },
+									  { year: "2011", redDelicious: "03", mcintosh: "12", oranges: "6", pears: "3" },
+									  { year: "2012", redDelicious: "04", mcintosh: "15", oranges: "8", pears: "1" },
+									  { year: "2013", redDelicious: "06", mcintosh: "11", oranges: "9", pears: "4" },
+									  { year: "2014", redDelicious: "10", mcintosh: "13", oranges: "9", pears: "5" },
+									  { year: "2015", redDelicious: "16", mcintosh: "19", oranges: "6", pears: "9" },
+									  { year: "2016", redDelicious: "19", mcintosh: "17", oranges: "5", pears: "7" },
+									];
+									
+									var parse = d3.time.format("%Y").parse;
+									
+									
+									// Transpose the data into layers
+									var dataset = d3.layout.stack()(["redDelicious", "mcintosh", "oranges", "pears"].map(function(fruit) {
+									  return data.map(function(d) {
+									    return {x: parse(d.year), y: +d[fruit]};
+									  });
+									}));
+									
+									
+									// Set x, y and colors
+									var x = d3.scale.ordinal()
+									  .domain(dataset[0].map(function(d) { return d.x; }))
+									  .rangeRoundBands([10, width-10], 0.02);
+									
+									var y = d3.scale.linear()
+									  .domain([0, d3.max(dataset, function(d) {  return d3.max(d, function(d) { return d.y0 + d.y; });  })])
+									  .range([height, 0]);
+									
+									var colors = ["b33040", "#d25c4d", "#f2b447", "#d9d574"];
+									
+									
+									// Define and draw axes
+									var yAxis = d3.svg.axis()
+									  .scale(y)
+									  .orient("left")
+									  .ticks(5)
+									  .tickSize(-width, 0, 0)
+									  .tickFormat( function(d) { return d } );
+									
+									var xAxis = d3.svg.axis()
+									  .scale(x)
+									  .orient("bottom")
+									  .tickFormat(d3.time.format("%Y"));
+									
+									svg.append("g")
+									  .attr("class", "y axis")
+									  .call(yAxis);
+									
+									svg.append("g")
+									  .attr("class", "x axis")
+									  .attr("transform", "translate(0," + height + ")")
+									  .call(xAxis);
+									
+									
+									// Create groups for each series, rects for each segment 
+									var groups = svg.selectAll("g.cost")
+									  .data(dataset)
+									  .enter().append("g")
+									  .attr("class", "cost")
+									  .style("fill", function(d, i) { return colors[i]; });
+									
+									var rect = groups.selectAll("rect")
+									  .data(function(d) { return d; })
+									  .enter()
+									  .append("rect")
+									  .attr("x", function(d) { return x(d.x); })
+									  .attr("y", function(d) { return y(d.y0 + d.y); })
+									  .attr("height", function(d) { return y(d.y0) - y(d.y0 + d.y); })
+									  .attr("width", x.rangeBand())
+									  .on("mouseover", function() { tooltip.style("display", null); })
+									  .on("mouseout", function() { tooltip.style("display", "none"); })
+									  .on("mousemove", function(d) {
+									    var xPosition = d3.mouse(this)[0] - 15;
+									    var yPosition = d3.mouse(this)[1] - 25;
+									    tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
+									    tooltip.select("text").text(d.y);
+									  });
+									
+									
+									// Draw legend
+									var legend = svg.selectAll(".legend")
+									  .data(colors)
+									  .enter().append("g")
+									  .attr("class", "legend")
+									  .attr("transform", function(d, i) { return "translate(30," + i * 19 + ")"; });
+									 
+									legend.append("rect")
+									  .attr("x", width - 18)
+									  .attr("width", 18)
+									  .attr("height", 18)
+									  .style("fill", function(d, i) {return colors.slice().reverse()[i];});
+									 
+									legend.append("text")
+									  .attr("x", width + 5)
+									  .attr("y", 9)
+									  .attr("dy", ".35em")
+									  .style("text-anchor", "start")
+									  .text(function(d, i) { 
+									    switch (i) {
+									      case 0: return "Anjou pears";
+									      case 1: return "Naval oranges";
+									      case 2: return "McIntosh apples";
+									      case 3: return "Red Delicious apples";
+									    }
+									  });
+									
+									
+									// Prep the tooltip bits, initial display is hidden
+									var tooltip = svg.append("g")
+									  .attr("class", "tooltip")
+									  .style("display", "none");
+									    
+									tooltip.append("rect")
+									  .attr("width", 30)
+									  .attr("height", 20)
+									  .attr("fill", "white")
+									  .style("opacity", 0.5);
+									
+									tooltip.append("text")
+									  .attr("x", 15)
+									  .attr("dy", "1.2em")
+									  .style("text-anchor", "middle")
+									  .attr("font-size", "12px")
+									  .attr("font-weight", "bold");
+									
+									</script>
+																	
+								
+								
+								
+							
                             
-                            </div>
+                           	    	</div>
 		                        </div>
 		                    </div>
 		                </div>
@@ -439,11 +669,11 @@
 		                    <div class="col-md-6">
 		                        <div class="card ">
 		                            <div class="header">
-		                                <h4 class="title">2014 Sales</h4>
-		                                <p class="category">All products including Taxes</p>
+		                                <h4 class="title">April Sales</h4>
+		                                <p class="category">Including closing values</p>
 		                            </div>
-		                            <div class="content">
-		                                <div id="chartActivity" class="ct-chart"></div>
+		                            <div class="line-graph">
+		                                <!-- <div id="chartActivity" class="ct-chart"></div>
 
 		                                <div class="footer">
 		                                    <div class="legend">
@@ -454,7 +684,141 @@
 		                                    <div class="stats">
 		                                        <i class="fa fa-check"></i> Data information certified
 		                                    </div>
-		                                </div>
+		                                </div> -->
+		                                
+		                                
+		                                <style> /* set the CSS */
+
+										
+										
+										path { 
+										    stroke: steelblue;
+										    stroke-width: 2;
+										    fill: none;
+										}
+										
+										.axis path,
+										.axis line {
+										    fill: none;
+										    stroke: grey;
+										    stroke-width: 1;
+										    shape-rendering: crispEdges;
+										}
+										
+										div.tooltip {	
+										    position: absolute;			
+										    text-align: center;			
+										    width: 60px;					
+										    height: 28px;					
+										    padding: 2px;				
+										    font: 12px sans-serif;		
+										    background: lightsteelblue;	
+										    border: 0px;		
+										    border-radius: 8px;			
+										    pointer-events: none;			
+										}
+										
+										</style>
+										
+										
+										<!-- load the d3.js library -->    
+										<script src="http://d3js.org/d3.v3.min.js"></script>
+										
+										<script>
+										
+										// Set the dimensions of the canvas / graph
+										var margin = {top: 30, right: 20, bottom: 30, left: 50},
+										    width = 500 - margin.left - margin.right,
+										    height = 270 - margin.top - margin.bottom;
+										
+										// Parse the date / time
+										var parseDate = d3.time.format("%d-%b-%y").parse;
+										var formatTime = d3.time.format("%e %B");
+										
+										// Set the ranges
+										var x = d3.time.scale().range([0, width]);
+										var y = d3.scale.linear().range([height, 0]);
+										
+										// Define the axes
+										var xAxis = d3.svg.axis().scale(x)
+										    .orient("bottom").ticks(5);
+										
+										var yAxis = d3.svg.axis().scale(y)
+										    .orient("left").ticks(5);
+										
+										// Define the line
+										var valueline = d3.svg.line()
+										    .x(function(d) { return x(d.date); })
+										    .y(function(d) { return y(d.close); });
+										
+										// Define the div for the tooltip
+										var div = d3.select("body").append("div")	
+										    .attr("class", "tooltip")				
+										    .style("opacity", 0);
+										
+										// Adds the svg canvas
+										var svg = d3.select(".line-graph")
+										    .append("svg")
+										        .attr("width", width + margin.left + margin.right)
+										        .attr("height", height + margin.top + margin.bottom)
+										    .append("g")
+										        .attr("transform", 
+										              "translate(" + margin.left + "," + margin.top + ")");
+										
+										// Get the data
+										d3.csv("assets/data.csv", function(error, data) {
+										    data.forEach(function(d) {
+										        d.date = parseDate(d.date);
+										        d.close = +d.close;
+										    });
+										
+										    // Scale the range of the data
+										    x.domain(d3.extent(data, function(d) { return d.date; }));
+										    y.domain([0, d3.max(data, function(d) { return d.close; })]);
+										
+										    // Add the valueline path.
+										    svg.append("path")
+										        .attr("class", "line")
+										        .attr("d", valueline(data));
+										
+										    // Add the scatterplot
+										    svg.selectAll("dot")	
+										        .data(data)			
+										    .enter().append("circle")								
+										        .attr("r", 5)		
+										        .attr("cx", function(d) { return x(d.date); })		 
+										        .attr("cy", function(d) { return y(d.close); })		
+										        .on("mouseover", function(d) {		
+										            div.transition()		
+										                .duration(200)		
+										                .style("opacity", .9);		
+										            div	.html(formatTime(d.date) + "<br/>"  + d.close)	
+										                .style("left", (d3.event.pageX) + "px")		
+										                .style("top", (d3.event.pageY - 28) + "px");	
+										            })					
+										        .on("mouseout", function(d) {		
+										            div.transition()		
+										                .duration(500)		
+										                .style("opacity", 0);	
+										        });
+										
+										    // Add the X Axis
+										    svg.append("g")
+										        .attr("class", "x axis")
+										        .attr("transform", "translate(0," + height + ")")
+										        .call(xAxis);
+										
+										    // Add the Y Axis
+										    svg.append("g")
+										        .attr("class", "y axis")
+										        .call(yAxis);
+										
+										});
+										
+										</script>
+		                                
+		                                
+		                                
 		                            </div>
 		                        </div>
 		                    </div>
