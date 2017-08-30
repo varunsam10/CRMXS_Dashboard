@@ -176,10 +176,10 @@
 		                    <div class="col-md-4">
 		                        <div class="card">
 		                            <div class="header">
-		                                <h4 class="title">Email Statistics</h4>
+		                                <h4 class="title">Security Statistics</h4>
 		                                <p class="category">Last Campaign Performance</p>
 		                            </div>
-		                            <div class="content">
+		                            <!-- div class="content">
 		                                <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
 
 		                                <div class="footer">
@@ -193,7 +193,128 @@
 		                                        <i class="fa fa-clock-o"></i> Campaign sent 2 days ago
 		                                    </div>
 		                                </div>
-		                            </div>
+		                            </div -->
+		                             
+		                            <div class="pie-chart">
+		                            <style>
+    div.tooltip{
+    position: absolute; 
+      text-align: center; 
+      width: 100px; 
+      height: 50px;   
+      padding: 2px; 
+      font: 12px sans-serif;  
+      background: black;  
+      border: 0px;          
+      border-radius: 8px;
+      color:white;
+      box-shadow: -3px 3px 15px #888888;
+      opacity:0;  
+
+    }  
+  </style>
+		                            <!-- script src="http://d3js.org/d3.v4.min.js"></script>
+		                            <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js?2.4.5"></script>
+		                            <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+		                            
+		                            <script src="https://d3js.org/d3-selection-multi.v3.min.js"></script -->
+		                            <script src="http://d3js.org/d3.v3.min.js"></script>
+									<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" charset="utf-8"></script>
+
+		                            <script>
+		                            var data = [{"Stage":"Level1","Value":5165, "Rate":1.25},
+		                                {"Stage":"Level2","Value":2523, "Rate":9.54},
+		                                {"Stage":"Level3","Value":4435, "Rate":21.25},
+		                                {"Stage":"Level4","Value":3322, "Rate":7.25},
+		                                {"Stage":"Level5","Value":6546, "Rate":1.3}];
+
+		                        var totalValue = 0;
+		                        for (var i = 0; i<data.length;i++)
+		                            totalValue+=data[i].Rate;
+		                        totalValue=totalValue/5
+		                        width = 375; // Changes pie size as a whole
+		                        height = 400; // Changes pie size as a whole
+		                        radius = Math.min(width-10,height-10)/2;
+
+		                        var color = d3.scale.category20();
+		                        
+		                        var arc = d3.svg.arc()  
+		                            .outerRadius(radius -50)
+		                            .innerRadius(0); //Changes width of the slices of the pie
+
+		                        var arcOver = d3.svg.arc()  
+		                            .outerRadius(300 )
+		                            .innerRadius(0);
+
+		                        var svg = d3.select(".pie-chart").append("svg")
+		                            .attr("width",width)
+		                            .attr("height",height)
+		                            .append("g")
+		                            .attr("transform","translate("+width/2+","+height/2+")");
+		                            div = d3.select("body")
+		                            .append("div") 
+		                            .attr("class", "tooltip");
+
+		                        var pie = d3.layout.pie()
+		                              .sort(null)
+		                              .value(function(d){return d.Value;});
+
+		                        var g = svg.selectAll(".arc")
+		                            .data(pie(data))
+		                            .enter()
+		                            .append("g")
+		                            .attr("class","arc")
+		                            .on("mousemove",function(d){
+		                                var mouseVal = d3.mouse(this);
+		                                div.style("display","none");
+		                                div
+		                                .html("Stage:"+d.data.Stage+"</br>"+"Value:"+d.data.Value+"</br>"+"Rate:"+d.data.Rate)
+		                                .style("left", (d3.event.pageX+12) + "px")
+		                                .style("top", (d3.event.pageY-10) + "px")
+		                                .style("opacity", 1)
+		                                .style("display","block");
+
+		                            var selectthegraphs = $('.arc').not(this);
+
+		                            d3.selectAll(selectthegraphs)
+		                                          .style("opacity",.5);
+
+		                             d3.select(this).style("stroke", "black");
+		                            })
+		                            .on("mouseout",function(){ 
+		                              div.html(" ").style("display","none");
+
+		                              var selectthegraphs = $('.arc').not(this);
+		                              d3.selectAll(selectthegraphs)
+		                                            .style("opacity",1);
+		                    d3.select(this).style("stroke", "none");          
+		                            });
+
+		                      svg.selectAll("text").data(pie(data)).enter()
+		                        .append("text")
+		                        .attr("class","label1")
+		                        .attr("transform", function(d) {
+		                           var dist=radius-120;
+		                           var winkel=(d.startAngle+d.endAngle)/2;
+		                           var x=dist*Math.sin(winkel)-4;
+		                           var y=-dist*Math.cos(winkel)-4;
+		                           
+		                           return "translate(" + x + "," + y + ")";
+		                        })
+		                        .attr("dy", "0.3em")
+		                        .attr("text-anchor", "middle")
+		                        
+		                        .text(function(d){
+		                        	return d.data.Stage;
+		                        }
+		                        );
+		                        g.append("path")
+		                            .attr("d",arc)
+		                            .style("fill",function(d){return color(d.data.Stage);}); 
+		                                      
+		                            </script>
+		                            
+		                        </div>
 		                        </div>
 		                    </div>
 
