@@ -62,12 +62,12 @@
         <div class="container">
             <div class="page-container">
                 <!-- BEGIN SIDEBAR -->
-                <div data-ng-include="'assets/dasb2/tpl/sidebar.html'" data-ng-controller="SidebarController" class="page-sidebar-wrapper"> </div>
+                <div data-ng-include="'assets/dash2/tpl/sidebar.html'" data-ng-controller="SidebarController" class="page-sidebar-wrapper"> </div>
                 <!-- END SIDEBAR -->
                 <div class="page-content-wrapper">
                     <div class="page-content">
                         <!-- BEGIN STYLE CUSTOMIZER(optional) -->
-                        <div data-ng-include="'assets/dasb2/tpl/theme-panel.html'" data-ng-controller="ThemePanelController" class="theme-panel hidden-xs hidden-sm"> </div>
+                        <div data-ng-include="'assets/dash2/tpl/theme-panel.html'" data-ng-controller="ThemePanelController" class="theme-panel hidden-xs hidden-sm"> </div>
                         <!-- END STYLE CUSTOMIZER -->
                         <!-- BEGIN ACTUAL CONTENT -->
                         <div ui-view class="fade-in-up"> </div>
