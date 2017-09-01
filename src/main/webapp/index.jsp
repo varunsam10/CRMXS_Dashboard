@@ -47,21 +47,18 @@
 		</div>
 		<div class="container">
 			<div class="hero-unit">
-				<div>
+			<div>
 					<p>Click on the link to start</p>
-				</div>
-				<%-- <a class="btn btn-primary" href="addGoal.html"> Add Goal » </a>
-				<sec:authorize ifAnyGranted="ROLE_ADMIN">
-					<a class="btn btn-primary" href="editGoal.html"> Edit Goal » </a>
-				</sec:authorize>
-				<a class="btn btn-primary" href="addMinutes.html"> Add Exercise
-					Minutes » </a>  --%>
-				<a class="btn btn-primary" href="dashboard1.html">
-					Dashboard1 » </a>
+			</div>
+			<%-- 	<sec:authorize ifAnyGranted="ROLE_ADMIN">
+				<a class="btn btn-primary" href="addGoal.html"> Add Goal » </a>				
+				</sec:authorize> --%>
+				<a class="btn btn-primary" href="dashboard3.html">Dashboard3 »</a>				
+				<a class="btn btn-primary" href="dashboard2.html">Dashboard2 »</a>  
+				<a class="btn btn-primary" href="dashboard1.html">Dashboard1 »</a>
 			</div>
 			<div></div>
 		</div>
-
 		<script src="jquery-1.8.3.js">
 	    </script>
 
