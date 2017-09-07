@@ -22,11 +22,16 @@
 
 		<!--  CSS for Demo Purpose, don't include it in your project     -->
 		<link href="assets/css/demo.css" rel="stylesheet" />
+		<link href="assets/css/bar-chart.css" rel="stylesheet" />
+	    <link href="assets/css/line-chart.css" rel="stylesheet" />
+		
 
 		<!--     Fonts and icons     -->
 		<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 		<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
 		<link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+		<link href="assets/dash1/css/styleshet.css" rel="stylesheet" type="text/css" />
+		
 
 		<style>
 		html {
@@ -137,169 +142,92 @@
 
 			<div class="content">
 				<div class="container-fluid">
-					<div class="row">
-						<div class="col-md-4">
+						<div class="col-md-7">
 							<div class="card">
 								<div class="header">
-									<h4 class="title">Security Statistics</h4>
+									<h4 class="title">Sales Report</h4>
 									<p class="category">Last Campaign Performance</p>
 								</div>
+								  <div id="myDiv"></div>
+								    <script src="assets/js/dash1/plotly-latest.min.js"></script>
+								  
+								  <script>
+								  var trace1 = {
+										  x: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], 
+										  y: [20, 14, 25, 16, 18, 22, 19, 15, 12, 16, 14, 17],
+										  type: 'bar',
+										  name: 'Primary Product',
+										  marker: {
+										    color: 'rgb(49,130,189)',
+										    opacity: 0.7
+										  }
+										};
 
+										var trace2 = {
+										  x: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+										  y: [19, 14, 22, 14, 16, 19, 15, 14, 10, 12, 12, 16],
+										  type: 'bar',
+										  name: 'Secondary Product',
+										  marker: {
+										    color: 'rgb(204,204,204)',
+										    opacity: 0.5
+										  }
+										};
 
-								<div class="pie-chart">
-								<style>
-	div.tooltip{
-	position: absolute;
-	text-align: center;
-	width: 100px;
-	height: 50px;
-	padding: 2px;
-	font: 12px sans-serif;
-	background: black;
-	border: 0px;
-	border-radius: 8px;
-	color:white;
-	box-shadow: -3px 3px 15px #888888;
-	opacity:0;
+										var data = [trace1, trace2];
 
-	}  
-	</style>
+										var layout = {
+										  xaxis: {
+										    tickangle: -45
+										  },
+										  barmode: 'group'
+										};
 
-								<script src="http://d3js.org/d3.v3.min.js"></script>
-								<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" charset="utf-8"></script>
-
-								<script>
-								var data = [{"Stage":"Level1","Value":5165, "Rate":1.25},
-									{"Stage":"Level2","Value":2523, "Rate":9.54},
-									{"Stage":"Level3","Value":4435, "Rate":21.25},
-									{"Stage":"Level4","Value":3322, "Rate":7.25},
-									{"Stage":"Level5","Value":6546, "Rate":1.3}];
-
-							var totalValue = 0;
-							for (var i = 0; i<data.length;i++)
-								totalValue+=data[i].Rate;
-							totalValue=totalValue/5
-							width = 375; // Changes pie size as a whole
-							height = 400; // Changes pie size as a whole
-							radius = Math.min(width-10,height-10)/2;
-
-							var color = d3.scale.category20();
-
-							var arc = d3.svg.arc()
-								.outerRadius(radius -50)
-								.innerRadius(0); //Changes width of the slices of the pie
-
-							var arcOver = d3.svg.arc()
-								.outerRadius(300 )
-								.innerRadius(0);
-
-							var svg = d3.select(".pie-chart").append("svg")
-								.attr("width",width)
-								.attr("height",height)
-								.append("g")
-								.attr("transform","translate("+width/2+","+height/2+")");
-								div = d3.select("body")
-								.append("div")
-								.attr("class", "tooltip");
-
-							var pie = d3.layout.pie()
-								  .sort(null)
-								  .value(function(d){return d.Value;});
-
-							var g = svg.selectAll(".arc")
-								.data(pie(data))
-								.enter()
-								.append("g")
-								.attr("class","arc")
-								.on("mousemove",function(d){
-									var mouseVal = d3.mouse(this);
-									div.style("display","none");
-									div
-									.html("Stage:"+d.data.Stage+"</br>"+"Value:"+d.data.Value+"</br>"+"Rate:"+d.data.Rate)
-									.style("left", (d3.event.pageX+12) + "px")
-									.style("top", (d3.event.pageY-10) + "px")
-									.style("opacity", 1)
-									.style("display","block");
-
-								var selectthegraphs = $('.arc').not(this);
-
-								d3.selectAll(selectthegraphs)
-											  .style("opacity",.5);
-
-								 d3.select(this).style("stroke", "black");
-								})
-								.on("mouseout",function(){
-								  div.html(" ").style("display","none");
-
-								  var selectthegraphs = $('.arc').not(this);
-								  d3.selectAll(selectthegraphs)
-												.style("opacity",1);
-						d3.select(this).style("stroke", "none");
-								});
-
-						  svg.selectAll("text").data(pie(data)).enter()
-							.append("text")
-							.attr("class","label1")
-							.attr("transform", function(d) {
-							   var dist=radius-120;
-							   var winkel=(d.startAngle+d.endAngle)/2;
-							   var x=dist*Math.sin(winkel)-4;
-							   var y=-dist*Math.cos(winkel)-4;
-
-							   return "translate(" + x + "," + y + ")";
-							})
-							.attr("dy", "0.3em")
-							.attr("text-anchor", "middle")
-
-							.text(function(d){
-								return d.data.Stage;
-							}
-							);
-							g.append("path")
-								.attr("d",arc)
-								.style("fill",function(d){return color(d.data.Stage);});
-
-								</script>
-
-							</div>
+										Plotly.newPlot('myDiv', data, layout);
+										  </script>
 							</div>
 						</div>
+						
 
-						<div class="col-md-8">
+						<div class="col-md-5">
 							<div class="card">
 								<div class="header">
-									<h4 class="title">Fruit Stats</h4>
+									<h4 class="title">HDB Sales Stats</h4>
 									<p class="category">Annual Sales</p>
 								</div>
+								<script src="assets/js/dash1/plotly-latest.min.js"></script>
+  								<script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js">
+  								</script>
+  								<div id="pie"></div>
+  								 <script>
+  								var data = [{
+  								  values: [19, 26, 35,10,10],
+  								  labels: ['Residential', 'Non-Residential', 'Utility','Cook','Fun'],
+  								  type: 'pie'
+  								}];
+
+  								Plotly.newPlot('pie', data);
+  							  </script>
+							</div>
+						</div>
+					</div>
 
 
+
+					<div class="row">
+						<div class="col-md-8">
+							<div class="card ">
+								<div class="header">
+									<h4 class="title">April Sales</h4>
+									<p class="category">Including closing values</p>
+								</div>
 								<div class="bar-chart">
 
 
 
-						  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3plus/1.8.0/d3plus.full.min.js"></script>
-								  <style type="text/css">
-								  svg {
-									font: 10px sans-serif;
-									shape-rendering: crispEdges;
-								  }
-
-								  .axis path,
-								  .axis line {
-									fill: none;
-									stroke: #000;
-								  }
-
-								  path.domain {
-									stroke: none;
-								  }
-
-								  .y .tick line {
-									stroke: #ddd;
-								  }
-								  </style>
-
-
+							  <script src="assets/d3.min.js"></script>
+							  <script src="assets/d3.js"></script>
+				
 								<script type="text/javascript">
 
 								// Setup svg using Bostock's margin convention
@@ -307,7 +235,7 @@
 								var margin = {top: 20, right: 100, bottom: 35, left: 30};
 
 								var width = 650 - margin.left - margin.right,
-									height = 400 - margin.top - margin.bottom;
+									height = 550 - margin.top - margin.bottom;
 
 								var svg = d3.select(".bar-chart")
 								  .append("svg")
@@ -451,167 +379,11 @@
 								  .attr("font-weight", "bold");
 
 								</script>
-
-
-
-
-
-
-								</div>
-							</div>
-						</div>
-					</div>
-
-
-
-					<div class="row">
-						<div class="col-md-6">
-							<div class="card ">
-								<div class="header">
-									<h4 class="title">April Sales</h4>
-									<p class="category">Including closing values</p>
-								</div>
-								<div class="line-graph">
-
-
-
-									<style> /* set the CSS */
-
-
-
-									path {
-										stroke: steelblue;
-										stroke-width: 2;
-										fill: none;
-									}
-
-									.axis path,
-									.axis line {
-										fill: none;
-										stroke: grey;
-										stroke-width: 1;
-										shape-rendering: crispEdges;
-									}
-
-									div.tooltip {
-										position: absolute;
-										text-align: center;
-										width: 60px;
-										height: 28px;
-										padding: 2px;
-										font: 12px sans-serif;
-										background: lightsteelblue;
-										border: 0px;
-										border-radius: 8px;
-										pointer-events: none;
-									}
-
-									</style>
-
-
-									<!-- load the d3.js library -->
-									<script src="http://d3js.org/d3.v3.min.js"></script>
-
-									<script>
-
-									// Set the dimensions of the canvas / graph
-									var margin = {top: 30, right: 20, bottom: 30, left: 50},
-										width = 500 - margin.left - margin.right,
-										height = 270 - margin.top - margin.bottom;
-
-									// Parse the date / time
-									var parseDate = d3.time.format("%d-%b-%y").parse;
-									var formatTime = d3.time.format("%e %B");
-
-									// Set the ranges
-									var x = d3.time.scale().range([0, width]);
-									var y = d3.scale.linear().range([height, 0]);
-
-									// Define the axes
-									var xAxis = d3.svg.axis().scale(x)
-										.orient("bottom").ticks(5);
-
-									var yAxis = d3.svg.axis().scale(y)
-										.orient("left").ticks(5);
-
-									// Define the line
-									var valueline = d3.svg.line()
-										.x(function(d) { return x(d.date); })
-										.y(function(d) { return y(d.close); });
-
-									// Define the div for the tooltip
-									var div = d3.select("body").append("div")
-										.attr("class", "tooltip")
-										.style("opacity", 0);
-
-									// Adds the svg canvas
-									var svg = d3.select(".line-graph")
-										.append("svg")
-											.attr("width", width + margin.left + margin.right)
-											.attr("height", height + margin.top + margin.bottom)
-										.append("g")
-											.attr("transform",
-												  "translate(" + margin.left + "," + margin.top + ")");
-
-									// Get the data
-									d3.csv("assets/data.csv", function(error, data) {
-										data.forEach(function(d) {
-											d.date = parseDate(d.date);
-											d.close = +d.close;
-										});
-
-										// Scale the range of the data
-										x.domain(d3.extent(data, function(d) { return d.date; }));
-										y.domain([0, d3.max(data, function(d) { return d.close; })]);
-
-										// Add the valueline path.
-										svg.append("path")
-											.attr("class", "line")
-											.attr("d", valueline(data));
-
-										// Add the scatterplot
-										svg.selectAll("dot")
-											.data(data)
-										.enter().append("circle")
-											.attr("r", 5)
-											.attr("cx", function(d) { return x(d.date); })
-											.attr("cy", function(d) { return y(d.close); })
-											.on("mouseover", function(d) {
-												div.transition()
-													.duration(200)
-													.style("opacity", .9);
-												div	.html(formatTime(d.date) + "<br/>"  + d.close)
-													.style("left", (d3.event.pageX) + "px")
-													.style("top", (d3.event.pageY - 28) + "px");
-												})
-											.on("mouseout", function(d) {
-												div.transition()
-													.duration(500)
-													.style("opacity", 0);
-											});
-
-										// Add the X Axis
-										svg.append("g")
-											.attr("class", "x axis")
-											.attr("transform", "translate(0," + height + ")")
-											.call(xAxis);
-
-										// Add the Y Axis
-										svg.append("g")
-											.attr("class", "y axis")
-											.call(yAxis);
-
-									});
-
-									</script>
-
-
-
 								</div>
 							</div>
 						</div>
 
-						<div class="col-md-6">
+						<div class="col-md-4">
 							<div class="card ">
 								<div class="header">
 									<h4 class="title">Tasks</h4>
@@ -732,21 +504,426 @@
 							</div>
 						</div>
 					</div>
-				</div>
-			</div>
-
+		
+								
 
 			<footer class="footer">
 				<div class="container-fluid">
+				
 
 				</div>
 			</footer>
+			
+			
+			<div class="row">
+			<div class="container-fluid">
+						<div class="col-md-4">
+							<div class="card ">
+							<div class="header">
+									<h4 class="title">CMMI Level Report</h4>
+									<p class="category">Last Campaign Performance</p>
+								</div>
+								<div class="pie-chart">
 
+
+								<script src="assets/js/dash1/d3.v3.min.js"charset="utf-8"></script>
+								<script src="assets/js/dash1/jquery-1.8.3.js" charset="utf-8"></script>
+
+								<script>
+
+								var data = [{"Stage":"Level1","Value":5165, "Rate":1.25},
+									{"Stage":"Level2","Value":2523, "Rate":9.54},
+									{"Stage":"Level3","Value":4435, "Rate":21.25},
+									{"Stage":"Level4","Value":3322, "Rate":7.25},
+									{"Stage":"Level5","Value":6546, "Rate":1.3}];
+
+							var totalValue = 0;
+							for (var i = 0; i<data.length;i++)
+								totalValue+=data[i].Rate;
+							totalValue=totalValue/5
+							width = 375; // Changes pie size as a whole
+							height = 400; // Changes pie size as a whole
+							radius = Math.min(width-10,height-10)/2;
+
+							var color = d3.scale.category20();
+
+							var arc = d3.svg.arc()
+								.outerRadius(radius -50)
+								.innerRadius(0); //Changes width of the slices of the pie
+
+							var arcOver = d3.svg.arc()
+								.outerRadius(300 )
+								.innerRadius(0);
+
+							var svg = d3.select(".pie-chart").append("svg")
+								.attr("width",width)
+								.attr("height",height)
+								.append("g")
+								.attr("transform","translate("+width/2+","+height/2+")");
+								div = d3.select("body")
+								.append("div")
+								.attr("class", "tooltip");
+
+							var pie = d3.layout.pie()
+								  .sort(null)
+								  .value(function(d){return d.Value;});
+
+							var g = svg.selectAll(".arc")
+								.data(pie(data))
+								.enter()
+								.append("g")
+								.attr("class","arc")
+								.on("mousemove",function(d){
+									var mouseVal = d3.mouse(this);
+									div.style("display","none");
+									div
+									.html("Stage:"+d.data.Stage+"</br>"+"Value:"+d.data.Value+"</br>"+"Rate:"+d.data.Rate)
+									.style("left", (d3.event.pageX+12) + "px")
+									.style("top", (d3.event.pageY-10) + "px")
+									.style("opacity", 1)
+									.style("display","block");
+
+								var selectthegraphs = $('.arc').not(this);
+
+								d3.selectAll(selectthegraphs)
+											  .style("opacity",.5);
+
+								 d3.select(this).style("stroke", "black");
+								})
+								.on("mouseout",function(){
+								  div.html(" ").style("display","none");
+
+								  var selectthegraphs = $('.arc').not(this);
+								  d3.selectAll(selectthegraphs)
+												.style("opacity",1);
+						d3.select(this).style("stroke", "none");
+								});
+
+						  svg.selectAll("text").data(pie(data)).enter()
+							.append("text")
+							.attr("class","label1")
+							.attr("transform", function(d) {
+							   var dist=radius-120;
+							   var winkel=(d.startAngle+d.endAngle)/2;
+							   var x=dist*Math.sin(winkel)-4;
+							   var y=-dist*Math.cos(winkel)-4;
+
+							   return "translate(" + x + "," + y + ")";
+							})
+							.attr("dy", "0.3em")
+							.attr("text-anchor", "middle")
+
+							.text(function(d){
+								return d.data.Stage;
+							}
+							);
+							g.append("path")
+								.attr("d",arc)
+								.style("fill",function(d){return color(d.data.Stage);});
+
+								</script>
+
+							</div>		 
+									 
+									 
+							</div>
+							</div>
+							<div class="col-md-8">
+							<div class="card ">
+							<div class="header">
+									<h4 class="title"> Sales Stats</h4>
+									<p class="category">Annual Sales</p>
+								</div>
+								<div class="line-graph">										
+									<!-- load the d3.js library -->
+										<script src="assets/d3.min.js"></script>
+										<script src="assets/d3.js"></script>
+
+									<script>
+
+									// Set the dimensions of the canvas / graph
+									var margin = {top: 30, right: 20, bottom: 30, left: 50},
+										width = 500 - margin.left - margin.right,
+										height = 270 - margin.top - margin.bottom;
+
+									// Parse the date / time
+									var parseDate = d3.time.format("%d-%b-%y").parse;
+									var formatTime = d3.time.format("%e %B");
+
+									// Set the ranges
+									var x = d3.time.scale().range([0, width]);
+									var y = d3.scale.linear().range([height, 0]);
+
+									// Define the axes
+									var xAxis = d3.svg.axis().scale(x)
+										.orient("bottom").ticks(5);
+
+									var yAxis = d3.svg.axis().scale(y)
+										.orient("left").ticks(5);
+
+									// Define the line
+									var valueline = d3.svg.line()
+										.x(function(d) { return x(d.date); })
+										.y(function(d) { return y(d.close); });
+
+									// Define the div for the tooltip
+									var div = d3.select("body").append("div")
+										.attr("class", "tooltip")
+										.style("opacity", 0);
+
+									// Adds the svg canvas
+									var svg = d3.select(".line-graph")
+										.append("svg")
+											.attr("width", width + margin.left + margin.right)
+											.attr("height", height + margin.top + margin.bottom)
+										.append("g")
+											.attr("transform",
+												  "translate(" + margin.left + "," + margin.top + ")");
+
+									// Get the data
+									d3.csv("assets/data.csv", function(error, data) {
+										data.forEach(function(d) {
+											d.date = parseDate(d.date);
+											d.close = +d.close;
+										});
+
+										// Scale the range of the data
+										x.domain(d3.extent(data, function(d) { return d.date; }));
+										y.domain([0, d3.max(data, function(d) { return d.close; })]);
+
+										// Add the valueline path.
+										svg.append("path")
+											.attr("class", "line")
+											.attr("d", valueline(data));
+
+										// Add the scatterplot
+										svg.selectAll("dot")
+											.data(data)
+										.enter().append("circle")
+											.attr("r", 5)
+											.attr("cx", function(d) { return x(d.date); })
+											.attr("cy", function(d) { return y(d.close); })
+											.on("mouseover", function(d) {
+												div.transition()
+													.duration(200)
+													.style("opacity", .9);
+												div	.html(formatTime(d.date) + "<br/>"  + d.close)
+													.style("left", (d3.event.pageX) + "px")
+													.style("top", (d3.event.pageY - 28) + "px");
+												})
+											.on("mouseout", function(d) {
+												div.transition()
+													.duration(500)
+													.style("opacity", 0);
+											});
+
+										// Add the X Axis
+										svg.append("g")
+											.attr("class", "x axis")
+											.attr("transform", "translate(0," + height + ")")
+											.call(xAxis);
+
+										// Add the Y Axis
+										svg.append("g")
+											.attr("class", "y axis")
+											.call(yAxis);
+
+									});
+
+									</script>
+
+
+
+								</div>
+								
+							</div>
+							</div>
+		                
+		                		 <div class="row">
+		                    <div class="col-md-12">
+		                        <div class="card ">
+
+
+				 <div id="line-graph">
+		                            
+		                            <script src="assets/js/dash1/plotly-latest.min.js""></script>
+		                            <script>
+		                            
+		                            var xData = [
+		                            	  [2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2013],
+		                            	  [2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2013],
+		                            	  [2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2013],
+		                            	  [2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2013]
+		                            	];
+
+		                            	var yData = [
+		                            	  [74, 82, 80, 74, 73, 72, 74, 70, 70, 66, 66, 69],
+		                            	  [45, 42, 50, 46, 36, 36, 34, 35, 32, 31, 31, 28],
+		                            	  [13, 14, 20, 24, 20, 24, 24, 40, 35, 41, 43, 50],
+		                            	  [18, 21, 18, 21, 16, 14, 13, 18, 17, 16, 19, 23]
+		                            	];
+
+		                            	var colors = ['rgba(67,67,67,1)', 'rgba(115,115,115,1)', 'rgba(49,130,189, 1)',
+		                            	  'rgba(189,189,189,1)'
+		                            	];
+
+		                            	var lineSize = [2, 2, 4, 2];
+
+		                            	var labels = ['Television', 'Newspaper', 'Internet', 'Radio'];
+
+		                            	var data = [];
+
+		                            	for ( var i = 0 ; i < xData.length ; i++ ) {
+		                            	  var result = {
+		                            	    x: xData[i],
+		                            	    y: yData[i],
+		                            	    type: 'scatter',
+		                            	    mode: 'lines',
+		                            	    line: {
+		                            	      color: colors[i],
+		                            	      width: lineSize[i]
+		                            	    }
+		                            	  };
+		                            	  var result2 = {
+		                            	    x: [xData[i][0], xData[i][11]],
+		                            	    y: [yData[i][0], yData[i][11]],
+		                            	    type: 'scatter',
+		                            	    mode: 'markers',
+		                            	    marker: {
+		                            	      color: colors[i],
+		                            	      size: 12
+		                            	    }
+		                            	  };
+		                            	  data.push(result, result2);
+		                            	}
+
+		                            	var layout = {
+		                            	  showlegend: false,
+		                            	  width: 600,
+		                            	  xaxis: {
+		                            	    showline: true,
+		                            	    showgrid: false,
+		                            	    showticklabels: true,
+		                            	    linecolor: 'rgb(204,204,204)',
+		                            	    linewidth: 2,
+		                            	    autotick: false,
+		                            	    ticks: 'outside',
+		                            	    tickcolor: 'rgb(204,204,204)',
+		                            	    tickwidth: 2,
+		                            	    ticklen: 5,
+		                            	    tickfont: {
+		                            	      family: 'Arial',
+		                            	      size: 12,
+		                            	      color: 'rgb(82, 82, 82)'
+		                            	    }
+		                            	  },
+		                            	  yaxis: {
+		                            	    showgrid: false,
+		                            	    zeroline: false,
+		                            	    showline: false,
+		                            	    showticklabels: false
+		                            	  },
+		                            	  autosize: false,
+		                            	  margin: {
+		                            	    autoexpand: false,
+		                            	    l: 100,
+		                            	    r: 20,
+		                            	    t: 100
+		                            	  },
+		                            	  annotations: [
+		                            	    {
+		                            	      xref: 'paper',
+		                            	      yref: 'paper',
+		                            	      x: 0.0,
+		                            	      y: 1.05,
+		                            	      xanchor: 'left',
+		                            	      yanchor: 'bottom',
+		                            	      text: 'Main Source for News',
+		                            	      font:{
+		                            	        family: 'Arial',
+		                            	        size: 30,
+		                            	        color: 'rgb(37,37,37)'
+		                            	      },
+		                            	      showarrow: false
+		                            	    },
+		                            	    {
+		                            	      xref: 'paper',
+		                            	      yref: 'paper',
+		                            	      x: 0.5,
+		                            	      y: -0.1,
+		                            	      xanchor: 'center',
+		                            	      yanchor: 'top',
+		                            	      text: 'Source: Pew Research Center & Storytelling with data',
+		                            	      showarrow: false,
+		                            	      font: {
+		                            	        family: 'Arial',
+		                            	        size: 12,
+		                            	        color: 'rgb(150,150,150)'
+		                            	      }
+		                            	    }
+		                            	  ]
+		                            	};
+
+		                            	for ( var i = 0 ; i < xData.length ; i ++ ) {
+		                            	  var result = {
+		                            	    xref: 'paper',
+		                            	    x: 0.05,
+		                            	    y: yData[i][0],
+		                            	    xanchor: 'right',
+		                            	    yanchor: 'middle',
+		                            	    text: labels[i] + ' ' + yData[i][0] +'%',
+		                            	    showarrow: false,
+		                            	    font: {
+		                            	      family: 'Arial',
+		                            	      size: 16,
+		                            	      color: 'black'
+		                            	    }
+		                            	  };
+		                            	  var result2 = {
+		                            	    xref: 'paper',
+		                            	    x: 0.95,
+		                            	    y: yData[i][11],
+		                            	    xanchor: 'left',
+		                            	    yanchor: 'middle',
+		                            	    text: yData[i][11] +'%',
+		                            	    font: {
+		                            	      family: 'Arial',
+		                            	      size: 16,
+		                            	      color: 'black'
+		                            	    },
+		                            	    showarrow: false
+		                            	  };
+		                            	  
+		                            	  layout.annotations.push(result, result2);
+		                            	}
+		                            	var config = {
+		                            			   modeBarButtonsToRemove: ['toImage', 'sendDataToCloud'],
+		                            			   displaylogo: false
+		                            			};
+
+
+		                            	Plotly.newPlot('line-graph', data, layout, config);
+		                            
+		                            </script>
+		                            
+		                            
+		                            </div>
+									</div>
+									</div>
+									</div>
+		
+		                
+							</div>
+							</div>
+								
+		
 		</div>
+		
+		
+		
 	</div>
-
-
-		</body>
+	</div>
+	</body>
 		<!--   Core JS Files   -->
 		<script src="assets/js/jquery-1.10.2.js" type="text/javascript"></script>
 		<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
