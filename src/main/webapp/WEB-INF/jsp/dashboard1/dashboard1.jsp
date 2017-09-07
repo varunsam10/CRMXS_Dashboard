@@ -748,7 +748,7 @@
 
 				 <div id="line-graph">
 		                            
-		                            <script src="assets/plotly-latest.min.js"></script>
+		                            <script src="assets/dash1/plotly-latest.min.js"></script>
 		                            <script>
 		                            
 		                            var xData = [
