@@ -22,6 +22,9 @@
 
 		<!--  CSS for Demo Purpose, don't include it in your project     -->
 		<link href="assets/css/demo.css" rel="stylesheet" />
+		<link href="assets/css/bar-chart.css" rel="stylesheet" />
+	    <link href="assets/css/line-chart.css" rel="stylesheet" />
+		
 
 		<!--     Fonts and icons     -->
 		<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -224,7 +227,7 @@
 
 							  <script src="assets/d3.min.js"></script>
 							  <script src="assets/d3.js"></script>
-									 <link href="assets/css/bar-chart.css" rel="stylesheet" />
+				
 								<script type="text/javascript">
 
 								// Setup svg using Bostock's margin convention
@@ -523,8 +526,8 @@
 								<div class="pie-chart">
 
 
-								<script src="assets/dash1/d3.v3.min.js"charset="utf-8"></script>
-								<script src="assets/js/jquery.min.js" charset="utf-8"></script>
+								<script src="assets/js/dash1/d3.v3.min.js"charset="utf-8"></script>
+								<script src="assets/js/dash1/jquery-1.8.3.js" charset="utf-8"></script>
 
 								<script>
 
@@ -631,12 +634,7 @@
 									<h4 class="title"> Sales Stats</h4>
 									<p class="category">Annual Sales</p>
 								</div>
-								<div class="line-graph">
-
-
-
-		                            <link href="assets/css/line-chart.css" rel="stylesheet" />
-										
+								<div class="line-graph">										
 									<!-- load the d3.js library -->
 										<script src="assets/d3.min.js"></script>
 										<script src="assets/d3.js"></script>
@@ -748,7 +746,7 @@
 
 				 <div id="line-graph">
 		                            
-		                            <script src="assets/dash1/plotly-latest.min.js"></script>
+		                            <script src="assets/js/dash1/plotly-latest.min.js""></script>
 		                            <script>
 		                            
 		                            var xData = [
