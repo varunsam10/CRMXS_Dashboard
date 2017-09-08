@@ -23,8 +23,13 @@ public class Dashboard1Controller {
 	public ModelAndView initializeFormUser()
 	{
 		Dashboard1 dashboard1=new Dashboard1();
-		System.out.println("inside dashboard1!!");
 		return new ModelAndView("dashboard1/user","Dashboard1",new Dashboard1());
+	}
+	@RequestMapping("/dynamic")
+	public ModelAndView initializeFormDynamic()
+	{
+		Dashboard1 dashboard1=new Dashboard1();
+		return new ModelAndView("dashboard1/dynamic","Dashboard1",new Dashboard1());
 	}
 
 }
