@@ -46,6 +46,7 @@ padding-top: 60px;
 	transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
 	cursor: pointer;
 	float: left;
+	margin-left: 5%;
 }
 .simulator-label {
 	position: relative;
@@ -72,7 +73,7 @@ padding-top: 60px;
 	transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
 	cursor: pointer;
 	float: left;	
-	margin-left: 15%;
+	margin-left: 5%;
 }
 .simulator-icon-start3 {
 	text-align: center;
@@ -95,7 +96,7 @@ padding-top: 60px;
 	transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
 	cursor: pointer;
 	float: left;	
-	margin-left: 15%;
+	margin-left: 5%;
 }
 
 .panelDiv {
@@ -124,7 +125,7 @@ padding-top: 60px;
 	margin-bottom: 5%;
 }
 .row-center {
-	width: 50%;
+	width: 60%;
 	margin: 0px auto;
 }
 .simulationBase{	
@@ -163,7 +164,11 @@ padding-top: 60px;
 		<div class="panel-heading panelHeadSimulator">
 				<strong><p>Click on the link to start</p></strong>
 		</div>
-		<div class="panel-body panelDiv">			
+		<div class="panel-body panelDiv">	
+				<div class="simulator-icon-start3">
+					<span class="simulator-label"><a 
+						href="dashboard4.html">Dashboard4 »</a></span>
+				</div>			
 				<div class="simulator-icon-start1">
 					<span class="simulator-label"><a 
 						href="dashboard3.html">Dashboard3 »</a></span>
@@ -175,7 +180,8 @@ padding-top: 60px;
 				<div class="simulator-icon-start3">
 					<span class="simulator-label"><a 
 						href="dashboard1.html">Dashboard1 »</a></span>
-				</div>				
+				</div>	
+							
 		</div>
 	</div>
 	</section>
