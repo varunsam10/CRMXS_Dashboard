@@ -63,7 +63,12 @@
 							<p>User Profile</p>
 						</a>
 					</li>
-
+					<li>
+						<a href="dynamic.html">
+							<i class="pe-7s-user"></i>
+							<p>Dynamic Graphs</p>
+						</a>
+					</li>
 				</ul>
 			</div>
 		</div>
