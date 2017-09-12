@@ -97,8 +97,31 @@ padding-top: 60px;
 	cursor: pointer;
 	float: left;	
 	margin-left: 5%;
+	margin-top: 5%;
 }
-
+ .simulator-icon-start4 {
+	text-align: center;
+	vertical-align: middle;
+	height: 120px;
+	width: 120px;
+	-moz-box-sizing: content-box;
+	color: rgba(255, 255, 255, 0.9);
+	-o-text-overflow: clip;
+	background: lightblue;
+	-webkit-box-shadow: 1px 5px 6px 3px rgba(0, 0, 0, 0.5);
+	box-shadow: 1px 5px 6px 3px rgba(0, 0, 0, 0.5);
+	text-shadow: 0 0 0 rgba(15, 73, 168, 0.66);
+	-webkit-transition: class="support css-value">all 300ms
+		cubic-bezier(0.42, 0, 0.58, 1);
+	-moz-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+	-o-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+	border-radius: 1.167em;
+	border: 1px solid #0974A1;
+	transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+	cursor: pointer;
+	float: left;	
+	margin-left: 5%;
+}   
 .panelDiv {
 	color: #000000;
 	background-color: #ffffff;
@@ -164,8 +187,12 @@ padding-top: 60px;
 		<div class="panel-heading panelHeadSimulator">
 				<strong><p>Click on the link to start</p></strong>
 		</div>
-		<div class="panel-body panelDiv">	
-				<div class="simulator-icon-start3">
+		<div class="panel-body panelDiv">
+				<div class="simulator-icon-start4">
+					<span class="simulator-label"><a 
+						href="dashboard5.html">Dashboard5 »</a></span>
+				</div>		
+				<div class="simulator-icon-start4">
 					<span class="simulator-label"><a 
 						href="dashboard4.html">Dashboard4 »</a></span>
 				</div>			
