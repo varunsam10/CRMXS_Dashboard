@@ -58,11 +58,11 @@
 					<li><a href="dashboard1.html"> <i class="pe-7s-graph"></i>
 							<p>Dashboard</p>
 					</a></li>
-					<li class="active"><a href="user.html"> <i
+					<li><a href="user.html"> <i
 							class="pe-7s-user"></i>
 							<p>User Profile</p>
 					</a></li>
-					<li><a href="dynamic.html"> <i class="pe-7s-user"></i>
+					<li class="active"><a href="dynamic.html"> <i class="pe-7s-magic-wand"></i>
 							<p>Dynamic Graphs</p>
 					</a></li>
 				</ul>
@@ -126,6 +126,9 @@
 				<div class="container-fluid">
 					<div class="row">
 					
+					<div class="col-md-6">
+					<div class="card">
+					
 					<style type="text/css">
 					table, td, th
 					{
@@ -149,9 +152,12 @@
 					<script type="text/javascript">
 					$(document).ready(function() {
 						$("#tablediv").hide();
+						$('.header').hide();
 					     $("#showTable").click(function(event){
+					    	 $('.header').show();
 					           $.get('PopulateTable',function(responseJson) {
 					        	   if(responseJson!=null){
+					        		   console.log("here",responseJson);
 					            	   $("#countrytable").find("tr:gt(0)").remove();
 					            	   var table1 = $("#countrytable");
 						               $.each(responseJson, function(key,value) { 
@@ -165,16 +171,382 @@
 						                       rowNew.appendTo(table1);
 						               });
 					                }
-					            });
-					            $("#tablediv").show();          
-						 });      
-					});
-					</script>
-					</head>
-					<body>
-					<h1>AJAX Retrieve Data from Database in Servlet and JSP using JSON</h1>
+					        	   
+					        	   
+					        	   
+					        	
+					        	   var margin ={top:10, right:30, bottom:10, left:70},
+								    width=650-margin.left - margin.right, 
+								    height=450-margin.top-margin.bottom;
+
+									// scale to ordinal because x axis is not numerical
+									var x = d3.scale.ordinal().rangeRoundBands([0, width], .1);
 					
-					<input type="button" value="Show Table" id="showTable"/>
+									//scale to numerical value by height
+									var y = d3.scale.linear().range([height, 10]);
+									
+									var chart = d3.select("#chart")  
+						              .append("svg")  //append svg element inside #chart
+						              .attr("width", width+(2*margin.left)+margin.right)    //set width
+						              .attr("height", height+margin.top+margin.bottom);  //set height
+						              
+						            var xAxis = d3.svg.axis()
+						              .scale(x)
+						              .orient("bottom");  //orient bottom because x-axis will appear below the bars
+
+									var yAxis = d3.svg.axis()
+						              .scale(y)
+						              .orient("left");
+						              
+									x.domain(responseJson.map(function(d){ return d.name}));
+									  y.domain([0, d3.max(responseJson, function(d){return d.population})]);
+									  
+									  var bar = chart.selectAll("g")
+									                    .data(responseJson)
+									                  .enter()
+									                    .append("g")
+									                     .attr("class", "bar")
+									                    .attr("transform", function(d, i){
+									                      return "translate("+x(d.name)+", 0)";
+									                    });
+									  
+									  bar.append("rect")
+									      .attr("y", function(d) { 
+									        return y(d.population); 
+									      })
+									      .attr("x", function(d,i){
+									        return x.rangeBand();
+									      }).
+									      transition()
+											.duration(700)
+											.delay(function (d, i) {
+												return i * 100;
+											})
+
+									      .attr("height", function(d) { 
+									        return height - y(d.population); 
+									      })
+									      .attr("width", x.rangeBand()/2);  //set width base on range on ordinal data
+
+									bar.append("text")
+									      .attr("x", x.rangeBand()+margin.left )
+									      .attr("y", function(d) { return y(d.population) -10; })
+									      .attr("dy", ".75em")
+									      .text(function(d) { return d.population; });
+									  
+									  chart.append("g")
+									        .attr("class", "x axis")
+									        .attr("transform", "translate("+margin.left+","+ height+")")        
+									        .call(xAxis);
+									  
+									  chart.append("g")
+									        .attr("class", "y axis")
+									        .attr("transform", "translate("+margin.left+",0)")
+									        .call(yAxis)
+									        .append("text")
+									        .attr("transform", "rotate(-90)")
+									        .attr("y", 10)
+									        .attr("dy", ".71em")
+									        .style("text-anchor", "end")
+									        .text("Population");
+									
+
+									function type(d) {
+									    d.name = +d.name; // coerce to number
+									    return d;
+									  }
+					        	   
+					        	   
+					        	   
+					            });
+					            $("#tablediv").show();      
+					            
+					            
+					           			            
+						 });      
+					     
+					     
+					    $('input[type=radio]').change(function() {
+					    	
+					    	 $.get('PopulateTable',function(responseJson) {
+					    	    if ($('#population').is(':checked')) {
+					    	    		$('#chart').empty();
+
+						        	    var margin ={top:10, right:30, bottom:10, left:70},
+									    width=650-margin.left - margin.right, 
+									    height=450-margin.top-margin.bottom;
+
+										// scale to ordinal because x axis is not numerical
+										var x = d3.scale.ordinal().rangeRoundBands([0, width], .1);
+						
+										//scale to numerical value by height
+										var y = d3.scale.linear().range([height, 10]);
+										
+										var chart = d3.select("#chart")  
+							              .append("svg")  //append svg element inside #chart
+							              .attr("width", width+(2*margin.left)+margin.right)    //set width
+							              .attr("height", height+margin.top+margin.bottom);  //set height
+							              
+							            var xAxis = d3.svg.axis()
+							              .scale(x)
+							              .orient("bottom");  //orient bottom because x-axis will appear below the bars
+
+										var yAxis = d3.svg.axis()
+							              .scale(y)
+							              .orient("left");
+							              
+										x.domain(responseJson.map(function(d){ return d.name}));
+										  y.domain([0, d3.max(responseJson, function(d){return d.population})]);
+										  
+										  var bar = chart.selectAll("g")
+										                    .data(responseJson)
+										                  .enter()
+										                    .append("g")
+										                     .attr("class", "bar")
+										                    .attr("transform", function(d, i){
+										                      return "translate("+x(d.name)+", 0)";
+										                    });
+										  
+										  bar.append("rect")
+										      .attr("y", function(d) { 
+										        return y(d.population); 
+										      })
+										      .attr("x", function(d,i){
+										        return x.rangeBand();
+										      }).
+										      transition()
+												.duration(700)
+												.delay(function (d, i) {
+													return i * 100;
+												})
+
+										      .attr("height", function(d) { 
+										        return height - y(d.population); 
+										      })
+										      .attr("width", x.rangeBand()/2);  //set width base on range on ordinal data
+
+										bar.append("text")
+										      .attr("x", x.rangeBand()+margin.left )
+										      .attr("y", function(d) { return y(d.population) -10; })
+										      .attr("dy", ".75em")
+										      .text(function(d) { return d.population; });
+										  
+										  chart.append("g")
+										        .attr("class", "x axis")
+										        .attr("transform", "translate("+margin.left+","+ height+")")        
+										        .call(xAxis);
+										  
+										  chart.append("g")
+										        .attr("class", "y axis")
+										        .attr("transform", "translate("+margin.left+",0)")
+										        .call(yAxis)
+										        .append("text")
+										        .attr("transform", "rotate(-90)")
+										        .attr("y", 10)
+										        .attr("dy", ".71em")
+										        .style("text-anchor", "end")
+										        .text("Population");
+										
+
+										function type(d) {
+										    d.name = +d.name; // coerce to number
+										    return d;
+										  }
+						        	    		 
+					    	    	
+					    	    }
+					    	    
+					    	    else if($('#gdp').is(':checked')){
+					    	    	  $('#chart').empty();
+
+						        	   var margin ={top:10, right:30, bottom:10, left:70},
+									    width=650-margin.left - margin.right, 
+									    height=450-margin.top-margin.bottom;
+
+										// scale to ordinal because x axis is not numerical
+										var x = d3.scale.ordinal().rangeRoundBands([0, width], .1);
+						
+										//scale to numerical value by height
+										var y = d3.scale.linear().range([height, 10]);
+										
+										var chart = d3.select("#chart")  
+							              .append("svg")  //append svg element inside #chart
+							              .attr("width", width+(2*margin.left)+margin.right)    //set width
+							              .attr("height", height+margin.top+margin.bottom);  //set height
+							              
+							            var xAxis = d3.svg.axis()
+							              .scale(x)
+							              .orient("bottom");  //orient bottom because x-axis will appear below the bars
+
+										var yAxis = d3.svg.axis()
+							              .scale(y)
+							              .orient("left");
+							              
+										x.domain(responseJson.map(function(d){ return d.name}));
+										  y.domain([0, d3.max(responseJson, function(d){return d.capital})]);
+										  
+										  var bar = chart.selectAll("g")
+										                    .data(responseJson)
+										                  .enter()
+										                    .append("g")
+										                     .attr("class", "bar")
+										                    .attr("transform", function(d, i){
+										                      return "translate("+x(d.name)+", 0)";
+										                    });
+										  
+										  bar.append("rect")
+										      .attr("y", function(d) { 
+										        return y(d.capital); 
+										      })
+										      .attr("x", function(d,i){
+										        return x.rangeBand();
+										      }).
+										      transition()
+												.duration(700)
+												.delay(function (d, i) {
+													return i * 100;
+												})
+
+										      .attr("height", function(d) { 
+										        return height - y(d.capital); 
+										      })
+										      .attr("width", x.rangeBand()/2);  //set width base on range on ordinal data
+
+										bar.append("text")
+										      .attr("x", x.rangeBand()+margin.left )
+										      .attr("y", function(d) { return y(d.capital) -10; })
+										      .attr("dy", ".75em")
+										      .text(function(d) { return d.capital; });
+										  
+										  chart.append("g")
+										        .attr("class", "x axis")
+										        .attr("transform", "translate("+margin.left+","+ height+")")        
+										        .call(xAxis);
+										  
+										  chart.append("g")
+										        .attr("class", "y axis")
+										        .attr("transform", "translate("+margin.left+",0)")
+										        .call(yAxis)
+										        .append("text")
+										        .attr("transform", "rotate(-90)")
+										        .attr("y", 10)
+										        .attr("dy", ".71em")
+										        .style("text-anchor", "end")
+										        .text("GDP");
+										
+
+										function type(d) {
+										    d.name = +d.name; // coerce to number
+										    return d;
+										  }
+						        	    		 
+					    	    	
+					    	    }
+					    	    
+					    	 });
+					    });
+					     
+					/*      function population()
+					     {
+					    	
+					    		 
+
+					        	   var margin ={top:10, right:30, bottom:10, left:70},
+								    width=650-margin.left - margin.right, 
+								    height=450-margin.top-margin.bottom;
+
+									// scale to ordinal because x axis is not numerical
+									var x = d3.scale.ordinal().rangeRoundBands([0, width], .1);
+					
+									//scale to numerical value by height
+									var y = d3.scale.linear().range([height, 10]);
+									
+									var chart = d3.select("#chart")  
+						              .append("svg")  //append svg element inside #chart
+						              .attr("width", width+(2*margin.left)+margin.right)    //set width
+						              .attr("height", height+margin.top+margin.bottom);  //set height
+						              
+						            var xAxis = d3.svg.axis()
+						              .scale(x)
+						              .orient("bottom");  //orient bottom because x-axis will appear below the bars
+
+									var yAxis = d3.svg.axis()
+						              .scale(y)
+						              .orient("left");
+						              
+									x.domain(responseJson.map(function(d){ return d.name}));
+									  y.domain([0, d3.max(responseJson, function(d){return d.population})]);
+									  
+									  var bar = chart.selectAll("g")
+									                    .data(responseJson)
+									                  .enter()
+									                    .append("g")
+									                     .attr("class", "bar")
+									                    .attr("transform", function(d, i){
+									                      return "translate("+x(d.name)+", 0)";
+									                    });
+									  
+									  bar.append("rect")
+									      .attr("y", function(d) { 
+									        return y(d.population); 
+									      })
+									      .attr("x", function(d,i){
+									        return x.rangeBand();
+									      }).
+									      transition()
+											.duration(700)
+											.delay(function (d, i) {
+												return i * 100;
+											})
+
+									      .attr("height", function(d) { 
+									        return height - y(d.population); 
+									      })
+									      .attr("width", x.rangeBand()/2);  //set width base on range on ordinal data
+
+									bar.append("text")
+									      .attr("x", x.rangeBand()+margin.left )
+									      .attr("y", function(d) { return y(d.population) -10; })
+									      .attr("dy", ".75em")
+									      .text(function(d) { return d.population; });
+									  
+									  chart.append("g")
+									        .attr("class", "x axis")
+									        .attr("transform", "translate("+margin.left+","+ height+")")        
+									        .call(xAxis);
+									  
+									  chart.append("g")
+									        .attr("class", "y axis")
+									        .attr("transform", "translate("+margin.left+",0)")
+									        .call(yAxis)
+									        .append("text")
+									        .attr("transform", "rotate(-90)")
+									        .attr("y", 10)
+									        .attr("dy", ".71em")
+									        .style("text-anchor", "end")
+									        .text("Population");
+									
+
+									function type(d) {
+									    d.name = +d.name; // coerce to number
+									    return d;
+									  }
+					        	    		 
+					    	 } */
+					     
+					     
+					     
+					});
+					
+					
+					</script>
+					
+					<script src="assets/d3.min.js"></script>
+					<script src="assets/d3.js"></script>
+				
+					<h3>AJAX Retrieve Data from Database and plot dynamically</h3>
+					
+					<input type="button" class="btn btn-primary" value="Show Table" id="showTable"/>
 					<br/>
 					<br/>
 					<div id="tablediv">
@@ -190,6 +562,60 @@
 					</table>
 					</div>
 					
+				
+					</div>
+					</div>
+					</div>
+					
+					
+					<div class="row">
+					<div class="col-md-8">
+					<div class="card">
+					
+					<div class="header">
+									<h4 class="title">Country Stats</h4>
+									<p class="category">Y-Axis</p>
+									<p> <input type="radio" name="y_axis" id="population" checked="checked"> Population  
+  									<input type="radio" name="y_axis" id="gdp"> GDP</p>
+								</div>
+					
+					<style>
+					
+					#chart rect{
+					  fill: steelblue;
+					  transition: all 1s;
+					}
+					
+					#chart rect:hover {
+						fill:brown
+					}
+					
+					#chart text{
+					  fill: black;
+					  font: 10px sans-serif;
+					  font-weight:bold;
+					  text-anchor: end; 
+					}
+					
+					.axis text{
+					  font: 10px sans-serif;
+					}
+					
+					.axis path, .axis line{
+					  fill: none;
+					  stroke : #000;
+					  shape-rendering: crispEdges;
+					}
+					
+					
+					</style> 
+					
+					<div id="chart">
+						
+					</div> 
+					</div>
+						
+					</div>
 					</div>
 				</div>
 			</div>
