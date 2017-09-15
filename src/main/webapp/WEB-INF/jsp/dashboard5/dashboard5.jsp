@@ -34,19 +34,21 @@
 	rel='stylesheet' type='text/css'>
 <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
 <!--     sDashboard     -->
-		<!-- load jquery ui css theme -->
-		<link type="text/css" href="assets/css/dashboard5/jquery-ui.css" rel="stylesheet" />
-		<!-- load the dashboard css -->
-		<link href="assets/css/dashboard5/sDashboard.css" rel="stylesheet">
-		<link href="assets/css/dashboard5/jquery.minitwitter.css" rel="stylesheet">
-		<!-- load gitter css -->
-		<link href="assets/css/dashboard5/gitter/css/jquery.gritter.css" rel="stylesheet"/>
+<!-- load jquery ui css theme -->
+<link type="text/css" href="assets/dash5/css/jquery-ui.css"
+	rel="stylesheet" />
+<!-- load the dashboard css -->
+<link href="assets/dash5/css/sDashboard.css" rel="stylesheet">
+<link href="assets/dash5/css/jquery.minitwitter.css"
+	rel="stylesheet">
+<!-- load gitter css -->
+<link href="assets/dash5/css/gitter/css/jquery.gritter.css"
+	rel="stylesheet" />
 <!--     sDashboard     -->
 <style>
 html {
 	overflow-y: hidden
 }
-
 </style>
 
 </head>
@@ -99,7 +101,7 @@ html {
 									<li><a href="#">Another notification</a></li>
 								</ul></li>
 							<li><a href=""> <i class="fa fa-search"></i>
-							</a></li>							
+							</a></li>
 						</ul>
 					</div>
 				</div>
@@ -107,47 +109,34 @@ html {
 			<div class="content">
 				<div class="container-fluid">
 
-					<div class="row">
-					
-					</div>
+					<div class="row"></div>
+					<!--     sDashboard     -->
+					<!-- Main panel -->
+					<label>Features :</label>
+					<button id="btnAddWidget">1) Add Widget</button>
+					<button id="btnAddTableWidget">2) Add Table widget</button>
+					<button id="btnDeleteWidget">3) Delete Table Widget</button>
+					<button id="btnAddPieChartWidget">4) Add Pie Chart widget</button>
+					<button id="btnAddBarChartWidget">5) Add Bar Chart widget</button>
+					<button id="btnAddLineChartWidget">6) Add Line Chart
+						widget</button>
 
+					<div id="switcher" style="float: right;"></div>
+
+					<hr />
+					<ul id="myDashboard">
+
+					</ul>
+
+					<div id="myTweets"></div>
 				</div>
 			</div>
 
 		</div>
-		<!--     sDashboard     -->
-		<!-- Main panel -->
-				<label>Features :</label>
-		<button id="btnAddWidget">
-			1) Add Widget
-		</button>
-		<button id="btnAddTableWidget">
-			2) Add Table widget
-		</button>
-		<button id="btnDeleteWidget">
-			3) Delete Table Widget
-		</button>
-		<button id="btnAddPieChartWidget">
-			4) Add Pie Chart widget
-		</button>
-		<button id="btnAddBarChartWidget">
-			5) Add Bar Chart widget
-		</button>
-		<button id="btnAddLineChartWidget">
-			6) Add Line Chart widget
-		</button>
 
-		<div id="switcher" style="float:right;"> </div>
-		
-		<hr/>
-		<ul id="myDashboard">
-
-		</ul>
-
-		<div id="myTweets"> </div>
-		<footer class="footer">
+		<!-- 	<footer class="footer">
 			<div class="container-fluid"></div>
-		</footer>
+		</footer> -->
 
 	</div>
 	</div>
@@ -171,54 +160,53 @@ html {
 
 <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 <script src="assets/js/demo.js"></script>
+
 <!--     sDashboard     -->
-<!-- load jquery library -->
-		<script src="assets/js/dash5/jquery/jquery-1.8.2.js" type="text/javascript"> </script>
-		<!-- load jquery ui library -->
-		<script src="assets/js/dash5/jquery/jquery-ui.js" type="text/javascript"> </script>
+<!-- Load jquery library -->
+<script src="assets/dash5/js/jquery/jquery-1.8.2.js" type="text/javascript"></script>
+<!-- load jquery ui library -->
+<script src="assets/dash5/js/jquery/jquery-ui.js" type="text/javascript"></script>
 
-		<!-- load touch punch library to enable dragging on touch based devices -->
-		<script src="assets/js/dash5/touchpunch/jquery.ui.touch-punch.js" type="text/javascript"> </script>
-		<!-- load gitter notification library -->
-		<script src="assets/js/dash5/gitter/jquery.gritter.js" type="text/javascript"> </script>
+<!-- load touch punch library to enable dragging on touch based devices -->
+<script src="assets/dash5/js/touchpunch/jquery.ui.touch-punch.js"	type="text/javascript"></script>
+<!-- load gitter notification library -->
+<script src="assets/dash5/js/gitter/jquery.gritter.js"	type="text/javascript"></script>
 
-		<!-- load datatables library -->
-		<script src="assets/js/dash5/datatables/jquery.dataTables.js"> </script>
+<!-- load datatables library -->
+<script src="assets/dash5/js/datatables/jquery.dataTables.js"></script>
 
-		<!-- load flotr2 charting library -->
-		<!--[if IE]>
-		<script language="javascript" type="text/javascript" src="assets/js/dash5/flotr2/flotr2.ie.min.js"></script>
-		<![endif]-->
-		<script src="assets/js/dash5/flotr2/flotr2.js" type="text/javascript"> </script>
- 
-		<!-- load dashboard library -->
-		<script src="assets/js/dash5/jquery-sDashboard.js" type="text/javascript"> </script>
+<script src="assets/dash5/js/flotr2/flotr2.js" type="text/javascript"></script>
 
-		<!-- theme switcher -->
-		<script src="assets/js/dash5/themeswitcher/jquery.themeswitcher.min.js" type="text/javascript"> </script>
+<!-- load dashboard library -->
+<script src="assets/dash5/js/jquery-sDashboard.js"	type="text/javascript"></script>
 
-		<!-- mini twitter library -->
-		<script src="assets/js/dash5/miniTwitter/jquery.minitwitter.js" type="text/javascript"> </script>
+<!-- theme switcher -->
+<script src="assets/dash5/js/themeswitcher/jquery.themeswitcher.min.js" type="text/javascript"></script>
 
-		<!-- sample data external script file -->
-		<script src="assets/js/dash5/exampleData.js" type="text/javascript"> </script>
-		<script type="text/javascript">
-			$(function() {
-				//create a mini twitter div which is external
-				$("#myTweets").miniTwitter('ladygaga');
+<!-- mini twitter library -->
+<script src="assets/dash5/js/miniTwitter/jquery.minitwitter.js"	type="text/javascript"></script>
 
-				//Theme switcher plugin
-				$("#switcher").themeswitcher({
-					imgpath : "css/images/",
-					loadTheme : "cupertino"
-				});
+<!-- sample data external script file -->
+<script src="assets/dash5/js/exampleData.js" type="text/javascript"></script>
 
-				//**********************************************//
-				//dashboard json data
-				//this is the data format that the dashboard framework expects
-				//**********************************************//
+<script type="text/javascript">
+	$(function() {
+		//create a mini twitter div which is external
+		$("#myTweets").miniTwitter('ladygaga');
 
-				var dashboardJSON = [{
+		//Theme switcher plugin
+		$("#switcher").themeswitcher({
+			imgpath : "assets/dash5/css/images/",
+			loadTheme : "cupertino"
+		});
+
+		//**********************************************//
+		//dashboard json data
+		//this is the data format that the dashboard framework expects
+		//**********************************************//
+
+		var dashboardJSON = [
+				{
 					widgetTitle : "Bubble Chart Widget",
 					widgetId : "id009",
 					widgetType : "chart",
@@ -227,13 +215,15 @@ html {
 						options : myExampleData.bubbleChartOptions
 					}
 
-				}, {
+				},
+				{
 					widgetTitle : "Table Widget",
 					widgetId : "id3",
 					widgetType : "table",
 					setJqueryStyle : true,
 					widgetContent : myExampleData.tableWidgetData
-				}, {
+				},
+				{
 					widgetTitle : "Text Widget",
 					widgetId : "id2",
 					widgetContent : "Lorem ipsum dolor sit amet,consectetur adipiscing elit. Aenean lacinia mollis condimentum. Proin vitae ligula quis ipsum elementum tristique. Vestibulum ut sem erat."
@@ -269,140 +259,168 @@ html {
 					widgetTitle : "Lady gaga tweets",
 					widgetId : "tweet123",
 					widgetContent : $("#myTweets")
-				}];
+				} ];
 
-				//basic initialization example
-				$("#myDashboard").sDashboard({
-					dashboardData : dashboardJSON
-				});
+		//basic initialization example
+		$("#myDashboard").sDashboard({
+			dashboardData : dashboardJSON
+		});
 
-				//table row clicked event example
-				$("#myDashboard").bind("sdashboardrowclicked", function(e, data) {
-					$.gritter.add({
-						position: 'bottom-left',
-						title : 'Table row clicked',
-						time : 1000,
-						text : 'A table row within a table widget has been clicked, please check the console for additional event data'
-					});
+		//table row clicked event example
+		$("#myDashboard")
+				.bind(
+						"sdashboardrowclicked",
+						function(e, data) {
+							$.gritter
+									.add({
+										position : 'bottom-left',
+										title : 'Table row clicked',
+										time : 1000,
+										text : 'A table row within a table widget has been clicked, please check the console for additional event data'
+									});
 
-					if (console) {
-						console.log("table row clicked, for widget: " + data.selectedWidgetId);
-					}
-				});
+							if (console) {
+								console.log("table row clicked, for widget: "
+										+ data.selectedWidgetId);
+							}
+						});
 
-				//plot selected event example
-				$("#myDashboard").bind("sdashboardplotselected", function(e, data) {
-					$.gritter.add({
-						position: 'bottom-left',
-						title : 'Plot selected',
-						time : 1000,
-						text : 'A plot has been selected within a chart widget, please check the console for additional event data'
-					});
-					if (console) {
-						console.log("chart range selected, for widget: " + data.selectedWidgetId);
-					}
-				});
-				//plot click event example
-				$("#myDashboard").bind("sdashboardplotclicked", function(e, data) {
-					$.gritter.add({
-						position: 'bottom-left',
-						title : 'Plot Clicked',
-						time : 1000,
-						text : 'A plot has been clicked within a chart widget, please check the console for additional event data'
-					});
-					if (console) {
-						console.log("chart clicked, for widget: " + data.selectedWidgetId);
-					}
-				});
+		//plot selected event example
+		$("#myDashboard")
+				.bind(
+						"sdashboardplotselected",
+						function(e, data) {
+							$.gritter
+									.add({
+										position : 'bottom-left',
+										title : 'Plot selected',
+										time : 1000,
+										text : 'A plot has been selected within a chart widget, please check the console for additional event data'
+									});
+							if (console) {
+								console
+										.log("chart range selected, for widget: "
+												+ data.selectedWidgetId);
+							}
+						});
+		//plot click event example
+		$("#myDashboard")
+				.bind(
+						"sdashboardplotclicked",
+						function(e, data) {
+							$.gritter
+									.add({
+										position : 'bottom-left',
+										title : 'Plot Clicked',
+										time : 1000,
+										text : 'A plot has been clicked within a chart widget, please check the console for additional event data'
+									});
+							if (console) {
+								console.log("chart clicked, for widget: "
+										+ data.selectedWidgetId);
+							}
+						});
 
-				//widget order changes event example
-				$("#myDashboard").bind("sdashboardorderchanged", function(e, data) {
-					$.gritter.add({
-						position: 'bottom-left',
-						title : 'Order Changed',
-						time : 4000,
-						text : 'The widgets order has been changed,check the console for the sorted widget definitions array'
-					});
-					if (console) {
-						console.log("Sorted Array");
-						console.log("+++++++++++++++++++++++++");
-						console.log(data.sortedDefinitions);
-						console.log("+++++++++++++++++++++++++");
-					}
-					
-				});
-				//example for adding a text widget
-				$("#btnAddWidget").click(function() {
-					$("#myDashboard").sDashboard("addWidget", {
-						widgetTitle : "Widget 7",
-						widgetId : "id008",
-						widgetContent : "Lorem ipsum dolor sit amet," + "consectetur adipiscing elit." + "Aenean lacinia mollis condimentum." + "Proin vitae ligula quis ipsum elementum tristique." + "Vestibulum ut sem erat."
-					});
-				});
+		//widget order changes event example
+		$("#myDashboard")
+				.bind(
+						"sdashboardorderchanged",
+						function(e, data) {
+							$.gritter
+									.add({
+										position : 'bottom-left',
+										title : 'Order Changed',
+										time : 4000,
+										text : 'The widgets order has been changed,check the console for the sorted widget definitions array'
+									});
+							if (console) {
+								console.log("Sorted Array");
+								console.log("+++++++++++++++++++++++++");
+								console.log(data.sortedDefinitions);
+								console.log("+++++++++++++++++++++++++");
+							}
 
-				//example for adding a table widget
-				$("#btnAddTableWidget").click(function() {
-					$("#myDashboard").sDashboard("addWidget", {
-						widgetTitle : "Table Widget 2",
-						widgetId : "id007",
-						widgetType : "table",
-						setJqueryStyle : true,
-						widgetContent : myExampleData.tableWidgetData
-					});
+						});
+		//example for adding a text widget
+		$("#btnAddWidget")
+				.click(
+						function() {
+							$("#myDashboard")
+									.sDashboard(
+											"addWidget",
+											{
+												widgetTitle : "Widget 7",
+												widgetId : "id008",
+												widgetContent : "Lorem ipsum dolor sit amet,"
+														+ "consectetur adipiscing elit."
+														+ "Aenean lacinia mollis condimentum."
+														+ "Proin vitae ligula quis ipsum elementum tristique."
+														+ "Vestibulum ut sem erat."
+											});
+						});
 
-				});
-
-				//example for  deleting a widget
-				$("#btnDeleteWidget").click(function() {
-					$("#myDashboard").sDashboard("removeWidget", "id007");
-				});
-
-				//example for adding a pie chart widget
-				$("#btnAddPieChartWidget").click(function() {
-
-					$("#myDashboard").sDashboard("addWidget", {
-						widgetTitle : "Pie Chart 2",
-						widgetId : "id006",
-						widgetType : "chart",
-						widgetContent : {
-							data : myExampleData.pieChartData,
-							options : myExampleData.pieChartOptions
-						}
-					});
-
-				});
-
-				//example for adding a bar chart widget
-				$("#btnAddBarChartWidget").click(function() {
-
-					$("#myDashboard").sDashboard("addWidget", {
-						widgetTitle : "Bar Chart 2",
-						widgetId : "id005",
-						widgetType : "chart",
-						widgetContent : {
-							data : myExampleData.barChartData,
-							options : myExampleData.barChartOptions
-						}
-					});
-				});
-
-				//example for adding an line chart widget
-				$("#btnAddLineChartWidget").click(function() {
-					$("#myDashboard").sDashboard("addWidget", {
-						widgetTitle : "Line Chart 2",
-						widgetId : "id004",
-						widgetType : "chart",
-						getDataBySelection : true,
-						widgetContent : {
-							data : myExampleData.lineChartData,
-							options : myExampleData.lineChartOptions
-						}
-
-					});
-				});
-
+		//example for adding a table widget
+		$("#btnAddTableWidget").click(function() {
+			$("#myDashboard").sDashboard("addWidget", {
+				widgetTitle : "Table Widget 2",
+				widgetId : "id007",
+				widgetType : "table",
+				setJqueryStyle : true,
+				widgetContent : myExampleData.tableWidgetData
 			});
 
-		</script>
+		});
+
+		//example for  deleting a widget
+		$("#btnDeleteWidget").click(function() {
+			$("#myDashboard").sDashboard("removeWidget", "id007");
+		});
+
+		//example for adding a pie chart widget
+		$("#btnAddPieChartWidget").click(function() {
+
+			$("#myDashboard").sDashboard("addWidget", {
+				widgetTitle : "Pie Chart 2",
+				widgetId : "id006",
+				widgetType : "chart",
+				widgetContent : {
+					data : myExampleData.pieChartData,
+					options : myExampleData.pieChartOptions
+				}
+			});
+
+		});
+
+		//example for adding a bar chart widget
+		$("#btnAddBarChartWidget").click(function() {
+
+			$("#myDashboard").sDashboard("addWidget", {
+				widgetTitle : "Bar Chart 2",
+				widgetId : "id005",
+				widgetType : "chart",
+				widgetContent : {
+					data : myExampleData.barChartData,
+					options : myExampleData.barChartOptions
+				}
+			});
+		});
+
+		//example for adding an line chart widget
+		$("#btnAddLineChartWidget").click(function() {
+			$("#myDashboard").sDashboard("addWidget", {
+				widgetTitle : "Line Chart 2",
+				widgetId : "id004",
+				widgetType : "chart",
+				getDataBySelection : true,
+				widgetContent : {
+					data : myExampleData.lineChartData,
+					options : myExampleData.lineChartOptions
+				}
+
+			});
+		});
+
+	});
+</script>
 <!--     sDashboard     -->
 </html>
