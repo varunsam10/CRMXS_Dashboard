@@ -208,19 +208,18 @@ li.ui-sortable-placeholder {
 
 /*overlay*/
 
-.sDashboard-overlay {
+/* .sDashboard-overlay {
 	opacity: 0.5;
-	position: absolute;
 	top: 0;
 	left: 0;
 	background-color: #000;
 	width: 100%;
-	z-index: 9998;/*z-index one less than window maximized css*/
-}
-/*.sDashboard-overlay {
+	z-index: 9998;z-index one less than window maximized css
+} */
+.sDashboard-overlay {
  width: 100%;
  height: 100%;
  background: rgba(0, 0, 0, 0.1);
  background-size: 100% 100%;
  position: fixed;
- }*/
+ }

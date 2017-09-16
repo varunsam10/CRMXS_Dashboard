@@ -102,6 +102,18 @@ html {
 								</ul></li>
 							<li><a href=""> <i class="fa fa-search"></i>
 							</a></li>
+							<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
+							<i	class="pe-7s-plus"></i>
+							</a>
+							<ul class="dropdown-menu">
+									<li><a href="#"><button id="btnAddWidget">Add Widget</button></a></li>
+									<li><a href="#"><button id="btnAddTableWidget">Add Table widget</button></a></li>
+									<!-- <li><a href="#"><button id="btnDeleteWidget">Delete Table Widget</button></a></li> -->
+									<li><a href="#"><button id="btnAddPieChartWidget">Add Pie Chart widget</button></a></li>
+									<li><a href="#"><button id="btnAddBarChartWidget">Add Bar Chart widget</button></a></li>
+									<li><a href="#"><button id="btnAddBarChartWidget">Add Line Chart widget</button></a></li>
+							</ul>
+							</li>
 						</ul>
 					</div>
 				</div>
@@ -112,23 +124,14 @@ html {
 					<div class="row"></div>
 					<!--     sDashboard     -->
 					<!-- Main panel -->
-					<label>Features :</label>
-					<button id="btnAddWidget">1) Add Widget</button>
-					<button id="btnAddTableWidget">2) Add Table widget</button>
-					<button id="btnDeleteWidget">3) Delete Table Widget</button>
-					<button id="btnAddPieChartWidget">4) Add Pie Chart widget</button>
-					<button id="btnAddBarChartWidget">5) Add Bar Chart widget</button>
-					<button id="btnAddLineChartWidget">6) Add Line Chart
-						widget</button>
-
-					<div id="switcher" style="float: right;"></div>
+				<!-- 	<label>Features :</label> -->
+				<!-- 	<div id="switcher" style="float: right;"></div> -->
 
 					<hr />
 					<ul id="myDashboard">
 
 					</ul>
-
-					<div id="myTweets"></div>
+					<!-- <div id="myTweets"></div> -->
 				</div>
 			</div>
 
@@ -183,17 +186,13 @@ html {
 <!-- theme switcher -->
 <script src="assets/dash5/js/themeswitcher/jquery.themeswitcher.min.js" type="text/javascript"></script>
 
-<!-- mini twitter library -->
-<script src="assets/dash5/js/miniTwitter/jquery.minitwitter.js"	type="text/javascript"></script>
-
 <!-- sample data external script file -->
 <script src="assets/dash5/js/exampleData.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 	$(function() {
-		//create a mini twitter div which is external
-		$("#myTweets").miniTwitter('ladygaga');
-
+		
+		
 		//Theme switcher plugin
 		$("#switcher").themeswitcher({
 			imgpath : "assets/dash5/css/images/",
@@ -207,7 +206,7 @@ html {
 
 		var dashboardJSON = [
 				{
-					widgetTitle : "Bubble Chart Widget",
+					widgetTitle : "Bubble Chart",
 					widgetId : "id009",
 					widgetType : "chart",
 					widgetContent : {
@@ -217,18 +216,18 @@ html {
 
 				},
 				{
-					widgetTitle : "Table Widget",
+					widgetTitle : "Table ",
 					widgetId : "id3",
 					widgetType : "table",
 					setJqueryStyle : true,
 					widgetContent : myExampleData.tableWidgetData
 				},
 				{
-					widgetTitle : "Text Widget",
+					widgetTitle : "Text",
 					widgetId : "id2",
-					widgetContent : "Lorem ipsum dolor sit amet,consectetur adipiscing elit. Aenean lacinia mollis condimentum. Proin vitae ligula quis ipsum elementum tristique. Vestibulum ut sem erat."
+					widgetContent : "General Messages "
 				}, {
-					widgetTitle : "Pie Chart Widget",
+					widgetTitle : "Pie Chart",
 					widgetId : "id001",
 					widgetType : "chart",
 					widgetContent : {
@@ -237,7 +236,7 @@ html {
 					}
 
 				}, {
-					widgetTitle : "bar Chart Widget",
+					widgetTitle : "bar Chart",
 					widgetId : "id002",
 					widgetType : "chart",
 					widgetContent : {
@@ -246,7 +245,7 @@ html {
 					}
 
 				}, {
-					widgetTitle : "line Chart Widget",
+					widgetTitle : "line Chart",
 					widgetId : "id003",
 					widgetType : "chart",
 					getDataBySelection : true,
@@ -255,11 +254,7 @@ html {
 						options : myExampleData.lineChartOptions
 					}
 
-				}, {
-					widgetTitle : "Lady gaga tweets",
-					widgetId : "tweet123",
-					widgetContent : $("#myTweets")
-				} ];
+				}];
 
 		//basic initialization example
 		$("#myDashboard").sDashboard({
@@ -351,11 +346,8 @@ html {
 											{
 												widgetTitle : "Widget 7",
 												widgetId : "id008",
-												widgetContent : "Lorem ipsum dolor sit amet,"
-														+ "consectetur adipiscing elit."
-														+ "Aenean lacinia mollis condimentum."
-														+ "Proin vitae ligula quis ipsum elementum tristique."
-														+ "Vestibulum ut sem erat."
+												widgetContent : "Create a Widget to be added to the list"
+														
 											});
 						});
 
@@ -372,9 +364,9 @@ html {
 		});
 
 		//example for  deleting a widget
-		$("#btnDeleteWidget").click(function() {
+	/* 	$("#btnDeleteWidget").click(function() {
 			$("#myDashboard").sDashboard("removeWidget", "id007");
-		});
+		}); */
 
 		//example for adding a pie chart widget
 		$("#btnAddPieChartWidget").click(function() {
