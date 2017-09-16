@@ -65,7 +65,7 @@
 					</li>
 					<li>
 						<a href="dynamic.html">
-							<i class="pe-7s-user"></i>
+							<i class="pe-7s-magic-wand"></i>
 							<p>Dynamic Graphs</p>
 						</a>
 					</li>
