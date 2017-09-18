@@ -619,7 +619,157 @@
 					</div>
 				</div>
 			</div>
+<div class="content">
+						<div class="container-fluid">
+											<div class="row">
+											<script src="assets/js/dash1/plotly-latest.min.js"></script>
+											<select id = "btnid">
+				<option value="">Choose Axis</option>							
+                <option value = "#FFFFFF">X-Axis</option>
+                <option value = "#FF0000">Y-Axis</option>
+               </select>
+               <input type = "button"
+                 value = "change Axis for Line Graph"
+                 onclick = "changeAxis()" />
 
+                 <select id = "btnid1">
+                 		<option value="">Choose Graph</option>
+                        <option value = "#1234">Pie</option>
+                        <option value = "#4567">Line</option>
+                        <option value = "#8910">Bar</option>
+                       </select>
+                       <input type = "button"
+                         value = "change Graph"
+                         onclick = "changeGraph()" />
+                         <div id="myDiv" style="width: 100%; height: 500px;"></div>
+  <script>
+
+ var trace1 = {
+  x: ['iPhone8', 'iPhone X', 'iPhone 8 Plus'],
+  y: [20, 14, 23],
+  name: 'iPhone SG Market',
+  type: 'bar'
+};
+
+var trace2 = {
+  x: ['iPhone8', 'iPhone X', 'iPhone 8 Plus'],
+  y: [12, 18, 29],
+  name: 'iPhone IND Market',
+  type: 'bar'
+};
+
+var databar = [trace1, trace2];
+var layoutbar = {barmode: 'stack'};
+
+    var datapie = [{
+  values: [19, 26, 55],
+  labels: ['Residential', 'Non-Residential', 'Utility'],
+  type: 'pie'
+}];
+
+//Plotly.newPlot('myDiv', data);//ploting pie-chart*/
+
+  var trace1 = {
+  x: [0, 1, 2, 3, 4, 5, 6, 7, 8],
+  y: [0, 3, 5, 3, 6, 4, 5, 3, 1],
+  name: 'Name of Trace 1',
+  type: 'scatter'
+};
+var trace2 = {
+  x: [0, 1, 2, 3, 4, 5, 6, 7, 8],
+  y: [1, 0, 3, 2, 5, 4, 7, 6, 8],
+  name: 'Name of Trace 2',
+  type: 'scatter'
+};
+var data = [trace1, trace2];
+var layout = {
+  title: 'Plot Title',
+  xaxis: {
+    title: 'x Axis',
+    titlefont: {
+      family: 'Courier New, monospace',
+      size: 18,
+      color: '#7f7f7f'
+    }
+  },
+  yaxis: {
+    title: 'y Axis',
+    titlefont: {
+      family: 'Courier New, monospace',
+      size: 18,
+      color: '#7f7f7f'
+    }
+  }
+};
+var trace1 = {
+  y: [0, 1, 2, 3, 4, 5, 6, 7, 8],
+  x: [0, 3, 5, 3, 6, 4, 5, 3, 1],
+  name: 'Name of Trace 1',
+  type: 'scatter'
+};
+var trace2 = {
+  y: [0, 1, 2, 3, 4, 5, 6, 7, 8],
+  x: [1, 0, 3, 2, 5, 4, 7, 6, 8],
+  name: 'Name of Trace 2',
+  type: 'scatter'
+};
+var data2 = [trace2, trace1];
+var layout = {
+  title: 'Plot Title',
+  xaxis: {
+    title: 'x Axis',
+    titlefont: {
+      family: 'Courier New, monospace',
+      size: 18,
+      color: '#7f7f7f'
+    }
+  },
+  yaxis: {
+    title: 'y Axis',
+    titlefont: {
+      family: 'Courier New, monospace',
+      size: 18,
+      color: '#7f7f7f'
+    }
+  }
+};
+function changeAxis(){
+  var btnid = document.getElementById("btnid");
+  var id = btnid.value;
+  {
+  if (btnid.value=="#FFFFFF")
+  Plotly.newPlot('myDiv', data, layout);
+  }
+  {
+  if (btnid.value=="#FF0000")
+  Plotly.newPlot('myDiv', data2, layout);
+  }
+  }
+  function changeGraph(){
+  var btnid = document.getElementById("btnid1");
+  var id = btnid.value;
+  {
+  if (btnid1.value=="#1234")
+  Plotly.newPlot('myDiv', datapie);
+  }
+  {
+  if (btnid.value=="#4567")
+  Plotly.newPlot('myDiv', data, layout);
+  }
+  {
+  if (btnid.value=="#8910")
+  Plotly.newPlot('myDiv', databar, layoutbar);
+  }
+  
+  }
+//Plotly.newPlot('myDiv', data, layout);
+  </script>
+											
+											
+											</div>
+		
+						</div>
+		</div>
 
 			<footer class="footer">
 				<div class="container-fluid"></div>
