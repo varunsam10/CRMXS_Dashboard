@@ -75,3 +75,15 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2014-02-16 11:02:34
+
+
+CREATE TABLE `country` (
+  `code` char(3) NOT NULL,
+  `name` char(52) NOT NULL,
+  `continent` char(100) NOT NULL DEFAULT 'Asia',
+  `region` char(26) NOT NULL,
+  `population` int(11) NOT NULL DEFAULT '0',
+  `capital` int(11) DEFAULT NULL,
+  PRIMARY KEY (`code`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+	
