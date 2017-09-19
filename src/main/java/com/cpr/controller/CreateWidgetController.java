@@ -18,6 +18,12 @@ public class CreateWidgetController {
 		Dashboard3 dashboard3=new Dashboard3();
 		return new ModelAndView("createWidget/createWidget","Dashboard3",new Dashboard3());
 	}
+	@RequestMapping("/configureWidget")
+	public ModelAndView initializeForm2()
+	{
+		Dashboard3 dashboard3=new Dashboard3();
+		return new ModelAndView("createWidget/configureWidget","Dashboard3",new Dashboard3());
+	}
 	
 
 }

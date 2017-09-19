@@ -19,18 +19,11 @@
 
 <link rel="stylesheet" type="text/css"
 	href="assets/createWidget/css/pivot.css">
-<!-- <link rel="stylesheet" type="text/css"
-	href="assets/createWidget/css/main.css">
-<link rel="stylesheet" type="text/css"
-	href="assets/createWidget/css/normalize.css"> -->
-<link rel="stylesheet" type="text/css"
-	href="assets/createWidget/css/jquery.steps.css">
-
 <style>
-/* body {
+body {
 	padding-top: 60px;
 }
- */
+
 .panelDiv {
 	color: #000000;
 	background-color: #ffffff;
@@ -111,27 +104,9 @@ body {
 .c3-xgrid-focus {
 	visibility: hidden !important;
 }
-.wizard>.steps>ul>li:nth-child(1){
-    width: 100%%;
-    overflow: scroll;
-}
-.wizard>.steps>ul>li:nth-child(2){
-    width: 100%;
-}
-.pvtUi {
-    display: block;
-    width: 100%;
-    overflow: auto;
-}
-.tabcontrol > .content {
 
-	overflow: initial !important;
-}
-.wizard, .tabcontrol {
-overflow: initial !important;
-}
 /*Nav widget code */
-/* ul.nav-wizard {
+ul.nav-wizard {
 	background-color: #f9f9f9;
 	border: 1px solid #d4d4d4;
 	-webkit-border-radius: 6px;
@@ -238,7 +213,7 @@ ul.nav-wizard .active ~ li:after {
 }
 
 ul.nav-wizard .active ~ li a, ul.nav-wizard .active ~ li a:active, ul.nav-wizard .active 
-	~ li a:visited, ul.nav-wizard .active ~ li a:focus {
+	 ~ li a:visited, ul.nav-wizard .active ~ li a:focus {
 	color: #999999;
 	background: #ededed;
 }
@@ -269,11 +244,11 @@ ul.nav-wizard.nav-wizard-backnav .active ~ li:after {
 }
 
 ul.nav-wizard.nav-wizard-backnav .active ~ li a, ul.nav-wizard.nav-wizard-backnav .active 
-	~ li a:active, ul.nav-wizard.nav-wizard-backnav .active ~ li a:visited,
+	 ~ li a:active, ul.nav-wizard.nav-wizard-backnav .active ~ li a:visited,
 	ul.nav-wizard.nav-wizard-backnav .active ~ li a:focus {
 	color: #999999;
 	background: #ededed;
-} */
+}
 </style>
 <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
 <link rel="shortcut icon" href="assets/ico/favicon.ico">
@@ -304,67 +279,36 @@ ul.nav-wizard.nav-wizard-backnav .active ~ li a, ul.nav-wizard.nav-wizard-backna
 	<div class="container">
 		<div class="panel panel-custom simulationBase">
 
-			<div id="createWidget-Async">
-
-				<!-- <ul class="nav nav-pills nav-wizard">
+			<ul class="nav nav-pills nav-wizard">
 				<li class="active"><a href="#configureWidget.html"
 					data-toggle="tab">Configure</a></li>
 				<li><a href="#createWidget.html" data-toggle="tab">Select
 						Data</a></li>
 				<li><a href="#" data-toggle="tab">Export</a></li>
-			</ul> -->
-		<%-- 	<section>
-
-					<p>
-						<label for="name">Dataset:</label> <select id="csv"
-							data-placeholder="Choose a dataset..."><option></select>
-						&nbsp; &nbsp; <span id="doc"></span>
-					</p>
-					<p>
-					<div id="output" style="margin: 10px;"></div>
-					</p>
-				</section> --%>
-			<h3>Import Data</h3>
-				<section>
-
-					<p>
-						<label for="name">Dataset:</label> <select id="csv"
-							data-placeholder="Choose a dataset..."><option></select>
-						&nbsp; &nbsp; <span id="doc"></span>
-					</p>
-					<p>
-					<div id="output" style="margin: 10px;"></div>
-					</p>
-				</section>
-				<h3>Configure</h3>
-				<%-- <section data-mode="async" data-url="/Examples/AsyncContent"> --%>
-				<section>
-					<div>
-						<label for="name">Widget Name:</label> <input type="text"
-							id="name" name="widget_name">
-					</div>
-					<span> <label for="chartType">Chart Type:</label> <select
-						name="Chart Type">
-							<option value="line">Line</option>
-							<option value="bar">Bar Chart</option>
-							<option value="pie">Pie Chart</option>
-					</select>
-					</span>
-				</section>
-				
-				<h3>Export widget</h3>
-				<section>
-					<p>
-					<span> <label for="chartType">Type of Graph:</label> <select
-						name="Chart Type">
-							<option value="line">Exploratory</option>
-							<option value="bar">Normal Graph</option>
-					</select><br/><br/>
-					<button type="button" class="btn btn-primary">Create Widget</button>
-					</span>
-					</p>
-				</section>
+			</ul>
+			<div>
+				<label for="name">Widget Name:</label> <input type="text" id="name"
+					name="widget_name">
 			</div>
+			<div>
+				<label for="chartType">Chart Type:</label> <select name="Chart Type">
+					<option value="line">Line</option>
+					<option value="bar">Bar Chart</option>
+					<option value="pie">Pie Chart</option>
+				</select>
+			</div>
+			<section class="row-center">
+				<div class="panel panel-center panelDiv">
+
+					<div class="panel-body panelDiv"></div>
+				</div>
+			</section>
+			<!-- <p><a href="https://github.com/vincentarelbundock/Rdatasets">Rdatasets</a></p> -->
+			<p>
+				Dataset: <select id="csv" data-placeholder="Choose a dataset..."><option></select>
+				&nbsp; &nbsp; <span id="doc"></span>
+			</p>
+			<div id="output" style="margin: 10px;"></div>
 		</div>
 	</div>
 
@@ -397,12 +341,9 @@ ul.nav-wizard.nav-wizard-backnav .active ~ li a, ul.nav-wizard.nav-wizard-backna
 	src="assets/createWidget/js/d3_renderers.js"></script>
 <script type="text/javascript"
 	src="assets/createWidget/js/c3_renderers.js"></script>
-<!-- <script type="text/javascript"
-	src="assets/createWidget/js/export_renderers.js"></script> -->
 <script type="text/javascript"
-	src="assets/createWidget/js/jquery.steps.js"></script>
+	src="assets/createWidget/js/export_renderers.js"></script>
 <script type="text/javascript">
-
 	$(function() {
 		Papa
 				.parse(
@@ -475,22 +416,6 @@ ul.nav-wizard.nav-wizard-backnav .active ~ li a, ul.nav-wizard.nav-wizard-backna
 							}
 						});
 	});
-/* 	$("#createWidget-Async").steps({
-	    headerTag: "h3",
-	    bodyTag: "section",
-	    enableAllSteps: true,
-	    enablePagination: false
-	});  */
-	$("#createWidget-Async").steps({
-	    headerTag: "h3",
-	    bodyTag: "section",
-	    transitionEffect: "slideLeft",
-	    enableFinishButton: false,
-	    enablePagination: false,
-	    enableAllSteps: true,
-	    titleTemplate: "#title#",
-	    cssClass: "tabcontrol"
-	}); 
 </script>
 
 
