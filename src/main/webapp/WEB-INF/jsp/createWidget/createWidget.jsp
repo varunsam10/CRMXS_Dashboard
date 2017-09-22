@@ -294,7 +294,7 @@ ul.nav-wizard.nav-wizard-backnav .active ~ li a, ul.nav-wizard.nav-wizard-backna
 	<div class="navbar navbar-fixed-top navbar-inverse">
 		<div class="navbar-inner">
 			<div class="container">
-				<a class="brand" href="dashboard5.html">Create Widget </a>
+				<a class="brand" href="dashboard5.html">Create  Widget </a>
 				<ul class="nav">
 				</ul>
 			</div>
@@ -324,18 +324,7 @@ ul.nav-wizard.nav-wizard-backnav .active ~ li a, ul.nav-wizard.nav-wizard-backna
 					<div id="output" style="margin: 10px;"></div>
 					</p>
 				</section> --%>
-			<h3>Import Data</h3>
-				<section>
 
-					<p>
-						<label for="name">Dataset:</label> <select id="csv"
-							data-placeholder="Choose a dataset..."><option></select>
-						&nbsp; &nbsp; <span id="doc"></span>
-					</p>
-					<p>
-					<div id="output" style="margin: 10px;"></div>
-					</p>
-				</section>
 				<h3>Configure</h3>
 				<%-- <section data-mode="async" data-url="/Examples/AsyncContent"> --%>
 				<section>
@@ -350,9 +339,16 @@ ul.nav-wizard.nav-wizard-backnav .active ~ li a, ul.nav-wizard.nav-wizard-backna
 							<option value="pie">Pie Chart</option>
 					</select>
 					</span>
+					<span> <label for="chartType">Type of Graph:</label> <select
+						name="Chart Type">
+							<option value="line">Exploratory</option>
+							<option value="bar">Normal Graph</option>
+					</select><br/><br/>
+					
+					</span>
 				</section>
 				
-				<h3>Export widget</h3>
+				<h3>Import Data</h3>
 				<section>
 					<p>
 					<span> <label for="chartType">Type of Graph:</label> <select
@@ -360,10 +356,34 @@ ul.nav-wizard.nav-wizard-backnav .active ~ li a, ul.nav-wizard.nav-wizard-backna
 							<option value="line">Exploratory</option>
 							<option value="bar">Normal Graph</option>
 					</select><br/><br/>
-					<button type="button" class="btn btn-primary">Create Widget</button>
+					
+					<span> <label for="chartType">Type of Graph:</label> <select
+						name="Chart Type">
+							<option value="line">Exploratory</option>
+							<option value="bar">Normal Graph</option>
+					</select><br/><br/>
+					
 					</span>
+					
 					</p>
 				</section>
+				<h3>Export widget</h3>
+				<section>
+					
+					<p>
+						<label for="name">Dataset:</label>
+						 <select id="csv"
+							data-placeholder="Choose a dataset..."><option></select>
+						&nbsp; &nbsp; <span id="doc"></span>
+					</p>
+					<p>
+					<div id="output" style="margin: 20px;"></div>
+					</p>
+				</section>
+				
+				
+				
+				
 			</div>
 		</div>
 	</div>
