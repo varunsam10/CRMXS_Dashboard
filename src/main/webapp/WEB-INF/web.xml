@@ -21,6 +21,7 @@
 	<servlet>
 		<servlet-name>fitTrackerServlet</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>/WEB-INF/config/servlet-config.xml</param-value>
@@ -43,4 +44,16 @@
 		<url-pattern>*.json</url-pattern>
 	</servlet-mapping>
 	<display-name>Archetype Created Web Application</display-name>
+	<servlet>     
+                <display-name>populateTableHandler</display-name>
+                <servlet-name>populateTableHandler</servlet-name>
+                <servlet-class>
+   org.springframework.web.context.support.HttpRequestHandlerServlet
+               </servlet-class>
+     </servlet>
+
+        <servlet-mapping>
+                <servlet-name>populateTableHandler</servlet-name>
+                <url-pattern>/PopulateTable</url-pattern>
+        </servlet-mapping>
 </web-app>

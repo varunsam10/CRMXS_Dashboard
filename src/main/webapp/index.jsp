@@ -188,6 +188,10 @@ padding-top: 60px;
 				<strong><p>Click on the link to start</p></strong>
 		</div>
 		<div class="panel-body panelDiv">
+		<div class="simulator-icon-start4">
+				<span class="simulator-label"><a 
+						href="dashboard6.html">Dashboard 6 »</a></span>
+				</div>	
 				<div class="simulator-icon-start4">
 					<span class="simulator-label"><a 
 						href="createWidget.html">Create Widget »</a></span>
@@ -196,10 +200,10 @@ padding-top: 60px;
 					<span class="simulator-label"><a 
 						href="dashboard5.html">Dashboard5 »</a></span>
 				</div>		
-				<div class="simulator-icon-start4">
+		<!-- 		<div class="simulator-icon-start4">
 					<span class="simulator-label"><a 
 						href="dashboard4.html">Dashboard4 »</a></span>
-				</div>			
+				</div>	 -->		
 				<div class="simulator-icon-start1">
 					<span class="simulator-label"><a 
 						href="dashboard3.html">Dashboard3 »</a></span>
