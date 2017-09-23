@@ -10,21 +10,53 @@
 <title></title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Le styles -->
-<link href="assets/css/bootstrap.css" rel="stylesheet">
+<!-- <link href="assets/createWidget/js/vendor/bootstrap.css" rel="stylesheet"> -->
 <!-- external libs from cdnjs -->
-<link rel="stylesheet" type="text/css"
+<!-- <link rel="stylesheet" type="text/css"
 	href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.min.css">
 <link rel="stylesheet" type="text/css"
 	href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.min.css">
 
 <link rel="stylesheet" type="text/css"
-	href="assets/createWidget/css/pivot.css">
+	href="assets/createWidget/css/pivot.css"> -->
 <!-- <link rel="stylesheet" type="text/css"
 	href="assets/createWidget/css/main.css">
 <link rel="stylesheet" type="text/css"
 	href="assets/createWidget/css/normalize.css"> -->
+
+<!-- Recline files  -->
+<link rel="stylesheet"
+	href="assets/createWidget/js/vendor/bootstrap/2.0.2/css/bootstrap.css" />
+
+
+<link rel="stylesheet"
+	href="assets/createWidget/js/vendor/leaflet/0.4.4/leaflet.css">
+<!--[if lte IE 8]>
+  <link rel="stylesheet" href="assets/createWidget/js/vendor/leaflet/0.4.4/leaflet.ie.css" />
+  <![endif]-->
+<link rel="stylesheet"
+	href="assets/createWidget/js/vendor/leaflet.markercluster/MarkerCluster.css">
+<link rel="stylesheet"
+	href="assets/createWidget/js/vendor/leaflet.markercluster/MarkerCluster.Default.css">
+<!--[if lte IE 8]>
+  <link rel="stylesheet" href="assets/createWidget/js/vendor/leaflet.markercluster/MarkerCluster.Default.ie.css" />
+  <![endif]-->
+<link rel="stylesheet"
+	href="assets/createWidget/js/vendor/slickgrid/2.0.1/slick.grid.css">
+<link rel="stylesheet"
+	href="assets/createWidget/js/vendor/timeline/css/timeline.css">
+
+<!-- Recline CSS components -->
+<link rel="stylesheet" href="assets/createWidget/css/grid.css">
+<link rel="stylesheet" href="assets/createWidget/css/slickgrid.css">
+<link rel="stylesheet" href="assets/createWidget/css/flot.css">
+<link rel="stylesheet" href="assets/createWidget/css/map.css">
+<link rel="stylesheet" href="assets/createWidget/css/multiview.css">
+<link rel="stylesheet" href="assets/createWidget/css/timeline.css">
+<!-- /Recline CSS components -->
+
 <link rel="stylesheet" type="text/css"
-	href="assets/createWidget/css/jquery.steps.css">
+	href="assets/createWidget/css/pivot/jquery.steps.css">
 
 <style>
 /* body {
@@ -111,24 +143,28 @@ body {
 .c3-xgrid-focus {
 	visibility: hidden !important;
 }
-.wizard>.steps>ul>li:nth-child(1){
-    width: 100%%;
-    overflow: scroll;
-}
-.wizard>.steps>ul>li:nth-child(2){
-    width: 100%;
-}
-.pvtUi {
-    display: block;
-    width: 100%;
-    overflow: auto;
-}
-.tabcontrol > .content {
 
+.wizard>.steps>ul>li:nth-child(1) {
+	width: 100%%;
+	overflow: scroll;
+}
+
+.wizard>.steps>ul>li:nth-child(2) {
+	width: 100%;
+}
+
+.pvtUi {
+	display: block;
+	width: 100%;
+	overflow: auto;
+}
+
+.tabcontrol>.content {
 	overflow: initial !important;
 }
+
 .wizard, .tabcontrol {
-overflow: initial !important;
+	overflow: initial !important;
 }
 /*Nav widget code */
 /* ul.nav-wizard {
@@ -276,7 +312,7 @@ ul.nav-wizard.nav-wizard-backnav .active ~ li a, ul.nav-wizard.nav-wizard-backna
 } */
 </style>
 <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
-<link rel="shortcut icon" href="assets/ico/favicon.ico">
+<!-- <link rel="shortcut icon" href="assets/ico/favicon.ico">
 <link rel="apple-touch-icon-precomposed" sizes="144x144"
 	href="assets/ico/apple-touch-icon-144-precomposed.png">
 <link rel="apple-touch-icon-precomposed" sizes="114x114"
@@ -284,7 +320,7 @@ ul.nav-wizard.nav-wizard-backnav .active ~ li a, ul.nav-wizard.nav-wizard-backna
 <link rel="apple-touch-icon-precomposed" sizes="72x72"
 	href="assets/ico/apple-touch-icon-72-precomposed.png">
 <link rel="apple-touch-icon-precomposed"
-	href="assets/ico/apple-touch-icon-57-precomposed.png">
+	href="assets/ico/apple-touch-icon-57-precomposed.png"> -->
 
 
 <style>
@@ -294,7 +330,7 @@ ul.nav-wizard.nav-wizard-backnav .active ~ li a, ul.nav-wizard.nav-wizard-backna
 	<div class="navbar navbar-fixed-top navbar-inverse">
 		<div class="navbar-inner">
 			<div class="container">
-				<a class="brand" href="dashboard5.html">Create  Widget </a>
+				<a class="brand" href="dashboard5.html">Create Widget </a>
 				<ul class="nav">
 				</ul>
 			</div>
@@ -313,7 +349,7 @@ ul.nav-wizard.nav-wizard-backnav .active ~ li a, ul.nav-wizard.nav-wizard-backna
 						Data</a></li>
 				<li><a href="#" data-toggle="tab">Export</a></li>
 			</ul> -->
-		<%-- 	<section>
+				<%-- 	<section>
 
 					<p>
 						<label for="name">Dataset:</label> <select id="csv"
@@ -338,39 +374,35 @@ ul.nav-wizard.nav-wizard-backnav .active ~ li a, ul.nav-wizard.nav-wizard-backna
 							<option value="bar">Bar Chart</option>
 							<option value="pie">Pie Chart</option>
 					</select>
-					</span>
-					<span> <label for="chartType">Type of Graph:</label> <select
+					</span> <span> <label for="chartType">Type of Graph:</label> <select
 						name="Chart Type">
 							<option value="line">Exploratory</option>
 							<option value="bar">Normal Graph</option>
-					</select><br/><br/>
-					
+					</select><br /> <br />
+
 					</span>
 				</section>
-				
+
 				<h3>Import Data</h3>
 				<section>
 					<p>
-					<span> <label for="chartType">Type of Graph:</label> <select
-						name="Chart Type">
-							<option value="line">Exploratory</option>
-							<option value="bar">Normal Graph</option>
-					</select><br/><br/>
-					
-					<span> <label for="chartType">Type of Graph:</label> <select
-						name="Chart Type">
-							<option value="line">Exploratory</option>
-							<option value="bar">Normal Graph</option>
-					</select><br/><br/>
-					
-					</span>
-					
+						<span> <label for="chartType">Type of Graph:</label> <select
+							name="Chart Type">
+								<option value="line">Exploratory</option>
+								<option value="bar">Normal Graph</option>
+						</select><br /> <br /> <span> <label for="chartType">Type
+									of Graph:</label> <select name="Chart Type">
+									<option value="line">Exploratory</option>
+									<option value="bar">Normal Graph</option>
+							</select><br /> <br />
+
+						</span>
 					</p>
 				</section>
 				<h3>Export widget</h3>
 				<section>
-					
-					<p>
+
+					<!-- 	<p>
 						<label for="name">Dataset:</label>
 						 <select id="csv"
 							data-placeholder="Choose a dataset..."><option></select>
@@ -378,12 +410,27 @@ ul.nav-wizard.nav-wizard-backnav .active ~ li a, ul.nav-wizard.nav-wizard-backna
 					</p>
 					<p>
 					<div id="output" style="margin: 20px;"></div>
-					</p>
+					</p> -->
+					<div class="container">
+						<div class="container">
+							<style type="text/css">
+.recline-slickgrid {
+	height: 550px;
+}
+
+.recline-timeline .vmm-timeline {
+	height: 550px;
+}
+</style>
+
+							<div class="data-explorer-here"></div>
+						</div>
+					</div>
 				</section>
-				
-				
-				
-				
+
+
+
+
 			</div>
 		</div>
 	</div>
@@ -395,7 +442,7 @@ ul.nav-wizard.nav-wizard-backnav .active ~ li a, ul.nav-wizard.nav-wizard-backna
 
 <!-- external libs from cdnjs -->
 
-<script type="text/javascript"
+<!-- <script type="text/javascript"
 	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script type="text/javascript"
 	src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
@@ -409,21 +456,103 @@ ul.nav-wizard.nav-wizard-backnav .active ~ li a, ul.nav-wizard.nav-wizard-backna
 	src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.jquery.js"></script>
 <script type="text/javascript"
 	src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.min.js"></script>
-
+ -->
 <!-- PivotTable.js libs from ../dist -->
 
-<script type="text/javascript" src="assets/createWidget/js/pivot.js"></script>
+<!-- <script type="text/javascript" src="assets/createWidget/js/pivot.js"></script>
 <script type="text/javascript"
 	src="assets/createWidget/js/d3_renderers.js"></script>
 <script type="text/javascript"
 	src="assets/createWidget/js/c3_renderers.js"></script>
-<!-- <script type="text/javascript"
-	src="assets/createWidget/js/export_renderers.js"></script> -->
+<script type="text/javascript"
+	src="assets/createWidget/js/export_renderers.js"></script>-->
+
+<!-- Recline jars -->
+<!-- 3rd party JS libraries -->
+<script type="text/javascript"
+	src="assets/createWidget/js/vendor/jquery/1.7.1/jquery.js"></script>
+<script type="text/javascript"
+	src="assets/createWidget/js/vendor/underscore/1.4.4/underscore.js"></script>
+<script type="text/javascript"
+	src="assets/createWidget/js/vendor/backbone/1.0.0/backbone.js"></script>
+<script type="text/javascript"
+	src="assets/createWidget/js/vendor/mustache/0.5.0-dev/mustache.js"></script>
+<script type="text/javascript"
+	src="assets/createWidget/js/vendor/bootstrap/2.0.2/bootstrap.js"></script>
+<!--[if lte IE 8]>
+  <script language="javascript" type="text/javascript" src="vendor/flot/excanvas.min.js"></script>
+  <![endif]-->
+<script type="text/javascript"
+	src="assets/createWidget/js/vendor/flot/jquery.flot.js"></script>
+<script type="text/javascript"
+	src="assets/createWidget/js/vendor/flot/jquery.flot.time.js"></script>
+<script type="text/javascript"
+	src="assets/createWidget/js/vendor/leaflet/0.4.4/leaflet.js"></script>
+<script type="text/javascript"
+	src="assets/createWidget/js/vendor/leaflet.markercluster/leaflet.markercluster.js"></script>
+<script type="text/javascript"
+	src="assets/createWidget/js/vendor/slickgrid/2.0.1/jquery-ui-1.8.16.custom.min.js"></script>
+<script type="text/javascript"
+	src="assets/createWidget/js/vendor/slickgrid/2.0.1/jquery.event.drag-2.0.min.js"></script>
+<script type="text/javascript"
+	src="assets/createWidget/js/vendor/slickgrid/2.0.1/slick.grid.min.js"></script>
+<script type="text/javascript"
+	src="assets/createWidget/js/vendor/moment/2.0.0/moment.js"></script>
+<script type="text/javascript"
+	src="assets/createWidget/js/vendor/timeline/js/timeline.js"></script>
+<!--[if lte IE 7]>
+  <script language="javascript" type="text/javascript" src="vendor/json/json2.js"></script>
+  <![endif]-->
+
+<!--
+    ## Just use the all in one library version rather than individual files
+
+  <script type="text/javascript" src="dist/recline.js"></script>
+
+  -->
+
+<!-- model and backends -->
+<script type="text/javascript"
+	src="assets/createWidget/js/ecma-fixes.js"></script>
+<script type="text/javascript" src="assets/createWidget/js/model.js"></script>
+<script type="text/javascript"
+	src="assets/createWidget/js/backend.memory.js"></script>
+<script type="text/javascript"
+	src="assets/createWidget/js/backend.dataproxy.js"></script>
+<!--  <script type="text/javascript" src="http://okfnlabs.org/recline.backend.gdocs/backend.gdocs.js"></script> -->
+<script type="text/javascript"
+	src="assets/createWidget/js/backend.csv.js"></script>
+
+<!-- views -->
+<script type="text/javascript" src="assets/createWidget/js/view.grid.js"></script>
+<script type="text/javascript"
+	src="assets/createWidget/js/view.slickgrid.js"></script>
+<script type="text/javascript" src="assets/createWidget/js/view.flot.js"></script>
+<script type="text/javascript"
+	src="assets/createWidget/js/view.graph.js"></script>
+<script type="text/javascript" src="assets/createWidget/js/view.map.js"></script>
+<script type="text/javascript"
+	src="assets/createWidget/js/view.timeline.js"></script>
+<script type="text/javascript"
+	src="assets/createWidget/js/widget.pager.js"></script>
+<script type="text/javascript"
+	src="assets/createWidget/js/widget.queryeditor.js"></script>
+<script type="text/javascript"
+	src="assets/createWidget/js/widget.filtereditor.js"></script>
+<script type="text/javascript"
+	src="assets/createWidget/js/widget.valuefilter.js"></script>
+<script type="text/javascript"
+	src="assets/createWidget/js/widget.facetviewer.js"></script>
+<script type="text/javascript"
+	src="assets/createWidget/js/widget.fields.js"></script>
+<script type="text/javascript"
+	src="assets/createWidget/js/view.multiview.js"></script>
 <script type="text/javascript"
 	src="assets/createWidget/js/jquery.steps.js"></script>
-<script type="text/javascript">
+<script type="text/javascript" src="assets/createWidget/js/app.js"></script>
+<script type="text/javascript"> 
 
-	$(function() {
+ /* $(function() {
 		Papa
 				.parse(
 						"https://raw.githubusercontent.com/nicolaskruchten/Rdatasets/master/datasets.csv",
@@ -477,10 +606,7 @@ ul.nav-wizard.nav-wizard-backnav .active ~ li a, ul.nav-wizard.nav-wizard-backna
 																		skipEmptyLines : true,
 																		complete : function(
 																				parsed) {
-																			/*    $("#doc").empty().append(
-																			       $("<a>",{target:"_blank", href:"http://nicolas.kruchten.com/Rdatasets/doc/"+val+".html"}).html("Dataset documentation &raquo;")
-																			       ); */
-																			$(
+																		$(
 																					"#output")
 																					.pivotUI(
 																							parsed.data,
@@ -494,23 +620,23 @@ ul.nav-wizard.nav-wizard-backnav .active ~ li a, ul.nav-wizard.nav-wizard-backna
 												});
 							}
 						});
-	});
+	}); */
 /* 	$("#createWidget-Async").steps({
 	    headerTag: "h3",
 	    bodyTag: "section",
 	    enableAllSteps: true,
 	    enablePagination: false
-	});  */
-	$("#createWidget-Async").steps({
+	}); */
+ $("#createWidget-Async").steps({
 	    headerTag: "h3",
 	    bodyTag: "section",
-	    transitionEffect: "slideLeft",
-	    enableFinishButton: false,
+	    transitionEffect: "slide",
+		enableFinishButton: false,
 	    enablePagination: false,
 	    enableAllSteps: true,
 	    titleTemplate: "#title#",
-	    cssClass: "tabcontrol"
-	}); 
+	    cssClass: "tabcontrol" 
+	});  
 </script>
 
 

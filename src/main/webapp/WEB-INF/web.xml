@@ -44,7 +44,7 @@
 		<url-pattern>*.json</url-pattern>
 	</servlet-mapping>
 	<display-name>Archetype Created Web Application</display-name>
-	<servlet>     
+<!-- 	<servlet>     
                 <display-name>populateTableHandler</display-name>
                 <servlet-name>populateTableHandler</servlet-name>
                 <servlet-class>
@@ -55,5 +55,5 @@
         <servlet-mapping>
                 <servlet-name>populateTableHandler</servlet-name>
                 <url-pattern>/PopulateTable</url-pattern>
-        </servlet-mapping>
+        </servlet-mapping> -->
 </web-app>
