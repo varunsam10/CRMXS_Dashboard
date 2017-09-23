@@ -179,7 +179,7 @@ html {
 <script src="assets/dash5/js/datatables/jquery.dataTables.js"></script>
 
 <script src="assets/dash5/js/flotr2/flotr2.js" type="text/javascript"></script>
-
+<script src="assets/js/dash1/plotly-latest.min.js"></script>
 <!-- load dashboard library -->
 <script src="assets/dash5/js/jquery-sDashboard.js"	type="text/javascript"></script>
 
@@ -205,7 +205,7 @@ html {
 		//**********************************************//
 
 		var dashboardJSON = [
-				{
+				/* {
 					widgetTitle : "Bubble Chart",
 					widgetId : "id009",
 					widgetType : "chart",
@@ -235,13 +235,13 @@ html {
 						options : myExampleData.pieChartOptions
 					}
 
-				}, {
+				}, */ {
 					widgetTitle : "bar Chart",
 					widgetId : "id002",
 					widgetType : "chart",
 					widgetContent : {
-						data : myExampleData.barChartData,
-						options : myExampleData.barChartOptions
+					//	data : myExampleData.barChartData,
+						//options : myExampleData.barChartOptions
 					}
 
 				}, {
@@ -250,8 +250,12 @@ html {
 					widgetType : "chart",
 					getDataBySelection : true,
 					widgetContent : {
-						data : myExampleData.lineChartData,
-						options : myExampleData.lineChartOptions
+					//	data : myExampleData.lineChartData,
+					//	options : myExampleData.lineChartOptions
+					//plotly data 
+						data:myExampleData.plotlydata,
+						layout : myExampleData.layout,
+						config : myExampleData.Plotlyconfig
 					}
 
 				}];

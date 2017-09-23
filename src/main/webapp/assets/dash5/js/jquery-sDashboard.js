@@ -8,10 +8,10 @@
 ( function(factory) {"use strict";
 		if ( typeof define === 'function' && define.amd) {
 			// Register as an AMD module if available...
-			define(['jquery', 'Flotr'], factory);
+			define(['jquery', 'Flotr', 'Plotly'], factory);
 		} else {
 			// Browser globals for the unenlightened...
-			factory($, Flotr);
+			factory($, Flotr, Plotly);
 		}
 	}(function($, Flotr) {"use strict";
 
@@ -131,7 +131,15 @@
 
 					if (widgetDefinition.widgetType === "chart") {
 						var chartArea = widgetContainer.find(" div.sDashboardChart");
-						Flotr.draw(chartArea[0], widgetDefinition.widgetContent.data, widgetDefinition.widgetContent.options);
+//						Flotr.draw(chartArea[0], widgetDefinition.widgetContent.data, widgetDefinition.widgetContent.options);
+						var layout = {
+								  xaxis: {
+								    tickangle: -45
+								  },
+								  barmode: 'group'
+								};
+
+						Plotly.newPlot(chartArea[0],  widgetDefinition.widgetContent.data, layout);
 						if (!widgetDefinition.getDataBySelection) {
 							//when redrawing the widget, the click event listner is getting destroyed, we need to re-register it here again
 							//need to find out if its a bug on flotr2 library.
@@ -289,7 +297,15 @@
 					chartArea = this.element.find(id + " div.sDashboardChart");
 					data = widgetDefinition.widgetContent.data;
 					options = widgetDefinition.widgetContent.options;
-					Flotr.draw(chartArea[0], data, options);
+//					Flotr.draw(chartArea[0], data, options);
+					var layout = {
+							  xaxis: {
+							    tickangle: -45
+							  },
+							  barmode: 'group'
+							};
+
+					Plotly.newPlot(chartArea[0],  widgetDefinition.widgetContent.data, widgetDefinition.widgetContent.layout,widgetDefinition.widgetContent.config);
 					if (widgetDefinition.getDataBySelection) {
 						this._bindSelectEvent(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
 					} else {
