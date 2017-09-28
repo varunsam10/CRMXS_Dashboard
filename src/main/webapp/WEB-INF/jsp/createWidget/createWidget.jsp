@@ -126,21 +126,21 @@ body {
 .c3-xgrid-focus {
 	visibility: hidden !important;
 }
-
-.wizard>.steps>ul>li:nth-child(1) {
+ 
+/* .wizard>.steps>ul>li:nth-child(1) {
 	width: 100%%;
 	overflow: scroll;
 }
 
 .wizard>.steps>ul>li:nth-child(2) {
 	width: 100%;
-}
+} */
 
-.pvtUi {
+/* .pvtUi {
 	display: block;
 	width: 100%;
 	overflow: auto;
-}
+} */
 
 .tabcontrol>.content {
 	overflow: initial !important;
@@ -148,6 +148,31 @@ body {
 
 .wizard, .tabcontrol {
 	overflow: initial !important;
+}
+@media (min-width: 1200px) {
+    .containerW{
+        max-width: 970px;
+    }
+}
+.wizard > .content > .body{
+    overflow: scroll;
+}
+.pagination ul {
+    display: inline-block;
+    margin-left: 0;
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.pagination li {
+    display: inline !important;
+}
+.pagination input{
+display: inline-block;
 }
 </style>
 <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
@@ -170,9 +195,41 @@ body {
 		<div class="panel panel-custom simulationBase">
 
 			<div id="createWidget-Async">
+				<h3>Import Dataset</h3>
+				<section>
+					<p>
+						<span> <label for="Schema Name">Schema Name:</label> 
+						<select	name="Chart Type">
+								<option value="sales">salesDB</option>
+								<option value="users">UsersDB</option>
+						</select><br /> <br /> 
+						<span> <label for="tableName">Table Name:</label> 
+						<select name="Chart Type">
+									<option value="line">Customers</option>
+									<option value="bar">Home Country</option>
+						</select><br /> <br />
 
-				<h3>Configure</h3>
-				<%-- <section data-mode="async" data-url="/Examples/AsyncContent"> --%>
+						</span>
+					</p>
+				</section>
+				<h3>Explore dataset</h3>
+				<section>					
+					<div class="containerW">
+					<style type="text/css">
+					.recline-slickgrid {
+						height: 550px;
+					}
+
+					.recline-timeline .vmm-timeline {
+						height: 550px;
+					}
+					</style>
+
+					<div class="data-explorer-here"></div>
+					</div>
+					
+				</section>
+				<h3>Configure Widget</h3>
 				<section>
 					<div>
 						<label for="name">Widget Name:</label> <input type="text"
@@ -184,63 +241,16 @@ body {
 							<option value="bar">Bar Chart</option>
 							<option value="pie">Pie Chart</option>
 					</select>
-					</span> <span> <label for="chartType">Type of Graph:</label> <select
+					</span> 
+					<span> <label for="chartType">Type of Graph:</label> <select
 						name="Chart Type">
 							<option value="line">Exploratory</option>
 							<option value="bar">Normal Graph</option>
 					</select><br /> <br />
 
 					</span>
-				</section>
-
-				<h3>Import Data</h3>
-				<section>
-					<p>
-						<span> <label for="chartType">Type of Graph:</label> <select
-							name="Chart Type">
-								<option value="line">Exploratory</option>
-								<option value="bar">Normal Graph</option>
-						</select><br /> <br /> <span> <label for="chartType">Type
-									of Graph:</label> <select name="Chart Type">
-									<option value="line">Exploratory</option>
-									<option value="bar">Normal Graph</option>
-							</select><br /> <br />
-
-						</span>
-					</p>
-				</section>
-				<h3>Export widget</h3>
-				<section>
-
-					<!-- 	<p>
-						<label for="name">Dataset:</label>
-						 <select id="csv"
-							data-placeholder="Choose a dataset..."><option></select>
-						&nbsp; &nbsp; <span id="doc"></span>
-					</p>
-					<p>
-					<div id="output" style="margin: 20px;"></div>
-					</p> -->
-					<div class="container">
-						<div class="container">
-							<style type="text/css">
-.recline-slickgrid {
-	height: 550px;
-}
-
-.recline-timeline .vmm-timeline {
-	height: 550px;
-}
-</style>
-
-							<div class="data-explorer-here"></div>
-						</div>
-					</div>
-				</section>
-
-
-
-
+					<button type="button" class="btn btn-primary">Export Widget</button>
+				</section>				
 			</div>
 		</div>
 	</div>
@@ -336,13 +346,12 @@ body {
 <script type="text/javascript" src="assets/createWidget/js/app.js"></script>
 <script type="text/javascript"> 
 
-/* 	$("#createWidget-Async").steps({
+ 	$("#createWidget-Async").steps({
 	    headerTag: "h3",
 	    bodyTag: "section",
-	    enableAllSteps: true,
-	    enablePagination: false
-	}); */
- $("#createWidget-Async").steps({
+	    transitionEffect: "fade"
+	}); 
+/*  $("#createWidget-Async").steps({
 	    headerTag: "h3",
 	    bodyTag: "section",
 	    transitionEffect: "slide",
@@ -351,7 +360,7 @@ body {
 	    enableAllSteps: true,
 	    titleTemplate: "#title#",
 	    cssClass: "tabcontrol" 
-	});  
+	});   */
 </script>
 
 
