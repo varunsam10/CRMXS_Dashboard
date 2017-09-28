@@ -142,7 +142,6 @@ html {
 		</footer> -->
 
 	</div>
-	</div>
 
 
 </body>
@@ -226,22 +225,24 @@ html {
 					widgetTitle : "Text",
 					widgetId : "id2",
 					widgetContent : "General Messages "
-				}, {
+				},*/ {
 					widgetTitle : "Pie Chart",
 					widgetId : "id001",
 					widgetType : "chart",
 					widgetContent : {
-						data : myExampleData.pieChartData,
-						options : myExampleData.pieChartOptions
+						data : myExampleData.plotlypiedata,
+						layout: myExampleData.plotlypielayout,
+						config: myExampleData.plotlypieconfig
 					}
 
-				}, */ {
+				},  {
 					widgetTitle : "bar Chart",
 					widgetId : "id002",
 					widgetType : "chart",
 					widgetContent : {
-					//	data : myExampleData.barChartData,
-						//options : myExampleData.barChartOptions
+					data : myExampleData.plotlybardata,
+					layout : myExampleData.plotlybarlayout,
+					config: myExampleData.plotlybarconfig
 					}
 
 				}, {
@@ -253,9 +254,9 @@ html {
 					//	data : myExampleData.lineChartData,
 					//	options : myExampleData.lineChartOptions
 					//plotly data 
-						data:myExampleData.plotlydata,
-						layout : myExampleData.layout,
-						config : myExampleData.Plotlyconfig
+						data:myExampleData.plotlylinedata,
+						layout : myExampleData.linelayout,
+						config : myExampleData.plotlylineconfig
 					}
 
 				}];

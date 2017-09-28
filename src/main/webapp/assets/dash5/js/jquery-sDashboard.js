@@ -114,12 +114,14 @@
 					if ($(e.currentTarget).attr("title") === "Maximize") {
 						$(".sDashboard-overlay").show();
 						$(e.currentTarget).attr("title", "Minimize");
+						$(".sDashboardWidgetHeader div.sDashboard-icon.sDashboard-trash-icon ").hide();
 						self._trigger("widgetMaximized", null, {
 							"widgetDefinition" : widgetDefinition
 						});
 					} else {
 						$(".sDashboard-overlay").hide();
 						$(e.currentTarget).attr("title", "Maximize");
+						$(".sDashboardWidgetHeader div.sDashboard-icon.sDashboard-trash-icon ").show();
 						self._trigger("widgetMinimized", null, {
 							"widgetDefinition" : widgetDefinition
 						});
@@ -207,7 +209,7 @@
 				var widgetHeader = $("<div/>").addClass("sDashboardWidgetHeader sDashboard-clearfix");
 				var maximizeButton = $('<div title="Maximize" class="sDashboard-icon sDashboard-circle-plus-icon "></span>');
 
-				var deleteButton = $('<div title="Close" class="sDashboard-icon sDashboard-circle-remove-icon"></div>');
+				var deleteButton = $('<div title="Delete" class="sDashboard-icon sDashboard-trash-icon"></div>');
 
 				//add delete button
 				widgetHeader.append(deleteButton);
@@ -291,12 +293,14 @@
 				var id = "li#" + widgetDefinition.widgetId;
 				var chartArea;
 				var data;
-				var options;
+				var layout;
+				var config;
 
 				if (widgetDefinition.widgetType === 'chart') {
 					chartArea = this.element.find(id + " div.sDashboardChart");
 					data = widgetDefinition.widgetContent.data;
-					options = widgetDefinition.widgetContent.options;
+					layout = widgetDefinition.widgetContent.layout;
+					config = widgetDefinition.widgetContent.config;
 //					Flotr.draw(chartArea[0], data, options);
 					var layout = {
 							  xaxis: {
@@ -306,6 +310,10 @@
 							};
 
 					Plotly.newPlot(chartArea[0],  widgetDefinition.widgetContent.data, widgetDefinition.widgetContent.layout,widgetDefinition.widgetContent.config);
+					Plotly.animate(chartArea[0], { data, layout } , { transition: {
+					      duration: 800,
+					      easing: 'cubic-in-out'
+					    }});
 					if (widgetDefinition.getDataBySelection) {
 						this._bindSelectEvent(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
 					} else {

@@ -69,7 +69,7 @@ var xData = [
 
 	var labels = ['Television', 'Newspaper', 'Internet', 'Radio'];
 
-myExampleData.plotlydata = [];
+myExampleData.plotlylinedata = [];
 
 	for ( var i = 0 ; i < xData.length ; i++ ) {
 	  var result = {
@@ -92,13 +92,15 @@ myExampleData.plotlydata = [];
 	      size: 12
 	    }
 	  };
-	  myExampleData.plotlydata.push(result, result2);
+	  myExampleData.plotlylinedata.push(result, result2);
 	}
 
+	
 
-myExampleData.layout = {
+myExampleData.linelayout = {
   	  showlegend: false,
-  	  width: 600,
+  	  /*width: 475,
+  	  height: 225,*/
   	  xaxis: {
   	    showline: true,
   	    showgrid: false,
@@ -122,13 +124,13 @@ myExampleData.layout = {
   	    showline: false,
   	    showticklabels: false
   	  },
-  	  autosize: false,
-  	  margin: {
+  	  autosize: true,
+  	  /*margin: {
   	    autoexpand: false,
   	    l: 100,
   	    r: 20,
   	    t: 100
-  	  },
+  	  },*/
   	  annotations: [
   	    {
   	      xref: 'paper',
@@ -193,11 +195,11 @@ for ( var i = 0 ; i < xData.length ; i ++ ) {
 	    showarrow: false
 	  };
 	  
-	  myExampleData.layout.annotations.push(result, result2);
+	  myExampleData.linelayout.annotations.push(result, result2);
 	}
 
-myExampleData.Plotlyconfig = {
-		   modeBarButtonsToRemove: ['toImage', 'sendDataToCloud'],
+myExampleData.plotlylineconfig = {
+		   modeBarButtonsToRemove: ['sendDataToCloud'],
 		   displaylogo: false
 	};
 /**
@@ -205,6 +207,69 @@ myExampleData.Plotlyconfig = {
  */
 
 //Pie chart sample data ends here
+
+
+//Plotlyline
+
+var trace1 = {
+		  x: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], 
+		  y: [20, 14, 25, 16, 18, 22, 19, 15, 12, 16, 14, 17],
+		  type: 'bar',
+		  name: 'Primary Product',
+		  marker: {
+		    color: 'rgb(49,130,189)',
+		    opacity: 0.7
+		  }
+		};
+
+		var trace2 = {
+		  x: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+		  y: [19, 14, 22, 14, 16, 19, 15, 14, 10, 12, 12, 16],
+		  type: 'bar',
+		  name: 'Secondary Product',
+		  marker: {
+		    color: 'rgb(204,204,204)',
+		    opacity: 0.5
+		  }
+		};
+
+		myExampleData.plotlybardata = [trace1, trace2];
+		
+		myExampleData.plotlybarlayout = {
+				  xaxis: {
+				    tickangle: -45
+				  },
+				  barmode: 'group',
+				  autosize: true
+				  /*height: 225,
+				  width: 475*/
+				};
+		
+		myExampleData.plotlybarconfig = {
+				   modeBarButtonsToRemove: ['sendDataToCloud'],
+				   displaylogo: false
+			};
+		
+		
+		myExampleData.plotlypiedata = [{
+			  values: [19, 26, 35,10,10],
+			  labels: ['Residential', 'Non-Residential', 'Utility','Cook','Fun'],
+			  type: 'pie'
+			}];
+		
+		myExampleData.plotlypielayout = {
+				autosize: true
+				/*height: 225,
+				  width: 475*/	
+		};
+		
+		myExampleData.plotlypieconfig = {
+				
+				modeBarButtonsToRemove: ['sendDataToCloud'],
+				   displaylogo: false
+		};
+		
+
 
 //bar Chart sample data and options
 
