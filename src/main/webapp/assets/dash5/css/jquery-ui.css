@@ -776,7 +776,7 @@ body .ui-tooltip {
 }
 .ui-widget-content {
 	border: 1px solid #aaaaaa/*{borderColorContent}*/;
-	background: #ffffff/*{bgColorContent}*/url(images/ui-bg_flat_75_ffffff_40x100.png)/*{bgImgUrlContent}*/50%/*{bgContentXPos}*/50%/*{bgContentYPos}*/repeat-x/*{bgContentRepeat}*/;
+	background: #ffffff/*{bgColorContent}*/url(images/ui-bg_flat_75_ffffff_40x100.png)/*{bgImgUrlContent}*/75%/*{bgContentXPos}*/75%/*{bgContentYPos}*/repeat-x/*{bgContentRepeat}*/;
 	color: #222222/*{fcContent}*/;
 }
 .ui-widget-content a {
@@ -784,7 +784,7 @@ body .ui-tooltip {
 }
 .ui-widget-header {
 	border: 1px solid #aaaaaa/*{borderColorHeader}*/;
-	background: #cccccc/*{bgColorHeader}*/url(images/ui-bg_highlight-soft_75_cccccc_1x100.png)/*{bgImgUrlHeader}*/50%/*{bgHeaderXPos}*/50%/*{bgHeaderYPos}*/repeat-x/*{bgHeaderRepeat}*/;
+	background: #cccccc/*{bgColorHeader}*/url(images/ui-bg_highlight-soft_75_cccccc_1x100.png)/*{bgImgUrlHeader}*/75%/*{bgHeaderXPos}*/75%/*{bgHeaderYPos}*/repeat-x/*{bgHeaderRepeat}*/;
 	color: #222222/*{fcHeader}*/;
 	font-weight: bold;
 }
@@ -816,7 +816,8 @@ body .ui-tooltip {
 }
 .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
 	border: 1px solid #aaaaaa/*{borderColorActive}*/;
-	background: #ffffff/*{bgColorActive}*/url(assets/css/dashboard5/images/ui-bg_glass_65_ffffff_1x400.png)/*{bgImgUrlActive}*/50%/*{bgActiveXPos}*/50%/*{bgActiveYPos}*/repeat-x/*{bgActiveRepeat}*/;
+	background: #ffffff/*{bgColorActive}*/url(assets/css/dashboard5/images/ui-bg_glass_65_ffffff_1x4
+	00.png)/*{bgImgUrlActive}*/50%/*{bgActiveXPos}*/50%/*{bgActiveYPos}*/repeat-x/*{bgActiveRepeat}*/;
 	font-weight: normal/*{fwDefault}*/;
 	color: #212121/*{fcActive}*/;
 }
@@ -1450,9 +1451,9 @@ body .ui-tooltip {
 
 /* Overlays */
 .ui-widget-overlay {
-	background: #aaaaaa/*{bgColorOverlay}*/url(images/ui-bg_flat_0_aaaaaa_40x100.png)/*{bgImgUrlOverlay}*/50%/*{bgOverlayXPos}*/50%/*{bgOverlayYPos}*/repeat-x/*{bgOverlayRepeat}*/;
+	background: #aaaaaa/*{bgColorOverlay}*/url(images/ui-bg_flat_0_aaaaaa_75x100.png)/*{bgImgUrlOverlay}*/75%/*{bgOverlayXPos}*/75%/*{bgOverlayYPos}*/repeat-x/*{bgOverlayRepeat}*/;
 	opacity: .3;
-	filter: Alpha(Opacity=30)/*{opacityOverlay}*/;
+	filter: Alpha(Opacity=100)/*{opacityOverlay}*/;
 }
 .ui-widget-shadow {
 	margin: -8px/*{offsetTopShadow}*/0 0 -8px/*{offsetLeftShadow}*/;
@@ -1460,7 +1461,7 @@ body .ui-tooltip {
 	background: #aaaaaa/*{bgColorShadow}*/url(images/ui-bg_flat_0_aaaaaa_40x100.png)/*{bgImgUrlShadow}*/50%/*{bgShadowXPos}*/50%/*{bgShadowYPos}*/repeat-x/*{bgShadowRepeat}*/;
 	opacity: .3;
 	filter: Alpha(Opacity=30)/*{opacityShadow}*/;
-	-moz-border-radius: 8px/*{cornerRadiusShadow}*/;
+	-moz-border-radius: 10px/*{cornerRadiusShadow}*/;
 	-khtml-border-radius: 8px/*{cornerRadiusShadow}*/;
 	-webkit-border-radius: 8px/*{cornerRadiusShadow}*/;
 	border-radius: 8px/*{cornerRadiusShadow}*/;

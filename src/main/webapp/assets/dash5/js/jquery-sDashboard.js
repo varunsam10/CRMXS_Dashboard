@@ -48,8 +48,8 @@
 					var widget = this._constructWidget(_dashboardData[i]);
 					//append the widget to the dashboard
 					this.element.append(widget);
-					this._renderTable(_dashboardData[i]);
-					this._renderChart(_dashboardData[i]);
+					//this._renderTable(_dashboardData[i]);
+					//this._renderChart(_dashboardData[i]);
 				}
 
 				var that = this;
@@ -133,7 +133,7 @@
 
 					if (widgetDefinition.widgetType === "chart") {
 						var chartArea = widgetContainer.find(" div.sDashboardChart");
-//						Flotr.draw(chartArea[0], widgetDefinition.widgetContent.data, widgetDefinition.widgetContent.options);
+//					Flotr.draw(chartArea[0], widgetDefinition.widgetContent.data, widgetDefinition.widgetContent.options);
 						var layout = {
 								  xaxis: {
 								    tickangle: -45
@@ -399,7 +399,7 @@
 				if (this._ifWidgetAlreadyExists(widgetDefinition.widgetId)) {
 					this.element.find("li#" + widgetDefinition.widgetId).effect("shake", {
 						times : 3
-					}, 800);
+					}, 1200);
 				} else {
 					this.options.dashboardData.unshift(widgetDefinition);
 					var widget = this._constructWidget(widgetDefinition);
