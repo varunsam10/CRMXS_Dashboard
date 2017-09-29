@@ -208,13 +208,15 @@
 				//create a widget header
 				var widgetHeader = $("<div/>").addClass("sDashboardWidgetHeader sDashboard-clearfix");
 				var maximizeButton = $('<div title="Maximize" class="sDashboard-icon sDashboard-circle-plus-icon "></span>');
-
-				var deleteButton = $('<div title="Delete" class="sDashboard-icon sDashboard-trash-icon"></div>');
+				var settingsButton = $('<div title="Setting" class="sDashboard-iconcustom sDashboard-settings "></span>');
+				
+				var deleteButton = $('<div title="Delete" class="sDashboard-iconcustomDel sDashboard-trash-icon"></div>');
 
 				//add delete button
 				widgetHeader.append(deleteButton);
 				//add Maximizebutton
 				widgetHeader.append(maximizeButton);
+				widgetHeader.append(settingsButton);
 
 				if (widgetDefinition.hasOwnProperty("enableRefresh") && widgetDefinition.enableRefresh) {
 					var refreshButton = $('<div title="Refresh" class="sDashboard-icon sDashboard-refresh-icon "></div>');
