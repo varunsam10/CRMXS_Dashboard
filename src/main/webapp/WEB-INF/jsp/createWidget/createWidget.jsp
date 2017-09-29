@@ -245,7 +245,14 @@ body {
 					</span>
 					<br/><br/><br/><br/>
 					<span> 
-					<label for="chartType" class="labelCustom">Chart Type:</label> 
+					<label for="chartType" class="labelCustom">Type of Graph:</label> 
+					<select	name="Chart Type" class="dropDownCustom">
+								<option value="line">Exploratory</option>
+								<option value="bar">Normal Graph</option>
+					</select>
+					</span><br/><br/><br/><br/>	
+					<span> 
+					<label for="chartType" class="labelCustom">Widget Type:</label> 
 					<select
 							name="Chart Type" class="dropDownCustom">
 								<option value="line">Line</option>
@@ -253,14 +260,7 @@ body {
 								<option value="pie">Pie Chart</option>
 					</select>
 					</span>
-					<br/><br/><br/><br/>
-					<span> 
-					<label for="chartType" class="labelCustom">Type of Graph:</label> 
-					<select	name="Chart Type" class="dropDownCustom">
-								<option value="line">Exploratory</option>
-								<option value="bar">Normal Graph</option>
-					</select>
-					</span><br/><br/><br/><br/>					
+					<br/><br/><br/><br/>									
 					<button type="button" class="btn btn-primary">Export
 						Widget</button>
 				</section>
