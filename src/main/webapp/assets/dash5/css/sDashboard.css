@@ -58,6 +58,7 @@
 	margin: 0.3em;
 	padding: 0.4em;
 	height: auto;
+	min-height:250px;
 	overflow-x: hidden;
 	overflow-y: auto;
 }
@@ -153,8 +154,28 @@ li.ui-sortable-placeholder {
 	width: 20px;
 	height: 20px;
 }
+.sDashboard-iconcustom {
+	margin: 0 5px 0 5px;
+	float: right;
+	background: url('images/ic_settings_black_18dp_1x.png') no-repeat;
+	width: 20px;
+	height: 20px;
+}
+.sDashboard-iconcustomDel {
+	margin: 0 5px 0 5px;
+	float: right;
+	background: url('images/ic_delete_black_18dp_1x.png') no-repeat;
+	width: 20px;
+	height: 20px;
+}
 
 .sDashboard-icon:hover {
+	cursor: pointer;
+}
+.sDashboard-iconcustom:hover {
+	cursor: pointer;
+}
+.sDashboard-iconcustomDel:hover {
 	cursor: pointer;
 }
 
@@ -177,7 +198,10 @@ li.ui-sortable-placeholder {
 .sDashboard-icon.sDashboard-remove-icon {
 	background-position: -3px -135px;
 }
-
+.sDashboard-iconcustom .sDashboard-settings{
+	
+	background-position: -2px -230px;
+}
 
 .sDashboard-icon.sDashboard-trash-icon {
 	background-position: -4px -159px;
