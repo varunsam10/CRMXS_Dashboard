@@ -179,6 +179,7 @@ html {
 
 <script src="assets/dash5/js/flotr2/flotr2.js" type="text/javascript"></script>
 <script src="assets/js/dash1/plotly-latest.min.js"></script>
+<script src="assets/dash5/js/chart/Chart.bundle.js"></script>
 <!-- load dashboard library -->
 <script src="assets/dash5/js/jquery-sDashboard.js"	type="text/javascript"></script>
 
@@ -380,10 +381,9 @@ $(document).ready(function(){
 			$("#myDashboard").sDashboard("addWidget", {
 				widgetTitle : "Pie Chart 2",
 				widgetId : "id006",
-				widgetType : "chart",
+				widgetType : "static",
 				widgetContent : {
-					data : myExampleData.pieChartData,
-					options : myExampleData.pieChartOptions
+					data: myExampleData.chartJsPolarConfig
 				}
 			});
 

@@ -8,12 +8,12 @@
 ( function(factory) {"use strict";
 		if ( typeof define === 'function' && define.amd) {
 			// Register as an AMD module if available...
-			define(['jquery', 'Flotr', 'Plotly'], factory);
+			define(['jquery', 'Flotr', 'Plotly', 'Chart'], factory);
 		} else {
 			// Browser globals for the unenlightened...
-			factory($, Flotr, Plotly);
+			factory($, Flotr, Plotly, Chart);
 		}
-	}(function($, Flotr) {"use strict";
+	}(function($, Flotr, Plotly) {"use strict";
 
 		$.widget("mn.sDashboard", {
 			version : "2.5",
@@ -97,7 +97,7 @@
 			_bindEvents : function() {
 				var self = this;
 				//click event for maximize button
-				this.element.on("click", ".sDashboardWidgetHeader div.sDashboard-icon.sDashboard-circle-plus-icon", function(e) {
+				this.element.on("click", ".sDashboardWidgetHeader div.sDashboard-icon.sDashboard-maximize-icon", function(e) {
 
 					//get the widget List Item Dom
 					var widgetListItem = $(e.currentTarget).parents("li:first");
@@ -109,17 +109,17 @@
 					var widgetDefinition = self._getWidgetContentForId(widgetListItem.attr("id"), self);
 
 					//toggle the maximize icon into minimize icon
-					$(e.currentTarget).toggleClass("sDashboard-circle-minus-icon");
+					$(e.currentTarget).toggleClass("sDashboard-minimize-icon");
 					//change the tooltip on the maximize/minimize icon buttons
 					if ($(e.currentTarget).attr("title") === "Maximize") {
-						$(".sDashboard-overlay").show();
+						$(".sDashboard-overlay").hide();
 						$(e.currentTarget).attr("title", "Minimize");
 						$(".sDashboardWidgetHeader div.sDashboard-icon.sDashboard-trash-icon ").hide();
 						self._trigger("widgetMaximized", null, {
 							"widgetDefinition" : widgetDefinition
 						});
 					} else {
-						$(".sDashboard-overlay").hide();
+						$(".sDashboard-overlay").show();
 						$(e.currentTarget).attr("title", "Maximize");
 						$(".sDashboardWidgetHeader div.sDashboard-icon.sDashboard-trash-icon ").show();
 						self._trigger("widgetMinimized", null, {
@@ -207,14 +207,16 @@
 
 				//create a widget header
 				var widgetHeader = $("<div/>").addClass("sDashboardWidgetHeader sDashboard-clearfix");
-				var maximizeButton = $('<div title="Maximize" class="sDashboard-icon sDashboard-circle-plus-icon "></span>');
+				var maximizeButton = $('<div title="Maximize" class="sDashboard-icon sDashboard-maximize-icon "></span>');
 
 				var deleteButton = $('<div title="Delete" class="sDashboard-icon sDashboard-trash-icon"></div>');
 
-				//add delete button
-				widgetHeader.append(deleteButton);
+			
 				//add Maximizebutton
 				widgetHeader.append(maximizeButton);
+				
+				//add delete button
+				widgetHeader.append(deleteButton);
 
 				if (widgetDefinition.hasOwnProperty("enableRefresh") && widgetDefinition.enableRefresh) {
 					var refreshButton = $('<div title="Refresh" class="sDashboard-icon sDashboard-refresh-icon "></div>');
@@ -295,9 +297,11 @@
 				var data;
 				var layout;
 				var config;
+				var chart;
+				chartArea = this.element.find(id + " div.sDashboardChart");
 
 				if (widgetDefinition.widgetType === 'chart') {
-					chartArea = this.element.find(id + " div.sDashboardChart");
+					
 					data = widgetDefinition.widgetContent.data;
 					layout = widgetDefinition.widgetContent.layout;
 					config = widgetDefinition.widgetContent.config;
@@ -320,6 +324,16 @@
 						this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
 					}
 				}
+				else if(widgetDefinition.widgetType === 'static')
+					{
+						chart = new Chart(chartArea[0], widgetDefinition.widgetId, widgetDefinition.widgetContent.data);
+						
+						if (widgetDefinition.getDataBySelection) {
+							this._bindSelectEvent(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+						} else {
+							this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+						}
+					}
 
 			},
 			_bindSelectEvent : function(chartArea, widgetId, widgetDefinition, context) {
