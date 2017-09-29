@@ -45,6 +45,9 @@
 <link rel="stylesheet" type="text/css"
 	href="assets/createWidget/css/pivot/jquery.steps.css">
 
+<link rel="stylesheet" type="text/css"
+	href="assets/createWidget/css/createWidgetMain.css">
+
 <style>
 .panelDiv {
 	color: #000000;
@@ -126,7 +129,7 @@ body {
 .c3-xgrid-focus {
 	visibility: hidden !important;
 }
- 
+
 /* .wizard>.steps>ul>li:nth-child(1) {
 	width: 100%%;
 	overflow: scroll;
@@ -141,7 +144,6 @@ body {
 	width: 100%;
 	overflow: auto;
 } */
-
 .tabcontrol>.content {
 	overflow: initial !important;
 }
@@ -149,30 +151,27 @@ body {
 .wizard, .tabcontrol {
 	overflow: initial !important;
 }
-@media (min-width: 1200px) {
-    .containerW{
-        max-width: 970px;
-    }
+
+@media ( min-width : 1200px) {
+	.containerW {
+		max-width: 970px;
+	}
 }
-.wizard > .content > .body{
-    overflow: scroll;
+
+.wizard>.content>.body {
+	overflow: scroll;
 }
+
 .pagination ul {
-    display: inline-block;
-    margin-left: 0;
-    margin-bottom: 0;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-}
-.pagination li {
-    display: inline !important;
-}
-.pagination input{
-display: inline-block;
+	display: inline-block;
+	margin-left: 0;
+	margin-bottom: 0;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+	-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 </style>
 <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
@@ -197,24 +196,32 @@ display: inline-block;
 			<div id="createWidget-Async">
 				<h3>Import Dataset</h3>
 				<section>
-					<p>
-						<span> <label for="Schema Name">Schema Name:</label> 
-						<select	name="Chart Type">
+					<div class="container">
+						<span> <label for="Schema Name" class="labelCustom">
+						<b>Schema Name:</b></label>
+							<select name="Chart Type" class="dropDownCustom">
 								<option value="sales">salesDB</option>
 								<option value="users">UsersDB</option>
-						</select><br /> <br /> 
-						<span> <label for="tableName">Table Name:</label> 
-						<select name="Chart Type">
-									<option value="line">Customers</option>
-									<option value="bar">Home Country</option>
-						</select><br /> <br />
-
-						</span>
-					</p>
+						</select>
+						</span><br />
+						<br /><br/><br/> 
+						<span> 
+						<label for="tableName" class="labelCustom">
+						<b>Table Name:</b></label> 
+						<select name="Chart Type" class="dropDownCustom">
+								<option value="line">Customers</option>
+								<option value="bar">Home Country</option>
+						</select>
+						</span><br/><br/><br/><br/>
+						<div class="clearfix">
+							<button type="button" class="btn btn-primary">Import
+								Dataset</button>
+						</div>
+					</div>
 				</section>
 				<h3>Explore dataset</h3>
-				<section>					
-					<div class="containerW">
+				<section>
+				<div class="containerW">
 					<style type="text/css">
 					.recline-slickgrid {
 						height: 550px;
@@ -225,32 +232,38 @@ display: inline-block;
 					}
 					</style>
 
-					<div class="data-explorer-here"></div>
-					</div>
-					
+						<div class="data-explorer-here"></div>
+				</div>
 				</section>
 				<h3>Configure Widget</h3>
 				<section>
-					<div>
-						<label for="name">Widget Name:</label> <input type="text"
-							id="name" name="widget_name">
-					</div>
-					<span> <label for="chartType">Chart Type:</label> <select
-						name="Chart Type">
-							<option value="line">Line</option>
-							<option value="bar">Bar Chart</option>
-							<option value="pie">Pie Chart</option>
-					</select>
-					</span> 
-					<span> <label for="chartType">Type of Graph:</label> <select
-						name="Chart Type">
-							<option value="line">Exploratory</option>
-							<option value="bar">Normal Graph</option>
-					</select><br /> <br />
-
+					<span>
+							
+					<label for="name" class="labelCustom">Widget Name:</label> 
+					<input type="text"	class="widgetName dropDownCustom" name="widget_name">
+							
 					</span>
-					<button type="button" class="btn btn-primary">Export Widget</button>
-				</section>				
+					<br/><br/><br/><br/>
+					<span> 
+					<label for="chartType" class="labelCustom">Chart Type:</label> 
+					<select
+							name="Chart Type" class="dropDownCustom">
+								<option value="line">Line</option>
+								<option value="bar">Bar Chart</option>
+								<option value="pie">Pie Chart</option>
+					</select>
+					</span>
+					<br/><br/><br/><br/>
+					<span> 
+					<label for="chartType" class="labelCustom">Type of Graph:</label> 
+					<select	name="Chart Type" class="dropDownCustom">
+								<option value="line">Exploratory</option>
+								<option value="bar">Normal Graph</option>
+					</select>
+					</span><br/><br/><br/><br/>					
+					<button type="button" class="btn btn-primary">Export
+						Widget</button>
+				</section>
 			</div>
 		</div>
 	</div>
