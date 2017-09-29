@@ -114,14 +114,14 @@
 					if ($(e.currentTarget).attr("title") === "Maximize") {
 						$(".sDashboard-overlay").show();
 						$(e.currentTarget).attr("title", "Minimize");
-						$(".sDashboardWidgetHeader div.sDashboard-icon.sDashboard-trash-icon ").hide();
+						$(".sDashboardWidgetHeader div.sDashboard-iconcustomDel.sDashboard-trash-icon ").hide();
 						self._trigger("widgetMaximized", null, {
 							"widgetDefinition" : widgetDefinition
 						});
 					} else {
 						$(".sDashboard-overlay").hide();
 						$(e.currentTarget).attr("title", "Maximize");
-						$(".sDashboardWidgetHeader div.sDashboard-icon.sDashboard-trash-icon ").show();
+						$(".sDashboardWidgetHeader div.sDashboard-iconcustomDel.sDashboard-trash-icon ").show();
 						self._trigger("widgetMinimized", null, {
 							"widgetDefinition" : widgetDefinition
 						});
@@ -168,7 +168,7 @@
 				});
 
 				//delete widget by clicking the 'trash' icon on the widget
-				this.element.on("click", ".sDashboardWidgetHeader div.sDashboard-icon.sDashboard-trash-icon ", function(e) {
+				this.element.on("click", ".sDashboardWidgetHeader div.sDashboard-iconcustomDel.sDashboard-trash-icon ", function(e) {
 					var widget = $(e.currentTarget).parents("li:first");
 					//show hide effect
 					widget.hide("fold", {}, 300, function() {
