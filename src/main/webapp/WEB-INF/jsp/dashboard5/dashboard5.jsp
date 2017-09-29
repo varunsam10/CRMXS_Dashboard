@@ -195,7 +195,7 @@ html {
 		//Theme switcher plugin
 		$("#switcher").themeswitcher({
 			imgpath : "assets/dash5/css/images/",
-			loadTheme : "cupertino"
+			loadTheme : "Le Frog"
 		});
 
 		//**********************************************//

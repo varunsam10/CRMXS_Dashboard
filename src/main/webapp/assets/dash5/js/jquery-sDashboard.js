@@ -167,8 +167,8 @@
 
 				});
 
-				//delete widget by clicking the 'x' icon on the widget
-				this.element.on("click", ".sDashboardWidgetHeader div.sDashboard-icon.sDashboard-circle-remove-icon ", function(e) {
+				//delete widget by clicking the 'trash' icon on the widget
+				this.element.on("click", ".sDashboardWidgetHeader div.sDashboard-icon.sDashboard-trash-icon ", function(e) {
 					var widget = $(e.currentTarget).parents("li:first");
 					//show hide effect
 					widget.hide("fold", {}, 300, function() {
@@ -310,10 +310,10 @@
 							};
 
 					Plotly.newPlot(chartArea[0],  widgetDefinition.widgetContent.data, widgetDefinition.widgetContent.layout,widgetDefinition.widgetContent.config);
-					Plotly.animate(chartArea[0], { data, layout } , { transition: {
+					/*Plotly.animate(chartArea[0], { data, layout } , { transition: {
 					      duration: 800,
 					      easing: 'cubic-in-out'
-					    }});
+					    }});*/
 					if (widgetDefinition.getDataBySelection) {
 						this._bindSelectEvent(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
 					} else {
