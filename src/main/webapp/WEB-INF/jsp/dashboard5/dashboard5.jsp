@@ -189,6 +189,7 @@ html {
 <script src="assets/dash5/js/exampleData.js" type="text/javascript"></script>
 
 <script type="text/javascript">
+$(document).ready(function(){
 	$(function() {
 		
 		
@@ -418,6 +419,7 @@ html {
 		});
 
 	});
+})
 </script>
 <!--     sDashboard     -->
 </html>

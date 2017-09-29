@@ -1,0 +1,27 @@
+@CHARSET "ISO-8859-1";
+
+button {
+  
+    cursor: pointer;
+    
+}
+
+.dropDownCustom{
+	
+	margin-left:15px;
+}
+.widgetName{
+	
+	display: inline-block !important;
+}
+.labelCustom{
+	
+	width: 10%;
+}
+.pagination li {
+	display: inline !important;
+}
+
+.pagination input {
+	display: inline-block !important;
+}
