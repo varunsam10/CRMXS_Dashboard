@@ -57,7 +57,8 @@
 .sDashboardWidgetContent {
 	margin: 0.3em;
 	padding: 0.4em;
-	height: 180px;
+	height: auto;
+	min-height: 250px!important;
 	overflow-x: hidden;
 	overflow-y: auto;
 }

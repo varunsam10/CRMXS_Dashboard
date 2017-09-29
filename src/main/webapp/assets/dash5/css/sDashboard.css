@@ -58,6 +58,7 @@
 	margin: 0.3em;
 	padding: 0.4em;
 	height: auto;
+	min-height:250px;
 	overflow-x: hidden;
 	overflow-y: auto;
 }
