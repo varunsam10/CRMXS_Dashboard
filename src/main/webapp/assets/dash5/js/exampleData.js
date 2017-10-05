@@ -47,7 +47,7 @@ myExampleData.pieChartOptions = {
 /*
  *Plotly data  
  */
-var xData = [
+/*var xData = [
 	  [2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2013],
 	  [2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2013],
 	  [2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2013],
@@ -100,7 +100,7 @@ myExampleData.plotlylinedata = [];
 myExampleData.linelayout = {
   	  showlegend: false,
   	  /*width: 475,
-  	  height: 225,*/
+  	  height: 225,
   	  xaxis: {
   	    showline: true,
   	    showgrid: false,
@@ -130,7 +130,7 @@ myExampleData.linelayout = {
   	    l: 100,
   	    r: 20,
   	    t: 100
-  	  },*/
+  	  },
   	  annotations: [
   	    {
   	      xref: 'paper',
@@ -201,14 +201,50 @@ for ( var i = 0 ; i < xData.length ; i ++ ) {
 myExampleData.plotlylineconfig = {
 		   modeBarButtonsToRemove: ['sendDataToCloud'],
 		   displaylogo: false
-	};
+	};*/
 /**
  * Plotly data
  */
 
 //Pie chart sample data ends here
 
-
+//PlotlysimpleLine
+var trace1 = {
+		  x: [0, 1, 2, 3, 4, 5, 6, 7, 8],
+		  y: [0, 3, 5, 3, 6, 4, 5, 3, 1],
+		  name: 'Name of Trace 1',
+		  type: 'scatter'
+		};
+		var trace2 = {
+		  x: [0, 1, 2, 3, 4, 5, 6, 7, 8],
+		  y: [1, 0, 3, 2, 5, 4, 7, 6, 8],
+		  name: 'Name of Trace 2',
+		  type: 'scatter'
+		};
+		myExampleData.plotlylinedata = [trace1, trace2];
+		myExampleData.plotlylinelayout = {
+				  title: 'Plot Title',
+				  xaxis: {
+				    title: 'x Axis',
+				    titlefont: {
+				      family: 'Courier New, monospace',
+				      size: 18,
+				      color: '#7f7f7f'
+				    }
+				  },
+				  yaxis: {
+				    title: 'y Axis',
+				    titlefont: {
+				      family: 'Courier New, monospace',
+				      size: 18,
+				      color: '#7f7f7f'
+				    }
+				  }
+				};
+		myExampleData.plotlylineconfig = {
+				   modeBarButtonsToRemove: ['sendDataToCloud'],
+				   displaylogo: false
+			};
 //Plotlyline
 
 var trace1 = {
