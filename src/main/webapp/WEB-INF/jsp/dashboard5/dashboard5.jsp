@@ -33,6 +33,8 @@
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300'
 	rel='stylesheet' type='text/css'>
 <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+
+
 <!--     sDashboard     -->
 <!-- load jquery ui css theme -->
 <link type="text/css" href="assets/dash5/css/jquery-ui.css"
@@ -45,7 +47,9 @@
 <link href="assets/dash5/css/gitter/css/jquery.gritter.css"
 	rel="stylesheet" />
 <!--     sDashboard     -->
+
 <style>
+
 html {
 	overflow-y: hidden
 }

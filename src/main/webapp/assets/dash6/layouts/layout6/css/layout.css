@@ -539,7 +539,8 @@ html {
   /* Page fixed main content */
   .page-content .page-fixed-main-content {
     overflow: hidden;
-    margin-left: 255px; } }
+    /*margin-left: 255px; */
+  } }
 
 /***
 Page sidebar

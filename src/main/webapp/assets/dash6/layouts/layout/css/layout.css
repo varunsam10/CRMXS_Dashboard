@@ -148,7 +148,7 @@ Page Header
     .page-header.navbar .menu-toggler.th-toggle-exit > span {
       background-color: transparent !important; }
     .page-header.navbar .menu-toggler.th-toggle-exit > span:after {
-      webkit-transform: translateY(6px) rotateZ(45deg);
+      webkit-transform: translateY(6px) rotateZ(45deg);@media (min-width: 992px)
       -moz-transform: translateY(6px) rotateZ(45deg);
       -ms-transform: translateY(6px) rotateZ(45deg);
       -o-transform: translateY(6px) rotateZ(45deg);
