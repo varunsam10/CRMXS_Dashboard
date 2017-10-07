@@ -81,9 +81,9 @@
 			<div class="container-fluid">
 				<div class="havbar-header">
 					<!-- BEGIN LOGO -->
-					<a id="index" class="navbar-brand" href="start.html"> <img
+					<div id="index" class="navbar-brand"> <img
 						src="assets/dash6/layouts/layout6/img/logo.png" alt="Logo">
-					</a>
+					</div>
 					<!-- END LOGO -->
 					<!-- BEGIN TOPBAR ACTIONS -->
 					<div class="topbar-actions">

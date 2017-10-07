@@ -97,7 +97,7 @@ padding-top: 60px;
 	cursor: pointer;
 	float: left;	
 	margin-left: 5%;
-	margin-top: 5%;
+	/* margin-top: 5%; */
 }
  .simulator-icon-start4 {
 	text-align: center;
@@ -192,14 +192,14 @@ padding-top: 60px;
 				<span class="simulator-label"><a 
 						href="dashboard6.html">Dashboard 6 »</a></span>
 				</div>	
-				<div class="simulator-icon-start4">
+				<!-- <div class="simulator-icon-start4">
 					<span class="simulator-label"><a 
 						href="createWidget.html">Create Widget »</a></span>
-				</div>	
-				<div class="simulator-icon-start4">
+				</div>	 -->
+			<!-- 	<div class="simulator-icon-start4">
 					<span class="simulator-label"><a 
 						href="dashboard5.html">Dashboard5 »</a></span>
-				</div>		
+				</div>		 -->
 		<!-- 		<div class="simulator-icon-start4">
 					<span class="simulator-label"><a 
 						href="dashboard4.html">Dashboard4 »</a></span>
