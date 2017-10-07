@@ -443,7 +443,7 @@ var App = function() {
     // last popep popover
     var lastPopedPopover;
 
-    var handlePopovers = function() {
+   /* var handlePopovers = function() {
         $('.popovers').popover();
 
         // close last displayed popover
@@ -453,7 +453,7 @@ var App = function() {
                 lastPopedPopover.popover('hide');
             }
         });
-    };
+    };*/
 
     // Handles scrollable contents using jQuery SlimScroll plugin.
     var handleScrollers = function() {
@@ -593,13 +593,14 @@ var App = function() {
             handleAlerts(); //handle closabled alerts
             handleDropdowns(); // handle dropdowns
             handleTabs(); // handle tabs
-            handleTooltips(); // handle bootstrap tooltips
-            handlePopovers(); // handles bootstrap popovers
+            handleTooltips();// handle bootstrap tooltips
+            handleCounterup();// handle counterup instances
+            //handlePopovers(); // handles bootstrap popovers
             handleAccordions(); //handles accordions 
             handleModals(); // handle modals
             handleBootstrapConfirmation(); // handle bootstrap confirmations
             handleTextareaAutosize(); // handle autosize textareas
-            handleCounterup(); // handle counterup instances
+            
 
             //Handle group element heights
             this.addResizeHandler(handleHeight); // handle auto calculating height on window resize
