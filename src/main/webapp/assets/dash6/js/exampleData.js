@@ -42,8 +42,39 @@ myExampleData.pieChartOptions = {
 		backgroundColor : "#D2E8FF"
 	}
 };
+/**
+ * C3 data
+ */
+/*myExampleData.c3bubbledata ={
+        type: 'bubble',
+        pairs: [
+            { x: 'Name_0', y: 'Name_0', value: 10000 },
+            { x: 'Name_0', y: 'Name_1', value: 20000 },
+            { x: 'Name_0', y: 'Name_2', value: 39990 },
+//            { x: 'Name_1', y: 'Name_0', value: 5000 },
+            { x: 'Name_1', y: 'Name_1', value: 6000 },
+            { x: 'Name_1', y: 'Name_2', value: 50000 },
+            { x: 'Name_2', y: 'Name_0', value: 1000 },
+            { x: 'Name_2', y: 'Name_1', value: 2000 },
+            { x: 'Name_2', y: 'Name_2', value: 3000 },
+        ]
+    };
+myExampleData.c3bubblegriddata ={
+    x: {
+        show: true
+    },
+    y: {
+        show: true
+    }
+};*/
 
 
+myExampleData.c3linedata ={
+        columns: [
+            ['data1', 30, 200, 100, 400, 150, 250],
+            ['data2', 50, 20, 10, 40, 15, 25]
+        ]
+    };
 /**
  * Plotly data
  */

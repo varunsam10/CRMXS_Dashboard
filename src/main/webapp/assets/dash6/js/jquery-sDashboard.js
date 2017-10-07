@@ -8,12 +8,12 @@
 ( function(factory) {"use strict";
 		if ( typeof define === 'function' && define.amd) {
 			// Register as an AMD module if available...
-			define(['jquery', 'Flotr', 'Plotly', 'Chart'], factory);
+			define(['jquery', 'Flotr', 'Plotly','c3'], factory);
 		} else {
 			// Browser globals for the unenlightened...
-			factory($, Flotr, Plotly, Chart);
+			factory($, Flotr, Plotly,c3);
 		}
-	}(function($, Flotr, Plotly) {"use strict";
+	}(function($, Flotr, Plotly,c3) {"use strict";
 
 		$.widget("mn.sDashboard", {
 			version : "2.5",
@@ -77,7 +77,7 @@
 				if (disableSelection) {
 					this.element.disableSelection();
 				}
-				//bind events for widgets
+				//bind events for widgetsjs-plotly-plot
 				this._bindEvents();
 
 				//trigger creation complete when the dashboard widgets are constructed
@@ -132,7 +132,7 @@
 					widgetContainer.toggleClass("sDashboardWidgetContentMaximized ");
 
 					if (widgetDefinition.widgetType === "chart") {
-						var chartArea = widgetContainer.find(" div.sDashboardChart");
+					var chartArea = widgetContainer.find(" div.sDashboardChart");
 //					Flotr.draw(chartArea[0], widgetDefinition.widgetContent.data, widgetDefinition.widgetContent.options);
 						var layout = {
 								  xaxis: {
@@ -142,6 +142,7 @@
 								};
 
 						Plotly.newPlot(chartArea[0],  widgetDefinition.widgetContent.data, layout);
+//						var chart = c3.generate({bindto:chartArea[0],data:widgetDefinition.widgetContent.data});
 						if (!widgetDefinition.getDataBySelection) {
 							//when redrawing the widget, the click event listner is getting destroyed, we need to re-register it here again
 							//need to find out if its a bug on flotr2 library.
@@ -242,6 +243,7 @@
 					var chart = $('<div/>').addClass("sDashboardChart");
 					if (widgetDefinition.getDataBySelection) {
 						chart.addClass("sDashboardChartSelectable");
+//						chart.addClass("chart");
 					} else {
 						chart.addClass("sDashboardChartClickable");
 					}
@@ -323,6 +325,7 @@
 					      duration: 800,
 					      easing: 'cubic-in-out'
 					    }});*/
+//					var chart = c3.generate({bindto:chartArea[0],data:widgetDefinition.widgetContent.data});
 					if (widgetDefinition.getDataBySelection) {
 						this._bindSelectEvent(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
 					} else {

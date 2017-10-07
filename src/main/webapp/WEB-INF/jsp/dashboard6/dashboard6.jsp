@@ -72,6 +72,8 @@
 <link href="assets/dash6/css/sDashboard.css" rel="stylesheet">
 <!-- load gitter css -->
 <link href="assets/dash6/css/jquery.gritter.css" rel="stylesheet" />
+<!-- C3 css -->
+<!-- <link href="assets/dash6/css/c3/c3.css" rel="stylesheet" /> -->
 <!--     sDashboard     -->
 <!-- END HEAD -->
 <body class="page-md">
@@ -495,6 +497,9 @@
 	<script src="assets/dash5/js/flotr2/flotr2.js" type="text/javascript"></script>
 	<script src="assets/js/dash1/plotly-latest.min.js"></script>
 	<script src="assets/dash6/js/chart/Chart.bundle.js"></script>
+	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="assets/dash6/js/c3/c3.min.js"></script>
+    <script src="assets/dash6/js/c3/bubble.js"></script>
 	<!-- load dashboard library -->
 	<script src="assets/dash6/js/jquery-sDashboard.js"
 		type="text/javascript"></script>
@@ -544,8 +549,8 @@
         widgetTitle : "Text",
         widgetId : "id2",
         widgetContent : "General Messages "
-        },*/ {
-        widgetTitle : "Pie Chart",
+        },*/ /* {
+        widgetTitle : "Sales Figures",
         widgetId : "id001",
         widgetType : "chart",
         widgetContent : {
@@ -555,7 +560,7 @@
         }
 
         },  {
-        widgetTitle : "bar Chart",
+        widgetTitle : "Revenue",
         widgetId : "id002",
         widgetType : "chart",
         widgetContent : {
@@ -564,8 +569,8 @@
         config: myExampleData.plotlybarconfig
         }
 
-        }, {
-        widgetTitle : "line Chart",
+        }, */ {
+        widgetTitle : "Items sold",
         widgetId : "id003",
         widgetType : "chart",
         getDataBySelection : true,
@@ -573,9 +578,11 @@
         //	data : myExampleData.lineChartData,
         //	options : myExampleData.lineChartOptions
         //plotly data
-        data:myExampleData.plotlylinedata,
+     	data:myExampleData.plotlylinedata,
         layout : myExampleData.linelayout,
         config : myExampleData.plotlylineconfig
+        //c3
+        //data:myExampleData.c3linedata      
         }
 
         }];

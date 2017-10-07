@@ -12,8 +12,10 @@
 	padding-left: 10px;
 	padding-top: 10px;
 	width: 100%;
-	font-family : Helvetica Neue, Helvetica, Arial, sans-serif;
-	font-size : 13px;
+	height: 100%;
+	font-family: "Open Sans",sans-serif;
+	font-size: 18px;
+	font-weight: 200;
 	/*overflow: auto;*/
 }
 
@@ -49,12 +51,13 @@
 	border: 0;
 	border-bottom: 1px solid #CBCBCB;
 	color: #000;
-	font-weight: bold;
+	/* font-weight: bold; */
 }
 
 /*dashboard widget content css*/
 .sDashboardWidgetContent {
-	margin: 0.3em;
+	/* margin: 0.3em; */
+	margin: 0.1em;
 	padding: 0.4em;
 	height: auto;
 	min-height:250px;
@@ -63,7 +66,8 @@
 }
 
 .sDashboardWidgetContentMaximized {
-	margin: 0.3em;
+	/* margin: 0.3em; */
+	margin: 0.7em;
 	padding: 0.4em;
 	height: 90%;
 }
