@@ -1,10 +1,3 @@
-/*
- * jquery sDashboard (2.5)
- * Copyright 2012, Model N, Inc
- * Distributed under MIT license.
- * https://github.com/ModelN/sDashboard
- */
-
 ( function(factory) {"use strict";
 		if ( typeof define === 'function' && define.amd) {
 			// Register as an AMD module if available...
@@ -49,7 +42,7 @@
 					//append the widget to the dashboard
 					this.element.append(widget);
 					//this._renderTable(_dashboardData[i]);
-					//this._renderChart(_dashboardData[i]);
+					this._renderChart(_dashboardData[i]);
 				}
 
 				var that = this;
