@@ -202,7 +202,27 @@ var trace1 = {
 				   displaylogo: false
 		};
 		
+/**
+ * Plotly data with bar stacked graph 
+ */
+		
+var trace1 = {
+				  x: ['tiger', 'desperado', 'heiniken'],
+				  y: [20, 14, 23],
+				  name: 'SF Breweries',
+				  type: 'bar'
+				};
 
+var trace2 = {
+				  x: ['tiger', 'desperado', 'heiniken'],
+				  y: [12, 18, 29],
+				  name: 'LA Breweries',
+				  type: 'bar'
+				};
+
+myExampleData.barGroupChartData = [trace1, trace2];
+
+myExampleData.barGroupChartLayout = {barmode: 'group'};
 //polar area using chart.js
 		
 myExampleData.chartJsPolarConfig = {

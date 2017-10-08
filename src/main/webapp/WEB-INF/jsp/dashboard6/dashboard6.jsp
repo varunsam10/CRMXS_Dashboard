@@ -570,8 +570,8 @@
         //c3 bar graph
        /*  data : myExampleData.c3bardata,
         bar : myExampleData.c3bardatabar     */
-       	data : myExampleData.plotlybardata,
-		layout : myExampleData.plotlybarlayout,
+       	data : myExampleData.barGroupChartData,
+		layout : myExampleData.barGroupChartLayout,
 		config: myExampleData.plotlybarconfig
         }
         },{
