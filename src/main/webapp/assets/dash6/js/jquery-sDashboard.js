@@ -134,8 +134,8 @@
 								  barmode: 'group'
 								};
 
-						Plotly.newPlot(chartArea[0],  widgetDefinition.widgetContent.data, layout);
-//						var chart = c3.generate({bindto:chartArea[0],data:widgetDefinition.widgetContent.data});
+//						Plotly.newPlot(chartArea[0],  widgetDefinition.widgetContent.data, layout);
+						var chart = c3.generate({bindto:chartArea[0],data:widgetDefinition.widgetContent.data});
 						if (!widgetDefinition.getDataBySelection) {
 							//when redrawing the widget, the click event listner is getting destroyed, we need to re-register it here again
 							//need to find out if its a bug on flotr2 library.
@@ -318,12 +318,19 @@
 							  barmode: 'group'
 							};
 
-					Plotly.newPlot(chartArea[0],  widgetDefinition.widgetContent.data, widgetDefinition.widgetContent.layout,widgetDefinition.widgetContent.config);
+//					Plotly.newPlot(chartArea[0],  widgetDefinition.widgetContent.data, widgetDefinition.widgetContent.layout,widgetDefinition.widgetContent.config);
 					/*Plotly.animate(chartArea[0], { data, layout } , { transition: {
 					      duration: 800,
 					      easing: 'cubic-in-out'
 					    }});*/
-//					var chart = c3.generate({bindto:chartArea[0],data:widgetDefinition.widgetContent.data});
+					if(widgetDefinition.chartType === 'pie'){
+						
+						var chart = c3.generate({bindto:chartArea[0],data:widgetDefinition.widgetContent.data});
+						
+					}else{
+						
+						Plotly.newPlot(chartArea[0],  widgetDefinition.widgetContent.data, widgetDefinition.widgetContent.layout,widgetDefinition.widgetContent.config);
+					}					
 					if (widgetDefinition.getDataBySelection) {
 						this._bindSelectEvent(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
 					} else {

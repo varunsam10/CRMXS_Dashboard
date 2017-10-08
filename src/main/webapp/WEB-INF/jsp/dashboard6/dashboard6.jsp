@@ -73,7 +73,7 @@
 <!-- load gitter css -->
 <link href="assets/dash6/css/jquery.gritter.css" rel="stylesheet" />
 <!-- C3 css -->
-<!-- <link href="assets/dash6/css/c3/c3.css" rel="stylesheet" /> -->
+<link href="assets/dash6/css/c3/c3.css" rel="stylesheet" />
 <!--     sDashboard     -->
 <!-- END HEAD -->
 <body class="page-md">
@@ -499,7 +499,7 @@
 	<script src="assets/dash6/js/chart/Chart.bundle.js"></script>
 	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
     <script src="assets/dash6/js/c3/c3.min.js"></script>
-    <script src="assets/dash6/js/c3/bubble.js"></script>
+   <!--  <script src="assets/dash6/js/c3/bubble.js"></script> -->
 	<!-- load dashboard library -->
 	<script src="assets/dash6/js/jquery-sDashboard.js"
 		type="text/javascript"></script>
@@ -554,38 +554,42 @@
         widgetId : "id001",
         widgetType : "chart",
         widgetDimension:"normal",
+        chartType : "pie",
         widgetContent : {
-        data : myExampleData.plotlypiedata,
-        layout: myExampleData.plotlypielayout,
-        config: myExampleData.plotlypieconfig
+        /**Plotly Graph */      
+        //data : myExampleData.plotlypiedata,   
+       	data : myExampleData.c3piedata
         }
-
         }, {
         widgetTitle : "Revenue",
         widgetId : "id002",
         widgetType : "chart",
         widgetDimension:"normal",
-        widgetContent : {
-        data : myExampleData.plotlybardata,
-        layout : myExampleData.plotlybarlayout,
-        config: myExampleData.plotlybarconfig
+        chartType : "bar",
+        widgetContent : {        	
+        //c3 bar graph
+       /*  data : myExampleData.c3bardata,
+        bar : myExampleData.c3bardatabar     */
+       	data : myExampleData.plotlybardata,
+		layout : myExampleData.plotlybarlayout,
+		config: myExampleData.plotlybarconfig
         }
-
-        },  {
+        },{
         widgetTitle : "Items sold",
         widgetId : "id003",
         widgetType : "chart",
         widgetDimension:"large",
+        chartType : "line",
         getDataBySelection : true,
         widgetContent : {
         //	data : myExampleData.lineChartData,
         //	options : myExampleData.lineChartOptions
         //plotly data
-     	data:myExampleData.plotlylinedata,
+    	data:myExampleData.plotlylinedata,
         layout : myExampleData.linelayout,
         config : myExampleData.plotlylineconfig
         //c3
-        //data:myExampleData.c3linedata      
+       // data:myExampleData.c3linedata      
         }
 
         }];
