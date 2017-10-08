@@ -64,12 +64,12 @@
 <link rel="shortcut icon" href="favicon.ico" />
 </head>
 
-<!--     sDashboard     -->
+<!--     CPR Dashboard     -->
 <!-- load jquery ui css theme -->
 <link type="text/css" href="assets/dash6/css/jquery-ui.css"
 	rel="stylesheet" />
 <!-- load the dashboard css -->
-<link href="assets/dash6/css/sDashboard.css" rel="stylesheet">
+<link href="assets/dash6/css/cprDashboard.css" rel="stylesheet">
 <!-- load gitter css -->
 <link href="assets/dash6/css/jquery.gritter.css" rel="stylesheet" />
 <!-- C3 css -->
@@ -322,9 +322,9 @@
 				<!-- BEGIN PAGE BASE CONTENT -->
 				<div class="content">
 					<div class="container-fluid">
-						<!--     sDashboard -->
+						<!--     CPR Dashboard -->
 						<hr />
-						<ul id="myDashboard">
+						<ul id="cprDashboard">
 
 						</ul>
 
@@ -501,7 +501,7 @@
     <script src="assets/dash6/js/c3/c3.min.js"></script>
    <!--  <script src="assets/dash6/js/c3/bubble.js"></script> -->
 	<!-- load dashboard library -->
-	<script src="assets/dash6/js/jquery-sDashboard.js"
+	<script src="assets/dash6/js/jquery-cprDashboard.js"
 		type="text/javascript"></script>
 
 	<!-- theme switcher -->
@@ -595,12 +595,12 @@
         }];
 
         //basic initialization example
-        $("#myDashboard").sDashboard({
+        $("#cprDashboard").sDashboard({
         dashboardData : dashboardJSON
         });
 
         //table row clicked event example
-        $("#myDashboard")
+        $("#cprDashboard")
         .bind(
         "sdashboardrowclicked",
         function(e, data) {
@@ -619,7 +619,7 @@
         });
 
         //plot selected event example
-        $("#myDashboard")
+        $("#cprDashboard")
         .bind(
         "sdashboardplotselected",
         function(e, data) {
@@ -637,7 +637,7 @@
         }
         });
         //plot click event example
-        $("#myDashboard")
+        $("#cprDashboard")
         .bind(
         "sdashboardplotclicked",
         function(e, data) {
@@ -655,7 +655,7 @@
         });
 
         //widget order changes event example
-        $("#myDashboard")
+        $("#cprDashboard")
         .bind(
         "sdashboardorderchanged",
         function(e, data) {
@@ -678,7 +678,7 @@
         $("#btnAddWidget")
         .click(
         function() {
-        $("#myDashboard")
+        $("#cprDashboard")
         .sDashboard(
         "addWidget",
         {
@@ -691,7 +691,7 @@
 
         //example for adding a table widget
         $("#btnAddTableWidget").click(function() {
-        $("#myDashboard").sDashboard("addWidget", {
+        $("#cprDashboard").sDashboard("addWidget", {
         widgetTitle : "Table Widget 2",
         widgetId : "id007",
         widgetType : "table",
@@ -703,13 +703,13 @@
 
         //example for  deleting a widget
         /* 	$("#btnDeleteWidget").click(function() {
-        $("#myDashboard").sDashboard("removeWidget", "id007");
+        $("#cprDashboard").sDashboard("removeWidget", "id007");
         }); */
 
         //example for adding a pie chart widget
         $("#btnAddPieChartWidget").click(function() {
 
-        $("#myDashboard").sDashboard("addWidget", {
+        $("#cprDashboard").sDashboard("addWidget", {
         widgetTitle : "Pie Chart 2",
         widgetId : "id006",
         widgetType : "static",
@@ -723,7 +723,7 @@
         //example for adding a bar chart widget
         $("#btnAddBarChartWidget").click(function() {
 
-        $("#myDashboard").sDashboard("addWidget", {
+        $("#cprDashboard").sDashboard("addWidget", {
         widgetTitle : "Bar Chart 2",
         widgetId : "id005",
         widgetType : "chart",
@@ -736,7 +736,7 @@
 
         //example for adding an line chart widget
         $("#btnAddLineChartWidget").click(function() {
-        $("#myDashboard").sDashboard("addWidget", {
+        $("#cprDashboard").sDashboard("addWidget", {
         widgetTitle : "Line Chart 2",
         widgetId : "id004",
         widgetType : "chart",
