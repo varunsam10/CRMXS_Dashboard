@@ -586,7 +586,7 @@
         //	options : myExampleData.lineChartOptions
         //plotly data
     	data:myExampleData.plotlylinedata,
-        layout : myExampleData.linelayout,
+        layout : myExampleData.plotlylinelayout,
         config : myExampleData.plotlylineconfig
         //c3
        // data:myExampleData.c3linedata      

@@ -107,22 +107,22 @@ myExampleData.c3linedata ={
 
 //PlotlysimpleLine
 var trace1 = {
-		  x: [0, 1, 2, 3, 4, 5, 6, 7, 8],
-		  y: [0, 3, 5, 3, 6, 4, 5, 3, 1],
-		  name: 'Name of Trace 1',
+		  x: [0, 10, 20, 30, 40, 50, 60, 70, 80],
+		  y: [8, 13, 64, 12, 15, 70, 38, 16,38],
+		  name: 'Desperado',
 		  type: 'scatter'
 		};
-		var trace2 = {
-		  x: [0, 1, 2, 3, 4, 5, 6, 7, 8],
-		  y: [1, 0, 3, 2, 5, 4, 7, 6, 8],
-		  name: 'Name of Trace 2',
+		var trace2 = {		  
+		  x: [0, 10, 20, 30, 40, 50, 60, 70, 80],
+		  y: [10, 15, 60, 22, 25, 80, 28, 36,48],
+		  name: 'Tiger',
 		  type: 'scatter'
 		};
 		myExampleData.plotlylinedata = [trace1, trace2];
 		myExampleData.plotlylinelayout = {
-				  title: 'Plot Title',
+				  title: 'How old are they ?',
 				  xaxis: {
-				    title: 'x Axis',
+				    title: 'Age',
 				    titlefont: {
 				      family: 'Courier New, monospace',
 				      size: 18,
@@ -130,7 +130,7 @@ var trace1 = {
 				    }
 				  },
 				  yaxis: {
-				    title: 'y Axis',
+				    title: 'Number of customers',
 				    titlefont: {
 				      family: 'Courier New, monospace',
 				      size: 18,
@@ -138,6 +138,7 @@ var trace1 = {
 				    }
 				  }
 				};
+	
 		myExampleData.plotlylineconfig = {
 				   modeBarButtonsToRemove: ['sendDataToCloud'],
 				   displaylogo: false
