@@ -108,7 +108,7 @@ myExampleData.c3linedata ={
 //PlotlysimpleLine
 var trace1 = {
 		  x: [0, 10, 20, 30, 40, 50, 60, 70, 80],
-		  y: [8, 13, 64, 12, 15, 70, 38, 16,38],
+		  y: [8, 13, 74, 12, 15, 70, 38, 16,38],
 		  name: 'Desperado',
 		  type: 'scatter'
 		};
