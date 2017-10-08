@@ -207,14 +207,14 @@ var trace1 = {
  */
 		
 var trace1 = {
-				  x: ['tiger', 'desperado', 'heiniken'],
+				  x: ['Tiger', 'Desperado', 'Heiniken'],
 				  y: [20, 14, 23],
 				  name: 'SF Breweries',
 				  type: 'bar'
 				};
 
 var trace2 = {
-				  x: ['tiger', 'desperado', 'heiniken'],
+				  x: ['Tiger', 'Desperado', 'Heiniken'],
 				  y: [12, 18, 29],
 				  name: 'LA Breweries',
 				  type: 'bar'
