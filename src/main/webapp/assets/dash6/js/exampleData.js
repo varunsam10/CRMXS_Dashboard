@@ -143,8 +143,28 @@ var trace1 = {
 				   modeBarButtonsToRemove: ['sendDataToCloud'],
 				   displaylogo: false
 			};
-//Plotlyline
+//Buuble chart
+var trace1 = {
+				  x: [1, 2, 3, 4],
+				  y: [10, 11, 12, 13],
+				  mode: 'markers',
+				  marker: {
+				    size: [40, 60, 80, 100]
+				  }
+				};
 
+myExampleData.plotlyBubbleData  = [trace1];
+
+myExampleData.plotlyBubbleLayout = {
+				  title: 'Age groups',
+				  showlegend: false,
+				  height: 600,
+				  width: 600
+			};
+
+		
+		
+//Plotlyline
 var trace1 = {
 		  x: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], 
 		  y: [20, 14, 25, 16, 18, 22, 19, 15, 12, 16, 14, 17],

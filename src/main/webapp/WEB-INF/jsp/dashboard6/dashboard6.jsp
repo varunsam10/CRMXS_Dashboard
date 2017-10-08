@@ -551,7 +551,7 @@
         widgetContent : "General Messages "
         },*/  {
         widgetTitle : "Sales Figures",
-        widgetId : "id001",
+        widgetId : "id002",
         widgetType : "chart",
         widgetDimension:"normal",
         chartType : "pie",
@@ -562,7 +562,7 @@
         }
         }, {
         widgetTitle : "Revenue",
-        widgetId : "id002",
+        widgetId : "id003",
         widgetType : "chart",
         widgetDimension:"normal",
         chartType : "bar",
@@ -576,7 +576,7 @@
         }
         },{
         widgetTitle : "Items sold",
-        widgetId : "id003",
+        widgetId : "id004",
         widgetType : "chart",
         widgetDimension:"large",
         chartType : "line",
@@ -590,8 +590,18 @@
         config : myExampleData.plotlylineconfig
         //c3
        // data:myExampleData.c3linedata      
-        }
-
+        }},
+        {
+            widgetTitle : "Age group",
+            widgetId : "id001",
+            widgetType : "chart",
+            widgetDimension:"normal",
+            chartType : "bubble",
+            widgetContent : {
+           	data : myExampleData.plotlyBubbleData,
+           	layout : myExampleData.barGroupChartLayout,
+    		config: myExampleData.plotlybarconfig
+         }
         }];
 
         //basic initialization example
