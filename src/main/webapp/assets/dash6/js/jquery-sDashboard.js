@@ -203,6 +203,11 @@
 			_constructWidget : function(widgetDefinition) {
 				//create an outer list item
 				var widget = $("<li/>").attr("id", widgetDefinition.widgetId);
+				 if (widgetDefinition.widgetDimension === 'large'){
+					 widget.addClass("sDashboardLarge");
+				 }else{
+					 widget.addClass("sDashboardNormal");
+				 }
 				//create a widget container
 				var widgetContainer = $("<div/>").addClass("sDashboardWidget");
 

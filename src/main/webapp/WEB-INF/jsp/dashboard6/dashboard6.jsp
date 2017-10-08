@@ -402,7 +402,7 @@
 				<!-- END PAGE BASE CONTENT -->
 			</div>
 			<!-- BEGIN FOOTER -->
-			<p class="copyright-v2">2016 &copy; CPR Vision</p>
+			<p class="copyright-v2">2017 &copy; CPR Vision</p>
 
 			<a href="#index" class="go2top"> <i class="icon-arrow-up"></i>
 			</a>
@@ -549,30 +549,33 @@
         widgetTitle : "Text",
         widgetId : "id2",
         widgetContent : "General Messages "
-        },*/ /* {
+        },*/  {
         widgetTitle : "Sales Figures",
         widgetId : "id001",
         widgetType : "chart",
+        widgetDimension:"normal",
         widgetContent : {
         data : myExampleData.plotlypiedata,
         layout: myExampleData.plotlypielayout,
         config: myExampleData.plotlypieconfig
         }
 
-        },  {
+        }, {
         widgetTitle : "Revenue",
         widgetId : "id002",
         widgetType : "chart",
+        widgetDimension:"normal",
         widgetContent : {
         data : myExampleData.plotlybardata,
         layout : myExampleData.plotlybarlayout,
         config: myExampleData.plotlybarconfig
         }
 
-        }, */ {
+        },  {
         widgetTitle : "Items sold",
         widgetId : "id003",
         widgetType : "chart",
+        widgetDimension:"large",
         getDataBySelection : true,
         widgetContent : {
         //	data : myExampleData.lineChartData,
