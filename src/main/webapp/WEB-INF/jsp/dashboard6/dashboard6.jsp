@@ -513,6 +513,15 @@
 
 	<script type="text/javascript">
         $(document).ready(function(){
+              	
+        //to do 	
+        $.ajax({
+                 url : 'getWidgets.html',
+                 success : function(data) {
+                     // $('#result').html(data);
+                    // var dashboardJSON = data;
+                 }
+        }); 	
         $(function() {
 
 
