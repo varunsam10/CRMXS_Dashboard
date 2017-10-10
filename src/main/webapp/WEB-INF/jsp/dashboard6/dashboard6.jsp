@@ -83,8 +83,8 @@
 			<div class="container-fluid">
 				<div class="havbar-header">
 					<!-- BEGIN LOGO -->
-					<div id="index" class="navbar-brand"> <img
-						src="assets/dash6/layouts/layout6/img/logo.png" alt="Logo">
+					<div id="index" class="navbar-brand">
+						<img src="assets/dash6/layouts/layout6/img/logo.png" alt="Logo">
 					</div>
 					<!-- END LOGO -->
 					<!-- BEGIN TOPBAR ACTIONS -->
@@ -498,8 +498,8 @@
 	<script src="assets/js/dash1/plotly-latest.min.js"></script>
 	<script src="assets/dash6/js/chart/Chart.bundle.js"></script>
 	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-    <script src="assets/dash6/js/c3/c3.min.js"></script>
-   <!--  <script src="assets/dash6/js/c3/bubble.js"></script> -->
+	<script src="assets/dash6/js/c3/c3.min.js"></script>
+	<!--  <script src="assets/dash6/js/c3/bubble.js"></script> -->
 	<!-- load dashboard library -->
 	<script src="assets/dash6/js/jquery-cprDashboard.js"
 		type="text/javascript"></script>
@@ -570,8 +570,8 @@
         //c3 bar graph
        /*  data : myExampleData.c3bardata,
         bar : myExampleData.c3bardatabar     */
-       	data : myExampleData.barGroupChartData,
-		layout : myExampleData.barGroupChartLayout,
+       	data : myExampleData.barGroupChartData ,
+		layout :myExampleData.barGroupChartLayout,
 		config: myExampleData.plotlybarconfig
         }
         },{
@@ -599,7 +599,7 @@
             chartType : "bubble",
             widgetContent : {
            	data : myExampleData.plotlyBubbleData,
-           	layout : myExampleData.barGroupChartLayout,
+           	layout : myExampleData.plotlyBubbleLayout,
     		config: myExampleData.plotlybarconfig
          }
         }];
@@ -762,7 +762,6 @@
         });
         })
         </script>
-	<!--     sDashboard     -->
+		<!--     sDashboard     -->
 </body>
-
 </html>
