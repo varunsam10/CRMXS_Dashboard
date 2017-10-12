@@ -19,12 +19,23 @@
 	height: auto;
 }
 
-.sDashboardLarge {
+.cprDashboardLarge {
 	width: 1215px !important;
+	height: auto;
+	min-height: 250px;
 }
 
-.sDashboardNormal {
+.cprDashboardNormal {
 	width: 610px !important;
+	height: auto;
+	min-height: 250px;
+}
+.cprDashboardSmall {
+	width: 310px !important;
+	min-width:0px !important;
+	min-height:0px !important;
+	height:100px !important;
+	color: blue;
 }
 
 /*dashboard widget css*/
@@ -59,9 +70,7 @@
 .sDashboardWidgetContent {
 	/* margin: 0.3em; */
 	margin: 0.1em;
-	padding: 0.4em;
-	height: auto;
-	min-height: 250px;
+	padding: 0.4em;	
 	overflow-x: hidden;
 	overflow-y: auto;
 }
@@ -75,14 +84,24 @@
 
 /*for centering trick see  : http://css-tricks.com/quick-css-trick-how-to-center-an-object-exactly-in-the-center/*/
 .sDashboardWidgetContainerMaximized {
-	z-index: 9999;
+	/* z-index: 9999;
 	position: fixed;
 	width: 1000px;
 	height: 400px;
 	left: 50%;
 	top: 50%;
 	margin-top: -225px;
-	margin-left: -400px;
+	margin-left: -400px; */
+	z-index: 10060;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
 }
 
 /*dashboard table widget css*/

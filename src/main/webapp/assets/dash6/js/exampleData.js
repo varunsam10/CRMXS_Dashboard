@@ -108,7 +108,8 @@ myExampleData.plotlylinelayout = {
 			size : 18,
 			color : '#7f7f7f'
 		}
-	}
+	},
+	autosize : true
 };
 
 myExampleData.plotlylineconfig = {
@@ -146,8 +147,9 @@ myExampleData.plotlyBubbleLayout = {
 		}
 	},
 	showlegend : false,
-	height : 600,
-	width : 600
+	autosize : true
+	/*height : 600,
+	width : 600*/
 };
 //Bar Graph data
 var trace1 = {
@@ -203,15 +205,15 @@ myExampleData.plotlybarconfig = {
 };
 // Plotly data with bar stacked graph 
 var trace1 = {
-	x : [ 'Tiger', 'Desperado', 'Heiniken' ],
-	y : [ 20, 14, 23 ],
+	x : [ 'Tiger', 'Desperado', 'Heiniken' ,'Kingfisher', 'brand1', 'brand2','brand3', 'brand4', 'brand5'],
+	y : [ 20, 14, 23,25, 34, 36,78, 44, 43 ],
 	name : 'SF Breweries',
 	type : 'bar'
 };
 
 var trace2 = {
-	x : [ 'Tiger', 'Desperado', 'Heiniken' ],
-	y : [ 12, 18, 29 ],
+	x : [ 'Tiger', 'Desperado', 'Heiniken' ,'Kingfisher', 'brand1', 'brand2','brand3', 'brand4', 'brand5'],
+	y : [ 12, 18, 39, 22, 28, 19, 18, 58, 49 ],
 	name : 'LA Breweries',
 	type : 'bar'
 };
@@ -236,7 +238,8 @@ myExampleData.barGroupChartLayout = {
 				color : '#7f7f7f'
 			}
 		},
-		barmode : 'group'
+		barmode : 'group',
+		autosize : true
 };
 //pie chart data
 myExampleData.plotlypiedata = [ {

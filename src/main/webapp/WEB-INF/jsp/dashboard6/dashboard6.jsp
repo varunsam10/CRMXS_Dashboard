@@ -476,7 +476,7 @@
 		type="text/javascript"></script>
 	<!-- END THEME LAYOUT SCRIPTS -->
 
-	<!--     sDashboard     -->
+	<!--     CPR Dashboard    Custom     -->
 	<!-- Load jquery library -->
 	<!-- <script src="assets/dash6/js/jquery/jquery-1.8.2.js"
 		type="text/javascript"></script> -->
@@ -513,6 +513,15 @@
 
 	<script type="text/javascript">
         $(document).ready(function(){
+              	
+        //Todo 	
+        $.ajax({
+                 url : 'getWidgets.html',
+                 success : function(data) {
+                     // $('#result').html(data);
+                    // var dashboardJSON = data;
+                 }
+        }); 	
         $(function() {
 
 
@@ -537,19 +546,8 @@
         options : myExampleData.bubbleChartOptions
         }
 
-        },
+        }*/
         {
-        widgetTitle : "Table ",
-        widgetId : "id3",
-        widgetType : "table",
-        setJqueryStyle : true,
-        widgetContent : myExampleData.tableWidgetData
-        },
-        {
-        widgetTitle : "Text",
-        widgetId : "id2",
-        widgetContent : "General Messages "
-        },*/  {
         widgetTitle : "Sales Figures",
         widgetId : "id002",
         widgetType : "chart",
@@ -560,11 +558,23 @@
         //data : myExampleData.plotlypiedata,   
        	data : myExampleData.c3piedata
         }
-        }, {
+        },
+        {
+            widgetTitle : "Age group",
+            widgetId : "id003",
+            widgetType : "chart",
+            widgetDimension:"normal",
+            chartType : "bubble",
+            widgetContent : {
+           	data : myExampleData.plotlyBubbleData,
+           	layout : myExampleData.plotlyBubbleLayout,
+    		config: myExampleData.plotlybarconfig
+         }
+        },{
         widgetTitle : "Revenue",
-        widgetId : "id003",
+        widgetId : "id004",
         widgetType : "chart",
-        widgetDimension:"normal",
+        widgetDimension:"large",
         chartType : "bar",
         widgetContent : {        	
         //c3 bar graph
@@ -576,7 +586,7 @@
         }
         },{
         widgetTitle : "Items sold",
-        widgetId : "id004",
+        widgetId : "id005",
         widgetType : "chart",
         widgetDimension:"large",
         chartType : "line",
@@ -590,19 +600,20 @@
         config : myExampleData.plotlylineconfig
         //c3
        // data:myExampleData.c3linedata      
-        }},
-        {
-            widgetTitle : "Age group",
+        }}, {
+            widgetTitle : "General Messages",
             widgetId : "id001",
-            widgetType : "chart",
-            widgetDimension:"normal",
-            chartType : "bubble",
-            widgetContent : {
-           	data : myExampleData.plotlyBubbleData,
-           	layout : myExampleData.plotlyBubbleLayout,
-    		config: myExampleData.plotlybarconfig
-         }
-        }];
+            widgetType : "Text",
+            widgetDimension:"small",
+            widgetContent : "Number of Redemptions: 4,636 \n"+"Revenue Generated 231,800$"
+            },
+            {
+                widgetTitle : "Table ",
+                widgetId : "id3",
+                widgetType : "table",
+                setJqueryStyle : true,
+                widgetContent : myExampleData.tableWidgetData
+             }];
 
         //basic initialization example
         $("#cprDashboard").sDashboard({
@@ -623,8 +634,7 @@
         });
 
         if (console) {
-        console.log("table row clicked, for widget: "
-        + data.selectedWidgetId);
+        console.log("table row clicked, for widget: " + data.selectedWidgetId);
         }
         });
 
@@ -641,8 +651,7 @@
         text : 'A plot has been selected within a chart widget, please check the console for additional event data'
         });
         if (console) {
-        console
-        .log("chart range selected, for widget: "
+        console.log("chart range selected, for widget: "
         + data.selectedWidgetId);
         }
         });
@@ -762,6 +771,6 @@
         });
         })
         </script>
-		<!--     sDashboard     -->
+		<!--     CPR Dashboard    Custom  -->
 </body>
 </html>
