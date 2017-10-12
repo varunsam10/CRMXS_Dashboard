@@ -44,7 +44,6 @@
 <!-- END THEME LAYOUT STYLES -->
 <link rel="shortcut icon" href="favicon.ico" />
 </head>
-
 <!--     CPR Dashboard     -->
 <!-- load jquery ui css theme -->
 <!-- <link type="text/css" href="assets/dash6/css/jquery-ui.css"
@@ -54,7 +53,9 @@
 <!-- load the dashboard css -->
 <link href="assets/dash6/css/cprDashboard.css" rel="stylesheet">
 <!-- load gitter css -->
-<link href="assets/dash6/css/jquery.gritter.css" rel="stylesheet" />
+<!-- <link href="assets/dash6/css/jquery.gritter.css" rel="stylesheet" /> -->
+<!-- toastr css -->
+<link href="assets/dash6/css/toastr/toastr.css" rel="stylesheet" />
 <!-- C3 css -->
 <link href="assets/dash6/css/c3/c3.css" rel="stylesheet" />
 <!--     sDashboard     -->
@@ -444,8 +445,9 @@
 	<!-- load touch punch library to enable dragging on touch based devices -->
 	<script src="assets/dash6/js/touchpunch/jquery.ui.touch-punch.js" type="text/javascript"></script>
 	<!-- load gitter notification library -->
-	<script src="assets/dash6/js/gitter/jquery.gritter.js" type="text/javascript"></script>
-
+<!-- 	<script src="assets/dash6/js/gitter/jquery.gritter.js" type="text/javascript"></script> -->
+	<!-- Toastr notification library -->
+	<script src="assets/dash6/js/toastr/toastr.js" type="text/javascript"></script>
 	<!-- load datatables library -->
 	<!--<script src="assets/dash6/js/datatables/jquery.dataTables.js"></script>  -->
 	<script src="assets/dash6/js/datatableNw/datatables.js"></script>
@@ -571,6 +573,7 @@
 			config: myExampleData.plotlypieconfig
 		}
 	}];  
+  
 /* 	var dashboardJSON =[{
 		"widgetTitle": "Items sold",
 		"widgetId": "id004",
@@ -622,19 +625,44 @@
         $("#cprDashboard").sDashboard({
         	dashboardData : dashboardJSON
         });
-
+		
+		//Toastr settings 
+		toastr.options = {
+  				"closeButton": false,
+  				"debug": false,
+  				"newestOnTop": false,
+  				"progressBar": false,
+  				"positionClass": "toast-top-right",
+ 				 "preventDuplicates": false,
+ 				 "onclick": null,
+  				"showDuration": "200",
+				  "hideDuration": "1000",
+				  "timeOut": "5000",
+				  "extendedTimeOut": "1000",
+				  "showEasing": "swing",
+				  "hideEasing": "linear",
+				  "showMethod": "fadeIn",
+		  		  "hideMethod": "fadeOut"
+		}
+		function notification( type, message ) {
+	    	if( type == 'success' ) {
+	    	    toastr.success(message,'<i>Success</i>');
+	    	} else if( type == 'error' ) {
+	    	    toastr.error(message,'Error');
+	    	} else if( type == 'warning' ) {
+	    	    toastr.warning(message,'Warning');
+	    	} else {
+	    	    toastr.info(message,'Information');
+	    	}   
+	    }
         //table row clicked event example
-        $("#cprDashboard")
-        .bind(
-        "sdashboardrowclicked",
-        function(e, data) {
-        $.gritter
-        .add({
+        $("#cprDashboard").bind("sdashboardrowclicked",function(e, data) {
+      /*   $.gritter.add({
         position : 'bottom-left',
         title : 'Table row clicked',
         time : 1000,
         text : 'A table row within a table widget has been clicked, please check the console for additional event data'
-        });
+        }); */
 
         if (console) {
         console.log("table row clicked, for widget: " + data.selectedWidgetId);
@@ -642,45 +670,34 @@
         });
 
         //plot selected event example
-        $("#cprDashboard")
-        .bind(
-        "sdashboardplotselected",
-        function(e, data) {
-        $.gritter
-        .add({
-        position : 'bottom-left',
-        title : 'Plot selected',
-        time : 1000,
-        text : 'A plot has been selected within a chart widget, please check the console for additional event data'
-        });
+        $("#cprDashboard").bind("sdashboardplotselected",function(e, data) {
+      /*   $.gritter.add({
+        	position : 'bottom-left',
+       		title : 'Plot selected',
+        	time : 1000,
+        	text : 'A plot has been selected within a chart widget, please check the console for additional event data'
+        }); */    
+        notification('info', 'A plot has been selected within a chart widget!');
         if (console) {
-        console.log("chart range selected, for widget: "
-        + data.selectedWidgetId);
+        	console.log("chart range selected, for widget: "+ data.selectedWidgetId);
         }
         });
         //plot click event example
-        $("#cprDashboard")
-        .bind(
-        "sdashboardplotclicked",
-        function(e, data) {
-        $.gritter
-        .add({
+        $("#cprDashboard").bind("sdashboardplotclicked",function(e, data) {
+     /*    $.gritter.add({
         position : 'bottom-left',
         title : 'Plot Clicked',
         time : 1000,
         text : 'A plot has been clicked within a chart widget, please check the console for additional event data'
-        });
+        }); */    
+       		notification('info', 'chart clicked, for widget:'+ data.selectedWidgetId +'!');
         if (console) {
-        console.log("chart clicked, for widget: "
-        + data.selectedWidgetId);
+        	console.log("chart clicked, for widget: " + data.selectedWidgetId);
         }
         });
 
         //widget order changes event example
-        $("#cprDashboard")
-        .bind(
-        "sdashboardorderchanged",
-        function(e, data) {
+        $("#cprDashboard").bind("sdashboardorderchanged",function(e, data) {
         $.gritter
         .add({
         position : 'bottom-left',
@@ -694,7 +711,6 @@
         console.log(data.sortedDefinitions);
         console.log("+++++++++++++++++++++++++");
         }
-
         });
         //example for adding a text widget
         $("#btnAddWidget")
