@@ -25,6 +25,10 @@
 	min-height: 250px;
 }
 
+.cprWidgetContentTable {
+	font-size: 13px;
+}
+
 .cprDashboardNormal {
 	width: 610px !important;
 	height: auto;

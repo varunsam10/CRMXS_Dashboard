@@ -18,60 +18,44 @@
 	name="description" />
 <meta content="" name="author" />
 <!-- BEGIN LAYOUT FIRST STYLES -->
-<link href="//fonts.googleapis.com/css?family=Oswald:400,300,700"
-	rel="stylesheet" type="text/css" />
+<link href="//fonts.googleapis.com/css?family=Oswald:400,300,700" rel="stylesheet" type="text/css" />
 <!-- END LAYOUT FIRST STYLES -->
 <!-- BEGIN GLOBAL MANDATORY STYLES -->
-<link
-	href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all"
-	rel="stylesheet" type="text/css" />
-<link
-	href="assets/dash6/global/plugins/font-awesome/css/font-awesome.min.css"
-	rel="stylesheet" type="text/css" />
-<link
-	href="assets/dash6/global/plugins/simple-line-icons/simple-line-icons.min.css"
-	rel="stylesheet" type="text/css" />
-<link href="assets/dash6/global/plugins/bootstrap/css/bootstrap.min.css"
-	rel="stylesheet" type="text/css" />
-<link
-	href="assets/dash6/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css"
-	rel="stylesheet" type="text/css" />
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+<link href="assets/dash6/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href="assets/dash6/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+<link href="assets/dash6/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="assets/dash6/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
 <!-- END GLOBAL MANDATORY STYLES -->
 <!-- BEGIN PAGE LEVEL PLUGINS -->
-<link
-	href="assets/dash6/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css"
-	rel="stylesheet" type="text/css" />
-<link href="assets/dash6/global/plugins/morris/morris.css"
-	rel="stylesheet" type="text/css" />
-<link
-	href="assets/dash6/global/plugins/fullcalendar/fullcalendar.min.css"
-	rel="stylesheet" type="text/css" />
-<link href="assets/dash6/global/plugins/jqvmap/jqvmap/jqvmap.css"
-	rel="stylesheet" type="text/css" />
+<link href="assets/dash6/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css" rel="stylesheet" type="text/css" />
+<link href="assets/dash6/global/plugins/morris/morris.css"	rel="stylesheet" type="text/css" />
+<link href="assets/dash6/global/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet" type="text/css" />
+<link href="assets/dash6/global/plugins/jqvmap/jqvmap/jqvmap.css" rel="stylesheet" type="text/css" />
 <!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN THEME GLOBAL STYLES -->
-<link href="assets/dash6/global/css/components-md.min.css"
-	rel="stylesheet" id="style_components" type="text/css" />
-<link href="assets/dash6/global/css/plugins-md.min.css" rel="stylesheet"
-	type="text/css" />
+<link href="assets/dash6/global/css/components-md.min.css" rel="stylesheet" id="style_components" type="text/css" />
+<link href="assets/dash6/global/css/plugins-md.min.css" rel="stylesheet" type="text/css" />
 <!-- END THEME GLOBAL STYLES -->
 <!-- BEGIN THEME LAYOUT STYLES -->
-<link href="assets/dash6/layouts/layout6/css/layout.css"
-	rel="stylesheet" type="text/css" />
-<link href="assets/dash6/layouts/layout6/css/custom.css"
-	rel="stylesheet" type="text/css" />
+<link href="assets/dash6/layouts/layout6/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="assets/dash6/layouts/layout6/css/custom.css" rel="stylesheet" type="text/css" />
+<link href="assets/dash6/css/datatable/datatables.css" rel="stylesheet" type="text/css" />
 <!-- END THEME LAYOUT STYLES -->
 <link rel="shortcut icon" href="favicon.ico" />
 </head>
-
 <!--     CPR Dashboard     -->
 <!-- load jquery ui css theme -->
-<link type="text/css" href="assets/dash6/css/jquery-ui.css"
-	rel="stylesheet" />
+<!-- <link type="text/css" href="assets/dash6/css/jquery-ui.css"
+	rel="stylesheet" /> -->
+	
+<link type="text/css" href="assets/dash6/css/jqueryNw/jquery-ui.css" rel="stylesheet" /
 <!-- load the dashboard css -->
 <link href="assets/dash6/css/cprDashboard.css" rel="stylesheet">
 <!-- load gitter css -->
-<link href="assets/dash6/css/jquery.gritter.css" rel="stylesheet" />
+<!-- <link href="assets/dash6/css/jquery.gritter.css" rel="stylesheet" /> -->
+<!-- toastr css -->
+<link href="assets/dash6/css/toastr/toastr.css" rel="stylesheet" />
 <!-- C3 css -->
 <link href="assets/dash6/css/c3/c3.css" rel="stylesheet" />
 <!--     sDashboard     -->
@@ -415,65 +399,38 @@
 	<!-- END QUICK NAV -->
 
 	<!-- BEGIN CORE PLUGINS -->
-	<script src="assets/dash6/global/plugins/jquery.min.js"
-		type="text/javascript"></script>
-	<script src="assets/dash6/global/plugins/bootstrap/js/bootstrap.min.js"
-		type="text/javascript"></script>
-	<script src="assets/dash6/global/plugins/js.cookie.min.js"
-		type="text/javascript"></script>
-	<script
-		src="assets/dash6/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js"
-		type="text/javascript"></script>
-	<script src="assets/dash6/global/plugins/jquery.blockui.min.js"
-		type="text/javascript"></script>
-	<script
-		src="assets/dash6/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js"
-		type="text/javascript"></script>
+	<script src="assets/dash6/global/plugins/jquery.min.js"	type="text/javascript"></script> 
+	<!-- remove -->
+	<!-- <script src="assets/dash6/js/jqueryNw/jquery-1.12.3.js"	type="text/javascript"></script> -->
+	<script src="assets/dash6/global/plugins/bootstrap/js/bootstrap.min.js"	type="text/javascript"></script>
+	<script src="assets/dash6/global/plugins/js.cookie.min.js" type="text/javascript"></script>
+	<script src="assets/dash6/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+	<script src="assets/dash6/global/plugins/jquery.blockui.min.js"	type="text/javascript"></script>
+	<script src="assets/dash6/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
 	<!-- END CORE PLUGINS -->
 	<!-- BEGIN PAGE LEVEL PLUGINS -->
-	<script src="assets/dash6/global/plugins/moment.min.js"
-		type="text/javascript"></script>
-	<script
-		src="assets/dash6/global/plugins/bootstrap-daterangepicker/daterangepicker.min.js"
-		type="text/javascript"></script>
-	<script src="assets/dash6/global/plugins/morris/morris.min.js"
-		type="text/javascript"></script>
-	<script src="assets/dash6/global/plugins/morris/raphael-min.js"
-		type="text/javascript"></script>
-	<script
-		src="assets/dash6/global/plugins/counterup/jquery.waypoints.min.js"
-		type="text/javascript"></script>
-	<script
-		src="assets/dash6/global/plugins/counterup/jquery.counterup.min.js"
-		type="text/javascript"></script>
-	<script
-		src="assets/dash6/global/plugins/fullcalendar/fullcalendar.min.js"
-		type="text/javascript"></script>
-	<script
-		src="assets/dash6/global/plugins/horizontal-timeline/horizontal-timeline.js"
-		type="text/javascript"></script>
-	<script src="assets/dash6/global/plugins/flot/jquery.flot.min.js"
-		type="text/javascript"></script>
-	<script
-		src="assets/dash6/global/plugins/flot/jquery.flot.resize.min.js"
-		type="text/javascript"></script>
-	<script
-		src="assets/dash6/global/plugins/flot/jquery.flot.categories.min.js"
-		type="text/javascript"></script>
-	<script src="assets/dash6/global/plugins/jquery.sparkline.min.js"
-		type="text/javascript"></script>
+	<script src="assets/dash6/global/plugins/moment.min.js" type="text/javascript"></script>
+	<script	src="assets/dash6/global/plugins/bootstrap-daterangepicker/daterangepicker.min.js"	type="text/javascript"></script>
+	<script src="assets/dash6/global/plugins/morris/morris.min.js" type="text/javascript"></script>
+	<script src="assets/dash6/global/plugins/morris/raphael-min.js" type="text/javascript"></script>
+	<script	src="assets/dash6/global/plugins/counterup/jquery.waypoints.min.js"	type="text/javascript"></script>
+	<script	src="assets/dash6/global/plugins/counterup/jquery.counterup.min.js"	type="text/javascript"></script>
+	<script	src="assets/dash6/global/plugins/fullcalendar/fullcalendar.min.js"	type="text/javascript"></script>
+	<script	src="assets/dash6/global/plugins/horizontal-timeline/horizontal-timeline.js" type="text/javascript"></script>
+	<script src="assets/dash6/global/plugins/flot/jquery.flot.min.js" type="text/javascript"></script>
+	<script src="assets/dash6/global/plugins/flot/jquery.flot.resize.min.js" type="text/javascript"></script>
+	<script src="assets/dash6/global/plugins/flot/jquery.flot.categories.min.js" type="text/javascript"></script>
+	<script src="assets/dash6/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
 
 	<!-- END PAGE LEVEL PLUGINS -->
 	<!-- BEGIN THEME GLOBAL SCRIPTS -->
 	<script src="assets/dash6/global/scripts/app.js" type="text/javascript"></script>
 	<!-- END THEME GLOBAL SCRIPTS -->
 	<!-- BEGIN PAGE LEVEL SCRIPTS -->
-	<script src="assets/dash6/pages/scripts/dashboard.min.js"
-		type="text/javascript"></script>
+	<script src="assets/dash6/pages/scripts/dashboard.min.js" type="text/javascript"></script>
 	<!-- END PAGE LEVEL SCRIPTS -->
 	<!-- BEGIN THEME LAYOUT SCRIPTS -->
-	<script src="assets/dash6/layouts/layout6/scripts/layout.min.js"
-		type="text/javascript"></script>
+	<script src="assets/dash6/layouts/layout6/scripts/layout.min.js" type="text/javascript"></script>
 	<!-- END THEME LAYOUT SCRIPTS -->
 
 	<!--     CPR Dashboard    Custom     -->
@@ -481,19 +438,20 @@
 	<!-- <script src="assets/dash6/js/jquery/jquery-1.8.2.js"
 		type="text/javascript"></script> -->
 	<!-- load jquery ui library -->
-	<script src="assets/dash6/js/jquery/jquery-ui.js"
-		type="text/javascript"></script>
-
+	<script src="assets/dash6/js/jquery/jquery-ui.js" type="text/javascript"></script> 
+	<!--  remove -->
+	<!-- <script src="assets/dash6/js/jqueryNw/jquery-ui.js" type="text/javascript"></script> -->
+	
 	<!-- load touch punch library to enable dragging on touch based devices -->
-	<script src="assets/dash6/js/touchpunch/jquery.ui.touch-punch.js"
-		type="text/javascript"></script>
+	<script src="assets/dash6/js/touchpunch/jquery.ui.touch-punch.js" type="text/javascript"></script>
 	<!-- load gitter notification library -->
-	<script src="assets/dash6/js/gitter/jquery.gritter.js"
-		type="text/javascript"></script>
-
+<!-- 	<script src="assets/dash6/js/gitter/jquery.gritter.js" type="text/javascript"></script> -->
+	<!-- Toastr notification library -->
+	<script src="assets/dash6/js/toastr/toastr.js" type="text/javascript"></script>
 	<!-- load datatables library -->
-	<script src="assets/dash6/js/datatables/jquery.dataTables.js"></script>
-
+	<!--<script src="assets/dash6/js/datatables/jquery.dataTables.js"></script>  -->
+	<script src="assets/dash6/js/datatableNw/datatables.js"></script>
+	
 	<script src="assets/dash5/js/flotr2/flotr2.js" type="text/javascript"></script>
 	<script src="assets/js/dash1/plotly-latest.min.js"></script>
 	<script src="assets/dash6/js/chart/Chart.bundle.js"></script>
@@ -545,7 +503,7 @@
                            //dashboard json data
                            //this is the data format that the dashboard framework expects
                            //**********************************************//
-
+    var dashboardJSON =[{
                            var dashboardJSON1 = [
                            /* {
                            widgetTitle : "Bubble Chart",
@@ -555,12 +513,12 @@
                            data : myExampleData.bubbleChartData,
                            options : myExampleData.bubbleChartOptions
                            }
-
                            }*/
                            {
                            widgetTitle : "Sales Figures",
                            widgetId : "id002",
                            widgetType : "chart",
+		graphType: "normal",
                            widgetDimension:"normal",
                            chartType : "pie",
                            widgetContent : {
@@ -573,6 +531,14 @@
                                widgetTitle : "Age group",
                                widgetId : "id003",
                                widgetType : "chart",
+			data: myExampleData.c3piedata
+		}
+	},
+	{
+		widgetTitle: "Age group",
+		widgetId: "id003",
+		widgetType: "chart",
+		graphType: "exploratory",
                                widgetDimension:"normal",
                                chartType : "bubble",
                                widgetContent : {
@@ -584,6 +550,7 @@
                            widgetTitle : "Revenue",
                            widgetId : "id004",
                            widgetType : "chart",
+		graphType: "exploratory",
                            widgetDimension:"large",
                            chartType : "bar",
                            widgetContent : {        	
@@ -598,6 +565,7 @@
                            widgetTitle : "Items sold",
                            widgetId : "id005",
                            widgetType : "chart",
+		graphType: "exploratory",
                            widgetDimension:"large",
                            chartType : "line",
                            getDataBySelection : true,
@@ -620,16 +588,111 @@
                                {
                                    widgetTitle : "Table ",
                                    widgetId : "id3",
+		widgetId: "id007",
                                    widgetType : "table",
                                    setJqueryStyle : true,
                                    widgetContent : myExampleData.tableWidgetData
-                           }];
-
-                           //basic initialization example
+	},{
+		widgetTitle: " ",
+		widgetId: "id009",
+		widgetType: "Text",		
+		widgetDimension: "small",
+		widgetContent: "Number of Redemptions: 4,636 \n" + "Revenue Generated 231,800$"
+	},{
+		widgetTitle: "Sales Figures",
+		widgetId: "id008",
+		widgetType: "chart",
+		graphType: "exploratory",
+		widgetDimension: "normal",
+		chartType: "pie",
+		widgetContent: {			 
+			data: myExampleData.plotlypiedata,
+			layout: myExampleData.plotlypielayout,
+			config: myExampleData.plotlypieconfig
+		}
+	}];  
+  
+/* 	var dashboardJSON =[{
+		"widgetTitle": "Items sold",
+		"widgetId": "id004",
+		"widgetDimension": "large",
+		"graphType" : "exploratory",
+		"widgetType": "chart",
+		"chartType": "line",
+		"widgetContent": {
+			"data": [{
+				"x": [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110],
+				"y": [8, 13, 74, 12, 15, 70, 38, 16, 38, 20, 16, 38],
+				"name": "Desperado",
+				"type": "scatter"
+			}, {
+				"x": [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110],
+				"y": [10, 15, 60, 22, 25, 80, 28, 36, 48, 18, 26, 48],
+				"name": "Tiget",
+				"type": "scatter"
+			}],
+			"layout": {
+				"title": "How old are they ?",
+				"showlegend": false,
+				"height": 0,
+				"width": 0,
+				"xaxis": {
+					"title": "Age",
+					"titlefont": {
+						"family": "Courier New, monospace",
+						"size": 18,
+						"color": "#7f7f7f"
+					}
+				},
+				"yaxis": {
+					"title": "Number of Customers",
+					"titlefont": {
+						"family": "Courier New, monospace",
+						"size": 18,
+						"color": "#7f7f7f"
+					}
+				}
+			},
+			"config": {
+				"modeBarButtonsToRemove": ["sendDataToCloud"],
+				"displaylogo": false
+			}
+		}
+		}]; */
+        //basic initialization examplemn.sDashboard
                            $("#cprDashboard").sDashboard({
                            dashboardData : dashboardJSON
                            });
-
+		
+		//Toastr settings 
+		toastr.options = {
+  				"closeButton": false,
+  				"debug": false,
+  				"newestOnTop": false,
+  				"progressBar": false,
+  				"positionClass": "toast-top-right",
+ 				 "preventDuplicates": false,
+ 				 "onclick": null,
+  				"showDuration": "200",
+				  "hideDuration": "1000",
+				  "timeOut": "5000",
+				  "extendedTimeOut": "1000",
+				  "showEasing": "swing",
+				  "hideEasing": "linear",
+				  "showMethod": "fadeIn",
+		  		  "hideMethod": "fadeOut"
+		}
+		function notification( type, message ) {
+	    	if( type == 'success' ) {
+	    	    toastr.success(message,'<i>Success</i>');
+	    	} else if( type == 'error' ) {
+	    	    toastr.error(message,'Error');
+	    	} else if( type == 'warning' ) {
+	    	    toastr.warning(message,'Warning');
+	    	} else {
+	    	    toastr.info(message,'Information');
+	    	}   
+	    }
                            //table row clicked event example
                            $("#cprDashboard")
                            .bind(
@@ -642,7 +705,7 @@
                            time : 1000,
                            text : 'A table row within a table widget has been clicked, please check the console for additional event data'
                            });
-
+   
                            if (console) {
                            console.log("table row clicked, for widget: " + data.selectedWidgetId);
                            }
@@ -701,7 +764,6 @@
                            console.log(data.sortedDefinitions);
                            console.log("+++++++++++++++++++++++++");
                            }
-
                            });
                            //example for adding a text widget
                            $("#btnAddWidget")

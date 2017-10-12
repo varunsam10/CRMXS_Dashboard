@@ -74,8 +74,6 @@ myExampleData.c3linedata = {
  * Plotly data
  */
 
-//Pie chart sample data ends here
-
 
 //PlotlysimpleLine
 var trace1 = {
@@ -244,17 +242,16 @@ myExampleData.barGroupChartLayout = {
 //pie chart data
 myExampleData.plotlypiedata = [ {
 	values : [ 19, 26, 35, 10, 10 ],
-	labels : [ 'Residential', 'Non-Residential', 'Utility', 'Cook', 'Fun' ],
+	labels : [ 'Tiger', 'Heiniken', 'Brand1', 'Brand1', 'Brand3' ],
 	type : 'pie'
-} ];
+}];
 
 myExampleData.plotlypielayout = {
-	autosize : true
-/*height: 225,
-  width: 475*/
+  title : 'Revenue in US $',	
+  autosize : true
+
 };
 myExampleData.plotlypieconfig = {
-
 	modeBarButtonsToRemove : [ 'sendDataToCloud' ],
 	displaylogo : false
 };

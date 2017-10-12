@@ -221,12 +221,30 @@
 				var settingsButton = $('<div title="Setting" class="sDashboard-iconcustom sDashboard-settings "></span>');
 				
 				var deleteButton = $('<div title="Delete" class="sDashboard-iconcustomDel sDashboard-trash-icon"></div>');		
-				//add Maximizebutton
-				widgetHeader.append(maximizeButton);
-				widgetHeader.append(settingsButton);
+				
 				
 				//add delete button
-				widgetHeader.append(deleteButton);
+				if (widgetDefinition.widgetType === 'chart' && widgetDefinition.graphType === "exploratory"){
+					//add Maximizebutton
+					widgetHeader.append(maximizeButton);
+					widgetHeader.append(settingsButton);
+					widgetHeader.append(deleteButton);
+					
+				}
+				else if(widgetDefinition.widgetType === 'chart' && widgetDefinition.graphType === "normal"){
+					//add Maximizebutton
+					widgetHeader.append(maximizeButton);
+					widgetHeader.append(deleteButton);
+										
+				}				
+				else if(widgetDefinition.widgetType === 'table'){
+					//add Maximizebutton
+					widgetHeader.append(maximizeButton);
+					widgetHeader.append(deleteButton);
+					
+				}else{
+					widgetHeader.append(deleteButton);
+				}
 
 				if (widgetDefinition.hasOwnProperty("enableRefresh") && widgetDefinition.enableRefresh) {
 					var refreshButton = $('<div title="Refresh" class="sDashboard-icon sDashboard-refresh-icon "></div>');
@@ -243,6 +261,7 @@
 				if (widgetDefinition.widgetType === 'table') {
 					var dataTable = $('<table cellpadding="0" cellspacing="0" border="0" class="display sDashboardTableView table table-bordered"></table>');
 					widgetContent.append(dataTable);
+					widgetContent.addClass("cprWidgetContentTable");
 				} else if (widgetDefinition.widgetType === 'chart') {
 					var chart = $('<div/>').addClass("sDashboardChart");
 					if (widgetDefinition.getDataBySelection) {
@@ -329,7 +348,7 @@
 					      duration: 800,
 					      easing: 'cubic-in-out'
 					    }});*/
-					if(widgetDefinition.chartType === 'pie'){
+					if(widgetDefinition.graphType === 'normal'){
 						
 						var chart = c3.generate({bindto:chartArea[0],data:widgetDefinition.widgetContent.data});
 						
@@ -362,11 +381,12 @@
 						chartData : area
 					};
 					context._trigger("plotselected", null, evtObj);
-				});
+				});			
+				
 			},
 			_bindChartEvents : function(chartArea, widgetId, widgetDefinition, context) {
 
-				Flotr.EventAdapter.observe(chartArea, 'flotr:click', function(d) {
+				/*Flotr.EventAdapter.observe(chartArea, 'flotr:click', function(d) {
 					//only if a series is clicked dispatch a click event
 					if (d.index !== undefined && d.seriesIndex !== undefined) {
 						var evtObj = {};
@@ -390,6 +410,52 @@
 						};
 						context._trigger("plotclicked", null, evtObj);
 					}
+				});
+				*/
+				var id = "li#" + widgetDefinition.widgetId;
+				var chartArea = this.element.find(id + " div.sDashboardChart");
+				chartArea.on('plotly_click', function(data){
+				   /* var pts = '';
+				    for(var i=0; i < data.points.length; i++){
+				        annotate_text = 'x = '+data.points[i].x +
+				                      'y = '+data.points[i].y.toPrecision(4);
+
+				        annotation = {
+				          text: annotate_text,
+				          x: data.points[i].x,
+				          y: parseFloat(data.points[i].y.toPrecision(4))
+				        }
+
+				        annotations = self.layout.annotations || [];
+				        annotations.push(annotation);
+				        Plotly.relayout(chartArea[0],{annotations: annotations})
+				    }*/
+				    
+				 /*   if (data.index !== undefined && data.seriesIndex !== undefined) {
+						var evtObj = {};
+						evtObj.selectedWidgetId = widgetId;
+						evtObj.flotr2GeneratedData = data;
+						var widgetData = widgetDefinition.widgetContent.data;
+						var seriesData = widgetData[d.seriesIndex];
+						var selectedData;
+
+						if ($.isArray(seriesData)) {
+							selectedData = seriesData[data.index];
+						} else {
+							selectedData = seriesData;
+						}
+
+						evtObj.customData = {
+							index : data.index,
+							selectedIndex : data.seriesIndex,
+							seriesData : seriesData,
+							selectedData : selectedData
+						};
+						context._trigger("plotclicked", null, evtObj);
+					}*/
+					var evtObj = {};
+					evtObj.selectedWidgetId = widgetId;
+				    context._trigger("plotclicked", null, evtObj);
 				});
 
 			},
