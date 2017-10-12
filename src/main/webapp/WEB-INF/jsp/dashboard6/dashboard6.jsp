@@ -18,56 +18,39 @@
 	name="description" />
 <meta content="" name="author" />
 <!-- BEGIN LAYOUT FIRST STYLES -->
-<link href="//fonts.googleapis.com/css?family=Oswald:400,300,700"
-	rel="stylesheet" type="text/css" />
+<link href="//fonts.googleapis.com/css?family=Oswald:400,300,700" rel="stylesheet" type="text/css" />
 <!-- END LAYOUT FIRST STYLES -->
 <!-- BEGIN GLOBAL MANDATORY STYLES -->
-<link
-	href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all"
-	rel="stylesheet" type="text/css" />
-<link
-	href="assets/dash6/global/plugins/font-awesome/css/font-awesome.min.css"
-	rel="stylesheet" type="text/css" />
-<link
-	href="assets/dash6/global/plugins/simple-line-icons/simple-line-icons.min.css"
-	rel="stylesheet" type="text/css" />
-<link href="assets/dash6/global/plugins/bootstrap/css/bootstrap.min.css"
-	rel="stylesheet" type="text/css" />
-<link
-	href="assets/dash6/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css"
-	rel="stylesheet" type="text/css" />
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+<link href="assets/dash6/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href="assets/dash6/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+<link href="assets/dash6/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="assets/dash6/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
 <!-- END GLOBAL MANDATORY STYLES -->
 <!-- BEGIN PAGE LEVEL PLUGINS -->
-<link
-	href="assets/dash6/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css"
-	rel="stylesheet" type="text/css" />
-<link href="assets/dash6/global/plugins/morris/morris.css"
-	rel="stylesheet" type="text/css" />
-<link
-	href="assets/dash6/global/plugins/fullcalendar/fullcalendar.min.css"
-	rel="stylesheet" type="text/css" />
-<link href="assets/dash6/global/plugins/jqvmap/jqvmap/jqvmap.css"
-	rel="stylesheet" type="text/css" />
+<link href="assets/dash6/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css" rel="stylesheet" type="text/css" />
+<link href="assets/dash6/global/plugins/morris/morris.css"	rel="stylesheet" type="text/css" />
+<link href="assets/dash6/global/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet" type="text/css" />
+<link href="assets/dash6/global/plugins/jqvmap/jqvmap/jqvmap.css" rel="stylesheet" type="text/css" />
 <!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN THEME GLOBAL STYLES -->
-<link href="assets/dash6/global/css/components-md.min.css"
-	rel="stylesheet" id="style_components" type="text/css" />
-<link href="assets/dash6/global/css/plugins-md.min.css" rel="stylesheet"
-	type="text/css" />
+<link href="assets/dash6/global/css/components-md.min.css" rel="stylesheet" id="style_components" type="text/css" />
+<link href="assets/dash6/global/css/plugins-md.min.css" rel="stylesheet" type="text/css" />
 <!-- END THEME GLOBAL STYLES -->
 <!-- BEGIN THEME LAYOUT STYLES -->
-<link href="assets/dash6/layouts/layout6/css/layout.css"
-	rel="stylesheet" type="text/css" />
-<link href="assets/dash6/layouts/layout6/css/custom.css"
-	rel="stylesheet" type="text/css" />
+<link href="assets/dash6/layouts/layout6/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="assets/dash6/layouts/layout6/css/custom.css" rel="stylesheet" type="text/css" />
+<link href="assets/dash6/css/datatable/datatables.css" rel="stylesheet" type="text/css" />
 <!-- END THEME LAYOUT STYLES -->
 <link rel="shortcut icon" href="favicon.ico" />
 </head>
 
 <!--     CPR Dashboard     -->
 <!-- load jquery ui css theme -->
-<link type="text/css" href="assets/dash6/css/jquery-ui.css"
-	rel="stylesheet" />
+<!-- <link type="text/css" href="assets/dash6/css/jquery-ui.css"
+	rel="stylesheet" /> -->
+	
+<link type="text/css" href="assets/dash6/css/jqueryNw/jquery-ui.css" rel="stylesheet" /
 <!-- load the dashboard css -->
 <link href="assets/dash6/css/cprDashboard.css" rel="stylesheet">
 <!-- load gitter css -->
@@ -415,65 +398,38 @@
 	<!-- END QUICK NAV -->
 
 	<!-- BEGIN CORE PLUGINS -->
-	<script src="assets/dash6/global/plugins/jquery.min.js"
-		type="text/javascript"></script>
-	<script src="assets/dash6/global/plugins/bootstrap/js/bootstrap.min.js"
-		type="text/javascript"></script>
-	<script src="assets/dash6/global/plugins/js.cookie.min.js"
-		type="text/javascript"></script>
-	<script
-		src="assets/dash6/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js"
-		type="text/javascript"></script>
-	<script src="assets/dash6/global/plugins/jquery.blockui.min.js"
-		type="text/javascript"></script>
-	<script
-		src="assets/dash6/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js"
-		type="text/javascript"></script>
+	<script src="assets/dash6/global/plugins/jquery.min.js"	type="text/javascript"></script> 
+	<!-- remove -->
+	<!-- <script src="assets/dash6/js/jqueryNw/jquery-1.12.3.js"	type="text/javascript"></script> -->
+	<script src="assets/dash6/global/plugins/bootstrap/js/bootstrap.min.js"	type="text/javascript"></script>
+	<script src="assets/dash6/global/plugins/js.cookie.min.js" type="text/javascript"></script>
+	<script src="assets/dash6/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+	<script src="assets/dash6/global/plugins/jquery.blockui.min.js"	type="text/javascript"></script>
+	<script src="assets/dash6/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
 	<!-- END CORE PLUGINS -->
 	<!-- BEGIN PAGE LEVEL PLUGINS -->
-	<script src="assets/dash6/global/plugins/moment.min.js"
-		type="text/javascript"></script>
-	<script
-		src="assets/dash6/global/plugins/bootstrap-daterangepicker/daterangepicker.min.js"
-		type="text/javascript"></script>
-	<script src="assets/dash6/global/plugins/morris/morris.min.js"
-		type="text/javascript"></script>
-	<script src="assets/dash6/global/plugins/morris/raphael-min.js"
-		type="text/javascript"></script>
-	<script
-		src="assets/dash6/global/plugins/counterup/jquery.waypoints.min.js"
-		type="text/javascript"></script>
-	<script
-		src="assets/dash6/global/plugins/counterup/jquery.counterup.min.js"
-		type="text/javascript"></script>
-	<script
-		src="assets/dash6/global/plugins/fullcalendar/fullcalendar.min.js"
-		type="text/javascript"></script>
-	<script
-		src="assets/dash6/global/plugins/horizontal-timeline/horizontal-timeline.js"
-		type="text/javascript"></script>
-	<script src="assets/dash6/global/plugins/flot/jquery.flot.min.js"
-		type="text/javascript"></script>
-	<script
-		src="assets/dash6/global/plugins/flot/jquery.flot.resize.min.js"
-		type="text/javascript"></script>
-	<script
-		src="assets/dash6/global/plugins/flot/jquery.flot.categories.min.js"
-		type="text/javascript"></script>
-	<script src="assets/dash6/global/plugins/jquery.sparkline.min.js"
-		type="text/javascript"></script>
+	<script src="assets/dash6/global/plugins/moment.min.js" type="text/javascript"></script>
+	<script	src="assets/dash6/global/plugins/bootstrap-daterangepicker/daterangepicker.min.js"	type="text/javascript"></script>
+	<script src="assets/dash6/global/plugins/morris/morris.min.js" type="text/javascript"></script>
+	<script src="assets/dash6/global/plugins/morris/raphael-min.js" type="text/javascript"></script>
+	<script	src="assets/dash6/global/plugins/counterup/jquery.waypoints.min.js"	type="text/javascript"></script>
+	<script	src="assets/dash6/global/plugins/counterup/jquery.counterup.min.js"	type="text/javascript"></script>
+	<script	src="assets/dash6/global/plugins/fullcalendar/fullcalendar.min.js"	type="text/javascript"></script>
+	<script	src="assets/dash6/global/plugins/horizontal-timeline/horizontal-timeline.js" type="text/javascript"></script>
+	<script src="assets/dash6/global/plugins/flot/jquery.flot.min.js" type="text/javascript"></script>
+	<script src="assets/dash6/global/plugins/flot/jquery.flot.resize.min.js" type="text/javascript"></script>
+	<script src="assets/dash6/global/plugins/flot/jquery.flot.categories.min.js" type="text/javascript"></script>
+	<script src="assets/dash6/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
 
 	<!-- END PAGE LEVEL PLUGINS -->
 	<!-- BEGIN THEME GLOBAL SCRIPTS -->
 	<script src="assets/dash6/global/scripts/app.js" type="text/javascript"></script>
 	<!-- END THEME GLOBAL SCRIPTS -->
 	<!-- BEGIN PAGE LEVEL SCRIPTS -->
-	<script src="assets/dash6/pages/scripts/dashboard.min.js"
-		type="text/javascript"></script>
+	<script src="assets/dash6/pages/scripts/dashboard.min.js" type="text/javascript"></script>
 	<!-- END PAGE LEVEL SCRIPTS -->
 	<!-- BEGIN THEME LAYOUT SCRIPTS -->
-	<script src="assets/dash6/layouts/layout6/scripts/layout.min.js"
-		type="text/javascript"></script>
+	<script src="assets/dash6/layouts/layout6/scripts/layout.min.js" type="text/javascript"></script>
 	<!-- END THEME LAYOUT SCRIPTS -->
 
 	<!--     CPR Dashboard    Custom     -->
@@ -481,19 +437,19 @@
 	<!-- <script src="assets/dash6/js/jquery/jquery-1.8.2.js"
 		type="text/javascript"></script> -->
 	<!-- load jquery ui library -->
-	<script src="assets/dash6/js/jquery/jquery-ui.js"
-		type="text/javascript"></script>
-
+	<script src="assets/dash6/js/jquery/jquery-ui.js" type="text/javascript"></script> 
+	<!--  remove -->
+	<!-- <script src="assets/dash6/js/jqueryNw/jquery-ui.js" type="text/javascript"></script> -->
+	
 	<!-- load touch punch library to enable dragging on touch based devices -->
-	<script src="assets/dash6/js/touchpunch/jquery.ui.touch-punch.js"
-		type="text/javascript"></script>
+	<script src="assets/dash6/js/touchpunch/jquery.ui.touch-punch.js" type="text/javascript"></script>
 	<!-- load gitter notification library -->
-	<script src="assets/dash6/js/gitter/jquery.gritter.js"
-		type="text/javascript"></script>
+	<script src="assets/dash6/js/gitter/jquery.gritter.js" type="text/javascript"></script>
 
 	<!-- load datatables library -->
-	<script src="assets/dash6/js/datatables/jquery.dataTables.js"></script>
-
+	<!--<script src="assets/dash6/js/datatables/jquery.dataTables.js"></script>  -->
+	<script src="assets/dash6/js/datatableNw/datatables.js"></script>
+	
 	<script src="assets/dash5/js/flotr2/flotr2.js" type="text/javascript"></script>
 	<script src="assets/js/dash1/plotly-latest.min.js"></script>
 	<script src="assets/dash6/js/chart/Chart.bundle.js"></script>
@@ -601,7 +557,7 @@
         //c3
        // data:myExampleData.c3linedata      
         }}, {
-            widgetTitle : "General Messages",
+            widgetTitle : " ",
             widgetId : "id001",
             widgetType : "Text",
             widgetDimension:"small",

@@ -218,12 +218,21 @@
 				var settingsButton = $('<div title="Setting" class="sDashboard-iconcustom sDashboard-settings "></span>');
 				
 				var deleteButton = $('<div title="Delete" class="sDashboard-iconcustomDel sDashboard-trash-icon"></div>');		
-				//add Maximizebutton
-				widgetHeader.append(maximizeButton);
-				widgetHeader.append(settingsButton);
+				
 				
 				//add delete button
-				widgetHeader.append(deleteButton);
+				if (widgetDefinition.widgetType === 'chart'){
+					widgetHeader.append(deleteButton);
+					//add Maximizebutton
+					widgetHeader.append(maximizeButton);
+					widgetHeader.append(settingsButton);
+				}else if(widgetDefinition.widgetType === 'table'){
+					widgetHeader.append(deleteButton);
+					//add Maximizebutton
+					widgetHeader.append(maximizeButton);
+				}else{
+					widgetHeader.append(deleteButton);
+				}
 
 				if (widgetDefinition.hasOwnProperty("enableRefresh") && widgetDefinition.enableRefresh) {
 					var refreshButton = $('<div title="Refresh" class="sDashboard-icon sDashboard-refresh-icon "></div>');
@@ -240,6 +249,7 @@
 				if (widgetDefinition.widgetType === 'table') {
 					var dataTable = $('<table cellpadding="0" cellspacing="0" border="0" class="display sDashboardTableView table table-bordered"></table>');
 					widgetContent.append(dataTable);
+					widgetContent.addClass("cprWidgetContentTable");
 				} else if (widgetDefinition.widgetType === 'chart') {
 					var chart = $('<div/>').addClass("sDashboardChart");
 					if (widgetDefinition.getDataBySelection) {
@@ -307,9 +317,9 @@
 				var config;
 				var chart;
 				chartArea = this.element.find(id + " div.sDashboardChart");
-				window.onresize = function() {
+				/*window.onresize = function() {
 				    Plotly.Plots.resize(chartArea[0]);
-				};
+				};*/
 				if (widgetDefinition.widgetType === 'chart') {
 					
 					data = widgetDefinition.widgetContent.data;
