@@ -8,10 +8,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.cpr.model.Dashboard3;
-import com.cpr.util.Dashboard;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
+import com.cpr.util.DashboardJSON;
 
 
 @Controller
@@ -23,8 +20,6 @@ public class Dashboard6Controller {
 	{
 		Dashboard3 dashboard3 = new Dashboard3();
 		System.out.println("inside dashboard 6!!");
-	/*	ObjectMapper mapper = new ObjectMapper();
-		model.addAttribute("json", mapper.writeValueAsString(files));*/
 		return new ModelAndView("dashboard6/dashboard6","Dashboard3",new Dashboard3());
 	}
 	
@@ -32,11 +27,8 @@ public class Dashboard6Controller {
 	@ResponseBody
 	public String getWidgets()
 	{
-		Dashboard dashboardJSON =new Dashboard();
-		Gson gson = new GsonBuilder().create();
-		JsonElement element = gson.toJsonTree(dashboardJSON.createDashboard());
-		String response = gson.toJson(element);
-		return response;
+		DashboardJSON dashboardJSON =new DashboardJSON();		
+		return dashboardJSON.createDashboardJson();
 	}
 	
 	

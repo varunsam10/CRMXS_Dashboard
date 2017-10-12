@@ -10,15 +10,11 @@ import com.google.gson.reflect.TypeToken;
 
 
 public class Dashboard {
-	private ArrayList<Widget> widgets;
-
-	
+	private ArrayList<Widget> widgets;	
 	
 	public ArrayList<Widget> getWidgets() {
 		return widgets;
 	}
-
-
 
 	public void setWidgets(ArrayList<Widget> widgets) {
 		this.widgets = widgets;
@@ -66,10 +62,10 @@ public class Dashboard {
 		
 	}
 	
-	public static void main(String[] args) {
+/*	public static void main(String[] args) {
 		Dashboard dash =  new Dashboard();
 		dash.createDashboard();
 	}
-
+*/
 }
 
