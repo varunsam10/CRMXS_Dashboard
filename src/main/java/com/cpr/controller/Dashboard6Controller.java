@@ -1,5 +1,8 @@
 package com.cpr.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -8,11 +11,14 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.cpr.model.Dashboard3;
-import com.cpr.model.DashboardJSON;
+import com.cpr.model.Widget;
+import com.cpr.model.Dashboard;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.reflect.TypeToken;
 
 
 @Controller
@@ -22,7 +28,7 @@ public class Dashboard6Controller {
 	@RequestMapping("/dashboard6")
 	public ModelAndView initializeForm()
 	{
-		Dashboard3 dashboard3=new Dashboard3();
+		Dashboard3 dashboard3 = new Dashboard3();
 		System.out.println("inside dashboard 6!!");
 	/*	ObjectMapper mapper = new ObjectMapper();
 		model.addAttribute("json", mapper.writeValueAsString(files));*/
@@ -33,16 +39,13 @@ public class Dashboard6Controller {
 	@ResponseBody
 	public String getWidgets()
 	{
-		DashboardJSON dashboardJSON =new DashboardJSON("FirstWidget");
+		Dashboard dashboardJSON =new Dashboard();
 		Gson gson = new GsonBuilder().create();
-		JsonElement element = gson.toJsonTree(dashboardJSON);
-		/*String response = " ";
-		JsonObject jsonObject = element.getAsJsonObject();*/
+		JsonElement element = gson.toJsonTree(dashboardJSON.createDashboard());
 		String response = gson.toJson(element);
-//		response.setContentType("application/json");
-//		response.getWriter().print(jsonObject);
 		return response;
 	}
+	
 	
 
 }

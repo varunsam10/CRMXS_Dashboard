@@ -510,266 +510,293 @@
 
 	<!-- sample data external script file -->
 	<script src="assets/dash6/js/exampleData.js" type="text/javascript"></script>
-
+		
+	<div> <button id="loadWidgets" value="value1" name="but_1">Load Widgets</button> </div>
+	
 	<script type="text/javascript">
-        $(document).ready(function(){
-              	
+        
+	$(document).ready(function(){
+		var dashboardJSON;          	
         //Todo 	
-        $.ajax({
-                 url : 'getWidgets.html',
-                 success : function(data) {
-                     // $('#result').html(data);
-                    // var dashboardJSON = data;
-                 }
-        }); 	
-        $(function() {
+        
+        $("#loadWidgets").click(function(e) {
+        	
+        	e.preventDefault();
+        	
+        	 $.ajax({
+                type: "GET",
+       		 	url : 'getWidgets.html',
+                success : function(data) {
+                       //$('#result').html(data);
+                       dashboardJSON = data;
+                       console.log("dashJSON");
+                       console.log(dashboardJSON);
+                       
+                       $(function() {
+                    		
+                   		
+                           //Theme switcher plugin
+                           $("#switcher").themeswitcher({
+                           imgpath : "assets/dash5/css/images/",
+                           loadTheme : "Le Frog"
+                           });
 
+                           //**********************************************//
+                           //dashboard json data
+                           //this is the data format that the dashboard framework expects
+                           //**********************************************//
 
-        //Theme switcher plugin
-        $("#switcher").themeswitcher({
-        imgpath : "assets/dash5/css/images/",
-        loadTheme : "Le Frog"
+                           var dashboardJSON1 = [
+                           /* {
+                           widgetTitle : "Bubble Chart",
+                           widgetId : "id009",
+                           widgetType : "chart",
+                           widgetContent : {
+                           data : myExampleData.bubbleChartData,
+                           options : myExampleData.bubbleChartOptions
+                           }
+
+                           }*/
+                           {
+                           widgetTitle : "Sales Figures",
+                           widgetId : "id002",
+                           widgetType : "chart",
+                           widgetDimension:"normal",
+                           chartType : "pie",
+                           widgetContent : {
+                           /**Plotly Graph */      
+                           //data : myExampleData.plotlypiedata,   
+                          	data : myExampleData.c3piedata
+                           }
+                           },
+                           {
+                               widgetTitle : "Age group",
+                               widgetId : "id003",
+                               widgetType : "chart",
+                               widgetDimension:"normal",
+                               chartType : "bubble",
+                               widgetContent : {
+                              	data : myExampleData.plotlyBubbleData,
+                              	layout : myExampleData.plotlyBubbleLayout,
+                       		config: myExampleData.plotlybarconfig
+                            }
+                           },{
+                           widgetTitle : "Revenue",
+                           widgetId : "id004",
+                           widgetType : "chart",
+                           widgetDimension:"large",
+                           chartType : "bar",
+                           widgetContent : {        	
+                           //c3 bar graph
+                          /*  data : myExampleData.c3bardata,
+                           bar : myExampleData.c3bardatabar     */
+                          	data : myExampleData.barGroupChartData ,
+                   		layout :myExampleData.barGroupChartLayout,
+                   		config: myExampleData.plotlybarconfig
+                           }
+                           },{
+                           widgetTitle : "Items sold",
+                           widgetId : "id005",
+                           widgetType : "chart",
+                           widgetDimension:"large",
+                           chartType : "line",
+                           getDataBySelection : true,
+                           widgetContent : {
+                           //	data : myExampleData.lineChartData,
+                           //	options : myExampleData.lineChartOptions
+                           //plotly data
+                       	data:myExampleData.plotlylinedata,
+                           layout : myExampleData.plotlylinelayout,
+                           config : myExampleData.plotlylineconfig
+                           //c3
+                          // data:myExampleData.c3linedata      
+                           }}, {
+                               widgetTitle : "General Messages",
+                               widgetId : "id001",
+                               widgetType : "Text",
+                               widgetDimension:"small",
+                               widgetContent : "Number of Redemptions: 4,636 \n"+"Revenue Generated 231,800$"
+                               },
+                               {
+                                   widgetTitle : "Table ",
+                                   widgetId : "id3",
+                                   widgetType : "table",
+                                   setJqueryStyle : true,
+                                   widgetContent : myExampleData.tableWidgetData
+                           }];
+
+                           //basic initialization example
+                           $("#cprDashboard").sDashboard({
+                           dashboardData : dashboardJSON
+                           });
+
+                           //table row clicked event example
+                           $("#cprDashboard")
+                           .bind(
+                           "sdashboardrowclicked",
+                           function(e, data) {
+                           $.gritter
+                           .add({
+                           position : 'bottom-left',
+                           title : 'Table row clicked',
+                           time : 1000,
+                           text : 'A table row within a table widget has been clicked, please check the console for additional event data'
+                           });
+
+                           if (console) {
+                           console.log("table row clicked, for widget: " + data.selectedWidgetId);
+                           }
+                           });
+
+                           //plot selected event example
+                           $("#cprDashboard")
+                           .bind(
+                           "sdashboardplotselected",
+                           function(e, data) {
+                           $.gritter
+                           .add({
+                           position : 'bottom-left',
+                           title : 'Plot selected',
+                           time : 1000,
+                           text : 'A plot has been selected within a chart widget, please check the console for additional event data'
+                           });
+                           if (console) {
+                           console.log("chart range selected, for widget: "
+                           + data.selectedWidgetId);
+                           }
+                           });
+                           //plot click event example
+                           $("#cprDashboard")
+                           .bind(
+                           "sdashboardplotclicked",
+                           function(e, data) {
+                           $.gritter
+                           .add({
+                           position : 'bottom-left',
+                           title : 'Plot Clicked',
+                           time : 1000,
+                           text : 'A plot has been clicked within a chart widget, please check the console for additional event data'
+                           });
+                           if (console) {
+                           console.log("chart clicked, for widget: "
+                           + data.selectedWidgetId);
+                           }
+                           });
+
+                           //widget order changes event example
+                           $("#cprDashboard")
+                           .bind(
+                           "sdashboardorderchanged",
+                           function(e, data) {
+                           $.gritter
+                           .add({
+                           position : 'bottom-left',
+                           title : 'Order Changed',
+                           time : 4000,
+                           text : 'The widgets order has been changed,check the console for the sorted widget definitions array'
+                           });
+                           if (console) {
+                           console.log("Sorted Array");
+                           console.log("+++++++++++++++++++++++++");
+                           console.log(data.sortedDefinitions);
+                           console.log("+++++++++++++++++++++++++");
+                           }
+
+                           });
+                           //example for adding a text widget
+                           $("#btnAddWidget")
+                           .click(
+                           function() {
+                           $("#cprDashboard")
+                           .sDashboard(
+                           "addWidget",
+                           {
+                           widgetTitle : "Widget 7",
+                           widgetId : "id008",
+                           widgetContent : "Create a Widget to be added to the list"
+
+                           });
+                           });
+
+                           //example for adding a table widget
+                           $("#btnAddTableWidget").click(function() {
+                           $("#cprDashboard").sDashboard("addWidget", {
+                           widgetTitle : "Table Widget 2",
+                           widgetId : "id007",
+                           widgetType : "table",
+                           setJqueryStyle : true,
+                           widgetContent : myExampleData.tableWidgetData
+                           });
+
+                           });
+
+                           //example for  deleting a widget
+                           /* 	$("#btnDeleteWidget").click(function() {
+                           $("#cprDashboard").sDashboard("removeWidget", "id007");
+                           }); */
+
+                           //example for adding a pie chart widget
+                           $("#btnAddPieChartWidget").click(function() {
+
+                           $("#cprDashboard").sDashboard("addWidget", {
+                           widgetTitle : "Pie Chart 2",
+                           widgetId : "id006",
+                           widgetType : "static",
+                           widgetContent : {
+                           data: myExampleData.chartJsPolarConfig
+                           }
+                           });
+
+                           });
+
+                           //example for adding a bar chart widget
+                           $("#btnAddBarChartWidget").click(function() {
+
+                           $("#cprDashboard").sDashboard("addWidget", {
+                           widgetTitle : "Bar Chart 2",
+                           widgetId : "id005",
+                           widgetType : "chart",
+                           widgetContent : {
+                           data : myExampleData.barChartData,
+                           options : myExampleData.barChartOptions
+                           }
+                           });
+                           });
+
+                           //example for adding an line chart widget
+                           $("#btnAddLineChartWidget").click(function() {
+                           $("#cprDashboard").sDashboard("addWidget", {
+                           widgetTitle : "Line Chart 2",
+                           widgetId : "id004",
+                           widgetType : "chart",
+                           getDataBySelection : true,
+                           widgetContent : {
+                           data : myExampleData.lineChartData,
+                           options : myExampleData.lineChartOptions
+                           }
+
+                           });
+                           });
+
+                           });
+                       
+                       
+                },
+        		error : function(data) {
+        			alert("error");
+        			console.log("error!");
+        		}
+       		}); 
+       		/* $.getJSON("http://localhost:8080/Crmxs-Dashboard/getWidgets.html", storeJson);
+       		
+       		function storeJson(data){
+       			dashboardJSON = data;
+       			console.log("this-> "+data);
+       		} */
         });
-
-        //**********************************************//
-        //dashboard json data
-        //this is the data format that the dashboard framework expects
-        //**********************************************//
-
-        var dashboardJSON = [
-        /* {
-        widgetTitle : "Bubble Chart",
-        widgetId : "id009",
-        widgetType : "chart",
-        widgetContent : {
-        data : myExampleData.bubbleChartData,
-        options : myExampleData.bubbleChartOptions
-        }
-
-        }*/
-        {
-        widgetTitle : "Sales Figures",
-        widgetId : "id002",
-        widgetType : "chart",
-        widgetDimension:"normal",
-        chartType : "pie",
-        widgetContent : {
-        /**Plotly Graph */      
-        //data : myExampleData.plotlypiedata,   
-       	data : myExampleData.c3piedata
-        }
-        },
-        {
-            widgetTitle : "Age group",
-            widgetId : "id003",
-            widgetType : "chart",
-            widgetDimension:"normal",
-            chartType : "bubble",
-            widgetContent : {
-           	data : myExampleData.plotlyBubbleData,
-           	layout : myExampleData.plotlyBubbleLayout,
-    		config: myExampleData.plotlybarconfig
-         }
-        },{
-        widgetTitle : "Revenue",
-        widgetId : "id004",
-        widgetType : "chart",
-        widgetDimension:"large",
-        chartType : "bar",
-        widgetContent : {        	
-        //c3 bar graph
-       /*  data : myExampleData.c3bardata,
-        bar : myExampleData.c3bardatabar     */
-       	data : myExampleData.barGroupChartData ,
-		layout :myExampleData.barGroupChartLayout,
-		config: myExampleData.plotlybarconfig
-        }
-        },{
-        widgetTitle : "Items sold",
-        widgetId : "id005",
-        widgetType : "chart",
-        widgetDimension:"large",
-        chartType : "line",
-        getDataBySelection : true,
-        widgetContent : {
-        //	data : myExampleData.lineChartData,
-        //	options : myExampleData.lineChartOptions
-        //plotly data
-    	data:myExampleData.plotlylinedata,
-        layout : myExampleData.plotlylinelayout,
-        config : myExampleData.plotlylineconfig
-        //c3
-       // data:myExampleData.c3linedata      
-        }}, {
-            widgetTitle : "General Messages",
-            widgetId : "id001",
-            widgetType : "Text",
-            widgetDimension:"small",
-            widgetContent : "Number of Redemptions: 4,636 \n"+"Revenue Generated 231,800$"
-            },
-            {
-                widgetTitle : "Table ",
-                widgetId : "id3",
-                widgetType : "table",
-                setJqueryStyle : true,
-                widgetContent : myExampleData.tableWidgetData
-             }];
-
-        //basic initialization example
-        $("#cprDashboard").sDashboard({
-        dashboardData : dashboardJSON
+         	
+    
         });
-
-        //table row clicked event example
-        $("#cprDashboard")
-        .bind(
-        "sdashboardrowclicked",
-        function(e, data) {
-        $.gritter
-        .add({
-        position : 'bottom-left',
-        title : 'Table row clicked',
-        time : 1000,
-        text : 'A table row within a table widget has been clicked, please check the console for additional event data'
-        });
-
-        if (console) {
-        console.log("table row clicked, for widget: " + data.selectedWidgetId);
-        }
-        });
-
-        //plot selected event example
-        $("#cprDashboard")
-        .bind(
-        "sdashboardplotselected",
-        function(e, data) {
-        $.gritter
-        .add({
-        position : 'bottom-left',
-        title : 'Plot selected',
-        time : 1000,
-        text : 'A plot has been selected within a chart widget, please check the console for additional event data'
-        });
-        if (console) {
-        console.log("chart range selected, for widget: "
-        + data.selectedWidgetId);
-        }
-        });
-        //plot click event example
-        $("#cprDashboard")
-        .bind(
-        "sdashboardplotclicked",
-        function(e, data) {
-        $.gritter
-        .add({
-        position : 'bottom-left',
-        title : 'Plot Clicked',
-        time : 1000,
-        text : 'A plot has been clicked within a chart widget, please check the console for additional event data'
-        });
-        if (console) {
-        console.log("chart clicked, for widget: "
-        + data.selectedWidgetId);
-        }
-        });
-
-        //widget order changes event example
-        $("#cprDashboard")
-        .bind(
-        "sdashboardorderchanged",
-        function(e, data) {
-        $.gritter
-        .add({
-        position : 'bottom-left',
-        title : 'Order Changed',
-        time : 4000,
-        text : 'The widgets order has been changed,check the console for the sorted widget definitions array'
-        });
-        if (console) {
-        console.log("Sorted Array");
-        console.log("+++++++++++++++++++++++++");
-        console.log(data.sortedDefinitions);
-        console.log("+++++++++++++++++++++++++");
-        }
-
-        });
-        //example for adding a text widget
-        $("#btnAddWidget")
-        .click(
-        function() {
-        $("#cprDashboard")
-        .sDashboard(
-        "addWidget",
-        {
-        widgetTitle : "Widget 7",
-        widgetId : "id008",
-        widgetContent : "Create a Widget to be added to the list"
-
-        });
-        });
-
-        //example for adding a table widget
-        $("#btnAddTableWidget").click(function() {
-        $("#cprDashboard").sDashboard("addWidget", {
-        widgetTitle : "Table Widget 2",
-        widgetId : "id007",
-        widgetType : "table",
-        setJqueryStyle : true,
-        widgetContent : myExampleData.tableWidgetData
-        });
-
-        });
-
-        //example for  deleting a widget
-        /* 	$("#btnDeleteWidget").click(function() {
-        $("#cprDashboard").sDashboard("removeWidget", "id007");
-        }); */
-
-        //example for adding a pie chart widget
-        $("#btnAddPieChartWidget").click(function() {
-
-        $("#cprDashboard").sDashboard("addWidget", {
-        widgetTitle : "Pie Chart 2",
-        widgetId : "id006",
-        widgetType : "static",
-        widgetContent : {
-        data: myExampleData.chartJsPolarConfig
-        }
-        });
-
-        });
-
-        //example for adding a bar chart widget
-        $("#btnAddBarChartWidget").click(function() {
-
-        $("#cprDashboard").sDashboard("addWidget", {
-        widgetTitle : "Bar Chart 2",
-        widgetId : "id005",
-        widgetType : "chart",
-        widgetContent : {
-        data : myExampleData.barChartData,
-        options : myExampleData.barChartOptions
-        }
-        });
-        });
-
-        //example for adding an line chart widget
-        $("#btnAddLineChartWidget").click(function() {
-        $("#cprDashboard").sDashboard("addWidget", {
-        widgetTitle : "Line Chart 2",
-        widgetId : "id004",
-        widgetType : "chart",
-        getDataBySelection : true,
-        widgetContent : {
-        data : myExampleData.lineChartData,
-        options : myExampleData.lineChartOptions
-        }
-
-        });
-        });
-
-        });
-        })
         </script>
 		<!--     CPR Dashboard    Custom  -->
 </body>

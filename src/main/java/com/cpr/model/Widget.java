@@ -7,16 +7,18 @@ public class Widget {
 	private String widgetType;
 	private String widgetDimension;
 	private String chartType;
+	private String graphType;
 	private WidgetContent widgetContent;
 	
-	public Widget(String widgetTitle, String widgetId, String widgetType, String widgetDimension, String chartType, WidgetContent widgetContent) {
+	public Widget(String widgetTitle, String widgetId, String widgetType, String graphType, String widgetDimension, String chartType, WidgetContent widgetContent) {
 		// TODO Auto-generated constructor stub
 		this.setWidgetTitle(widgetTitle);
 		this.setWidgetId(widgetId);
-		this.setChartType(chartType);
+		this.setWidgetType(widgetType);
 		this.setWidgetDimension(widgetDimension);
 		this.setChartType(chartType);
 		this.setWidgetContent(widgetContent);
+		this.setGraphType(graphType);
 	}
 	
 	public Widget() {
@@ -24,8 +26,14 @@ public class Widget {
 	}
 	
 	
-	
-	
+	public String getGraphType() {
+		return graphType;
+	}
+
+	public void setGraphType(String graphType) {
+		this.graphType = graphType;
+	}
+
 	public String getChartType() {
 		return chartType;
 	}
@@ -62,8 +70,6 @@ public class Widget {
 	public void setWidgetContent(WidgetContent widgetContent) {
 		this.widgetContent = widgetContent;
 	}
-	
-	
 	
 	
 }

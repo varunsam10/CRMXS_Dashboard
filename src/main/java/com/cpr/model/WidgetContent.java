@@ -1,11 +1,13 @@
 package com.cpr.model;
 
+import java.util.ArrayList;
+
 public class WidgetContent {
-	private WidgetData data;
+	private ArrayList<WidgetData> data;
 	private WidgetLayout layout;
 	private WidgetConfig config;
 	
-	public WidgetContent(WidgetData widgetData, WidgetLayout widgetLayout, WidgetConfig widgetConfig) {
+	public WidgetContent(ArrayList<WidgetData> widgetData, WidgetLayout widgetLayout, WidgetConfig widgetConfig) {
 		// TODO Auto-generated constructor stub
 		this.setData(widgetData);
 		this.setConfig(widgetConfig);
@@ -16,12 +18,15 @@ public class WidgetContent {
 		
 	}
 	
-	public WidgetData getData() {
+	
+	public ArrayList<WidgetData> getData() {
 		return data;
 	}
-	public void setData(WidgetData data) {
+
+	public void setData(ArrayList<WidgetData> data) {
 		this.data = data;
 	}
+
 	public WidgetLayout getLayout() {
 		return layout;
 	}
