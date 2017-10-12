@@ -38,8 +38,11 @@
 
 				var _dashboardData = this.options.dashboardData;
 				var i;
+				console.log(_dashboardData);
+				console.log(_dashboardData.length);
 				for ( i = 0; i < _dashboardData.length; i++) {
 					var widget = this._constructWidget(_dashboardData[i]);
+					console.log(widget);
 					//append the widget to the dashboard
 					this.element.append(widget);
 					this._renderTable(_dashboardData[i]);
@@ -326,9 +329,7 @@
 				var config;
 				var chart;
 				chartArea = this.element.find(id + " div.sDashboardChart");
-				/*window.onresize = function() {
-				    Plotly.Plots.resize(chartArea[0]);
-				};*/
+				
 				if (widgetDefinition.widgetType === 'chart') {
 					
 					data = widgetDefinition.widgetContent.data;

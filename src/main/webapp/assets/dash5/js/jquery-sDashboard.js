@@ -300,19 +300,19 @@
 					data = widgetDefinition.widgetContent.data;
 					layout = widgetDefinition.widgetContent.layout;
 					config = widgetDefinition.widgetContent.config;
-//					Flotr.draw(chartArea[0], data, options);
-					var layout = {
-							  xaxis: {
-							    tickangle: -45
-							  },
-							  barmode: 'group'
-							};
+////					Flotr.draw(chartArea[0], data, options);
+//					var layout = {
+//							  xaxis: {
+//							    tickangle: -45
+//							  },
+//							  barmode: 'group'
+//							};
 
 					Plotly.newPlot(chartArea[0],  widgetDefinition.widgetContent.data, widgetDefinition.widgetContent.layout,widgetDefinition.widgetContent.config);
-					/*Plotly.animate(chartArea[0], { data, layout } , { transition: {
-					      duration: 800,
-					      easing: 'cubic-in-out'
-					    }});*/
+					Plotly.animate(chartArea[0], { data, layout, config } , { transition: {
+					      duration: 8000,
+					      easing: 'elastic-in'
+					    }});
 					if (widgetDefinition.getDataBySelection) {
 						this._bindSelectEvent(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
 					} else {
