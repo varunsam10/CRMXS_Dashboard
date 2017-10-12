@@ -75,6 +75,8 @@ myExampleData.c3linedata = {
  */
 
 //Pie chart sample data ends here
+
+
 //PlotlysimpleLine
 var trace1 = {
 	x : [ 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110 ],
