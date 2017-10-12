@@ -491,7 +491,7 @@
         //dashboard json data
         //this is the data format that the dashboard framework expects
         //**********************************************//
-      var dashboardJSON =[{
+    var dashboardJSON =[{
 		widgetTitle: "Sales Figures",
 		widgetId: "id002",
 		widgetType: "chart",
@@ -570,55 +570,54 @@
 			layout: myExampleData.plotlypielayout,
 			config: myExampleData.plotlypieconfig
 		}
-	}]; 
-	/* 	var dashboardJSON =[{
-        	"widgetTitle": "Items sold",
-        	"widgetId": "id004",
-        	"widgetDimension": "large",
-        	"graphType" : "exploratory",
-        	"chartType": "line",
-        	"widgetContent": {
-        		"data": {
-        			"traces": [{
-        				"x": [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110],
-        				"y": [8, 13, 74, 12, 15, 70, 38, 16, 38, 20, 16, 38],
-        				"name": "Desperado",
-        				"type": "scatter"
-        			}, {
-        				"x": [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110],
-        				"y": [10, 15, 60, 22, 25, 80, 28, 36, 48, 18, 26, 48],
-        				"name": "Tiget",
-        				"type": "scatter"
-        			}]
-        		},
-        		"layout": {
-        			"title": "How old are they ?",
-        			"showlegend": false,
-        			"height": 0,
-        			"width": 0,
-        			"xaxis": {
-        				"title": "Age",
-        				"titlefont": {
-        					"family": "Courier New, monospace",
-        					"size": 18,
-        					"color": "#7f7f7f"
-        				}
-        			},
-        			"yaxis": {
-        				"title": "Number of Customers",
-        				"titlefont": {
-        					"family": "Courier New, monospace",
-        					"size": 18,
-        					"color": "#7f7f7f"
-        				}
-        			}
-        		},
-        		"config": {
-        			"modeBarButtonsToRemove": ["sendDataToCloud"],
-        			"displaylogo": false
-        		}
-        	}
-        }];  */
+	}];  
+/* 	var dashboardJSON =[{
+		"widgetTitle": "Items sold",
+		"widgetId": "id004",
+		"widgetDimension": "large",
+		"graphType" : "exploratory",
+		"widgetType": "chart",
+		"chartType": "line",
+		"widgetContent": {
+			"data": [{
+				"x": [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110],
+				"y": [8, 13, 74, 12, 15, 70, 38, 16, 38, 20, 16, 38],
+				"name": "Desperado",
+				"type": "scatter"
+			}, {
+				"x": [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110],
+				"y": [10, 15, 60, 22, 25, 80, 28, 36, 48, 18, 26, 48],
+				"name": "Tiget",
+				"type": "scatter"
+			}],
+			"layout": {
+				"title": "How old are they ?",
+				"showlegend": false,
+				"height": 0,
+				"width": 0,
+				"xaxis": {
+					"title": "Age",
+					"titlefont": {
+						"family": "Courier New, monospace",
+						"size": 18,
+						"color": "#7f7f7f"
+					}
+				},
+				"yaxis": {
+					"title": "Number of Customers",
+					"titlefont": {
+						"family": "Courier New, monospace",
+						"size": 18,
+						"color": "#7f7f7f"
+					}
+				}
+			},
+			"config": {
+				"modeBarButtonsToRemove": ["sendDataToCloud"],
+				"displaylogo": false
+			}
+		}
+		}]; */
         //basic initialization examplemn.sDashboard
         $("#cprDashboard").sDashboard({
         	dashboardData : dashboardJSON

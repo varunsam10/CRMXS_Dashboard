@@ -221,15 +221,24 @@
 				
 				
 				//add delete button
-				if (widgetDefinition.widgetType === 'chart'){
-					widgetHeader.append(deleteButton);
+				if (widgetDefinition.widgetType === 'chart' && widgetDefinition.graphType === "exploratory"){
 					//add Maximizebutton
 					widgetHeader.append(maximizeButton);
 					widgetHeader.append(settingsButton);
-				}else if(widgetDefinition.widgetType === 'table'){
 					widgetHeader.append(deleteButton);
+					
+				}
+				else if(widgetDefinition.widgetType === 'chart' && widgetDefinition.graphType === "normal"){
 					//add Maximizebutton
 					widgetHeader.append(maximizeButton);
+					widgetHeader.append(deleteButton);
+										
+				}				
+				else if(widgetDefinition.widgetType === 'table'){
+					//add Maximizebutton
+					widgetHeader.append(maximizeButton);
+					widgetHeader.append(deleteButton);
+					
 				}else{
 					widgetHeader.append(deleteButton);
 				}
