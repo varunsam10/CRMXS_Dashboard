@@ -1,4 +1,4 @@
-package com.cpr.model;
+package com.cpr.util;
 
 public class WidgetConfig {
 	private String[] modeBarButtonsToRemove;

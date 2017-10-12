@@ -1,4 +1,4 @@
-package com.cpr.model;
+package com.cpr.util;
 
 public class WidgetLayout {
 	private String title;
