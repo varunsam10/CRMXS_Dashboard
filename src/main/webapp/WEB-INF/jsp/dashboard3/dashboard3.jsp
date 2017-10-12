@@ -35,7 +35,7 @@
         <link href="assets/dash3/global/css/plugins-md.min.css" rel="stylesheet" type="text/css" />
         <!-- END THEME GLOBAL STYLES -->
         <!-- BEGIN THEME LAYOUT STYLES -->
-        <link href="assets/dash3/layouts/layout6/css/layout.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/dash3/layouts/layout6/css/layout.css" rel="stylesheet" type="text/css" />
         <link href="assets/dash3/layouts/layout6/css/custom.min.css" rel="stylesheet" type="text/css" />
         <!-- END THEME LAYOUT STYLES -->
         <link rel="shortcut icon" href="favicon.ico" /> </head>
@@ -270,7 +270,7 @@
                             </li>
 
 
-                            <li class="nav-item  ">
+                      <!--       <li class="nav-item  ">
                                 <a href="javascript:;" class="nav-link nav-toggle">
                                     <i class="icon-bar-chart"></i>
                                     <span class="title">Charts</span>
@@ -325,7 +325,7 @@
                                         </ul>
                                     </li>
                                 </ul>
-                            </li>
+                            </li> -->
                             <li class="nav-item  ">
                                 <a href="javascript:;" class="nav-link nav-toggle">
                                     <i class="icon-pointer"></i>
@@ -357,23 +357,26 @@
                                 </a>
                                 <ul class="sub-menu">
                                     <li class="nav-item  ">
-                                        <a href="app_todo.html" class="nav-link ">
+                                       <!--  <a href="app_todo.html" class="nav-link ">
                                             <i class="icon-clock"></i>
                                             <span class="title">Todo 1</span>
+                                        </a> -->
+                                        <a href="dashboard6.html"  class="nav-link "><i class="icon-check"></i>
+                                        <span class="title">Draw Board</span>
                                         </a>
                                     </li>
-                                    <li class="nav-item  ">
+                                   <!--  <li class="nav-item  ">
                                         <a href="app_todo_2.html" class="nav-link ">
                                             <i class="icon-check"></i>
                                             <span class="title">Todo 2</span>
                                         </a>
-                                    </li>
-                                    <li class="nav-item  ">
+                                    </li> -->
+                                 <!--    <li class="nav-item  ">
                                         <a href="app_calendar.html" class="nav-link ">
                                             <i class="icon-calendar"></i>
                                             <span class="title">Calendar</span>
                                         </a>
-                                    </li>
+                                    </li> -->
                                 </ul>
                             </li>
                             <li class="nav-item  ">
@@ -421,7 +424,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item  ">
+                           <!--  <li class="nav-item  ">
                                 <a href="javascript:;" class="nav-link nav-toggle">
                                     <i class="icon-social-dribbble"></i>
                                     <span class="title">General</span>
@@ -528,7 +531,7 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </li>
+                            </li> -->
 
                         </ul>
                         <!-- END SIDEBAR MENU -->

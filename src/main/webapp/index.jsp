@@ -190,32 +190,32 @@ padding-top: 60px;
 		<div class="panel-body panelDiv">
 		<div class="simulator-icon-start4">
 				<span class="simulator-label"><a 
-						href="dashboard6.html">Dashboard 6 »</a></span>
+						href="dashboard6.html">Dashboard 6 Dev»</a></span>
 				</div>	
 				<!-- <div class="simulator-icon-start4">
 					<span class="simulator-label"><a 
 						href="createWidget.html">Create Widget »</a></span>
 				</div>	 -->
-				<div class="simulator-icon-start4">
+				<!-- <div class="simulator-icon-start4">
 					<span class="simulator-label"><a 
 						href="dashboard5.html">Dashboard5 »</a></span>
-				</div>		
+				</div>	 -->	
 		<!-- 		<div class="simulator-icon-start4">
 					<span class="simulator-label"><a 
 						href="dashboard4.html">Dashboard4 »</a></span>
 				</div>	 -->		
 				<div class="simulator-icon-start1">
 					<span class="simulator-label"><a 
-						href="dashboard3.html">Dashboard3 »</a></span>
+						href="dashboard3.html">Home page »</a></span>
 				</div>
 				<!-- <div class="simulator-icon-start2">
 					<span class="simulator-label"><a
 						href="dashboard2.html">Dashboard2 »</a> </span>
 				</div> -->
-				<div class="simulator-icon-start3">
+			<!-- 	<div class="simulator-icon-start3">
 					<span class="simulator-label"><a 
 						href="dashboard1.html">Dashboard1 »</a></span>
-				</div>	
+				</div>	 -->
 							
 		</div>
 	</div>
