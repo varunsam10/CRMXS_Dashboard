@@ -338,7 +338,7 @@
 					      duration: 800,
 					      easing: 'cubic-in-out'
 					    }});*/
-					if(widgetDefinition.chartType === 'pie'){
+					if(widgetDefinition.graphType === 'normal'){
 						
 						var chart = c3.generate({bindto:chartArea[0],data:widgetDefinition.widgetContent.data});
 						

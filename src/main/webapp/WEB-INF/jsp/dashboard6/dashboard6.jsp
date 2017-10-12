@@ -507,6 +507,7 @@
         widgetTitle : "Sales Figures",
         widgetId : "id002",
         widgetType : "chart",
+        graphType : "normal",
         widgetDimension:"normal",
         chartType : "pie",
         widgetContent : {
@@ -519,6 +520,7 @@
             widgetTitle : "Age group",
             widgetId : "id003",
             widgetType : "chart",
+            graphType : "exploratory",
             widgetDimension:"normal",
             chartType : "bubble",
             widgetContent : {
@@ -530,6 +532,7 @@
         widgetTitle : "Revenue",
         widgetId : "id004",
         widgetType : "chart",
+        graphType : "exploratory",
         widgetDimension:"large",
         chartType : "bar",
         widgetContent : {        	
@@ -544,6 +547,7 @@
         widgetTitle : "Items sold",
         widgetId : "id005",
         widgetType : "chart",
+        graphType : "exploratory",
         widgetDimension:"large",
         chartType : "line",
         getDataBySelection : true,
@@ -558,22 +562,83 @@
        // data:myExampleData.c3linedata      
         }}, {
             widgetTitle : " ",
-            widgetId : "id001",
+            widgetId : "id006",
             widgetType : "Text",
+            graphType : "exploratory",
             widgetDimension:"small",
             widgetContent : "Number of Redemptions: 4,636 \n"+"Revenue Generated 231,800$"
             },
             {
-                widgetTitle : "Table ",
-                widgetId : "id3",
-                widgetType : "table",
-                setJqueryStyle : true,
-                widgetContent : myExampleData.tableWidgetData
-             }];
-
-        //basic initialization example
+            widgetTitle : "Table ",
+            widgetId : "id007",
+            widgetType : "table",
+            setJqueryStyle : true,
+            widgetContent : myExampleData.tableWidgetData
+             },{
+            widgetTitle : "Sales Figures",
+            widgetId : "id008",
+            widgetType : "chart",
+            graphType : "exploratory",
+            widgetDimension:"normal",
+            chartType : "pie",
+            widgetContent : {
+                 /**Plotly Graph */      
+                 //data : myExampleData.plotlypiedata,   
+               	data : myExampleData.plotlypiedata,
+                layout : myExampleData.plotlypielayout,
+                config : myExampleData.plotlypieconfig 
+            }
+         }]; 
+      /*   var dashboardJSON =[{
+        	"widgetTitle": "Items sold",
+        	"widgetId": "id004",
+        	"widgetDimension": "large",
+        	"chartType": "line",
+        	"widgetContent": {
+        		"data": {
+        			"traces": [{
+        				"x": [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110],
+        				"y": [8, 13, 74, 12, 15, 70, 38, 16, 38, 20, 16, 38],
+        				"name": "Desperado",
+        				"type": "scatter"
+        			}, {
+        				"x": [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110],
+        				"y": [10, 15, 60, 22, 25, 80, 28, 36, 48, 18, 26, 48],
+        				"name": "Tiget",
+        				"type": "scatter"
+        			}]
+        		},
+        		"layout": {
+        			"title": "How old are they ?",
+        			"showlegend": false,
+        			"height": 0,
+        			"width": 0,
+        			"xaxis": {
+        				"title": "Age",
+        				"titlefont": {
+        					"family": "Courier New, monospace",
+        					"size": 18,
+        					"color": "#7f7f7f"
+        				}
+        			},
+        			"yaxis": {
+        				"title": "Number of Customers",
+        				"titlefont": {
+        					"family": "Courier New, monospace",
+        					"size": 18,
+        					"color": "#7f7f7f"
+        				}
+        			}
+        		},
+        		"config": {
+        			"modeBarButtonsToRemove": ["sendDataToCloud"],
+        			"displaylogo": false
+        		}
+        	}
+        }]; */
+        //basic initialization examplemn.sDashboard
         $("#cprDashboard").sDashboard({
-        dashboardData : dashboardJSON
+        	dashboardData : dashboardJSON
         });
 
         //table row clicked event example
