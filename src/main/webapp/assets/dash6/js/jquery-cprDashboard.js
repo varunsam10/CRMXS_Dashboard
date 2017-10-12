@@ -1,4 +1,5 @@
-( function(factory) {"use strict";
+(function(factory) {
+		"use strict";
 		if ( typeof define === 'function' && define.amd) {
 			// Register as an AMD module if available...
 			define(['jquery', 'Flotr', 'Plotly','c3'], factory);
@@ -6,8 +7,8 @@
 			// Browser globals for the unenlightened...
 			factory($, Flotr, Plotly,c3);
 		}
-	}(function($, Flotr, Plotly,c3) {"use strict";
-
+	}(function($, Flotr, Plotly,c3) {
+		"use strict";
 		$.widget("mn.sDashboard", {
 			version : "2.5",
 			options : {
@@ -41,7 +42,7 @@
 					var widget = this._constructWidget(_dashboardData[i]);
 					//append the widget to the dashboard
 					this.element.append(widget);
-					//this._renderTable(_dashboardData[i]);
+					this._renderTable(_dashboardData[i]);
 					this._renderChart(_dashboardData[i]);
 				}
 
@@ -197,9 +198,11 @@
 				//create an outer list item
 				var widget = $("<li/>").attr("id", widgetDefinition.widgetId);
 				 if (widgetDefinition.widgetDimension === 'large'){
-					 widget.addClass("sDashboardLarge");
-				 }else{
-					 widget.addClass("sDashboardNormal");
+					 widget.addClass("cprDashboardLarge");
+				 }else if(widgetDefinition.widgetDimension === 'normal'){
+					 widget.addClass("cprDashboardNormal");
+				 }else if(widgetDefinition.widgetDimension === 'small'){
+					 widget.addClass("cprDashboardSmall");
 				 }
 				//create a widget container
 				var widgetContainer = $("<div/>").addClass("sDashboardWidget");

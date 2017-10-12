@@ -19,12 +19,23 @@
 	height: auto;
 }
 
-.sDashboardLarge {
+.cprDashboardLarge {
 	width: 1215px !important;
+	height: auto;
+	min-height: 250px;
 }
 
-.sDashboardNormal {
+.cprDashboardNormal {
 	width: 610px !important;
+	height: auto;
+	min-height: 250px;
+}
+.cprDashboardSmall {
+	width: 310px !important;
+	min-width:0px !important;
+	min-height:0px !important;
+	height:100px !important;
+	color: blue;
 }
 
 /*dashboard widget css*/
@@ -59,9 +70,7 @@
 .sDashboardWidgetContent {
 	/* margin: 0.3em; */
 	margin: 0.1em;
-	padding: 0.4em;
-	height: auto;
-	min-height: 250px;
+	padding: 0.4em;	
 	overflow-x: hidden;
 	overflow-y: auto;
 }
