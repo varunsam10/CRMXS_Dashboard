@@ -657,40 +657,22 @@
 	    }
         //table row clicked event example
         $("#cprDashboard").bind("sdashboardrowclicked",function(e, data) {
-      /*   $.gritter.add({
-        position : 'bottom-left',
-        title : 'Table row clicked',
-        time : 1000,
-        text : 'A table row within a table widget has been clicked, please check the console for additional event data'
-        }); */
-
+   
         if (console) {
-        console.log("table row clicked, for widget: " + data.selectedWidgetId);
+        	console.log("table row clicked, for widget: " + data.selectedWidgetId);
         }
         });
 
         //plot selected event example
-        $("#cprDashboard").bind("sdashboardplotselected",function(e, data) {
-      /*   $.gritter.add({
-        	position : 'bottom-left',
-       		title : 'Plot selected',
-        	time : 1000,
-        	text : 'A plot has been selected within a chart widget, please check the console for additional event data'
-        }); */    
-        notification('info', 'A plot has been selected within a chart widget!');
+        $("#cprDashboard").bind("sdashboardplotselected",function(e, data) {  
+        	notification('info', 'A plot has been selected within a chart widget!');
         if (console) {
         	console.log("chart range selected, for widget: "+ data.selectedWidgetId);
         }
         });
         //plot click event example
         $("#cprDashboard").bind("sdashboardplotclicked",function(e, data) {
-     /*    $.gritter.add({
-        position : 'bottom-left',
-        title : 'Plot Clicked',
-        time : 1000,
-        text : 'A plot has been clicked within a chart widget, please check the console for additional event data'
-        }); */    
-       		notification('info', 'chart clicked, for widget:'+ data.selectedWidgetId +'!');
+      		notification('info', 'chart clicked, for widget:'+ data.selectedWidgetId +'!');
         if (console) {
         	console.log("chart clicked, for widget: " + data.selectedWidgetId);
         }
