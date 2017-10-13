@@ -689,6 +689,17 @@
 		graphType: "exploratory",
 		widgetDimension: "normal",
 		chartType: "bubble",
+		enableRefresh: true,
+		refreshCallBack : function(widgetId){ 
+			//Inside refresh callback		
+			notification('info', 'Inside the refresh callback !');
+			var refreshedData = {
+					data: myExampleData.plotlyBubbleData,
+					layout: myExampleData.plotlyBubbleLayout,
+					config: myExampleData.plotlybarconfig
+			};
+			return refreshedData;
+		},
 		widgetContent: {
 			data: myExampleData.plotlyBubbleData,
 			layout: myExampleData.plotlyBubbleLayout,
