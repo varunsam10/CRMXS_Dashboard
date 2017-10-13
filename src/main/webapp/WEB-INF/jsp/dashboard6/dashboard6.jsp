@@ -508,7 +508,7 @@
         //dashboard json data
         //this is the data format that the dashboard framework expects
         //**********************************************//
-    var dashboardJSON =[{
+   /*  var dashboardJSON =[{
 		widgetTitle: "Sales Figures",
 		widgetId: "id002",
 		widgetType: "chart",
@@ -598,7 +598,136 @@
 			layout: myExampleData.plotlypielayout,
 			config: myExampleData.plotlypieconfig
 		}
-	}];  
+	}];   */
+	var dashboardJSON =[
+    	{
+    		widgetTitle: "Household savings and net worth",
+    		widgetId: "id001",
+    		widgetType: "chart",
+    		graphType: "exploratory",
+    		widgetDimension: "normal",
+    		chartType: "column",
+    		widgetContent: {
+    			data: myExampleData.plotlycolumndata,
+    			layout: myExampleData.plotlycolumnlayout,
+    			config: myExampleData.plotlycolumnconfig	
+    			}
+    	},
+    	
+    	{
+    		widgetTitle: "Sea-Level Proximity/Distance",
+    		widgetId: "id0010",
+    		widgetType: "chart",
+    		graphType: "exploratory",
+    		widgetDimension: "normal",
+    		chartType: "barline",
+    		widgetContent: {
+    			data: myExampleData.plotlybarlinedata,
+    			layout: myExampleData.plotlybarlinelayout,
+    			config: myExampleData.plotlybarlineconfig	
+    			}
+    	},
+    	
+    	{
+    		widgetTitle: "Life expectancy around the world",
+    		widgetId: "id0011",
+    		widgetType: "chart",
+    		graphType: "exploratory",
+    		widgetDimension: "large",
+    		chartType: "bubble",
+    		widgetContent: {
+    			data: myExampleData.plotlybubble2data,
+    			layout: myExampleData.plotlybubble2layout,
+    			config: myExampleData.plotlybubble2config	
+    			}
+    	},
+    	
+    	
+    	{
+		widgetTitle: "Revenue",
+		widgetId: "id004",
+		widgetType: "chart",
+		graphType: "exploratory",
+		widgetDimension: "large",
+		chartType: "bar",
+		widgetContent: {
+			data: myExampleData.barGroupChartData,
+			layout: myExampleData.barGroupChartLayout,
+			config: myExampleData.plotlybarconfig
+		}
+	}, {
+		widgetTitle: "Items sold",
+		widgetId: "id005",
+		widgetType: "chart",
+		graphType: "exploratory",
+		widgetDimension: "large",
+		chartType: "line",
+		getDataBySelection: true,
+		widgetContent: {		
+			data: myExampleData.plotlylinedata,
+			layout: myExampleData.plotlylinelayout,
+			config: myExampleData.plotlylineconfig			  
+		}
+	},
+	
+	
+	{
+		widgetTitle: "Sales Figures",
+		widgetId: "id002",
+		widgetType: "chart",
+		graphType: "normal",
+		widgetDimension: "normal",
+		chartType: "pie",
+		widgetContent: {
+			data: myExampleData.c3piedata
+		}
+	},
+	{
+		widgetTitle: "Age group",
+		widgetId: "id003",
+		widgetType: "chart",
+		graphType: "exploratory",
+		widgetDimension: "normal",
+		chartType: "bubble",
+		widgetContent: {
+			data: myExampleData.plotlyBubbleData,
+			layout: myExampleData.plotlyBubbleLayout,
+			config: myExampleData.plotlybarconfig
+		}
+	},
+	
+	{
+		widgetTitle: " ",
+		widgetId: "id006",
+		widgetType: "Text",		
+		widgetDimension: "small",
+		widgetContent: "Number of Redemptions: 4,636 \n" + "Revenue Generated 231,800$"
+	},
+	{
+		widgetTitle: "Table ",
+		widgetId: "id007",
+		widgetType: "table",
+		setJqueryStyle: true,
+		widgetContent: myExampleData.tableWidgetData
+	},{
+		widgetTitle: " ",
+		widgetId: "id009",
+		widgetType: "Text",		
+		widgetDimension: "small",
+		widgetContent: "Number of Redemptions: 4,636 \n" + "Revenue Generated 231,800$"
+	},{
+		widgetTitle: "Sales Figures",
+		widgetId: "id008",
+		widgetType: "chart",
+		graphType: "exploratory",
+		widgetDimension: "normal",
+		chartType: "pie",
+		widgetContent: {			 
+			data: myExampleData.plotlypiedata,
+			layout: myExampleData.plotlypielayout,
+			config: myExampleData.plotlypieconfig
+		}
+	}];
 
         //basic initialization examplemn.sDashboard
         $("#cprDashboard").sDashboard({
