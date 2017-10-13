@@ -648,16 +648,16 @@
   				"newestOnTop": false,
   				"progressBar": false,
   				"positionClass": "toast-top-right",
- 				 "preventDuplicates": false,
- 				 "onclick": null,
+ 				"preventDuplicates": false,
+ 				"onclick": null,
   				"showDuration": "200",
-				  "hideDuration": "1000",
-				  "timeOut": "5000",
-				  "extendedTimeOut": "1000",
-				  "showEasing": "swing",
-				  "hideEasing": "linear",
-				  "showMethod": "fadeIn",
-		  		  "hideMethod": "fadeOut"
+				"hideDuration": "1000",
+				"timeOut": "5000",
+				"extendedTimeOut": "1000",
+				"showEasing": "swing",
+				"hideEasing": "linear",
+				"showMethod": "fadeIn",
+		  		"hideMethod": "fadeOut"
 		}
 		function notification( type, message ) {
 	    	if( type == 'success' ) {
@@ -687,7 +687,7 @@
         });
         //plot click event example
         $("#cprDashboard").bind("sdashboardplotclicked",function(e, data) {
-      		notification('info', 'chart clicked, for widget:'+ data.selectedWidgetId +'!');
+      		notification('info', 'chart clicked, for widget:'+ data.clickedWidgetId +' the data passed is'+data.dataPoints+'!');      		
         if (console) {
         	console.log("chart clicked, for widget: " + data.selectedWidgetId);
         }
@@ -777,8 +777,8 @@
         widgetType : "chart",
         getDataBySelection : true,
         widgetContent : {
-        data : myExampleData.lineChartData,
-        options : myExampleData.lineChartOptions
+	        data : myExampleData.lineChartData,
+	        options : myExampleData.lineChartOptions
         }
 
         });
