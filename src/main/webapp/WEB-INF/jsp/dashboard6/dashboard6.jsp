@@ -526,6 +526,17 @@
 		graphType: "exploratory",
 		widgetDimension: "normal",
 		chartType: "bubble",
+		enableRefresh: true,
+		refreshCallBack : function(widgetId){ 
+			//Inside refresh callback		
+			notification('info', 'Inside the refresh callback !');
+			var refreshedData = {
+					data: myExampleData.plotlyBubbleData,
+					layout: myExampleData.plotlyBubbleLayout,
+					config: myExampleData.plotlybarconfig
+			};
+			return refreshedData;
+		},
 		widgetContent: {
 			data: myExampleData.plotlyBubbleData,
 			layout: myExampleData.plotlyBubbleLayout,
@@ -588,54 +599,7 @@
 			config: myExampleData.plotlypieconfig
 		}
 	}];  
-  
-/* 	var dashboardJSON =[{
-		"widgetTitle": "Items sold",
-		"widgetId": "id004",
-		"widgetDimension": "large",
-		"graphType" : "exploratory",
-		"widgetType": "chart",
-		"chartType": "line",
-		"widgetContent": {
-			"data": [{
-				"x": [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110],
-				"y": [8, 13, 74, 12, 15, 70, 38, 16, 38, 20, 16, 38],
-				"name": "Desperado",
-				"type": "scatter"
-			}, {
-				"x": [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110],
-				"y": [10, 15, 60, 22, 25, 80, 28, 36, 48, 18, 26, 48],
-				"name": "Tiget",
-				"type": "scatter"
-			}],
-			"layout": {
-				"title": "How old are they ?",
-				"showlegend": false,
-				"height": 0,
-				"width": 0,
-				"xaxis": {
-					"title": "Age",
-					"titlefont": {
-						"family": "Courier New, monospace",
-						"size": 18,
-						"color": "#7f7f7f"
-					}
-				},
-				"yaxis": {
-					"title": "Number of Customers",
-					"titlefont": {
-						"family": "Courier New, monospace",
-						"size": 18,
-						"color": "#7f7f7f"
-					}
-				}
-			},
-			"config": {
-				"modeBarButtonsToRemove": ["sendDataToCloud"],
-				"displaylogo": false
-			}
-		}
-		}]; */
+
         //basic initialization examplemn.sDashboard
         $("#cprDashboard").sDashboard({
         	dashboardData : dashboardJSON
@@ -648,16 +612,16 @@
   				"newestOnTop": false,
   				"progressBar": false,
   				"positionClass": "toast-top-right",
- 				 "preventDuplicates": false,
- 				 "onclick": null,
+ 				"preventDuplicates": false,
+ 				"onclick": null,
   				"showDuration": "200",
-				  "hideDuration": "1000",
-				  "timeOut": "5000",
-				  "extendedTimeOut": "1000",
-				  "showEasing": "swing",
-				  "hideEasing": "linear",
-				  "showMethod": "fadeIn",
-		  		  "hideMethod": "fadeOut"
+				"hideDuration": "1000",
+				"timeOut": "5000",
+				"extendedTimeOut": "1000",
+				"showEasing": "swing",
+				"hideEasing": "linear",
+				"showMethod": "fadeIn",
+		  		"hideMethod": "fadeOut"
 		}
 		function notification( type, message ) {
 	    	if( type == 'success' ) {
@@ -687,7 +651,7 @@
         });
         //plot click event example
         $("#cprDashboard").bind("sdashboardplotclicked",function(e, data) {
-      		notification('info', 'chart clicked, for widget:'+ data.selectedWidgetId +'!');
+      		notification('info', 'chart clicked, for widget:'+ data.clickedWidgetId +' the data passed is'+data.dataPoints+'!');      		
         if (console) {
         	console.log("chart clicked, for widget: " + data.selectedWidgetId);
         }
@@ -695,93 +659,18 @@
 
         //widget order changes event example
         $("#cprDashboard").bind("sdashboardorderchanged",function(e, data) {
-        $.gritter
-        .add({
-        position : 'bottom-left',
-        title : 'Order Changed',
-        time : 4000,
-        text : 'The widgets order has been changed,check the console for the sorted widget definitions array'
-        });
-        if (console) {
-        console.log("Sorted Array");
-        console.log("+++++++++++++++++++++++++");
-        console.log(data.sortedDefinitions);
-        console.log("+++++++++++++++++++++++++");
-        }
-        });
-        //example for adding a text widget
-        $("#btnAddWidget")
-        .click(
-        function() {
-        $("#cprDashboard")
-        .sDashboard(
-        "addWidget",
-        {
-        widgetTitle : "Widget 7",
-        widgetId : "id008",
-        widgetContent : "Create a Widget to be added to the list"
-
-        });
-        });
-
-        //example for adding a table widget
-        $("#btnAddTableWidget").click(function() {
-        $("#cprDashboard").sDashboard("addWidget", {
-        widgetTitle : "Table Widget 2",
-        widgetId : "id007",
-        widgetType : "table",
-        setJqueryStyle : true,
-        widgetContent : myExampleData.tableWidgetData
-        });
-
-        });
-
-        //example for  deleting a widget
-        /* 	$("#btnDeleteWidget").click(function() {
-        $("#cprDashboard").sDashboard("removeWidget", "id007");
-        }); */
-
-        //example for adding a pie chart widget
-        $("#btnAddPieChartWidget").click(function() {
-
-        $("#cprDashboard").sDashboard("addWidget", {
-        widgetTitle : "Pie Chart 2",
-        widgetId : "id006",
-        widgetType : "static",
-        widgetContent : {
-        data: myExampleData.chartJsPolarConfig
-        }
-        });
-
-        });
-
-        //example for adding a bar chart widget
-        $("#btnAddBarChartWidget").click(function() {
-
-        $("#cprDashboard").sDashboard("addWidget", {
-        widgetTitle : "Bar Chart 2",
-        widgetId : "id005",
-        widgetType : "chart",
-        widgetContent : {
-        data : myExampleData.barChartData,
-        options : myExampleData.barChartOptions
-        }
-        });
-        });
-
-        //example for adding an line chart widget
-        $("#btnAddLineChartWidget").click(function() {
-        $("#cprDashboard").sDashboard("addWidget", {
-        widgetTitle : "Line Chart 2",
-        widgetId : "id004",
-        widgetType : "chart",
-        getDataBySelection : true,
-        widgetContent : {
-        data : myExampleData.lineChartData,
-        options : myExampleData.lineChartOptions
-        }
-
-        });
+	        $.gritter.add({
+		        position : 'bottom-left',
+		        title : 'Order Changed',
+		        time : 4000,
+		        text : 'The widgets order has been changed,check the console for the sorted widget definitions array'
+	        });
+	        if (console) {
+		        console.log("Sorted Array");
+		        console.log("+++++++++++++++++++++++++");
+		        console.log(data.sortedDefinitions);
+		        console.log("+++++++++++++++++++++++++");
+       		}
         });
 
         });

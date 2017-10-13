@@ -357,9 +357,12 @@
 						Plotly.newPlot(chartArea[0],  widgetDefinition.widgetContent.data, widgetDefinition.widgetContent.layout,widgetDefinition.widgetContent.config);
 					}					
 					if (widgetDefinition.getDataBySelection) {
+						
 						this._bindSelectEvent(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
 					} else {
-						this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+						if(widgetDefinition.graphType === 'exploratory'){
+							this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+						}
 					}
 				}
 				else if(widgetDefinition.widgetType === 'static')
@@ -375,86 +378,28 @@
 
 			},
 			_bindSelectEvent : function(chartArea, widgetId, widgetDefinition, context) {
-				Flotr.EventAdapter.observe(chartArea, "flotr:select", function(area) {
+			/*	Flotr.EventAdapter.observe(chartArea, "flotr:select", function(area) {
 					var evtObj = {
 						selectedWidgetId : widgetId,
 						chartData : area
 					};
 					context._trigger("plotselected", null, evtObj);
-				});			
+				});		*/	
 				
 			},
 			_bindChartEvents : function(chartArea, widgetId, widgetDefinition, context) {
-
-				/*Flotr.EventAdapter.observe(chartArea, 'flotr:click', function(d) {
-					//only if a series is clicked dispatch a click event
-					if (d.index !== undefined && d.seriesIndex !== undefined) {
-						var evtObj = {};
-						evtObj.selectedWidgetId = widgetId;
-						evtObj.flotr2GeneratedData = d;
-						var widgetData = widgetDefinition.widgetContent.data;
-						var seriesData = widgetData[d.seriesIndex];
-						var selectedData;
-
-						if ($.isArray(seriesData)) {
-							selectedData = seriesData[d.index];
-						} else {
-							selectedData = seriesData;
-						}
-
-						evtObj.customData = {
-							index : d.index,
-							selectedIndex : d.seriesIndex,
-							seriesData : seriesData,
-							selectedData : selectedData
-						};
-						context._trigger("plotclicked", null, evtObj);
-					}
-				});
-				*/
+				var myPlot = chartArea;
 				var id = "li#" + widgetDefinition.widgetId;
 				var chartArea = this.element.find(id + " div.sDashboardChart");
-				chartArea.on('plotly_click', function(data){
-				   /* var pts = '';
-				    for(var i=0; i < data.points.length; i++){
-				        annotate_text = 'x = '+data.points[i].x +
-				                      'y = '+data.points[i].y.toPrecision(4);
-
-				        annotation = {
-				          text: annotate_text,
-				          x: data.points[i].x,
-				          y: parseFloat(data.points[i].y.toPrecision(4))
-				        }
-
-				        annotations = self.layout.annotations || [];
-				        annotations.push(annotation);
-				        Plotly.relayout(chartArea[0],{annotations: annotations})
-				    }*/
-				    
-				 /*   if (data.index !== undefined && data.seriesIndex !== undefined) {
-						var evtObj = {};
-						evtObj.selectedWidgetId = widgetId;
-						evtObj.flotr2GeneratedData = data;
-						var widgetData = widgetDefinition.widgetContent.data;
-						var seriesData = widgetData[d.seriesIndex];
-						var selectedData;
-
-						if ($.isArray(seriesData)) {
-							selectedData = seriesData[data.index];
-						} else {
-							selectedData = seriesData;
-						}
-
-						evtObj.customData = {
-							index : data.index,
-							selectedIndex : data.seriesIndex,
-							seriesData : seriesData,
-							selectedData : selectedData
-						};
-						context._trigger("plotclicked", null, evtObj);
-					}*/
-					var evtObj = {};
-					evtObj.selectedWidgetId = widgetId;
+				myPlot.on('plotly_click', function(data){					
+					 var pts = '';
+					 for(var i=0; i < data.points.length; i++){
+					        pts = 'x = '+data.points[i].x +'\ny = '+
+					            data.points[i].y.toPrecision(4) + '\n\n';
+					 }
+				   	var evtObj = {};
+					evtObj.clickedWidgetId = widgetId;
+					evtObj.dataPoints = pts;
 				    context._trigger("plotclicked", null, evtObj);
 				});
 
