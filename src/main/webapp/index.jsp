@@ -190,7 +190,11 @@ padding-top: 60px;
 		<div class="panel-body panelDiv">
 		<div class="simulator-icon-start4">
 				<span class="simulator-label"><a 
-						href="dashboard6.html">Dashboard 6 Dev»</a></span>
+						href="drawboard1.html">Drawboard 1 Dev»</a></span>
+				</div>	
+				<div class="simulator-icon-start4">
+				<span class="simulator-label"><a 
+						href="drawboard2.html">Drawboard 2 Dev»</a></span>
 				</div>	
 				<!-- <div class="simulator-icon-start4">
 					<span class="simulator-label"><a 

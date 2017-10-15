@@ -15,12 +15,12 @@ import com.cpr.util.DashboardJSON;
 @SessionAttributes("/dashboard6")
 public class Dashboard6Controller {
 	
-	@RequestMapping("/dashboard6")
+	@RequestMapping("/drawboard1")
 	public ModelAndView initializeForm()
 	{
 		Dashboard3 dashboard3 = new Dashboard3();
 		System.out.println("inside dashboard 6!!");
-		return new ModelAndView("dashboard6/dashboard6","Dashboard3",new Dashboard3());
+		return new ModelAndView("dashboard6/drawboard1","Dashboard3",new Dashboard3());
 	}
 	
 	@RequestMapping(value="/getWidgets", method=RequestMethod.GET)
@@ -31,6 +31,12 @@ public class Dashboard6Controller {
 		return dashboardJSON.createDashboardJson();
 	}
 	
+	@RequestMapping("/drawboard2")
+	public ModelAndView initializeFormDrawboard2()
+	{
+		Dashboard3 dashboard3 = new Dashboard3();
+		return new ModelAndView("dashboard6/drawboard2","Dashboard3",new Dashboard3());
+	}
 	
-
+	
 }

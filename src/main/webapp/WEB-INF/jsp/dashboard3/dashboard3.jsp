@@ -361,22 +361,16 @@
                                             <i class="icon-clock"></i>
                                             <span class="title">Todo 1</span>
                                         </a> -->
-                                        <a href="dashboard6.html"  class="nav-link "><i class="icon-check"></i>
-                                        <span class="title">Draw Board</span>
+                                        <a href="drawboard1.html"  class="nav-link "><i class="icon-check"></i>
+                                        <span class="title">Draw Board 1</span>
                                         </a>
-                                    </li>
-                                   <!--  <li class="nav-item  ">
-                                        <a href="app_todo_2.html" class="nav-link ">
-                                            <i class="icon-check"></i>
-                                            <span class="title">Todo 2</span>
+                                       </li>
+                                       <li class="nav-item  ">
+                                        <a href="drawboard2.html"  class="nav-link "><i class="icon-check"></i>
+                                        <span class="title">Draw Board 2</span>
                                         </a>
-                                    </li> -->
-                                 <!--    <li class="nav-item  ">
-                                        <a href="app_calendar.html" class="nav-link ">
-                                            <i class="icon-calendar"></i>
-                                            <span class="title">Calendar</span>
-                                        </a>
-                                    </li> -->
+                                        </li>                      
+                                  
                                 </ul>
                             </li>
                             <li class="nav-item  ">
