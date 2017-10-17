@@ -470,138 +470,22 @@
 	<script src="assets/dash6/js/exampleData.js" type="text/javascript"></script>
 
 	<script type="text/javascript">
-        $(document).ready(function(){
-              	
-        //Todo 	
-     /*    $.ajax({
-                 url : 'getWidgets.html',
-                 success : function(data) {
-                     // $('#result').html(data);
-                    // var dashboardJSON = data;
-                 }
-        });  */	
-        //Manish commented code
-		/*  $("#loadWidgets").click(function(e) {
-        	
-        	e.preventDefault();
-        	
-        	 $.ajax({
-                type: "GET",
-       		 	url : 'getWidgets.html',
-                success : function(data) {
-                       //$('#result').html(data);
-                       dashboardJSON = data;
-                       console.log("dashJSON");
-                       console.log(dashboardJSON);
-                       
-                       $(function() { */
+   	$(document).ready(function(){           	
+  
         $(function() {
-
-
         //Theme switcher plugin
         $("#switcher").themeswitcher({
         imgpath : "assets/dash5/css/images/",
         loadTheme : "Le Frog"
         });
 
-        //**********************************************//
-        //dashboard json data
-        //this is the data format that the dashboard framework expects
-        //**********************************************//
-   /*  var dashboardJSON =[{
-		widgetTitle: "Sales Figures",
-		widgetId: "id002",
-		widgetType: "chart",
-		graphType: "normal",
-		widgetDimension: "normal",
-		chartType: "pie",
-		widgetContent: {
-			data: myExampleData.c3piedata
-		}
-	},
-	{
-		widgetTitle: "Age group",
-		widgetId: "id003",
-		widgetType: "chart",
-		graphType: "exploratory",
-		widgetDimension: "normal",
-		chartType: "bubble",
-		enableRefresh: true,
-		refreshCallBack : function(widgetId){ 
-			//Inside refresh callback		
-			notification('info', 'Inside the refresh callback !');
-			var refreshedData = {
-					data: myExampleData.plotlyBubbleData,
-					layout: myExampleData.plotlyBubbleLayout,
-					config: myExampleData.plotlybarconfig
-			};
-			return refreshedData;
-		},
-		widgetContent: {
-			data: myExampleData.plotlyBubbleData,
-			layout: myExampleData.plotlyBubbleLayout,
-			config: myExampleData.plotlybarconfig
-		}
-	}, {
-		widgetTitle: "Revenue",
-		widgetId: "id004",
-		widgetType: "chart",
-		graphType: "exploratory",
-		widgetDimension: "large",
-		chartType: "bar",
-		widgetContent: {
-			data: myExampleData.barGroupChartData,
-			layout: myExampleData.barGroupChartLayout,
-			config: myExampleData.plotlybarconfig
-		}
-	}, {
-		widgetTitle: "Items sold",
-		widgetId: "id005",
-		widgetType: "chart",
-		graphType: "exploratory",
-		widgetDimension: "large",
-		chartType: "line",
-		getDataBySelection: true,
-		widgetContent: {		
-			data: myExampleData.plotlylinedata,
-			layout: myExampleData.plotlylinelayout,
-			config: myExampleData.plotlylineconfig			  
-		}
-	}, {
-		widgetTitle: " ",
-		widgetId: "id006",
-		widgetType: "Text",		
-		widgetDimension: "small",
-		widgetContent: "Number of Redemptions: 4,636 \n" + "Revenue Generated 231,800$"
-	},
-	{
-		widgetTitle: "Table ",
-		widgetId: "id007",
-		widgetType: "table",
-		setJqueryStyle: true,
-		widgetContent: myExampleData.tableWidgetData
-	},{
-		widgetTitle: " ",
-		widgetId: "id009",
-		widgetType: "Text",		
-		widgetDimension: "small",
-		widgetContent: "Number of Redemptions: 4,636 \n" + "Revenue Generated 231,800$"
-	},{
-		widgetTitle: "Sales Figures",
-		widgetId: "id008",
-		widgetType: "chart",
-		graphType: "exploratory",
-		widgetDimension: "normal",
-		chartType: "pie",
-		widgetContent: {			 
-			data: myExampleData.plotlypiedata,
-			layout: myExampleData.plotlypielayout,
-			config: myExampleData.plotlypieconfig
-		}
-	}];   */
+ //**********************************************//
+ //dashboard json data
+ //this is the data format that the dashboard framework expects
+ //**********************************************
 	var dashboardJSON =[
     	{
-    		widgetTitle: "Zoo Statistics",
+    		widgetTitle: "Day Wise",
     		widgetId: "id001",
     		widgetType: "chart",
     		graphType: "exploratory",
@@ -615,7 +499,7 @@
     	},
     	
     	{
-    		widgetTitle: "Sea-Level Proximity/Distance",
+    		widgetTitle: "Hour Wise Redemptions",
     		widgetId: "id0010",
     		widgetType: "chart",
     		graphType: "exploratory",
@@ -629,7 +513,7 @@
     	},
     	
     	{
-    		widgetTitle: "Life expectancy around the world",
+    		widgetTitle: "Revenue by region",
     		widgetId: "id0011",
     		widgetType: "chart",
     		graphType: "exploratory",
@@ -720,7 +604,18 @@
 		widgetType: "table",
 		setJqueryStyle: true,
 		widgetContent: myExampleData.tableWidgetData
-	},{
+	}, 
+	/* {
+		widgetTitle: "Table",
+		widgetId: "id007",
+		widgetType: "table",
+		setJqueryStyle: true,
+		widgetContent: {
+			data: myExampleData.tableWidgetDataNw,
+			coloumns: myExampleData.tableWidgetColoumnNw,
+			buttons:myExampleData.tableWidgetButtonNw
+		}
+	}, */{
 		widgetTitle: "Stats",
 		widgetId: "id009",
 		widgetType: "Text",		
