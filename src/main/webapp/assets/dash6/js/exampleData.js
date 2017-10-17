@@ -138,7 +138,7 @@ myExampleData.plotlyBubbleLayout = {
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 var trace1 = {
 		  x: [20, 14, 23, 8, 11, 25, 13, 17, 19, 30],
-		  x : [ 'Tiger', 'Desperado', 'Heiniken' ,'Kingfisher', 'brand1', 'brand2','brand3', 'brand4', 'brand5'],
+		  x : [ 'Tiger', 'Desperado', 'Heiniken' ,'Kingfisher', 'brand1', 'brand2','brand3', 'brand4', 'brand5','brand6'],
 		  name: 'SF Breweries',
 		  orientation: 'h',
 		  marker: {
@@ -150,7 +150,7 @@ var trace1 = {
 
 		var trace2 = {
 		  x: [12, 18, 29, 11, 15, 21, 16, 10, 12, 22],
-		  x : [ 'Guiness', 'Erdinger', 'Brand1' ,'Brand2', 'brand3', 'brand4','brand5', 'brand6', 'brand7'],
+		  x : [ 'Guiness', 'Erdinger', 'Brand1' ,'Brand2', 'brand3', 'brand4','brand5', 'brand6', 'brand7','brand8'],
 		  name: 'LA Breweries',
 		  orientation: 'h',
 		  type: 'bar',

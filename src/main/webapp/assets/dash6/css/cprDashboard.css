@@ -17,6 +17,7 @@
 	float: left;
 	min-width:610px;
 	height: auto;
+	transition: 0.8s all ease
 }
 
 .cprDashboardLarge {
@@ -49,7 +50,7 @@
 	background-color: #fff;
 	-webkit-transition: border-color 0.3s;
 	-moz-transition: border-color 0.3s;
-	transition: border-color 0.3s;
+	transition: border-color .3s all ease;
 }
 
 .sDashboardWidget:hover {
@@ -78,6 +79,7 @@
 	padding: 0.4em;	
 	overflow-x: hidden;
 	overflow-y: auto;
+	transition: .8s all ease;
 }
 
 .sDashboardWidgetContentMaximized {
@@ -85,6 +87,7 @@
 	margin: 0.7em;
 	padding: 0.4em;
 	height: 90%;
+	transition: .8s all ease;
 }
 
 /*for centering trick see  : http://css-tricks.com/quick-css-trick-how-to-center-an-object-exactly-in-the-center/*/
@@ -107,6 +110,7 @@
     width: 100%;
     height: 100%;
     background: #fff;
+    transition: .8s all ease
 }
 
 /*dashboard table widget css*/
