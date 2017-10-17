@@ -38,7 +38,7 @@
 
 				var _dashboardData = this.options.dashboardData;
 				var i;
-				console.log(_dashboardData);
+				//console.log(_dashboardData);
 				console.log(_dashboardData.length);
 				for ( i = 0; i < _dashboardData.length; i++) {
 					var widget = this._constructWidget(_dashboardData[i]);

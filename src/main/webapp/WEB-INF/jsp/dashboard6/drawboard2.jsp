@@ -211,6 +211,7 @@
 	<!-- BEGIN CONTAINER -->
 	<div class="container-fluid">
 		<div class="page-content page-content-popup">
+		
 			<div class="page-content-fixed-header">
 				<!-- BEGIN BREADCRUMBS -->
 				<ul class="page-breadcrumb">
@@ -384,6 +385,7 @@
 
 
 				<!-- END PAGE BASE CONTENT -->
+			<button type="button" id="loadWidgets" class="btn btn-primary">Load Widgets</button>
 			</div>
 			<!-- BEGIN FOOTER -->
 			<p class="copyright-v2">2017 &copy; CPR Vision</p>
@@ -392,6 +394,7 @@
 			</a>
 			<!-- END FOOTER -->
 		</div>
+		
 	</div>
 	<!-- END CONTAINER -->
 
@@ -468,8 +471,9 @@
 
 	<!-- sample data external script file -->
 	<script src="assets/dash6/js/exampleData.js" type="text/javascript"></script>
-
+	
 	<script type="text/javascript">
+	
         $(document).ready(function(){
               	
         //Todo 	
@@ -483,18 +487,21 @@
         //Manish commented code
 		/*  $("#loadWidgets").click(function(e) {
         	
-        	e.preventDefault();
-        	
+        	e.preventDefault();  */
+        var dashboardJSON;
         	 $.ajax({
                 type: "GET",
        		 	url : 'getWidgets.html',
                 success : function(data) {
                        //$('#result').html(data);
-                       dashboardJSON = data;
+                       dashboardJSON = JSON.parse(data);
                        console.log("dashJSON");
-                       console.log(dashboardJSON);
+                       console.log(dashboardJSON);   
+               }});
                        
-                       $(function() { */
+      /*  $("#loadWidgets").click(function(e) {
+             	
+       	e.preventDefault();  	  */
         $(function() {
 
 
@@ -508,7 +515,7 @@
         //dashboard json data
         //this is the data format that the dashboard framework expects
         //**********************************************//
-	  var dashboardJSON =[{
+	 /*  var dashboardJSON =[{
 		widgetTitle: "Sales Figures",
 		widgetId: "id002",
 		widgetType: "chart",
@@ -598,11 +605,19 @@
 			layout: myExampleData.plotlypielayout,
 			config: myExampleData.plotlypieconfig
 		}
-	}];  
+	}];   */
 	//basic initialization examplemn.sDashboard
-        $("#cprDashboard").sDashboard({
-        	dashboardData : dashboardJSON
-        });
+	
+		$("#loadWidgets").click(function(e) {
+             	
+       	e.preventDefault();
+		if(dashboardJSON){
+			 $("#cprDashboard").sDashboard({
+		        	dashboardData : dashboardJSON
+		        	
+		        });	
+		}
+		});
 		
 		//Toastr settings 
 		toastr.options = {
@@ -672,8 +687,9 @@
        		}
         });
 
+        }); //});
+               
         });
-        })
         </script>
 		<!--     CPR Dashboard    Custom  -->
 </body>

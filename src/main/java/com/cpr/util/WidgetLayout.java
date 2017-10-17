@@ -3,6 +3,7 @@ package com.cpr.util;
 public class WidgetLayout {
 	private String title;
 	private boolean showlegend;
+	private boolean autosize;
 	private int height;
 	private int width;
 	private AxisLayout xaxis;
@@ -18,10 +19,11 @@ public class WidgetLayout {
 		this.setYaxis(y_axis);
 	}
 	
-	public WidgetLayout(String main_title, AxisLayout x_axis, AxisLayout y_axis) {
+	public WidgetLayout(String main_title, AxisLayout x_axis, AxisLayout y_axis, boolean autosize) {
 		this.setTitle(main_title);
 		this.setXaxis(x_axis);
 		this.setYaxis(y_axis);		
+		this.setAutosize(autosize);
 	}
 	
 	
@@ -34,6 +36,15 @@ public class WidgetLayout {
 	
 	
 	
+	
+	public boolean getAutosize() {
+		return autosize;
+	}
+
+	public void setAutosize(boolean autosize) {
+		this.autosize = autosize;
+	}
+
 	public String getTitle() {
 		return title;
 	}

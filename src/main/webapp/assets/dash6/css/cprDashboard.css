@@ -56,7 +56,8 @@
 	border: 1px solid #AFAFAF;
 	-webkit-transition: border-color 0.3s;
 	-moz-transition: border-color 0.3s;
-	transition: border-color 0.3s;
+	transition: border-color 0.3s all ease;
+	box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.4), 0 8px 22px 0 rgba(0, 0, 0, 0.39);
 }
 
 /*dashboard widget header css*/
@@ -67,7 +68,7 @@
 	border: 0;
 	border-bottom: 1px solid #CBCBCB;
 	color: #000;
-	/* font-weight: bold; */
+	font-weight: bold;
 }
 
 /*dashboard widget content css*/
@@ -158,20 +159,20 @@
 
 /*jquery sortable placeholder styles */
 .ui-sortable-placeholder {
-	border: 1px dotted black;
+	/* border: 1px dotted black; */
 	visibility: visible !important;
-	height: 225px !important;
-	width: 375px !important;
+	height: auto !important;
+	width: auto !important;
 }
 
 .ui-sortable-placeholder * {
 	visibility: hidden;
 }
 
-li.ui-sortable-placeholder {
+/* li.ui-sortable-placeholder {
 	background-color: #FCEFA1;
 }
-
+ */
 /*icons*/
 .sDashboard-icon {
 	margin: 0 5px 0 5px;
@@ -204,16 +205,27 @@ li.ui-sortable-placeholder {
 	height: 20px;
 }
 
-.sDashboard-icon:hover {
+.sDashboard-icon:hover,
+.sDashboard-icon:focus {
 	cursor: pointer;
+	box-shadow: 0 0.3em 0.3em -0.2em grey var(--hover);
+	transition: .3s all ease;
+  	transform: translateY(-0.15em);
 }
 
-.sDashboard-iconcustom:hover {
+.sDashboard-iconcustom:hover
+ {
 	cursor: pointer;
+	box-shadow: 0 0.3em 0.3em -0.2em var(--hover) grey;
+  	transition: .3s all ease;
+  	transform: translateY(-0.15em);
 }
 
 .sDashboard-iconcustomDel:hover {
 	cursor: pointer;
+	box-shadow: 0 0.3em 0.3em -0.2em var(--hover) grey;
+	transition: .3s all ease;
+  	transform: translateY(-0.15em);
 }
 
 .sDashboard-icon.sDashboard-circle-plus-icon {
