@@ -450,7 +450,7 @@
 	<script src="assets/dash6/js/toastr/toastr.js" type="text/javascript"></script>
 	<!-- load datatables library -->
 	<!--<script src="assets/dash6/js/datatables/jquery.dataTables.js"></script>  -->
-	<script src="assets/dash6/js/datatableNw/datatables.js"></script>
+	
 	
 	<script src="assets/dash5/js/flotr2/flotr2.js" type="text/javascript"></script>
 	<script src="assets/js/dash1/plotly-latest.min.js"></script>
@@ -468,7 +468,19 @@
 
 	<!-- sample data external script file -->
 	<script src="assets/dash6/js/exampleData.js" type="text/javascript"></script>
-
+	<!-- Datatable export function js files -->
+	<script src="assets/dash6/js/datatableNw/datatables.js"></script>
+	
+	
+	<script src="assets/dash6/js/datatableNw/dataTables.buttons.min.js"></script>
+	<script src="assets/dash6/js/datatableNw/jszip.min.js"></script>
+	<script src="assets/dash6/js/datatableNw/pdfmake.min.js"></script>
+	<script src="assets/dash6/js/datatableNw/vfs_fonts.js"></script>
+	<script src="assets/dash6/js/datatableNw/buttons.print.min.js"></script>
+	
+	<script src="assets/dash6/js/datatableNw/buttons.html5.min.js"></script>
+	<script src="assets/dash6/js/datatableNw/buttons.flash.min.js"></script>
+	
 	<script type="text/javascript">
    	$(document).ready(function(){           	
   
