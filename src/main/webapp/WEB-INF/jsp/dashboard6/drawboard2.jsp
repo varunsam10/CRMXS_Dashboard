@@ -49,7 +49,7 @@
 <!-- <link type="text/css" href="assets/dash6/css/jquery-ui.css"
 	rel="stylesheet" /> -->
 	
-<link type="text/css" href="assets/dash6/css/jqueryNw/jquery-ui.css" rel="stylesheet" /
+<link type="text/css" href="assets/dash6/css/jqueryNw/jquery-ui.css" rel="stylesheet" />
 <!-- load the dashboard css -->
 <link href="assets/dash6/css/cprDashboard.css" rel="stylesheet">
 <!-- load gitter css -->

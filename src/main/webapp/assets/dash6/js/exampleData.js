@@ -150,141 +150,187 @@ myExampleData.plotlyBubbleLayout = {
 	width : 600*/
 };
 
+//Colored column chart
 
-//Horizantal bar chart
-
-	var xSavings = [1.3586, 2.2623000000000002, 4.9821999999999997, 6.5096999999999996,
-	  7.4812000000000003, 7.5133000000000001, 15.2148, 17.520499999999998
-	];
-
-	var xNetworth = [93453.919999999998, 81666.570000000007, 69889.619999999995, 78381.529999999999, 141395.29999999999, 92969.020000000004, 66090.179999999993, 122379.3];
-
-	var ySavings = ['Japan', 'United Kingdom', 'Canada', 'Netherlands', 'United States', 'Belgium', 'Sweden', 'Switzerland'];
-
-	var yNetworth = ['Japan', 'United Kingdom', 'Canada', 'Netherlands', 'United States', 'Belgium', 'Sweden', 'Switzerland'];
-
-	var trace1 = {
-	  x: xSavings,
-	  y: ySavings,
-	  xaxis: 'x1',
-	  yaxis: 'y1',
-	  type: 'bar',
-	  marker: {
-	    color: 'rgba(50,171,96,0.6)',
-	    line: {
-	      color: 'rgba(50,171,96,1.0)',
-	      width: 1
-	    }
-	  },
-	  name: 'Household savings, percentage of household disposable income',
-	  orientation: 'h'
-	};
-
-	var trace2 = {
-	  x: xNetworth,
-	  y: yNetworth,
-	  xaxis: 'x2',
-	  yaxis: 'y1',
-	  mode: 'lines+markers',
-	  line: {
-	    color: 'rgb(128,0,128)'
-	  },
-	  name: 'Household net worth, Million USD/capita'
-	};
-
-	myExampleData.plotlycolumndata = [trace1, trace2];
-	
-	var columnlayout = {
-			  title: 'Household Savings & Net Worth for Eight OECD Countries',
-			  xaxis1: {
-			    range: [0, 20],
-			    domain: [0, 0.5],
-			    zeroline: false,
-			    showline: false,
-			    showticklabels: true,
-			    showgrid: true
-			  },
-			  xaxis2: {
-			    range: [25000, 150000],
-			    domain: [0.5, 1],
-			    zeroline: false,
-			    showline: false,
-			    showticklabels: true,
-			    showgrid: true,
-			    side: 'top',
-			    dtick: 25000
-			  },
-			  legend: {
-			    x: 0.029,
-			    y: 1.238,
-			    font: {
-			      size: 10
-			    }
-			  },
-			  margin: {
-			    l: 100,
-			    r: 20,
-			    t: 200,
-			    b: 70
-			  },
-			  width: 600,
-			  height: 600,
-			  paper_bgcolor: 'rgb(248,248,255)',
-			  plot_bgcolor: 'rgb(248,248,255)',
-			  annotations: [
-			    {
-			      xref: 'paper',
-			      yref: 'paper',
-			      x: -0.2,
-			      y: -0.109,
-			      text: 'OECD ' + '(2015), Household savings (indicator), ' + 'Household net worth (indicator). doi: ' + '10.1787/cfc6f499-en (Accessed on 05 June 2015)',
-			      showarrow: false,
-			      font:{
-			        family: 'Arial',
-			        size: 10,
-			        color: 'rgb(150,150,150)'
-			      }
-			    }
-			  ]
-			};
-
-			for ( var i = 0 ; i < xSavings.length ; i++ ) {
-			  var result = {
-			    xref: 'x1',
-			    yref: 'y1',
-			    x: xSavings[i]+2.3,
-			    y: ySavings[i],
-			    text: xSavings[i] + '%',
-			    font: {
-			      family: 'Arial',
-			      size: 12,
-			      color: 'rgb(50, 171, 96)'
-			    },
-			     showarrow: false,
-			  };
-			  var result2 = {
-			    xref: 'x2',
-			    yref: 'y1',
-			    x: xNetworth[i] - 20000,
-			    y: yNetworth[i],
-			    text: xNetworth[i] + ' M',
-			    font: {
-			      family: 'Arial',
-			      size: 12,
-			      color: 'rgb(128, 0, 128)'
-			    },
-			     showarrow: false
-			  };
-			  columnlayout.annotations.push(result, result2);
-			}
-
-	myExampleData.plotlycolumnlayout = columnlayout;
-	
-	myExampleData.plotlycolumnconfig = {
-			modeBarButtonsToRemove : [ 'sendDataToCloud' ],
-			displaylogo : false
+var trace1 = {
+		  x: [20, 14, 23, 8, 11, 25, 13, 17, 19, 30],
+		  y: ['giraffes', 'orangutans', 'monkeys','lions','beavers','deers','chimps','leapords','pythons','tigers'],
+		  name: 'SF Zoo',
+		  orientation: 'h',
+		  marker: {
+		    //color: 'rgba(55,128,191,0.6)',
+		    width: 1
+		  },
+		  type: 'bar'
 		};
+
+		var trace2 = {
+		  x: [12, 18, 29, 11, 15, 21, 16, 10, 12, 22],
+		  y: ['giraffes', 'orangutans', 'monkeys','lions','beavers','deers','chimps','leapords','pythons','tigers'],
+		  name: 'LA Zoo',
+		  orientation: 'h',
+		  type: 'bar',
+		  marker: {
+		    //color: 'rgba(255,153,51,0.6)',
+		    width: 1
+		  }
+		};
+
+		var data = [trace1, trace2];
+		myExampleData.plotlycolumndata = data;
+
+		var layout = {
+		  title: 'World Wildlife Fund',
+		  barmode: 'stack'
+		};
+		
+		
+
+		myExampleData.plotlycolumnlayout = layout;
 	
+		myExampleData.plotlycolumnconfig = {
+				modeBarButtonsToRemove : [ 'sendDataToCloud' ],
+				displaylogo : false
+		};
+		
+
+
+
+
+//Horizontal bar chart
+//
+//	var xSavings = [1.3586, 2.2623000000000002, 4.9821999999999997, 6.5096999999999996,
+//	  7.4812000000000003, 7.5133000000000001, 15.2148, 17.520499999999998
+//	];
+//
+//	var xNetworth = [93453.919999999998, 81666.570000000007, 69889.619999999995, 78381.529999999999, 141395.29999999999, 92969.020000000004, 66090.179999999993, 122379.3];
+//
+//	var ySavings = ['Japan', 'United Kingdom', 'Canada', 'Netherlands', 'United States', 'Belgium', 'Sweden', 'Switzerland'];
+//
+//	var yNetworth = ['Japan', 'United Kingdom', 'Canada', 'Netherlands', 'United States', 'Belgium', 'Sweden', 'Switzerland'];
+//
+//	var trace1 = {
+//	  x: xSavings,
+//	  y: ySavings,
+//	  xaxis: 'x1',
+//	  yaxis: 'y1',
+//	  type: 'bar',
+//	  marker: {
+//	    color: 'rgba(50,171,96,0.6)',
+//	    line: {
+//	      color: 'rgba(50,171,96,1.0)',
+//	      width: 1
+//	    }
+//	  },
+//	  name: 'Household savings, percentage of household disposable income',
+//	  orientation: 'h'
+//	};
+//
+//	var trace2 = {
+//	  x: xNetworth,
+//	  y: yNetworth,
+//	  xaxis: 'x2',
+//	  yaxis: 'y1',
+//	  mode: 'lines+markers',
+//	  line: {
+//	    color: 'rgb(128,0,128)'
+//	  },
+//	  name: 'Household net worth, Million USD/capita'
+//	};
+//
+//	myExampleData.plotlycolumndata = [trace1, trace2];
+//	
+//	var columnlayout = {
+//			  title: 'Household Savings & Net Worth for Eight OECD Countries',
+//			  xaxis1: {
+//			    range: [0, 20],
+//			    domain: [0, 0.5],
+//			    zeroline: false,
+//			    showline: false,
+//			    showticklabels: true,
+//			    showgrid: true
+//			  },
+//			  xaxis2: {
+//			    range: [25000, 150000],
+//			    domain: [0.5, 1],
+//			    zeroline: false,
+//			    showline: false,
+//			    showticklabels: true,
+//			    showgrid: true,
+//			    side: 'top',
+//			    dtick: 25000
+//			  },
+//			  legend: {
+//			    x: 0.029,
+//			    y: 1.238,
+//			    font: {
+//			      size: 10
+//			    }
+//			  },
+//			  margin: {
+//			    l: 100,
+//			    r: 20,
+//			    t: 200,
+//			    b: 70
+//			  },
+//			  width: 600,
+//			  height: 600,
+//			  //paper_bgcolor: 'rgb(248,248,255)',
+//			  //plot_bgcolor: 'rgb(248,248,255)',
+//			  annotations: [
+//			    {
+//			      xref: 'paper',
+//			      yref: 'paper',
+//			      x: -0.2,
+//			      y: -0.109,
+//			      text: 'OECD ' + '(2015), Household savings (indicator), ' + 'Household net worth (indicator). doi: ' + '10.1787/cfc6f499-en (Accessed on 05 June 2015)',
+//			      showarrow: false,
+//			      font:{
+//			        family: 'Arial',
+//			        size: 10,
+//			        color: 'rgb(150,150,150)'
+//			      }
+//			    }
+//			  ]
+//			};
+//
+//			for ( var i = 0 ; i < xSavings.length ; i++ ) {
+//			  var result = {
+//			    xref: 'x1',
+//			    yref: 'y1',
+//			    x: xSavings[i]+2.3,
+//			    y: ySavings[i],
+//			    text: xSavings[i] + '%',
+//			    font: {
+//			      family: 'Arial',
+//			      size: 12,
+//			      color: 'rgb(50, 171, 96)'
+//			    },
+//			     showarrow: false,
+//			  };
+//			  var result2 = {
+//			    xref: 'x2',
+//			    yref: 'y1',
+//			    x: xNetworth[i] - 20000,
+//			    y: yNetworth[i],
+//			    text: xNetworth[i] + ' M',
+//			    font: {
+//			      family: 'Arial',
+//			      size: 12,
+//			      color: 'rgb(128, 0, 128)'
+//			    },
+//			     showarrow: false
+//			  };
+//			  columnlayout.annotations.push(result, result2);
+//			}
+//
+//	myExampleData.plotlycolumnlayout = columnlayout;
+//	
+//	myExampleData.plotlycolumnconfig = {
+//			modeBarButtonsToRemove : [ 'sendDataToCloud' ],
+//			displaylogo : false
+//		};
+//	
 	
 //Better bubble chart
 	
@@ -372,13 +418,15 @@ myExampleData.plotlyBubbleLayout = {
 var trace1 = {
 		  x: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
 		  y: [1.5, 1, 1.3, 0.7, 0.8, 0.9, 1.1, 1.3, 1.5, 1],
-		  type: 'bar'
+		  type: 'bar',
+		  name: 'altitude'
 		};
 
 		var trace2 = {
 		  x: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-		  y: [1, 0.5, 0.7, -1.2, 0.3, 0.4, 0.6, 0.7, 1, 0.5],
-		  type: 'bar'
+		  y: [1, 0.5, 0.7, 1.2, 0.3, 0.4, 0.6, 0.7, 1, 0.5],
+		  type: 'scatter',
+		  name: 'terrain level'
 		};
 		
 var barlinelayout = {
@@ -453,7 +501,7 @@ var trace1 = {
 	x : [ 'Tiger', 'Desperado', 'Heiniken' ,'Kingfisher', 'brand1', 'brand2','brand3', 'brand4', 'brand5'],
 	y : [ 20, 14, 23,25, 34, 36,78, 44, 43 ],
 	name : 'SF Breweries',
-	type : 'scatter'
+	type : 'bar'
 };
 
 var trace2 = {
@@ -483,7 +531,7 @@ myExampleData.barGroupChartLayout = {
 				color : '#7f7f7f'
 			}
 		},
-		barmode : 'group',
+		barmode : 'stack',
 		autosize : true
 };
 //pie chart data
