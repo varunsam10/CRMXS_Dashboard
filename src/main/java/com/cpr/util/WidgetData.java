@@ -4,10 +4,16 @@ package com.cpr.util;
 public class WidgetData {
 	private Object[] x;
 	private Object[] y;
+	private Object[] values;
+	private Object[] labels;
 	private String name;
 	private String type;
 	private Marker marker;
 	private String mode;
+	
+	public WidgetData() {
+		// TODO Auto-generated constructor stub
+	}
 	
 	public WidgetData(Object[] x_axis, Object[] y_axis, String name, String type) {
 		// TODO Auto-generated constructor stub
@@ -29,6 +35,23 @@ public class WidgetData {
 	
 	
 	
+	
+	public Object[] getValues() {
+		return values;
+	}
+
+	public void setValues(Object[] values) {
+		this.values = values;
+	}
+
+	public Object[] getLabels() {
+		return labels;
+	}
+
+	public void setLabels(Object[] labels) {
+		this.labels = labels;
+	}
+
 	public Object[] getX() {
 		return x;
 	}

@@ -44,7 +44,7 @@ public class Dashboard {
 		TitleFont y_TitleFont =  new TitleFont("Courier New, monospace", 18, "#7f7f7f");
 		AxisLayout y_AxisLayout = new AxisLayout("Number of Customers", y_TitleFont);
 		
-		WidgetLayout widgetLayout = new WidgetLayout("How old are they ?", x_AxisLayout, y_AxisLayout);
+		WidgetLayout widgetLayout = new WidgetLayout("How old are they ?", x_AxisLayout, y_AxisLayout, true);
 		
 		String[] modeBarButtonsToRemove = {"sendDataToCloud"};
 		boolean displaylogo = false;
@@ -52,20 +52,43 @@ public class Dashboard {
 		
 		WidgetContent widgetContent =  new WidgetContent(widgetData, widgetLayout, widgetConfig);
 		
-		Widget widgetLine = new Widget("Items sold", "id004", "chart", "exploratory", "large", "line", widgetContent);
+		Widget widgetLine = new Widget("Items sold", "id001", "chart", "exploratory", "large", "line", widgetContent);
 		
 		ArrayList<Widget> widgetList = new ArrayList<Widget>();
 		
 		widgetList.add(widgetLine);
 		
+		//Creating Pie widget config
+		ArrayList<WidgetData> pieWidgetDataList = new ArrayList<WidgetData>();
+		
+		//Pie Data
+		Object[] pieValues = {19, 26, 35, 10, 10 };
+		Object[] pieLabels = {"Tiger", "Heiniken", "Brand1", "Brand", "Brand3"};
+		
+		WidgetData pieWidgetData = new WidgetData();
+		pieWidgetData.setValues(pieValues);
+		pieWidgetData.setLabels(pieLabels);
+		pieWidgetData.setType("pie");
+		pieWidgetDataList.add(pieWidgetData);
+		
+		//Pie Layput
+		WidgetLayout pieLayout = new WidgetLayout();
+		pieLayout.setTitle("Revenue in US $");
+		pieLayout.setAutosize(true);
+		
+		WidgetContent pieContent = new WidgetContent(pieWidgetDataList, pieLayout, widgetConfig);
+		
+		Widget widgetPie = new Widget("Sales Figures", "id004", "chart", "exploratory", "normal", "pie", pieContent);
+		widgetList.add(widgetPie);
+		
 		return widgetList;
 		
 	}
 	
-/*	public static void main(String[] args) {
+	public static void main(String[] args) {
 		Dashboard dash =  new Dashboard();
 		dash.createDashboard();
 	}
-*/
+
 }
 
