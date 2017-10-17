@@ -139,7 +139,15 @@
 								};
 
 //						Plotly.newPlot(chartArea[0],  widgetDefinition.widgetContent.data, layout);
-						var chart = c3.generate({bindto:chartArea[0],data:widgetDefinition.widgetContent.data});
+//						var chart = c3.generate({bindto:chartArea[0],data:widgetDefinition.widgetContent.data});
+						if(widgetDefinition.graphType === 'normal'){
+							
+							var chart = c3.generate({bindto:chartArea[0],data:widgetDefinition.widgetContent.data});
+							
+						}else{
+							
+							Plotly.newPlot(chartArea[0],  widgetDefinition.widgetContent.data, widgetDefinition.widgetContent.layout,widgetDefinition.widgetContent.config);
+						}
 						if (!widgetDefinition.getDataBySelection) {
 							//when redrawing the widget, the click event listner is getting destroyed, we need to re-register it here again
 							//need to find out if its a bug on flotr2 library.
@@ -318,9 +326,33 @@
 					if (widgetDefinition.setJqueryStyle) {
 						tableDef["bJQueryUI"] = true;
 					}
-					table.dataTable(tableDef);
+					tableDef["buttons"] = [ ];
+					 table.dataTable(tableDef);		 
+					/* table.dataTable({tableDef,
+						 buttons: ['copyHtml5','excelHtml5','csvHtml5','pdfHtml5']						 
+					 });*/		 
+
+
 				}
 			},
+		/*	_renderTable : function(widgetDefinition){
+			
+				var id = "li#" + widgetDefinition.widgetId;
+				var table;
+				if(widgetDefinition.widgetType === 'table'){
+					table = this.element.find(id + " table.sDashboardTableView");
+
+					table.DataTable({data :widgetDefinition.widgetContent.data,
+						columns:widgetDefinition.widgetContent.coloumns,
+						dom: 'Bfrtip',				
+						buttons:  [
+					        'colvis',
+					        'excel',
+					        'print'
+					    ]					
+					});
+				}
+			},*/
 			_renderChart : function(widgetDefinition) {
 				var id = "li#" + widgetDefinition.widgetId;
 				var chartArea;
