@@ -130,16 +130,12 @@
 
 					if (widgetDefinition.widgetType === "chart") {
 					var chartArea = widgetContainer.find(" div.sDashboardChart");
-//					Flotr.draw(chartArea[0], widgetDefinition.widgetContent.data, widgetDefinition.widgetContent.options);
-						var layout = {
+					var layout = {
 								  xaxis: {
 								    tickangle: -45
 								  },
 								  barmode: 'group'
 								};
-
-//						Plotly.newPlot(chartArea[0],  widgetDefinition.widgetContent.data, layout);
-//						var chart = c3.generate({bindto:chartArea[0],data:widgetDefinition.widgetContent.data});
 						if(widgetDefinition.graphType === 'normal'){
 							
 							var chart = c3.generate({bindto:chartArea[0],data:widgetDefinition.widgetContent.data});
@@ -326,12 +322,21 @@
 					if (widgetDefinition.setJqueryStyle) {
 						tableDef["bJQueryUI"] = true;
 					}
-					tableDef["buttons"] = [ ];
-					 table.dataTable(tableDef);		 
-					/* table.dataTable({tableDef,
-						 buttons: ['copyHtml5','excelHtml5','csvHtml5','pdfHtml5']						 
-					 });*/		 
-
+//					tableDef["dom"] = 'Bfrtip';
+//					tableDef["buttons"] = ['copy', 'csv', 'excel', 'pdf', 'print'];
+					table.dataTable(tableDef);		 
+					/*table.dataTable({tableDef,
+						 buttons: ['copy', 'csv', 'excel', 'pdf', 'print']					 
+					 });	*/ 
+					$(".sDashboardTableView").DataTable( {
+						 dom: 'Bfrtip',
+					     buttons: [
+					            'copyHtml5',
+					            'excelHtml5',
+					            'csvHtml5',
+					            'pdfHtml5'
+					      ]						
+					});
 
 				}
 			},
