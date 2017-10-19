@@ -81,6 +81,33 @@ public class Dashboard {
 		Widget widgetPie = new Widget("Sales Figures", "id004", "chart", "exploratory", "normal", "pie", pieContent);
 		widgetList.add(widgetPie);
 		
+		ArrayList<WidgetData> barlineDataList = new ArrayList<WidgetData>();
+		Object[] xbar_line = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+		Object[] ybar_line = {1.5, 1, 1.3, 0.7, 0.8, 0.9, 1.1, 1.3, 1.5, 1};
+		
+		WidgetData barlineData1 = new WidgetData(xbar_line, ybar_line, "SF Brewries", "bar");
+		barlineDataList.add(barlineData1);
+		
+		Object[] xbar_line2 = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+		Object[] ybar_line2 = {1, 0.5, 0.7, 1.2, 0.3, 0.4, 0.6, 0.7, 1, 0.5};
+		WidgetData barlineData2 = new WidgetData(xbar_line2, ybar_line2, "LA Brewries", "scatter");
+		
+		barlineDataList.add(barlineData2);
+		
+		AxisLayout xbarlineLayout = new AxisLayout();
+		xbarlineLayout.setTitle(" ");
+		AxisLayout ybarlineLayout = new AxisLayout();
+		ybarlineLayout.setTitle("Number of redemptions");
+		
+		WidgetLayout barlineLayout = new WidgetLayout();
+		barlineLayout.setXaxis(xbarlineLayout);
+		barlineLayout.setYaxis(ybarlineLayout);
+		barlineLayout.setAutosize(true);
+		
+		WidgetContent barlineContent = new WidgetContent(barlineDataList, barlineLayout, widgetConfig);
+		Widget widgetBarLine = new Widget("Hour Wise Redemptions", "id0010", "chart", "exploratory", "normal", "barline", barlineContent);
+		widgetList.add(widgetBarLine);
+		
 		return widgetList;
 		
 	}

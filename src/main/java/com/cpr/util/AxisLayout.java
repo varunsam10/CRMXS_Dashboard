@@ -9,6 +9,10 @@ public class AxisLayout {
 		this.setTitle(Layout);
 		this.setTitleFont(titleFont);
 	}
+	
+	public AxisLayout() {
+		// TODO Auto-generated constructor stub
+	}
 	 
 	public String getTitle() {
 		return title;
