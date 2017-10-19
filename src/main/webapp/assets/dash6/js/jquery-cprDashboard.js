@@ -328,7 +328,7 @@
 					/*table.dataTable({tableDef,
 						 buttons: ['copy', 'csv', 'excel', 'pdf', 'print']					 
 					 });	*/ 
-					$(".sDashboardTableView").DataTable( {
+				/*	$(".sDashboardTableView").DataTable( {
 						 dom: 'Bfrtip',
 					     buttons: [
 					            'copyHtml5',
@@ -336,7 +336,7 @@
 					            'csvHtml5',
 					            'pdfHtml5'
 					      ]						
-					});
+					});*/
 
 				}
 			},

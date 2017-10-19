@@ -309,80 +309,9 @@
 						<!--     CPR Dashboard -->
 						<hr />
 						<ul id="cprDashboard">
-
 						</ul>
-
 					</div>
 				</div>
-
-				<!--  <div class="row">
-                            <div class="col-lg-6 col-xs-12 col-sm-12">
-                                BEGIN REGIONAL STATS PORTLET
-                                <div class="portlet light bordered">
-                                    <div class="portlet-title">
-                                        <div class="caption">
-                                            <i class="icon-share font-dark hide"></i>
-                                            <span class="caption-subject font-dark bold uppercase">Regional Stats</span>
-                                        </div>
-                                        <div class="actions">
-                                            <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
-                                                <i class="icon-cloud-upload"></i>
-                                            </a>
-                                            <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
-                                                <i class="icon-wrench"></i>
-                                            </a>
-                                            <a class="btn btn-circle btn-icon-only btn-default fullscreen" data-container="false" data-placement="bottom" href="javascript:;"> </a>
-                                            <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
-                                                <i class="icon-trash"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="portlet-body">
-                                        <div id="region_statistics_loading">
-                                            <img src="assets/dash6/global/img/loading.gif" alt="loading" /> </div>
-                                        <div id="region_statistics_content" class="display-none">
-                                            <div class="btn-toolbar margin-bottom-10">
-                                                <div class="btn-group btn-group-circle" data-toggle="buttons">
-                                                    <a href="" class="btn grey-salsa btn-sm active"> Users </a>
-                                                    <a href="" class="btn grey-salsa btn-sm"> Orders </a>
-                                                </div>
-                                                <div class="btn-group pull-right">
-                                                    <a href="" class="btn btn-circle grey-salsa btn-sm dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"> Select Region
-                                                        <span class="fa fa-angle-down"> </span>
-                                                    </a>
-                                                    <ul class="dropdown-menu pull-right">
-                                                        <li>
-                                                            <a href="javascript:;" id="regional_stat_world"> World </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="javascript:;" id="regional_stat_usa"> USA </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="javascript:;" id="regional_stat_europe"> Europe </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="javascript:;" id="regional_stat_russia"> Russia </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="javascript:;" id="regional_stat_germany"> Germany </a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div id="vmap_world" class="vmaps display-none"> </div>
-                                            <div id="vmap_usa" class="vmaps display-none"> </div>
-                                            <div id="vmap_europe" class="vmaps display-none"> </div>
-                                            <div id="vmap_russia" class="vmaps display-none"> </div>
-                                            <div id="vmap_germany" class="vmaps display-none"> </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                END REGIONAL STATS PORTLET
-                            </div>
-
-                        </div> -->
-
-
 				<!-- END PAGE BASE CONTENT -->
 			</div>
 			<!-- BEGIN FOOTER -->
@@ -472,14 +401,14 @@
 	<script src="assets/dash6/js/datatableNw/datatables.js"></script>
 	
 	
-	<script src="assets/dash6/js/datatableNw/dataTables.buttons.min.js"></script>
+<!-- 	<script src="assets/dash6/js/datatableNw/dataTables.buttons.min.js"></script>
 	<script src="assets/dash6/js/datatableNw/jszip.min.js"></script>
 	<script src="assets/dash6/js/datatableNw/pdfmake.min.js"></script>
 	<script src="assets/dash6/js/datatableNw/vfs_fonts.js"></script>
 	<script src="assets/dash6/js/datatableNw/buttons.print.min.js"></script>
 	
 	<script src="assets/dash6/js/datatableNw/buttons.html5.min.js"></script>
-	<script src="assets/dash6/js/datatableNw/buttons.flash.min.js"></script>
+	<script src="assets/dash6/js/datatableNw/buttons.flash.min.js"></script> -->
 	
 	<script type="text/javascript">
    	$(document).ready(function(){           	
@@ -588,13 +517,13 @@
 		enableRefresh: true,
 		refreshCallBack : function(widgetId){ 
 			//Inside refresh callback		
-			notification('info', 'Inside the refresh callback !');
-			var refreshedData = {
-					data: myExampleData.plotlyBubbleData,
+			notification('info', 'Inside the refresh callback of '+widgetId+'!');
+		/* 	var refreshedData = {
+					data: myExampleData.plotlyRefreshBubbleData,
 					layout: myExampleData.plotlyBubbleLayout,
 					config: myExampleData.plotlybarconfig
 			};
-			return refreshedData;
+			return refreshedData; */
 		},
 		widgetContent: {
 			data: myExampleData.plotlyBubbleData,
