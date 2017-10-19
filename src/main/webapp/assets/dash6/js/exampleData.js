@@ -383,9 +383,9 @@ myExampleData.bubbleChartOptions = {
 //table widget sample data starts here 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 myExampleData.constructTableWidgetData = function() {
-	return [ "Trident" + Math.ceil(Math.random() * 10),
-			"IE" + Math.ceil(Math.random() * 10),
-			"Win" + Math.ceil(Math.random() * 10) ]
+	return [ "Trident" + Math.ceil(Math.random() * 20),
+			"IE" + Math.ceil(Math.random() * 20),
+			"Win" + Math.ceil(Math.random() * 20) ]
 };
 
 myExampleData.tableWidgetData = {
@@ -395,7 +395,17 @@ myExampleData.tableWidgetData = {
 			myExampleData.constructTableWidgetData(),
 			myExampleData.constructTableWidgetData(),
 			myExampleData.constructTableWidgetData(),
-			myExampleData.constructTableWidgetData() ],
+			myExampleData.constructTableWidgetData(),
+			myExampleData.constructTableWidgetData(),
+			myExampleData.constructTableWidgetData(),
+			myExampleData.constructTableWidgetData(),
+			myExampleData.constructTableWidgetData(),
+			myExampleData.constructTableWidgetData(),
+			myExampleData.constructTableWidgetData(),
+			myExampleData.constructTableWidgetData(),
+			myExampleData.constructTableWidgetData(),
+			myExampleData.constructTableWidgetData(),
+			myExampleData.constructTableWidgetData()],
 
 	"aoColumns" : [ {
 		"sTitle" : "Engine"
@@ -407,8 +417,9 @@ myExampleData.tableWidgetData = {
 	"iDisplayLength" : 25,
 	"aLengthMenu" : [ [ 1, 25, 50, -1 ], [ 1, 25, 50, "All" ] ],
 	"bPaginate" : true,
+	"bLengthChange":true,
 	"bAutoWidth" : false,
-	"buttons":[ 'copyHtml5','excelHtml5','csvHtml5','pdfHtml5']
+//	"buttons":[ 'copyHtml5','excelHtml5','csvHtml5','pdfHtml5']
 };
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //New table widget starts here 
@@ -602,6 +613,70 @@ function generatedata(rowscount, hasNullValues) {
     }
 
     return data;
+}
+
+myExampleData.tableGridData = generatedata(100);
+
+myExampleData.tableGridSource =
+{
+    localdata: myExampleData.tableGridData,
+    datatype: "array",
+    datafields:
+    [
+        { name: 'firstname', type: 'string' },
+        { name: 'lastname', type: 'string' },
+        { name: 'productname', type: 'string' },
+        { name: 'available', type: 'bool' },
+        { name: 'date', type: 'date' },
+        { name: 'quantity', type: 'number' },
+        { name: 'price', type: 'number' }
+    ]                     
+};
+
+myExampleData.GridColoumns = [
+    { text: 'First Name', datafield: 'firstname', width: 130 },
+    { text: 'Last Name', datafield: 'lastname', width: 130 },
+    { text: 'Product', datafield: 'productname', width: 200 },
+    { text: 'Available', datafield: 'available', columntype: 'checkbox', width: 67, cellsalign: 'center', align: 'center' },
+    { text: 'Ship Date', datafield: 'date', width: 120, align: 'right', cellsalign: 'right', cellsformat: 'd' },
+    { text: 'Quantity', datafield: 'quantity', width: 70, align: 'right', cellsalign: 'right' },
+    { text: 'Price', datafield: 'price', cellsalign: 'right', align: 'right', cellsformat: 'c2' }
+  ];
+
+
+myExampleData.GridWidth = getWidth('Grid');
+
+function getWidth(name) {
+//	InitResponse();
+//    var response = new $.jqx.response();
+
+//    name = name.toLowerCase();
+
+    switch (name) {
+    
+	case "grid":
+     /*   if (response.device.type === "Phone") {
+            var grid = document.getElementById('grid');
+            if (grid) {
+                grid.style.marginLeft = '5%';
+            }
+            return '90%'
+        }
+        else if (response.device.type === "Tablet") {
+            var windowWidth = document.body.offsetWidth - 50;
+            if (windowWidth > 850) {
+                windowWidth = 850;
+            }
+            var grid = document.getElementById('grid');
+            if (grid) {
+                grid.style.marginLeft = 'auto';
+                grid.style.marginRight = 'auto';
+            }
+
+            return windowWidth;
+        }*/
+        return 850;
+    }
 }
 
 

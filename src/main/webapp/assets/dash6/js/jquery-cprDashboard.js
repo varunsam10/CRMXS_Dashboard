@@ -266,7 +266,12 @@
 					var dataTable = $('<table cellpadding="0" cellspacing="0" border="0" class="display sDashboardTableView table table-bordered"></table>');
 					widgetContent.append(dataTable);
 					widgetContent.addClass("cprWidgetContentTable");
-				} else if (widgetDefinition.widgetType === 'chart') {
+				}else if(widgetDefinition.widgetType === 'grid'){
+					var dataTable = $('<div id="cprDashboardGridView"></div>');
+					widgetContent.append(dataTable);
+					widgetContent.addClass("cprWidgetContentTable");
+				}	else if (widgetDefinition.widgetType === 'chart') {
+				
 					var chart = $('<div/>').addClass("sDashboardChart");
 					if (widgetDefinition.getDataBySelection) {
 						chart.addClass("sDashboardChartSelectable");
@@ -312,18 +317,39 @@
 			},
 			_renderTable : function(widgetDefinition){
 				var id = "li#" + widgetDefinition.widgetId;
-				var table
+				var table;
 				if(widgetDefinition.widgetType === 'table'){
 					table = this.element.find(id + " table.sDashboardTableView");
-
+					var buttonCommon = {
+					        exportOptions: {
+					            format: {
+					               /* body: function ( data, row, column, node ) {
+					                    // Strip $ from salary column to make it numeric
+					                    return column === 5 ?
+					                        data.replace( /[$,]/g, '' ) :
+					                        data;
+					                }*/
+					            }
+					        }
+					};
 					var tableDef = {};
 					$.extend(tableDef,widgetDefinition.widgetContent);
 
 					if (widgetDefinition.setJqueryStyle) {
 						tableDef["bJQueryUI"] = true;
 					}
-//					tableDef["dom"] = 'Bfrtip';
-//					tableDef["buttons"] = ['copy', 'csv', 'excel', 'pdf', 'print'];
+					tableDef["dom"] = '<"top"i>Brt<"bottom"flp><"clear">';
+					tableDef["buttons"] =  [
+			            $.extend( true, {}, buttonCommon, {
+			                extend: 'excelHtml5'
+			            }),
+			            $.extend( true, {}, buttonCommon, {
+			                extend: 'pdfHtml5'
+			            })
+			        ];
+					tableDef["pageLength"] = 10;
+					tableDef["paging"] = true;
+//					tableDef["lengthMenu"] = [[10, 25, 50, -1], [10, 25, 50, "All"]];
 					table.dataTable(tableDef);		 
 					/*table.dataTable({tableDef,
 						 buttons: ['copy', 'csv', 'excel', 'pdf', 'print']					 
@@ -338,6 +364,18 @@
 					      ]						
 					});*/
 
+				}else if(widgetDefinition.widgetType === 'grid'){
+//					table = this.element.find(id + " table.sDashboardTableView");
+					var dataAdapter = new $.jqx.dataAdapter(widgetDefinition.widgetContent.data);
+					   $("#cprDashboardGridView").jqxGrid(
+					            {
+					                width: widgetDefinition.widgetContent.width,
+					                source: dataAdapter,                
+					                altrows: true,
+					                sortable: true,
+					                selectionmode: 'multiplecellsextended',
+					                columns: widgetDefinition.widgetContent.coloumns
+					            });
 				}
 			},
 		/*	_renderTable : function(widgetDefinition){

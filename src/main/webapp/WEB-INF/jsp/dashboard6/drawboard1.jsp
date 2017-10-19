@@ -40,7 +40,14 @@
 <!-- BEGIN THEME LAYOUT STYLES -->
 <link href="assets/dash6/layouts/layout6/css/layout.css" rel="stylesheet" type="text/css" />
 <link href="assets/dash6/layouts/layout6/css/custom.css" rel="stylesheet" type="text/css" />
-<link href="assets/dash6/css/datatable/datatables.css" rel="stylesheet" type="text/css" />
+
+
+<!-- datatable CSS  -->
+<!-- <link href="assets/dash6/css/datatable/jquery.dataTables.min.css" rel="stylesheet" type="text/css" /> -->
+<link href="assets/dash6/css/datatable/buttons.dataTables.min.css" rel="stylesheet" type="text/css" />
+<link href="assets/dash6/css/datatable/datatables.css" rel="stylesheet" type="text/css" /> 
+
+
 <!-- END THEME LAYOUT STYLES -->
 <link rel="shortcut icon" href="favicon.ico" />
 </head>
@@ -328,9 +335,9 @@
 	<!-- END QUICK NAV -->
 
 	<!-- BEGIN CORE PLUGINS -->
-	<script src="assets/dash6/global/plugins/jquery.min.js"	type="text/javascript"></script> 
+	<!-- <script src="assets/dash6/global/plugins/jquery.min.js"	type="text/javascript"></script>  -->
 	<!-- remove -->
-	<!-- <script src="assets/dash6/js/jqueryNw/jquery-1.12.3.js"	type="text/javascript"></script> -->
+	<script src="assets/dash6/js/jqueryNw/jquery-1.12.4.js"	type="text/javascript"></script>
 	<script src="assets/dash6/global/plugins/bootstrap/js/bootstrap.min.js"	type="text/javascript"></script>
 	<script src="assets/dash6/global/plugins/js.cookie.min.js" type="text/javascript"></script>
 	<script src="assets/dash6/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
@@ -398,18 +405,32 @@
 	<!-- sample data external script file -->
 	<script src="assets/dash6/js/exampleData.js" type="text/javascript"></script>
 	<!-- Datatable export function js files -->
-	<script src="assets/dash6/js/datatableNw/datatables.js"></script>
+	<!-- <script src="assets/dash6/js/datatableNw/datatables.js"></script> -->
+	<script src="assets/dash6/js/datatableNw/jquery.dataTables.min.js"></script>
 	
-	
-<!-- 	<script src="assets/dash6/js/datatableNw/dataTables.buttons.min.js"></script>
+	<script src="assets/dash6/js/datatableNw/dataTables.buttons.min.js"></script>
 	<script src="assets/dash6/js/datatableNw/jszip.min.js"></script>
 	<script src="assets/dash6/js/datatableNw/pdfmake.min.js"></script>
 	<script src="assets/dash6/js/datatableNw/vfs_fonts.js"></script>
 	<script src="assets/dash6/js/datatableNw/buttons.print.min.js"></script>
-	
+ 	
 	<script src="assets/dash6/js/datatableNw/buttons.html5.min.js"></script>
-	<script src="assets/dash6/js/datatableNw/buttons.flash.min.js"></script> -->
+	<script src="assets/dash6/js/datatableNw/buttons.flash.min.js"></script>
 	
+	<!--  data grid export js files -->
+<!-- 	<script type="text/javascript" src="assets/dash6/js/grid/jqxcore.js"></script>
+    <script type="text/javascript" src="assets/dash6/js/grid/jqxbuttons.js"></script>
+    <script type="text/javascript" src="assets/dash6/js/grid/jqxscrollbar.js"></script>
+    <script type="text/javascript" src="assets/dash6/js/grid/jqxmenu.js"></script>
+    <script type="text/javascript" src="assets/dash6/js/grid/jqxcheckbox.js"></script>
+    <script type="text/javascript" src="assets/dash6/js/grid/jqxgrid.js"></script>
+    <script type="text/javascript" src="assets/dash6/js/grid/jqxgrid.selection.js"></script> 
+    <script type="text/javascript" src="assets/dash6/js/grid/jqxgrid.columnsresize.js"></script> 
+    <script type="text/javascript" src="assets/dash6/js/grid/jqxdata.js"></script> 
+    <script type="text/javascript" src="assets/dash6/js/grid/jqxdata.export.js"></script> 
+    <script type="text/javascript" src="assets/dash6/js/grid/jqxgrid.export.js"></script> 
+    <script type="text/javascript" src="assets/dash6/js/grid/jqxgrid.sort.js"></script> 
+	 -->
 	<script type="text/javascript">
    	$(document).ready(function(){           	
   
@@ -419,7 +440,7 @@
         imgpath : "assets/dash5/css/images/",
         loadTheme : "Le Frog"
         });
-
+      
  //**********************************************//
  //dashboard json data
  //this is the data format that the dashboard framework expects
@@ -441,7 +462,7 @@
     	
     	{
     		widgetTitle: "Hour Wise Redemptions",
-    		widgetId: "id0010",
+    		widgetId: "id002",
     		widgetType: "chart",
     		graphType: "exploratory",
     		widgetDimension: "normal",
@@ -455,7 +476,7 @@
     	
     	{
     		widgetTitle: "Revenue by region",
-    		widgetId: "id0011",
+    		widgetId: "id003",
     		widgetType: "chart",
     		graphType: "exploratory",
     		widgetDimension: "large",
@@ -465,10 +486,9 @@
     			layout: myExampleData.plotlybubble2layout,
     			config: myExampleData.plotlybubble2config	
     			}
-    	},
+    },
     	
-    	
-    	{
+    {
 		widgetTitle: "Revenue",
 		widgetId: "id004",
 		widgetType: "chart",
@@ -493,12 +513,11 @@
 			layout: myExampleData.plotlylinelayout,
 			config: myExampleData.plotlylineconfig			  
 		}
-	},
-	
+	},	
 	
 	{
 		widgetTitle: "Sales Figures",
-		widgetId: "id002",
+		widgetId: "id006",
 		widgetType: "chart",
 		graphType: "normal",
 		widgetDimension: "normal",
@@ -509,7 +528,7 @@
 	},
 	{
 		widgetTitle: "Age group",
-		widgetId: "id003",
+		widgetId: "id007",
 		widgetType: "chart",
 		graphType: "exploratory",
 		widgetDimension: "normal",
@@ -534,18 +553,29 @@
 	
 	{
 		widgetTitle: " ",
-		widgetId: "id006",
+		widgetId: "id008",
 		widgetType: "Text",		
 		widgetDimension: "small",
 		widgetContent: "Number of Redemptions: 4,636 \n" + "Revenue Generated 231,800$"
 	},
 	{
 		widgetTitle: "Table ",
-		widgetId: "id007",
+		widgetId: "id009",
 		widgetType: "table",
+		//widgetDimension: "large",
 		setJqueryStyle: true,
-		widgetContent: myExampleData.tableWidgetData
-	}, 
+		widgetContent:myExampleData.tableWidgetData		
+	},
+/* 	{
+		widgetTitle: "Items Sold Grid",
+		widgetId: "id010",
+		widgetType: "grid",
+		widgetContent:{
+			data:myExampleData.tableGridSource,		
+			coloumns:myExampleData.GridColoumns,			
+			width:myExampleData.GridWidth
+		}
+	}, */
 	/* {
 		widgetTitle: "Table",
 		widgetId: "id007",
@@ -558,13 +588,13 @@
 		}
 	}, */{
 		widgetTitle: "Stats",
-		widgetId: "id009",
+		widgetId: "id011",
 		widgetType: "Text",		
 		widgetDimension: "small",
 		widgetContent: "Number of Redemptions: 4,636 \n" + "Revenue Generated 231,800$"
 	},{
 		widgetTitle: "Sales Figures",
-		widgetId: "id008",
+		widgetId: "id012",
 		widgetType: "chart",
 		graphType: "exploratory",
 		widgetDimension: "normal",
