@@ -536,13 +536,13 @@
 		enableRefresh: true,
 		refreshCallBack : function(widgetId){ 
 			//Inside refresh callback		
-			notification('info', 'Inside the refresh callback of '+widgetId+'!');
-		/* 	var refreshedData = {
+			//notification('info', 'Inside the refresh callback of '+widgetId+'!');
+			var refreshedData = {
 					data: myExampleData.plotlyRefreshBubbleData,
 					layout: myExampleData.plotlyBubbleLayout,
 					config: myExampleData.plotlybarconfig
 			};
-			return refreshedData; */
+			return refreshedData; 
 		},
 		widgetContent: {
 			data: myExampleData.plotlyBubbleData,
@@ -555,7 +555,7 @@
 		widgetTitle: " ",
 		widgetId: "id008",
 		widgetType: "Text",		
-		widgetDimension: "small",
+		widgetDimension: "small",		
 		widgetContent: "Number of Redemptions: 4,636 \n" + "Revenue Generated 231,800$"
 	},
 	{
@@ -564,6 +564,11 @@
 		widgetType: "table",
 		//widgetDimension: "large",
 		setJqueryStyle: true,
+		enableRefresh: true,
+		refreshCallBack : function(widgetId){ 
+		//Inside refresh callback		
+		notification('info', 'Inside the refresh callback of '+widgetId+'!');
+		},
 		widgetContent:myExampleData.tableWidgetData		
 	},
 /* 	{
