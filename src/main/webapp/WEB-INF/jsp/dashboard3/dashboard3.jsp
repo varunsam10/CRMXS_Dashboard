@@ -268,64 +268,7 @@
                             <li class="heading">
                                 <h3 class="uppercase">Features</h3>
                             </li>
-
-
-                      <!--       <li class="nav-item  ">
-                                <a href="javascript:;" class="nav-link nav-toggle">
-                                    <i class="icon-bar-chart"></i>
-                                    <span class="title">Charts</span>
-                                    <span class="arrow"></span>
-                                </a>
-                                <ul class="sub-menu">
-                                    <li class="nav-item  ">
-                                        <a href="charts_amcharts.html" class="nav-link ">
-                                            <span class="title">amChart</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item  ">
-                                        <a href="charts_flotcharts.html" class="nav-link ">
-                                            <span class="title">Flot Charts</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item  ">
-                                        <a href="charts_flowchart.html" class="nav-link ">
-                                            <span class="title">Flow Charts</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item  ">
-                                        <a href="charts_google.html" class="nav-link ">
-                                            <span class="title">Google Charts</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item  ">
-                                        <a href="charts_echarts.html" class="nav-link ">
-                                            <span class="title">eCharts</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item  ">
-                                        <a href="charts_morris.html" class="nav-link ">
-                                            <span class="title">Morris Charts</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item  ">
-                                        <a href="javascript:;" class="nav-link nav-toggle">
-                                            <span class="title">HighCharts</span>
-                                            <span class="arrow"></span>
-                                        </a>
-                                        <ul class="sub-menu">
-                                            <li class="nav-item ">
-                                                <a href="charts_highcharts.html" class="nav-link "> HighCharts </a>
-                                            </li>
-                                            <li class="nav-item ">
-                                                <a href="charts_highstock.html" class="nav-link "> HighStock </a>
-                                            </li>
-                                            <li class="nav-item ">
-                                                <a href="charts_highmaps.html" class="nav-link "> HighMaps </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li> -->
+               
                             <li class="nav-item  ">
                                 <a href="javascript:;" class="nav-link nav-toggle">
                                     <i class="icon-pointer"></i>
@@ -357,17 +300,13 @@
                                 </a>
                                 <ul class="sub-menu">
                                     <li class="nav-item  ">
-                                       <!--  <a href="app_todo.html" class="nav-link ">
-                                            <i class="icon-clock"></i>
-                                            <span class="title">Todo 1</span>
-                                        </a> -->
                                         <a href="drawboard1.html"  class="nav-link "><i class="icon-check"></i>
-                                        <span class="title">Draw Board 1</span>
+                                        <span class="title">Maifest</span>
                                         </a>
                                        </li>
                                        <li class="nav-item  ">
                                         <a href="drawboard2.html"  class="nav-link "><i class="icon-check"></i>
-                                        <span class="title">Draw Board 2</span>
+                                        <span class="title">Maifest dynamic</span>
                                         </a>
                                         </li>                      
                                   
@@ -417,115 +356,7 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </li>
-                           <!--  <li class="nav-item  ">
-                                <a href="javascript:;" class="nav-link nav-toggle">
-                                    <i class="icon-social-dribbble"></i>
-                                    <span class="title">General</span>
-                                    <span class="arrow"></span>
-                                </a>
-                                <ul class="sub-menu">
-                                    <li class="nav-item  ">
-                                        <a href="page_general_about.html" class="nav-link ">
-                                            <i class="icon-info"></i>
-                                            <span class="title">About</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item  ">
-                                        <a href="page_general_contact.html" class="nav-link ">
-                                            <i class="icon-call-end"></i>
-                                            <span class="title">Contact</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item  ">
-                                        <a href="javascript:;" class="nav-link nav-toggle">
-                                            <i class="icon-notebook"></i>
-                                            <span class="title">Portfolio</span>
-                                            <span class="arrow"></span>
-                                        </a>
-                                        <ul class="sub-menu">
-                                            <li class="nav-item ">
-                                                <a href="page_general_portfolio_1.html" class="nav-link "> Portfolio 1 </a>
-                                            </li>
-                                            <li class="nav-item ">
-                                                <a href="page_general_portfolio_2.html" class="nav-link "> Portfolio 2 </a>
-                                            </li>
-                                            <li class="nav-item ">
-                                                <a href="page_general_portfolio_3.html" class="nav-link "> Portfolio 3 </a>
-                                            </li>
-                                            <li class="nav-item ">
-                                                <a href="page_general_portfolio_4.html" class="nav-link "> Portfolio 4 </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="nav-item  ">
-                                        <a href="javascript:;" class="nav-link nav-toggle">
-                                            <i class="icon-magnifier"></i>
-                                            <span class="title">Search</span>
-                                            <span class="arrow"></span>
-                                        </a>
-                                        <ul class="sub-menu">
-                                            <li class="nav-item ">
-                                                <a href="page_general_search.html" class="nav-link "> Search 1 </a>
-                                            </li>
-                                            <li class="nav-item ">
-                                                <a href="page_general_search_2.html" class="nav-link "> Search 2 </a>
-                                            </li>
-                                            <li class="nav-item ">
-                                                <a href="page_general_search_3.html" class="nav-link "> Search 3 </a>
-                                            </li>
-                                            <li class="nav-item ">
-                                                <a href="page_general_search_4.html" class="nav-link "> Search 4 </a>
-                                            </li>
-                                            <li class="nav-item ">
-                                                <a href="page_general_search_5.html" class="nav-link "> Search 5 </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="nav-item  ">
-                                        <a href="page_general_pricing.html" class="nav-link ">
-                                            <i class="icon-tag"></i>
-                                            <span class="title">Pricing</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item  ">
-                                        <a href="page_general_pricing_2.html" class="nav-link ">
-                                            <i class="icon-tag"></i>
-                                            <span class="title">Pricing 2</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item  ">
-                                        <a href="page_general_faq.html" class="nav-link ">
-                                            <i class="icon-wrench"></i>
-                                            <span class="title">FAQ</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item  ">
-                                        <a href="page_general_blog.html" class="nav-link ">
-                                            <i class="icon-pencil"></i>
-                                            <span class="title">Blog</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item  ">
-                                        <a href="page_general_blog_post.html" class="nav-link ">
-                                            <i class="icon-note"></i>
-                                            <span class="title">Blog Post</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item  ">
-                                        <a href="page_general_invoice.html" class="nav-link ">
-                                            <i class="icon-envelope"></i>
-                                            <span class="title">Invoice</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item  ">
-                                        <a href="page_general_invoice_2.html" class="nav-link ">
-                                            <i class="icon-envelope"></i>
-                                            <span class="title">Invoice 2</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li> -->
+                            </li>                       
 
                         </ul>
                         <!-- END SIDEBAR MENU -->
