@@ -19,9 +19,7 @@ public class Dashboard {
 	public void setWidgets(ArrayList<Widget> widgets) {
 		this.widgets = widgets;
 	}
-
-
-
+	
 	public ArrayList<Widget> createDashboard() {
 		widgets = new ArrayList<Widget>();
 		ArrayList<WidgetData> widgetData = new ArrayList<WidgetData>();
@@ -51,7 +49,7 @@ public class Dashboard {
 		
 		WidgetContent widgetContent =  new WidgetContent(widgetData, widgetLayout, widgetConfig);
 		
-		Widget widgetLine = new Widget("Items sold", "id001", "chart", "exploratory", WidgetDimensionEnum.LARGE, ChartTypeEnum.LINE, widgetContent);
+		Widget widgetLine = new Widget("Items sold", "id001", WidgetType.CHART.getWidgetType(), GraphType.EXPLORATORY.getGraphType(), WidgetDimensionEnum.LARGE, ChartTypeEnum.LINE, widgetContent);
 		
 		ArrayList<Widget> widgetList = new ArrayList<Widget>();
 		
@@ -77,8 +75,7 @@ public class Dashboard {
 		
 		WidgetContent pieContent = new WidgetContent(pieWidgetDataList, pieLayout, widgetConfig);
 		
-		Widget widgetPie = new Widget("Sales Figures", "id004", "chart", "exploratory", WidgetDimensionEnum.MEDIUM, ChartTypeEnum.PIE, pieContent);
-		widgetList.add(widgetPie);
+		Widget widgetPie = new Widget("Sales Figures", "id004", WidgetType.CHART.getWidgetType(), GraphType.EXPLORATORY.getGraphType(), WidgetDimensionEnum.MEDIUM, ChartTypeEnum.PIE, pieContent);
 		
 		ArrayList<WidgetData> barlineDataList = new ArrayList<WidgetData>();
 		Object[] xbar_line = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
@@ -104,9 +101,10 @@ public class Dashboard {
 		barlineLayout.setAutosize(true);
 		
 		WidgetContent barlineContent = new WidgetContent(barlineDataList, barlineLayout, widgetConfig);
-		Widget widgetBarLine = new Widget("Hour Wise Redemptions", "id0010", "chart", "exploratory",WidgetDimensionEnum.MEDIUM, ChartTypeEnum.BARLINE, barlineContent);
-		widgetList.add(widgetBarLine);
-		
+
+		Widget widgetBarLine = new Widget("Hour Wise Redemptions", "id0010", WidgetType.CHART.getWidgetType(), GraphType.EXPLORATORY.getGraphType(),WidgetDimensionEnum.MEDIUM, ChartTypeEnum.BARLINE, barlineContent);
+
+		widgetList.add(widgetBarLine);		
 		return widgetList;
 		
 	}
