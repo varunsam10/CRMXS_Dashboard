@@ -2,12 +2,12 @@
 		"use strict";
 		if ( typeof define === 'function' && define.amd) {
 			// Register as an AMD module if available...
-			define(['jquery', 'Flotr', 'Plotly','c3'], factory);
+			define(['jquery','Plotly','c3'], factory);
 		} else {
 			// Browser globals for the unenlightened...
-			factory($, Flotr, Plotly,c3);
+			factory($, Plotly,c3);
 		}
-	}(function($, Flotr, Plotly,c3) {
+	}(function($,Plotly,c3) {
 		"use strict";
 		$.widget("mn.sDashboard", {
 			version : "2.5",

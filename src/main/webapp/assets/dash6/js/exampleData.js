@@ -5,19 +5,7 @@ var myExampleData = {};
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //c3 pie chart sample data starts here 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-myExampleData.c3bardata = {
-	columns : [ [ 'data1', 30, 200, 100, 400, 150, 250 ],
-			[ 'data2', 130, 100, 140, 200, 150, 50 ] ],
-	type : 'bar'
-};
-myExampleData.c3bardatabar = {
-	width : {
-		ratio : 0.5
-	// this makes bar width 50% of length between ticks
-	}
-// or
-//width: 100 // this makes bar width 100px
-};
+
 myExampleData.c3piedata = {
 	// iris data from R
 	columns : [
@@ -298,8 +286,22 @@ var trace2 = {
 	type : 'bar'
 };
 
-myExampleData.barGroupChartData = [ trace1, trace2 ];
+var trace3 = {
+		x : [ 'Carlburg', 'Anchor', 'Guiness' ,'Breidweiser', 'Erdinger', 'brand2','brand3', 'brand4', 'brand5'],
+		y : [ 22, 24, 33,45, 44, 26,68, 64, 63 ],
+		name : 'XL Breweries',
+		type : 'bar'
+};
 
+var trace4 = {
+		x : ['Carlburg', 'Anchor', 'Guiness' ,'Breidweiser', 'Erdinger', 'brand2','brand3', 'brand4', 'brand5'],
+		y : [ 12, 14, 33, 22, 38, 19, 28, 53, 69 ],
+		name : 'YZ Breweries',
+		type : 'bar'
+};
+
+myExampleData.barGroupChartData = [ trace1, trace2 ];
+myExampleData.barGroupRefreshChartData = [ trace3, trace4 ];
 myExampleData.barGroupChartLayout = {
 		title : 'Revenue in US $',	
 		xaxis : {

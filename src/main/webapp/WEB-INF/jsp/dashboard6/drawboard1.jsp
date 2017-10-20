@@ -388,7 +388,7 @@
 	<!--<script src="assets/dash6/js/datatables/jquery.dataTables.js"></script>  -->
 	
 	
-	<script src="assets/dash5/js/flotr2/flotr2.js" type="text/javascript"></script>
+	<!-- <script src="assets/dash5/js/flotr2/flotr2.js" type="text/javascript"></script> -->
 	<script src="assets/js/dash1/plotly-latest.min.js"></script>
 	<script src="assets/dash6/js/chart/Chart.bundle.js"></script>
 	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
@@ -437,7 +437,7 @@
         $(function() {
         //Theme switcher plugin
         $("#switcher").themeswitcher({
-        imgpath : "assets/dash5/css/images/",
+        imgpath : "assets/dash6/css/images/",
         loadTheme : "Le Frog"
         });
       
@@ -495,6 +495,15 @@
 		graphType: "exploratory",
 		widgetDimension: "large",
 		chartType: "bar",
+		enableRefresh: true,
+		refreshCallBack : function(widgetId){ 		
+			var refreshedData = {
+					data: myExampleData.barGroupRefreshChartData,
+					layout: myExampleData.barGroupChartLayout,
+					config: myExampleData.plotlybarconfig
+			};
+			return refreshedData; 
+		},
 		widgetContent: {
 			data: myExampleData.barGroupChartData,
 			layout: myExampleData.barGroupChartLayout,
