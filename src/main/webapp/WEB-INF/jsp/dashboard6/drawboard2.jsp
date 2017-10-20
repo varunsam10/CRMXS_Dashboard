@@ -38,6 +38,7 @@
 <link href="assets/dash6/global/css/plugins-md.min.css" rel="stylesheet" type="text/css" />
 <!-- END THEME GLOBAL STYLES -->
 <!-- BEGIN THEME LAYOUT STYLES -->
+
 <link href="assets/dash6/layouts/layout6/css/layout.css" rel="stylesheet" type="text/css" />
 <link href="assets/dash6/layouts/layout6/css/custom.css" rel="stylesheet" type="text/css" />
 <link href="assets/dash6/css/datatable/datatables.css" rel="stylesheet" type="text/css" />
@@ -455,7 +456,6 @@
 	<!--<script src="assets/dash6/js/datatables/jquery.dataTables.js"></script>  -->
 	<script src="assets/dash6/js/datatableNw/datatables.js"></script>
 	
-	<script src="assets/dash5/js/flotr2/flotr2.js" type="text/javascript"></script>
 	<script src="assets/js/dash1/plotly-latest.min.js"></script>
 	<script src="assets/dash6/js/chart/Chart.bundle.js"></script>
 	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
