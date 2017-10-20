@@ -52,7 +52,7 @@ public class Dashboard {
 		
 		WidgetContent widgetContent =  new WidgetContent(widgetData, widgetLayout, widgetConfig);
 		
-		Widget widgetLine = new Widget("Items sold", "id001", "chart", "exploratory", "large", "line", widgetContent);
+		Widget widgetLine = new Widget("Items sold", "id001", WidgetType.CHART.getWidgetType(), GraphType.EXPLORATORY.getGraphType(), "large", "line", widgetContent);
 		
 		ArrayList<Widget> widgetList = new ArrayList<Widget>();
 		
@@ -78,7 +78,7 @@ public class Dashboard {
 		
 		WidgetContent pieContent = new WidgetContent(pieWidgetDataList, pieLayout, widgetConfig);
 		
-		Widget widgetPie = new Widget("Sales Figures", "id004", "chart", "exploratory", "normal", "pie", pieContent);
+		Widget widgetPie = new Widget("Sales Figures", "id004", WidgetType.CHART.getWidgetType(), GraphType.EXPLORATORY.getGraphType(), "normal", "pie", pieContent);
 		widgetList.add(widgetPie);
 		
 		ArrayList<WidgetData> barlineDataList = new ArrayList<WidgetData>();
@@ -105,7 +105,7 @@ public class Dashboard {
 		barlineLayout.setAutosize(true);
 		
 		WidgetContent barlineContent = new WidgetContent(barlineDataList, barlineLayout, widgetConfig);
-		Widget widgetBarLine = new Widget("Hour Wise Redemptions", "id0010", "chart", "exploratory", "normal", "barline", barlineContent);
+		Widget widgetBarLine = new Widget("Hour Wise Redemptions", "id0010", WidgetType.CHART.getWidgetType(), GraphType.EXPLORATORY.getGraphType(), "normal", "barline", barlineContent);
 		widgetList.add(widgetBarLine);
 		
 		return widgetList;
