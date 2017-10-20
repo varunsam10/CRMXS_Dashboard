@@ -388,7 +388,6 @@
 	<!--<script src="assets/dash6/js/datatables/jquery.dataTables.js"></script>  -->
 	
 	
-	<!-- <script src="assets/dash5/js/flotr2/flotr2.js" type="text/javascript"></script> -->
 	<script src="assets/js/dash1/plotly-latest.min.js"></script>
 	<script src="assets/dash6/js/chart/Chart.bundle.js"></script>
 	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
