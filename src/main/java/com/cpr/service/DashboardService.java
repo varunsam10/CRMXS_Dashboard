@@ -1,14 +1,15 @@
-package com.cpr.util;
+package com.cpr.service;
 
+import com.cpr.util.Dashboard;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 
-public class DashboardJSON {
+public class DashboardService {
 	
 	private Dashboard  dashboard;
 	
-	public DashboardJSON(){
+	public DashboardService(){
 		
 		dashboard = new Dashboard();
 	}
