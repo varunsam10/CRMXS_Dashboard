@@ -188,38 +188,34 @@ padding-top: 60px;
 				<strong><p>Click on the link to start</p></strong>
 		</div>
 		<div class="panel-body panelDiv">
-		<div class="simulator-icon-start4">
+			<!-- 	<div class="simulator-icon-start4">
 				<span class="simulator-label"><a 
 						href="drawboard1.html">Drawboard 1 Dev»</a></span>
 				</div>	
 				<div class="simulator-icon-start4">
 				<span class="simulator-label"><a 
 						href="drawboard2.html">Drawboard 2 Dev»</a></span>
-				</div>	
-				<!-- <div class="simulator-icon-start4">
-					<span class="simulator-label"><a 
-						href="createWidget.html">Create Widget »</a></span>
 				</div>	 -->
 				<!-- <div class="simulator-icon-start4">
 					<span class="simulator-label"><a 
+						href="createWidget.html">Create Widget »</a></span>
+				</div>
+				<div class="simulator-icon-start4">
+					<span class="simulator-label"><a 
 						href="dashboard5.html">Dashboard5 »</a></span>
-				</div>	 -->	
-		<!-- 		<div class="simulator-icon-start4">
+				</div>		
+				<div class="simulator-icon-start4">
 					<span class="simulator-label"><a 
 						href="dashboard4.html">Dashboard4 »</a></span>
-				</div>	 -->		
+				</div>	 --> 	
 				<div class="simulator-icon-start1">
 					<span class="simulator-label"><a 
 						href="dashboard3.html">Home page »</a></span>
-				</div>
-				<!-- <div class="simulator-icon-start2">
-					<span class="simulator-label"><a
-						href="dashboard2.html">Dashboard2 »</a> </span>
-				</div> -->
-				<div class="simulator-icon-start3">
+				</div>				
+			<!-- 	<div class="simulator-icon-start3">
 					<span class="simulator-label"><a 
 						href="dashboard1.html">Dashboard1 »</a></span>
-				</div>	 
+				</div>	  -->
 							
 		</div>
 	</div>
