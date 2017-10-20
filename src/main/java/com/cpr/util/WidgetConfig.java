@@ -2,27 +2,22 @@ package com.cpr.util;
 
 public class WidgetConfig {
 	private String[] modeBarButtonsToRemove;
-	private boolean displaylogo;
-	
-	public WidgetConfig(String[] modeBarButtonsToRemove, boolean displaylogo) {
+	private static final boolean displaylogo = false;
+
+	public WidgetConfig(String[] modeBarButtonsToRemove) {
 		this.setModeBarButtonsToRemove(modeBarButtonsToRemove);
-		this.setDisplaylogo(displaylogo);
 	}
-	
-	
+
 	public String[] getModeBarButtonsToRemove() {
 		return modeBarButtonsToRemove;
 	}
+
 	public void setModeBarButtonsToRemove(String[] modeBarButtonsToRemove) {
 		this.modeBarButtonsToRemove = modeBarButtonsToRemove;
 	}
+
 	public boolean isDisplaylogo() {
 		return displaylogo;
 	}
-	public void setDisplaylogo(boolean displaylogo) {
-		this.displaylogo = displaylogo;
-	}
-	
-	
 
 }
