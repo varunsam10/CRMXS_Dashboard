@@ -425,7 +425,7 @@
 						
 					}else{						
 						
-						Plotly.update(chartArea[0], widgetDefinition.widgetContent.data , widgetDefinition.widgetContent.layout,widgetDefinition.widgetContent.config);
+						Plotly.newPlot(chartArea[0], widgetDefinition.widgetContent.data , widgetDefinition.widgetContent.layout,widgetDefinition.widgetContent.config);
 					}					
 					if (widgetDefinition.getDataBySelection) {
 						
@@ -446,6 +446,7 @@
 							this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
 						}
 					}
+				//location.reload(true);
 				
 			},
 			_renderChart : function(widgetDefinition) {
