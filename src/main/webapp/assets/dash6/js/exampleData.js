@@ -416,8 +416,25 @@ myExampleData.tableWidgetData = {
 	}, {
 		"sTitle" : "Platform"
 	} ],
+/*	"columnDefs": [
+        {  // set default column settings
+            'orderable': false,
+            'targets': [0]
+        }, 
+        {
+            "searchable": false,
+            "targets": [0]
+        },
+        {
+            "className": "dt-right", 
+            //"targets": [2]
+        }
+    ],*/
 	"iDisplayLength" : 25,
-	"aLengthMenu" : [ [ 1, 25, 50, -1 ], [ 1, 25, 50, "All" ] ],
+	"aLengthMenu" : [
+        [5, 15, 20, -1],
+        [5, 15, 20, "All"] // change per page values here
+    ],
 	"bPaginate" : true,
 	"bLengthChange":true,
 	"bAutoWidth" : false,

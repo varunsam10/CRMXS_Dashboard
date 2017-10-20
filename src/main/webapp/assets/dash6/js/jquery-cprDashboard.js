@@ -341,8 +341,8 @@
 					if (widgetDefinition.setJqueryStyle) {
 						tableDef["bJQueryUI"] = true;
 					}
-					tableDef["dom"] = '<"top"i>Brt<"bottom"flp><"clear">';
-					tableDef["buttons"] =  [
+					tableDef["dom"] = "<'row' <'col-md-12'B>><'row'<'col-md-6 col-sm-12'l><'col-md-6 col-sm-12'f>r><'table-scrollable't><'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>"; // horizobtal scrollable datatable
+					/*tableDef["buttons"] =  [
 			            $.extend( true, {}, buttonCommon, {
 			                extend: 'excelHtml5'
 			            }),
@@ -350,6 +350,14 @@
 			                extend: 'pdfHtml5'
 			            })
 			        ];
+					*/
+					tableDef["buttons"] =  [
+			                //{ extend: 'print', className: 'btn dark btn-outline' },
+			                /*{ extend: 'pdf', className: 'btn green btn-outline' },
+			                { extend: 'excelHtml5', className: 'btn purple btn-outline ' }*/
+						{ extend: 'pdf', className: 'btn purple btn-outline' },
+		                { extend: 'excelHtml5', className: 'btn purple btn-outline ' }
+			         ];
 					tableDef["pageLength"] = 10;
 					tableDef["paging"] = true;
 //					tableDef["lengthMenu"] = [[10, 25, 50, -1], [10, 25, 50, "All"]];
