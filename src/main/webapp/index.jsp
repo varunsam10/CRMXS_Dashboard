@@ -216,10 +216,10 @@ padding-top: 60px;
 					<span class="simulator-label"><a
 						href="dashboard2.html">Dashboard2 »</a> </span>
 				</div> -->
-			<!-- 	<div class="simulator-icon-start3">
+				<div class="simulator-icon-start3">
 					<span class="simulator-label"><a 
 						href="dashboard1.html">Dashboard1 »</a></span>
-				</div>	 -->
+				</div>	 
 							
 		</div>
 	</div>

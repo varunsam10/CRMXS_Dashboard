@@ -1,4 +1,4 @@
-package com.cpr.utility;
+package com.cpr.service;
 
 import java.io.IOException;
 import java.util.List;

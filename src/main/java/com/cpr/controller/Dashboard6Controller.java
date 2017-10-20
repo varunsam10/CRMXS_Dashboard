@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.cpr.model.Dashboard3;
-import com.cpr.util.DashboardJSON;
+import com.cpr.service.DashboardService;
 
 
 @Controller
@@ -27,7 +27,7 @@ public class Dashboard6Controller {
 	@ResponseBody
 	public String getWidgets()
 	{
-		DashboardJSON dashboardJSON =new DashboardJSON();		
+		DashboardService dashboardJSON =new DashboardService();		
 		return dashboardJSON.createDashboardJson();
 	}
 	

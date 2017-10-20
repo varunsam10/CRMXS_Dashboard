@@ -143,8 +143,6 @@
 					</div>
 				</div>
 			</nav>
-
-
 			<div class="content">
 				<div class="container-fluid">
 						<div class="col-md-7">
@@ -601,7 +599,7 @@
 								  var selectthegraphs = $('.arc').not(this);
 								  d3.selectAll(selectthegraphs)
 												.style("opacity",1);
-						d3.select(this).style("stroke", "none");
+								  d3.select(this).style("stroke", "none");
 								});
 
 						  svg.selectAll("text").data(pie(data)).enter()

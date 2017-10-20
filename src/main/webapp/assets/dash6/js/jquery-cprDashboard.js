@@ -157,10 +157,12 @@
 					var widget = $(e.currentTarget).parents("li:first");
 					var widgetId = widget.attr("id");
 					var widgetDefinition = self._getWidgetContentForId(widgetId, self);
+					//Adding refresh callback
 					var refreshedData = widgetDefinition.refreshCallBack.apply(self, [widgetId]);
 					widgetDefinition.widgetContent = refreshedData;
 					if (widgetDefinition.widgetType === 'chart') {
-						self._renderChart(widgetDefinition);
+//						self._renderChart(widgetDefinition);
+						self._refreshChart(widgetDefinition);
 					} else if (widgetDefinition.widgetType === 'table') {
 						self._refreshTable(widgetDefinition, widget);
 					} else {
@@ -396,6 +398,56 @@
 					});
 				}
 			},*/
+			_refreshChart: function(widgetDefinition) {
+				var id = "li#" + widgetDefinition.widgetId;
+				var chartArea;
+				var data;
+				var layout;
+				var config;
+				var chart;
+				chartArea = this.element.find(id + " div.sDashboardChart");
+				
+				if (widgetDefinition.widgetType === 'chart') {
+					
+					data = widgetDefinition.widgetContent.data;
+					layout = widgetDefinition.widgetContent.layout;
+					config = widgetDefinition.widgetContent.config;
+					var layout = {
+							  xaxis: {
+							    tickangle: -45
+							  },
+							  barmode: 'group'
+							};
+
+					if(widgetDefinition.graphType === 'normal'){
+						
+						var chart = c3.generate({bindto:chartArea[0],data:widgetDefinition.widgetContent.data});
+						
+					}else{						
+						
+						Plotly.update(chartArea[0], widgetDefinition.widgetContent.data , widgetDefinition.widgetContent.layout,widgetDefinition.widgetContent.config);
+					}					
+					if (widgetDefinition.getDataBySelection) {
+						
+						this._bindSelectEvent(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+					} else {
+						if(widgetDefinition.graphType === 'exploratory'){
+							this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+						}
+					}
+				}
+				else if(widgetDefinition.widgetType === 'static')
+					{
+						chart = new Chart(chartArea[0], widgetDefinition.widgetId, widgetDefinition.widgetContent.data);
+						
+						if (widgetDefinition.getDataBySelection) {
+							this._bindSelectEvent(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+						} else {
+							this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+						}
+					}
+				
+			},
 			_renderChart : function(widgetDefinition) {
 				var id = "li#" + widgetDefinition.widgetId;
 				var chartArea;
