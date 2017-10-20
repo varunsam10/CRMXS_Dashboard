@@ -10,15 +10,15 @@ public class Widget {
 	private String graphType;
 	private WidgetContent widgetContent;
 	
-	public Widget(String widgetTitle, String widgetId, String widgetType, String graphType, WidgetDimensionEnum widgetDimension, ChartTypeEnum chartType, WidgetContent widgetContent) {
+	public Widget(String widgetTitle, String widgetId, WidgetTypeEnum widgetType, GraphType graphType, WidgetDimensionEnum widgetDimension, ChartTypeEnum chartType, WidgetContent widgetContent) {
 		// TODO Auto-generated constructor stub
 		this.setWidgetTitle(widgetTitle);
 		this.setWidgetId(widgetId);
-		this.setWidgetType(widgetType);
+		this.setWidgetType(widgetType.getWidgetType());
 		this.setWidgetDimension(widgetDimension.getWidgetDimension());
 		this.setChartType(chartType.getChartName());
 		this.setWidgetContent(widgetContent);
-		this.setGraphType(graphType);
+		this.setGraphType(graphType.getGraphType());
 	}
 	
 	public Widget() {

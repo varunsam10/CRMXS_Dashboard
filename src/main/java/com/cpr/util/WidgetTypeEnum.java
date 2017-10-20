@@ -1,13 +1,13 @@
 package com.cpr.util;
 
-public enum WidgetType {
+public enum WidgetTypeEnum {
 	CHART("chart"),
 	TABLE("table"),
 	TEXT("text");
 	
 	private String widgetType;
 	
-	private WidgetType(String widgetType) {
+	private WidgetTypeEnum(String widgetType) {
 		// TODO Auto-generated constructor stub
 		this.widgetType = widgetType;
 	}
