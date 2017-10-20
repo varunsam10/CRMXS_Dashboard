@@ -26,17 +26,11 @@ public class WidgetLayout {
 		this.setAutosize(autosize);
 	}
 	
-	
-	
-
 
 	public WidgetLayout(){
 		
-	}
-	
-	
-	
-	
+	}	
+		
 	public boolean getAutosize() {
 		return autosize;
 	}
@@ -48,10 +42,6 @@ public class WidgetLayout {
 	public String getTitle() {
 		return title;
 	}
-
-
-
-
 
 	public void setTitle(String title) {
 		this.title = title;
