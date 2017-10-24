@@ -37,6 +37,12 @@ public class Dashboard6Controller {
 		Dashboard3 dashboard3 = new Dashboard3();
 		return new ModelAndView("dashboard6/drawboard2","Dashboard3",new Dashboard3());
 	}
+	@RequestMapping("/drawboard3")
+	public ModelAndView initializeFormDrawboard3()
+	{
+		Dashboard3 dashboard3 = new Dashboard3();
+		return new ModelAndView("dashboard6/drawboard3","Dashboard3",new Dashboard3());
+	}
 	
 	
 }

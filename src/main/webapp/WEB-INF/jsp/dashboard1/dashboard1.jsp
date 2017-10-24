@@ -54,7 +54,7 @@
 					<li class="active">
 						<a href="dashboard1.html">
 							<i class="pe-7s-graph"></i>
-							<p>Dashboard</p>
+							<p>Widget board</p>
 						</a>
 					</li>
 					<li>

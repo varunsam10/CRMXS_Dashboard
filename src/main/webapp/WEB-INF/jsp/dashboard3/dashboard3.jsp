@@ -218,7 +218,7 @@
                     <!-- BEGIN BREADCRUMBS -->
                     <ul class="page-breadcrumb">
                         <li>
-                            <a href="#">Dashboard</a>
+                            <a href="#">Customer Dashboard</a>
                         </li>
                     </ul>
                     <!-- END BREADCRUMBS -->
@@ -295,7 +295,7 @@
                             <li class="nav-item  ">
                                 <a href="javascript:;" class="nav-link nav-toggle">
                                     <i class="icon-docs"></i>
-                                    <span class="title">Apps</span>
+                                    <span class="title">Widget boards</span>
                                     <span class="arrow"></span>
                                 </a>
                                 <ul class="sub-menu">
@@ -308,7 +308,12 @@
                                         <a href="drawboard2.html"  class="nav-link "><i class="icon-check"></i>
                                         <span class="title">Maifest dynamic</span>
                                         </a>
-                                        </li>                      
+                                        </li> 
+  										<li class="nav-item  ">
+                                        <a href="drawboard3.html"  class="nav-link "><i class="icon-check"></i>
+                                        <span class="title">Tiger Beer Redemption</span>
+                                        </a>
+                                        </li>                     
                                   
                                 </ul>
                             </li>

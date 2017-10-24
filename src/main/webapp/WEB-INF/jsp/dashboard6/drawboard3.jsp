@@ -251,7 +251,7 @@ $(window).load(function() {
 			<div class="page-content-fixed-header">
 				<!-- BEGIN BREADCRUMBS -->
 				<ul class="page-breadcrumb">
-					<li><a href="#">Maifest BI Insights</a></li>
+					<li><a href="#">Tiger Beer Redemption - BI Insights</a></li>
 				</ul>
 				<!-- END BREADCRUMBS -->
 				<div class="content-header-menu">
@@ -486,37 +486,31 @@ $(window).load(function() {
     			layout: myExampleData.plotlycolumnlayout,
     			config: myExampleData.plotlycolumnconfig	
     			}
-    	},
-    	
+    	}, 	
     	{
-    		widgetTitle: "Hour Wise Redemptions",
-    		widgetId: "id002",
+    		widgetTitle: "Age group",
+    		widgetId: "id007",
     		widgetType: "chart",
     		graphType: "exploratory",
     		widgetDimension: "normal",
-    		chartType: "barline",
-    		widgetContent: {
-    			data: myExampleData.plotlybarlinedata,
-    			layout: myExampleData.plotlybarlinelayout,
-    			config: myExampleData.plotlybarlineconfig	
-    			}
-    	},
-    	
-    	{
-    		widgetTitle: "Revenue by region",
-    		widgetId: "id003",
-    		widgetType: "chart",
-    		graphType: "exploratory",
-    		widgetDimension: "large",
     		chartType: "bubble",
+    		enableRefresh: true,
+    		refreshCallBack : function(widgetId){ 
+    			//Inside refresh callback		
+    			//notification('info', 'Inside the refresh callback of '+widgetId+'!');
+    			var refreshedData = {
+    					data: myExampleData.plotlyRefreshBubbleData,
+    					layout: myExampleData.plotlyBubbleLayout,
+    					config: myExampleData.plotlybarconfig
+    			};
+    			return refreshedData; 
+    		},
     		widgetContent: {
-    			data: myExampleData.plotlybubble2data,
-    			layout: myExampleData.plotlybubble2layout,
-    			config: myExampleData.plotlybubble2config	
-    			}
-    },
-    	
-    {
+    			data: myExampleData.plotlyBubbleData,
+    			layout: myExampleData.plotlyBubbleLayout,
+    			config: myExampleData.plotlybarconfig
+    		}
+    	},{
 		widgetTitle: "Revenue",
 		widgetId: "id004",
 		widgetType: "chart",
@@ -564,38 +558,6 @@ $(window).load(function() {
 		}
 	},
 	{
-		widgetTitle: "Age group",
-		widgetId: "id007",
-		widgetType: "chart",
-		graphType: "exploratory",
-		widgetDimension: "normal",
-		chartType: "bubble",
-		enableRefresh: true,
-		refreshCallBack : function(widgetId){ 
-			//Inside refresh callback		
-			//notification('info', 'Inside the refresh callback of '+widgetId+'!');
-			var refreshedData = {
-					data: myExampleData.plotlyRefreshBubbleData,
-					layout: myExampleData.plotlyBubbleLayout,
-					config: myExampleData.plotlybarconfig
-			};
-			return refreshedData; 
-		},
-		widgetContent: {
-			data: myExampleData.plotlyBubbleData,
-			layout: myExampleData.plotlyBubbleLayout,
-			config: myExampleData.plotlybarconfig
-		}
-	},
-	
-	{
-		widgetTitle: " ",
-		widgetId: "id008",
-		widgetType: "Text",		
-		widgetDimension: "small",		
-		widgetContent: "Number of Redemptions: 4,636 \n" + "Revenue Generated 231,800$"
-	},
-	{
 		widgetTitle: "Table ",
 		widgetId: "id009",
 		widgetType: "table",
@@ -608,27 +570,7 @@ $(window).load(function() {
 		},
 		widgetContent:myExampleData.tableWidgetData		
 	},
-/* 	{
-		widgetTitle: "Items Sold Grid",
-		widgetId: "id010",
-		widgetType: "grid",
-		widgetContent:{
-			data:myExampleData.tableGridSource,		
-			coloumns:myExampleData.GridColoumns,			
-			width:myExampleData.GridWidth
-		}
-	}, */
-	/* {
-		widgetTitle: "Table",
-		widgetId: "id007",
-		widgetType: "table",
-		setJqueryStyle: true,
-		widgetContent: {
-			data: myExampleData.tableWidgetDataNw,
-			coloumns: myExampleData.tableWidgetColoumnNw,
-			buttons:myExampleData.tableWidgetButtonNw
-		}
-	}, */{
+	{
 		widgetTitle: "Stats",
 		widgetId: "id011",
 		widgetType: "Text",		
