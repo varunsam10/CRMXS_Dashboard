@@ -338,6 +338,8 @@ $(window).load(function() {
 						</a>
 					</div>
 				</div>
+				
+								
 				<div class="clearfix"></div>
 				<!-- END DASHBOARD STATS 1-->
 				<!-- BEGIN PAGE BASE CONTENT -->
@@ -399,15 +401,15 @@ $(window).load(function() {
 	<script src="assets/dash6/layouts/layout6/scripts/layout.min.js" type="text/javascript"></script>
 	<!-- END THEME LAYOUT SCRIPTS -->
 
+
+
 	<!--     CPR Dashboard    Custom     -->
 	<!-- Load jquery library -->
-	<!-- <script src="assets/dash6/js/jquery/jquery-1.8.2.js"
-		type="text/javascript"></script> -->
+	<!-- <script src="assets/dash6/js/jquery/jquery-1.8.2.js"	type="text/javascript"></script> -->
 	<!-- load jquery ui library -->
 	<script src="assets/dash6/js/jquery/jquery-ui.js" type="text/javascript"></script> 
 	<!--  remove -->
-	<!-- <script src="assets/dash6/js/jqueryNw/jquery-ui.js" type="text/javascript"></script> -->
-	
+	<!-- <script src="assets/dash6/js/jqueryNw/jquery-ui.js" type="text/javascript"></script> -->	
 	<!-- load touch punch library to enable dragging on touch based devices -->
 	<script src="assets/dash6/js/touchpunch/jquery.ui.touch-punch.js" type="text/javascript"></script>
 	<!-- load gitter notification library -->
@@ -415,23 +417,17 @@ $(window).load(function() {
 	<!-- Toastr notification library -->
 	<script src="assets/dash6/js/toastr/toastr.js" type="text/javascript"></script>
 	<!-- load datatables library -->
-	<!--<script src="assets/dash6/js/datatables/jquery.dataTables.js"></script>  -->
-	
-	
-	<!-- <script src="assets/dash5/js/flotr2/flotr2.js" type="text/javascript"></script> -->
+	<!--<script src="assets/dash6/js/datatables/jquery.dataTables.js"></script>  -->	
 	<script src="assets/js/dash1/plotly-latest.min.js"></script>
 	<script src="assets/dash6/js/chart/Chart.bundle.js"></script>
 	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 	<script src="assets/dash6/js/c3/c3.min.js"></script>
 	<!--  <script src="assets/dash6/js/c3/bubble.js"></script> -->
 	<!-- load dashboard library -->
-	<script src="assets/dash6/js/jquery-cprDashboard.js"
-		type="text/javascript"></script>
+	<script src="assets/dash6/js/jquery-cprDashboard.js" type="text/javascript"></script>
 
 	<!-- theme switcher -->
-	<script src="assets/dash6/js/themeswitcher/jquery.themeswitcher.min.js"
-		type="text/javascript"></script>
-
+	<script src="assets/dash6/js/themeswitcher/jquery.themeswitcher.min.js"	type="text/javascript"></script>
 	<!-- sample data external script file -->
 	<script src="assets/dash6/js/exampleData.js" type="text/javascript"></script>
 	<!-- Datatable export function js files -->
@@ -445,7 +441,7 @@ $(window).load(function() {
 	<script src="assets/dash6/js/datatableNw/buttons.print.min.js"></script>
  	
 	<script src="assets/dash6/js/datatableNw/buttons.html5.min.js"></script>
-	<script src="assets/dash6/js/datatableNw/buttons.flash.min.js"></script>
+	<script src="assets/dash6/js/datatableNw/buttons.flash.min.js"></script> 
 	
 	<!--  data grid export js files -->
 <!-- 	<script type="text/javascript" src="assets/dash6/js/grid/jqxcore.js"></script>
@@ -461,6 +457,8 @@ $(window).load(function() {
     <script type="text/javascript" src="assets/dash6/js/grid/jqxgrid.export.js"></script> 
     <script type="text/javascript" src="assets/dash6/js/grid/jqxgrid.sort.js"></script> 
 	 -->
+	
+	
 	<script type="text/javascript">
    	$(document).ready(function(){           	
   

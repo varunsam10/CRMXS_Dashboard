@@ -143,6 +143,7 @@
 						}else{
 							
 							Plotly.newPlot(chartArea[0],  widgetDefinition.widgetContent.data, widgetDefinition.widgetContent.layout,widgetDefinition.widgetContent.config);
+							Plotly.redraw(chartArea[0]);
 						}
 						if (!widgetDefinition.getDataBySelection) {
 							//when redrawing the widget, the click event listner is getting destroyed, we need to re-register it here again
@@ -340,18 +341,27 @@
 					if (widgetDefinition.setJqueryStyle) {
 						tableDef["bJQueryUI"] = true;
 					}
-					tableDef["dom"] = '<"top"i>Brt<"bottom"flp><"clear">';
-					tableDef["buttons"] =  [
+					tableDef["dom"] = "<'row' <'col-md-6 col-sm-6'B>><'row'<'col-md-6 col-sm-6'l><'col-md-6 col-sm-12'f>r><'table-scrollable't><'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>"; // horizobtal scrollable datatable
+					/*tableDef["buttons"] =  [
 			            $.extend( true, {}, buttonCommon, {
 			                extend: 'excelHtml5'
 			            }),
 			            $.extend( true, {}, buttonCommon, {
 			                extend: 'pdfHtml5'
 			            })
+			               //{ extend: 'print', className: 'btn dark btn-outline' },
+			                //{ extend: 'pdf', className: 'btn green btn-outline' },
+			                //{ extend: 'excelHtml5', className: 'btn purple btn-outline ' }
 			        ];
+					*/
+					tableDef["buttons"] =  [  					
+						//{"extend": 'print', "text":' <a href="javascript:;"><i class="fa fa-print"></i>Print</a>',"className": 'btn blue btn-outline' },
+						{"extend": 'pdf', "text":' <a href="javascript:;"><i class="fa fa-file-pdf-o"></i>Pdf</a>',"className": 'btn  btn-outline' },
+		                {"extend": 'excelHtml5', "text":' <a href="javascript:;"><i class="fa fa-file-excel-o"></i>Excel</a>',"className": 'btn btn-outline' }
+			         ];
 					tableDef["pageLength"] = 10;
 					tableDef["paging"] = true;
-//					tableDef["lengthMenu"] = [[10, 25, 50, -1], [10, 25, 50, "All"]];
+					tableDef["lengthMenu"] = [[10, 25, 50, -1], [10, 25, 50, "All"]];
 					table.dataTable(tableDef);		 
 					/*table.dataTable({tableDef,
 						 buttons: ['copy', 'csv', 'excel', 'pdf', 'print']					 
@@ -425,7 +435,8 @@
 						
 					}else{						
 						
-						Plotly.update(chartArea[0], widgetDefinition.widgetContent.data , widgetDefinition.widgetContent.layout,widgetDefinition.widgetContent.config);
+						Plotly.newPlot(chartArea[0], widgetDefinition.widgetContent.data , widgetDefinition.widgetContent.layout,widgetDefinition.widgetContent.config);
+						Plotly.redraw(chartArea[0]);
 					}					
 					if (widgetDefinition.getDataBySelection) {
 						
@@ -446,6 +457,7 @@
 							this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
 						}
 					}
+				//location.reload(true);
 				
 			},
 			_renderChart : function(widgetDefinition) {
