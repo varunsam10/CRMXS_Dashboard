@@ -196,11 +196,11 @@ padding-top: 60px;
 				<span class="simulator-label"><a 
 						href="drawboard2.html">Drawboard 2 Dev»</a></span>
 				</div>	 -->
-				<!-- <div class="simulator-icon-start4">
+				<div class="simulator-icon-start4">
 					<span class="simulator-label"><a 
 						href="createWidget.html">Create Widget »</a></span>
-				</div>
-				<div class="simulator-icon-start4">
+				</div> 
+				<!-- <div class="simulator-icon-start4">
 					<span class="simulator-label"><a 
 						href="dashboard5.html">Dashboard5 »</a></span>
 				</div>		

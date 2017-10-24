@@ -218,7 +218,7 @@
                     <!-- BEGIN BREADCRUMBS -->
                     <ul class="page-breadcrumb">
                         <li>
-                            <a href="#">Dashboard</a>
+                            <a href="#">Widget board</a>
                         </li>
                     </ul>
                     <!-- END BREADCRUMBS -->

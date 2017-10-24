@@ -221,7 +221,7 @@
 			<div class="page-content-fixed-header">
 				<!-- BEGIN BREADCRUMBS -->
 				<ul class="page-breadcrumb">
-					<li><a href="#">Dashboard</a></li>
+					<li><a href="#">BI Insights</a></li>
 				</ul>
 				<!-- END BREADCRUMBS -->
 				<div class="content-header-menu">
