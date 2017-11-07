@@ -1,12 +1,13 @@
 package com.cpr.test;
 
+import org.junit.Test;
 import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 
 import junit.framework.TestCase;
 
-public class PasswordHash extends TestCase {
+public class PasswordHashTest extends TestCase {
 	
-	
+	@Test
 	public void testMD5Hash(){
 		
 		String password="secret";
