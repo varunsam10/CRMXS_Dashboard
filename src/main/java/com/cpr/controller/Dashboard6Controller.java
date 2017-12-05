@@ -44,5 +44,12 @@ public class Dashboard6Controller {
 		return new ModelAndView("dashboard6/drawboard3","Dashboard3",new Dashboard3());
 	}
 	
+	@RequestMapping("/widgetClick")
+	public ModelAndView widgetClickDrawboard3()
+	{
+		Dashboard3 dashboard3 = new Dashboard3();
+		return new ModelAndView("dashboard6/drawboard2","Dashboard3",new Dashboard3());
+	}
+	
 	
 }
