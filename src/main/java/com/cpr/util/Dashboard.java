@@ -48,12 +48,13 @@ public class Dashboard {
 		WidgetContent widgetContent = new WidgetContent(widgetData, widgetLayout, widgetConfig);
 
 		Widget widgetLine = new Widget("Items sold", "id001", WidgetTypeEnum.CHART, GraphType.EXPLORATORY,
-				WidgetDimensionEnum.LARGE, ChartTypeEnum.LINE, widgetContent);
+				WidgetDimensionEnum.LARGE, ChartTypeEnum.LINE, widgetContent
+				);
 
 		ArrayList<Widget> widgetList = new ArrayList<Widget>();
 
 		widgetList.add(widgetLine);
-
+//----------------------------------------------------------------------------------------------------------------------
 		// Creating Pie widget config
 		ArrayList<WidgetData> pieWidgetDataList = new ArrayList<WidgetData>();
 
@@ -106,6 +107,58 @@ public class Dashboard {
 				GraphType.EXPLORATORY, WidgetDimensionEnum.MEDIUM, ChartTypeEnum.BARLINE, barlineContent);
 
 		widgetList.add(widgetBarLine);
+
+//----------------------------------------------------------------------------------------------------------------------
+		//Table widget config
+		TableData browserTable = new TableData();
+		ArrayList<Object[]> rows = new ArrayList<Object[]>();
+		for(int i=0;i<=25;i++)
+		{
+			Object[] row = {"Trident" + Math.ceil(Math.random() * 20), "IE" + Math.ceil(Math.random() * 20),
+			    			"Win" + Math.ceil(Math.random() * 20)};
+			rows.add(row);
+		}
+		
+		browserTable.setAaData(rows);
+		
+		ArrayList<ColumnValue> columnValues = new ArrayList<ColumnValue>();
+		ColumnValue col1 = new ColumnValue();
+	    col1.setsTitle("Engine");
+		columnValues.add(col1);
+		ColumnValue col2 = new ColumnValue();
+		col2.setsTitle("Browser");
+		columnValues.add(col2);
+		ColumnValue col3 = new ColumnValue();
+	    col3.setsTitle("Platform");
+		columnValues.add(col3);
+		
+		browserTable.setAoColumns(columnValues);
+		browserTable.setiDisplayLength(25);
+		Object[] lengthMenu1 = {5, 15, 20, -1};
+		Object[] lengthMenu2 = {5, 15, 20, "All"};
+		
+		ArrayList<Object[]> menus = new ArrayList<Object[]>();
+		menus.add(lengthMenu1);
+		menus.add(lengthMenu2);
+		
+		browserTable.setaLengthMenu(menus);
+		browserTable.setbPaginate(true);
+		browserTable.setbAutoWidth(false);
+		browserTable.setbLengthChange(true);
+		
+		Widget tableWidget = new Widget();
+		tableWidget.setWidgetTitle("Table");
+		tableWidget.setWidgetId("id009");
+		tableWidget.setWidgetType(WidgetTypeEnum.TABLE.getWidgetType());
+		tableWidget.setSetJqueryStyle(true);
+		tableWidget.setEnableRefresh(true);
+//		tableWidget.setRefreshCallBack("function(widgetId){"
+//				+ "notification('info', 'Inside the refresh callback of '+widgetId+'!');"
+//				+ "}");
+		tableWidget.setWidgetContent(browserTable);
+		
+		widgetList.add(tableWidget);
+		
 		return widgetList;
 
 	}

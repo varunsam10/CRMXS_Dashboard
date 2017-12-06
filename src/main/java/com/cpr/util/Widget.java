@@ -8,6 +8,9 @@ public class Widget {
 	private String widgetDimension;
 	private String chartType;
 	private String graphType;
+	private boolean setJqueryStyle;
+	private boolean enableRefresh;
+	private String refreshCallBack;
 	private WidgetContent widgetContent;
 	
 	public Widget(String widgetTitle, String widgetId, WidgetTypeEnum widgetType, GraphType graphType, WidgetDimensionEnum widgetDimension, ChartTypeEnum chartType, WidgetContent widgetContent) {
@@ -67,6 +70,30 @@ public class Widget {
 	public WidgetContent getWidgetContent() {
 		return widgetContent;
 	}
+	public boolean isSetJqueryStyle() {
+		return setJqueryStyle;
+	}
+
+	public void setSetJqueryStyle(boolean setJqueryStyle) {
+		this.setJqueryStyle = setJqueryStyle;
+	}
+
+	public boolean isEnableRefresh() {
+		return enableRefresh;
+	}
+
+	public void setEnableRefresh(boolean enableRefresh) {
+		this.enableRefresh = enableRefresh;
+	}
+
+	public String getRefreshCallBack() {
+		return refreshCallBack;
+	}
+
+	public void setRefreshCallBack(String refreshCallBack) {
+		this.refreshCallBack = refreshCallBack;
+	}
+
 	public void setWidgetContent(WidgetContent widgetContent) {
 		this.widgetContent = widgetContent;
 	}

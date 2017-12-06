@@ -6,7 +6,10 @@ public class WidgetContent {
 	private ArrayList<WidgetData> data;
 	private WidgetLayout layout;
 	private WidgetConfig config;
+
 	
+	
+
 	public WidgetContent(ArrayList<WidgetData> widgetData, WidgetLayout widgetLayout, WidgetConfig widgetConfig) {
 		// TODO Auto-generated constructor stub
 		this.setData(widgetData);
