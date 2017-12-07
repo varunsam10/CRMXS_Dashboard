@@ -38,17 +38,28 @@ public class Dashboard6Controller {
 		return new ModelAndView("dashboard6/drawboard2","Dashboard3",new Dashboard3());
 	}
 	@RequestMapping("/drawboard3")
-	public ModelAndView initializeFormDrawboard3()
+	//public ModelAndView initializeFormDrawboard3()
+	public String initializeFormDrawboard3()
 	{
 		Dashboard3 dashboard3 = new Dashboard3();
-		return new ModelAndView("dashboard6/drawboard3","Dashboard3",new Dashboard3());
+		//return new ModelAndView("dashboard6/drawboard3","Dashboard3",new Dashboard3());
+		return "dashboard6/drawboard3";
+	}
+	
+	@RequestMapping("/graphDetails")
+	public String graphDetailsPage()
+	{
+		System.out.println("Inside the redirected link");
+		return "dashboard6/graphDetails";
 	}
 	
 	@RequestMapping("/widgetClick")
-	public ModelAndView widgetClickDrawboard3()
+	public String widgetClickDrawboard3()
 	{
-		Dashboard3 dashboard3 = new Dashboard3();
-		return new ModelAndView("dashboard6/drawboard2","Dashboard3",new Dashboard3());
+		Dashboard3 widgetClick = new Dashboard3();
+		System.out.println("inside Widget click page ");
+		//return new ModelAndView("redirect:/graphDetails.html","Dashboard3",new Dashboard3());
+		return "forward:/graphDetails.html";
 	}
 	
 	

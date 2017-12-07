@@ -475,18 +475,18 @@ $(window).load(function() {
  //**********************************************
 	var dashboardJSON =[
     	{
-    		widgetTitle: "Day Wise",
-    		widgetId: "id001",
+    		widgetTitle: "Hour Wise Redemptions",
+    		widgetId: "id002",
     		widgetType: "chart",
     		graphType: "exploratory",
     		widgetDimension: "normal",
-    		chartType: "column",
+    		chartType: "area",
     		widgetContent: {
-    			data: myExampleData.plotlycolumndata,
-    			layout: myExampleData.plotlycolumnlayout,
-    			config: myExampleData.plotlycolumnconfig	
+    			data: myExampleData.plotlyareadata,
+    			layout: myExampleData.plotlyarealayout,
+    			config: myExampleData.plotlyareaconfig	
     			}
-    	}, 	
+    	},
     	{
     		widgetTitle: "Age group",
     		widgetId: "id007",
@@ -543,18 +543,6 @@ $(window).load(function() {
 			data: myExampleData.plotlylinedata,
 			layout: myExampleData.plotlylinelayout,
 			config: myExampleData.plotlylineconfig			  
-		}
-	},	
-	
-	{
-		widgetTitle: "Sales Figures",
-		widgetId: "id006",
-		widgetType: "chart",
-		graphType: "normal",
-		widgetDimension: "normal",
-		chartType: "pie",
-		widgetContent: {
-			data: myExampleData.c3piedata
 		}
 	},
 	{
@@ -640,13 +628,20 @@ $(window).load(function() {
         }
         });
         //plot click event example
-        $("#cprDashboard").bind("sdashboardplotclicked",function(e, data) {
-      		notification('info', 'chart clicked, for widget:'+ data.clickedWidgetId +' the data passed is'+data.dataPoints+'!');      		
-        if (console) {
-        	console.log("chart clicked, for widget: " + data.selectedWidgetId);
-        }
+        $("#cprDashboard").bind("sdashboardplotclicked",function(e, data) {        	
+        /* 	 $.ajax({
+                 type: "GET",
+        		 	url : 'widgetClick.html',
+                 success : function(data) {
+                        //$('#result').html(data);                                    
+                }});   */	 
+        	 
+        	 window.location.href='/Crmxs-Dashboard/widgetClick.html?clickedWidgetId='+data.clickedWidgetId+'&datapoints='+data.dataPoints;
+       //		notification('info', 'chart clicked, for widget:'+ data.clickedWidgetId +' the data passed is'+data.dataPoints+'!');      		
+       			 if (console) {
+        			console.log("chart clicked, for widget: " + data.selectedWidgetId);
+       			 }
         });
-
         //widget order changes event example
         $("#cprDashboard").bind("sdashboardorderchanged",function(e, data) {
 	        $.gritter.add({

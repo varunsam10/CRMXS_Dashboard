@@ -196,7 +196,7 @@ var trace1 = {
 		  name: 'SF Brewries'
 		};
 
-		var trace2 = {
+var trace2 = {
 		  x: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
 		  y: [1, 0.5, 0.7, 1.2, 0.3, 0.4, 0.6, 0.7, 1, 0.5],
 		  type: 'scatter',
@@ -215,6 +215,39 @@ var barlinelayout = {
 				modeBarButtonsToRemove : [ 'sendDataToCloud' ],
 				displaylogo : false
 			};
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//plotly area graph sample data starts here 
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+var trace1 = {
+				  x: [1, 2, 3, 4], 
+				  y: [0, 2, 3, 5], 
+				  fill: 'tozeroy', 
+				  type: 'scatter',
+				  name: 'SF Brewries',
+				  mode: 'none'
+				};
+
+var trace2 = {
+				  x: [1, 2, 3, 4], 
+				  y: [3, 5, 1, 7], 
+				  fill: 'tonexty', 
+				  type: 'scatter',
+				  name: 'LA Brewries',
+				  mode: 'none'
+				};
+				
+var arealayout = {
+				title: "Number of redemptions"
+				//xaxis: {title: " " },
+				//yaxis: {title: "Number of redemptions" }
+		}
+
+		myExampleData.plotlyareadata = [trace1, trace2];
+		myExampleData.plotlyarealayout = arealayout;
+		myExampleData.plotlyareaconfig = {
+						modeBarButtonsToRemove : [ 'sendDataToCloud' ],
+						displaylogo : false
+		};
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //plotly stacked bart chart sample data starts here 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
