@@ -50,6 +50,37 @@
 <!-- <link type="text/css" href="assets/dash6/css/jquery-ui.css"
 	rel="stylesheet" /> -->
 	
+	
+<style>
+/*
+if it's not present, don't show loader */
+.no-js #loader { display: none;  }
+.js #loader { display: block; position: absolute; left: 100px; top: 0; }
+.se-pre-con {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background: url(assets/img/loader-128x/Preloader_3.gif) center no-repeat #fff;
+
+</style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
+
+<script type="text/javascript">
+
+// Wait for window load
+$(window).load(function() {
+	// Animate loader off screen
+	$(".se-pre-con").fadeOut("slow");;
+});
+</script>
+
+<div class="se-pre-con"></div>
+
 <link type="text/css" href="assets/dash6/css/jqueryNw/jquery-ui.css" rel="stylesheet" />
 <!-- load the dashboard css -->
 <link href="assets/dash6/css/cprDashboard.css" rel="stylesheet">
@@ -489,15 +520,7 @@
         	
         	e.preventDefault();  */
         var dashboardJSON;
-        	 $.ajax({
-                type: "GET",
-       		 	url : 'getWidgets.html',
-                success : function(data) {
-                       //$('#result').html(data);
-                       dashboardJSON = JSON.parse(data);
-                       console.log("dashJSON");
-                       console.log(dashboardJSON);   
-               }});
+        	
                        
       /*  $("#loadWidgets").click(function(e) {
              	
@@ -610,13 +633,31 @@
 	
 		$("#loadWidgets").click(function(e) {
              	
-       	e.preventDefault();
-		if(dashboardJSON){
+       	
+        $.ajax({
+            type: "GET",
+   		 	url : 'getWidgets.html',
+            success : function(data) {
+                   //$('#result').html(data);
+                   dashboardJSON = JSON.parse(data);
+                   console.log("dashJSON");
+                   console.log(dashboardJSON);   
+                   $("#cprDashboard").sDashboard({
+                	   dashboardData : dashboardJSON   
+                   });
+                   
+           }});
+       	
+        e.preventDefault();
+		/* if(dashboardJSON){
 			 $("#cprDashboard").sDashboard({
-		        	dashboardData : dashboardJSON
 		        	
-		        });	
-		}
+		        	$("#cprDashboard").load(function() {
+		        		
+		        	});
+		        	}
+		        }); */	
+		
 		});
 		
 		//Toastr settings 
