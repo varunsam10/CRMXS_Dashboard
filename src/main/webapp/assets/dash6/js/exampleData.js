@@ -136,8 +136,8 @@ myExampleData.plotlyBubbleLayout = {
 //plotly coloumn chart sample data starts here 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 var trace1 = {
-		  x: [20, 14, 23, 8, 11, 25, 13, 17, 19, 30],
-		  x : [ 'Tiger', 'Desperado', 'Heiniken' ,'Kingfisher', 'brand1', 'brand2','brand3', 'brand4', 'brand5','brand6'],
+		  x: [20, 14, 23, 8, 11, 25, 13, 17, 19, 25, 22, 23, 17, 18, 30 ],
+		  x : [ 'Tiger', 'Desperado', 'Heiniken' ,'Kingfisher', 'brand1', 'brand2','brand3', 'brand4', 'brand5','brand6', 'brand7', 'brand8', 'brand9', 'brand10', 'brand11'],
 		  name: 'SF Breweries',
 		  orientation: 'h',
 		  marker: {
@@ -148,8 +148,8 @@ var trace1 = {
 		};
 
 		var trace2 = {
-		  x: [12, 18, 29, 11, 15, 21, 16, 10, 12, 22],
-		  x : [ 'Guiness', 'Erdinger', 'Brand1' ,'Brand2', 'brand3', 'brand4','brand5', 'brand6', 'brand7','brand8'],
+		  x: [12, 18, 29, 11, 15, 21, 16, 10, 12, 22, 19, 14, 16, 25, 27],
+		  x : [ 'Tiger', 'Desperado', 'Heiniken' ,'Kingfisher', 'brand1', 'brand2','brand3', 'brand4', 'brand5','brand6', 'brand7', 'brand8', 'brand9', 'brand10', 'brand11'],
 		  name: 'LA Breweries',
 		  orientation: 'h',
 		  type: 'bar',
@@ -190,15 +190,15 @@ var trace1 = {
 //plotly bar and line chart sample data starts here 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 var trace1 = {
-		  x: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-		  y: [1.5, 1, 1.3, 0.7, 0.8, 0.9, 1.1, 1.3, 1.5, 1],
+		  x: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+		  y: [1.5, 1, 1.3, 0.7, 0.8, 0.9, 1.1, 1.3, 1.5, 1, 1.4, 0.6, 1.3],
 		  type: 'bar',
 		  name: 'SF Brewries'
 		};
 
 		var trace2 = {
-		  x: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-		  y: [1, 0.5, 0.7, 1.2, 0.3, 0.4, 0.6, 0.7, 1, 0.5],
+		  x: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+		  y: [1, 0.5, 0.7, 1.2, 0.3, 0.4, 0.6, 0.7, 1, 0.5, 0.8, 0.9, 1.3],
 		  type: 'scatter',
 		  name: 'LA Brewries'
 		};
@@ -273,35 +273,50 @@ myExampleData.plotlybarconfig = {
 //plotly stacked bart chart sample data starts here 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 var trace1 = {
-	x : [ 'Tiger', 'Desperado', 'Heiniken' ,'Kingfisher', 'brand1', 'brand2','brand3', 'brand4', 'brand5'],
-	y : [ 20, 14, 23,25, 34, 36,78, 44, 43 ],
+	x : [ 'Tiger', 'Desperado', 'Heiniken' ,'Kingfisher', 'brand1', 'brand2','brand3', 'brand4', 'brand5', 'brand9', 'brand10', 'brand11'],
+	y : [ 20, 14, 23, 25, 34, 36, 78, 44, 43, 47, 55, 32 ],
 	name : 'SF Breweries',
 	type : 'bar'
 };
 
 var trace2 = {
-	x : [ 'Tiger', 'Desperado', 'Heiniken' ,'Kingfisher', 'brand1', 'brand2','brand3', 'brand4', 'brand5'],
-	y : [ 12, 18, 39, 22, 28, 19, 18, 58, 49 ],
+	x : [ 'Tiger', 'Desperado', 'Heiniken' ,'Kingfisher', 'brand1', 'brand2','brand3', 'brand4', 'brand5', 'brand9', 'brand10', 'brand11'],
+	y : [ 12, 18, 39, 22, 28, 19, 18, 58, 49, 65, 63, 71],
 	name : 'LA Breweries',
 	type : 'bar'
 };
 
 var trace3 = {
-		x : [ 'Carlburg', 'Anchor', 'Guiness' ,'Breidweiser', 'Erdinger', 'brand2','brand3', 'brand4', 'brand5'],
-		y : [ 22, 24, 33,45, 44, 26,68, 64, 63 ],
+		x : [ 'Tiger', 'Desperado', 'Heiniken' ,'Kingfisher', 'brand1', 'brand2','brand3', 'brand4', 'brand5', 'brand9', 'brand10', 'brand11'],
+		y : [ 21, 18, 43, 22, 28, 45, 18, 17, 49, 71, 63, 33],
+		name : 'NY Breweries',
+		type : 'bar'
+};
+
+
+var trace4 = {
+		x : [ 'Carlburg', 'Anchor', 'Guiness' ,'Breidweiser', 'Erdinger', 'brand2','brand3', 'brand4', 'brand5', 'brand9', 'brand10', 'brand11'],
+		y : [ 22, 24, 33,45, 44, 26,68, 64, 63, 47, 49, 35 ],
 		name : 'XL Breweries',
 		type : 'bar'
 };
 
-var trace4 = {
-		x : ['Carlburg', 'Anchor', 'Guiness' ,'Breidweiser', 'Erdinger', 'brand2','brand3', 'brand4', 'brand5'],
-		y : [ 12, 14, 33, 22, 38, 19, 28, 53, 69 ],
+var trace5 = {
+		x : ['Carlburg', 'Anchor', 'Guiness' ,'Breidweiser', 'Erdinger', 'brand2','brand3', 'brand4', 'brand5', 'brand9', 'brand10', 'brand11'],
+		y : [ 12, 14, 33, 22, 38, 19, 28, 53, 69, 71, 29, 50 ],
 		name : 'YZ Breweries',
 		type : 'bar'
 };
 
-myExampleData.barGroupChartData = [ trace1, trace2 ];
-myExampleData.barGroupRefreshChartData = [ trace3, trace4 ];
+var trace6 = {
+		x : ['Carlburg', 'Anchor', 'Guiness' ,'Breidweiser', 'Erdinger', 'brand2','brand3', 'brand4', 'brand5', 'brand9', 'brand10', 'brand11'],
+		y : [ 9, 14, 45, 22, 38, 19, 51, 53, 22, 65, 29, 59 ],
+		name : 'XZ Breweries',
+		type : 'bar'
+};
+
+myExampleData.barGroupChartData = [ trace1, trace2, trace3];
+myExampleData.barGroupRefreshChartData = [ trace4, trace5, trace6 ];
 myExampleData.barGroupChartLayout = {
 		title : 'Revenue in US $',	
 		xaxis : {
