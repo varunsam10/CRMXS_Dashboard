@@ -1,12 +1,26 @@
 package com.cpr.util;
 
 public class WidgetLayout {
+	
+	//the title for the graph/chart plotted
 	private String title;
+	
+	//flag to display the legends for the graph/chart plotted
 	private boolean showlegend;
+	
+	//flag to enable auto sizing for the graph/chart plotted 
 	private boolean autosize;
+	
+	//height of the graph/chart plotted in pixels
 	private int height;
+	
+	//width of the graph/chart plotted in pixels
 	private int width;
+	
+	//title for the X-Axis 
 	private AxisLayout xaxis;
+	
+	//title for the Y-Axis
 	private AxisLayout yaxis;
 	
 	public WidgetLayout(String main_title, boolean showLegend, int height, int width, AxisLayout x_axis, AxisLayout y_axis) {
