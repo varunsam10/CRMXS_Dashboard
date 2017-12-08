@@ -646,7 +646,22 @@ $(window).load(function() {
 			layout: myExampleData.plotlypielayout,
 			config: myExampleData.plotlypieconfig
 		}
-	}];
+	},
+	{
+		widgetTitle: "Sales Figures2",
+		widgetId: "id013",
+		widgetType: "chart",
+		graphType: "exploratory",
+		widgetDimension: "normal",
+		chartType: "pie",
+		widgetContent: {			 
+			data: myExampleData.donutWidgetData,
+			layout: myExampleData.donutWidgetLayout,
+			config: myExampleData.donutWidgetConfig
+		}
+	}
+	
+	];
 
         //basic initialization examplemn.sDashboard
         $("#cprDashboard").sDashboard({
