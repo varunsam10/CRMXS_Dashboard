@@ -474,19 +474,19 @@ $(window).load(function() {
  //this is the data format that the dashboard framework expects
  //**********************************************
 	var dashboardJSON =[
-    	{
-    		widgetTitle: "Hour Wise Redemptions",
-    		widgetId: "id002",
-    		widgetType: "chart",
-    		graphType: "exploratory",
-    		widgetDimension: "normal",
-    		chartType: "area",
-    		widgetContent: {
-    			data: myExampleData.plotlyareadata,
-    			layout: myExampleData.plotlyarealayout,
-    			config: myExampleData.plotlyareaconfig	
-    			}
-    	},
+		{
+			widgetTitle: "Sales Figures",
+			widgetId: "id012",
+			widgetType: "chart",
+			graphType: "exploratory",
+			widgetDimension: "normal",
+			chartType: "pie",
+			widgetContent: {			 
+				data: myExampleData.plotlypiedata,
+				layout: myExampleData.plotlypielayout,
+				config: myExampleData.plotlypieconfig
+			}
+		},    	
     	{
     		widgetTitle: "Age group",
     		widgetId: "id007",
@@ -543,38 +543,6 @@ $(window).load(function() {
 			data: myExampleData.plotlylinedata,
 			layout: myExampleData.plotlylinelayout,
 			config: myExampleData.plotlylineconfig			  
-		}
-	},
-	{
-		widgetTitle: "Table ",
-		widgetId: "id009",
-		widgetType: "table",
-		//widgetDimension: "large",
-		setJqueryStyle: true,
-		enableRefresh: true,
-		refreshCallBack : function(widgetId){ 
-		//Inside refresh callback		
-		notification('info', 'Inside the refresh callback of '+widgetId+'!');
-		},
-		widgetContent:myExampleData.tableWidgetData		
-	},
-	{
-		widgetTitle: "Stats",
-		widgetId: "id011",
-		widgetType: "Text",		
-		widgetDimension: "small",
-		widgetContent: "Number of Redemptions: 4,636 \n" + "Revenue Generated 231,800$"
-	},{
-		widgetTitle: "Sales Figures",
-		widgetId: "id012",
-		widgetType: "chart",
-		graphType: "exploratory",
-		widgetDimension: "normal",
-		chartType: "pie",
-		widgetContent: {			 
-			data: myExampleData.plotlypiedata,
-			layout: myExampleData.plotlypielayout,
-			config: myExampleData.plotlypieconfig
 		}
 	}];
 

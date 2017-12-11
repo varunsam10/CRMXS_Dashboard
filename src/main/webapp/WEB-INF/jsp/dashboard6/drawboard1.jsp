@@ -474,7 +474,7 @@ $(window).load(function() {
  //this is the data format that the dashboard framework expects
  //**********************************************
 	var dashboardJSON =[
-    	{
+		{
     		widgetTitle: "Day Wise",
     		widgetId: "id001",
     		widgetType: "chart",
@@ -490,7 +490,7 @@ $(window).load(function() {
     	
     	{
     		widgetTitle: "Hour Wise Redemptions",
-    		widgetId: "id002",
+    		widgetId: "id003",
     		widgetType: "chart",
     		graphType: "exploratory",
     		widgetDimension: "normal",
@@ -501,10 +501,73 @@ $(window).load(function() {
     			config: myExampleData.plotlybarlineconfig	
     			}
     	},
+    	{
+    		widgetTitle: "Sales Figures",
+    		widgetId: "id011",
+    		widgetType: "chart",
+    		graphType: "exploratory",
+    		widgetDimension: "normal",
+    		chartType: "pie",
+    		widgetContent: {			 
+    			data: myExampleData.plotlypiedata,
+    			layout: myExampleData.plotlypielayout,
+    			config: myExampleData.plotlypieconfig
+    		}
+    	},
+    	{
+    		widgetTitle: "Sales Figures2",
+    		widgetId: "id012",
+    		widgetType: "chart",
+    		graphType: "exploratory",
+    		widgetDimension: "normal",
+    		chartType: "pie",
+    		widgetContent: {			 
+    			data: myExampleData.donutWidgetData,
+    			layout: myExampleData.donutWidgetLayout,
+    			config: myExampleData.donutWidgetConfig
+    		}
+    	},		
+		{
+    		widgetTitle: "Hour Wise Redemptions",
+    		widgetId: "id002",
+    		widgetType: "chart",
+    		graphType: "exploratory",
+    		widgetDimension: "normal",
+    		chartType: "area",
+    		widgetContent: {
+    			data: myExampleData.plotlyareadata,
+    			layout: myExampleData.plotlyarealayout,
+    			config: myExampleData.plotlyareaconfig	
+    			}
+    	},
     	
     	{
+    		widgetTitle: "Age group",
+    		widgetId: "id004",
+    		widgetType: "chart",
+    		graphType: "exploratory",
+    		widgetDimension: "normal",
+    		chartType: "bubble",
+    		enableRefresh: true,
+    		refreshCallBack : function(widgetId){ 
+    			//Inside refresh callback		
+    			//notification('info', 'Inside the refresh callback of '+widgetId+'!');
+    			var refreshedData = {
+    					data: myExampleData.plotlyRefreshBubbleData,
+    					layout: myExampleData.plotlyBubbleLayout,
+    					config: myExampleData.plotlybarconfig
+    			};
+    			return refreshedData; 
+    		},
+    		widgetContent: {
+    			data: myExampleData.plotlyBubbleData,
+    			layout: myExampleData.plotlyBubbleLayout,
+    			config: myExampleData.plotlybarconfig
+    		}
+    	},
+    	{
     		widgetTitle: "Revenue by region",
-    		widgetId: "id003",
+    		widgetId: "id005",
     		widgetType: "chart",
     		graphType: "exploratory",
     		widgetDimension: "large",
@@ -518,7 +581,7 @@ $(window).load(function() {
     	
     {
 		widgetTitle: "Revenue",
-		widgetId: "id004",
+		widgetId: "id006",
 		widgetType: "chart",
 		graphType: "exploratory",
 		widgetDimension: "large",
@@ -539,7 +602,7 @@ $(window).load(function() {
 		}
 	}, {
 		widgetTitle: "Items sold",
-		widgetId: "id005",
+		widgetId: "id007",
 		widgetType: "chart",
 		graphType: "exploratory",
 		widgetDimension: "large",
@@ -552,7 +615,7 @@ $(window).load(function() {
 		}
 	},	
 	
-	{
+	/* {
 		widgetTitle: "Sales Figures",
 		widgetId: "id006",
 		widgetType: "chart",
@@ -562,31 +625,8 @@ $(window).load(function() {
 		widgetContent: {
 			data: myExampleData.c3piedata
 		}
-	},
-	{
-		widgetTitle: "Age group",
-		widgetId: "id007",
-		widgetType: "chart",
-		graphType: "exploratory",
-		widgetDimension: "normal",
-		chartType: "bubble",
-		enableRefresh: true,
-		refreshCallBack : function(widgetId){ 
-			//Inside refresh callback		
-			//notification('info', 'Inside the refresh callback of '+widgetId+'!');
-			var refreshedData = {
-					data: myExampleData.plotlyRefreshBubbleData,
-					layout: myExampleData.plotlyBubbleLayout,
-					config: myExampleData.plotlybarconfig
-			};
-			return refreshedData; 
-		},
-		widgetContent: {
-			data: myExampleData.plotlyBubbleData,
-			layout: myExampleData.plotlyBubbleLayout,
-			config: myExampleData.plotlybarconfig
-		}
-	},
+	}, */
+	
 	
 	{
 		widgetTitle: " ",
@@ -630,35 +670,10 @@ $(window).load(function() {
 		}
 	}, */{
 		widgetTitle: "Stats",
-		widgetId: "id011",
+		widgetId: "id010",
 		widgetType: "Text",		
 		widgetDimension: "small",
 		widgetContent: "Number of Redemptions: 4,636 \n" + "Revenue Generated 231,800$"
-	},{
-		widgetTitle: "Sales Figures",
-		widgetId: "id012",
-		widgetType: "chart",
-		graphType: "exploratory",
-		widgetDimension: "normal",
-		chartType: "pie",
-		widgetContent: {			 
-			data: myExampleData.plotlypiedata,
-			layout: myExampleData.plotlypielayout,
-			config: myExampleData.plotlypieconfig
-		}
-	},
-	{
-		widgetTitle: "Sales Figures2",
-		widgetId: "id013",
-		widgetType: "chart",
-		graphType: "exploratory",
-		widgetDimension: "normal",
-		chartType: "pie",
-		widgetContent: {			 
-			data: myExampleData.donutWidgetData,
-			layout: myExampleData.donutWidgetLayout,
-			config: myExampleData.donutWidgetConfig
-		}
 	}
 	
 	];
