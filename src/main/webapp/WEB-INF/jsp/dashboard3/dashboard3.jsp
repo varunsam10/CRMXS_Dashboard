@@ -311,9 +311,19 @@
                                         </li> 
   										<li class="nav-item  ">
                                         <a href="drawboard3.html"  class="nav-link "><i class="icon-check"></i>
-                                        <span class="title">Tiger Beer Redemption</span>
+                                        <span class="title">Details view</span>
                                         </a>
-                                        </li>                     
+                                        </li>
+                                        <li class="nav-item  ">
+                                        <a href="drawboard4.html"  class="nav-link "><i class="icon-check"></i>
+                                        <span class="title">Change graph type</span>
+                                        </a>
+                                        </li> 
+                                         <li class="nav-item  ">
+                                        <a href="drawboard5.html"  class="nav-link "><i class="icon-check"></i>
+                                        <span class="title">Widget interaction</span>
+                                        </a>
+                                        </li>                  
                                   
                                 </ul>
                             </li>
