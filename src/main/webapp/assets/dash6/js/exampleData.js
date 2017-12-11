@@ -49,13 +49,22 @@ var trace1 = {
 	x : [ 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110 ],
 	y : [ 8, 13, 74, 12, 15, 70, 38, 16, 38, 20, 16, 38 ],
 	name : 'Desperado',
-	type : 'scatter'
+	type : 'scatter',
+	marker : {
+		color : 'rgb(55, 83, 109)',
+		opacity : 0.6
+	}
+
 };
 var trace2 = {
 	x : [ 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110 ],
 	y : [ 10, 15, 60, 22, 25, 80, 28, 36, 48, 18, 26, 48 ],
 	name : 'Tiger',
-	type : 'scatter'
+	type : 'scatter',
+	marker : {
+		color : 'rgb(26, 118, 255)',
+		opacity : 0.6
+	}
 };
 myExampleData.plotlylinedata = [ trace1, trace2 ];
 myExampleData.plotlylinelayout = {
@@ -65,7 +74,7 @@ myExampleData.plotlylinelayout = {
 		titlefont : {
 			family : 'Courier New, monospace',
 			size : 18,
-			color : '#7f7f7f'
+			color : '#ffffff'
 		}
 	},
 	yaxis : {
@@ -91,7 +100,11 @@ var trace1 = {
 	y : [ 8, 13, 74, 12, 15, 70, 38, 16, 38, 20, 16, 38 ],
 	mode : 'markers',
 	marker : {
-		size : [ 40, 60, 80, 100 ]
+		size : [ 40, 60, 80, 100 ],
+		color : 'rgb(26, 118, 255)',
+		opacity : 0.6
+
+		
 	}
 };
 
@@ -100,7 +113,10 @@ var trace2 = {
 		y : [ 68, 73, 74, 76, 65, 70, 98, 88, 76, 74, 87, 76 ],
 		mode : 'markers',
 		marker : {
-			size : [ 30, 65, 75, 90 ]
+			size : [ 30, 65, 75, 90 ],
+			color : 'rgb(26, 118, 255)',
+			opacity : 0.6
+
 		}
 };
 
@@ -126,8 +142,7 @@ myExampleData.plotlyBubbleLayout = {
 			color : '#7f7f7f'
 		}
 	},
-	showlegend : false,
-	autosize : true
+	showlegend : false
 	/*height : 600,
 	width : 600*/
 };
@@ -136,26 +151,28 @@ myExampleData.plotlyBubbleLayout = {
 //plotly coloumn chart sample data starts here 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 var trace1 = {
-		  x: [20, 14, 23, 8, 11, 25, 13, 17, 19, 25, 22, 23, 17, 18, 30 ],
-		  x : [ 'Tiger', 'Desperado', 'Heiniken' ,'Kingfisher', 'brand1', 'brand2','brand3', 'brand4', 'brand5','brand6', 'brand7', 'brand8', 'brand9', 'brand10', 'brand11'],
+		  x: [20, 14, 23, 8, 11, 25, 13, 17, 19, 25, 22, 30 ],
+		  y : [ 'Tiger', 'Desperado', 'Heiniken' ,'Kingfisher', 'brand1', 'brand2','brand3', 'brand4', 'brand5','brand6', 'brand7', 'brand8'],
 		  name: 'SF Breweries',
 		  orientation: 'h',
 		  marker: {
-		    //color: 'rgba(55,128,191,0.6)',
-		    width: 1
+		   color: 'rgb(55, 83, 109)',
+		   opacity: 0.6
+		    
 		  },
 		  type: 'bar'
 		};
 
 		var trace2 = {
-		  x: [12, 18, 29, 11, 15, 21, 16, 10, 12, 22, 19, 14, 16, 25, 27],
-		  x : [ 'Tiger', 'Desperado', 'Heiniken' ,'Kingfisher', 'brand1', 'brand2','brand3', 'brand4', 'brand5','brand6', 'brand7', 'brand8', 'brand9', 'brand10', 'brand11'],
+		  x: [12, 18, 29, 11, 15, 21, 16, 10, 12, 22, 19, 27],
+		  y : [ 'Tiger', 'Desperado', 'Heiniken' ,'Kingfisher', 'brand1', 'brand2','brand3', 'brand4', 'brand5','brand6', 'brand7', 'brand8'],
 		  name: 'LA Breweries',
 		  orientation: 'h',
 		  type: 'bar',
 		  marker: {
-		    //color: 'rgba(255,153,51,0.6)',
-		    width: 1
+		    color: 'rgb(26, 118, 255)',
+		    opcacity: 0.6
+		    
 		  }
 		};
 
@@ -164,7 +181,7 @@ var trace1 = {
 
 		var layout = {
 		  title: 'Number of records',
-		  barmode: 'stack'
+		  barmode: 'group'
 		};
 		
 
@@ -193,14 +210,23 @@ var trace1 = {
 		  x: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
 		  y: [1.5, 1, 1.3, 0.7, 0.8, 0.9, 1.1, 1.3, 1.5, 1, 1.4, 0.6, 1.3],
 		  type: 'bar',
-		  name: 'SF Brewries'
+		  name: 'SF Brewries',
+		  marker : {
+				color : 'rgb(26, 118, 255)',
+				opacity : 0.6
+			}
 		};
 
 var trace2 = {
 		  x: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
 		  y: [1, 0.5, 0.7, 1.2, 0.3, 0.4, 0.6, 0.7, 1, 0.5, 0.8, 0.9, 1.3],
 		  type: 'scatter',
-		  name: 'LA Brewries'
+		  name: 'LA Brewries',
+		  marker : {
+				color : 'rgb(55, 83, 109)',
+				opacity : 0.6
+			}
+
 		};
 		
 var barlinelayout = {
@@ -224,7 +250,12 @@ var trace1 = {
 				  fill: 'tozeroy', 
 				  type: 'scatter',
 				  name: 'SF Brewries',
-				  mode: 'none'
+				  mode: 'lines',
+				  marker : {
+						color : 'rgb(55, 83, 109)',
+						opacity : 0.6
+					}
+
 				};
 
 var trace2 = {
@@ -233,11 +264,15 @@ var trace2 = {
 				  fill: 'tonexty', 
 				  type: 'scatter',
 				  name: 'LA Brewries',
-				  mode: 'none'
+				  mode: 'lines',
+				  marker : {
+						color : 'rgb(26, 118, 255)',
+						opacity : 0.6
+					}
 				};
 				
 var arealayout = {
-				title: "Number of redemptions"
+				title: "Numbers of redemptions"
 				//xaxis: {title: " " },
 				//yaxis: {title: "Number of redemptions" }
 		}
@@ -303,27 +338,39 @@ myExampleData.plotlybarconfig = {
 	displaylogo : false
 };
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-//plotly stacked bart chart sample data starts here 
+//plotly stacked bar chart sample data starts here 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 var trace1 = {
 	x : [ 'Tiger', 'Desperado', 'Heiniken' ,'Kingfisher', 'brand1', 'brand2','brand3', 'brand4', 'brand5', 'brand9', 'brand10', 'brand11'],
 	y : [ 20, 14, 23, 25, 34, 36, 78, 44, 43, 47, 55, 32 ],
 	name : 'SF Breweries',
-	type : 'bar'
+	type : 'bar',
+	marker : {
+		color : 'rgb(55, 83, 109)',
+		opacity : 0.6
+	}
 };
 
 var trace2 = {
 	x : [ 'Tiger', 'Desperado', 'Heiniken' ,'Kingfisher', 'brand1', 'brand2','brand3', 'brand4', 'brand5', 'brand9', 'brand10', 'brand11'],
 	y : [ 12, 18, 39, 22, 28, 19, 18, 58, 49, 65, 63, 71],
 	name : 'LA Breweries',
-	type : 'bar'
+	type : 'bar',
+	marker : {
+		color : 'rgb(26, 118, 255)',
+		opacity : 0.6
+	}
 };
 
 var trace3 = {
 		x : [ 'Tiger', 'Desperado', 'Heiniken' ,'Kingfisher', 'brand1', 'brand2','brand3', 'brand4', 'brand5', 'brand9', 'brand10', 'brand11'],
 		y : [ 21, 18, 43, 22, 28, 45, 18, 17, 49, 71, 63, 33],
 		name : 'NY Breweries',
-		type : 'bar'
+		type : 'bar',
+		marker : {
+			color : 'rgb(171,217,233)',
+			opacity : 0.6
+		}
 };
 
 
@@ -331,21 +378,33 @@ var trace4 = {
 		x : [ 'Carlburg', 'Anchor', 'Guiness' ,'Breidweiser', 'Erdinger', 'brand2','brand3', 'brand4', 'brand5', 'brand9', 'brand10', 'brand11'],
 		y : [ 22, 24, 33,45, 44, 26,68, 64, 63, 47, 49, 35 ],
 		name : 'XL Breweries',
-		type : 'bar'
+		type : 'bar',
+		marker : {
+			color : 'rgb(116,173,209)',
+			opacity : 0.4
+		}
 };
 
 var trace5 = {
 		x : ['Carlburg', 'Anchor', 'Guiness' ,'Breidweiser', 'Erdinger', 'brand2','brand3', 'brand4', 'brand5', 'brand9', 'brand10', 'brand11'],
 		y : [ 12, 14, 33, 22, 38, 19, 28, 53, 69, 71, 29, 50 ],
 		name : 'YZ Breweries',
-		type : 'bar'
+		type : 'bar',
+		marker : {
+			color : 'rgb(254,224,144)',
+			opacity : 0.4
+		}
 };
 
 var trace6 = {
 		x : ['Carlburg', 'Anchor', 'Guiness' ,'Breidweiser', 'Erdinger', 'brand2','brand3', 'brand4', 'brand5', 'brand9', 'brand10', 'brand11'],
 		y : [ 9, 14, 45, 22, 38, 19, 51, 53, 22, 65, 29, 59 ],
 		name : 'XZ Breweries',
-		type : 'bar'
+		type : 'bar',
+		marker : {
+			color : 'rgb(165,0,38)',
+			opacity : 0.4
+		}
 };
 
 myExampleData.barGroupChartData = [ trace1, trace2, trace3];
@@ -376,8 +435,12 @@ myExampleData.barGroupChartLayout = {
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 myExampleData.plotlypiedata = [ {
 	values : [ 19, 26, 35, 10, 10 ],
-	labels : [ 'Tiger', 'Heiniken', 'Brand1', 'Brand1', 'Brand3' ],
-	type : 'pie'
+	labels : [ 'Tiger', 'Heiniken', 'Brand1', 'Brand2', 'Brand3' ],
+	type : 'pie',
+	marker: {
+		colors:  ['rgb(69,117,180)', 'rgb(26, 118, 255)', 'rgb(49,54,149)', 'rgb(116,173,209)', 'rgb(171,217,233)'],
+		opacity: 0.6
+	}
 }];
 
 myExampleData.plotlypielayout = {
@@ -491,26 +554,36 @@ myExampleData.tableWidgetData = {
 
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//do-nut widget config
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 myExampleData.donutWidgetData = [{
-	  values: [16, 15, 12, 6, 5, 4, 42],
-	  labels: ['US', 'China', 'European Union', 'Russian Federation', 'Brazil', 'India', 'Rest of World' ],
+	  values: [16, 15, 12, 6, 4, 42],
+	  labels: ['US', 'China', 'European Union', 'Russian Federation', 'India', 'Rest of World' ],
 	  domain: {
 	    x: [0, .48]
 	  },
 	  name: 'GHG Emissions',
 	  hoverinfo: 'label+percent+name',
 	  hole: .4,
-	  type: 'pie'
+	  type: 'pie',
+	  marker: {
+		  colors:  ['rgb(69,117,180)', 'rgb(26, 118, 255)', 'rgb(49,54,149)', 'rgb(116,173,209)', 'rgb(171,217,233), rgb(36, 55, 57), rgb(34, 53, 101),rgb(55, 83, 109)'],
+			opacity: 0.6
+	  }
 	},{
-	  values: [27, 11, 25, 8, 1, 3, 25],
-	  labels: ['US', 'China', 'European Union', 'Russian Federation', 'Brazil', 'India', 'Rest of World' ],
+	  values: [27, 11, 25, 8, 3, 25],
+	  labels: ['US', 'China', 'European Union', 'Russian Federation', 'India', 'Rest of World' ],
 	  text: 'CO2',
 	  textposition: 'inside',
 	  domain: {x: [.52, 1]},
 	  name: 'CO2 Emissions',
 	  hoverinfo: 'label+percent+name',
 	  hole: .4,
-	  type: 'pie'
+	  type: 'pie',
+	  marker: {
+		  colors:  ['rgb(69,117,180)', 'rgb(26, 118, 255)', 'rgb(49,54,149)', 'rgb(116,173,209)', 'rgb(171,217,233), rgb(36, 55, 57), rgb(34, 53, 101),rgb(55, 83, 109)'],
+			opacity: 0.6
+	  }
 	}];
 
 myExampleData.donutWidgetLayout =  {
