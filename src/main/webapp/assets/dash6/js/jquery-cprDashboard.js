@@ -1,10 +1,10 @@
 (function(factory) {
 		"use strict";
 		if ( typeof define === 'function' && define.amd) {
-			// Register as an AMD module if available...
+			// Register as an AMD module 
 			define(['jquery','Plotly','c3'], factory);
 		} else {
-			// Browser globals for the unenlightened...
+			// Browser globals 
 			factory($, Plotly,c3);
 		}
 	}(function($,Plotly,c3) {
@@ -146,8 +146,9 @@
 							Plotly.redraw(chartArea[0]);
 						}
 						if (!widgetDefinition.getDataBySelection) {
-							//when redrawing the widget, the click event listner is getting destroyed, we need to re-register it here again
-							//need to find out if its a bug on flotr2 library.
+							/*when redrawing the widget, the click event 
+							listener is getting destroyed, we need to re-register it here again
+							need to find out if its a bug on flotr2 library.*/
 							self._bindChartEvents(chartArea[0], widgetListItem.attr("id"), widgetDefinition, self);
 						}
 					}

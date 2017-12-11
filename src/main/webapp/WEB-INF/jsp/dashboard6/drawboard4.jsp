@@ -443,22 +443,7 @@ $(window).load(function() {
 	<script src="assets/dash6/js/datatableNw/buttons.html5.min.js"></script>
 	<script src="assets/dash6/js/datatableNw/buttons.flash.min.js"></script> 
 	
-	<!--  data grid export js files -->
-<!-- 	<script type="text/javascript" src="assets/dash6/js/grid/jqxcore.js"></script>
-    <script type="text/javascript" src="assets/dash6/js/grid/jqxbuttons.js"></script>
-    <script type="text/javascript" src="assets/dash6/js/grid/jqxscrollbar.js"></script>
-    <script type="text/javascript" src="assets/dash6/js/grid/jqxmenu.js"></script>
-    <script type="text/javascript" src="assets/dash6/js/grid/jqxcheckbox.js"></script>
-    <script type="text/javascript" src="assets/dash6/js/grid/jqxgrid.js"></script>
-    <script type="text/javascript" src="assets/dash6/js/grid/jqxgrid.selection.js"></script> 
-    <script type="text/javascript" src="assets/dash6/js/grid/jqxgrid.columnsresize.js"></script> 
-    <script type="text/javascript" src="assets/dash6/js/grid/jqxdata.js"></script> 
-    <script type="text/javascript" src="assets/dash6/js/grid/jqxdata.export.js"></script> 
-    <script type="text/javascript" src="assets/dash6/js/grid/jqxgrid.export.js"></script> 
-    <script type="text/javascript" src="assets/dash6/js/grid/jqxgrid.sort.js"></script> 
-	 -->
-	
-	
+
 	<script type="text/javascript">
    	$(document).ready(function(){           	
   
