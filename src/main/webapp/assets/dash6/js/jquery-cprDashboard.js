@@ -30,16 +30,16 @@
 
 				var docHeight = $(document).height();
 
-				$("body").append("<div class='sDashboard-overlay'></div>");
+				$("body").append("<div class='cprDashboard-overlay'></div>");
 
-				$(".sDashboard-overlay").height(docHeight);
+				$(".cprDashboard-overlay").height(docHeight);
 
-				$(".sDashboard-overlay").hide();
+				$(".cprDashboard-overlay").hide();
 
 				var _dashboardData = this.options.dashboardData;
 				var i;
 				//console.log(_dashboardData);
-				console.log(_dashboardData.length);
+				//console.log(_dashboardData.length);
 				for ( i = 0; i < _dashboardData.length; i++) {
 					var widget = this._constructWidget(_dashboardData[i]);
 					console.log(widget);
@@ -109,14 +109,14 @@
 					$(e.currentTarget).toggleClass("sDashboard-minimize-icon");
 					//change the tooltip on the maximize/minimize icon buttons
 					if ($(e.currentTarget).attr("title") === "Maximize") {
-						$(".sDashboard-overlay").hide();
+						$(".cprDashboard-overlay").hide();
 						$(e.currentTarget).attr("title", "Minimize");
 						$(".sDashboardWidgetHeader div.sDashboard-iconcustomDel.sDashboard-trash-icon ").hide();
 						self._trigger("widgetMaximized", null, {
 							"widgetDefinition" : widgetDefinition
 						});
 					} else {
-						$(".sDashboard-overlay").show();
+						$(".cprDashboard-overlay").show();
 						$(e.currentTarget).attr("title", "Maximize");
 						$(".sDashboardWidgetHeader div.sDashboard-iconcustomDel.sDashboard-trash-icon ").show();
 						self._trigger("widgetMinimized", null, {
@@ -180,7 +180,7 @@
 					widget.hide("fold", {}, 300, function() {
 						self._removeWidgetFromWidgetDefinitions(this.id);
 						$(this).remove();
-						$(".sDashboard-overlay").hide();
+						$(".cprDashboard-overlay").hide();
 					});
 				});
 
@@ -619,7 +619,7 @@
 			},
 			destroy : function() {
 				//remove the overlay when the dashbaord is destroyed
-				$(".sDashboard-overlay").remove();
+				$(".cprDashboard-overlay").remove();
 				// call the base destroy function
 				$.Widget.prototype.destroy.call(this);
 			}

@@ -18,10 +18,9 @@
 	name="description" />
 <meta content="" name="author" />
 <!-- BEGIN LAYOUT FIRST STYLES -->
-<link href="//fonts.googleapis.com/css?family=Oswald:400,300,700" rel="stylesheet" type="text/css" />
+<link href="assets/css/Oswald-font.css"	rel="stylesheet" type="text/css" />
 <!-- END LAYOUT FIRST STYLES -->
 <!-- BEGIN GLOBAL MANDATORY STYLES -->
-<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
 <link href="assets/dash6/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 <link href="assets/dash6/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
 <link href="assets/dash6/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -82,9 +81,8 @@ if it's not present, don't show loader */
 	background: url(assets/img/loader-128x/Preloader_3.gif) center no-repeat #fff;
 
 </style>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
-
-<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
+<script src="assets/dash6/js/jqueryNw/jquery-1.12.4.js"	type="text/javascript"></script>
+<script src="assets/js/modernizr-2.8.2.js"	type="text/javascript"></script>
 
 <script type="text/javascript">
 
@@ -369,7 +367,7 @@ $(window).load(function() {
 	<!-- BEGIN CORE PLUGINS -->
 	<!-- <script src="assets/dash6/global/plugins/jquery.min.js"	type="text/javascript"></script>  -->
 	<!-- remove -->
-	<script src="assets/dash6/js/jqueryNw/jquery-1.12.4.js"	type="text/javascript"></script>
+	
 	<script src="assets/dash6/global/plugins/bootstrap/js/bootstrap.min.js"	type="text/javascript"></script>
 	<script src="assets/dash6/global/plugins/js.cookie.min.js" type="text/javascript"></script>
 	<script src="assets/dash6/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
@@ -420,7 +418,6 @@ $(window).load(function() {
 	<!--<script src="assets/dash6/js/datatables/jquery.dataTables.js"></script>  -->	
 	<script src="assets/js/dash1/plotly-latest.min.js"></script>
 	<script src="assets/dash6/js/chart/Chart.bundle.js"></script>
-	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 	<script src="assets/dash6/js/c3/c3.min.js"></script>
 	<!--  <script src="assets/dash6/js/c3/bubble.js"></script> -->
 	<!-- load dashboard library -->
