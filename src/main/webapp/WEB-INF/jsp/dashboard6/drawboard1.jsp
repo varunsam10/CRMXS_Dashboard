@@ -677,7 +677,7 @@ $(window).load(function() {
 	}
 	
 	];
-
+	console.log(dashboardJSON);
         //basic initialization examplemn.sDashboard
         $("#cprDashboard").sDashboard({
         	dashboardData : dashboardJSON
