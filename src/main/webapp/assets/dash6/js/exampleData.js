@@ -147,6 +147,11 @@ myExampleData.plotlyBubbleLayout = {
 			color : '#7f7f7f'
 		}
 	},
+	titlefont : {
+		family : 'Courier New, monospace',
+		size : 18,
+		color : '#7f7f7f'
+	},
 	showlegend : false
 	/*height : 600,
 	width : 600*/
