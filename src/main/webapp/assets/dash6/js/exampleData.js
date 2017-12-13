@@ -74,7 +74,7 @@ myExampleData.plotlylinelayout = {
 		titlefont : {
 			family : 'Courier New, monospace',
 			size : 18,
-			color : '#ffffff'
+			color : '#7f7f7f'
 		}
 	},
 	yaxis : {
@@ -84,6 +84,11 @@ myExampleData.plotlylinelayout = {
 			size : 18,
 			color : '#7f7f7f'
 		}
+	},
+	titlefont : {
+		family : 'Courier New, monospace',
+		size : 18,
+		color : '#7f7f7f'
 	},
 	autosize : true
 };
@@ -148,7 +153,7 @@ myExampleData.plotlyBubbleLayout = {
 };
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-//plotly coloumn chart sample data starts here 
+//plotly coloumn chart sample data starts here  -Day Wise
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 var trace1 = {
 		  x: [20, 14, 23, 8, 11, 25, 13, 17, 19, 25, 22, 30 ],
@@ -181,6 +186,11 @@ var trace1 = {
 
 		var layout = {
 		  title: 'Number of records',
+		  titlefont : {
+				family : 'Courier New, monospace',
+				size : 18,
+				color : '#7f7f7f'
+		  },
 		  barmode: 'group'
 		};
 		
@@ -231,8 +241,13 @@ var trace2 = {
 		
 var barlinelayout = {
 		
-		xaxis: {title: " " },
-		yaxis: {title: "Number of redemptions" }
+		xaxis: {title: "Hours" },
+		yaxis: {title: "Number of redemptions" },
+		titlefont : {
+			family : 'Courier New, monospace',
+			size : 18,
+			color : '#7f7f7f'
+		}
 }
 
 		myExampleData.plotlybarlinedata = [trace1, trace2];
@@ -244,7 +259,7 @@ var barlinelayout = {
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //plotly area graph sample data starts here 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-var trace1 = {
+	var trace1 = {
 				  x: [1, 2, 3, 4], 
 				  y: [0, 2, 3, 5], 
 				  fill: 'tozeroy', 
@@ -258,7 +273,7 @@ var trace1 = {
 
 				};
 
-var trace2 = {
+	var trace2 = {
 				  x: [1, 2, 3, 4], 
 				  y: [3, 5, 1, 7], 
 				  fill: 'tonexty', 
@@ -271,10 +286,15 @@ var trace2 = {
 					}
 				};
 				
-var arealayout = {
-				title: "Numbers of redemptions"
-				//xaxis: {title: " " },
-				//yaxis: {title: "Number of redemptions" }
+	var arealayout = {
+				title: "Numbers of redemptions",
+				xaxis: {title: "Hours" },
+				yaxis: {title: "Number of redemptions" },
+				titlefont : {
+						family : 'Courier New, monospace',
+						size : 18,
+						color : '#7f7f7f'
+				}
 		}
 
 		myExampleData.plotlyareadata = [trace1, trace2];
@@ -327,6 +347,11 @@ myExampleData.plotlybarlayout = {
 				size : 18,
 				color : '#7f7f7f'
 			}
+	},
+	titlefont : {
+		family : 'Courier New, monospace',
+		size : 18,
+		color : '#7f7f7f'
 	},
 	barmode : 'group',
 	autosize : true
@@ -427,6 +452,11 @@ myExampleData.barGroupChartLayout = {
 				color : '#7f7f7f'
 			}
 		},
+		titlefont : {
+			family : 'Courier New, monospace',
+			size : 18,
+			color : '#7f7f7f'
+		},
 		barmode : 'stack',
 		autosize : true
 };
@@ -444,7 +474,12 @@ myExampleData.plotlypiedata = [ {
 }];
 
 myExampleData.plotlypielayout = {
-  title : 'Revenue in US $',	
+  title : 'Revenue in US $',
+  titlefont : {
+			family : 'Courier New, monospace',
+			size : 18,
+			color : '#7f7f7f'
+  },
   autosize : true
 
 };
@@ -455,7 +490,7 @@ myExampleData.plotlypieconfig = {
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //plotly bubble chart sample data starts here 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-myExampleData.constructBubbleChartData = function() {
+/*myExampleData.constructBubbleChartData = function() {
 	var d1 = [];
 	var d2 = []
 	var point
@@ -491,7 +526,7 @@ myExampleData.bubbleChartOptions = {
 		track : true,
 		relative : true
 	}
-};
+};*/
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //table widget sample data starts here 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -588,6 +623,11 @@ myExampleData.donutWidgetData = [{
 
 myExampleData.donutWidgetLayout =  {
 	  title: 'Global Consumption 1990-2011',
+	  titlefont : {
+			family : 'Courier New, monospace',
+			size : 18,
+			color : '#7f7f7f'
+	  },
 	  annotations: [
 	    {
 	      font: {

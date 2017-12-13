@@ -25,7 +25,6 @@
 					this._createView();
 				}
 			},
-
 			_createView : function() {
 
 				var docHeight = $(document).height();
@@ -461,6 +460,58 @@
 				//location.reload(true);
 				
 			},
+			_interactChart: function(widgetDefinition) {
+				var id = "li#" + widgetDefinition.linkedWidgets;
+				var chartArea;
+				var data;
+				var layout;
+				var config;
+				var chart;
+				chartArea = this.element.find(id + " div.sDashboardChart");
+				
+				if (widgetDefinition.widgetType === 'chart') {
+					
+					data = widgetDefinition.widgetContent.data;
+					layout = widgetDefinition.widgetContent.layout;
+					config = widgetDefinition.widgetContent.config;
+					var layout = {
+							  xaxis: {
+							    tickangle: -45
+							  },
+							  barmode: 'group'
+							};
+
+					if(widgetDefinition.graphType === 'normal'){
+						
+						var chart = c3.generate({bindto:chartArea[0],data:widgetDefinition.widgetContent.data});
+						
+					}else{						
+						
+						Plotly.newPlot(chartArea[0], widgetDefinition.widgetContent.data , widgetDefinition.widgetContent.layout,widgetDefinition.widgetContent.config);
+						Plotly.redraw(chartArea[0]);
+					}					
+					if (widgetDefinition.getDataBySelection) {
+						
+						this._bindSelectEvent(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+					} else {
+						if(widgetDefinition.graphType === 'exploratory'){
+							this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+						}
+					}
+				}
+				else if(widgetDefinition.widgetType === 'static')
+					{
+						chart = new Chart(chartArea[0], widgetDefinition.widgetId, widgetDefinition.widgetContent.data);
+						
+						if (widgetDefinition.getDataBySelection) {
+							this._bindSelectEvent(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+						} else {
+							this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+						}
+					}
+				//location.reload(true);
+				
+			},
 			_renderChart : function(widgetDefinition) {
 				var id = "li#" + widgetDefinition.widgetId;
 				var chartArea;
@@ -540,9 +591,10 @@
 				   	var evtObj = {};
 					evtObj.clickedWidgetId = widgetId;
 					evtObj.dataPoints = pts;
-				    context._trigger("plotclicked", null, evtObj);
+				    context._trigger("plotclicked", null, evtObj);	
+				    this._interactChart(widgetDefinition);
 				});
-
+				
 			},
 			_removeWidgetFromWidgetDefinitions : function(widgetId) {
 				var widgetDefs = this.options.dashboardData;

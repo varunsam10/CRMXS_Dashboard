@@ -44,13 +44,7 @@ public class Dashboard6Controller {
 	public String initializeFormDrawboard4() {
 		// Click for graph type
 		return "dashboard6/drawboard4";
-	}
-
-	@RequestMapping("/drawboard5")
-	public String initializeFormDrawboard5() {
-		// Click for graph details
-		return "dashboard6/drawboard5";
-	}
+	}	
 
 	@RequestMapping("/graphDetails")
 	public String graphDetailsPage() {

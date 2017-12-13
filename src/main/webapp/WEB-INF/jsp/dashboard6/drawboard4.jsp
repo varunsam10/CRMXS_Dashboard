@@ -396,8 +396,6 @@ $(window).load(function() {
 	<script src="assets/dash6/layouts/layout6/scripts/layout.min.js" type="text/javascript"></script>
 	<!-- END THEME LAYOUT SCRIPTS -->
 
-
-
 	<!--     CPR Dashboard    Custom     -->
 	<!-- Load jquery library -->
 	<!-- <script src="assets/dash6/js/jquery/jquery-1.8.2.js"	type="text/javascript"></script> -->
@@ -455,7 +453,7 @@ $(window).load(function() {
 	var dashboardJSON =[
 		{
 			widgetTitle: "Sales Figures",
-			widgetId: "id012",
+			widgetId: "id001",
 			widgetType: "chart",
 			graphType: "exploratory",
 			widgetDimension: "normal",
@@ -465,10 +463,10 @@ $(window).load(function() {
 				layout: myExampleData.plotlypielayout,
 				config: myExampleData.plotlypieconfig
 			}
-		},    	
+		}/* ,    	
     	{
     		widgetTitle: "Age group",
-    		widgetId: "id007",
+    		widgetId: "id002",
     		widgetType: "chart",
     		graphType: "exploratory",
     		widgetDimension: "normal",
@@ -489,12 +487,12 @@ $(window).load(function() {
     			layout: myExampleData.plotlyBubbleLayout,
     			config: myExampleData.plotlybarconfig
     		}
-    	},{
+    	}  */,{
 		widgetTitle: "Revenue",
-		widgetId: "id004",
+		widgetId: "id003",
 		widgetType: "chart",
 		graphType: "exploratory",
-		widgetDimension: "large",
+		widgetDimension: "normal",
 		chartType: "bar",
 		enableRefresh: true,
 		refreshCallBack : function(widgetId){ 		
@@ -510,13 +508,14 @@ $(window).load(function() {
 			layout: myExampleData.barGroupChartLayout,
 			config: myExampleData.plotlybarconfig
 		}
-	}, {
+	} , {
 		widgetTitle: "Items sold",
-		widgetId: "id005",
+		widgetId: "id004",
 		widgetType: "chart",
 		graphType: "exploratory",
-		widgetDimension: "large",
+		widgetDimension: "normal",
 		chartType: "line",
+		linkedWidgets:"id003",
 		getDataBySelection: true,
 		widgetContent: {		
 			data: myExampleData.plotlylinedata,
