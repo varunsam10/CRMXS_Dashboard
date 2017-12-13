@@ -741,7 +741,7 @@ if it's not present, don't show loader */
 									}
 								}, */
 								];
-
+	console.log(dashboardJSON);
 								//basic initialization examplemn.sDashboard
 								$("#cprDashboard").sDashboard({
 									dashboardData : dashboardJSON

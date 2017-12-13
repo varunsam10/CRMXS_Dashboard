@@ -1,5 +1,7 @@
 package com.cpr.controller;
 
+
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.cpr.model.Dashboard3;
+import com.cpr.model.DashboardDAO;
 import com.cpr.service.DashboardService;
 
 @Controller
@@ -18,14 +21,17 @@ public class Dashboard6Controller {
 	public ModelAndView initializeForm() {
 		Dashboard3 dashboard3 = new Dashboard3();
 		System.out.println("inside dashboard 6!!");
+		//DashboardDAO.getDashboardJson();
 		return new ModelAndView("dashboard6/drawboard1", "Dashboard3", new Dashboard3());
 	}
 
 	@RequestMapping(value = "/getWidgets", method = RequestMethod.GET)
 	@ResponseBody
 	public String getWidgets() {
-		DashboardService dashboardJSON = new DashboardService();
-		return dashboardJSON.createDashboardJson();
+		//DashboardService dashboardJSON = new DashboardService();
+		//System.out.println(dashboardJSON.createDashboardJson());
+		//return dashboardJSON.createDashboardJson();
+		return DashboardDAO.getDashboardJson();
 	}
 
 	@RequestMapping("/drawboard2")

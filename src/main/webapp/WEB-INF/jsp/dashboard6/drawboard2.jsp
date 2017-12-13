@@ -637,13 +637,13 @@ $(window).load(function() {
    		 	url : 'getWidgets.html',
             success : function(data) {
                    //$('#result').html(data);
-                   dashboardJSON = JSON.parse(data);
-                   console.log("dashJSON");
+                   
+                   dashboardJSON = JSON.parse(data);	
+                   console.log("dashJSON_new");
                    console.log(dashboardJSON);   
                    $("#cprDashboard").sDashboard({
                 	   dashboardData : dashboardJSON   
                    });
-                   
            }});
        	
         e.preventDefault();
