@@ -256,6 +256,7 @@
 	width: 20px;
 	height: 20px;
 }
+
 .sDashboard-iconcustomStyle {
 	margin: 0 5px 0 5px;
 	float: right;
@@ -285,6 +286,12 @@
 	transition: .3s all ease;
   	transform: translateY(-0.15em);
 }
+.sDashboard-iconcustomFilter:hover {
+	cursor: pointer;
+	box-shadow: 0 0.3em 0.3em -0.2em var(--hover) grey;
+	transition: .3s all ease;
+  	transform: translateY(-0.15em);
+}
 
 .sDashboard-iconcustomRefresh:hover {
 	cursor: pointer;
@@ -299,6 +306,31 @@
 	transition: .3s all ease;
   	transform: translateY(-0.15em);
 }
+
+.sDashboard-iconcustom .sDashboard-settings {
+	background-position: -2px -230px;
+}
+
+.sDashboard-icon.sDashboard-trash-icon {
+	background-position: -4px -159px;
+}
+
+.sDashboard-icon.sDashboard-refresh-icon {
+	background-position: -3px -186px;
+}
+
+.sDashboard-icon.sDashboard-maximize-icon {
+	background-position: -2px -212px;
+}
+
+/* .sDashboard-iconcustomFilter.sDashboard-filter-icon {
+	background-position: -4px -248px;
+} */
+
+.js-plotly-plot .plotly .modebar {
+	        background: #E0E0E0 !important;
+}
+
 
 .sDashboard-icon.sDashboard-circle-plus-icon {
 	background-position: -2px -3px;
@@ -324,21 +356,7 @@
 	background-position: -3px -135px;
 }
 
-.sDashboard-iconcustom .sDashboard-settings {
-	background-position: -2px -230px;
-}
 
-.sDashboard-icon.sDashboard-trash-icon {
-	background-position: -4px -159px;
-}
-
-.sDashboard-icon.sDashboard-refresh-icon {
-	background-position: -3px -186px;
-}
-
-.sDashboard-icon.sDashboard-maximize-icon {
-	background-position: -2px -212px;
-}
 
 .sDashboard-icon.sDashboard-minimize-icon {
 	background-position: -2px -236px;

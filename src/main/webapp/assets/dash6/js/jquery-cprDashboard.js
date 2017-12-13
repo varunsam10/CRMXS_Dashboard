@@ -227,7 +227,8 @@
 				var maximizeButton = $('<div title="Maximize" class="sDashboard-iconcustomZoom sDashboard-maximize-icon "></span>');
 				var settingsButton = $('<div title="Setting" class="sDashboard-iconcustom sDashboard-settings "></span>');
 				
-				var deleteButton = $('<div title="Delete" class="sDashboard-iconcustomDel sDashboard-trash-icon"></div>');		
+				var deleteButton = $('<div title="Delete" class="sDashboard-iconcustomDel sDashboard-trash-icon"></div>');
+				var filterButton = $('<div title="Filter" class="sDashboard-iconcustomFilter sDashboard-filter-icon"></div>');
 				
 				
 				//add delete button
@@ -236,6 +237,7 @@
 					widgetHeader.append(maximizeButton);
 					widgetHeader.append(settingsButton);
 					widgetHeader.append(deleteButton);
+					widgetHeader.append(filterButton);
 					
 				}
 				else if(widgetDefinition.widgetType === 'chart' && widgetDefinition.graphType === "normal"){

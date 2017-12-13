@@ -53,6 +53,10 @@ var trace1 = {
 	marker : {
 		color : 'rgb(55, 83, 109)',
 		opacity : 0.6
+	},
+	textfont:{
+		color:'rgb(255,255,255)',
+		family:'Open Sans'
 	}
 
 };
@@ -64,6 +68,10 @@ var trace2 = {
 	marker : {
 		color : 'rgb(26, 118, 255)',
 		opacity : 0.6
+	},
+	textfont:{
+		color:'rgb(255,255,255)',
+		family:'Open Sans'
 	}
 };
 myExampleData.plotlylinedata = [ trace1, trace2 ];
@@ -97,7 +105,8 @@ myExampleData.plotlylinelayout = {
 
 myExampleData.plotlylineconfig = {
 	modeBarButtonsToRemove : [ 'sendDataToCloud' ],
-	displaylogo : false
+	displaylogo : false,
+	displayModeBar: 'true'
 };
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //plotly bubble chart sample data starts here 
@@ -112,6 +121,10 @@ var trace1 = {
 		opacity : 0.6
 
 		
+	},
+	textfont:{
+		color:'rgb(255,255,255)',
+		family:'Open Sans'
 	}
 };
 
@@ -124,6 +137,10 @@ var trace2 = {
 			color : 'rgb(26, 118, 255)',
 			opacity : 0.6
 
+		},
+		textfont:{
+			color:'rgb(255,255,255)',
+			family:'Open Sans'
 		}
 };
 
@@ -187,7 +204,11 @@ var trace1 = {
 		    color: 'rgb(26, 118, 255)',
 		    opcacity: 0.6
 		    
-		  }
+		  },
+			textfont:{
+				color:'rgb(255,255,255)',
+				family:'Open Sans'
+			}
 		};
 
 		var data = [trace1, trace2];
@@ -244,6 +265,10 @@ var trace1 = {
 		  marker : {
 				color : 'rgb(26, 118, 255)',
 				opacity : 0.6
+			},
+			textfont:{
+				color:'rgb(255,255,255)',
+				family:'Open Sans'
 			}
 		};
 
@@ -255,6 +280,10 @@ var trace2 = {
 		  marker : {
 				color : 'rgb(55, 83, 109)',
 				opacity : 0.6
+			},
+			textfont:{
+				color:'rgb(255,255,255)',
+				family:'Open Sans'
 			}
 
 		};
@@ -301,6 +330,10 @@ var barlinelayout = {
 				  marker : {
 						color : 'rgb(55, 83, 109)',
 						opacity : 0.6
+					},
+					textfont:{
+						color:'rgb(255,255,255)',
+						family:'Open Sans'
 					}
 
 				};
@@ -315,6 +348,10 @@ var barlinelayout = {
 				  marker : {
 						color : 'rgb(26, 118, 255)',
 						opacity : 0.6
+					},
+					textfont:{
+						color:'rgb(255,255,255)',
+						family:'Open Sans'
 					}
 				};
 				
@@ -359,6 +396,10 @@ var trace1 = {
 	marker : {
 		color : 'rgb(49,130,189)',
 		opacity : 0.7
+	},
+	textfont:{
+		color:'rgb(255,255,255)',
+		family:'Open Sans'
 	}
 };
 
@@ -371,6 +412,10 @@ var trace2 = {
 	marker : {
 		color : 'rgb(204,204,204)',
 		opacity : 0.5
+	},
+	textfont:{
+		color:'rgb(255,255,255)',
+		family:'Open Sans'
 	}
 };
 myExampleData.plotlybardata = [ trace1, trace2 ];
@@ -401,12 +446,12 @@ myExampleData.plotlybarlayout = {
 	autosize : true,
     paper_bgcolor:'#E0E0E0',
 	plot_bgcolor:'#E0E0E0'
-/*height: 225,
-width: 475*/
+
 };
 myExampleData.plotlybarconfig = {
 	modeBarButtonsToRemove : [ 'sendDataToCloud' ],
-	displaylogo : false
+	displaylogo : false,
+	displayModeBar: 'true'
 };
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //plotly stacked bar chart sample data starts here 
@@ -518,6 +563,10 @@ myExampleData.plotlypiedata = [ {
 	marker: {
 		colors:  ['rgb(69,117,180)', 'rgb(26, 118, 255)', 'rgb(49,54,149)', 'rgb(116,173,209)', 'rgb(171,217,233)'],
 		opacity: 0.6
+	},
+	textfont:{
+		color:'rgb(255,255,255)',
+		family:'Open Sans'
 	}
 }];
 
@@ -535,7 +584,8 @@ myExampleData.plotlypielayout = {
 };
 myExampleData.plotlypieconfig = {
 	modeBarButtonsToRemove : [ 'sendDataToCloud' ],
-	displaylogo : false
+	displaylogo : false,
+	displayModeBar: 'true'
 };
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //plotly bubble chart sample data starts here 
@@ -640,7 +690,7 @@ myExampleData.tableWidgetData = {
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 myExampleData.donutWidgetData = [{
 	  values: [16, 15, 12, 6, 4, 42],
-	  labels: ['US', 'China', 'European Union', 'Russian Federation', 'India', 'Rest of World' ],
+	  labels: ['US', 'China', 'Europe', 'Russia', 'India', 'Rest of World' ],
 	  domain: {
 	    x: [0, .48]
 	  },
@@ -650,9 +700,13 @@ myExampleData.donutWidgetData = [{
 	  type: 'pie',
 	  marker: {
 		  colors:  ['rgb(69,117,180)', 'rgb(26, 118, 255)', 'rgb(49,54,149)', 'rgb(116,173,209)', 'rgb(171,217,233), rgb(36, 55, 57), rgb(34, 53, 101),rgb(55, 83, 109)'],
-			opacity: 0.6
-	  }
-	},{
+		  opacity: 0.6
+	  },
+		textfont:{
+			color:'rgb(255,255,255)',
+			family:'Open Sans'
+		}
+	}/*,{
 	  values: [27, 11, 25, 8, 3, 25],
 	  labels: ['US', 'China', 'European Union', 'Russian Federation', 'India', 'Rest of World' ],
 	  text: 'CO2',
@@ -666,7 +720,7 @@ myExampleData.donutWidgetData = [{
 		  colors:  ['rgb(69,117,180)', 'rgb(26, 118, 255)', 'rgb(49,54,149)', 'rgb(116,173,209)', 'rgb(171,217,233), rgb(36, 55, 57), rgb(34, 53, 101),rgb(55, 83, 109)'],
 			opacity: 0.6
 	  }
-	}];
+	}*/];
 
 myExampleData.donutWidgetLayout =  {
 	  title: 'Global Consumption 1990-2011',
@@ -674,7 +728,7 @@ myExampleData.donutWidgetLayout =  {
 			family : 'Courier New, monospace',
 			size : 18,
 			color : '#7f7f7f'
-	  },
+	  }/*,
 	  annotations: [
 	    {
 	      font: {
@@ -682,7 +736,7 @@ myExampleData.donutWidgetLayout =  {
 	      },
 	      showarrow: false,
 	      text: 'Heineken',
-	      x: 0.17,
+	      x: 0.1,
 	      y: 0.5
 	    },
 	    {
@@ -694,16 +748,15 @@ myExampleData.donutWidgetLayout =  {
 	      x: 0.85,
 	      y: 0.5
 	    }
-	  ],
-	  height: 600,
-	  width: 600,
-      paper_bgcolor:'#E0E0E0',
+	  ]*/,
+	  paper_bgcolor:'#E0E0E0',
 	  plot_bgcolor:'#E0E0E0'
 	};
 
 myExampleData.donutWidgetConfig = {
 		modeBarButtonsToRemove : [ 'sendDataToCloud' ],
-		displaylogo : false
+		displaylogo : false,
+		displayModeBar: 'true'
 	};
 
 
