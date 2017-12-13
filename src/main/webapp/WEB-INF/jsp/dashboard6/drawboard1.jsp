@@ -700,11 +700,11 @@ if it's not present, don't show loader */
 											widgetId : "id008",
 											widgetType : "Text",
 											widgetDimension : "small",
-											widgetContent : "Redemptions : 4,636 \n"
-													+ "Revenue : 231,800$"
+											widgetContent : "Redemptions : 4,636"
+													
 										},
 										{
-											widgetTitle : "Table ",
+											widgetTitle : "Browser used",
 											widgetId : "id009",
 											widgetType : "table",
 											//widgetDimension: "large",

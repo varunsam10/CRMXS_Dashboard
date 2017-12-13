@@ -90,7 +90,9 @@ myExampleData.plotlylinelayout = {
 		size : 18,
 		color : '#7f7f7f'
 	},
-	autosize : true
+	autosize : true,
+	paper_bgcolor:'#E0E0E0',
+	plot_bgcolor:'#E0E0E0'
 };
 
 myExampleData.plotlylineconfig = {
@@ -152,7 +154,9 @@ myExampleData.plotlyBubbleLayout = {
 		size : 18,
 		color : '#7f7f7f'
 	},
-	showlegend : false
+	showlegend : false,
+	paper_bgcolor:'#E0E0E0',
+	plot_bgcolor:'#E0E0E0'
 	/*height : 600,
 	width : 600*/
 };
@@ -161,8 +165,8 @@ myExampleData.plotlyBubbleLayout = {
 //plotly coloumn chart sample data starts here  -Day Wise
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 var trace1 = {
-		  x: [20, 14, 23, 8, 11, 25, 13, 17, 19, 25, 22, 30 ],
-		  y : [ 'Tiger', 'Desperado', 'Heiniken' ,'Kingfisher', 'brand1', 'brand2','brand3', 'brand4', 'brand5','brand6', 'brand7', 'brand8'],
+		  x: [20, 14, 23, 8, 11, 25 ],
+		  y : [ 'Tiger', 'Desperado', 'Heiniken' ,'Kingfisher', 'brand1', 'brand2'],
 		  name: 'SF Breweries',
 		  orientation: 'h',
 		  marker: {
@@ -174,8 +178,8 @@ var trace1 = {
 		};
 
 		var trace2 = {
-		  x: [12, 18, 29, 11, 15, 21, 16, 10, 12, 22, 19, 27],
-		  y : [ 'Tiger', 'Desperado', 'Heiniken' ,'Kingfisher', 'brand1', 'brand2','brand3', 'brand4', 'brand5','brand6', 'brand7', 'brand8'],
+		  x: [12, 18, 29, 11, 15, 21],
+		  y : [ 'Tiger', 'Desperado', 'Heiniken' ,'Kingfisher', 'brand1', 'brand2'],
 		  name: 'LA Breweries',
 		  orientation: 'h',
 		  type: 'bar',
@@ -196,7 +200,9 @@ var trace1 = {
 				size : 18,
 				color : '#7f7f7f'
 		  },
-		  barmode: 'group'
+		  barmode: 'group',
+		  paper_bgcolor:'#E0E0E0',
+		  plot_bgcolor:'#E0E0E0'
 		};
 		
 
@@ -218,7 +224,9 @@ var trace1 = {
 			  },
 			  type: 'log'},
 			  margin: {t: 20},
-			  hovermode: 'closest'
+			  hovermode: 'closest',
+	          paper_bgcolor:'#E0E0E0',
+			  plot_bgcolor:'#E0E0E0'
 			};
 			
 			myExampleData.plotlybubble2layout = layout;
@@ -269,7 +277,9 @@ var barlinelayout = {
 			family : 'Courier New, monospace',
 			size : 18,
 			color : '#7f7f7f'
-		}
+		},
+        paper_bgcolor:'#E0E0E0',
+		plot_bgcolor:'#E0E0E0'
 }
 
 		myExampleData.plotlybarlinedata = [trace1, trace2];
@@ -326,7 +336,9 @@ var barlinelayout = {
 						family : 'Courier New, monospace',
 						size : 18,
 						color : '#7f7f7f'
-				}
+				},
+		        paper_bgcolor:'#E0E0E0',
+				plot_bgcolor:'#E0E0E0'
 		}
 
 		myExampleData.plotlyareadata = [trace1, trace2];
@@ -386,7 +398,9 @@ myExampleData.plotlybarlayout = {
 		color : '#7f7f7f'
 	},
 	barmode : 'group',
-	autosize : true
+	autosize : true,
+    paper_bgcolor:'#E0E0E0',
+	plot_bgcolor:'#E0E0E0'
 /*height: 225,
 width: 475*/
 };
@@ -490,7 +504,9 @@ myExampleData.barGroupChartLayout = {
 			color : '#7f7f7f'
 		},
 		barmode : 'stack',
-		autosize : true
+		autosize : true,
+        paper_bgcolor:'#E0E0E0',
+		plot_bgcolor:'#E0E0E0'
 };
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //plotly pie chart sample data starts here 
@@ -512,7 +528,9 @@ myExampleData.plotlypielayout = {
 			size : 18,
 			color : '#7f7f7f'
   },
-  autosize : true
+  autosize : true,
+  paper_bgcolor:'#E0E0E0',
+  plot_bgcolor:'#E0E0E0'
 
 };
 myExampleData.plotlypieconfig = {
@@ -563,11 +581,9 @@ myExampleData.bubbleChartOptions = {
 //table widget sample data starts here 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 myExampleData.constructTableWidgetData = function() {
-	return [ "Trident" + Math.ceil(Math.random() * 20),
-			"IE" + Math.ceil(Math.random() * 20),
-			"Win" + Math.ceil(Math.random() * 20) ]
+	return ["Brand " + Math.ceil(Math.random() * 20),
+			"Internet explorer" + Math.ceil(Math.random() * 20)]
 };
-
 myExampleData.tableWidgetData = {
 	"aaData" : [ myExampleData.constructTableWidgetData(),
 			myExampleData.constructTableWidgetData(),
@@ -588,12 +604,11 @@ myExampleData.tableWidgetData = {
 			myExampleData.constructTableWidgetData()],
 
 	"aoColumns" : [ {
-		"sTitle" : "Engine"
+		"sTitle" : "Engine",
+		'orderable': false
 	}, {
 		"sTitle" : "Browser"
-	}, {
-		"sTitle" : "Platform"
-	} ],
+	}],
 /*	"columnDefs": [
         {  // set default column settings
             'orderable': false,
@@ -608,14 +623,14 @@ myExampleData.tableWidgetData = {
             //"targets": [2]
         }
     ],*/
-	"iDisplayLength" : 25,
+	"iDisplayLength" : 5,
 	"aLengthMenu" : [
         [5, 15, 20, -1],
         [5, 15, 20, "All"] // change per page values here
     ],
 	"bPaginate" : true,
 	"bLengthChange":true,
-	"bAutoWidth" : false,
+	"bAutoWidth" : true,
 //	"buttons":[ 'copyHtml5','excelHtml5','csvHtml5','pdfHtml5']
 };
 
@@ -681,7 +696,9 @@ myExampleData.donutWidgetLayout =  {
 	    }
 	  ],
 	  height: 600,
-	  width: 600
+	  width: 600,
+      paper_bgcolor:'#E0E0E0',
+	  plot_bgcolor:'#E0E0E0'
 	};
 
 myExampleData.donutWidgetConfig = {

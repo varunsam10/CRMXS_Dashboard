@@ -93,7 +93,7 @@
 			_bindEvents : function() {
 				var self = this;
 				//click event for maximize button
-				this.element.on("click", ".sDashboardWidgetHeader div.sDashboard-icon.sDashboard-maximize-icon", function(e) {
+				this.element.on("click", ".sDashboardWidgetHeader div.sDashboard-iconcustomZoom.sDashboard-maximize-icon", function(e) {
 
 					//get the widget List Item Dom
 					var widgetListItem = $(e.currentTarget).parents("li:first");
@@ -154,7 +154,7 @@
 				});
 
 				//refresh widget click event handler
-				this.element.on("click", ".sDashboardWidgetHeader div.sDashboard-icon.sDashboard-refresh-icon", function(e) {
+				this.element.on("click", ".sDashboardWidgetHeader div.sDashboard-iconcustomRefresh.sDashboard-refresh-icon", function(e) {
 					var widget = $(e.currentTarget).parents("li:first");
 					var widgetId = widget.attr("id");
 					var widgetDefinition = self._getWidgetContentForId(widgetId, self);
@@ -224,7 +224,7 @@
 				var deleteButton = $('<a class="btn btn-circle btn-icon-only btn-default sDashboard-iconcustomStyle sDashboard-trash-icon" href="javascript:;"><i class="icon-trash"></i></a>');*/
 				
 				var widgetHeader = $("<div/>").addClass("sDashboardWidgetHeader sDashboard-clearfix");
-				var maximizeButton = $('<div title="Maximize" class="sDashboard-icon sDashboard-maximize-icon "></span>');
+				var maximizeButton = $('<div title="Maximize" class="sDashboard-iconcustomZoom sDashboard-maximize-icon "></span>');
 				var settingsButton = $('<div title="Setting" class="sDashboard-iconcustom sDashboard-settings "></span>');
 				
 				var deleteButton = $('<div title="Delete" class="sDashboard-iconcustomDel sDashboard-trash-icon"></div>');		
@@ -254,7 +254,7 @@
 				}
 
 				if (widgetDefinition.hasOwnProperty("enableRefresh") && widgetDefinition.enableRefresh) {
-					var refreshButton = $('<div title="Refresh" class="sDashboard-icon sDashboard-refresh-icon "></div>');
+					var refreshButton = $('<div title="Refresh" class="sDashboard-iconcustomRefresh sDashboard-refresh-icon "></div>');
 					//add refresh button
 					widgetHeader.append(refreshButton);
 				}
@@ -359,9 +359,9 @@
 						{"extend": 'pdf', "text":' <a href="javascript:;"><i class="fa fa-file-pdf-o"></i>Pdf</a>',"className": 'btn  btn-outline' },
 		                {"extend": 'excelHtml5', "text":' <a href="javascript:;"><i class="fa fa-file-excel-o"></i>Excel</a>',"className": 'btn btn-outline' }
 			         ];
-					tableDef["pageLength"] = 10;
+					tableDef["pageLength"] = 5;
 					tableDef["paging"] = true;
-					tableDef["lengthMenu"] = [[10, 25, 50, -1], [10, 25, 50, "All"]];
+					tableDef["lengthMenu"] = [[5, 15, 20, -1], [5, 15, 20, "All"]];
 					table.dataTable(tableDef);		 
 					/*table.dataTable({tableDef,
 						 buttons: ['copy', 'csv', 'excel', 'pdf', 'print']					 
