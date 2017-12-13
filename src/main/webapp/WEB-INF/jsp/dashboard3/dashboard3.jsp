@@ -316,14 +316,9 @@
                                         </li>
                                         <li class="nav-item  ">
                                         <a href="drawboard4.html"  class="nav-link "><i class="icon-check"></i>
-                                        <span class="title">Change graph type</span>
-                                        </a>
-                                        </li> 
-                                         <li class="nav-item  ">
-                                        <a href="drawboard5.html"  class="nav-link "><i class="icon-check"></i>
                                         <span class="title">Widget interaction</span>
                                         </a>
-                                        </li>                  
+                                        </li>                                                     
                                   
                                 </ul>
                             </li>

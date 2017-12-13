@@ -18,34 +18,56 @@
 	name="description" />
 <meta content="" name="author" />
 <!-- BEGIN LAYOUT FIRST STYLES -->
-<link href="//fonts.googleapis.com/css?family=Oswald:400,300,700" rel="stylesheet" type="text/css" />
+<!-- <link href="//fonts.googleapis.com/css?family=Oswald:400,300,700"
+	rel="stylesheet" type="text/css" /> -->
+<link href="assets/css/Oswald-font.css"	rel="stylesheet" type="text/css" />
 <!-- END LAYOUT FIRST STYLES -->
 <!-- BEGIN GLOBAL MANDATORY STYLES -->
-<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
-<link href="assets/dash6/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-<link href="assets/dash6/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
-<link href="assets/dash6/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-<link href="assets/dash6/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
+<!-- <link
+	href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all"
+	rel="stylesheet" type="text/css" /> -->
+<link
+	href="assets/dash6/global/plugins/font-awesome/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="assets/dash6/global/plugins/simple-line-icons/simple-line-icons.min.css"
+	rel="stylesheet" type="text/css" />
+<link href="assets/dash6/global/plugins/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="assets/dash6/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css"
+	rel="stylesheet" type="text/css" />
 <!-- END GLOBAL MANDATORY STYLES -->
 <!-- BEGIN PAGE LEVEL PLUGINS -->
-<link href="assets/dash6/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css" rel="stylesheet" type="text/css" />
-<link href="assets/dash6/global/plugins/morris/morris.css"	rel="stylesheet" type="text/css" />
-<link href="assets/dash6/global/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet" type="text/css" />
-<link href="assets/dash6/global/plugins/jqvmap/jqvmap/jqvmap.css" rel="stylesheet" type="text/css" />
+<link
+	href="assets/dash6/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css"
+	rel="stylesheet" type="text/css" />
+<link href="assets/dash6/global/plugins/morris/morris.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="assets/dash6/global/plugins/fullcalendar/fullcalendar.min.css"
+	rel="stylesheet" type="text/css" />
+<link href="assets/dash6/global/plugins/jqvmap/jqvmap/jqvmap.css"
+	rel="stylesheet" type="text/css" />
 <!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN THEME GLOBAL STYLES -->
-<link href="assets/dash6/global/css/components-md.min.css" rel="stylesheet" id="style_components" type="text/css" />
-<link href="assets/dash6/global/css/plugins-md.min.css" rel="stylesheet" type="text/css" />
+<link href="assets/dash6/global/css/components-md.min.css"
+	rel="stylesheet" id="style_components" type="text/css" />
+<link href="assets/dash6/global/css/plugins-md.min.css" rel="stylesheet"
+	type="text/css" />
 <!-- END THEME GLOBAL STYLES -->
 <!-- BEGIN THEME LAYOUT STYLES -->
-<link href="assets/dash6/layouts/layout6/css/layout.css" rel="stylesheet" type="text/css" />
-<link href="assets/dash6/layouts/layout6/css/custom.css" rel="stylesheet" type="text/css" />
-
-
+<link href="assets/dash6/layouts/layout6/css/layout.css"
+	rel="stylesheet" type="text/css" />
+<link href="assets/dash6/layouts/layout6/css/custom.css"
+	rel="stylesheet" type="text/css" />
+	
 <!-- datatable CSS  -->
 <!-- <link href="assets/dash6/css/datatable/jquery.dataTables.min.css" rel="stylesheet" type="text/css" /> -->
-<link href="assets/dash6/css/datatable/buttons.dataTables.min.css" rel="stylesheet" type="text/css" />
-<link href="assets/dash6/css/datatable/datatables.css" rel="stylesheet" type="text/css" /> 
+<link href="assets/dash6/css/datatable/buttons.dataTables.min.css"
+	rel="stylesheet" type="text/css" />
+<link href="assets/dash6/css/datatable/datatables.css" rel="stylesheet"
+	type="text/css" />
 
 
 <!-- END THEME LAYOUT STYLES -->
@@ -55,8 +77,9 @@
 <!-- load jquery ui css theme -->
 <!-- <link type="text/css" href="assets/dash6/css/jquery-ui.css"
 	rel="stylesheet" /> -->
-	
-<link type="text/css" href="assets/dash6/css/jqueryNw/jquery-ui.css" rel="stylesheet" />
+
+<link type="text/css" href="assets/dash6/css/jqueryNw/jquery-ui.css"
+	rel="stylesheet" />
 <!-- load the dashboard css -->
 <link href="assets/dash6/css/cprDashboard.css" rel="stylesheet">
 <!-- load gitter css -->
@@ -70,8 +93,17 @@
 <style>
 /*
 if it's not present, don't show loader */
-.no-js #loader { display: none;  }
-.js #loader { display: block; position: absolute; left: 100px; top: 0; }
+.no-js #loader {
+	display: none;
+}
+
+.js #loader {
+	display: block;
+	position: absolute;
+	left: 100px;
+	top: 0;
+}
+
 .se-pre-con {
 	position: fixed;
 	left: 0px;
@@ -79,23 +111,21 @@ if it's not present, don't show loader */
 	width: 100%;
 	height: 100%;
 	z-index: 9999;
-	background: url(assets/img/loader-128x/Preloader_3.gif) center no-repeat #fff;
-
-</style>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
-
-<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
-
+	background: url(assets/img/loader-128x/Preloader_3.gif) center no-repeat
+		#fff;
+}
+</style> 
+<script src="assets/dash6/js/jqueryNw/jquery-1.12.4.js"	type="text/javascript"></script>
+<script src="assets/js/modernizr-2.8.2.js"	type="text/javascript"></script>
 <script type="text/javascript">
-
-// Wait for window load
-$(window).load(function() {
-	// Animate loader off screen
-	$(".se-pre-con").fadeOut("slow");;
-});
-</script>
-
-<div class="se-pre-con"></div>
+	// Wait for window load
+	$(window).load(function() {
+		// Animate loader off screen
+		$(".se-pre-con").fadeOut("slow");
+		;
+	});
+</script> 
+<div class="se-pre-con"></div> 
 
 <body class="page-md">
 	<!-- BEGIN HEADER -->
@@ -338,8 +368,8 @@ $(window).load(function() {
 						</a>
 					</div>
 				</div>
-				
-								
+
+
 				<div class="clearfix"></div>
 				<!-- END DASHBOARD STATS 1-->
 				<!-- BEGIN PAGE BASE CONTENT -->
@@ -367,84 +397,114 @@ $(window).load(function() {
 	<!-- END QUICK NAV -->
 
 	<!-- BEGIN CORE PLUGINS -->
-	<!-- <script src="assets/dash6/global/plugins/jquery.min.js"	type="text/javascript"></script>  -->
+	<!-- <script src="assets/dash6/global/plugins/jquery.min.js"	type="text/javascript"></script>  --> 
 	<!-- remove -->
 	<script src="assets/dash6/js/jqueryNw/jquery-1.12.4.js"	type="text/javascript"></script>
-	<script src="assets/dash6/global/plugins/bootstrap/js/bootstrap.min.js"	type="text/javascript"></script>
-	<script src="assets/dash6/global/plugins/js.cookie.min.js" type="text/javascript"></script>
-	<script src="assets/dash6/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
-	<script src="assets/dash6/global/plugins/jquery.blockui.min.js"	type="text/javascript"></script>
-	<script src="assets/dash6/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+	<script src="assets/dash6/global/plugins/bootstrap/js/bootstrap.min.js"
+		type="text/javascript"></script>
+	<script src="assets/dash6/global/plugins/js.cookie.min.js"
+		type="text/javascript"></script>
+	<script
+		src="assets/dash6/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js"
+		type="text/javascript"></script>
+	<script src="assets/dash6/global/plugins/jquery.blockui.min.js"
+		type="text/javascript"></script>
+	<script
+		src="assets/dash6/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js"
+		type="text/javascript"></script>
 	<!-- END CORE PLUGINS -->
 	<!-- BEGIN PAGE LEVEL PLUGINS -->
-	<script src="assets/dash6/global/plugins/moment.min.js" type="text/javascript"></script>
-	<script	src="assets/dash6/global/plugins/bootstrap-daterangepicker/daterangepicker.min.js"	type="text/javascript"></script>
-	<script src="assets/dash6/global/plugins/morris/morris.min.js" type="text/javascript"></script>
-	<script src="assets/dash6/global/plugins/morris/raphael-min.js" type="text/javascript"></script>
-	<script	src="assets/dash6/global/plugins/counterup/jquery.waypoints.min.js"	type="text/javascript"></script>
-	<script	src="assets/dash6/global/plugins/counterup/jquery.counterup.min.js"	type="text/javascript"></script>
-	<script	src="assets/dash6/global/plugins/fullcalendar/fullcalendar.min.js"	type="text/javascript"></script>
-	<script	src="assets/dash6/global/plugins/horizontal-timeline/horizontal-timeline.js" type="text/javascript"></script>
-	<script src="assets/dash6/global/plugins/flot/jquery.flot.min.js" type="text/javascript"></script>
-	<script src="assets/dash6/global/plugins/flot/jquery.flot.resize.min.js" type="text/javascript"></script>
-	<script src="assets/dash6/global/plugins/flot/jquery.flot.categories.min.js" type="text/javascript"></script>
-	<script src="assets/dash6/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
+	<script src="assets/dash6/global/plugins/moment.min.js"
+		type="text/javascript"></script>
+	<script
+		src="assets/dash6/global/plugins/bootstrap-daterangepicker/daterangepicker.min.js"
+		type="text/javascript"></script>
+	<script src="assets/dash6/global/plugins/morris/morris.min.js"
+		type="text/javascript"></script>
+	<script src="assets/dash6/global/plugins/morris/raphael-min.js"
+		type="text/javascript"></script>
+	<script
+		src="assets/dash6/global/plugins/counterup/jquery.waypoints.min.js"
+		type="text/javascript"></script>
+	<script
+		src="assets/dash6/global/plugins/counterup/jquery.counterup.min.js"
+		type="text/javascript"></script>
+	<script
+		src="assets/dash6/global/plugins/fullcalendar/fullcalendar.min.js"
+		type="text/javascript"></script>
+	<script
+		src="assets/dash6/global/plugins/horizontal-timeline/horizontal-timeline.js"
+		type="text/javascript"></script>
+	<script src="assets/dash6/global/plugins/flot/jquery.flot.min.js"
+		type="text/javascript"></script>
+	<script
+		src="assets/dash6/global/plugins/flot/jquery.flot.resize.min.js"
+		type="text/javascript"></script>
+	<script
+		src="assets/dash6/global/plugins/flot/jquery.flot.categories.min.js"
+		type="text/javascript"></script>
+	<script src="assets/dash6/global/plugins/jquery.sparkline.min.js"
+		type="text/javascript"></script>
 
 	<!-- END PAGE LEVEL PLUGINS -->
 	<!-- BEGIN THEME GLOBAL SCRIPTS -->
 	<script src="assets/dash6/global/scripts/app.js" type="text/javascript"></script>
 	<!-- END THEME GLOBAL SCRIPTS -->
 	<!-- BEGIN PAGE LEVEL SCRIPTS -->
-	<script src="assets/dash6/pages/scripts/dashboard.min.js" type="text/javascript"></script>
+	<script src="assets/dash6/pages/scripts/dashboard.min.js"
+		type="text/javascript"></script>
 	<!-- END PAGE LEVEL SCRIPTS -->
 	<!-- BEGIN THEME LAYOUT SCRIPTS -->
-	<script src="assets/dash6/layouts/layout6/scripts/layout.min.js" type="text/javascript"></script>
+	<script src="assets/dash6/layouts/layout6/scripts/layout.min.js"
+		type="text/javascript"></script>
 	<!-- END THEME LAYOUT SCRIPTS -->
-
-
 
 	<!--     CPR Dashboard    Custom     -->
 	<!-- Load jquery library -->
 	<!-- <script src="assets/dash6/js/jquery/jquery-1.8.2.js"	type="text/javascript"></script> -->
 	<!-- load jquery ui library -->
-	<script src="assets/dash6/js/jquery/jquery-ui.js" type="text/javascript"></script> 
+	<script src="assets/dash6/js/jquery/jquery-ui.js"
+		type="text/javascript"></script>
 	<!--  remove -->
-	<!-- <script src="assets/dash6/js/jqueryNw/jquery-ui.js" type="text/javascript"></script> -->	
+	<!-- <script src="assets/dash6/js/jqueryNw/jquery-ui.js" type="text/javascript"></script> -->
 	<!-- load touch punch library to enable dragging on touch based devices -->
-	<script src="assets/dash6/js/touchpunch/jquery.ui.touch-punch.js" type="text/javascript"></script>
+	<script src="assets/dash6/js/touchpunch/jquery.ui.touch-punch.js"
+		type="text/javascript"></script>
 	<!-- load gitter notification library -->
-<!-- 	<script src="assets/dash6/js/gitter/jquery.gritter.js" type="text/javascript"></script> -->
+	<!-- 	<script src="assets/dash6/js/gitter/jquery.gritter.js" type="text/javascript"></script> -->
 	<!-- Toastr notification library -->
 	<script src="assets/dash6/js/toastr/toastr.js" type="text/javascript"></script>
 	<!-- load datatables library -->
-	<!--<script src="assets/dash6/js/datatables/jquery.dataTables.js"></script>  -->	
+	<!--<script src="assets/dash6/js/datatables/jquery.dataTables.js"></script>  -->
 	<script src="assets/js/dash1/plotly-latest.min.js"></script>
 	<script src="assets/dash6/js/chart/Chart.bundle.js"></script>
-	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+	<!-- <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script> -->
 	<script src="assets/dash6/js/c3/c3.min.js"></script>
 	<!--  <script src="assets/dash6/js/c3/bubble.js"></script> -->
 	<!-- load dashboard library -->
-	<script src="assets/dash6/js/jquery-cprDashboard.js" type="text/javascript"></script>
+	<script src="assets/dash6/js/jquery-cprDashboard.js"
+		type="text/javascript"></script>
 
 	<!-- theme switcher -->
-	<script src="assets/dash6/js/themeswitcher/jquery.themeswitcher.min.js"	type="text/javascript"></script>
+	<script src="assets/dash6/js/themeswitcher/jquery.themeswitcher.min.js"
+		type="text/javascript"></script>
 	<!-- sample data external script file -->
 	<script src="assets/dash6/js/exampleData.js" type="text/javascript"></script>
 	<!-- Datatable export function js files -->
 	<!-- <script src="assets/dash6/js/datatableNw/datatables.js"></script> -->
 	<script src="assets/dash6/js/datatableNw/jquery.dataTables.min.js"></script>
-	
+
 	<script src="assets/dash6/js/datatableNw/dataTables.buttons.min.js"></script>
 	<script src="assets/dash6/js/datatableNw/jszip.min.js"></script>
 	<script src="assets/dash6/js/datatableNw/pdfmake.min.js"></script>
 	<script src="assets/dash6/js/datatableNw/vfs_fonts.js"></script>
 	<script src="assets/dash6/js/datatableNw/buttons.print.min.js"></script>
- 	
+
 	<script src="assets/dash6/js/datatableNw/buttons.html5.min.js"></script>
-	<script src="assets/dash6/js/datatableNw/buttons.flash.min.js"></script> 
-	
+	<script src="assets/dash6/js/datatableNw/buttons.flash.min.js"></script>
+
 	<!--  data grid export js files -->
-<!-- 	<script type="text/javascript" src="assets/dash6/js/grid/jqxcore.js"></script>
+	<!-- 	<script type="text/javascript" src="assets/dash6/js/grid/jqxcore.js"></script>
     <script type="text/javascript" src="assets/dash6/js/grid/jqxbuttons.js"></script>
     <script type="text/javascript" src="assets/dash6/js/grid/jqxscrollbar.js"></script>
     <script type="text/javascript" src="assets/dash6/js/grid/jqxmenu.js"></script>
@@ -457,303 +517,338 @@ $(window).load(function() {
     <script type="text/javascript" src="assets/dash6/js/grid/jqxgrid.export.js"></script> 
     <script type="text/javascript" src="assets/dash6/js/grid/jqxgrid.sort.js"></script> 
 	 -->
-	
-	
+
+
 	<script type="text/javascript">
-   	$(document).ready(function(){           	
-  
-        $(function() {
-        //Theme switcher plugin
-        $("#switcher").themeswitcher({
-        imgpath : "assets/dash6/css/images/",
-        loadTheme : "Le Frog"
-        });
-      
- //**********************************************//
- //dashboard json data
- //this is the data format that the dashboard framework expects
- //**********************************************
-	var dashboardJSON =[
-		{
-    		widgetTitle: "Day Wise",
-    		widgetId: "id001",
-    		widgetType: "chart",
-    		graphType: "exploratory",
-    		widgetDimension: "normal",
-    		chartType: "column",
-    		widgetContent: {
-    			data: myExampleData.plotlycolumndata,
-    			layout: myExampleData.plotlycolumnlayout,
-    			config: myExampleData.plotlycolumnconfig	
-    			}
-    	},
-    	
-    	{
-    		widgetTitle: "Hour Wise Redemptions",
-    		widgetId: "id003",
-    		widgetType: "chart",
-    		graphType: "exploratory",
-    		widgetDimension: "normal",
-    		chartType: "barline",
-    		widgetContent: {
-    			data: myExampleData.plotlybarlinedata,
-    			layout: myExampleData.plotlybarlinelayout,
-    			config: myExampleData.plotlybarlineconfig	
-    			}
-    	},
-    	{
-    		widgetTitle: "Sales Figures",
-    		widgetId: "id011",
-    		widgetType: "chart",
-    		graphType: "exploratory",
-    		widgetDimension: "normal",
-    		chartType: "pie",
-    		widgetContent: {			 
-    			data: myExampleData.plotlypiedata,
-    			layout: myExampleData.plotlypielayout,
-    			config: myExampleData.plotlypieconfig
-    		}
-    	},
-    	{
-    		widgetTitle: "Sales Figures2",
-    		widgetId: "id012",
-    		widgetType: "chart",
-    		graphType: "exploratory",
-    		widgetDimension: "normal",
-    		chartType: "pie",
-    		widgetContent: {			 
-    			data: myExampleData.donutWidgetData,
-    			layout: myExampleData.donutWidgetLayout,
-    			config: myExampleData.donutWidgetConfig
-    		}
-    	},		
-		{
-    		widgetTitle: "Hour Wise Redemptions",
-    		widgetId: "id002",
-    		widgetType: "chart",
-    		graphType: "exploratory",
-    		widgetDimension: "normal",
-    		chartType: "area",
-    		widgetContent: {
-    			data: myExampleData.plotlyareadata,
-    			layout: myExampleData.plotlyarealayout,
-    			config: myExampleData.plotlyareaconfig	
-    			}
-    	},
-    	
-    	{
-    		widgetTitle: "Age group",
-    		widgetId: "id004",
-    		widgetType: "chart",
-    		graphType: "exploratory",
-    		widgetDimension: "normal",
-    		chartType: "bubble",
-    		enableRefresh: true,
-    		refreshCallBack : function(widgetId){ 
-    			//Inside refresh callback		
-    			//notification('info', 'Inside the refresh callback of '+widgetId+'!');
-    			var refreshedData = {
-    					data: myExampleData.plotlyRefreshBubbleData,
-    					layout: myExampleData.plotlyBubbleLayout,
-    					config: myExampleData.plotlybarconfig
-    			};
-    			return refreshedData; 
-    		},
-    		widgetContent: {
-    			data: myExampleData.plotlyBubbleData,
-    			layout: myExampleData.plotlyBubbleLayout,
-    			config: myExampleData.plotlybarconfig
-    		}
-    	},
-    	{
-    		widgetTitle: "Revenue by region",
-    		widgetId: "id005",
-    		widgetType: "chart",
-    		graphType: "exploratory",
-    		widgetDimension: "large",
-    		chartType: "bubble",
-    		widgetContent: {
-    			data: myExampleData.plotlybubble2data,
-    			layout: myExampleData.plotlybubble2layout,
-    			config: myExampleData.plotlybubble2config	
-    			}
-    },
-    	
-    {
-		widgetTitle: "Revenue",
-		widgetId: "id006",
-		widgetType: "chart",
-		graphType: "exploratory",
-		widgetDimension: "large",
-		chartType: "bar",
-		enableRefresh: true,
-		refreshCallBack : function(widgetId){ 		
-			var refreshedData = {
-					data: myExampleData.barGroupRefreshChartData,
-					layout: myExampleData.barGroupChartLayout,
-					config: myExampleData.plotlybarconfig
-			};
-			return refreshedData; 
-		},
-		widgetContent: {
-			data: myExampleData.barGroupChartData,
-			layout: myExampleData.barGroupChartLayout,
-			config: myExampleData.plotlybarconfig
-		}
-	}, {
-		widgetTitle: "Items sold",
-		widgetId: "id007",
-		widgetType: "chart",
-		graphType: "exploratory",
-		widgetDimension: "large",
-		chartType: "line",
-		getDataBySelection: true,
-		widgetContent: {		
-			data: myExampleData.plotlylinedata,
-			layout: myExampleData.plotlylinelayout,
-			config: myExampleData.plotlylineconfig			  
-		}
-	},	
-	
-	/* {
-		widgetTitle: "Sales Figures",
-		widgetId: "id006",
-		widgetType: "chart",
-		graphType: "normal",
-		widgetDimension: "normal",
-		chartType: "pie",
-		widgetContent: {
-			data: myExampleData.c3piedata
-		}
-	}, */
-	
-	
-	{
-		widgetTitle: " ",
-		widgetId: "id008",
-		widgetType: "Text",		
-		widgetDimension: "small",		
-		widgetContent: "Number of Redemptions: 4,636 \n" + "Revenue Generated 231,800$"
-	},
-	{
-		widgetTitle: "Table ",
-		widgetId: "id009",
-		widgetType: "table",
-		//widgetDimension: "large",
-		setJqueryStyle: true,
-		enableRefresh: true,
-		refreshCallBack : function(widgetId){ 
-		//Inside refresh callback		
-		notification('info', 'Inside the refresh callback of '+widgetId+'!');
-		},
-		widgetContent:myExampleData.tableWidgetData		
-	},
-/* 	{
-		widgetTitle: "Items Sold Grid",
-		widgetId: "id010",
-		widgetType: "grid",
-		widgetContent:{
-			data:myExampleData.tableGridSource,		
-			coloumns:myExampleData.GridColoumns,			
-			width:myExampleData.GridWidth
-		}
-	}, */
-	/* {
-		widgetTitle: "Table",
-		widgetId: "id007",
-		widgetType: "table",
-		setJqueryStyle: true,
-		widgetContent: {
-			data: myExampleData.tableWidgetDataNw,
-			coloumns: myExampleData.tableWidgetColoumnNw,
-			buttons:myExampleData.tableWidgetButtonNw
-		}
-	}, */{
-		widgetTitle: "Stats",
-		widgetId: "id010",
-		widgetType: "Text",		
-		widgetDimension: "small",
-		widgetContent: "Number of Redemptions: 4,636 \n" + "Revenue Generated 231,800$"
-	}
-	
-	];
+		$(document)
+				.ready(
+						function() {
+
+							$(function() {
+								//Theme switcher plugin
+								$("#switcher").themeswitcher({
+									imgpath : "assets/dash6/css/images/",
+									loadTheme : "Le Frog"
+								});
+
+								//**********************************************//
+								//dashboard json data
+								//this is the data format that the dashboard framework expects
+								//**********************************************
+								var dashboardJSON = [
+										{
+											widgetTitle : "Day Wise",
+											widgetId : "id001",
+											widgetType : "chart",
+											graphType : "exploratory",
+											widgetDimension : "normal",
+											chartType : "column",
+											widgetContent : {
+												data : myExampleData.plotlycolumndata,
+												layout : myExampleData.plotlycolumnlayout,
+												config : myExampleData.plotlycolumnconfig
+											}
+										},
+
+										{
+											widgetTitle : "Hour Wise Redemptions",
+											widgetId : "id003",
+											widgetType : "chart",
+											graphType : "exploratory",
+											widgetDimension : "normal",
+											chartType : "barline",
+											widgetContent : {
+												data : myExampleData.plotlybarlinedata,
+												layout : myExampleData.plotlybarlinelayout,
+												config : myExampleData.plotlybarlineconfig
+											}
+										},
+										{
+											widgetTitle : "Sales Figures",
+											widgetId : "id011",
+											widgetType : "chart",
+											graphType : "exploratory",
+											widgetDimension : "normal",
+											chartType : "pie",
+											widgetContent : {
+												data : myExampleData.plotlypiedata,
+												layout : myExampleData.plotlypielayout,
+												config : myExampleData.plotlypieconfig
+											}
+										},
+										{
+											widgetTitle : "Revenue",
+											widgetId : "id010",
+											widgetType : "Text",
+											widgetDimension : "small",
+											widgetContent : "231,800$"
+										},
+										{
+											widgetTitle : "Sales Figures2",
+											widgetId : "id012",
+											widgetType : "chart",
+											graphType : "exploratory",
+											widgetDimension : "normal",
+											chartType : "pie",
+											widgetContent : {
+												data : myExampleData.donutWidgetData,
+												layout : myExampleData.donutWidgetLayout,
+												config : myExampleData.donutWidgetConfig
+											}
+										},
+										{
+											widgetTitle : "Hour Wise Redemptions",
+											widgetId : "id002",
+											widgetType : "chart",
+											graphType : "exploratory",
+											widgetDimension : "normal",
+											chartType : "area",
+											widgetContent : {
+												data : myExampleData.plotlyareadata,
+												layout : myExampleData.plotlyarealayout,
+												config : myExampleData.plotlyareaconfig
+											}
+										},
+
+										{
+											widgetTitle : "Age group",
+											widgetId : "id004",
+											widgetType : "chart",
+											graphType : "exploratory",
+											widgetDimension : "normal",
+											chartType : "bubble",
+											enableRefresh : true,
+											refreshCallBack : function(widgetId) {
+												//Inside refresh callback		
+												//notification('info', 'Inside the refresh callback of '+widgetId+'!');
+												var refreshedData = {
+													data : myExampleData.plotlyRefreshBubbleData,
+													layout : myExampleData.plotlyBubbleLayout,
+													config : myExampleData.plotlybarconfig
+												};
+												return refreshedData;
+											},
+											widgetContent : {
+												data : myExampleData.plotlyBubbleData,
+												layout : myExampleData.plotlyBubbleLayout,
+												config : myExampleData.plotlybarconfig
+											}
+										},
+										{
+											widgetTitle : "Revenue by region",
+											widgetId : "id005",
+											widgetType : "chart",
+											graphType : "exploratory",
+											widgetDimension : "large",
+											chartType : "bubble",
+											widgetContent : {
+												data : myExampleData.plotlybubble2data,
+												layout : myExampleData.plotlybubble2layout,
+												config : myExampleData.plotlybubble2config
+											}
+										},
+
+										{
+											widgetTitle : "Revenue",
+											widgetId : "id006",
+											widgetType : "chart",
+											graphType : "exploratory",
+											widgetDimension : "large",
+											chartType : "bar",
+											enableRefresh : true,
+											refreshCallBack : function(widgetId) {
+												var refreshedData = {
+													data : myExampleData.barGroupRefreshChartData,
+													layout : myExampleData.barGroupChartLayout,
+													config : myExampleData.plotlybarconfig
+												};
+												return refreshedData;
+											},
+											widgetContent : {
+												data : myExampleData.barGroupChartData,
+												layout : myExampleData.barGroupChartLayout,
+												config : myExampleData.plotlybarconfig
+											}
+										},
+										{
+											widgetTitle : "Items sold",
+											widgetId : "id007",
+											widgetType : "chart",
+											graphType : "exploratory",
+											widgetDimension : "large",
+											chartType : "line",
+											getDataBySelection : true,
+											widgetContent : {
+												data : myExampleData.plotlylinedata,
+												layout : myExampleData.plotlylinelayout,
+												config : myExampleData.plotlylineconfig
+											}
+										},
+										/* {
+											widgetTitle: "Sales Figures",
+											widgetId: "id006",
+											widgetType: "chart",
+											graphType: "normal",
+											widgetDimension: "normal",
+											chartType: "pie",
+											widgetContent: {
+												data: myExampleData.c3piedata
+											}
+										}, */
+										{
+											widgetTitle : "Stats",
+											widgetId : "id008",
+											widgetType : "Text",
+											widgetDimension : "small",
+											widgetContent : "Redemptions : 4,636 \n"
+													+ "Revenue : 231,800$"
+										},
+										{
+											widgetTitle : "Table ",
+											widgetId : "id009",
+											widgetType : "table",
+											//widgetDimension: "large",
+											setJqueryStyle : true,
+											enableRefresh : true,
+											refreshCallBack : function(widgetId) {
+												//Inside refresh callback		
+												notification('info',
+														'Inside the refresh callback of '
+																+ widgetId
+																+ '!');
+											},
+											widgetContent : myExampleData.tableWidgetData
+										},
+								/* 	{
+								 widgetTitle: "Items Sold Grid",
+								 widgetId: "id010",
+								 widgetType: "grid",
+								 widgetContent:{
+								 data:myExampleData.tableGridSource,		
+								 coloumns:myExampleData.GridColoumns,			
+								 width:myExampleData.GridWidth
+								 }
+								 } */
+								/* {
+									widgetTitle: "Table",
+									widgetId: "id007",
+									widgetType: "table",
+									setJqueryStyle: true,
+									widgetContent: {
+										data: myExampleData.tableWidgetDataNw,
+										coloumns: myExampleData.tableWidgetColoumnNw,
+										buttons:myExampleData.tableWidgetButtonNw
+									}
+								}, */
+								];
 	console.log(dashboardJSON);
-        //basic initialization examplemn.sDashboard
-        $("#cprDashboard").sDashboard({
-        	dashboardData : dashboardJSON
-        });
-		
-		//Toastr settings 
-		toastr.options = {
-  				"closeButton": false,
-  				"debug": false,
-  				"newestOnTop": false,
-  				"progressBar": false,
-  				"positionClass": "toast-top-right",
- 				"preventDuplicates": false,
- 				"onclick": null,
-  				"showDuration": "200",
-				"hideDuration": "1000",
-				"timeOut": "5000",
-				"extendedTimeOut": "1000",
-				"showEasing": "swing",
-				"hideEasing": "linear",
-				"showMethod": "fadeIn",
-		  		"hideMethod": "fadeOut"
-		}
-		function notification( type, message ) {
-	    	if( type == 'success' ) {
-	    	    toastr.success(message,'<i>Success</i>');
-	    	} else if( type == 'error' ) {
-	    	    toastr.error(message,'Error');
-	    	} else if( type == 'warning' ) {
-	    	    toastr.warning(message,'Warning');
-	    	} else {
-	    	    toastr.info(message,'Information');
-	    	}   
-	    }
-        //table row clicked event example
-        $("#cprDashboard").bind("sdashboardrowclicked",function(e, data) {
-   
-        if (console) {
-        	console.log("table row clicked, for widget: " + data.selectedWidgetId);
-        }
-        });
+								//basic initialization examplemn.sDashboard
+								$("#cprDashboard").sDashboard({
+									dashboardData : dashboardJSON
+								});
 
-        //plot selected event example
-        $("#cprDashboard").bind("sdashboardplotselected",function(e, data) {  
-        	notification('info', 'A plot has been selected within a chart widget!');
-        if (console) {
-        	console.log("chart range selected, for widget: "+ data.selectedWidgetId);
-        }
-        });
-        //plot click event example
-        $("#cprDashboard").bind("sdashboardplotclicked",function(e, data) {
-      		notification('info', 'chart clicked, for widget:'+ data.clickedWidgetId +' the data passed is'+data.dataPoints+'!');      		
-        if (console) {
-        	console.log("chart clicked, for widget: " + data.selectedWidgetId);
-        }
-        });
+								//Toastr settings 
+								toastr.options = {
+									"closeButton" : false,
+									"debug" : false,
+									"newestOnTop" : false,
+									"progressBar" : false,
+									"positionClass" : "toast-top-right",
+									"preventDuplicates" : false,
+									"onclick" : null,
+									"showDuration" : "200",
+									"hideDuration" : "1000",
+									"timeOut" : "5000",
+									"extendedTimeOut" : "1000",
+									"showEasing" : "swing",
+									"hideEasing" : "linear",
+									"showMethod" : "fadeIn",
+									"hideMethod" : "fadeOut"
+								}
+								function notification(type, message) {
+									if (type == 'success') {
+										toastr.success(message,
+												'<i>Success</i>');
+									} else if (type == 'error') {
+										toastr.error(message, 'Error');
+									} else if (type == 'warning') {
+										toastr.warning(message, 'Warning');
+									} else {
+										toastr.info(message, 'Information');
+									}
+								}
+								//table row clicked event example
+								$("#cprDashboard")
+										.bind(
+												"sdashboardrowclicked",
+												function(e, data) {
 
-        //widget order changes event example
-        $("#cprDashboard").bind("sdashboardorderchanged",function(e, data) {
-	        $.gritter.add({
-		        position : 'bottom-left',
-		        title : 'Order Changed',
-		        time : 4000,
-		        text : 'The widgets order has been changed,check the console for the sorted widget definitions array'
-	        });
-	        if (console) {
-		        console.log("Sorted Array");
-		        console.log("+++++++++++++++++++++++++");
-		        console.log(data.sortedDefinitions);
-		        console.log("+++++++++++++++++++++++++");
-       		}
-        });
+													if (console) {
+														console
+																.log("table row clicked, for widget: "
+																		+ data.selectedWidgetId);
+													}
+												});
 
-        });
-        })
-        </script>
-		<!--     CPR Dashboard    Custom  -->
+								//plot selected event example
+								$("#cprDashboard")
+										.bind(
+												"sdashboardplotselected",
+												function(e, data) {
+													notification('info',
+															'A plot has been selected within a chart widget!');
+													if (console) {
+														console
+																.log("chart range selected, for widget: "
+																		+ data.selectedWidgetId);
+													}
+												});
+								//plot click event example
+								$("#cprDashboard")
+										.bind(
+												"sdashboardplotclicked",
+												function(e, data) {
+													notification(
+															'info',
+															'chart clicked, for widget:'
+																	+ data.clickedWidgetId
+																	+ ' the data passed is'
+																	+ data.dataPoints
+																	+ '!');
+													if (console) {
+														console
+																.log("chart clicked, for widget: "
+																		+ data.selectedWidgetId);
+													}
+												});
+
+								//widget order changes event example
+								$("#cprDashboard")
+										.bind(
+												"sdashboardorderchanged",
+												function(e, data) {
+													$.gritter
+															.add({
+																position : 'bottom-left',
+																title : 'Order Changed',
+																time : 4000,
+																text : 'The widgets order has been changed,check the console for sorted widget definitions array'
+															});
+													if (console) {
+														console
+																.log("Sorted Array");
+														console
+																.log("+++++++++++++++++++++++++");
+														console
+																.log(data.sortedDefinitions);
+														console
+																.log("+++++++++++++++++++++++++");
+													}
+												});
+
+							});
+						})
+	</script>
+	<!--     CPR Dashboard    Custom  -->
 </body>
 </html>

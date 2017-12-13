@@ -1,10 +1,10 @@
 (function(factory) {
 		"use strict";
 		if ( typeof define === 'function' && define.amd) {
-			// Register as an AMD module if available...
+			// Register as an AMD module 
 			define(['jquery','Plotly','c3'], factory);
 		} else {
-			// Browser globals for the unenlightened...
+			// Browser globals 
 			factory($, Plotly,c3);
 		}
 	}(function($,Plotly,c3) {
@@ -25,21 +25,20 @@
 					this._createView();
 				}
 			},
-
 			_createView : function() {
 
 				var docHeight = $(document).height();
 
-				$("body").append("<div class='sDashboard-overlay'></div>");
+				$("body").append("<div class='cprDashboard-overlay'></div>");
 
-				$(".sDashboard-overlay").height(docHeight);
+				$(".cprDashboard-overlay").height(docHeight);
 
-				$(".sDashboard-overlay").hide();
+				$(".cprDashboard-overlay").hide();
 
 				var _dashboardData = this.options.dashboardData;
 				var i;
 				//console.log(_dashboardData);
-				console.log(_dashboardData.length);
+				//console.log(_dashboardData.length);
 				for ( i = 0; i < _dashboardData.length; i++) {
 					var widget = this._constructWidget(_dashboardData[i]);
 					console.log(widget);
@@ -109,14 +108,14 @@
 					$(e.currentTarget).toggleClass("sDashboard-minimize-icon");
 					//change the tooltip on the maximize/minimize icon buttons
 					if ($(e.currentTarget).attr("title") === "Maximize") {
-						$(".sDashboard-overlay").hide();
+						$(".cprDashboard-overlay").hide();
 						$(e.currentTarget).attr("title", "Minimize");
 						$(".sDashboardWidgetHeader div.sDashboard-iconcustomDel.sDashboard-trash-icon ").hide();
 						self._trigger("widgetMaximized", null, {
 							"widgetDefinition" : widgetDefinition
 						});
 					} else {
-						$(".sDashboard-overlay").show();
+						$(".cprDashboard-overlay").show();
 						$(e.currentTarget).attr("title", "Maximize");
 						$(".sDashboardWidgetHeader div.sDashboard-iconcustomDel.sDashboard-trash-icon ").show();
 						self._trigger("widgetMinimized", null, {
@@ -146,8 +145,9 @@
 							Plotly.redraw(chartArea[0]);
 						}
 						if (!widgetDefinition.getDataBySelection) {
-							//when redrawing the widget, the click event listner is getting destroyed, we need to re-register it here again
-							//need to find out if its a bug on flotr2 library.
+							/*when redrawing the widget, the click event 
+							listener is getting destroyed, we need to re-register it here again
+							need to find out if its a bug on flotr2 library.*/
 							self._bindChartEvents(chartArea[0], widgetListItem.attr("id"), widgetDefinition, self);
 						}
 					}
@@ -179,7 +179,7 @@
 					widget.hide("fold", {}, 300, function() {
 						self._removeWidgetFromWidgetDefinitions(this.id);
 						$(this).remove();
-						$(".sDashboard-overlay").hide();
+						$(".cprDashboard-overlay").hide();
 					});
 				});
 
@@ -460,6 +460,58 @@
 				//location.reload(true);
 				
 			},
+			_interactChart: function(widgetDefinition) {
+				var id = "li#" + widgetDefinition.linkedWidgets;
+				var chartArea;
+				var data;
+				var layout;
+				var config;
+				var chart;
+				chartArea = this.element.find(id + " div.sDashboardChart");
+				
+				if (widgetDefinition.widgetType === 'chart') {
+					
+					data = widgetDefinition.widgetContent.data;
+					layout = widgetDefinition.widgetContent.layout;
+					config = widgetDefinition.widgetContent.config;
+					var layout = {
+							  xaxis: {
+							    tickangle: -45
+							  },
+							  barmode: 'group'
+							};
+
+					if(widgetDefinition.graphType === 'normal'){
+						
+						var chart = c3.generate({bindto:chartArea[0],data:widgetDefinition.widgetContent.data});
+						
+					}else{						
+						
+						Plotly.newPlot(chartArea[0], widgetDefinition.widgetContent.data , widgetDefinition.widgetContent.layout,widgetDefinition.widgetContent.config);
+						Plotly.redraw(chartArea[0]);
+					}					
+					if (widgetDefinition.getDataBySelection) {
+						
+						this._bindSelectEvent(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+					} else {
+						if(widgetDefinition.graphType === 'exploratory'){
+							this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+						}
+					}
+				}
+				else if(widgetDefinition.widgetType === 'static')
+					{
+						chart = new Chart(chartArea[0], widgetDefinition.widgetId, widgetDefinition.widgetContent.data);
+						
+						if (widgetDefinition.getDataBySelection) {
+							this._bindSelectEvent(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+						} else {
+							this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+						}
+					}
+				//location.reload(true);
+				
+			},
 			_renderChart : function(widgetDefinition) {
 				var id = "li#" + widgetDefinition.widgetId;
 				var chartArea;
@@ -539,9 +591,10 @@
 				   	var evtObj = {};
 					evtObj.clickedWidgetId = widgetId;
 					evtObj.dataPoints = pts;
-				    context._trigger("plotclicked", null, evtObj);
+				    context._trigger("plotclicked", null, evtObj);	
+				    this._interactChart(widgetDefinition);
 				});
-
+				
 			},
 			_removeWidgetFromWidgetDefinitions : function(widgetId) {
 				var widgetDefs = this.options.dashboardData;
@@ -618,7 +671,7 @@
 			},
 			destroy : function() {
 				//remove the overlay when the dashbaord is destroyed
-				$(".sDashboard-overlay").remove();
+				$(".cprDashboard-overlay").remove();
 				// call the base destroy function
 				$.Widget.prototype.destroy.call(this);
 			}
