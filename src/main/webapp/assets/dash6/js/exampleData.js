@@ -315,7 +315,8 @@ var barlinelayout = {
 		myExampleData.plotlybarlinelayout = barlinelayout;
 		myExampleData.plotlybarlineconfig = {
 				modeBarButtonsToRemove : [ 'sendDataToCloud' ],
-				displaylogo : false
+				displaylogo : false,
+				displayModeBar: 'true'
 			};
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //plotly area graph sample data starts here 
