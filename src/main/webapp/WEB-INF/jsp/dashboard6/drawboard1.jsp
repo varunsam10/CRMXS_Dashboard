@@ -577,13 +577,6 @@ if it's not present, don't show loader */
 											}
 										},
 										{
-											widgetTitle : "Revenue",
-											widgetId : "id010",
-											widgetType : "Text",
-											widgetDimension : "small",
-											widgetContent : "231,800$"
-										},
-										{
 											widgetTitle : "Sales Figures2",
 											widgetId : "id012",
 											widgetType : "chart",
@@ -719,6 +712,13 @@ if it's not present, don't show loader */
 											},
 											widgetContent : myExampleData.tableWidgetData
 										},
+										{
+											widgetTitle : "Revenue",
+											widgetId : "id010",
+											widgetType : "Text",
+											widgetDimension : "small",
+											widgetContent : "231,800$"
+										}
 								/* 	{
 								 widgetTitle: "Items Sold Grid",
 								 widgetId: "id010",
