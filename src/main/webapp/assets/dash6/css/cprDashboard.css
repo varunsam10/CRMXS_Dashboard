@@ -24,7 +24,7 @@
 .cprDashboardLarge {
 	width: 1215px !important;
 	height: auto;
-	min-height: 250px;
+	/* min-height: 500px; */
 }
 
 .cprWidgetContentTable {
@@ -85,12 +85,23 @@
 	margin: 0.3em; 
 	margin: 0.1em;
 	padding: 0.4em;	
-	overflow-x: hidden;
+	overflow-x: auto;
 	overflow-y: auto;
 	transition: .3s all ease;
 	background-color: #E0E0E0;
 	border-radius: 25px;
 	border: 2px solid #e7ecf1 !important;
+}
+
+.filterOptions {
+	margin: 0.3em; 
+	margin: 0.1em;
+	padding: 0.4em;	
+	transition: .3s all ease;
+	background-color: #E0E0E0;
+	border-radius: 25px;
+	border: 2px solid #e7ecf1 !important;
+}
 }
 
 .sDashboardWidgetContentMaximized {
