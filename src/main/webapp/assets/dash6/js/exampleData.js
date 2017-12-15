@@ -25,6 +25,53 @@ myExampleData.c3piedata = {
 					1.4, 2.3, 2.4, 1.8, 1.8, 2.1, 2.4, 2.3, 1.9, 2.3, 2.5, 2.3,
 					1.9, 2.0, 2.3, 1.8 ], ],
 	type : 'pie',
+	colors: {
+          data1: 'rgb(69,117,180)',
+          data2: 'rgb(26, 118, 255)',
+          data3: 'rgb(49,54,149)'
+    }/*,
+	onclick : function(d, i) {
+		console.log("onclick", d, i);
+	},
+	onmouseover : function(d, i) {
+		console.log("onmouseover", d, i);
+	},
+	onmouseout : function(d, i) {
+		console.log("onmouseout", d, i);
+	}*/
+};
+myExampleData.c3linedata = {
+	columns : [ [ 'data1', 30, 200, 100, 400, 150, 250 ],
+			[ 'data2', 50, 20, 10, 40, 15, 25 ] ]
+};
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//c3 pie chart sample data Dashboard 4
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+myExampleData.c3piedata = {
+	// iris data from R
+	columns : [
+			[ "LA Breweries", 0.2, 0.2, 0.2, 0.2, 0.2, 0.4, 0.3, 0.2, 0.2, 0.1, 0.2,
+					0.2, 0.1, 0.1, 0.2, 0.4, 0.4, 0.3, 0.3, 0.3, 0.2, 0.4, 0.2,
+					0.5, 0.2, 0.2, 0.4, 0.2, 0.2, 0.2, 0.2, 0.4, 0.1, 0.2, 0.2,
+					0.2, 0.2, 0.1, 0.2, 0.2, 0.3, 0.3, 0.2, 0.6, 0.4, 0.3, 0.2,
+					0.2, 0.2, 0.2 ],
+			[ "SF Breweries", 1.4, 1.5, 1.5, 1.3, 1.5, 1.3, 1.6, 1.0, 1.3, 1.4,
+					1.0, 1.5, 1.0, 1.4, 1.3, 1.4, 1.5, 1.0, 1.5, 1.1, 1.8, 1.3,
+					1.5, 1.2, 1.3, 1.4, 1.4, 1.7, 1.5, 1.0, 1.1, 1.0, 1.2, 1.6,
+					1.5, 1.6, 1.5, 1.3, 1.3, 1.3, 1.2, 1.4, 1.2, 1.0, 1.3, 1.2,
+					1.3, 1.3, 1.1, 1.3 ],
+			[ "NY Breweries", 2.5, 1.9, 2.1, 1.8, 2.2, 2.1, 1.7, 1.8, 1.8, 2.5,
+					2.0, 1.9, 2.1, 2.0, 2.4, 2.3, 1.8, 2.2, 2.3, 1.5, 2.3, 2.0,
+					2.0, 1.8, 2.1, 1.8, 1.8, 1.8, 2.1, 1.6, 1.9, 2.0, 2.2, 1.5,
+					1.4, 2.3, 2.4, 1.8, 1.8, 2.1, 2.4, 2.3, 1.9, 2.3, 2.5, 2.3,
+					1.9, 2.0, 2.3, 1.8 ], ],
+	type : 'pie',
+	colors: {
+		'LA Breweries': 'rgb(69,117,180)',
+		'SF Breweries': 'rgb(26, 118, 255)',
+		'NY Breweries': 'rgb(49,54,149)'
+	},
 	onclick : function(d, i) {
 		console.log("onclick", d, i);
 	},
@@ -174,12 +221,78 @@ myExampleData.plotlyBubbleLayout = {
 	showlegend : false,
 	paper_bgcolor:'#E0E0E0',
 	plot_bgcolor:'#E0E0E0'
-	/*height : 600,
-	width : 600*/
+	
+};
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//plotly bubble chart sample data - drawboard4 
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+var trace1 = {
+	x : [ 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110 ],
+	y : [ 8, 13, 74, 12, 15, 70, 38, 16, 38, 20, 16, 38 ],
+	mode : 'markers',
+	marker : {
+		size : [ 40, 60, 80, 100 ],
+		color : 'rgb(26, 118, 255)',
+		opacity : 0.6
+
+		
+	},
+	textfont:{
+		color:'rgb(255,255,255)',
+		family:'Helvetica'
+	}
 };
 
+var trace2 = {
+		x : [ 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110 ],
+		y : [ 68, 73, 74, 76, 65, 70, 98, 88, 76, 74, 87, 76 ],
+		mode : 'markers',
+		marker : {
+			size : [ 30, 65, 75, 90 ],
+			color : 'rgb(26, 118, 255)',
+			opacity : 0.6
+
+		},
+		textfont:{
+			color:'rgb(255,255,255)',
+			family:'Helvetica'
+		}
+};
+
+myExampleData.plotlyBubbleData = [ trace1 ];
+
+myExampleData.plotlyRefreshBubbleData = [ trace2 ];
+
+myExampleData.plotlyBubbleLayout = {
+	title : '<b>Age groups</b>',	
+	xaxis : {
+		title : '<b>Age</b>',
+		titlefont : {
+			family : 'Helvetica',
+			size : 18,
+			color : '#7f7f7f'
+		}
+	},
+	yaxis : {
+		title : '<b>Number of customers</b>',
+		titlefont : {
+			family : 'Helvetica',
+			size : 18,
+			color : '#7f7f7f'
+		}
+	},
+	titlefont : {
+		family : 'Helvetica',
+		size : 18,
+		color : '#7f7f7f'
+	},
+	showlegend : false,
+	paper_bgcolor:'#E0E0E0',
+	plot_bgcolor:'#E0E0E0'
+	
+};
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-//plotly coloumn chart sample data starts here  -Day Wise
+//plotly column chart sample data starts here  -Day Wise
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 var trace1 = {
 		  x: [20, 14, 23, 8, 11, 25 ],
@@ -375,7 +488,8 @@ var barlinelayout = {
 		myExampleData.plotlybarlinelayout = barlinelayout;
 		myExampleData.plotlybarlineconfig = {
 				modeBarButtonsToRemove : [ 'sendDataToCloud' ],
-				displaylogo : false
+				displaylogo : false,
+				displayModeBar: 'true'
 			};
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //plotly area graph sample data starts here 
@@ -513,6 +627,7 @@ myExampleData.plotlybarconfig = {
 	displaylogo : false,
 	displayModeBar: 'true'
 };
+
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //plotly stacked bar chart sample data starts here 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -820,9 +935,6 @@ myExampleData.donutWidgetConfig = {
 
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-
-//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //New table widget starts here 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 myExampleData.tableWidgetDataNw = [
@@ -1079,5 +1191,372 @@ function getWidth(name) {
         return 850;
     }
 }
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//Dashboard 4
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//plotly bubble chart 2 sample data starts here 
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+var trace1 = {
+	//x : [ 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110 ],
+	x : [ "2013", "2014", "2015" ],
+	y : [ 21, 43, 74, 12, 15, 70, 38, 16, 38, 20, 16, 38 ],
+	mode : 'markers',
+	marker : {
+		size : [ 60, 80, 100 ],
+		color : 'rgb(26, 118, 255)',
+		opacity : 0.6		
+	},
+	textfont:{
+		color:'rgb(255,255,255)',
+		family:'Helvetica'
+	}
+};
+
+var trace2 = {
+		x : [ 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110 ],
+		y : [ 68, 73, 74, 76, 65, 70, 98, 88, 76, 74, 87, 76 ],
+		mode : 'markers',
+		marker : {
+			size : [ 65, 75, 90 ],
+			color : 'rgb(26, 118, 255)',
+			opacity : 0.6
+		},
+		textfont:{
+			color:'rgb(255,255,255)',
+			family:'Helvetica'
+		}
+};
+
+myExampleData.plotlyBubbleData = [ trace1 ];
+
+myExampleData.plotlyRefreshBubbleData = [ trace2 ];
+
+myExampleData.plotlyBubbleLayout = {
+	title : '<b>Breweries</b>',	
+	xaxis : {
+		title : '<b>Year</b>',
+		titlefont : {
+			family : 'Helvetica',
+			size : 18,
+			color : '#7f7f7f'
+		}
+	},
+	yaxis : {
+		title : '<b>Number of customers</b>',
+		titlefont : {
+			family : 'Helvetica',
+			size : 18,
+			color : '#7f7f7f'
+		}
+	},
+	titlefont : {
+		family : 'Helvetica',
+		size : 18,
+		color : '#7f7f7f'
+	},
+	showlegend : false,
+	paper_bgcolor:'#E0E0E0',
+	plot_bgcolor:'#E0E0E0'
+	/*height : 600,
+	width : 600*/
+};
+
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//plotly stacked bar chart sample data starts here 
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+var trace1 = {
+	x : [ '<b>Tiger</b>', '<b>Desperado</b>', '<b>Heiniken</b>' ,'<b>Kingfisher</b>', '<b>brand1</b>', '<b>brand2</b>','<b>brand3</b>', '<b>brand4</b>', '<b>brand5</b>', '<b>brand9</b>', '<b>brand10</b>', '<b>brand11</b>'],
+	y : [ 20, 14, 23, 25, 34, 36, 78, 44, 43, 47, 55, 32 ],
+	name : '<b>SF Breweries</b>',
+	type : 'bar',
+	marker : {
+		color : 'rgb(55, 83, 109)',
+		opacity : 0.6
+	}
+};
+
+var trace2 = {
+	x : [ '<b>Tiger</b>', '<b>Desperado</b>', '<b>Heiniken</b>' ,'<b>Kingfisher</b>', '<b>brand1</b>', '<b>brand2</b>','<b>brand3</b>', '<b>brand4</b>', '<b>brand5</b>', '<b>brand9</b>', '<b>brand10</b>', '<b>brand11</b>'],
+	y : [ 12, 18, 39, 22, 28, 19, 18, 58, 49, 65, 63, 71],
+	name : '<b>LA Breweries</b>',
+	type : 'bar',
+	marker : {
+		color : 'rgb(26, 118, 255)',
+		opacity : 0.6
+	}
+};
+
+var trace3 = {
+		x : [ '<b>Tiger</b>', '<b>Desperado</b>', '<b>Heiniken</b>' ,'<b>Kingfisher</b>', '<b>brand1</b>', '<b>brand2</b>','<b>brand3</b>', '<b>brand4</b>', '<b>brand5</b>', '<b>brand9</b>', '<b>brand10</b>', '<b>brand11</b>'],
+		y : [ 21, 18, 43, 22, 28, 45, 18, 17, 49, 71, 63, 33],
+		name : '<b>NY Breweries</b>',
+		type : 'bar',
+		marker : {
+			color : 'rgb(171,217,233)',
+			opacity : 0.6
+		}
+};
 
 
+var trace4 = {
+		x : [ 'Carlburg', 'Anchor', 'Guiness' ,'Breidweiser', 'Erdinger', 'brand2','brand3', 'brand4', 'brand5', 'brand9', 'brand10', 'brand11'],
+		y : [ 22, 24, 33,45, 44, 26,68, 64, 63, 47, 49, 35 ],
+		name : 'XL Breweries',
+		type : 'bar',
+		marker : {
+			color : 'rgb(55, 83, 109)',
+			opacity : 0.6
+		}
+};
+
+var trace5 = {
+		x : ['Carlburg', 'Anchor', 'Guiness' ,'Breidweiser', 'Erdinger', 'brand2','brand3', 'brand4', 'brand5', 'brand9', 'brand10', 'brand11'],
+		y : [ 12, 14, 33, 22, 38, 19, 28, 53, 69, 71, 29, 50 ],
+		name : 'YZ Breweries',
+		type : 'bar',
+		marker : {
+			color : 'rgb(26, 118, 255)',
+			opacity : 0.6
+		}
+};
+
+var trace6 = {
+		x : ['Carlburg', 'Anchor', 'Guiness' ,'Breidweiser', 'Erdinger', 'brand2','brand3', 'brand4', 'brand5', 'brand9', 'brand10', 'brand11'],
+		y : [ 9, 14, 45, 22, 38, 19, 51, 53, 22, 65, 29, 59 ],
+		name : 'XZ Breweries',
+		type : 'bar',
+		marker : {
+			color : 'rgb(171,217,233)',
+			opacity : 0.6
+		}
+};
+
+
+var trace7 = {
+		x : [ '<b>Tiger</b>', '<b>Desperado</b>', '<b>Heiniken</b>' ,'<b>Kingfisher</b>'],
+		y : [ 30, 24, 13, 45 ],
+		name : '<b>SF Breweries</b>',
+		type : 'bar',
+		marker : {
+			color : 'rgb(55, 83, 109)',
+			opacity : 0.6
+		}
+};
+
+var trace8 = {
+		x : [ '<b>Tiger</b>', '<b>Desperado</b>', '<b>Heiniken</b>' ,'<b>Kingfisher</b>'],
+		y : [ 32, 28, 29, 42],
+		name : '<b>LA Breweries</b>',
+		type : 'bar',
+		marker : {
+			color : 'rgb(26, 118, 255)',
+			opacity : 0.6
+		}
+};
+
+
+var trace9 = {
+		x : [ '<b>Tiger</b>', '<b>Desperado</b>', '<b>Heiniken</b>' ,'<b>Kingfisher</b>'],
+		y : [ 30, 24, 23, 65 ],
+		name : '<b>SF Breweries</b>',
+		type : 'bar',
+		marker : {
+			color : 'rgb(55, 83, 109)',
+			opacity : 0.6
+		}
+};
+
+var trace10 = {
+		x : [ '<b>Tiger</b>', '<b>Desperado</b>', '<b>Heiniken</b>' ,'<b>Kingfisher</b>'],
+		y : [ 12, 48, 39, 32],
+		name : '<b>LA Breweries</b>',
+		type : 'bar',
+		marker : {
+			color : 'rgb(26, 118, 255)',
+			opacity : 0.6
+		}
+};
+	
+var trace11 = {
+		x : ['Carlburg', 'Anchor', 'Guiness' ,'Breidweiser', 'Erdinger'],
+		y : [ 29, 44, 55, 72, 38],
+		name : 'XZ Breweries',
+		type : 'bar',
+		marker : {
+			color : 'rgb(171,217,233)',
+			opacity : 0.6
+		}
+};
+myExampleData.barGroupChartDataOriginal = [ trace1, trace2, trace3];
+myExampleData.barGroupChartData1 = [ trace7, trace8];
+myExampleData.barGroupChartData2 = [ trace9, trace10, trace11];
+
+
+
+myExampleData.barGroupRefreshChartData = [ trace4, trace5, trace6 ];
+myExampleData.barGroupChartLayout = {
+		title : '<b>Revenue in US $</b>',	
+		xaxis : {
+			title : '<b>Brands</b>',
+			titlefont : {
+				family : 'Helvetica',
+				size : 18,
+				color : '#7f7f7f'
+			}
+		},
+		yaxis : {
+			title : '<b>Million $</b>',
+			titlefont : {
+				family : 'Helvetica',
+				size : 18,
+				color : '#7f7f7f'
+			}
+		},
+		titlefont : {
+			family : 'Helvetica',
+			size : 18,
+			color : '#7f7f7f'
+		},
+		barmode : 'stack',
+		autosize : true,
+      paper_bgcolor:'#E0E0E0',
+		plot_bgcolor:'#E0E0E0'
+};
+
+
+myExampleData.plotlybarconfigDash4 = {
+		modeBarButtonsToRemove : [ 'sendDataToCloud' ],
+		displaylogo : false,
+};
+
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//plotly simple line chart sample data starts here 
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+var trace1 = {
+	x : [ 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110 ],
+	y : [ 8, 13, 74, 12, 15, 70, 38, 16, 38, 20, 16, 38 ],
+	name : '<b>Desperado</b>',
+	type : 'scatter',
+	marker : {
+		color : 'rgb(55, 83, 109)',
+		opacity : 0.6
+	},
+	textfont:{
+		color:'rgb(255,255,255)',
+		family:'Helvetica'
+	}
+
+};
+var trace2 = {
+	x : [ 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110 ],
+	y : [ 10, 15, 60, 22, 25, 80, 28, 36, 48, 18, 26, 48 ],
+	name : '<b>Tiger</b>',
+	type : 'scatter',
+	marker : {
+		color : 'rgb(26, 118, 255)',
+		opacity : 0.6
+	},
+	textfont:{
+		color:'rgb(255,255,255)',
+		family:'Helvetica'
+	}
+};
+var trace3 = {
+		x : [ 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110 ],
+		y : [ 8, 13, 74, 44, 35, 60, 48, 16, 28, 10, 16, 38 ],
+		name : '<b>Desperado</b>',
+		type : 'scatter',
+		marker : {
+			color : 'rgb(55, 83, 109)',
+			opacity : 0.6
+		},
+		textfont:{
+			color:'rgb(255,255,255)',
+			family:'Helvetica'
+		}
+
+	};
+var trace4 = {
+		x : [ 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110 ],
+		y : [ 10, 15, 60, 32, 45, 80, 28, 36, 38, 28, 46, 48 ],
+		name : '<b>Tiger</b>',
+		type : 'scatter',
+		marker : {
+			color : 'rgb(26, 118, 255)',
+			opacity : 0.6
+		},
+		textfont:{
+			color:'rgb(255,255,255)',
+			family:'Helvetica'
+		}
+	};
+	var trace5 = {
+			x : [ 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110 ],
+			y : [ 18, 23, 44, 12, 75, 60, 28, 26, 48, 40, 26, 38 ],
+			name : '<b>Desperado</b>',
+			type : 'scatter',
+			marker : {
+				color : 'rgb(55, 83, 109)',
+				opacity : 0.6
+			},
+			textfont:{
+				color:'rgb(255,255,255)',
+				family:'Helvetica'
+			}
+
+		};
+		var trace6 = {
+			x : [ 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110 ],
+			y : [ 21, 10, 50, 32, 35, 45, 68, 36, 59, 38, 66, 88 ],
+			name : '<b>Tiger</b>',
+			type : 'scatter',
+			marker : {
+				color : 'rgb(26, 118, 255)',
+				opacity : 0.6
+			},
+			textfont:{
+				color:'rgb(255,255,255)',
+				family:'Helvetica'
+			}
+		};
+
+
+
+
+myExampleData.plotlylinedata1 = [ trace1, trace2 ];
+myExampleData.plotlylinedata2 = [ trace3, trace4 ];
+myExampleData.plotlylinedata3 = [ trace5, trace6 ];
+myExampleData.plotlylinelayout = {
+	title : '<b>How old are they ?</b>',
+	xaxis : {
+		title : 'Age',
+		titlefont : {
+			family : 'Helvetica',
+			size : 18,
+			color : '#7f7f7f'
+		}
+	},
+	yaxis : {
+		title : '<b>Number of customers</b>',
+		titlefont : {
+			family : 'Helvetica',
+			size : 18,
+			color : '#7f7f7f'
+		}
+	},
+	titlefont : {
+		family : 'Helvetica',
+		size : 18,
+		color : '#7f7f7f'
+	},
+	autosize : true,
+	paper_bgcolor:'#E0E0E0',
+	plot_bgcolor:'#E0E0E0'
+};
+
+myExampleData.plotlylineconfig = {
+	modeBarButtonsToRemove : [ 'sendDataToCloud' ],
+	displaylogo : false,
+	displayModeBar: 'true'
+};

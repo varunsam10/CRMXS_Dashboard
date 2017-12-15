@@ -203,7 +203,6 @@
 					}
 				});
 			},
-
 			_constructWidget : function(widgetDefinition) {
 				//create an outer list item
 				var widget = $("<li/>").attr("id", widgetDefinition.widgetId);
@@ -462,55 +461,97 @@
 				//location.reload(true);
 				
 			},
-			_interactChart: function(widgetDefinition) {
-				var id = "li#" + widgetDefinition.linkedWidgets;
+			_interactChart: function(widgetDefinition,dataPoint) {
+				var _dashboardData = this.options.dashboardData;
+				var i;
+				var WidgetDefinitionToChange;
+				var linkedWidget ;
+				
+				for (var j =0; j<widgetDefinition.linkedWidgets.length;j++){
+					linkedWidget = widgetDefinition.linkedWidgets[j];
+				for ( i = 0; i < _dashboardData.length; i++) {
+					if(_dashboardData[i].widgetId === linkedWidget){
+						
+						WidgetDefinitionToChange = _dashboardData[i];
+					}					
+				}
+				var id = "li#" + WidgetDefinitionToChange.widgetId;
 				var chartArea;
 				var data;
 				var layout;
 				var config;
-				var chart;
-				chartArea = this.element.find(id + " div.sDashboardChart");
+				var chart;						
 				
-				if (widgetDefinition.widgetType === 'chart') {
+				//console.log(_dashboardData);
+				//console.log(_dashboardData.length);				
+				
+				chartArea = this.element.find(id + " div.sDashboardChart");
+			//	var refreshedData = widgetDefinition.refreshCallBack.apply(self, [widgetDefinition.linkedWidgets]);
+				//widgetDefinition.widgetContent = refreshedData;
+				if (WidgetDefinitionToChange.widgetType === 'chart') {
 					
-					data = widgetDefinition.widgetContent.data;
-					layout = widgetDefinition.widgetContent.layout;
-					config = widgetDefinition.widgetContent.config;
-					var layout = {
-							  xaxis: {
-							    tickangle: -45
-							  },
-							  barmode: 'group'
-							};
-
-					if(widgetDefinition.graphType === 'normal'){
+					if(WidgetDefinitionToChange.chartType === 'bar'){
+						if(dataPoint.dataPoints === 2013){
+							data = WidgetDefinitionToChange.widgetContentNew.data;
+							layout = WidgetDefinitionToChange.widgetContentNew.layout;
+							config = WidgetDefinitionToChange.widgetContent.config;
+						}else if(dataPoint.dataPoints === 2014){
+							data = WidgetDefinitionToChange.widgetContentNew1.data;
+							layout = WidgetDefinitionToChange.widgetContentNew.layout;
+							config = WidgetDefinitionToChange.widgetContent.config;
+							
+						}else if(dataPoint.dataPoints === 2015){
+							data = WidgetDefinitionToChange.widgetContentNew2.data;
+							layout = WidgetDefinitionToChange.widgetContentNew.layout;
+							config = WidgetDefinitionToChange.widgetContent.config;
+							
+						}
+					}else if(WidgetDefinitionToChange.chartType === 'line'){
+						if(dataPoint.dataPoints === 2013){
+							data   = WidgetDefinitionToChange.widgetContentNew.data;
+							layout = WidgetDefinitionToChange.widgetContent.layout;
+							config = WidgetDefinitionToChange.widgetContent.config;
+						}else if(dataPoint.dataPoints === 2014){
+							data   = WidgetDefinitionToChange.widgetContentNew1.data;
+							layout = WidgetDefinitionToChange.widgetContent.layout;
+							config = WidgetDefinitionToChange.widgetContent.config;
+							
+						}else if(dataPoint.dataPoints === 2015){
+							data   = WidgetDefinitionToChange.widgetContentNew2.data;
+							layout = WidgetDefinitionToChange.widgetContent.layout;
+							config = WidgetDefinitionToChange.widgetContent.config;
+							
+						}						
+					}
+					if(WidgetDefinitionToChange.graphType === 'normal'){
 						
-						var chart = c3.generate({bindto:chartArea[0],data:widgetDefinition.widgetContent.data});
+						var chart = c3.generate({bindto:chartArea[0],data:WidgetDefinitionToChange.widgetContent.data});
 						
 					}else{						
 						
-						Plotly.newPlot(chartArea[0], widgetDefinition.widgetContent.data , widgetDefinition.widgetContent.layout,widgetDefinition.widgetContent.config);
+						Plotly.newPlot(chartArea[0], data, layout,config);
 						Plotly.redraw(chartArea[0]);
 					}					
 					if (widgetDefinition.getDataBySelection) {
 						
-						this._bindSelectEvent(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+						this._bindSelectEvent(chartArea[0], WidgetDefinitionToChange.widgetId, WidgetDefinitionToChange, this);
 					} else {
 						if(widgetDefinition.graphType === 'exploratory'){
-							this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+							this._bindChartEvents(chartArea[0], WidgetDefinitionToChange.widgetId, WidgetDefinitionToChange, this);
 						}
 					}
 				}
 				else if(widgetDefinition.widgetType === 'static')
 					{
-						chart = new Chart(chartArea[0], widgetDefinition.widgetId, widgetDefinition.widgetContent.data);
+						chart = new Chart(chartArea[0], WidgetDefinitionToChange.widgetId, WidgetDefinitionToChange.widgetContent.data);
 						
 						if (widgetDefinition.getDataBySelection) {
-							this._bindSelectEvent(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+							this._bindSelectEvent(chartArea[0], WidgetDefinitionToChange.widgetId, WidgetDefinitionToChange, this);
 						} else {
-							this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+							this._bindChartEvents(chartArea[0], WidgetDefinitionToChange.widgetId, WidgetDefinitionToChange, this);
 						}
 					}
+				}
 				//location.reload(true);
 				
 			},
@@ -555,6 +596,8 @@
 					} else {
 						if(widgetDefinition.graphType === 'exploratory'){
 							this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+						}else if(widgetDefinition.graphType === 'normal'){
+							this._bindChartEventsC3(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
 						}
 					}
 				}
@@ -587,6 +630,27 @@
 				myPlot.on('plotly_click', function(data){					
 					 var pts = '';
 					 for(var i=0; i < data.points.length; i++){
+					       /* pts = 'x = '+data.points[i].x +'\ny = '+
+					            data.points[i].y.toPrecision(4) + '\n\n';*/
+						 pts = data.points[i].x ;
+					 }
+				   	var evtObj = {};
+					evtObj.clickedWidgetId = widgetId;
+					evtObj.dataPoints = pts;
+				   // context._trigger("plotclicked", null, evtObj);	
+					
+					context._interactChart(widgetDefinition,evtObj);
+				});		
+				
+			},
+			_bindChartEventsC3 : function(chartArea, widgetId, widgetDefinition, context) {
+				var myPlot = chartArea;
+				var id = "li#" + widgetDefinition.widgetId;
+				var chartArea = this.element.find(id + " div.sDashboardChart");
+			
+			/*	myPlot.on('onclick', function(data,irt){					
+					 var pts = '';
+					 for(var i=0; i < data.points.length; i++){
 					        pts = 'x = '+data.points[i].x +'\ny = '+
 					            data.points[i].y.toPrecision(4) + '\n\n';
 					 }
@@ -594,8 +658,8 @@
 					evtObj.clickedWidgetId = widgetId;
 					evtObj.dataPoints = pts;
 				    context._trigger("plotclicked", null, evtObj);	
-				    this._interactChart(widgetDefinition);
-				});
+				    //this._interactChart(widgetDefinition);
+				});*/
 				
 			},
 			_removeWidgetFromWidgetDefinitions : function(widgetId) {

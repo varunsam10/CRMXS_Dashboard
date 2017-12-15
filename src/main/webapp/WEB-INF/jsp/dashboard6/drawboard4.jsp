@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
@@ -413,6 +412,7 @@ $(window).load(function() {
 	<!--<script src="assets/dash6/js/datatables/jquery.dataTables.js"></script>  -->	
 	<script src="assets/js/dash1/plotly-latest.min.js"></script>
 	<script src="assets/dash6/js/chart/Chart.bundle.js"></script>
+	<script src="assets/js/d3.v3.min.js" charset="utf-8"></script> 
 	<script src="assets/dash6/js/c3/c3.min.js"></script>
 	<!--  <script src="assets/dash6/js/c3/bubble.js"></script> -->
 	<!-- load dashboard main library -->
@@ -452,44 +452,32 @@ $(window).load(function() {
  //**********************************************
 	var dashboardJSON =[
 		{
-			widgetTitle: "Sales Figures",
-			widgetId: "id001",
-			widgetType: "chart",
-			graphType: "exploratory",
-			widgetDimension: "normal",
-			chartType: "pie",
-			widgetContent: {			 
-				data: myExampleData.plotlypiedata,
-				layout: myExampleData.plotlypielayout,
-				config: myExampleData.plotlypieconfig
+			widgetTitle : "Age group",
+			widgetId : "id001",
+			widgetType : "chart",
+			graphType : "exploratory",
+			widgetDimension : "normal",
+			chartType : "bubble",
+			linkedWidgets:["id002","id003"],
+			enableRefresh : true,
+			refreshCallBack : function(widgetId) {
+				//Inside refresh callback		
+				//notification('info', 'Inside the refresh callback of '+widgetId+'!');
+				var refreshedData = {
+					data : myExampleData.plotlyRefreshBubbleData,
+					layout : myExampleData.plotlyBubbleLayout,
+					config : myExampleData.plotlybarconfig
+				};
+				return refreshedData;
+			},
+			widgetContent : {
+				data : myExampleData.plotlyBubbleData,
+				layout : myExampleData.plotlyBubbleLayout,
+				config : myExampleData.plotlybarconfig
 			}
-		}/* ,    	
-    	{
-    		widgetTitle: "Age group",
-    		widgetId: "id002",
-    		widgetType: "chart",
-    		graphType: "exploratory",
-    		widgetDimension: "normal",
-    		chartType: "bubble",
-    		enableRefresh: true,
-    		refreshCallBack : function(widgetId){ 
-    			//Inside refresh callback		
-    			//notification('info', 'Inside the refresh callback of '+widgetId+'!');
-    			var refreshedData = {
-    					data: myExampleData.plotlyRefreshBubbleData,
-    					layout: myExampleData.plotlyBubbleLayout,
-    					config: myExampleData.plotlybarconfig
-    			};
-    			return refreshedData; 
-    		},
-    		widgetContent: {
-    			data: myExampleData.plotlyBubbleData,
-    			layout: myExampleData.plotlyBubbleLayout,
-    			config: myExampleData.plotlybarconfig
-    		}
-    	}  */,{
+		},{
 		widgetTitle: "Revenue",
-		widgetId: "id003",
+		widgetId: "id002",
 		widgetType: "chart",
 		graphType: "exploratory",
 		widgetDimension: "normal",
@@ -499,29 +487,51 @@ $(window).load(function() {
 			var refreshedData = {
 					data: myExampleData.barGroupRefreshChartData,
 					layout: myExampleData.barGroupChartLayout,
-					config: myExampleData.plotlybarconfig
+					config: myExampleData.plotlybarconfigDash4
 			};
 			return refreshedData; 
 		},
 		widgetContent: {
 			data: myExampleData.barGroupChartData,
 			layout: myExampleData.barGroupChartLayout,
-			config: myExampleData.plotlybarconfig
-		}
-	} , {
-		widgetTitle: "Items sold",
-		widgetId: "id004",
-		widgetType: "chart",
-		graphType: "exploratory",
-		widgetDimension: "normal",
-		chartType: "line",
-		linkedWidgets:"id003",
-		getDataBySelection: true,
-		widgetContent: {		
-			data: myExampleData.plotlylinedata,
-			layout: myExampleData.plotlylinelayout,
-			config: myExampleData.plotlylineconfig			  
-		}
+			config: myExampleData.plotlybarconfigDash4
+		},
+		widgetContentNew : {
+			data : myExampleData.barGroupChartDataOriginal,
+			layout : myExampleData.barGroupChartLayout,
+			config : myExampleData.plotlybarconfigDash4
+		},
+		widgetContentNew1 : {
+			data : myExampleData.barGroupChartData1,		
+		},
+		widgetContentNew2 : {
+			data : myExampleData.barGroupChartData2,
+			
+		}		
+	},
+	{
+		widgetTitle : "Items sold",
+		widgetId : "id003",
+		widgetType : "chart",
+		graphType : "exploratory",
+		widgetDimension : "large",
+		chartType : "line",
+		getDataBySelection : true,
+		widgetContent : {
+			data : myExampleData.plotlylinedata,
+			layout : myExampleData.plotlylinelayout,
+			config : myExampleData.plotlylineconfig
+		},
+		widgetContentNew : {
+			data : myExampleData.plotlylinedata1,
+		},
+		widgetContentNew1 : {
+			data : myExampleData.plotlylinedata2,		
+		},
+		widgetContentNew2 : {
+			data : myExampleData.plotlylinedata3,
+			
+		}	
 	}];
 
         //basic initialization examplemn.sDashboard

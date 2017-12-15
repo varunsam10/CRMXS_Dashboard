@@ -812,7 +812,7 @@ if it's not present, don't show loader */
 	<!--<script src="assets/dash6/js/datatables/jquery.dataTables.js"></script>  -->
 	<script src="assets/js/dash1/plotly-latest.min.js"></script>
 	<script src="assets/dash6/js/chart/Chart.bundle.js"></script>
-	<!-- <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script> -->
+	<!-- <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>  -->	
 	<script src="assets/dash6/js/c3/c3.min.js"></script>
 	<!--  <script src="assets/dash6/js/c3/bubble.js"></script> -->
 	<!-- load dashboard library -->
