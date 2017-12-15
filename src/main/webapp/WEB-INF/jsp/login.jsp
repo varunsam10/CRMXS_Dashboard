@@ -107,7 +107,6 @@
 	color: #EF3B3A;
 	}
 	body {
-
 	background-image: url(.../../assets/img/login_backg.jpg);
 	background-size: 100% 100%;
     background-repeat: no-repeat;

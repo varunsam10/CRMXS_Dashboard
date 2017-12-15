@@ -33,7 +33,16 @@ public class Dashboard6Controller {
 		//return dashboardJSON.createDashboardJson();
 		return DashboardDAO.getDashboardJson();
 	}
-
+	
+	@RequestMapping(value = "/getWidgetsInteract", method = RequestMethod.GET)
+	@ResponseBody
+	public String getInteractiveWidgets() {
+		DashboardService dashboardJSON = new DashboardService();
+		//System.out.println(dashboardJSON.createDashboardJson());
+		return dashboardJSON.createDashboardJson();
+		//return DashboardDAO.getDashboardJson();
+	}
+	
 	@RequestMapping("/drawboard2")
 	public ModelAndView initializeFormDrawboard2() {
 		Dashboard3 dashboard3 = new Dashboard3();
