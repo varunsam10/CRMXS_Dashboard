@@ -268,7 +268,10 @@ if it's not present, don't show loader */
 								<li><a href="page_user_lock_1.html"> <i
 										class="icon-lock"></i> Lock Screen
 								</a></li>
-								<li><a href="page_user_login_1.html"> <i
+								<!-- <li><a href="page_user_login_1.html"> <i
+										class="icon-key"></i> Log Out
+								</a></li> -->
+								<li><a href="logout.html"> <i
 										class="icon-key"></i> Log Out
 								</a></li>
 							</ul>
