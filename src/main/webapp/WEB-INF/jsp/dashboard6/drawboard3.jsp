@@ -55,7 +55,7 @@
 <!-- <link type="text/css" href="assets/dash6/css/jquery-ui.css"
 	rel="stylesheet" /> -->
 	
-<link type="text/css" href="assets/dash6/css/chosen.min.css"
+<link type="text/css" href="assets/dash6/css/chosen.css"
 	rel="stylesheet" />
 	
 
@@ -72,6 +72,10 @@
 <link href="assets/dash6/css/c3/c3.css" rel="stylesheet" />
 <!--     sDashboard     -->
 <!-- END HEAD -->
+<!-- 
+<link href="assets/dash6/css/main.css" rel="stylesheet">
+<link href="assets/dash6/css/normalize.css" rel="stylesheet"> -->
+
 <style>
 /*
 if it's not present, don't show loader */
@@ -84,13 +88,16 @@ if it's not present, don't show loader */
 	width: 100%;
 	height: 100%;
 	z-index: 9999;
-	background: url(assets/img/loader-128x/Preloader_3.gif) center no-repeat #fff;
+	background: url(assets/img/loader-128x/Preloader_7.gif) center no-repeat #fff;
 
 </style>
 <script src="assets/dash6/js/jqueryNw/jquery-1.12.4.js"	type="text/javascript"></script>
 <script src="assets/js/modernizr-2.8.2.js"	type="text/javascript"></script>
 
+
 <script type="text/javascript">
+
+
 
 // Wait for window load
 $(window).load(function() {
@@ -100,6 +107,24 @@ $(window).load(function() {
 </script>
 
 <div class="se-pre-con"></div>
+
+<!-- <div id="loader-wrapper">
+    <div id="loader"></div>
+ 
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+ 
+</div>
+ -->
+
+
+<!-- <div class="spinner">
+  <div class="rect1"></div>
+  <div class="rect2"></div>
+  <div class="rect3"></div>
+  <div class="rect4"></div>
+  <div class="rect5"></div>
+</div> -->
 
 <body class="page-md">
 	<!-- BEGIN HEADER -->
@@ -351,17 +376,29 @@ $(window).load(function() {
 				    var dateFormat = "mm/dd/yy",
 				      from = $( "#from" )
 				        .datepicker({
+				          showOn: "button",
+				          buttonImage: "assets/dash6/css/calendar-range.png",
+				          buttonImageOnly: true,
+				          buttonText: "Select date",
 				          defaultDate: "+1w",
 				          changeMonth: true,
-				          numberOfMonths: 3,
+				          changeYear: true,
+				          numberOfMonths: 1,
+				          showAnim: "drop"
 				        })
 				        .on( "change", function() {
 				          to.datepicker( "option", "minDate", getDate( this ));
 				        }),
 				      to = $( "#to" ).datepicker({
-				        defaultDate: "+1w",
+				    	showOn: "button",
+				        buttonImage: "assets/dash6/css/calendar-range.png",
+				        buttonImageOnly: true,
+				        buttonText: "Select date",
+				    	defaultDate: "+1w",
 				        changeMonth: true,
-				        numberOfMonths: 3
+				        changeYear: true,
+				        numberOfMonths: 1,
+				        showAnim: "drop"
 				      })
 				      .on( "change", function() {
 				        from.datepicker( "option", "maxDate", getDate( this ) );
@@ -380,8 +417,8 @@ $(window).load(function() {
 				  } );
 				  </script>
 				
-				<script src="assets/dash6/js/Dropdown/chosen.jquery.min.js"></script>
-				
+				<script src="assets/dash6/js/Dropdown/chosen.jquery.js"></script>
+				<script src="assets/dash6/js/Dropdown/chosen.proto.js"></script>
 								
 				<div class="clearfix"></div>
 				<!-- END DASHBOARD STATS 1-->
@@ -389,30 +426,39 @@ $(window).load(function() {
 				<div class="content">
 					<div class="container-fluid">
 						<!--     CPR Dashboard -->
-						<hr />
-						<ul id="cprDashboard">
-						<li class="cprDashboardLarge">
-						<div class="sDashboardWidget">
-						<div class="sDashboardWidgetHeader sDashboard-clearfix">
-						Filter
+						
+						<!-- <select data-placeholder="Choose a Country..." class="chzn-select" multiple>
+					            <option value=""></option>
+					            <option value="United States">United States</option>
+					            <option value="United Kingdom">United Kingdom</option>
+					    </select> -->
+						
+						<div class="filterSection">
+						
+						<div class="sDashboardWidgetHeader">
+						Filter						
 						</div>
 						
 						<div class="filterOptions">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							---Select a date range---
 							
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							<label for="from">From</label>
 							<input type="text" id="from" name="from">
-							<img alt="" src="assets/dash6/css/calendar-range.png">
+							<!-- <img alt="" src="assets/dash6/css/calendar-range.png"> -->
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							<label for="to">to</label>
 							<input type="text" id="to" name="to">
-							<img alt="" src="assets/dash6/css/calendar-range.png">			
+							<!-- <img alt="" src="assets/dash6/css/calendar-range.png"> -->			
 							
 							<br/> <br/>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							---Select Country---
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<select data-placeholder="Choose a Country..." class="chzn-select" multiple tabindex="2">
+							
+							
+							<select data-placeholder="Choose a Country..." class="chzn-select" multiple>
 					            <option value=""></option>
 					            <option value="United States">United States</option>
 					            <option value="United Kingdom">United Kingdom</option>
@@ -667,6 +713,7 @@ $(window).load(function() {
 					            <option value="Zimbabwe">Zimbabwe</option>
 					          </select>
 					        
+					        
 					        <img alt="" src="assets/dash6/css/map-marker.png">
 					        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					        <button type="button" id="applyFilters" class="btn btn-primary">Apply Filters</button>
@@ -678,11 +725,17 @@ $(window).load(function() {
 					        
 					        
 					        
-					        </div>
+					        
 					      </div>
 						
+						</div>
 						
-						</li>
+						
+						
+						
+						<hr />
+						<ul id="cprDashboard">
+						
 						
 						</ul>
 					</div>
@@ -795,15 +848,22 @@ $(window).load(function() {
 	
 	
 	<script type="text/javascript">
-   	$(document).ready(function(){           	
+   	$(document).ready(function(){   
+   		
+   		setTimeout(function(){
+   	        $('body').addClass('loaded');
+   	        $('h1').css('color','#222222');
+   	    }, 3000);
+   	 	
+   	
   
         $(function() {
         //Theme switcher plugin
-        $("#switcher").themeswitcher({
+       /*  $("#switcher").themeswitcher({
         imgpath : "assets/dash6/css/images/",
-        loadTheme : "Le Frog"
-        });
-      
+        loadTheme : "Cupertino"
+        }); 
+       */
  //**********************************************//
  //dashboard json data
  //this is the data format that the dashboard framework expects
