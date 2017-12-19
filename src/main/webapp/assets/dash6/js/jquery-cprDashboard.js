@@ -435,8 +435,8 @@
 						var chart = c3.generate({bindto:chartArea[0],data:widgetDefinition.widgetContent.data});
 						
 					}else{						
-						
-						Plotly.newPlot(chartArea[0], widgetDefinition.widgetContent.data , widgetDefinition.widgetContent.layout,widgetDefinition.widgetContent.config);
+						//widgetDefinition.widgetContent.transition = 
+						Plotly.animate(chartArea[0], widgetDefinition.widgetContent.data , widgetDefinition.widgetContent.layout,widgetDefinition.widgetContent.config);
 						Plotly.redraw(chartArea[0]);
 					}					
 					if (widgetDefinition.getDataBySelection) {
@@ -528,9 +528,23 @@
 						var chart = c3.generate({bindto:chartArea[0],data:WidgetDefinitionToChange.widgetContent.data});
 						
 					}else{						
+						//Plotly.redraw(chartArea[0]);
+						if(WidgetDefinitionToChange.chartType === 'line'){
+							Plotly.animate(chartArea[0], { data, layout,config} ,{
+								transition: {  
+									duration: 500,
+									easing: 'cubic-in-out' 
+										} 
+								});
+							
+							console.log("line");
+						}
+						else{
+							Plotly.newPlot(chartArea[0], data, layout,config);
+							Plotly.redraw(chartArea[0]);
+							console.log("other charts")
+						}
 						
-						Plotly.newPlot(chartArea[0], data, layout,config);
-						Plotly.redraw(chartArea[0]);
 					}					
 					if (widgetDefinition.getDataBySelection) {
 						
@@ -589,6 +603,7 @@
 					}else{
 						
 						Plotly.newPlot(chartArea[0],  widgetDefinition.widgetContent.data, widgetDefinition.widgetContent.layout,widgetDefinition.widgetContent.config);
+						Plotly.redraw(chartArea[0]);
 					}					
 					if (widgetDefinition.getDataBySelection) {
 						
