@@ -2,13 +2,29 @@ package com.cpr.util;
 
 
 public class WidgetData {
+	
+	//the x-axis values for the graph
 	private Object[] x;
+	
+	//the y-axis values for the graph
 	private Object[] y;
+	
+	//the array values for the pie chart widget
 	private Object[] values;
+	
+	//the array of labels for the pie chart widget
 	private Object[] labels;
+	
+	//the label for the data plotted 
 	private String name;
+	
+	//the type of the chart for the given traces - bar/line
 	private String type;
+	
+	//tooltips displaying the data on hover 
 	private Marker marker;
+	
+	//mode for plotting the bar graph - group/stack
 	private String mode;
 	
 	public WidgetData() {

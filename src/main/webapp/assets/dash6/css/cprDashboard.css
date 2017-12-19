@@ -1,3 +1,53 @@
+/*
+* Dialog styles 
+*/
+label, input {
+	display: block;
+}
+
+input.text {
+	margin-bottom: 12px;
+	width: 95%;
+	padding: .4em;
+}
+
+fieldset {
+	padding: 0;
+	border: 0;
+	margin-top: 25px;
+}
+
+h1 {
+	font-size: 1.2em;
+	margin: .6em 0;
+}
+
+div#users-contain {
+	width: 350px;
+	margin: 20px 0;
+}
+
+div#users-contain table {
+	margin: 1em 0;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+div#users-contain table td, div#users-contain table th {
+	border: 1px solid #eee;
+	padding: .6em 10px;
+	text-align: left;
+}
+
+.ui-dialog .ui-state-error {
+	padding: .3em;
+}
+
+.validateTips {
+	border: 1px solid transparent;
+	padding: 0.3em;
+}
+
 .sDashboard {
 	list-style-type: none;
 	margin: 0;
@@ -9,6 +59,7 @@
 	font-size: 18px;
 	font-weight: 200;
 	/*overflow: auto;*/
+	
 }
 
 .sDashboard  li {
@@ -23,11 +74,14 @@
 .cprDashboardLarge {
 	width: 1215px !important;
 	height: auto;
-	min-height: 250px;
+	/* min-height: 500px; */
 }
 
 .cprWidgetContentTable {
 	font-size: 13px;
+}
+.c3-chart-arc text {
+    fill: rgb(255,255,255);
 }
 
 .cprDashboardNormal {
@@ -40,18 +94,34 @@
 	min-width:0px !important;
 	min-height:0px !important;
 	height:100px !important;
-	color: blue;
+	/* font-size: 27px; */
+    line-height: 27px;
+    color: #7D8C9D;
 }
 
 /*dashboard widget css*/
 .sDashboardWidget {
 	margin: 0 1em 1em 0;
-	border: 1px solid #e7ecf1 !important;
+	border-radius: 25px;
+	border: 2px solid #e7ecf1 !important;
+	/* border: 1px solid #e7ecf1 !important; */
 	background-color: #fff;
 	-webkit-transition: border-color 0.3s;
 	-moz-transition: border-color 0.3s;
 	transition: border-color .3s all ease;
 }
+
+.filterSection {
+	margin: 0 1em 1em 0;
+	border-radius: 25px;
+	border: 2px solid #e7ecf1 !important;
+	/* border: 1px solid #e7ecf1 !important; */
+	background-color: #fff;
+	-webkit-transition: border-color 0.3s;
+	-moz-transition: border-color 0.3s;
+	transition: border-color .3s all ease;
+}
+
 
 .sDashboardWidget:hover {
 	border: 1px solid #AFAFAF;
@@ -63,23 +133,40 @@
 
 /*dashboard widget header css*/
 .sDashboardWidgetHeader {
-	margin: 0.3em;
+	margin: 0.3em; 
 	padding: 2px 0.2em 2px 1em;
 	cursor: move;
 	border: 0;
 	border-bottom: 1px solid #CBCBCB;
-	color: #000;
-	font-weight: bold;
+	color: white;
+    /* font-weight: bold; */
+    background-color: #7B7E8B;
+    border-radius: 25px;
+	border: 2px solid #e7ecf1 !important;
 }
 
 /*dashboard widget content css*/
 .sDashboardWidgetContent {
-	/* margin: 0.3em; */
+	margin: 0.3em; 
 	margin: 0.1em;
 	padding: 0.4em;	
-	overflow-x: hidden;
+	overflow-x: auto;
 	overflow-y: auto;
 	transition: .3s all ease;
+	background-color: #E0E0E0;
+	border-radius: 25px;
+	border: 2px solid #e7ecf1 !important;
+}
+
+.filterOptions {
+	margin: 0.3em; 
+	margin: 0.1em;
+	padding: 0.4em;	
+	transition: .3s all ease;
+	background-color: #E0E0E0;
+	border-radius: 25px;
+	border: 2px solid #e7ecf1 !important;
+}
 }
 
 .sDashboardWidgetContentMaximized {
@@ -120,16 +207,36 @@
 	overflow: auto;
 }
 
-.sDashboardTableView tbody tr:nth-child(odd) {
+/* .sDashboardTableView tbody tr:nth-child(odd) 
+{
 	background-color: #F5F5F5;
 }
 
-.sDashboardTableView tbody tr:nth-child(even) {
+.sDashboardTableView tbody tr:nth-child(even) 
+{
 	background-color: #FFFFFF;
+} */
+
+/* .sDashboardTableView tbody tr:nth-child(odd) 
+{
+	background-color: #1a76ff;
 }
 
+.sDashboardTableView tbody tr:nth-child(even) 
+{
+	background-color: #abd9e9;
+}  */
+
+.sDashboardTableView tbody tr:nth-child(odd){
+	 background-color:  #1a76ff !important;
+	
+}
+.sDashboardTableView tbody tr:nth-child(even){
+	 background-color: #abd9e9 !important;
+	
+}
 .sDashboardTableView tbody tr:nth-child(odd):hover, .sDashboardTableView tbody tr:nth-child(even):hover
-	{
+{
 	background-color: #FCEFA1;
 	cursor: pointer;
 }
@@ -150,6 +257,95 @@
 	height: 100%;
 	/*	cursor: pointer;*/
 }
+.cprDashboardMap{
+	 width: 100%;
+     height: 500px;
+}
+
+.map-marker {
+    /* adjusting for the marker dimensions
+    so that it is centered on coordinates */
+    margin-left: -8px;
+    margin-top: -8px;
+}
+.map-marker.map-clickable {
+    cursor: pointer;
+}
+.pulse {
+    width: 10px;
+    height: 10px;
+    border: 5px solid #f7f14c;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    background-color: #716f42;
+    z-index: 10;
+    position: absolute;
+  }
+.map-marker .dot {
+    border: 10px solid #fff601;
+    background: transparent;
+    -webkit-border-radius: 60px;
+    -moz-border-radius: 60px;
+    border-radius: 60px;
+    height: 50px;
+    width: 50px;
+    -webkit-animation: pulse 3s ease-out;
+    -moz-animation: pulse 3s ease-out;
+    animation: pulse 3s ease-out;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    z-index: 1;
+    opacity: 0;
+  }
+  @-moz-keyframes pulse {
+   0% {
+      -moz-transform: scale(0);
+      opacity: 0.0;
+   }
+   25% {
+      -moz-transform: scale(0);
+      opacity: 0.1;
+   }
+   50% {
+      -moz-transform: scale(0.1);
+      opacity: 0.3;
+   }
+   75% {
+      -moz-transform: scale(0.5);
+      opacity: 0.5;
+   }
+   100% {
+      -moz-transform: scale(1);
+      opacity: 0.0;
+   }
+  }
+  @-webkit-keyframes "pulse" {
+   0% {
+      -webkit-transform: scale(0);
+      opacity: 0.0;
+   }
+   25% {
+      -webkit-transform: scale(0);
+      opacity: 0.1;
+   }
+   50% {
+      -webkit-transform: scale(0.1);
+      opacity: 0.3;
+   }
+   75% {
+      -webkit-transform: scale(0.5);
+      opacity: 0.5;
+   }
+   100% {
+      -webkit-transform: scale(1);
+      opacity: 0.0;
+   }
+  }
 
 .sDashboardChartClickable {
 	cursor: pointer;
@@ -189,7 +385,7 @@
 .sDashboard-iconcustom {
 	margin: 0 5px 0 5px;
 	float: right;
-	background: url('images/ic_settings_black_18dp_1x.png') no-repeat;
+	background: url('images/ic_settings_white_18dp_1x.png') no-repeat;
 	width: 20px;
 	height: 20px;
 }
@@ -197,7 +393,31 @@
 .sDashboard-iconcustomDel {
 	margin: 0 5px 0 5px;
 	float: right;
-	background: url('images/ic_delete_black_18dp_1x.png') no-repeat;
+	background: url('images/ic_delete_white_18dp_1x.png') no-repeat;
+	width: 20px;
+	height: 20px;
+}
+
+.sDashboard-iconcustomZoom {
+	margin: 0 5px 0 5px;
+	float: right;
+	background: url('images/ic_zoom_out_map_white_18dp_1x.png') no-repeat;
+	width: 20px;
+	height: 20px;
+}
+
+.sDashboard-iconcustomRefresh {
+	margin: 0 5px 0 5px;
+	float: right;
+	background: url('images/ic_refresh_white_18dp_1x.png') no-repeat;
+	width: 20px;
+	height: 20px;
+}
+
+.sDashboard-iconcustomFilter {
+	margin: 0 5px 0 5px;
+	float: right;
+	background: url('images/ic_filter_list_white_18dp_1x.png') no-repeat;
 	width: 20px;
 	height: 20px;
 }
@@ -231,6 +451,51 @@
 	transition: .3s all ease;
   	transform: translateY(-0.15em);
 }
+.sDashboard-iconcustomFilter:hover {
+	cursor: pointer;
+	box-shadow: 0 0.3em 0.3em -0.2em var(--hover) grey;
+	transition: .3s all ease;
+  	transform: translateY(-0.15em);
+}
+
+.sDashboard-iconcustomRefresh:hover {
+	cursor: pointer;
+	box-shadow: 0 0.3em 0.3em -0.2em var(--hover) grey;
+	transition: .3s all ease;
+  	transform: translateY(-0.15em);
+}
+
+.sDashboard-iconcustomZoom:hover {
+	cursor: pointer;
+	box-shadow: 0 0.3em 0.3em -0.2em var(--hover) grey;
+	transition: .3s all ease;
+  	transform: translateY(-0.15em);
+}
+
+.sDashboard-iconcustom .sDashboard-settings {
+	background-position: -2px -230px;
+}
+
+.sDashboard-icon.sDashboard-trash-icon {
+	background-position: -4px -159px;
+}
+
+.sDashboard-icon.sDashboard-refresh-icon {
+	background-position: -3px -186px;
+}
+
+.sDashboard-icon.sDashboard-maximize-icon {
+	background-position: -2px -212px;
+}
+
+/* .sDashboard-iconcustomFilter.sDashboard-filter-icon {
+	background-position: -4px -248px;
+} */
+
+.js-plotly-plot .plotly .modebar {
+	        background: #E0E0E0 !important;
+}
+
 
 .sDashboard-icon.sDashboard-circle-plus-icon {
 	background-position: -2px -3px;
@@ -256,21 +521,7 @@
 	background-position: -3px -135px;
 }
 
-.sDashboard-iconcustom .sDashboard-settings {
-	background-position: -2px -230px;
-}
 
-.sDashboard-icon.sDashboard-trash-icon {
-	background-position: -4px -159px;
-}
-
-.sDashboard-icon.sDashboard-refresh-icon {
-	background-position: -3px -186px;
-}
-
-.sDashboard-icon.sDashboard-maximize-icon {
-	background-position: -2px -212px;
-}
 
 .sDashboard-icon.sDashboard-minimize-icon {
 	background-position: -2px -236px;

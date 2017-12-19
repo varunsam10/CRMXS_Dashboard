@@ -1,13 +1,36 @@
 package com.cpr.util;
 
+//Main class for configuring the widget
 public class Widget {
 
+	//the widget title
 	private String widgetTitle;
+	
+	//unique widget id
 	private String widgetId;
+	
+	//type of widget - normal/exploratory
 	private String widgetType;
+	
+	//the size of the widget
 	private String widgetDimension;
+	
+	//the chartType - graph/table
 	private String chartType;
+	
+	//the graphType - pie/bar/line
 	private String graphType;
+	
+	//set jQuery styling on/off for datatable
+	private boolean setJqueryStyle;
+	
+	//enable the refresh callback
+	private boolean enableRefresh;
+	
+	//the refresh callback function - yet to be implemented
+	private String refreshCallBack;
+	
+	//the widgetContent Composite consists of widgetData, widgetLayout and widgetConfig
 	private WidgetContent widgetContent;
 	
 	public Widget(String widgetTitle, String widgetId, WidgetTypeEnum widgetType, GraphType graphType, WidgetDimensionEnum widgetDimension, ChartTypeEnum chartType, WidgetContent widgetContent) {
@@ -67,6 +90,30 @@ public class Widget {
 	public WidgetContent getWidgetContent() {
 		return widgetContent;
 	}
+	public boolean isSetJqueryStyle() {
+		return setJqueryStyle;
+	}
+
+	public void setSetJqueryStyle(boolean setJqueryStyle) {
+		this.setJqueryStyle = setJqueryStyle;
+	}
+
+	public boolean isEnableRefresh() {
+		return enableRefresh;
+	}
+
+	public void setEnableRefresh(boolean enableRefresh) {
+		this.enableRefresh = enableRefresh;
+	}
+
+	public String getRefreshCallBack() {
+		return refreshCallBack;
+	}
+
+	public void setRefreshCallBack(String refreshCallBack) {
+		this.refreshCallBack = refreshCallBack;
+	}
+
 	public void setWidgetContent(WidgetContent widgetContent) {
 		this.widgetContent = widgetContent;
 	}

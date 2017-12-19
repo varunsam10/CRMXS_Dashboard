@@ -1,13 +1,13 @@
 (function(factory) {
 		"use strict";
 		if ( typeof define === 'function' && define.amd) {
-			// Register as an AMD module if available...
-			define(['jquery','Plotly','c3'], factory);
+			// Register as an AMD module 
+			define(['jquery','Plotly','c3','AmCharts'], factory);
 		} else {
-			// Browser globals for the unenlightened...
-			factory($, Plotly,c3);
+			// Browser globals 
+			factory($, Plotly, c3, AmCharts);
 		}
-	}(function($,Plotly,c3) {
+	}(function($,Plotly,c3,AmCharts) {
 		"use strict";
 		$.widget("mn.sDashboard", {
 			version : "2.5",
@@ -25,21 +25,20 @@
 					this._createView();
 				}
 			},
-
 			_createView : function() {
 
 				var docHeight = $(document).height();
 
-				$("body").append("<div class='sDashboard-overlay'></div>");
+				$("body").append("<div class='cprDashboard-overlay'></div>");
 
-				$(".sDashboard-overlay").height(docHeight);
+				$(".cprDashboard-overlay").height(docHeight);
 
-				$(".sDashboard-overlay").hide();
+				$(".cprDashboard-overlay").hide();
 
 				var _dashboardData = this.options.dashboardData;
 				var i;
 				//console.log(_dashboardData);
-				console.log(_dashboardData.length);
+				//console.log(_dashboardData.length);
 				for ( i = 0; i < _dashboardData.length; i++) {
 					var widget = this._constructWidget(_dashboardData[i]);
 					console.log(widget);
@@ -47,6 +46,7 @@
 					this.element.append(widget);
 					this._renderTable(_dashboardData[i]);
 					this._renderChart(_dashboardData[i]);
+					this._renderMap(_dashboardData[i]);
 				}
 
 				var that = this;
@@ -94,7 +94,7 @@
 			_bindEvents : function() {
 				var self = this;
 				//click event for maximize button
-				this.element.on("click", ".sDashboardWidgetHeader div.sDashboard-icon.sDashboard-maximize-icon", function(e) {
+				this.element.on("click", ".sDashboardWidgetHeader div.sDashboard-iconcustomZoom.sDashboard-maximize-icon", function(e) {
 
 					//get the widget List Item Dom
 					var widgetListItem = $(e.currentTarget).parents("li:first");
@@ -109,14 +109,14 @@
 					$(e.currentTarget).toggleClass("sDashboard-minimize-icon");
 					//change the tooltip on the maximize/minimize icon buttons
 					if ($(e.currentTarget).attr("title") === "Maximize") {
-						$(".sDashboard-overlay").hide();
+						$(".cprDashboard-overlay").hide();
 						$(e.currentTarget).attr("title", "Minimize");
 						$(".sDashboardWidgetHeader div.sDashboard-iconcustomDel.sDashboard-trash-icon ").hide();
 						self._trigger("widgetMaximized", null, {
 							"widgetDefinition" : widgetDefinition
 						});
 					} else {
-						$(".sDashboard-overlay").show();
+						$(".cprDashboard-overlay").show();
 						$(e.currentTarget).attr("title", "Maximize");
 						$(".sDashboardWidgetHeader div.sDashboard-iconcustomDel.sDashboard-trash-icon ").show();
 						self._trigger("widgetMinimized", null, {
@@ -146,15 +146,39 @@
 							Plotly.redraw(chartArea[0]);
 						}
 						if (!widgetDefinition.getDataBySelection) {
-							//when redrawing the widget, the click event listner is getting destroyed, we need to re-register it here again
-							//need to find out if its a bug on flotr2 library.
+							/*when redrawing the widget, the click event 
+							listener is getting destroyed, we need to re-register it here again
+							need to find out if its a bug on flotr2 library.*/
 							self._bindChartEvents(chartArea[0], widgetListItem.attr("id"), widgetDefinition, self);
 						}
 					}
 				});
-
+				if (widgetDefinition.widgetType === "map") {
+					var mapArea = widgetContainer.find(" div.sDashboardChart");
+					var layout = {
+								  xaxis: {
+								    tickangle: -45
+								  },
+								  barmode: 'group'
+								};
+						if(widgetDefinition.graphType === 'normal'){
+							
+							var map = AmCharts.makeChart(mapArea[0], widgetDefinition.widgetContent);
+							
+						}else{
+							
+							Plotly.newPlot(chartArea[0],  widgetDefinition.widgetContent.data, widgetDefinition.widgetContent.layout,widgetDefinition.widgetContent.config);
+							Plotly.redraw(chartArea[0]);
+						}
+						if (!widgetDefinition.getDataBySelection) {
+							/*when redrawing the widget, the click event 
+							listener is getting destroyed, we need to re-register it here again
+							need to find out if its a bug on flotr2 library.*/
+							self._bindChartEvents(chartArea[0], widgetListItem.attr("id"), widgetDefinition, self);
+						}
+					};
 				//refresh widget click event handler
-				this.element.on("click", ".sDashboardWidgetHeader div.sDashboard-icon.sDashboard-refresh-icon", function(e) {
+				this.element.on("click", ".sDashboardWidgetHeader div.sDashboard-iconcustomRefresh.sDashboard-refresh-icon", function(e) {
 					var widget = $(e.currentTarget).parents("li:first");
 					var widgetId = widget.attr("id");
 					var widgetDefinition = self._getWidgetContentForId(widgetId, self);
@@ -179,8 +203,41 @@
 					widget.hide("fold", {}, 300, function() {
 						self._removeWidgetFromWidgetDefinitions(this.id);
 						$(this).remove();
-						$(".sDashboard-overlay").hide();
+						$(".cprDashboard-overlay").hide();
 					});
+				});
+				
+				//delete widget by clicking the 'trash' icon on the widget
+				this.element.on("click", ".sDashboardWidgetHeader div.sDashboard-iconcustom.sDashboard-settings ", function(e) {
+				/*	var widget = $(e.currentTarget).parents("li:first");
+					//show hide effect
+					widget.hide("fold", {}, 300, function() {
+						self._removeWidgetFromWidgetDefinitions(this.id);
+						$(this).remove();
+						$(".cprDashboard-overlay").hide();
+					});*/
+					//console.log("Settings button clicked");
+					var dialog;
+					dialog = $( "#cprdialog").dialog({
+					      autoOpen: false,
+					      height: 400,
+					      width: 350,
+					      modal: true,
+					      buttons: {
+					        //"Change graph": addUser,
+					        Cancel: function() {
+					          dialog.dialog( "close" );
+					        }
+					      },
+					      close: function() {
+					        form[ 0 ].reset();
+					        allFields.removeClass( "ui-state-error" );
+					      }
+					});
+					
+					dialog.dialog( "open" );
+					
+				
 				});
 
 				//table row click
@@ -203,7 +260,6 @@
 					}
 				});
 			},
-
 			_constructWidget : function(widgetDefinition) {
 				//create an outer list item
 				var widget = $("<li/>").attr("id", widgetDefinition.widgetId);
@@ -224,21 +280,43 @@
 				var deleteButton = $('<a class="btn btn-circle btn-icon-only btn-default sDashboard-iconcustomStyle sDashboard-trash-icon" href="javascript:;"><i class="icon-trash"></i></a>');*/
 				
 				var widgetHeader = $("<div/>").addClass("sDashboardWidgetHeader sDashboard-clearfix");
-				var maximizeButton = $('<div title="Maximize" class="sDashboard-icon sDashboard-maximize-icon "></span>');
+				var maximizeButton = $('<div title="Maximize" class="sDashboard-iconcustomZoom sDashboard-maximize-icon "></span>');
 				var settingsButton = $('<div title="Setting" class="sDashboard-iconcustom sDashboard-settings "></span>');
 				
-				var deleteButton = $('<div title="Delete" class="sDashboard-iconcustomDel sDashboard-trash-icon"></div>');		
+				var deleteButton = $('<div title="Delete" class="sDashboard-iconcustomDel sDashboard-trash-icon"></div>');
+				var filterButton = $('<div title="Filter" class="sDashboard-iconcustomFilter sDashboard-filter-icon"></div>');
 				
-				
+				//maximise button for map
 				//add delete button
-				if (widgetDefinition.widgetType === 'chart' && widgetDefinition.graphType === "exploratory"){
+				if (widgetDefinition.widgetType === 'map' && widgetDefinition.graphType === "exploratory" ){
 					//add Maximizebutton
 					widgetHeader.append(maximizeButton);
 					widgetHeader.append(settingsButton);
 					widgetHeader.append(deleteButton);
+					widgetHeader.append(filterButton);
 					
 				}
-				else if(widgetDefinition.widgetType === 'chart' && widgetDefinition.graphType === "normal"){
+				else if(widgetDefinition.widgetType === 'map' && widgetDefinition.graphType === "normal" ){
+					//add Maximizebutton
+					widgetHeader.append(maximizeButton);
+					widgetHeader.append(deleteButton);
+										
+				}				
+				else{
+					widgetHeader.append(deleteButton);
+				}
+				
+				
+				//add delete button
+				if (widgetDefinition.widgetType === 'chart' && widgetDefinition.graphType === "exploratory" ){
+					//add Maximizebutton
+					widgetHeader.append(maximizeButton);
+					widgetHeader.append(settingsButton);
+					widgetHeader.append(deleteButton);
+					widgetHeader.append(filterButton);
+					
+				}
+				else if(widgetDefinition.widgetType === 'chart' && widgetDefinition.graphType === "normal" ){
 					//add Maximizebutton
 					widgetHeader.append(maximizeButton);
 					widgetHeader.append(deleteButton);
@@ -254,7 +332,7 @@
 				}
 
 				if (widgetDefinition.hasOwnProperty("enableRefresh") && widgetDefinition.enableRefresh) {
-					var refreshButton = $('<div title="Refresh" class="sDashboard-icon sDashboard-refresh-icon "></div>');
+					var refreshButton = $('<div title="Refresh" class="sDashboard-iconcustomRefresh sDashboard-refresh-icon "></div>');
 					//add refresh button
 					widgetHeader.append(refreshButton);
 				}
@@ -283,7 +361,14 @@
 						chart.addClass("sDashboardChartClickable");
 					}
 					widgetContent.append(chart);
-				} else {
+				} else if (widgetDefinition.widgetType === 'map') {
+				
+					var map = $('<div/>').addClass("cprDashboardMap");
+				
+					
+					widgetContent.append(map);
+				} 			
+				else {
 					widgetContent.append(widgetDefinition.widgetContent);
 				}
 
@@ -359,9 +444,9 @@
 						{"extend": 'pdf', "text":' <a href="javascript:;"><i class="fa fa-file-pdf-o"></i>Pdf</a>',"className": 'btn  btn-outline' },
 		                {"extend": 'excelHtml5', "text":' <a href="javascript:;"><i class="fa fa-file-excel-o"></i>Excel</a>',"className": 'btn btn-outline' }
 			         ];
-					tableDef["pageLength"] = 10;
+					tableDef["pageLength"] = 5;
 					tableDef["paging"] = true;
-					tableDef["lengthMenu"] = [[10, 25, 50, -1], [10, 25, 50, "All"]];
+					tableDef["lengthMenu"] = [[5, 15, 20, -1], [5, 15, 20, "All"]];
 					table.dataTable(tableDef);		 
 					/*table.dataTable({tableDef,
 						 buttons: ['copy', 'csv', 'excel', 'pdf', 'print']					 
@@ -434,7 +519,7 @@
 						var chart = c3.generate({bindto:chartArea[0],data:widgetDefinition.widgetContent.data});
 						
 					}else{						
-						
+						//widgetDefinition.widgetContent.transition = 
 						Plotly.newPlot(chartArea[0], widgetDefinition.widgetContent.data , widgetDefinition.widgetContent.layout,widgetDefinition.widgetContent.config);
 						Plotly.redraw(chartArea[0]);
 					}					
@@ -457,6 +542,114 @@
 							this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
 						}
 					}
+				//location.reload(true);
+				
+			},
+			_interactChart: function(widgetDefinition,dataPoint) {
+				var _dashboardData = this.options.dashboardData;
+				var i;
+				var WidgetDefinitionToChange;
+				var linkedWidget ;
+				
+				for (var j =0; j<widgetDefinition.linkedWidgets.length;j++){
+					linkedWidget = widgetDefinition.linkedWidgets[j];
+				for ( i = 0; i < _dashboardData.length; i++) {
+					if(_dashboardData[i].widgetId === linkedWidget){
+						
+						WidgetDefinitionToChange = _dashboardData[i];
+					}					
+				}
+				var id = "li#" + WidgetDefinitionToChange.widgetId;
+				var chartArea;
+				var data;
+				var layout;
+				var config;
+				var chart;						
+				
+				//console.log(_dashboardData);
+				//console.log(_dashboardData.length);				
+				
+				chartArea = this.element.find(id + " div.sDashboardChart");
+			//	var refreshedData = widgetDefinition.refreshCallBack.apply(self, [widgetDefinition.linkedWidgets]);
+				//widgetDefinition.widgetContent = refreshedData;
+				if (WidgetDefinitionToChange.widgetType === 'chart') {
+					
+					if(WidgetDefinitionToChange.chartType === 'bar'){
+						if(dataPoint.dataPoints === 2013){
+							data = WidgetDefinitionToChange.widgetContentNew.data;
+							layout = WidgetDefinitionToChange.widgetContentNew.layout;
+							config = WidgetDefinitionToChange.widgetContent.config;
+						}else if(dataPoint.dataPoints === 2014){
+							data = WidgetDefinitionToChange.widgetContentNew1.data;
+							layout = WidgetDefinitionToChange.widgetContentNew.layout;
+							config = WidgetDefinitionToChange.widgetContent.config;
+							
+						}else if(dataPoint.dataPoints === 2015){
+							data = WidgetDefinitionToChange.widgetContentNew2.data;
+							layout = WidgetDefinitionToChange.widgetContentNew.layout;
+							config = WidgetDefinitionToChange.widgetContent.config;
+							
+						}
+					}else if(WidgetDefinitionToChange.chartType === 'line'){
+						if(dataPoint.dataPoints === 2013){
+							data   = WidgetDefinitionToChange.widgetContentNew.data;
+							layout = WidgetDefinitionToChange.widgetContent.layout;
+							config = WidgetDefinitionToChange.widgetContent.config;
+						}else if(dataPoint.dataPoints === 2014){
+							data   = WidgetDefinitionToChange.widgetContentNew1.data;
+							layout = WidgetDefinitionToChange.widgetContent.layout;
+							config = WidgetDefinitionToChange.widgetContent.config;
+							
+						}else if(dataPoint.dataPoints === 2015){
+							data   = WidgetDefinitionToChange.widgetContentNew2.data;
+							layout = WidgetDefinitionToChange.widgetContent.layout;
+							config = WidgetDefinitionToChange.widgetContent.config;
+							
+						}						
+					}
+					if(WidgetDefinitionToChange.graphType === 'normal'){
+						
+						var chart = c3.generate({bindto:chartArea[0],data:WidgetDefinitionToChange.widgetContent.data});
+						
+					}else{						
+						//Plotly.redraw(chartArea[0]);
+						if(WidgetDefinitionToChange.chartType === 'line'){
+							Plotly.animate(chartArea[0], { data, layout,config} ,{
+								transition: {  
+									duration: 500,
+									easing: 'cubic-in-out' 
+										} 
+								});
+							
+							console.log("line");
+						}
+						else{
+							Plotly.newPlot(chartArea[0], data, layout,config);
+							Plotly.redraw(chartArea[0]);
+							console.log("other charts")
+						}
+						
+					}					
+					if (widgetDefinition.getDataBySelection) {
+						
+						this._bindSelectEvent(chartArea[0], WidgetDefinitionToChange.widgetId, WidgetDefinitionToChange, this);
+					} else {
+						if(widgetDefinition.graphType === 'exploratory'){
+							this._bindChartEvents(chartArea[0], WidgetDefinitionToChange.widgetId, WidgetDefinitionToChange, this);
+						}
+					}
+				}
+				else if(widgetDefinition.widgetType === 'static')
+					{
+						chart = new Chart(chartArea[0], WidgetDefinitionToChange.widgetId, WidgetDefinitionToChange.widgetContent.data);
+						
+						if (widgetDefinition.getDataBySelection) {
+							this._bindSelectEvent(chartArea[0], WidgetDefinitionToChange.widgetId, WidgetDefinitionToChange, this);
+						} else {
+							this._bindChartEvents(chartArea[0], WidgetDefinitionToChange.widgetId, WidgetDefinitionToChange, this);
+						}
+					}
+				}
 				//location.reload(true);
 				
 			},
@@ -494,6 +687,7 @@
 					}else{
 						
 						Plotly.newPlot(chartArea[0],  widgetDefinition.widgetContent.data, widgetDefinition.widgetContent.layout,widgetDefinition.widgetContent.config);
+						Plotly.redraw(chartArea[0]);
 					}					
 					if (widgetDefinition.getDataBySelection) {
 						
@@ -501,6 +695,8 @@
 					} else {
 						if(widgetDefinition.graphType === 'exploratory'){
 							this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+						}else if(widgetDefinition.graphType === 'normal'){
+							this._bindChartEventsC3(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
 						}
 					}
 				}
@@ -514,6 +710,107 @@
 							this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
 						}
 					}
+
+			},
+			_renderMap : function(widgetDefinition) {
+				var id = "li#" + widgetDefinition.widgetId;
+				var mapArea;
+				var data;
+				var layout;
+				var config;
+				var chart;
+				mapArea = this.element.find(id + " div.cprDashboardMap");
+				
+				if (widgetDefinition.widgetType === 'map') {
+					
+					var targetSVG = "M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z";
+					var map = AmCharts.makeChart(mapArea[0], widgetDefinition.widgetContent);
+					
+
+					/*if(widgetDefinition.graphType === 'normal'){
+						
+						var chart = c3.generate({bindto:chartArea[0],data:widgetDefinition.widgetContent.data});
+						
+					}else{
+						
+						Plotly.newPlot(chartArea[0],  widgetDefinition.widgetContent.data, widgetDefinition.widgetContent.layout,widgetDefinition.widgetContent.config);
+						Plotly.redraw(chartArea[0]);
+					}	*/				
+				/*	if (widgetDefinition.getDataBySelection) {
+						
+						this._bindSelectEvent(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+					} else {
+						if(widgetDefinition.graphType === 'exploratory'){
+							this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+						}else if(widgetDefinition.graphType === 'normal'){
+							this._bindChartEventsC3(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+						}
+					}*/
+					map.addListener( "positionChanged", updateCustomMarkers );
+
+					// this function will take current images on the map and create HTML elements for them
+					function updateCustomMarkers( event ) {
+					  // get map object
+					  var map = event.chart;
+
+					  // go through all of the images
+					  for ( var x in map.dataProvider.images ) {
+					    // get MapImage object
+					    var image = map.dataProvider.images[ x ];
+
+					    // check if it has corresponding HTML element
+					    if ( 'undefined' == typeof image.externalElement )
+					      image.externalElement = createCustomMarker( image );
+
+					    // reposition the element accoridng to coordinates
+					    var xy = map.coordinatesToStageXY( image.longitude, image.latitude );
+					    image.externalElement.style.top = xy.y + 'px';
+					    image.externalElement.style.left = xy.x + 'px';
+					  }
+					}
+
+					// this function creates and returns a new marker element
+					function createCustomMarker( image ) {
+					  // create holder
+					  var holder = document.createElement( 'div' );
+					  holder.className = 'map-marker';
+					  holder.title = image.title;
+					  holder.style.position = 'absolute';
+
+					  // maybe add a link to it?
+					  if ( undefined != image.url ) {
+					    holder.onclick = function() {
+					      window.location.href = image.url;
+					    };
+					    holder.className += ' map-clickable';
+					  }
+
+					  // create dot
+					  var dot = document.createElement( 'div' );
+					  dot.className = 'dot';
+					  holder.appendChild( dot );
+
+					  // create pulse
+					  var pulse = document.createElement( 'div' );
+					  pulse.className = 'pulse';
+					  holder.appendChild( pulse );
+
+					  // append the marker to the map container
+					  image.chart.chartDiv.appendChild( holder );
+
+					  return holder;
+					}
+				}
+				else if(widgetDefinition.widgetType === 'static')
+				{
+						/*chart = new Chart(chartArea[0], widgetDefinition.widgetId, widgetDefinition.widgetContent.data);
+						
+						if (widgetDefinition.getDataBySelection) {
+							this._bindSelectEvent(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+						} else {
+							this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+						}*/
+				}
 
 			},
 			_bindSelectEvent : function(chartArea, widgetId, widgetDefinition, context) {
@@ -533,15 +830,37 @@
 				myPlot.on('plotly_click', function(data){					
 					 var pts = '';
 					 for(var i=0; i < data.points.length; i++){
+					       /* pts = 'x = '+data.points[i].x +'\ny = '+
+					            data.points[i].y.toPrecision(4) + '\n\n';*/
+						 pts = data.points[i].x ;
+					 }
+				   	var evtObj = {};
+					evtObj.clickedWidgetId = widgetId;
+					evtObj.dataPoints = pts;
+				   // context._trigger("plotclicked", null, evtObj);	
+					
+					context._interactChart(widgetDefinition,evtObj);
+				});		
+				
+			},
+			_bindChartEventsC3 : function(chartArea, widgetId, widgetDefinition, context) {
+				var myPlot = chartArea;
+				var id = "li#" + widgetDefinition.widgetId;
+				var chartArea = this.element.find(id + " div.sDashboardChart");
+			
+			/*	myPlot.on('onclick', function(data,irt){					
+					 var pts = '';
+					 for(var i=0; i < data.points.length; i++){
 					        pts = 'x = '+data.points[i].x +'\ny = '+
 					            data.points[i].y.toPrecision(4) + '\n\n';
 					 }
 				   	var evtObj = {};
 					evtObj.clickedWidgetId = widgetId;
 					evtObj.dataPoints = pts;
-				    context._trigger("plotclicked", null, evtObj);
-				});
-
+				    context._trigger("plotclicked", null, evtObj);	
+				    //this._interactChart(widgetDefinition);
+				});*/
+				
 			},
 			_removeWidgetFromWidgetDefinitions : function(widgetId) {
 				var widgetDefs = this.options.dashboardData;
@@ -573,7 +892,7 @@
 			},
 
 			/*public methods*/
-			//add a widget to the dashbaord
+			//add a widget to the dashboard
 			addWidget : function(widgetDefinition) {
 				if (!widgetDefinition.widgetId) {
 					throw "Expected widgetId to be defined";
@@ -618,7 +937,7 @@
 			},
 			destroy : function() {
 				//remove the overlay when the dashbaord is destroyed
-				$(".sDashboard-overlay").remove();
+				$(".cprDashboard-overlay").remove();
 				// call the base destroy function
 				$.Widget.prototype.destroy.call(this);
 			}

@@ -25,7 +25,8 @@ public class LoginController {
 	
 	@RequestMapping(value="/logout", method=RequestMethod.GET)
 	public String logout(ModelMap model) {
-		return "logout";
+		//return "logout";
+		return "forward:/login.html";
 	}
 	
 	@RequestMapping(value="/403", method=RequestMethod.GET)

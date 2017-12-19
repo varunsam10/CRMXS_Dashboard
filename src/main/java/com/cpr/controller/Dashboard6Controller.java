@@ -1,5 +1,7 @@
 package com.cpr.controller;
 
+
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -8,35 +10,69 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.cpr.model.Dashboard3;
+import com.cpr.model.DashboardDAO;
 import com.cpr.service.DashboardService;
-
 
 @Controller
 @SessionAttributes("/dashboard6")
 public class Dashboard6Controller {
-	
+
 	@RequestMapping("/drawboard1")
-	public ModelAndView initializeForm()
-	{
+	public ModelAndView initializeForm() {
 		Dashboard3 dashboard3 = new Dashboard3();
 		System.out.println("inside dashboard 6!!");
-		return new ModelAndView("dashboard6/drawboard1","Dashboard3",new Dashboard3());
+		//DashboardDAO.getDashboardJson();
+		return new ModelAndView("dashboard6/drawboard1", "Dashboard3", new Dashboard3());
+	}
+
+	@RequestMapping(value = "/getWidgets", method = RequestMethod.GET)
+	@ResponseBody
+	public String getWidgets() {
+		//DashboardService dashboardJSON = new DashboardService();
+		//System.out.println(dashboardJSON.createDashboardJson());
+		//return dashboardJSON.createDashboardJson();
+		return DashboardDAO.getDashboardJson();
 	}
 	
-	@RequestMapping(value="/getWidgets", method=RequestMethod.GET)
+	@RequestMapping(value = "/getWidgetsInteract", method = RequestMethod.GET)
 	@ResponseBody
-	public String getWidgets()
-	{
-		DashboardService dashboardJSON =new DashboardService();		
+	public String getInteractiveWidgets() {
+		DashboardService dashboardJSON = new DashboardService();
+		//System.out.println(dashboardJSON.createDashboardJson());
 		return dashboardJSON.createDashboardJson();
+		//return DashboardDAO.getDashboardJson();
 	}
 	
 	@RequestMapping("/drawboard2")
-	public ModelAndView initializeFormDrawboard2()
-	{
+	public ModelAndView initializeFormDrawboard2() {
 		Dashboard3 dashboard3 = new Dashboard3();
-		return new ModelAndView("dashboard6/drawboard2","Dashboard3",new Dashboard3());
+		return new ModelAndView("dashboard6/drawboard2", "Dashboard3", new Dashboard3());
 	}
-	
-	
+
+	@RequestMapping("/drawboard3")
+	public String initializeFormDrawboard3() {
+		// Click for graph details
+		return "dashboard6/drawboard3";
+	}
+
+	@RequestMapping("/drawboard4")
+	public String initializeFormDrawboard4() {
+		// Click for graph type
+		return "dashboard6/drawboard4";
+	}	
+
+	@RequestMapping("/graphDetails")
+	public String graphDetailsPage() {
+
+		System.out.println("Inside the redirected link");
+		return "dashboard6/graphDetails";
+	}
+
+	@RequestMapping("/widgetClick")
+	public String widgetClickDrawboard3() {
+		Dashboard3 widgetClick = new Dashboard3();
+		System.out.println("inside Widget click page ");
+		return "forward:/graphDetails.html";
+	}
+
 }
