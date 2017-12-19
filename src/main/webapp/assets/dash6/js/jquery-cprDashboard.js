@@ -153,7 +153,30 @@
 						}
 					}
 				});
-
+				if (widgetDefinition.widgetType === "map") {
+					var mapArea = widgetContainer.find(" div.sDashboardChart");
+					var layout = {
+								  xaxis: {
+								    tickangle: -45
+								  },
+								  barmode: 'group'
+								};
+						if(widgetDefinition.graphType === 'normal'){
+							
+							var map = AmCharts.makeChart(mapArea[0], widgetDefinition.widgetContent);
+							
+						}else{
+							
+							Plotly.newPlot(chartArea[0],  widgetDefinition.widgetContent.data, widgetDefinition.widgetContent.layout,widgetDefinition.widgetContent.config);
+							Plotly.redraw(chartArea[0]);
+						}
+						if (!widgetDefinition.getDataBySelection) {
+							/*when redrawing the widget, the click event 
+							listener is getting destroyed, we need to re-register it here again
+							need to find out if its a bug on flotr2 library.*/
+							self._bindChartEvents(chartArea[0], widgetListItem.attr("id"), widgetDefinition, self);
+						}
+					};
 				//refresh widget click event handler
 				this.element.on("click", ".sDashboardWidgetHeader div.sDashboard-iconcustomRefresh.sDashboard-refresh-icon", function(e) {
 					var widget = $(e.currentTarget).parents("li:first");
@@ -230,9 +253,9 @@
 				var deleteButton = $('<div title="Delete" class="sDashboard-iconcustomDel sDashboard-trash-icon"></div>');
 				var filterButton = $('<div title="Filter" class="sDashboard-iconcustomFilter sDashboard-filter-icon"></div>');
 				
-				
+				//maximise button for map
 				//add delete button
-				if (widgetDefinition.widgetType === 'chart' && widgetDefinition.graphType === "exploratory"){
+				if (widgetDefinition.widgetType === 'map' && widgetDefinition.graphType === "exploratory" ){
 					//add Maximizebutton
 					widgetHeader.append(maximizeButton);
 					widgetHeader.append(settingsButton);
@@ -240,7 +263,27 @@
 					widgetHeader.append(filterButton);
 					
 				}
-				else if(widgetDefinition.widgetType === 'chart' && widgetDefinition.graphType === "normal"){
+				else if(widgetDefinition.widgetType === 'map' && widgetDefinition.graphType === "normal" ){
+					//add Maximizebutton
+					widgetHeader.append(maximizeButton);
+					widgetHeader.append(deleteButton);
+										
+				}				
+				else{
+					widgetHeader.append(deleteButton);
+				}
+				
+				
+				//add delete button
+				if (widgetDefinition.widgetType === 'chart' && widgetDefinition.graphType === "exploratory" ){
+					//add Maximizebutton
+					widgetHeader.append(maximizeButton);
+					widgetHeader.append(settingsButton);
+					widgetHeader.append(deleteButton);
+					widgetHeader.append(filterButton);
+					
+				}
+				else if(widgetDefinition.widgetType === 'chart' && widgetDefinition.graphType === "normal" ){
 					//add Maximizebutton
 					widgetHeader.append(maximizeButton);
 					widgetHeader.append(deleteButton);
@@ -288,6 +331,7 @@
 				} else if (widgetDefinition.widgetType === 'map') {
 				
 					var map = $('<div/>').addClass("cprDashboardMap");
+				
 					
 					widgetContent.append(map);
 				} 			
@@ -646,7 +690,10 @@
 				
 				if (widgetDefinition.widgetType === 'map') {
 					
+					var targetSVG = "M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z";
 					var map = AmCharts.makeChart(mapArea[0], widgetDefinition.widgetContent);
+					
+
 					/*if(widgetDefinition.graphType === 'normal'){
 						
 						var chart = c3.generate({bindto:chartArea[0],data:widgetDefinition.widgetContent.data});

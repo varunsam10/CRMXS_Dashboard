@@ -27,7 +27,7 @@ public class FetchData {
                 String driver = "com.mysql.jdbc.Driver";   //prop.getProperty("driver");
                 String url = "jdbc:mysql://localhost:3306/crmxsdashboard"; //prop.getProperty("url");
                 String user = "root"; //prop.getProperty("user");
-                String password = "manish"; //prop.getProperty("password");
+                String password = "root"; //prop.getProperty("password");
                 Class.forName(driver);
                 connection = DriverManager.getConnection(url, user, password);
             } catch (ClassNotFoundException e) {
