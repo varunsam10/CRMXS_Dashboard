@@ -418,6 +418,16 @@ $(window).load(function() {
 	<script src="assets/js/d3.v3.min.js" charset="utf-8"></script> 
 	<script src="assets/dash6/js/c3/c3.min.js"></script>
 	<!--  <script src="assets/dash6/js/c3/bubble.js"></script> -->
+	
+	<!-- amcharts map -->	
+	<script src="assets/dash6/js/amchartsMap/ammap.js" type="text/javascript"></script>
+	<!-- 	<script src="assets/dash6/js/amchartsMap/export.min.js"
+		type="text/javascript"></script> -->
+	<script src="assets/dash6/js/amchartsMap/light.js" type="text/javascript"></script>
+	<script src="assets/dash6/js/amchartsMap/worldLow.js" type="text/javascript"></script>
+	<!-- <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script> -->
+	
+	
 	<!-- load dashboard main library -->
 	<script src="assets/dash6/js/jquery-cprDashboard.js" type="text/javascript"></script>
 

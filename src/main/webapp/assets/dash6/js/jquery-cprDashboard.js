@@ -2,12 +2,12 @@
 		"use strict";
 		if ( typeof define === 'function' && define.amd) {
 			// Register as an AMD module 
-			define(['jquery','Plotly','c3'], factory);
+			define(['jquery','Plotly','c3','AmCharts'], factory);
 		} else {
 			// Browser globals 
-			factory($, Plotly,c3);
+			factory($, Plotly, c3, AmCharts);
 		}
-	}(function($,Plotly,c3) {
+	}(function($,Plotly,c3,AmCharts) {
 		"use strict";
 		$.widget("mn.sDashboard", {
 			version : "2.5",
@@ -46,6 +46,7 @@
 					this.element.append(widget);
 					this._renderTable(_dashboardData[i]);
 					this._renderChart(_dashboardData[i]);
+					this._renderMap(_dashboardData[i]);
 				}
 
 				var that = this;
@@ -284,7 +285,13 @@
 						chart.addClass("sDashboardChartClickable");
 					}
 					widgetContent.append(chart);
-				} else {
+				} else if (widgetDefinition.widgetType === 'map') {
+				
+					var map = $('<div/>').addClass("cprDashboardMap");
+					
+					widgetContent.append(map);
+				} 			
+				else {
 					widgetContent.append(widgetDefinition.widgetContent);
 				}
 
@@ -626,6 +633,50 @@
 							this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
 						}
 					}
+
+			},
+			_renderMap : function(widgetDefinition) {
+				var id = "li#" + widgetDefinition.widgetId;
+				var mapArea;
+				var data;
+				var layout;
+				var config;
+				var chart;
+				mapArea = this.element.find(id + " div.cprDashboardMap");
+				
+				if (widgetDefinition.widgetType === 'map') {
+					
+					var map = AmCharts.makeChart(mapArea[0], widgetDefinition.widgetContent);
+					/*if(widgetDefinition.graphType === 'normal'){
+						
+						var chart = c3.generate({bindto:chartArea[0],data:widgetDefinition.widgetContent.data});
+						
+					}else{
+						
+						Plotly.newPlot(chartArea[0],  widgetDefinition.widgetContent.data, widgetDefinition.widgetContent.layout,widgetDefinition.widgetContent.config);
+						Plotly.redraw(chartArea[0]);
+					}	*/				
+				/*	if (widgetDefinition.getDataBySelection) {
+						
+						this._bindSelectEvent(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+					} else {
+						if(widgetDefinition.graphType === 'exploratory'){
+							this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+						}else if(widgetDefinition.graphType === 'normal'){
+							this._bindChartEventsC3(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+						}
+					}*/
+				}
+				else if(widgetDefinition.widgetType === 'static')
+				{
+						/*chart = new Chart(chartArea[0], widgetDefinition.widgetId, widgetDefinition.widgetContent.data);
+						
+						if (widgetDefinition.getDataBySelection) {
+							this._bindSelectEvent(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+						} else {
+							this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+						}*/
+				}
 
 			},
 			_bindSelectEvent : function(chartArea, widgetId, widgetDefinition, context) {
