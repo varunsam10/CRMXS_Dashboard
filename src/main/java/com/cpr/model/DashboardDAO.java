@@ -4,15 +4,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
 import java.util.List;
-import javax.json.*;
+
 import com.google.gson.Gson;
 
 
-
 public class DashboardDAO {
-
+	
 	public static String getDashboardJson(){
 		Gson gson = new Gson();
 		java.sql.Connection con = FetchData.getConnection();
@@ -33,7 +31,6 @@ public class DashboardDAO {
             	//Json.createArrayBuilder()
             	
             }
-            //System.out.println();
             //String dashboardJson = widgetConfig.build().toString();
             String dashboardJson = widgetContent.toString();
         	//String dashboardJson = gson.toJson(widgetContent);

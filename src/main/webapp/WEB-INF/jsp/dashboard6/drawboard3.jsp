@@ -72,7 +72,7 @@
 <link href="assets/dash6/css/c3/c3.css" rel="stylesheet" />
 <!--     sDashboard     -->
 <!-- END HEAD -->
-<!-- 
+<!--
 <link href="assets/dash6/css/main.css" rel="stylesheet">
 <link href="assets/dash6/css/normalize.css" rel="stylesheet"> -->
 
@@ -109,15 +109,11 @@ $(window).load(function() {
 <div class="se-pre-con"></div>
 
 <!-- <div id="loader-wrapper">
-    <div id="loader"></div>
- 
+    <div id="loader"></div> 
     <div class="loader-section section-left"></div>
-    <div class="loader-section section-right"></div>
- 
+    <div class="loader-section section-right"></div> 
 </div>
  -->
-
-
 <!-- <div class="spinner">
   <div class="rect1"></div>
   <div class="rect2"></div>
@@ -812,7 +808,7 @@ $(window).load(function() {
 	<script src="assets/dash6/js/c3/c3.min.js"></script>
 	<!--  <script src="assets/dash6/js/c3/bubble.js"></script> -->
 	<!-- load dashboard library -->
-	<script src="assets/dash6/js/jquery-cprDashboard.js" type="text/javascript"></script>
+	<script src="assets/dash6/js/jquery-cprDashboardDrawboard3.js" type="text/javascript"></script>
 
 	<!-- theme switcher -->
 	<script src="assets/dash6/js/themeswitcher/jquery.themeswitcher.min.js"	type="text/javascript"></script>
@@ -982,7 +978,13 @@ $(window).load(function() {
 			notification('info','Filters have been selected!');
 			if(console) {
 				console.log('from date: ' + $("#from").val() + " & to date: " + $("#to").val() +" & countries selected: " + $(".chzn-select").val());
-			}
+			} 
+			var fromDate = $("#from").val();
+			var toDate = $("#to").val();
+			var countriesSelected = $(".chzn-select").val();
+			
+			//this._filterCharts(fromDate,toDate,countriesSelected);
+			
 		});
 
 		
