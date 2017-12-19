@@ -487,7 +487,7 @@
 						
 					}else{						
 						//widgetDefinition.widgetContent.transition = 
-						Plotly.animate(chartArea[0], widgetDefinition.widgetContent.data , widgetDefinition.widgetContent.layout,widgetDefinition.widgetContent.config);
+						Plotly.newPlot(chartArea[0], widgetDefinition.widgetContent.data , widgetDefinition.widgetContent.layout,widgetDefinition.widgetContent.config);
 						Plotly.redraw(chartArea[0]);
 					}					
 					if (widgetDefinition.getDataBySelection) {

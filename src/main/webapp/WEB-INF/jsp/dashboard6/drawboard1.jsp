@@ -778,7 +778,7 @@ if it's not present, don't show loader */
 											widgetContent : "231,800$"
 										},
 										{
-											widgetTitle : "World Map",
+											widgetTitle : "Where the customers are ",
 											widgetId : "id013",
 											widgetType : "map",
 											graphType : "normal",  
