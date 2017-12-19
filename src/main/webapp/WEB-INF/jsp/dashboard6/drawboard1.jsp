@@ -777,8 +777,8 @@ if it's not present, don't show loader */
 											widgetTitle : "Where the customers are ",
 											widgetId : "id013",
 											widgetType : "map",
-											/* graphType : "exploratory", */
-											widgetDimension : "large",										
+											graphType : "normal",  
+											widgetDimension : "normal",										
 											widgetContent : /* {
 													  "type": "map",
 													  "theme": "light",
@@ -810,16 +810,23 @@ if it's not present, don't show loader */
 												    "selectedColor": "#089282",
 												    "color": "#13564e"
 												  },
+												  "areasSettings": {
+													    "autoZoom": true,
+													    "selectedColor": "#CC0000"
+													  },
 
 												  "areasSettings": {
 												    "unlistedAreasColor": "#15A892"
 												  },
 
 												  "dataProvider": {
+													 
+												//"getAreasFromMap": true
 												    "map": "worldLow",
 												    "images": [ {
 												      "zoomLevel": 5,
 												      "scale": 0.5,
+												      "map-marker" : "Brussels",
 												      "title": "Brussels",
 												      "latitude": 50.8371,
 												      "longitude": 4.3676
@@ -859,7 +866,7 @@ if it's not present, don't show loader */
 												      "title": "London",
 												      "latitude": 51.5002,
 												      "longitude": -0.1262,
-												      "url": "http://www.google.co.uk"
+												      //"url": "http://www.google.co.uk"
 												    }, {
 												      "zoomLevel": 5,
 												      "scale": 0.5,
@@ -869,6 +876,7 @@ if it's not present, don't show loader */
 												    }, {
 												      "zoomLevel": 5,
 												      "scale": 0.5,
+												      
 												      "title": "New Delhi",
 												      "latitude": 28.6353,
 												      "longitude": 77.2250
@@ -878,7 +886,7 @@ if it's not present, don't show loader */
 												      "title": "Tokyo",
 												      "latitude": 35.6785,
 												      "longitude": 139.6823,
-												      "url": "http://www.google.co.jp"
+												      //"url": "http://www.google.co.jp"
 												    }, {
 												      "zoomLevel": 5,
 												      "scale": 0.5,
@@ -927,7 +935,9 @@ if it's not present, don't show loader */
 												      "title": "Pretoria",
 												      "latitude": -25.7463,
 												      "longitude": 28.1876
-												    } ]
+												    }
+												    
+												    ]
 												  }
 												} 
 									}
