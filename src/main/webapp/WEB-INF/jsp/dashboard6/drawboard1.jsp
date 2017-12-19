@@ -24,43 +24,31 @@
 <!-- END LAYOUT FIRST STYLES -->
 <!-- BEGIN GLOBAL MANDATORY STYLES -->
 <!-- <link
-	href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all"
-	rel="stylesheet" type="text/css" /> -->
+	href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all"	rel="stylesheet" type="text/css" /> -->
 <link
-	href="assets/dash6/global/plugins/font-awesome/css/font-awesome.min.css"
-	rel="stylesheet" type="text/css" />
+	href="assets/dash6/global/plugins/font-awesome/css/font-awesome.min.css"	rel="stylesheet" type="text/css" />
 <link
-	href="assets/dash6/global/plugins/simple-line-icons/simple-line-icons.min.css"
-	rel="stylesheet" type="text/css" />
-<link href="assets/dash6/global/plugins/bootstrap/css/bootstrap.min.css"
-	rel="stylesheet" type="text/css" />
+	href="assets/dash6/global/plugins/simple-line-icons/simple-line-icons.min.css"	rel="stylesheet" type="text/css" />
+<link href="assets/dash6/global/plugins/bootstrap/css/bootstrap.min.css"	rel="stylesheet" type="text/css" />
 <link
-	href="assets/dash6/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css"
-	rel="stylesheet" type="text/css" />
+	href="assets/dash6/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css"	rel="stylesheet" type="text/css" />
 <!-- END GLOBAL MANDATORY STYLES -->
 <!-- BEGIN PAGE LEVEL PLUGINS -->
 <link
-	href="assets/dash6/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css"
-	rel="stylesheet" type="text/css" />
-<link href="assets/dash6/global/plugins/morris/morris.css"
-	rel="stylesheet" type="text/css" />
+	href="assets/dash6/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css" rel="stylesheet" type="text/css" />
+<link href="assets/dash6/global/plugins/morris/morris.css" 	rel="stylesheet" type="text/css" />
 <link
-	href="assets/dash6/global/plugins/fullcalendar/fullcalendar.min.css"
-	rel="stylesheet" type="text/css" />
-<link href="assets/dash6/global/plugins/jqvmap/jqvmap/jqvmap.css"
-	rel="stylesheet" type="text/css" />
+	href="assets/dash6/global/plugins/fullcalendar/fullcalendar.min.css" 	rel="stylesheet" type="text/css" />
+<link href="assets/dash6/global/plugins/jqvmap/jqvmap/jqvmap.css" 	rel="stylesheet" type="text/css" />
 <!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN THEME GLOBAL STYLES -->
 <link href="assets/dash6/global/css/components-md.min.css"
 	rel="stylesheet" id="style_components" type="text/css" />
-<link href="assets/dash6/global/css/plugins-md.min.css" rel="stylesheet"
-	type="text/css" />
+<link href="assets/dash6/global/css/plugins-md.min.css" rel="stylesheet" 	type="text/css" />
 <!-- END THEME GLOBAL STYLES -->
 <!-- BEGIN THEME LAYOUT STYLES -->
-<link href="assets/dash6/layouts/layout6/css/layout.css"
-	rel="stylesheet" type="text/css" />
-<link href="assets/dash6/layouts/layout6/css/custom.css"
-	rel="stylesheet" type="text/css" />
+<link href="assets/dash6/layouts/layout6/css/layout.css" 	rel="stylesheet" type="text/css" />
+<link href="assets/dash6/layouts/layout6/css/custom.css" 	rel="stylesheet" type="text/css" />
 	
 <!-- datatable CSS  -->
 <!-- <link href="assets/dash6/css/datatable/jquery.dataTables.min.css" rel="stylesheet" type="text/css" /> -->
@@ -78,12 +66,12 @@
 <!-- <link type="text/css" href="assets/dash6/css/jquery-ui.css"
 	rel="stylesheet" /> -->
 
-<link type="text/css" href="assets/dash6/css/chosen.min.css"
-	rel="stylesheet" />
+<link type="text/css" href="assets/dash6/css/chosen.min.css" 	rel="stylesheet" />
 	
 
-<link type="text/css" href="assets/dash6/css/jquery-ui.css"
-	rel="stylesheet" />
+<!-- <link type="text/css" href="assets/dash6/css/jquery-ui.css" 	rel="stylesheet" /> -->
+
+<link type="text/css" href="assets/dash6/css/jqueryNw/jquery-ui-1.12.1.min.css" 	rel="stylesheet" />
 <!-- amcharts map -->	
  <!-- <link rel="stylesheet" href="assets/dash6/js/amchartsMap/export.css" type="text/css" media="all" /> 
  -->
@@ -130,7 +118,7 @@ if it's not present, don't show loader */
 	$(window).load(function() {
 		// Animate loader off screen
 		$(".se-pre-con").fadeOut("slow");
-		;
+		
 	});
 </script> 
 <div class="se-pre-con"></div> 
@@ -417,13 +405,27 @@ if it's not present, don't show loader */
 				
 				<div class="clearfix"></div>
 				<!-- END DASHBOARD STATS 1-->
-				<!-- BEGIN PAGE BASE CONTENT -->
-				
+				<!-- BEGIN PAGE BASE CONTENT -->				
 				<div class="content">
-					<div class="container-fluid">
+					<div class="container-fluid">						
 						<!--     CPR Dashboard -->						
 						<ul id="cprDashboard">
 						</ul>
+						<div id="cprdialog" title="Change graphs">						
+						 	<form>
+    					 		<fieldset>
+      							<label for="name">Name</label>
+      							<input type="text" name="name" id="name" value="Jane Smith" class="text ui-widget-content ui-corner-all">
+      							<label for="email">Email</label>
+      							<input type="text" name="email" id="email" value="jane@smith.com" class="text ui-widget-content ui-corner-all">
+      							<label for="password">Password</label>
+      							<input type="password" name="password" id="password" value="xxxxxxx" class="text ui-widget-content ui-corner-all">
+ 
+      							<!-- Allow form submission with keyboard without duplicating the dialog button -->
+     							 <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+    							</fieldset>
+  							</form>
+						</div>
 					</div>
 				</div>
 				<!-- END PAGE BASE CONTENT -->
@@ -496,25 +498,24 @@ if it's not present, don't show loader */
 	<script src="assets/dash6/global/scripts/app.js" type="text/javascript"></script>
 	<!-- END THEME GLOBAL SCRIPTS -->
 	<!-- BEGIN PAGE LEVEL SCRIPTS -->
-	<script src="assets/dash6/pages/scripts/dashboard.min.js"
-		type="text/javascript"></script>
+	<script src="assets/dash6/pages/scripts/dashboard.min.js"  type="text/javascript"></script>
 	<!-- END PAGE LEVEL SCRIPTS -->
 	<!-- BEGIN THEME LAYOUT SCRIPTS -->
-	<script src="assets/dash6/layouts/layout6/scripts/layout.min.js"
-		type="text/javascript"></script>
+	<script src="assets/dash6/layouts/layout6/scripts/layout.min.js" type="text/javascript"></script>
 	<!-- END THEME LAYOUT SCRIPTS -->
 
 	<!--     CPR Dashboard    Custom     -->
 	<!-- Load jquery library -->
 	<!-- <script src="assets/dash6/js/jquery/jquery-1.8.2.js"	type="text/javascript"></script> -->
 	<!-- load jquery ui library -->
-	<script src="assets/dash6/js/jquery/jquery-ui.js"
-		type="text/javascript"></script>
+	<!-- <script src="assets/dash6/js/jquery/jquery-ui.js" type="text/javascript"></script> -->
+	
+	
+	<script src="assets/dash6/js/jquery/jquery-ui-1.12.1.min.js" type="text/javascript"></script>
 	<!--  remove -->
 	<!-- <script src="assets/dash6/js/jqueryNw/jquery-ui.js" type="text/javascript"></script> -->
 	<!-- load touch punch library to enable dragging on touch based devices -->
-	<script src="assets/dash6/js/touchpunch/jquery.ui.touch-punch.js"
-		type="text/javascript"></script>
+	<script src="assets/dash6/js/touchpunch/jquery.ui.touch-punch.js" 	type="text/javascript"></script>
 	<!-- load gitter notification library -->
 	<!-- 	<script src="assets/dash6/js/gitter/jquery.gritter.js" type="text/javascript"></script> -->
 	<!-- Toastr notification library -->
@@ -528,19 +529,14 @@ if it's not present, don't show loader */
 	<!--  <script src="assets/dash6/js/c3/bubble.js"></script> -->
 	
 	<!-- amcharts map -->	
-		<script src="assets/dash6/js/amchartsMap/ammap.js"
-		type="text/javascript"></script>
-	<!-- 	<script src="assets/dash6/js/amchartsMap/export.min.js"
-		type="text/javascript"></script> -->
-		<script src="assets/dash6/js/amchartsMap/light.js"
-		type="text/javascript"></script>
-		<script src="assets/dash6/js/amchartsMap/worldLow.js"
-		type="text/javascript"></script>
+	<script src="assets/dash6/js/amchartsMap/ammap.js"	type="text/javascript"></script>
+	<!-- 	<script src="assets/dash6/js/amchartsMap/export.min.js"	type="text/javascript"></script> -->
+	<script src="assets/dash6/js/amchartsMap/light.js"	type="text/javascript"></script>
+	<script src="assets/dash6/js/amchartsMap/worldLow.js" type="text/javascript"></script>
 	<!-- <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script> -->
 	
 	<!-- load dashboard library -->
-	<script src="assets/dash6/js/jquery-cprDashboard.js"
-		type="text/javascript"></script>
+	<script src="assets/dash6/js/jquery-cprDashboard.js" type="text/javascript"></script>
 		
 	
 	<!-- theme switcher -->

@@ -183,6 +183,39 @@
 						$(".cprDashboard-overlay").hide();
 					});
 				});
+				
+				//delete widget by clicking the 'trash' icon on the widget
+				this.element.on("click", ".sDashboardWidgetHeader div.sDashboard-iconcustom.sDashboard-settings ", function(e) {
+				/*	var widget = $(e.currentTarget).parents("li:first");
+					//show hide effect
+					widget.hide("fold", {}, 300, function() {
+						self._removeWidgetFromWidgetDefinitions(this.id);
+						$(this).remove();
+						$(".cprDashboard-overlay").hide();
+					});*/
+					//console.log("Settings button clicked");
+					var dialog;
+					dialog = $( "#cprdialog").dialog({
+					      autoOpen: false,
+					      height: 400,
+					      width: 350,
+					      modal: true,
+					      buttons: {
+					        //"Change graph": addUser,
+					        Cancel: function() {
+					          dialog.dialog( "close" );
+					        }
+					      },
+					      close: function() {
+					        form[ 0 ].reset();
+					        allFields.removeClass( "ui-state-error" );
+					      }
+					});
+					
+					dialog.dialog( "open" );
+					
+				
+				});
 
 				//table row click
 				this.element.on("click", ".sDashboardWidgetContent table.sDashboardTableView tbody tr", function(e) {
@@ -812,7 +845,7 @@
 			},
 
 			/*public methods*/
-			//add a widget to the dashbaord
+			//add a widget to the dashboard
 			addWidget : function(widgetDefinition) {
 				if (!widgetDefinition.widgetId) {
 					throw "Expected widgetId to be defined";
