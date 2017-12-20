@@ -412,7 +412,7 @@ if it's not present, don't show loader */
 						<ul id="cprDashboard">
 						</ul>
 						<div id="cprdialog" title="Change graphs">						
-						 	<form>
+						<%--  	<form>
     					 		<fieldset>
       							<label for="name">Name</label>
       							<input type="text" name="name" id="name" value="Jane Smith" class="text ui-widget-content ui-corner-all">
@@ -424,7 +424,7 @@ if it's not present, don't show loader */
       							<!-- Allow form submission with keyboard without duplicating the dialog button -->
      							 <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
     							</fieldset>
-  							</form>
+  							</form> --%>
 						</div>
 					</div>
 				</div>
