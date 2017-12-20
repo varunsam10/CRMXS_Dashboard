@@ -153,30 +153,7 @@
 						}
 					}
 				});
-				if (widgetDefinition.widgetType === "map") {
-					var mapArea = widgetContainer.find(" div.sDashboardChart");
-					var layout = {
-								  xaxis: {
-								    tickangle: -45
-								  },
-								  barmode: 'group'
-								};
-						if(widgetDefinition.graphType === 'normal'){
-							
-							var map = AmCharts.makeChart(mapArea[0], widgetDefinition.widgetContent);
-							
-						}else{
-							
-							Plotly.newPlot(chartArea[0],  widgetDefinition.widgetContent.data, widgetDefinition.widgetContent.layout,widgetDefinition.widgetContent.config);
-							Plotly.redraw(chartArea[0]);
-						}
-						if (!widgetDefinition.getDataBySelection) {
-							/*when redrawing the widget, the click event 
-							listener is getting destroyed, we need to re-register it here again
-							need to find out if its a bug on flotr2 library.*/
-							self._bindChartEvents(chartArea[0], widgetListItem.attr("id"), widgetDefinition, self);
-						}
-					};
+				
 				//refresh widget click event handler
 				this.element.on("click", ".sDashboardWidgetHeader div.sDashboard-iconcustomRefresh.sDashboard-refresh-icon", function(e) {
 					var widget = $(e.currentTarget).parents("li:first");
