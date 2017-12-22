@@ -496,7 +496,26 @@
 						var chart = c3.generate({bindto:chartArea[0],data:widgetDefinition.widgetContent.data});
 						
 					}else{						
-						//widgetDefinition.widgetContent.transition = 
+						
+						
+						//code for changing the bar to scatter (line graph) 
+						
+						/*if(widgetDefinition.chartType === 'bar'){ 
+							var i=0;
+							for(i=0;i<widgetDefinition.widgetContent.data.length;i++)
+								{
+								widgetDefinition.widgetContent.data[i].type = 'scatter';
+								}
+							
+							Plotly.animate(chartArea[0], { data, layout,config} ,{
+								transition: {  
+									duration: 2000,
+									easing: 'cubic-in-out' 
+										} 
+							});
+							//Plotly.newPlot(chartArea[0], widgetDefinition.widgetContent.data , widgetDefinition.widgetContent.layout,widgetDefinition.widgetContent.config);
+							//Plotly.redraw(chartArea[0]);
+						}*/
 						Plotly.newPlot(chartArea[0], widgetDefinition.widgetContent.data , widgetDefinition.widgetContent.layout,widgetDefinition.widgetContent.config);
 						Plotly.redraw(chartArea[0]);
 					}					

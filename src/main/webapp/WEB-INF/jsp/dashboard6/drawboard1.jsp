@@ -940,7 +940,38 @@ if it's not present, don't show loader */
 												    ]
 												  }
 												} 
-									}
+									},
+									
+									{
+										widgetTitle : "World Maps",
+										widgetId : "id014",
+										widgetType : "map",
+										graphType : "normal",
+										widgetDimension : "normal",
+										/* chartType : "line",
+										getDataBySelection : true, */
+										widgetContent : 
+											{
+											  "type": "map",
+											  "theme": "light",
+											  "projection": "miller",
+
+											  "dataProvider": {
+											    "map": "worldLow",
+											    "getAreasFromMap": true
+											  },
+											  "areasSettings": {
+											    "autoZoom": true,
+											    "selectedColor": "#CC0000"
+											  },
+											  "smallMap": {},
+											  "export": {
+											    "enabled": true,
+											    "position": "bottom-right"
+											  }
+										}  
+										
+									},
 								/* 	{
 								 widgetTitle: "Items Sold Grid",
 								 widgetId: "id010",
