@@ -368,37 +368,32 @@ if it's not present, don't show loader */
 					</div>
 				</div>
 				<script>
-				  $( function() {
+				  $(function() {
 				    var dateFormat = "mm/dd/yy",
-				      from = $( "#from" )
-				        .datepicker({
+				      from = $( "#from" ).datepicker({
 				          defaultDate: "+1w",
 				          changeMonth: true,
 				          numberOfMonths: 3,
-				        })
-				        .on( "change", function() {
+				        }).on( "change", function() {
 				          to.datepicker( "option", "minDate", getDate( this ));
 				        }),
 				      to = $( "#to" ).datepicker({
 				        defaultDate: "+1w",
 				        changeMonth: true,
 				        numberOfMonths: 3
-				      })
-				      .on( "change", function() {
+				      }).on( "change", function() {
 				        from.datepicker( "option", "maxDate", getDate( this ) );
-				      });
-				 
+				      });				 
 				    function getDate( element ) {
 				      var date;
 				      try {
 				        date = $.datepicker.parseDate( dateFormat, element.value );
 				      } catch( error ) {
 				        date = null;
-				      }
-				 
+				      }				 
 				      return date;
 				    }
-				  } );
+				  });
 				  </script>
 				
 				<script src="assets/dash6/js/Dropdown/chosen.jquery.min.js"></script>
@@ -569,16 +564,12 @@ if it's not present, don't show loader */
     <script type="text/javascript" src="assets/dash6/js/grid/jqxdata.js"></script> 
     <script type="text/javascript" src="assets/dash6/js/grid/jqxdata.export.js"></script> 
     <script type="text/javascript" src="assets/dash6/js/grid/jqxgrid.export.js"></script> 
-    <script type="text/javascript" src="assets/dash6/js/grid/jqxgrid.sort.js"></script> 
-	 -->
+    <script type="text/javascript" src="assets/dash6/js/grid/jqxgrid.sort.js"></script>  -->
 
 
 	<script type="text/javascript">
-		$(document)
-				.ready(
-						function() {
-
-							$(function() {
+		$(document).ready(function() {
+		$(function() {
 								//Theme switcher plugin
 								$("#switcher").themeswitcher({
 									imgpath : "assets/dash6/css/images/",
@@ -1029,8 +1020,7 @@ if it's not present, don't show loader */
 									} else {
 										toastr.info(message, 'Information');
 									}
-								}
-								
+								}								
 								//filter selected
 								$("#applyFilters").click( function() {
 									notification('info','Filters have been selected!');
@@ -1040,74 +1030,47 @@ if it's not present, don't show loader */
 								});
 								
 								//table row clicked event example
-								$("#cprDashboard")
-										.bind(
-												"sdashboardrowclicked",
-												function(e, data) {
-
-													if (console) {
-														console
-																.log("table row clicked, for widget: "
+								$("#cprDashboard").bind("sdashboardrowclicked",function(e, data) {
+												if (console) {
+														console.log("table row clicked, for widget: "
 																		+ data.selectedWidgetId);
 													}
-												});
+								});
 
 								//plot selected event example
-								$("#cprDashboard")
-										.bind(
-												"sdashboardplotselected",
-												function(e, data) {
-													notification('info',
-															'A plot has been selected within a chart widget!');
-													if (console) {
-														console
-																.log("chart range selected, for widget: "
-																		+ data.selectedWidgetId);
+								$("#cprDashboard").bind("sdashboardplotselected",function(e, data) {
+									notification('info','A plot has been selected within a chart widget!');
+										if (console) {
+											console.log("chart range selected, for widget: "+ data.selectedWidgetId);
 													}
-												});
+								});
 								//plot click event example
-								$("#cprDashboard")
-										.bind(
-												"sdashboardplotclicked",
-												function(e, data) {
-													notification(
-															'info',
-															'chart clicked, for widget:'
-																	+ data.clickedWidgetId
-																	+ ' the data passed is'
-																	+ data.dataPoints
-																	+ '!');
-													if (console) {
-														console
-																.log("chart clicked, for widget: "
-																		+ data.selectedWidgetId);
-													}
-												});
+								$("#cprDashboard").bind("sdashboardplotclicked",function(e, data) {
+									notification('info','chart clicked, for widget:'
+														+ data.clickedWidgetId
+														+ ' the data passed is'
+														+ data.dataPoints
+														+ '!');
+								if (console) {
+										console.log("chart clicked, for widget: "+ data.selectedWidgetId);
+												}
+								});
 
 								//widget order changes event example
-								$("#cprDashboard")
-										.bind(
-												"sdashboardorderchanged",
-												function(e, data) {
-													$.gritter
-															.add({
-																position : 'bottom-left',
-																title : 'Order Changed',
-																time : 4000,
-																text : 'The widgets order has been changed,check the console for sorted widget definitions array'
-															});
-													if (console) {
-														console
-																.log("Sorted Array");
-														console
-																.log("+++++++++++++++++++++++++");
-														console
-																.log(data.sortedDefinitions);
-														console
-																.log("+++++++++++++++++++++++++");
-													}
-												});
-
+								$("#cprDashboard").bind("sdashboardorderchanged",function(e, data) {
+								$.gritter.add({
+									position : 'bottom-left',
+									title : 'Order Changed',
+									time : 4000,
+									text : 'The widgets order has been changed,check the console for sorted widget definitions array'
+								});
+								if (console) {
+									console.log("Sorted Array");
+									console.log("+++++++++++++++++++++++++");
+									console.log(data.sortedDefinitions);
+									console.log("+++++++++++++++++++++++++");
+									}
+								});
 							});
 						})
 	</script>

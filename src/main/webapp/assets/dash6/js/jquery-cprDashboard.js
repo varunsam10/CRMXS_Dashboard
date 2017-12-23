@@ -129,7 +129,7 @@
 					widgetContainer.toggleClass("sDashboardWidgetContentMaximized ");
 
 					if (widgetDefinition.widgetType === "chart") {
-					var chartArea = widgetContainer.find(" div.sDashboardChart");
+					var chartArea = widgetContainer.find(" div.cprDashboardChart");
 					var layout = {
 								  xaxis: {
 								    tickangle: -45
@@ -330,7 +330,7 @@
 					widgetContent.addClass("cprWidgetContentTable");
 				}	else if (widgetDefinition.widgetType === 'chart') {
 				
-					var chart = $('<div/>').addClass("sDashboardChart");
+					var chart = $('<div/>').addClass("cprDashboardChart");
 					if (widgetDefinition.getDataBySelection) {
 						chart.addClass("sDashboardChartSelectable");
 //						chart.addClass("chart");
@@ -477,7 +477,7 @@
 				var layout;
 				var config;
 				var chart;
-				chartArea = this.element.find(id + " div.sDashboardChart");
+				chartArea = this.element.find(id + " div.cprDashboardChart");
 				
 				if (widgetDefinition.widgetType === 'chart') {
 					
@@ -565,7 +565,7 @@
 				//console.log(_dashboardData);
 				//console.log(_dashboardData.length);				
 				
-				chartArea = this.element.find(id + " div.sDashboardChart");
+				chartArea = this.element.find(id + " div.cprDashboardChart");
 			//	var refreshedData = widgetDefinition.refreshCallBack.apply(self, [widgetDefinition.linkedWidgets]);
 				//widgetDefinition.widgetContent = refreshedData;
 				if (WidgetDefinitionToChange.widgetType === 'chart') {
@@ -656,7 +656,7 @@
 				var layout;
 				var config;
 				var chart;
-				chartArea = this.element.find(id + " div.sDashboardChart");
+				chartArea = this.element.find(id + " div.cprDashboardChart");
 				
 				if (widgetDefinition.widgetType === 'chart') {
 					
@@ -822,7 +822,7 @@
 			_bindChartEvents : function(chartArea, widgetId, widgetDefinition, context) {
 				var myPlot = chartArea;
 				var id = "li#" + widgetDefinition.widgetId;
-				var chartArea = this.element.find(id + " div.sDashboardChart");
+				var chartArea = this.element.find(id + " div.cprDashboardChart");
 				myPlot.on('plotly_click', function(data){					
 					 var pts = '';
 					 for(var i=0; i < data.points.length; i++){
@@ -842,7 +842,7 @@
 			_bindChartEventsC3 : function(chartArea, widgetId, widgetDefinition, context) {
 				var myPlot = chartArea;
 				var id = "li#" + widgetDefinition.widgetId;
-				var chartArea = this.element.find(id + " div.sDashboardChart");
+				var chartArea = this.element.find(id + " div.cprDashboardChart");
 			
 			/*	myPlot.on('onclick', function(data,irt){					
 					 var pts = '';
