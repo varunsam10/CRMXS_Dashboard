@@ -98,7 +98,8 @@ var trace1 = {
 	name : '<b>Desperado</b>',
 	type : 'scatter',
 	marker : {
-		color : 'rgb(55, 83, 109)',
+	//	color : 'rgb(55, 83, 109)',
+		color : '#EC7063',
 		opacity : 0.6
 	},
 	textfont:{
@@ -113,7 +114,8 @@ var trace2 = {
 	name : '<b>Tiger</b>',
 	type : 'scatter',
 	marker : {
-		color : 'rgb(26, 118, 255)',
+		//color : 'rgb(26, 118, 255)',
+		color : '#1ABC9C',	
 		opacity : 0.6
 	},
 	textfont:{
@@ -164,7 +166,8 @@ var trace1 = {
 	mode : 'markers',
 	marker : {
 		size : [ 40, 60, 80, 100 ],
-		color : 'rgb(26, 118, 255)',
+		//color : 'rgb(26, 118, 255)',
+		color : '#EC7063', 
 		opacity : 0.6
 
 		
@@ -181,7 +184,8 @@ var trace2 = {
 		mode : 'markers',
 		marker : {
 			size : [ 30, 65, 75, 90 ],
-			color : 'rgb(26, 118, 255)',
+			//color : 'rgb(26, 118, 255)',
+			color : '#1ABC9C',
 			opacity : 0.6
 
 		},
@@ -232,7 +236,8 @@ var trace1 = {
 	mode : 'markers',
 	marker : {
 		size : [ 40, 60, 80, 100 ],
-		color : 'rgb(26, 118, 255)',
+		//color : 'rgb(26, 118, 255)',
+		color : '#1ABC9C',
 		opacity : 0.6
 
 		
@@ -249,7 +254,8 @@ var trace2 = {
 		mode : 'markers',
 		marker : {
 			size : [ 30, 65, 75, 90 ],
-			color : 'rgb(26, 118, 255)',
+			//color : 'rgb(26, 118, 255)',
+			color : '#EC7063',
 			opacity : 0.6
 
 		},
@@ -300,7 +306,8 @@ var trace1 = {
 		  name: '<b>SF Breweries</b>',
 		  orientation: 'h',
 		  marker: {
-		   color: 'rgb(55, 83, 109)',
+		  // color: 'rgb(55, 83, 109)',
+		   color : '#1ABC9C',
 		   opacity: 0.6
 		    
 		  },
@@ -314,7 +321,8 @@ var trace1 = {
 		  orientation: 'h',
 		  type: 'bar',
 		  marker: {
-		    color: 'rgb(26, 118, 255)',
+		   // color: 'rgb(26, 118, 255)',
+			color : '#2C3E50',
 		    opcacity: 0.6
 		    
 		  },
@@ -356,7 +364,8 @@ var trace1 = {
 			"sizemode": "area",
 			"size": ["31889923", "708573", "150448339", "14131858", "1318683096", "6980412", "1110396331", "223547000", "69453570", "27499638", "6426679", "127467972", "6053193", "23301725", "49044790", "2505559", "3921278", "24821286", "2874127", "47761980", "28901790", "3204897", "169270617", "91077287", "27601038", "4553009", "20378239", "19314747", "23174294", "65068149", "85262356", "4018332", "22211743"],
 			"sizeref": 200000,
-			color: 'rgb(69,117,180)'
+			//color: 'rgb(69,117,180)'
+			color : '#138D75', // green
 		}
 	}, {
 		"mode": "markers",
@@ -368,7 +377,8 @@ var trace1 = {
 			"sizemode": "area",
 			"size": ["3600523", "8199783", "10392226", "4552198", "7322858", "4493312", "10228744", "5468120", "5238460", "61083916", "82400996", "10706290", "9956108", "301931", "4109086", "58147733", "684736", "16570613", "4627926", "38518241", "10642836", "22276056", "10150265", "5447502", "2009245", "40448191", "9031088", "7554661", "71158647", "60776238"],
 			"sizeref": 200000,
-			color:  'rgb(26, 118, 255)'
+			//color:  'rgb(26, 118, 255)'
+			color : '#EC7063', // orange 
 		}
 	}, {
 		"mode": "markers",
@@ -380,7 +390,8 @@ var trace1 = {
 			"sizemode": "area",
 			"size": ["33333216", "12420476", "8078314", "1639131", "14326203", "8390505", "17696293", "4369038", "10238807", "710960", "64606759", "3800610", "18013409", "496374", "80264543", "551201", "4906585", "76511887", "1454867", "1688359", "22873338", "9947814", "1472041", "35610177", "2012649", "3193942", "6036914", "19167654", "13327079", "12031795", "3270065", "1250882", "33757175", "19951656", "2055080", "12894865", "135031164", "798094", "8860588", "199579", "12267493", "6144562", "9118773", "43997828", "42292929", "1133066", "38139640", "5701579", "10276158", "29170398", "11746035", "12311143"],
 			"sizeref": 200000,
-			color: 'rgb(49,54,149)'
+			//color: 'rgb(49,54,149)'
+			color : '#F4D03F', // yellow
 		}
 	}, {
 		"mode": "markers",
@@ -392,7 +403,8 @@ var trace1 = {
 			"sizemode": "area",
 			"size": ["20434176", "4115771"],
 			"sizeref": 200000,
-			color: 'rgb(116,173,209)'
+			//color: 'rgb(116,173,209)'
+			color : '#F4D03F', // yellow
 		}
 	}, {
 		"mode": "markers",
@@ -404,7 +416,8 @@ var trace1 = {
 			"sizemode": "area",
 			"size": ["40301927", "9119152", "190010647", "33390141", "16284741", "44227550", "4133884", "11416987", "9319622", "13755680", "6939688", "12572928", "8502814", "7483763", "2780132", "108700891", "5675356", "3242173", "6667147", "28674757", "3942491", "1056608", "301139947", "3447496", "26084662"],
 			"sizeref": 200000,
-			color: 'rgb(171,217,233)'
+			//color: 'rgb(171,217,233)'
+			color : '#2C3E50', //  black
 		}
 	}];
 	var layout = {
@@ -436,7 +449,8 @@ var trace1 = {
 		  type: 'bar',
 		  name: '<b>SF Brewries</b>',
 		  marker : {
-				color : 'rgb(26, 118, 255)',
+				//color : 'rgb(26, 118, 255)',
+			  	color : '#138D75',
 				opacity : 0.6
 			},
 			textfont:{
@@ -451,7 +465,8 @@ var trace2 = {
 		  type: 'scatter',
 		  name: '<b>LA Brewries</b>',
 		  marker : {
-				color : 'rgb(55, 83, 109)',
+				//color : 'rgb(55, 83, 109)',
+			  	color : '#2C3E50',
 				opacity : 0.6
 			},
 			textfont:{
@@ -502,7 +517,8 @@ var barlinelayout = {
 				  name: '<b>SF Brewries</b>',
 				  mode: 'lines',
 				  marker : {
-						color : 'rgb(55, 83, 109)',
+						//color : 'rgb(55, 83, 109)',
+					  	color : '#138D75', // green
 						opacity : 0.6
 					},
 					textfont:{
@@ -520,7 +536,8 @@ var barlinelayout = {
 				  name: '<b>LA Brewries</b>',
 				  mode: 'lines',
 				  marker : {
-						color : 'rgb(26, 118, 255)',
+						//color : 'rgb(26, 118, 255)',
+					  	color : '#2C3E50', //  black
 						opacity : 0.6
 					},
 					textfont:{
@@ -558,75 +575,7 @@ var barlinelayout = {
 						modeBarButtonsToRemove : [ 'sendDataToCloud' ],
 						displaylogo : false
 		};
-//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-//plotly stacked bar chart sample data starts here 
-//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-var trace1 = {
-	x : [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct',
-			'Nov', 'Dec' ],
-	y : [ 20, 14, 25, 16, 18, 22, 19, 15, 12, 16, 14, 17 ],
-	type : 'bar',
-	name : 'Primary Product',
-	marker : {
-		color : 'rgb(49,130,189)',
-		opacity : 0.7
-	},
-	textfont:{
-		color:'rgb(255,255,255)',
-		family:'Helvetica'
-	}
-};
 
-var trace2 = {
-	x : [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct',
-			'Nov', 'Dec' ],
-	y : [ 19, 14, 22, 14, 16, 19, 15, 14, 10, 12, 12, 16 ],
-	type : 'bar',
-	name : 'Secondary Product',
-	marker : {
-		color : 'rgb(204,204,204)',
-		opacity : 0.5
-	},
-	textfont:{
-		color:'rgb(255,255,255)',
-		family:'Helvetica'
-	}
-};
-myExampleData.plotlybardata = [ trace1, trace2 ];
-myExampleData.plotlybarlayout = {
-		title : 'Age groups',	
-		xaxis : {
-			title : 'Age',
-			titlefont : {
-				family : 'Helvetica',
-				size : 18,
-				color : '#7f7f7f'
-			}
-		},
-		yaxis : {
-			title : 'Number of customers',
-			titlefont : {
-				family : 'Helvetica',
-				size : 18,
-				color : '#7f7f7f'
-			}
-	},
-	titlefont : {
-		family : 'Helvetica',
-		size : 18,
-		color : '#7f7f7f'
-	},
-	barmode : 'group',
-	autosize : true,
-    paper_bgcolor:'#E0E0E0',
-	plot_bgcolor:'#E0E0E0'
-
-};
-myExampleData.plotlybarconfig = {
-	modeBarButtonsToRemove : [ 'sendDataToCloud' ],
-	displaylogo : false,
-	displayModeBar: 'true'
-};
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //plotly stacked bar chart sample data starts here 
@@ -637,7 +586,8 @@ var trace1 = {
 	name : '<b>SF Breweries</b>',
 	type : 'bar',
 	marker : {
-		color : 'rgb(55, 83, 109)',
+		//color : 'rgb(55, 83, 109)',
+		color : '#138D75', // green
 		opacity : 0.6
 	}
 };
@@ -648,7 +598,8 @@ var trace2 = {
 	name : '<b>LA Breweries</b>',
 	type : 'bar',
 	marker : {
-		color : 'rgb(26, 118, 255)',
+		//color : 'rgb(26, 118, 255)',
+		color : '#2C3E50', //  black
 		opacity : 0.6
 	}
 };
@@ -659,7 +610,8 @@ var trace3 = {
 		name : '<b>NY Breweries</b>',
 		type : 'bar',
 		marker : {
-			color : 'rgb(171,217,233)',
+			//color : 'rgb(171,217,233)',
+			color : '#EC7063', // orange 
 			opacity : 0.6
 		}
 };
@@ -671,7 +623,8 @@ var trace4 = {
 		name : 'XL Breweries',
 		type : 'bar',
 		marker : {
-			color : 'rgb(116,173,209)',
+			//color : 'rgb(116,173,209)',
+			color : '#EC7063', // orange 
 			opacity : 0.4
 		}
 };
@@ -682,7 +635,8 @@ var trace5 = {
 		name : 'YZ Breweries',
 		type : 'bar',
 		marker : {
-			color : 'rgb(254,224,144)',
+			//color : 'rgb(254,224,144)',
+			color : '#138D75', // green
 			opacity : 0.4
 		}
 };
@@ -693,7 +647,8 @@ var trace6 = {
 		name : 'XZ Breweries',
 		type : 'bar',
 		marker : {
-			color : 'rgb(165,0,38)',
+			//color : 'rgb(165,0,38)',
+			color : '#2C3E50', //  black
 			opacity : 0.4
 		}
 };
@@ -736,7 +691,8 @@ myExampleData.plotlypiedata = [ {
 	labels : [ '<b>Tiger</b>', '<b>Heiniken</b>', '<b>Brand1</b>', '<b>Brand2</b>', '<b>Brand3</b>' ],
 	type : 'pie',
 	marker: {
-		colors:  ['rgb(69,117,180)', 'rgb(26, 118, 255)', 'rgb(49,54,149)', 'rgb(116,173,209)', 'rgb(171,217,233)'],
+		//colors:  ['rgb(69,117,180)', 'rgb(26, 118, 255)', 'rgb(49,54,149)', 'rgb(116,173,209)', 'rgb(171,217,233)'],
+		colors:  ['#2C3E50', '#138D75', '#EC7063', '#F4D03F', '#95A5A6'],
 		opacity: 0.6
 	},
 	textfont:{
@@ -762,46 +718,6 @@ myExampleData.plotlypieconfig = {
 	displaylogo : false,
 	displayModeBar: 'true'
 };
-//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-//plotly bubble chart sample data starts here 
-//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-/*myExampleData.constructBubbleChartData = function() {
-	var d1 = [];
-	var d2 = []
-	var point
-	var i;
-
-	for (i = 0; i < 10; i++) {
-		point = [ i, Math.ceil(Math.random() * 10),
-				Math.ceil(Math.random() * 10) ];
-		d1.push(point);
-
-		point = [ i, Math.ceil(Math.random() * 10),
-				Math.ceil(Math.random() * 10) ];
-		d2.push(point);
-	}
-	return [ d1, d2 ];
-};
-myExampleData.bubbleChartData = myExampleData.constructBubbleChartData();
-
-myExampleData.bubbleChartOptions = {
-	bubbles : {
-		show : true,
-		baseRadius : 5
-	},
-	xaxis : {
-		min : -4,
-		max : 14
-	},
-	yaxis : {
-		min : -4,
-		max : 14
-	},
-	mouse : {
-		track : true,
-		relative : true
-	}
-};*/
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //table widget sample data starts here 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -869,12 +785,13 @@ myExampleData.donutWidgetData = [{
 	  domain: {
 	    x: [0, .48]
 	  },
-	  name: '<b>GHG Emissions</b>',
+	  name: '<b>Consumptions</b>',
 	  hoverinfo: 'label+percent+name',
 	  hole: .4,
 	  type: 'pie',
 	  marker: {
-		  colors:  ['rgb(69,117,180)', 'rgb(26, 118, 255)', 'rgb(49,54,149)', 'rgb(116,173,209)', 'rgb(171,217,233), rgb(36, 55, 57), rgb(34, 53, 101),rgb(55, 83, 109)'],
+		  //colors:  ['rgb(69,117,180)', 'rgb(26, 118, 255)', 'rgb(49,54,149)', 'rgb(116,173,209)', 'rgb(171,217,233), rgb(36, 55, 57), rgb(34, 53, 101),rgb(55, 83, 109)'],
+		  colors:  ['#2C3E50', '#F4D03F', '#EC7063', '#95A5A6', 'rgb(49,54,149)','#138D75'],
 		  opacity: 0.6
 	  },
 		textfont:{
@@ -898,7 +815,7 @@ myExampleData.donutWidgetData = [{
 	}*/];
 
 myExampleData.donutWidgetLayout =  {
-	  title: '<b>Global Consumption 1990-2011</b>',
+	  title: '<b>Global Consumption 2000-2017</b>',
 	  titlefont : {
 			size : 18,
 			color : '#7f7f7f'
@@ -935,9 +852,436 @@ myExampleData.donutWidgetConfig = {
 
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//Dashboard 4
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//plotly bubble chart 2 sample data starts here 
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+var trace1 = {
+	//x : [ 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110 ],
+	x : [ "2013", "2014", "2015" ],
+	y : [ 21, 43, 74, 12, 15, 70, 38, 16, 38, 20, 16, 38 ],
+	mode : 'markers',
+	marker : {
+		size : [ 60, 80, 100 ],
+		//color : 'rgb(26, 118, 255)',
+		color : '#138D75', // green
+		opacity : 0.6		
+	},
+	textfont:{
+		color:'rgb(255,255,255)',
+		family:'Helvetica'
+	}
+};
+
+var trace2 = {
+		x : [ 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110 ],
+		y : [ 68, 73, 74, 76, 65, 70, 98, 88, 76, 74, 87, 76 ],
+		mode : 'markers',
+		marker : {
+			size : [ 65, 75, 90 ],
+			//color : 'rgb(26, 118, 255)',
+			color : '#138D75', // green
+			opacity : 0.6
+		},
+		textfont:{
+			color:'rgb(255,255,255)',
+			family:'Helvetica'
+		}
+};
+
+myExampleData.plotlyBubbleData = [ trace1 ];
+
+myExampleData.plotlyRefreshBubbleData = [ trace2 ];
+
+myExampleData.plotlyBubbleLayout = {
+	title : '<b>Breweries</b>',	
+	xaxis : {
+		title : '<b>Year</b>',
+		titlefont : {
+			family : 'Helvetica',
+			size : 18,
+			color : '#7f7f7f'
+		}
+	},
+	yaxis : {
+		title : '<b>Number of customers</b>',
+		titlefont : {
+			family : 'Helvetica',
+			size : 18,
+			color : '#7f7f7f'
+		}
+	},
+	titlefont : {
+		family : 'Helvetica',
+		size : 18,
+		color : '#7f7f7f'
+	},
+	showlegend : false,
+	paper_bgcolor:'#E0E0E0',
+	plot_bgcolor:'#E0E0E0'
+	/*height : 600,
+	width : 600*/
+};
+
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//plotly bubble chart sample data starts here 
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+/*myExampleData.constructBubbleChartData = function() {
+	var d1 = [];
+	var d2 = []
+	var point
+	var i;
+
+	for (i = 0; i < 10; i++) {
+		point = [ i, Math.ceil(Math.random() * 10),
+				Math.ceil(Math.random() * 10) ];
+		d1.push(point);
+
+		point = [ i, Math.ceil(Math.random() * 10),
+				Math.ceil(Math.random() * 10) ];
+		d2.push(point);
+	}
+	return [ d1, d2 ];
+};
+myExampleData.bubbleChartData = myExampleData.constructBubbleChartData();
+
+myExampleData.bubbleChartOptions = {
+	bubbles : {
+		show : true,
+		baseRadius : 5
+	},
+	xaxis : {
+		min : -4,
+		max : 14
+	},
+	yaxis : {
+		min : -4,
+		max : 14
+	},
+	mouse : {
+		track : true,
+		relative : true
+	}
+};*/
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//plotly stacked bar chart sample data starts here 
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+var trace1 = {
+	x : [ '<b>Tiger</b>', '<b>Desperado</b>', '<b>Heiniken</b>' ,'<b>Kingfisher</b>', '<b>brand1</b>', '<b>brand2</b>','<b>brand3</b>', '<b>brand4</b>', '<b>brand5</b>', '<b>brand9</b>', '<b>brand10</b>', '<b>brand11</b>'],
+	y : [ 20, 14, 23, 25, 34, 36, 78, 44, 43, 47, 55, 32 ],
+	name : '<b>SF Breweries</b>',
+	type : 'bar',
+	marker : {
+		//color : 'rgb(55, 83, 109)',
+		color : '#138D75',
+		opacity : 0.6
+	}
+};
+
+var trace2 = {
+	x : [ '<b>Tiger</b>', '<b>Desperado</b>', '<b>Heiniken</b>' ,'<b>Kingfisher</b>', '<b>brand1</b>', '<b>brand2</b>','<b>brand3</b>', '<b>brand4</b>', '<b>brand5</b>', '<b>brand9</b>', '<b>brand10</b>', '<b>brand11</b>'],
+	y : [ 12, 18, 39, 22, 28, 19, 18, 58, 49, 65, 63, 71],
+	name : '<b>LA Breweries</b>',
+	type : 'bar',
+	marker : {
+		//color : 'rgb(26, 118, 255)',
+		color : '#EC7063', 
+		opacity : 0.6
+	}
+};
+
+var trace3 = {
+		x : [ '<b>Tiger</b>', '<b>Desperado</b>', '<b>Heiniken</b>' ,'<b>Kingfisher</b>', '<b>brand1</b>', '<b>brand2</b>','<b>brand3</b>', '<b>brand4</b>', '<b>brand5</b>', '<b>brand9</b>', '<b>brand10</b>', '<b>brand11</b>'],
+		y : [ 21, 18, 43, 22, 28, 45, 18, 17, 49, 71, 63, 33],
+		name : '<b>NY Breweries</b>',
+		type : 'bar',
+		marker : {
+			//color : 'rgb(171,217,233)',
+			color : '#2C3E50',
+			opacity : 0.6
+		}
+};
+
+
+var trace4 = {
+		x : [ 'Carlburg', 'Anchor', 'Guiness' ,'Breidweiser', 'Erdinger', 'brand2','brand3', 'brand4', 'brand5', 'brand9', 'brand10', 'brand11'],
+		y : [ 22, 24, 33,45, 44, 26,68, 64, 63, 47, 49, 35 ],
+		name : 'XL Breweries',
+		type : 'bar',
+		marker : {
+			color : '#EC7063', // orange 
+			opacity : 0.6
+		}
+};
+
+var trace5 = {
+		x : ['Carlburg', 'Anchor', 'Guiness' ,'Breidweiser', 'Erdinger', 'brand2','brand3', 'brand4', 'brand5', 'brand9', 'brand10', 'brand11'],
+		y : [ 12, 14, 33, 22, 38, 19, 28, 53, 69, 71, 29, 50 ],
+		name : 'YZ Breweries',
+		type : 'bar',
+		marker : {
+			//color : 'rgb(26, 118, 255)',
+			color : '#138D75', // green
+			opacity : 0.6
+		}
+};
+
+var trace6 = {
+		x : ['Carlburg', 'Anchor', 'Guiness' ,'Breidweiser', 'Erdinger', 'brand2','brand3', 'brand4', 'brand5', 'brand9', 'brand10', 'brand11'],
+		y : [ 9, 14, 45, 22, 38, 19, 51, 53, 22, 65, 29, 59 ],
+		name : 'XZ Breweries',
+		type : 'bar',
+		marker : {
+			//color : 'rgb(171,217,233)',
+			color : '#2C3E50', //  black
+			opacity : 0.6
+		}
+};
+
+
+var trace7 = {
+		x : [ '<b>Tiger</b>', '<b>Desperado</b>', '<b>Heiniken</b>' ,'<b>Kingfisher</b>'],
+		y : [ 30, 24, 13, 45 ],
+		name : '<b>SF Breweries</b>',
+		type : 'bar',
+		marker : {
+			//color : 'rgb(55, 83, 109)',
+			color : '#138D75', // green
+			opacity : 0.6
+		}
+};
+
+var trace8 = {
+		x : [ '<b>Tiger</b>', '<b>Desperado</b>', '<b>Heiniken</b>' ,'<b>Kingfisher</b>'],
+		y : [ 32, 28, 29, 42],
+		name : '<b>LA Breweries</b>',
+		type : 'bar',
+		marker : {
+			//color : 'rgb(26, 118, 255)',
+			color : '#2C3E50', //  black
+			opacity : 0.6
+		}
+};
+
+
+var trace9 = {
+		x : [ '<b>Tiger</b>', '<b>Desperado</b>', '<b>Heiniken</b>' ,'<b>Kingfisher</b>'],
+		y : [ 30, 24, 23, 65 ],
+		name : '<b>SF Breweries</b>',
+		type : 'bar',
+		marker : {
+			//color : 'rgb(55, 83, 109)',
+			color : '#EC7063', // orange 
+			opacity : 0.6
+		}
+};
+
+var trace10 = {
+		x : [ '<b>Tiger</b>', '<b>Desperado</b>', '<b>Heiniken</b>' ,'<b>Kingfisher</b>'],
+		y : [ 12, 48, 39, 32],
+		name : '<b>LA Breweries</b>',
+		type : 'bar',
+		marker : {
+			//color : 'rgb(26, 118, 255)',
+			color : '#138D75', // green
+			opacity : 0.6
+		}
+};
+	
+var trace11 = {
+		x : ['Carlburg', 'Anchor', 'Guiness' ,'Breidweiser', 'Erdinger'],
+		y : [ 29, 44, 55, 72, 38],
+		name : 'XZ Breweries',
+		type : 'bar',
+		marker : {
+			//color : 'rgb(171,217,233)',
+			color : '#2C3E50', //  black
+			opacity : 0.6
+		}
+};
+myExampleData.barGroupChartDataOriginal = [ trace1, trace2, trace3];
+myExampleData.barGroupChartData1 = [ trace7, trace8];
+myExampleData.barGroupChartData2 = [ trace9, trace10, trace11];
+
+
+
+myExampleData.barGroupRefreshChartData = [ trace4, trace5, trace6 ];
+myExampleData.barGroupChartLayout = {
+		title : '<b>Revenue in US $</b>',	
+		xaxis : {
+			title : '<b>Brands</b>',
+			titlefont : {
+				family : 'Helvetica',
+				size : 18,
+				color : '#7f7f7f'
+			}
+		},
+		yaxis : {
+			title : '<b>Million $</b>',
+			titlefont : {
+				family : 'Helvetica',
+				size : 18,
+				color : '#7f7f7f'
+			}
+		},
+		titlefont : {
+			family : 'Helvetica',
+			size : 18,
+			color : '#7f7f7f'
+		},
+		barmode : 'stack',
+		autosize : true,
+      paper_bgcolor:'#E0E0E0',
+		plot_bgcolor:'#E0E0E0'
+};
+
+
+myExampleData.plotlybarconfigDash4 = {
+		modeBarButtonsToRemove : [ 'sendDataToCloud' ],
+		displaylogo : false,
+};
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//plotly simple line chart sample data starts here 
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+var trace1 = {
+	x : [ 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110 ],
+	y : [ 8, 13, 74, 12, 15, 70, 38, 16, 38, 20, 16, 38 ],
+	name : '<b>Desperado</b>',
+	type : 'scatter',
+	marker : {
+		//color : 'rgb(55, 83, 109)',
+		color : '#138D75', // green
+		opacity : 0.6
+	},
+	textfont:{
+		color:'rgb(255,255,255)',
+		family:'Helvetica'
+	}
+
+};
+var trace2 = {
+	x : [ 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110 ],
+	y : [ 10, 15, 60, 22, 25, 80, 28, 36, 48, 18, 26, 48 ],
+	name : '<b>Tiger</b>',
+	type : 'scatter',
+	marker : {
+		//color : 'rgb(26, 118, 255)',
+		color : '#EC7063', // orange 
+		opacity : 0.6
+	},
+	textfont:{
+		color:'rgb(255,255,255)',
+		family:'Helvetica'
+	}
+};
+var trace3 = {
+		x : [ 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110 ],
+		y : [ 8, 13, 74, 44, 35, 60, 48, 16, 28, 10, 16, 38 ],
+		name : '<b>Desperado</b>',
+		type : 'scatter',
+		marker : {
+			//color : 'rgb(55, 83, 109)',
+			color : '#138D75', // green
+			opacity : 0.6
+		},
+		textfont:{
+			color:'rgb(255,255,255)',
+			family:'Helvetica'
+		}
+
+	};
+var trace4 = {
+		x : [ 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110 ],
+		y : [ 10, 15, 60, 32, 45, 80, 28, 36, 38, 28, 46, 48 ],
+		name : '<b>Tiger</b>',
+		type : 'scatter',
+		marker : {
+			//color : 'rgb(26, 118, 255)',
+			color : '#EC7063', // orange 
+			opacity : 0.6
+		},
+		textfont:{
+			color:'rgb(255,255,255)',
+			family:'Helvetica'
+		}
+	};
+	var trace5 = {
+			x : [ 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110 ],
+			y : [ 18, 23, 44, 12, 75, 60, 28, 26, 48, 40, 26, 38 ],
+			name : '<b>Desperado</b>',
+			type : 'scatter',
+			marker : {
+				//color : 'rgb(55, 83, 109)',
+				color : '#138D75', // green
+				opacity : 0.6
+			},
+			textfont:{
+				color:'rgb(255,255,255)',
+				family:'Helvetica'
+			}
+
+		};
+		var trace6 = {
+			x : [ 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110 ],
+			y : [ 21, 10, 50, 32, 35, 45, 68, 36, 59, 38, 66, 88 ],
+			name : '<b>Tiger</b>',
+			type : 'scatter',
+			marker : {
+				//color : 'rgb(26, 118, 255)',
+				color : '#EC7063', // orange 
+				opacity : 0.6
+			},
+			textfont:{
+				color:'rgb(255,255,255)',
+				family:'Helvetica'
+			}
+		};
+
+
+
+
+myExampleData.plotlylinedata1 = [ trace1, trace2 ];
+myExampleData.plotlylinedata2 = [ trace3, trace4 ];
+myExampleData.plotlylinedata3 = [ trace5, trace6 ];
+myExampleData.plotlylinelayout = {
+	title : '<b>How old are they ?</b>',
+	xaxis : {
+		title : 'Age',
+		titlefont : {
+			family : 'Helvetica',
+			size : 18,
+			color : '#7f7f7f'
+		}
+	},
+	yaxis : {
+		title : '<b>Number of customers</b>',
+		titlefont : {
+			family : 'Helvetica',
+			size : 18,
+			color : '#7f7f7f'
+		}
+	},
+	titlefont : {
+		family : 'Helvetica',
+		size : 18,
+		color : '#7f7f7f'
+	},
+	autosize : true,
+	paper_bgcolor:'#E0E0E0',
+	plot_bgcolor:'#E0E0E0'
+};
+
+myExampleData.plotlylineconfig = {
+	modeBarButtonsToRemove : [ 'sendDataToCloud' ],
+	displaylogo : false,
+	displayModeBar: 'true'
+};
+
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //New table widget starts here 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-myExampleData.tableWidgetDataNw = [
+/*myExampleData.tableWidgetDataNw = [
 	    {
 	      "id": "1",
 	      "name": "Tiger Nixon",
@@ -1029,183 +1373,180 @@ myExampleData.tableWidgetDataNw = [
 	      "extn": "1667"
 }];
 myExampleData.tableWidgetColoumnNw = [
-    { data: 'name' },
-    { data: 'position' },
-    { data: 'office' },
-    { data: 'extn' },
-    { data: 'start_date' },
-    { data: 'salary' }
-];
+  { data: 'name' },
+  { data: 'position' },
+  { data: 'office' },
+  { data: 'extn' },
+  { data: 'start_date' },
+  { data: 'salary' }
+];*/
 
 /*var buttonCommon = {
-        exportOptions: {
-            format: {
-                body: function ( data, row, column, node ) {
-                    // Strip $ from salary column to make it numeric
-                    return column === 5 ?
-                        data.replace( /[$,]/g, '' ) :
-                        data;
-                }
-            }
-        }
+      exportOptions: {
+          format: {
+              body: function ( data, row, column, node ) {
+                  // Strip $ from salary column to make it numeric
+                  return column === 5 ?
+                      data.replace( /[$,]/g, '' ) :
+                      data;
+              }
+          }
+      }
 };*/
 /*myExampleData.tableWidgetButtonNw = [
-    $.extend( true, {}, buttonCommon, {
-        extend: 'copyHtml5'
-    } ),
-    $.extend( true, {}, buttonCommon, {
-        extend: 'excelHtml5'
-    } ),
-    $.extend( true, {}, buttonCommon, {
-        extend: 'pdfHtml5'
-    } )
+  $.extend( true, {}, buttonCommon, {
+      extend: 'copyHtml5'
+  } ),
+  $.extend( true, {}, buttonCommon, {
+      extend: 'excelHtml5'
+  } ),
+  $.extend( true, {}, buttonCommon, {
+      extend: 'pdfHtml5'
+  } )
 ];*/
 /*myExampleData.tableWidgetButtonNw = [
-    'copyHtml5',
-    'excelHtml5',
-    'csvHtml5',
-    'pdfHtml5'
+  'copyHtml5',
+  'excelHtml5',
+  'csvHtml5',
+  'pdfHtml5'
 ];*/
 
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //New table Grid widget starts here 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function generatedata(rowscount, hasNullValues) {
-    // prepare the data
-    var data = new Array();
-    if (rowscount == undefined) rowscount = 100;
-    var firstNames =
-    [
-        "Andrew", "Nancy", "Shelley", "Regina", "Yoshi", "Antoni", "Mayumi", "Ian", "Peter", "Lars", "Petra", "Martin", "Sven", "Elio", "Beate", "Cheryl", "Michael", "Guylene"
-    ];
+/*function generatedata(rowscount, hasNullValues) {
+  // prepare the data
+  var data = new Array();
+  if (rowscount == undefined) rowscount = 100;
+  var firstNames =
+  [
+      "Andrew", "Nancy", "Shelley", "Regina", "Yoshi", "Antoni", "Mayumi", "Ian", "Peter", "Lars", "Petra", "Martin", "Sven", "Elio", "Beate", "Cheryl", "Michael", "Guylene"
+  ];
 
-    var lastNames =
-    [
-        "Fuller", "Davolio", "Burke", "Murphy", "Nagase", "Saavedra", "Ohno", "Devling", "Wilson", "Peterson", "Winkler", "Bein", "Petersen", "Rossi", "Vileid", "Saylor", "Bjorn", "Nodier"
-    ];
+  var lastNames =
+  [
+      "Fuller", "Davolio", "Burke", "Murphy", "Nagase", "Saavedra", "Ohno", "Devling", "Wilson", "Peterson", "Winkler", "Bein", "Petersen", "Rossi", "Vileid", "Saylor", "Bjorn", "Nodier"
+  ];
 
-    var productNames =
-    [
-        "Black Tea", "Green Tea", "Caffe Espresso", "Doubleshot Espresso", "Caffe Latte", "White Chocolate Mocha", "Caramel Latte", "Caffe Americano", "Cappuccino", "Espresso Truffle", "Espresso con Panna", "Peppermint Mocha Twist"
-    ];
+  var productNames =
+  [
+      "Black Tea", "Green Tea", "Caffe Espresso", "Doubleshot Espresso", "Caffe Latte", "White Chocolate Mocha", "Caramel Latte", "Caffe Americano", "Cappuccino", "Espresso Truffle", "Espresso con Panna", "Peppermint Mocha Twist"
+  ];
 
-    var priceValues =
-    [
-         "2.25", "1.5", "3.0", "3.3", "4.5", "3.6", "3.8", "2.5", "5.0", "1.75", "3.25", "4.0"
-    ];
+  var priceValues =
+  [
+       "2.25", "1.5", "3.0", "3.3", "4.5", "3.6", "3.8", "2.5", "5.0", "1.75", "3.25", "4.0"
+  ];
 
-    for (var i = 0; i < rowscount; i++) {
-        var row = {};
-        var productindex = Math.floor(Math.random() * productNames.length);
-        var price = parseFloat(priceValues[productindex]);
-        var quantity = 1 + Math.round(Math.random() * 10);
+  for (var i = 0; i < rowscount; i++) {
+      var row = {};
+      var productindex = Math.floor(Math.random() * productNames.length);
+      var price = parseFloat(priceValues[productindex]);
+      var quantity = 1 + Math.round(Math.random() * 10);
 
-        row["id"] = i;
-        row["available"] = productindex % 2 == 0;
-        if (hasNullValues == true) {
-            if (productindex % 2 != 0) {
-                var random = Math.floor(Math.random() * rowscount);
-                row["available"] = i % random == 0 ? null : false;
-            }
-        }
-        row["firstname"] = firstNames[Math.floor(Math.random() * firstNames.length)];
-        row["lastname"] = lastNames[Math.floor(Math.random() * lastNames.length)];
-        row["name"] = row["firstname"] + " " + row["lastname"]; 
-        row["productname"] = productNames[productindex];
-        row["price"] = price;
-        row["quantity"] = quantity;
-        row["total"] = price * quantity;
+      row["id"] = i;
+      row["available"] = productindex % 2 == 0;
+      if (hasNullValues == true) {
+          if (productindex % 2 != 0) {
+              var random = Math.floor(Math.random() * rowscount);
+              row["available"] = i % random == 0 ? null : false;
+          }
+      }
+      row["firstname"] = firstNames[Math.floor(Math.random() * firstNames.length)];
+      row["lastname"] = lastNames[Math.floor(Math.random() * lastNames.length)];
+      row["name"] = row["firstname"] + " " + row["lastname"]; 
+      row["productname"] = productNames[productindex];
+      row["price"] = price;
+      row["quantity"] = quantity;
+      row["total"] = price * quantity;
 
-        var date = new Date();
-        date.setFullYear(date.getFullYear(), Math.floor(Math.random() * 12), Math.floor(Math.random() * 27));
-        date.setHours(0, 0, 0, 0);
-        row["date"] = date;
-       
-        data[i] = row;
-    }
+      var date = new Date();
+      date.setFullYear(date.getFullYear(), Math.floor(Math.random() * 12), Math.floor(Math.random() * 27));
+      date.setHours(0, 0, 0, 0);
+      row["date"] = date;
+     
+      data[i] = row;
+  }
 
-    return data;
+  return data;
 }
 
 myExampleData.tableGridData = generatedata(100);
 
 myExampleData.tableGridSource =
 {
-    localdata: myExampleData.tableGridData,
-    datatype: "array",
-    datafields:
-    [
-        { name: 'firstname', type: 'string' },
-        { name: 'lastname', type: 'string' },
-        { name: 'productname', type: 'string' },
-        { name: 'available', type: 'bool' },
-        { name: 'date', type: 'date' },
-        { name: 'quantity', type: 'number' },
-        { name: 'price', type: 'number' }
-    ]                     
+  localdata: myExampleData.tableGridData,
+  datatype: "array",
+  datafields:
+  [
+      { name: 'firstname', type: 'string' },
+      { name: 'lastname', type: 'string' },
+      { name: 'productname', type: 'string' },
+      { name: 'available', type: 'bool' },
+      { name: 'date', type: 'date' },
+      { name: 'quantity', type: 'number' },
+      { name: 'price', type: 'number' }
+  ]                     
 };
 
 myExampleData.GridColoumns = [
-    { text: 'First Name', datafield: 'firstname', width: 130 },
-    { text: 'Last Name', datafield: 'lastname', width: 130 },
-    { text: 'Product', datafield: 'productname', width: 200 },
-    { text: 'Available', datafield: 'available', columntype: 'checkbox', width: 67, cellsalign: 'center', align: 'center' },
-    { text: 'Ship Date', datafield: 'date', width: 120, align: 'right', cellsalign: 'right', cellsformat: 'd' },
-    { text: 'Quantity', datafield: 'quantity', width: 70, align: 'right', cellsalign: 'right' },
-    { text: 'Price', datafield: 'price', cellsalign: 'right', align: 'right', cellsformat: 'c2' }
-  ];
+  { text: 'First Name', datafield: 'firstname', width: 130 },
+  { text: 'Last Name', datafield: 'lastname', width: 130 },
+  { text: 'Product', datafield: 'productname', width: 200 },
+  { text: 'Available', datafield: 'available', columntype: 'checkbox', width: 67, cellsalign: 'center', align: 'center' },
+  { text: 'Ship Date', datafield: 'date', width: 120, align: 'right', cellsalign: 'right', cellsformat: 'd' },
+  { text: 'Quantity', datafield: 'quantity', width: 70, align: 'right', cellsalign: 'right' },
+  { text: 'Price', datafield: 'price', cellsalign: 'right', align: 'right', cellsformat: 'c2' }
+];
 
 
 myExampleData.GridWidth = getWidth('Grid');
 
 function getWidth(name) {
 //	InitResponse();
-//    var response = new $.jqx.response();
+//  var response = new $.jqx.response();
 
-//    name = name.toLowerCase();
+//  name = name.toLowerCase();
 
-    switch (name) {
-    
+  switch (name) {
+  
 	case "grid":
-     /*   if (response.device.type === "Phone") {
-            var grid = document.getElementById('grid');
-            if (grid) {
-                grid.style.marginLeft = '5%';
-            }
-            return '90%'
-        }
-        else if (response.device.type === "Tablet") {
-            var windowWidth = document.body.offsetWidth - 50;
-            if (windowWidth > 850) {
-                windowWidth = 850;
-            }
-            var grid = document.getElementById('grid');
-            if (grid) {
-                grid.style.marginLeft = 'auto';
-                grid.style.marginRight = 'auto';
-            }
+      if (response.device.type === "Phone") {
+          var grid = document.getElementById('grid');
+          if (grid) {
+              grid.style.marginLeft = '5%';
+          }
+          return '90%'
+      }
+      else if (response.device.type === "Tablet") {
+          var windowWidth = document.body.offsetWidth - 50;
+          if (windowWidth > 850) {
+              windowWidth = 850;
+          }
+          var grid = document.getElementById('grid');
+          if (grid) {
+              grid.style.marginLeft = 'auto';
+              grid.style.marginRight = 'auto';
+          }
 
-            return windowWidth;
-        }*/
-        return 850;
-    }
-}
+          return windowWidth;
+      }
+      return 850;
+  }
+}*/
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-//Dashboard 4
+//plotly stacked bar chart sample data starts here 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-//plotly bubble chart 2 sample data starts here 
-//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-var trace1 = {
-	//x : [ 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110 ],
-	x : [ "2013", "2014", "2015" ],
-	y : [ 21, 43, 74, 12, 15, 70, 38, 16, 38, 20, 16, 38 ],
-	mode : 'markers',
+/*var trace1 = {
+	x : [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct',
+			'Nov', 'Dec' ],
+	y : [ 20, 14, 25, 16, 18, 22, 19, 15, 12, 16, 14, 17 ],
+	type : 'bar',
+	name : 'Primary Product',
 	marker : {
-		size : [ 60, 80, 100 ],
-		color : 'rgb(26, 118, 255)',
-		opacity : 0.6		
+		color : 'rgb(49,130,189)',
+		opacity : 0.7
 	},
 	textfont:{
 		color:'rgb(255,255,255)',
@@ -1214,191 +1555,25 @@ var trace1 = {
 };
 
 var trace2 = {
-		x : [ 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110 ],
-		y : [ 68, 73, 74, 76, 65, 70, 98, 88, 76, 74, 87, 76 ],
-		mode : 'markers',
-		marker : {
-			size : [ 65, 75, 90 ],
-			color : 'rgb(26, 118, 255)',
-			opacity : 0.6
-		},
-		textfont:{
-			color:'rgb(255,255,255)',
-			family:'Helvetica'
-		}
-};
-
-myExampleData.plotlyBubbleData = [ trace1 ];
-
-myExampleData.plotlyRefreshBubbleData = [ trace2 ];
-
-myExampleData.plotlyBubbleLayout = {
-	title : '<b>Breweries</b>',	
-	xaxis : {
-		title : '<b>Year</b>',
-		titlefont : {
-			family : 'Helvetica',
-			size : 18,
-			color : '#7f7f7f'
-		}
-	},
-	yaxis : {
-		title : '<b>Number of customers</b>',
-		titlefont : {
-			family : 'Helvetica',
-			size : 18,
-			color : '#7f7f7f'
-		}
-	},
-	titlefont : {
-		family : 'Helvetica',
-		size : 18,
-		color : '#7f7f7f'
-	},
-	showlegend : false,
-	paper_bgcolor:'#E0E0E0',
-	plot_bgcolor:'#E0E0E0'
-	/*height : 600,
-	width : 600*/
-};
-
-//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-//plotly stacked bar chart sample data starts here 
-//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-var trace1 = {
-	x : [ '<b>Tiger</b>', '<b>Desperado</b>', '<b>Heiniken</b>' ,'<b>Kingfisher</b>', '<b>brand1</b>', '<b>brand2</b>','<b>brand3</b>', '<b>brand4</b>', '<b>brand5</b>', '<b>brand9</b>', '<b>brand10</b>', '<b>brand11</b>'],
-	y : [ 20, 14, 23, 25, 34, 36, 78, 44, 43, 47, 55, 32 ],
-	name : '<b>SF Breweries</b>',
+	x : [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct',
+			'Nov', 'Dec' ],
+	y : [ 19, 14, 22, 14, 16, 19, 15, 14, 10, 12, 12, 16 ],
 	type : 'bar',
+	name : 'Secondary Product',
 	marker : {
-		color : 'rgb(55, 83, 109)',
-		opacity : 0.6
+		color : 'rgb(204,204,204)',
+		opacity : 0.5
+	},
+	textfont:{
+		color:'rgb(255,255,255)',
+		family:'Helvetica'
 	}
 };
-
-var trace2 = {
-	x : [ '<b>Tiger</b>', '<b>Desperado</b>', '<b>Heiniken</b>' ,'<b>Kingfisher</b>', '<b>brand1</b>', '<b>brand2</b>','<b>brand3</b>', '<b>brand4</b>', '<b>brand5</b>', '<b>brand9</b>', '<b>brand10</b>', '<b>brand11</b>'],
-	y : [ 12, 18, 39, 22, 28, 19, 18, 58, 49, 65, 63, 71],
-	name : '<b>LA Breweries</b>',
-	type : 'bar',
-	marker : {
-		color : 'rgb(26, 118, 255)',
-		opacity : 0.6
-	}
-};
-
-var trace3 = {
-		x : [ '<b>Tiger</b>', '<b>Desperado</b>', '<b>Heiniken</b>' ,'<b>Kingfisher</b>', '<b>brand1</b>', '<b>brand2</b>','<b>brand3</b>', '<b>brand4</b>', '<b>brand5</b>', '<b>brand9</b>', '<b>brand10</b>', '<b>brand11</b>'],
-		y : [ 21, 18, 43, 22, 28, 45, 18, 17, 49, 71, 63, 33],
-		name : '<b>NY Breweries</b>',
-		type : 'bar',
-		marker : {
-			color : 'rgb(171,217,233)',
-			opacity : 0.6
-		}
-};
-
-
-var trace4 = {
-		x : [ 'Carlburg', 'Anchor', 'Guiness' ,'Breidweiser', 'Erdinger', 'brand2','brand3', 'brand4', 'brand5', 'brand9', 'brand10', 'brand11'],
-		y : [ 22, 24, 33,45, 44, 26,68, 64, 63, 47, 49, 35 ],
-		name : 'XL Breweries',
-		type : 'bar',
-		marker : {
-			color : 'rgb(55, 83, 109)',
-			opacity : 0.6
-		}
-};
-
-var trace5 = {
-		x : ['Carlburg', 'Anchor', 'Guiness' ,'Breidweiser', 'Erdinger', 'brand2','brand3', 'brand4', 'brand5', 'brand9', 'brand10', 'brand11'],
-		y : [ 12, 14, 33, 22, 38, 19, 28, 53, 69, 71, 29, 50 ],
-		name : 'YZ Breweries',
-		type : 'bar',
-		marker : {
-			color : 'rgb(26, 118, 255)',
-			opacity : 0.6
-		}
-};
-
-var trace6 = {
-		x : ['Carlburg', 'Anchor', 'Guiness' ,'Breidweiser', 'Erdinger', 'brand2','brand3', 'brand4', 'brand5', 'brand9', 'brand10', 'brand11'],
-		y : [ 9, 14, 45, 22, 38, 19, 51, 53, 22, 65, 29, 59 ],
-		name : 'XZ Breweries',
-		type : 'bar',
-		marker : {
-			color : 'rgb(171,217,233)',
-			opacity : 0.6
-		}
-};
-
-
-var trace7 = {
-		x : [ '<b>Tiger</b>', '<b>Desperado</b>', '<b>Heiniken</b>' ,'<b>Kingfisher</b>'],
-		y : [ 30, 24, 13, 45 ],
-		name : '<b>SF Breweries</b>',
-		type : 'bar',
-		marker : {
-			color : 'rgb(55, 83, 109)',
-			opacity : 0.6
-		}
-};
-
-var trace8 = {
-		x : [ '<b>Tiger</b>', '<b>Desperado</b>', '<b>Heiniken</b>' ,'<b>Kingfisher</b>'],
-		y : [ 32, 28, 29, 42],
-		name : '<b>LA Breweries</b>',
-		type : 'bar',
-		marker : {
-			color : 'rgb(26, 118, 255)',
-			opacity : 0.6
-		}
-};
-
-
-var trace9 = {
-		x : [ '<b>Tiger</b>', '<b>Desperado</b>', '<b>Heiniken</b>' ,'<b>Kingfisher</b>'],
-		y : [ 30, 24, 23, 65 ],
-		name : '<b>SF Breweries</b>',
-		type : 'bar',
-		marker : {
-			color : 'rgb(55, 83, 109)',
-			opacity : 0.6
-		}
-};
-
-var trace10 = {
-		x : [ '<b>Tiger</b>', '<b>Desperado</b>', '<b>Heiniken</b>' ,'<b>Kingfisher</b>'],
-		y : [ 12, 48, 39, 32],
-		name : '<b>LA Breweries</b>',
-		type : 'bar',
-		marker : {
-			color : 'rgb(26, 118, 255)',
-			opacity : 0.6
-		}
-};
-	
-var trace11 = {
-		x : ['Carlburg', 'Anchor', 'Guiness' ,'Breidweiser', 'Erdinger'],
-		y : [ 29, 44, 55, 72, 38],
-		name : 'XZ Breweries',
-		type : 'bar',
-		marker : {
-			color : 'rgb(171,217,233)',
-			opacity : 0.6
-		}
-};
-myExampleData.barGroupChartDataOriginal = [ trace1, trace2, trace3];
-myExampleData.barGroupChartData1 = [ trace7, trace8];
-myExampleData.barGroupChartData2 = [ trace9, trace10, trace11];
-
-
-
-myExampleData.barGroupRefreshChartData = [ trace4, trace5, trace6 ];
-myExampleData.barGroupChartLayout = {
-		title : '<b>Revenue in US $</b>',	
+myExampleData.plotlybardata = [ trace1, trace2 ];
+myExampleData.plotlybarlayout = {
+		title : 'Age groups',	
 		xaxis : {
-			title : '<b>Brands</b>',
+			title : 'Age',
 			titlefont : {
 				family : 'Helvetica',
 				size : 18,
@@ -1406,157 +1581,26 @@ myExampleData.barGroupChartLayout = {
 			}
 		},
 		yaxis : {
-			title : '<b>Million $</b>',
+			title : 'Number of customers',
 			titlefont : {
 				family : 'Helvetica',
 				size : 18,
 				color : '#7f7f7f'
 			}
-		},
-		titlefont : {
-			family : 'Helvetica',
-			size : 18,
-			color : '#7f7f7f'
-		},
-		barmode : 'stack',
-		autosize : true,
-      paper_bgcolor:'#E0E0E0',
-		plot_bgcolor:'#E0E0E0'
-};
-
-
-myExampleData.plotlybarconfigDash4 = {
-		modeBarButtonsToRemove : [ 'sendDataToCloud' ],
-		displaylogo : false,
-};
-
-//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-//plotly simple line chart sample data starts here 
-//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-var trace1 = {
-	x : [ 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110 ],
-	y : [ 8, 13, 74, 12, 15, 70, 38, 16, 38, 20, 16, 38 ],
-	name : '<b>Desperado</b>',
-	type : 'scatter',
-	marker : {
-		color : 'rgb(55, 83, 109)',
-		opacity : 0.6
-	},
-	textfont:{
-		color:'rgb(255,255,255)',
-		family:'Helvetica'
-	}
-
-};
-var trace2 = {
-	x : [ 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110 ],
-	y : [ 10, 15, 60, 22, 25, 80, 28, 36, 48, 18, 26, 48 ],
-	name : '<b>Tiger</b>',
-	type : 'scatter',
-	marker : {
-		color : 'rgb(26, 118, 255)',
-		opacity : 0.6
-	},
-	textfont:{
-		color:'rgb(255,255,255)',
-		family:'Helvetica'
-	}
-};
-var trace3 = {
-		x : [ 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110 ],
-		y : [ 8, 13, 74, 44, 35, 60, 48, 16, 28, 10, 16, 38 ],
-		name : '<b>Desperado</b>',
-		type : 'scatter',
-		marker : {
-			color : 'rgb(55, 83, 109)',
-			opacity : 0.6
-		},
-		textfont:{
-			color:'rgb(255,255,255)',
-			family:'Helvetica'
-		}
-
-	};
-var trace4 = {
-		x : [ 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110 ],
-		y : [ 10, 15, 60, 32, 45, 80, 28, 36, 38, 28, 46, 48 ],
-		name : '<b>Tiger</b>',
-		type : 'scatter',
-		marker : {
-			color : 'rgb(26, 118, 255)',
-			opacity : 0.6
-		},
-		textfont:{
-			color:'rgb(255,255,255)',
-			family:'Helvetica'
-		}
-	};
-	var trace5 = {
-			x : [ 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110 ],
-			y : [ 18, 23, 44, 12, 75, 60, 28, 26, 48, 40, 26, 38 ],
-			name : '<b>Desperado</b>',
-			type : 'scatter',
-			marker : {
-				color : 'rgb(55, 83, 109)',
-				opacity : 0.6
-			},
-			textfont:{
-				color:'rgb(255,255,255)',
-				family:'Helvetica'
-			}
-
-		};
-		var trace6 = {
-			x : [ 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110 ],
-			y : [ 21, 10, 50, 32, 35, 45, 68, 36, 59, 38, 66, 88 ],
-			name : '<b>Tiger</b>',
-			type : 'scatter',
-			marker : {
-				color : 'rgb(26, 118, 255)',
-				opacity : 0.6
-			},
-			textfont:{
-				color:'rgb(255,255,255)',
-				family:'Helvetica'
-			}
-		};
-
-
-
-
-myExampleData.plotlylinedata1 = [ trace1, trace2 ];
-myExampleData.plotlylinedata2 = [ trace3, trace4 ];
-myExampleData.plotlylinedata3 = [ trace5, trace6 ];
-myExampleData.plotlylinelayout = {
-	title : '<b>How old are they ?</b>',
-	xaxis : {
-		title : 'Age',
-		titlefont : {
-			family : 'Helvetica',
-			size : 18,
-			color : '#7f7f7f'
-		}
-	},
-	yaxis : {
-		title : '<b>Number of customers</b>',
-		titlefont : {
-			family : 'Helvetica',
-			size : 18,
-			color : '#7f7f7f'
-		}
 	},
 	titlefont : {
 		family : 'Helvetica',
 		size : 18,
 		color : '#7f7f7f'
 	},
+	barmode : 'group',
 	autosize : true,
-	paper_bgcolor:'#E0E0E0',
+  paper_bgcolor:'#E0E0E0',
 	plot_bgcolor:'#E0E0E0'
-};
 
-myExampleData.plotlylineconfig = {
+};
+myExampleData.plotlybarconfig = {
 	modeBarButtonsToRemove : [ 'sendDataToCloud' ],
 	displaylogo : false,
 	displayModeBar: 'true'
-};
+};*/

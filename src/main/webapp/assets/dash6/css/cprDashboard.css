@@ -228,11 +228,13 @@ div#users-contain table td, div#users-contain table th {
 }  */
 
 .sDashboardTableView tbody tr:nth-child(odd){
-	 background-color:  #1a76ff !important;
+	/* background-color:  #1a76ff !important; */
+	 background-color:  #138D75 !important;
 	
 }
 .sDashboardTableView tbody tr:nth-child(even){
-	 background-color: #abd9e9 !important;
+	/*  background-color: #abd9e9 !important; */
+	 background-color: #EC7063 !important;
 	
 }
 .sDashboardTableView tbody tr:nth-child(odd):hover, .sDashboardTableView tbody tr:nth-child(even):hover
