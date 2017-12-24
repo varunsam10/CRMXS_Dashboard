@@ -96,7 +96,8 @@ div#users-contain table td, div#users-contain table th {
 	height:100px !important;
 	/* font-size: 27px; */
     line-height: 27px;
-    color: #7D8C9D;
+    /* color: #7D8C9D; */
+    color : #EC7063; /* orange */
 }
 
 /*dashboard widget css*/
