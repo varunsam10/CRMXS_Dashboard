@@ -96,10 +96,20 @@ div#users-contain table td, div#users-contain table th {
 	height:100px !important;
 	/* font-size: 27px; */
     line-height: 27px;
-    /* color: #7D8C9D; */
-    color : #EC7063; /* orange */
-}
-
+   /*  color: #7D8C9D; */
+    color : #EC7063; orange
+} 
+/* .cprDashboardSmall {
+	width: 410px !important;
+	min-width:0px !important;
+	min-height:0px !important;
+	height:200px !important;
+	font-size: 27px;
+    line-height: 27px;
+    color: #7D8C9D;
+    color : #EC7063; orange
+} 
+ */
 /*dashboard widget css*/
 .sDashboardWidget {
 	margin: 0 1em 1em 0;
