@@ -1,24 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-
 <!DOCTYPE html>
-
 <html lang="en">
-<!--<![endif]-->
 <!-- BEGIN HEAD -->
-
 <head>
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta content="width=device-width, initial-scale=1" name="viewport" />
-<meta
-	content="Preview page of Metronic Admin Theme #6 for statistics, charts, recent events and reports"
-	name="description" />
+<meta content="Preview page of Metronic Admin Theme #6 for statistics, charts, recent events and reports"	name="description" />
 <meta content="" name="author" />
-<!-- BEGIN LAYOUT FIRST STYLES -->
-<link href="assets/css/Oswald-font.css"	rel="stylesheet" type="text/css" />
-<!-- END LAYOUT FIRST STYLES -->
 <!-- BEGIN GLOBAL MANDATORY STYLES -->
 <!-- <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" /> -->
 <link href="assets/dash6/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
@@ -39,22 +30,17 @@
 <!-- BEGIN THEME LAYOUT STYLES -->
 <link href="assets/dash6/layouts/layout6/css/layout.css" rel="stylesheet" type="text/css" />
 <link href="assets/dash6/layouts/layout6/css/custom.css" rel="stylesheet" type="text/css" />
-
-
 <!-- datatable CSS  -->
 <!-- <link href="assets/dash6/css/datatable/jquery.dataTables.min.css" rel="stylesheet" type="text/css" /> -->
 <link href="assets/dash6/css/datatable/buttons.dataTables.min.css" rel="stylesheet" type="text/css" />
 <link href="assets/dash6/css/datatable/datatables.css" rel="stylesheet" type="text/css" /> 
-
-
 <!-- END THEME LAYOUT STYLES -->
 <link rel="shortcut icon" href="favicon.ico" />
 </head>
 <!--     CPR Dashboard     -->
 <!-- load jquery ui css theme -->
 <!-- <link type="text/css" href="assets/dash6/css/jquery-ui.css"
-	rel="stylesheet" /> -->
-	
+	rel="stylesheet" /> -->	
 <link type="text/css" href="assets/dash6/css/jqueryNw/jquery-ui.css" rel="stylesheet" />
 <!-- load the dashboard css -->
 <link href="assets/dash6/css/cprDashboard.css" rel="stylesheet">
@@ -64,7 +50,7 @@
 <link href="assets/dash6/css/toastr/toastr.css" rel="stylesheet" />
 <!-- C3 css -->
 <link href="assets/dash6/css/c3/c3.css" rel="stylesheet" />
-<!--     sDashboard     -->
+<!--     cpr Dashboard     -->
 <!-- END HEAD -->
 <style>
 /*if it's not present, don't show loader */
@@ -81,8 +67,6 @@
 
 </style>
 <script src="assets/dash6/js/jqueryNw/jquery-1.12.4.js"	type="text/javascript"></script>
-<script src="assets/js/modernizr-2.8.2.js"	type="text/javascript"></script>
-
 <script type="text/javascript">
 // Wait for window load
 $(window).load(function() {
@@ -359,10 +343,8 @@ $(window).load(function() {
 		</div>
 	</div>
 	<!-- END CONTAINER -->
-
 	<!-- BEGIN QUICK NAV -->
 	<!-- END QUICK NAV -->
-
 	<!-- BEGIN CORE PLUGINS -->
 	<!-- <script src="assets/dash6/global/plugins/jquery.min.js"	type="text/javascript"></script>  -->
 	<!-- remove -->
@@ -386,7 +368,6 @@ $(window).load(function() {
 	<script src="assets/dash6/global/plugins/flot/jquery.flot.resize.min.js" type="text/javascript"></script>
 	<script src="assets/dash6/global/plugins/flot/jquery.flot.categories.min.js" type="text/javascript"></script>
 	<script src="assets/dash6/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
-
 	<!-- END PAGE LEVEL PLUGINS -->
 	<!-- BEGIN THEME GLOBAL SCRIPTS -->
 	<script src="assets/dash6/global/scripts/app.js" type="text/javascript"></script>
@@ -397,7 +378,6 @@ $(window).load(function() {
 	<!-- BEGIN THEME LAYOUT SCRIPTS -->
 	<script src="assets/dash6/layouts/layout6/scripts/layout.min.js" type="text/javascript"></script>
 	<!-- END THEME LAYOUT SCRIPTS -->
-
 	<!--     CPR Dashboard    Custom     -->
 	<!-- Load jquery library -->
 	<!-- <script src="assets/dash6/js/jquery/jquery-1.8.2.js"	type="text/javascript"></script> -->
@@ -407,48 +387,37 @@ $(window).load(function() {
 	<!-- <script src="assets/dash6/js/jqueryNw/jquery-ui.js" type="text/javascript"></script> -->	
 	<!-- load touch punch library to enable dragging on touch based devices -->
 	<script src="assets/dash6/js/touchpunch/jquery.ui.touch-punch.js" type="text/javascript"></script>
-	<!-- load gitter notification library -->
-<!-- 	<script src="assets/dash6/js/gitter/jquery.gritter.js" type="text/javascript"></script> -->
 	<!-- Toastr notification library -->
 	<script src="assets/dash6/js/toastr/toastr.js" type="text/javascript"></script>
 	<!-- load datatables library -->
 	<!--<script src="assets/dash6/js/datatables/jquery.dataTables.js"></script>  -->	
-	<script src="assets/js/dash1/plotly-latest.min.js"></script>
+	<script src="assets/dash6/js/plotly-latest.min.js"></script>
 	<script src="assets/dash6/js/chart/Chart.bundle.js"></script>
-	<script src="assets/js/d3.v3.min.js" charset="utf-8"></script> 
 	<script src="assets/dash6/js/c3/c3.min.js"></script>
-	<!--  <script src="assets/dash6/js/c3/bubble.js"></script> -->
-	
+	<!--  <script src="assets/dash6/js/c3/bubble.js"></script> -->	
 	<!-- amcharts map -->	
 	<script src="assets/dash6/js/amchartsMap/ammap.js" type="text/javascript"></script>
-	<!-- 	<script src="assets/dash6/js/amchartsMap/export.min.js"
-		type="text/javascript"></script> -->
+	<!-- 	<script src="assets/dash6/js/amchartsMap/export.min.js"	type="text/javascript"></script> -->
 	<script src="assets/dash6/js/amchartsMap/light.js" type="text/javascript"></script>
 	<script src="assets/dash6/js/amchartsMap/worldLow.js" type="text/javascript"></script>
 	<!-- <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script> -->
-	
-	
 	<!-- load dashboard main library -->
 	<script src="assets/dash6/js/jquery-cprDashboard.js" type="text/javascript"></script>
-
 	<!-- theme switcher -->
 	<script src="assets/dash6/js/themeswitcher/jquery.themeswitcher.min.js"	type="text/javascript"></script>
 	<!-- sample data external script file -->
 	<script src="assets/dash6/js/exampleData.js" type="text/javascript"></script>
 	<!-- Datatable export function js files -->
 	<!-- <script src="assets/dash6/js/datatableNw/datatables.js"></script> -->
-	<script src="assets/dash6/js/datatableNw/jquery.dataTables.min.js"></script>
-	
+	<script src="assets/dash6/js/datatableNw/jquery.dataTables.min.js"></script>	
 	<script src="assets/dash6/js/datatableNw/dataTables.buttons.min.js"></script>
 	<script src="assets/dash6/js/datatableNw/jszip.min.js"></script>
 	<script src="assets/dash6/js/datatableNw/pdfmake.min.js"></script>
 	<script src="assets/dash6/js/datatableNw/vfs_fonts.js"></script>
-	<script src="assets/dash6/js/datatableNw/buttons.print.min.js"></script>
- 	
+	<script src="assets/dash6/js/datatableNw/buttons.print.min.js"></script> 	
 	<script src="assets/dash6/js/datatableNw/buttons.html5.min.js"></script>
 	<script src="assets/dash6/js/datatableNw/buttons.flash.min.js"></script> 
 	
-
 	<script type="text/javascript">
    	$(document).ready(function(){           	
   
