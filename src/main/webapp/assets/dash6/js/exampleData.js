@@ -1,5 +1,194 @@
 var myExampleData = {};
 /**
+ * Amcharts map data 
+ */
+myExampleData.amchartsMapData =	{
+		  "type": "map",
+		  "theme": "light",
+		  "projection": "miller",
+
+		  "imagesSettings": {
+		    "rollOverColor": "#089282",
+		    "rollOverScale": 3,
+		    "selectedScale": 3,
+		    "selectedColor": "#089282",
+		    "color": "#13564e"
+		  },
+		  "areasSettings": {
+			    "autoZoom": true,
+			    "selectedColor": "#CC0000"
+			  },
+
+		  "areasSettings": {
+		    "unlistedAreasColor": "#15A892"
+		  },
+
+		  "dataProvider": {
+			 
+		//"getAreasFromMap": true
+		    "map": "worldLow",
+		    "images": [ {
+		      "zoomLevel": 5,
+		      "scale": 0.5,
+		      "map-marker" : "Brussels",
+		      "title": "Brussels",
+		      "latitude": 50.8371,
+		      "longitude": 4.3676
+		    }, {
+		      "zoomLevel": 5,
+		      "scale": 0.5,
+		      "title": "Copenhagen",
+		      "latitude": 55.6763,
+		      "longitude": 12.5681
+		    }, {
+		      "zoomLevel": 5,
+		      "scale": 0.5,
+		      "title": "Paris",
+		      "latitude": 48.8567,
+		      "longitude": 2.3510
+		    }, {
+		      "zoomLevel": 5,
+		      "scale": 0.5,
+		      "title": "Reykjavik",
+		      "latitude": 64.1353,
+		      "longitude": -21.8952
+		    }, {
+		      "zoomLevel": 5,
+		      "scale": 0.5,
+		      "title": "Moscow",
+		      "latitude": 55.7558,
+		      "longitude": 37.6176
+		    }, {
+		      "zoomLevel": 5,
+		      "scale": 0.5,
+		      "title": "Madrid",
+		      "latitude": 40.4167,
+		      "longitude": -3.7033
+		    }, {
+		      "zoomLevel": 5,
+		      "scale": 0.5,
+		      "title": "London",
+		      "latitude": 51.5002,
+		      "longitude": -0.1262,
+		      //"url": "http://www.google.co.uk"
+		    }, {
+		      "zoomLevel": 5,
+		      "scale": 0.5,
+		      "title": "Peking",
+		      "latitude": 39.9056,
+		      "longitude": 116.3958
+		    }, {
+		      "zoomLevel": 5,
+		      "scale": 0.5,
+		      
+		      "title": "New Delhi",
+		      "latitude": 28.6353,
+		      "longitude": 77.2250
+		    }, {
+		      "zoomLevel": 5,
+		      "scale": 0.5,
+		      "title": "Tokyo",
+		      "latitude": 35.6785,
+		      "longitude": 139.6823,
+		      //"url": "http://www.google.co.jp"
+		    }, {
+		      "zoomLevel": 5,
+		      "scale": 0.5,
+		      "title": "Ankara",
+		      "latitude": 39.9439,
+		      "longitude": 32.8560
+		    }, {
+		      "zoomLevel": 5,
+		      "scale": 0.5,
+		      "title": "Buenos Aires",
+		      "latitude": -34.6118,
+		      "longitude": -58.4173
+		    }, {
+		      "zoomLevel": 5,
+		      "scale": 0.5,
+		      "title": "Brasilia",
+		      "latitude": -15.7801,
+		      "longitude": -47.9292
+		    }, {
+		      "zoomLevel": 5,
+		      "scale": 0.5,
+		      "title": "Ottawa",
+		      "latitude": 45.4235,
+		      "longitude": -75.6979
+		    }, {
+		      "zoomLevel": 5,
+		      "scale": 0.5,
+		      "title": "Washington",
+		      "latitude": 38.8921,
+		      "longitude": -77.0241
+		    }, {
+		      "zoomLevel": 5,
+		      "scale": 0.5,
+		      "title": "Kinshasa",
+		      "latitude": -4.3369,
+		      "longitude": 15.3271
+		    }, {
+		      "zoomLevel": 5,
+		      "scale": 0.5,
+		      "title": "Cairo",
+		      "latitude": 30.0571,
+		      "longitude": 31.2272
+		    }, {
+		      "zoomLevel": 5,
+		      "scale": 0.5,
+		      "title": "Pretoria",
+		      "latitude": -25.7463,
+		      "longitude": 28.1876
+		    }
+		    
+		    ]
+		  }
+};
+
+myExampleData.amchartsCountryMapData =	{
+		  "type": "map",
+		  "theme": "light",
+		  "projection": "miller",
+
+		  "dataProvider": {
+		    "map": "worldLow",
+		    "getAreasFromMap": true
+		  },
+		  "areasSettings": {
+		    "autoZoom": true,
+		    "selectedColor": "#CC0000"
+		  },
+		  "smallMap": {},
+		  "export": {
+		    "enabled": true,
+		    "position": "bottom-right"
+		  }
+}  ;
+	
+/* {
+"type": "map",
+"theme": "light",
+"projection": "miller",
+
+"dataProvider": {
+  "map": "worldLow",
+  "getAreasFromMap": true
+},myExampleData.amchartsMapData
+"areasSettings": {
+  "autoZoom": true,
+  "selectedColor": "#CC0000"
+},
+"smallMap": {},
+"export": {
+  "enabled": true,
+  "position": "bottom-right"
+}
+}  */
+
+
+
+
+/**
  * C3 data
  */
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
