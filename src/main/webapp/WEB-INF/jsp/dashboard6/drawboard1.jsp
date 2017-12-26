@@ -647,7 +647,7 @@
 									}
 								}, */
 								];
-								console.log(dashboardJSON);
+								//console.log(dashboardJSON);
 								//basic initialization examplemn.sDashboard
 								$("#cprDashboard").sDashboard({
 									dashboardData : dashboardJSON
@@ -682,14 +682,7 @@
 										toastr.info(message, 'Information');
 									}
 								}								
-								//filter selected
-								$("#applyFilters").click( function() {
-									notification('info','Filters have been selected!');
-									if(console) {
-										console.log('from date: ' + $("#from").val() + " & to date: " + $("#to").val() +" & countries selected: " + $(".chzn-select").val());
-									}
-								});
-								
+															
 								//table row clicked event example
 								$("#cprDashboard").bind("sdashboardrowclicked",function(e, data) {
 									if (console) {
@@ -714,13 +707,7 @@
 
 								//widget order changes event example
 								$("#cprDashboard").bind("sdashboardorderchanged",function(e, data) {
-								/* 	$.gritter.add({
-										position : 'bottom-left',
-										title : 'Order Changed',
-										time : 4000,
-										text : 'The widgets order has been changed,check the console for sorted widget definitions array'
-									});
-									if (console) {
+								/* 	if (console) {
 										console.log("Sorted Array");
 										console.log("+++++++++++++++++++++++++");
 										console.log(data.sortedDefinitions);
