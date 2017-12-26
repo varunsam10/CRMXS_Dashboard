@@ -94,7 +94,7 @@
 			_bindEvents : function() {
 				var self = this;
 				//click event for maximize button
-				this.element.on("click", ".cprDashboardWidgetHeader div.sDashboard-iconcustomZoom.sDashboard-maximize-icon", function(e) {
+				this.element.on("click", ".cprDashboardWidgetHeader div.cprDashboard-iconcustomZoom.cprDashboard-maximize-icon", function(e) {
 
 					//get the widget List Item Dom
 					var widgetListItem = $(e.currentTarget).parents("li:first");
@@ -106,19 +106,19 @@
 					var widgetDefinition = self._getWidgetContentForId(widgetListItem.attr("id"), self);
 
 					//toggle the maximize icon into minimize icon
-					$(e.currentTarget).toggleClass("sDashboard-minimize-icon");
+					$(e.currentTarget).toggleClass("cprDashboard-minimize-icon");
 					//change the tooltip on the maximize/minimize icon buttons
 					if ($(e.currentTarget).attr("title") === "Maximize") {
 						$(".cprDashboard-overlay").hide();
 						$(e.currentTarget).attr("title", "Minimize");
-						$(".cprDashboardWidgetHeader div.sDashboard-iconcustomDel.sDashboard-trash-icon ").hide();
+						$(".cprDashboardWidgetHeader div.cprDashboard-iconcustomDel.cprDashboard-trash-icon ").hide();
 						self._trigger("widgetMaximized", null, {
 							"widgetDefinition" : widgetDefinition
 						});
 					} else {
 						$(".cprDashboard-overlay").show();
 						$(e.currentTarget).attr("title", "Maximize");
-						$(".cprDashboardWidgetHeader div.sDashboard-iconcustomDel.sDashboard-trash-icon ").show();
+						$(".cprDashboardWidgetHeader div.cprDashboard-iconcustomDel.cprDashboard-trash-icon ").show();
 						self._trigger("widgetMinimized", null, {
 							"widgetDefinition" : widgetDefinition
 						});
@@ -155,7 +155,7 @@
 				});
 				
 				//refresh widget click event handler
-				this.element.on("click", ".cprDashboardWidgetHeader div.sDashboard-iconcustomRefresh.sDashboard-refresh-icon", function(e) {
+				this.element.on("click", ".cprDashboardWidgetHeader div.cprDashboard-iconcustomRefresh.cprDashboard-refresh-icon", function(e) {
 					var widget = $(e.currentTarget).parents("li:first");
 					var widgetId = widget.attr("id");
 					var widgetDefinition = self._getWidgetContentForId(widgetId, self);
@@ -174,7 +174,7 @@
 				});
 
 				//delete widget by clicking the 'trash' icon on the widget
-				this.element.on("click", ".cprDashboardWidgetHeader div.sDashboard-iconcustomDel.sDashboard-trash-icon ", function(e) {
+				this.element.on("click", ".cprDashboardWidgetHeader div.cprDashboard-iconcustomDel.cprDashboard-trash-icon ", function(e) {
 					var widget = $(e.currentTarget).parents("li:first");
 					//show hide effect
 					widget.hide("fold", {}, 300, function() {
@@ -185,7 +185,7 @@
 				});
 				
 				//delete widget by clicking the 'trash' icon on the widget
-				this.element.on("click", ".cprDashboardWidgetHeader div.sDashboard-iconcustom.sDashboard-settings ", function(e) {
+				this.element.on("click", ".cprDashboardWidgetHeader div.cprDashboard-iconcustom.cprDashboard-settings ", function(e) {
 				/*	var widget = $(e.currentTarget).parents("li:first");
 					//show hide effect
 					widget.hide("fold", {}, 300, function() {
@@ -218,7 +218,7 @@
 				});
 
 				//table row click
-				this.element.on("click", ".cprDashboardWidgetContent table.sDashboardTableView tbody tr", function(e) {
+				this.element.on("click", ".cprDashboardWidgetContent table.cprDashboardTableView tbody tr", function(e) {
 					var selectedRow = $(e.currentTarget);
 
 					if (selectedRow.length > 0) {
@@ -257,11 +257,11 @@
 				var deleteButton = $('<a class="btn btn-circle btn-icon-only btn-default sDashboard-iconcustomStyle sDashboard-trash-icon" href="javascript:;"><i class="icon-trash"></i></a>');*/
 				
 				var widgetHeader = $("<div/>").addClass("cprDashboardWidgetHeader cprDashboard-clearfix");
-				var maximizeButton = $('<div title="Maximize" class="sDashboard-iconcustomZoom sDashboard-maximize-icon "></span>');
-				var settingsButton = $('<div title="Setting" class="sDashboard-iconcustom sDashboard-settings "></span>');
+				var maximizeButton = $('<div title="Maximize" class="cprDashboard-iconcustomZoom cprDashboard-maximize-icon "></span>');
+				var settingsButton = $('<div title="Setting" class="cprDashboard-iconcustom cprDashboard-settings "></span>');
 				
-				var deleteButton = $('<div title="Delete" class="sDashboard-iconcustomDel sDashboard-trash-icon"></div>');
-				var filterButton = $('<div title="Filter" class="sDashboard-iconcustomFilter sDashboard-filter-icon"></div>');
+				var deleteButton = $('<div title="Delete" class="cprDashboard-iconcustomDel cprDashboard-trash-icon"></div>');
+				var filterButton = $('<div title="Filter" class="cprDashboard-iconcustomFilter cprDashboard-filter-icon"></div>');
 				
 				//maximise button for map
 				//add delete button
@@ -309,7 +309,7 @@
 				}
 
 				if (widgetDefinition.hasOwnProperty("enableRefresh") && widgetDefinition.enableRefresh) {
-					var refreshButton = $('<div title="Refresh" class="sDashboard-iconcustomRefresh sDashboard-refresh-icon "></div>');
+					var refreshButton = $('<div title="Refresh" class="cprDashboard-iconcustomRefresh cprDashboard-refresh-icon "></div>');
 					//add refresh button
 					widgetHeader.append(refreshButton);
 				}
@@ -321,7 +321,7 @@
 				var widgetContent = $("<div/>").addClass("cprDashboardWidgetContent");
 
 				if (widgetDefinition.widgetType === 'table') {
-					var dataTable = $('<table cellpadding="0" cellspacing="0" border="0" class="display sDashboardTableView table table-bordered"></table>');
+					var dataTable = $('<table cellpadding="0" cellspacing="0" border="0" class="display cprDashboardTableView table table-bordered"></table>');
 					widgetContent.append(dataTable);
 					widgetContent.addClass("cprWidgetContentTable");
 				}else if(widgetDefinition.widgetType === 'grid'){
@@ -384,7 +384,7 @@
 				var id = "li#" + widgetDefinition.widgetId;
 				var table;
 				if(widgetDefinition.widgetType === 'table'){
-					table = this.element.find(id + " table.sDashboardTableView");
+					table = this.element.find(id + " table.cprDashboardTableView");
 					var buttonCommon = {
 					        exportOptions: {
 					            format: {

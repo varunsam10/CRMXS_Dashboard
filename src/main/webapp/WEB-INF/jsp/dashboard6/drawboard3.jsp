@@ -401,7 +401,7 @@ $(window).load(function() {
 						
 						<div class="filterSection">
 						
-						<div class="sDashboardWidgetHeader">
+						<div class="cprDashboardWidgetHeader">
 						Filter						
 						</div>
 						

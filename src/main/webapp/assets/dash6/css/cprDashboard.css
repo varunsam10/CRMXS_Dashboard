@@ -207,7 +207,6 @@ div#users-contain table td, div#users-contain table th {
 }
 
 .cprDashboardWidgetContentMaximized {
-	/* margin: 0.3em; */
 	margin: 0.7em;
 	padding: 0.4em;
 	height: 90%;
@@ -238,7 +237,7 @@ div#users-contain table td, div#users-contain table th {
 }
 
 /*dashboard table widget css*/
-.sDashboardTableView {
+.cprDashboardTableView {
 	width: 100%;
 	height: 95%;
 	overflow: auto;
@@ -264,17 +263,17 @@ div#users-contain table td, div#users-contain table th {
 	background-color: #abd9e9;
 }  */
 
-.sDashboardTableView tbody tr:nth-child(odd){
+.cprDashboardTableView tbody tr:nth-child(odd){
 	/* background-color:  #1a76ff !important; */
 	 background-color:  #138D75 !important;
 	
 }
-.sDashboardTableView tbody tr:nth-child(even){
+.cprDashboardTableView tbody tr:nth-child(even){
 	/*  background-color: #abd9e9 !important; */
 	 background-color: #EC7063 !important;
 	
 }
-.sDashboardTableView tbody tr:nth-child(odd):hover, .sDashboardTableView tbody tr:nth-child(even):hover
+.cprDashboardTableView tbody tr:nth-child(odd):hover, .cprDashboardTableView tbody tr:nth-child(even):hover
 {
 	background-color: #FCEFA1;
 	cursor: pointer;
@@ -413,7 +412,7 @@ div#users-contain table td, div#users-contain table th {
 }
  */
 /*icons*/
-.sDashboard-icon {
+.cprDashboard-icon {
 	margin: 0 5px 0 5px;
 	float: right;
 	background: url('images/icon-sprite.PNG') no-repeat;
@@ -421,7 +420,7 @@ div#users-contain table td, div#users-contain table th {
 	height: 20px;
 }
 
-.sDashboard-iconcustom {
+.cprDashboard-iconcustom {
 	margin: 0 5px 0 5px;
 	float: right;
 	background: url('images/ic_settings_white_18dp_1x.png') no-repeat;
@@ -429,7 +428,7 @@ div#users-contain table td, div#users-contain table th {
 	height: 20px;
 }
 
-.sDashboard-iconcustomDel {
+.cprDashboard-iconcustomDel {
 	margin: 0 5px 0 5px;
 	float: right;
 	background: url('images/ic_delete_white_18dp_1x.png') no-repeat;
@@ -437,7 +436,7 @@ div#users-contain table td, div#users-contain table th {
 	height: 20px;
 }
 
-.sDashboard-iconcustomZoom {
+.cprDashboard-iconcustomZoom {
 	margin: 0 5px 0 5px;
 	float: right;
 	background: url('images/ic_zoom_out_map_white_18dp_1x.png') no-repeat;
@@ -445,7 +444,7 @@ div#users-contain table td, div#users-contain table th {
 	height: 20px;
 }
 
-.sDashboard-iconcustomRefresh {
+.cprDashboard-iconcustomRefresh {
 	margin: 0 5px 0 5px;
 	float: right;
 	background: url('images/ic_refresh_white_18dp_1x.png') no-repeat;
@@ -453,7 +452,7 @@ div#users-contain table td, div#users-contain table th {
 	height: 20px;
 }
 
-.sDashboard-iconcustomFilter {
+.cprDashboard-iconcustomFilter {
 	margin: 0 5px 0 5px;
 	float: right;
 	background: url('images/ic_filter_list_white_18dp_1x.png') no-repeat;
@@ -461,22 +460,22 @@ div#users-contain table td, div#users-contain table th {
 	height: 20px;
 }
 
-.sDashboard-iconcustomStyle {
+.cprDashboard-iconcustomStyle {
 	margin: 0 5px 0 5px;
 	float: right;
 	width: 20px;
 	height: 20px;
 }
 
-.sDashboard-icon:hover,
-.sDashboard-icon:focus {
+.cprDashboard-icon:hover,
+.cprDashboard-icon:focus {
 	cursor: pointer;
 	box-shadow: 0 0.3em 0.3em -0.2em grey var(--hover);
 	transition: .3s all ease;
   	transform: translateY(-0.15em);
 }
 
-.sDashboard-iconcustom:hover
+.cprDashboard-iconcustom:hover
  {
 	cursor: pointer;
 	box-shadow: 0 0.3em 0.3em -0.2em var(--hover) grey;
@@ -484,46 +483,46 @@ div#users-contain table td, div#users-contain table th {
   	transform: translateY(-0.15em);
 }
 
-.sDashboard-iconcustomDel:hover {
+.cprDashboard-iconcustomDel:hover {
 	cursor: pointer;
 	box-shadow: 0 0.3em 0.3em -0.2em var(--hover) grey;
 	transition: .3s all ease;
   	transform: translateY(-0.15em);
 }
-.sDashboard-iconcustomFilter:hover {
-	cursor: pointer;
-	box-shadow: 0 0.3em 0.3em -0.2em var(--hover) grey;
-	transition: .3s all ease;
-  	transform: translateY(-0.15em);
-}
-
-.sDashboard-iconcustomRefresh:hover {
+.cprDashboard-iconcustomFilter:hover {
 	cursor: pointer;
 	box-shadow: 0 0.3em 0.3em -0.2em var(--hover) grey;
 	transition: .3s all ease;
   	transform: translateY(-0.15em);
 }
 
-.sDashboard-iconcustomZoom:hover {
+.cprDashboard-iconcustomRefresh:hover {
 	cursor: pointer;
 	box-shadow: 0 0.3em 0.3em -0.2em var(--hover) grey;
 	transition: .3s all ease;
   	transform: translateY(-0.15em);
 }
 
-.sDashboard-iconcustom .sDashboard-settings {
+.cprDashboard-iconcustomZoom:hover {
+	cursor: pointer;
+	box-shadow: 0 0.3em 0.3em -0.2em var(--hover) grey;
+	transition: .3s all ease;
+  	transform: translateY(-0.15em);
+}
+
+.cprDashboard-iconcustom .cprDashboard-settings {
 	background-position: -2px -230px;
 }
 
-.sDashboard-icon.sDashboard-trash-icon {
+.cprDashboard-icon.cprDashboard-trash-icon {
 	background-position: -4px -159px;
 }
 
-.sDashboard-icon.sDashboard-refresh-icon {
+.cprDashboard-icon.cprDashboard-refresh-icon {
 	background-position: -3px -186px;
 }
 
-.sDashboard-icon.sDashboard-maximize-icon {
+.cprDashboard-icon.cprDashboard-maximize-icon {
 	background-position: -2px -212px;
 }
 
@@ -536,33 +535,33 @@ div#users-contain table td, div#users-contain table th {
 }
 
 
-.sDashboard-icon.sDashboard-circle-plus-icon {
+.cprDashboard-icon.cprDashboard-circle-plus-icon {
 	background-position: -2px -3px;
 }
 
-.sDashboard-icon.sDashboard-circle-minus-icon {
+.cprDashboard-icon.cprDashboard-circle-minus-icon {
 	background-position: -2px -29px;
 }
 
-.sDashboard-icon.sDashboard-circle-remove-icon {
+.cprDashboard-icon.cprDashboard-circle-remove-icon {
 	background-position: -2px -55px;
 }
 
-.sDashboard-icon.sDashboard-plus-icon {
+.cprDashboard-icon.cprDashboard-plus-icon {
 	background-position: -3px -83px;
 }
 
-.sDashboard-icon.sDashboard-minus-icon {
+.cprDashboard-icon.cprDashboard-minus-icon {
 	background-position: -2px -109px;
 }
 
-.sDashboard-icon.sDashboard-remove-icon {
+.cprDashboard-icon.cprDashboard-remove-icon {
 	background-position: -3px -135px;
 }
 
 
 
-.sDashboard-icon.sDashboard-minimize-icon {
+.cprDashboard-icon.cprDashboard-minimize-icon {
 	background-position: -2px -236px;
 }
 
@@ -590,7 +589,7 @@ div#users-contain table td, div#users-contain table th {
 	width: 100%;
 	z-index: 9998;z-index one less than window maximized css
 } */
-.sDashboard-overlay {
+.cprDashboard-overlay {
 	width: 100%;
 	height: 100%;
 	background: rgba(0, 0, 0, 0.1);
