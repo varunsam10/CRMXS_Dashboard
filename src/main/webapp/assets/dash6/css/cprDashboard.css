@@ -1,3 +1,27 @@
+
+/*
+if it's not present, don't show loader */
+.no-js #loader {
+	display: none;
+}
+
+.js #loader {
+	display: block;
+	position: absolute;
+	left: 100px;
+	top: 0;
+}
+
+.se-pre-con {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background: url(assets/img/loader-128x/Preloader_3.gif) center no-repeat
+		#fff;
+}
 /*
 * Dialog styles 
 */
@@ -42,7 +66,9 @@ div#users-contain table td, div#users-contain table th {
 .ui-dialog .ui-state-error {
 	padding: .3em;
 }
-
+/*
+* Dialog styles 
+*/
 .validateTips {
 	border: 1px solid transparent;
 	padding: 0.3em;
@@ -111,7 +137,7 @@ div#users-contain table td, div#users-contain table th {
 } 
  */
 /*dashboard widget css*/
-.sDashboardWidget {
+.cprDashboardWidget {
 	margin: 0 1em 1em 0;
 	border-radius: 25px;
 	border: 2px solid #e7ecf1 !important;
@@ -134,7 +160,7 @@ div#users-contain table td, div#users-contain table th {
 }
 
 
-.sDashboardWidget:hover {
+.cprDashboardWidget:hover {
 	border: 1px solid #AFAFAF;
 	-webkit-transition: border-color 0.3s;
 	-moz-transition: border-color 0.3s;
@@ -143,7 +169,7 @@ div#users-contain table td, div#users-contain table th {
 }
 
 /*dashboard widget header css*/
-.sDashboardWidgetHeader {
+.cprDashboardWidgetHeader {
 	margin: 0.3em; 
 	padding: 2px 0.2em 2px 1em;
 	cursor: move;
@@ -157,7 +183,7 @@ div#users-contain table td, div#users-contain table th {
 }
 
 /*dashboard widget content css*/
-.sDashboardWidgetContent {
+.cprDashboardWidgetContent {
 	margin: 0.3em; 
 	margin: 0.1em;
 	padding: 0.4em;	
@@ -180,7 +206,7 @@ div#users-contain table td, div#users-contain table th {
 }
 }
 
-.sDashboardWidgetContentMaximized {
+.cprDashboardWidgetContentMaximized {
 	/* margin: 0.3em; */
 	margin: 0.7em;
 	padding: 0.4em;

@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
@@ -8,10 +7,8 @@
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta content="width=device-width, initial-scale=1" name="viewport" />
-<meta content="Preview page of Metronic Admin Theme #6 for statistics, charts, recent events and reports" name="description" />
 <meta content="" name="author" />
 <!-- BEGIN GLOBAL MANDATORY STYLES -->
-<!-- <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all"	rel="stylesheet" type="text/css" /> -->
 <link href="assets/dash6/global/plugins/font-awesome/css/font-awesome.min.css"	rel="stylesheet" type="text/css" />
 <link href="assets/dash6/global/plugins/simple-line-icons/simple-line-icons.min.css"	rel="stylesheet" type="text/css" />
 <link href="assets/dash6/global/plugins/bootstrap/css/bootstrap.min.css"	rel="stylesheet" type="text/css" />
@@ -21,7 +18,6 @@
 <link href="assets/dash6/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css" rel="stylesheet" type="text/css" />
 <link href="assets/dash6/global/plugins/morris/morris.css" 	rel="stylesheet" type="text/css" />
 <link href="assets/dash6/global/plugins/fullcalendar/fullcalendar.min.css" 	rel="stylesheet" type="text/css" />
-<!-- <link href="assets/dash6/global/plugins/jqvmap/jqvmap/jqvmap.css" 	rel="stylesheet" type="text/css" /> -->
 <!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN THEME GLOBAL STYLES -->
 <link href="assets/dash6/global/css/components-md.min.css" rel="stylesheet" id="style_components" type="text/css" />
@@ -31,7 +27,6 @@
 <link href="assets/dash6/layouts/layout6/css/layout.css" 	rel="stylesheet" type="text/css" />
 <link href="assets/dash6/layouts/layout6/css/custom.css" 	rel="stylesheet" type="text/css" />	
 <!-- datatable CSS  -->
-<!-- <link href="assets/dash6/css/datatable/jquery.dataTables.min.css" rel="stylesheet" type="text/css" /> -->
 <link href="assets/dash6/css/datatable/buttons.dataTables.min.css"	rel="stylesheet" type="text/css" />
 <link href="assets/dash6/css/datatable/datatables.css" rel="stylesheet"	type="text/css" />
 <!-- END THEME LAYOUT STYLES -->
@@ -41,9 +36,8 @@
 <!-- load jquery ui css theme -->
 <!-- <link type="text/css" href="assets/dash6/css/jquery-ui.css" rel="stylesheet" /> -->
 <link type="text/css" href="assets/dash6/css/chosen.min.css" 	rel="stylesheet" />
-<!-- <link type="text/css" href="assets/dash6/css/jquery-ui.css" 	rel="stylesheet" /> -->
 <link type="text/css" href="assets/dash6/css/jqueryNw/jquery-ui-1.12.1.min.css" 	rel="stylesheet" />
-<!-- amcharts map -->	
+<!-- amcharts map export css-->	
  <!-- <link rel="stylesheet" href="assets/dash6/js/amchartsMap/export.css" type="text/css" media="all" /> -->
 <!-- <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />	 -->
 <!-- load the dashboard css -->
@@ -56,31 +50,6 @@
 <link href="assets/dash6/css/c3/c3.css" rel="stylesheet" />
 <!--     cpr Dashboard Custom     -->
 <!-- END HEAD -->
-<style>
-/*
-if it's not present, don't show loader */
-.no-js #loader {
-	display: none;
-}
-
-.js #loader {
-	display: block;
-	position: absolute;
-	left: 100px;
-	top: 0;
-}
-
-.se-pre-con {
-	position: fixed;
-	left: 0px;
-	top: 0px;
-	width: 100%;
-	height: 100%;
-	z-index: 9999;
-	background: url(assets/img/loader-128x/Preloader_3.gif) center no-repeat
-		#fff;
-}
-</style> 
 <script src="assets/dash6/js/jqueryNw/jquery-1.12.4.js"	type="text/javascript"></script>
 <script type="text/javascript">
 	// Wait for window load
@@ -335,35 +304,7 @@ if it's not present, don't show loader */
 						</a>
 					</div>
 				</div>
-				<script>
-				  $(function() {
-				  var dateFormat = "mm/dd/yy",
-				      from = $( "#from" ).datepicker({
-				          defaultDate: "+1w",
-				          changeMonth: true,
-				          numberOfMonths: 3,
-				        }).on( "change", function() {
-				          to.datepicker( "option", "minDate", getDate( this ));
-				        }),
-				  to = $( "#to" ).datepicker({
-				        defaultDate: "+1w",
-				        changeMonth: true,
-				        numberOfMonths: 3
-				      }).on( "change", function() {
-				        from.datepicker( "option", "maxDate", getDate( this ) );
-				      });				 
-				    function getDate( element ) {
-				      var date;
-				      try {
-				        date = $.datepicker.parseDate( dateFormat, element.value );
-				      } catch( error ) {
-				        date = null;
-				      }				 
-				      return date;
-				    }
-				  });
-				  </script>
-				
+			
 				<script src="assets/dash6/js/Dropdown/chosen.jquery.min.js"></script>
 				
 				<div class="clearfix"></div>
@@ -402,12 +343,9 @@ if it's not present, don't show loader */
 		</div>
 	</div>
 	<!-- END CONTAINER -->
-	<!-- BEGIN QUICK NAV -->
-	<!-- END QUICK NAV -->
 	<!-- BEGIN CORE PLUGINS -->
 	<!-- <script src="assets/dash6/global/plugins/jquery.min.js"	type="text/javascript"></script>  --> 
 	<!-- remove -->
-	<script src="assets/dash6/js/jqueryNw/jquery-1.12.4.js"	type="text/javascript"></script>
 	<script src="assets/dash6/global/plugins/bootstrap/js/bootstrap.min.js"	type="text/javascript"></script>
 	<script src="assets/dash6/global/plugins/js.cookie.min.js"	type="text/javascript"></script>
 	<script	src="assets/dash6/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
@@ -423,10 +361,6 @@ if it's not present, don't show loader */
 	<script	src="assets/dash6/global/plugins/counterup/jquery.counterup.min.js"	type="text/javascript"></script>
 	<script	src="assets/dash6/global/plugins/fullcalendar/fullcalendar.min.js"	type="text/javascript"></script>
 	<script	src="assets/dash6/global/plugins/horizontal-timeline/horizontal-timeline.js" type="text/javascript"></script>
-<!-- 	<script src="assets/dash6/global/plugins/flot/jquery.flot.min.js" type="text/javascript"></script> 
-	<script	src="assets/dash6/global/plugins/flot/jquery.flot.resize.min.js" type="text/javascript"></script>
-	<script	src="assets/dash6/global/plugins/flot/jquery.flot.categories.min.js" type="text/javascript"></script>
-	<script src="assets/dash6/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script> -->
 	<!-- END PAGE LEVEL PLUGINS -->
 	<!-- BEGIN THEME GLOBAL SCRIPTS -->
 	<script src="assets/dash6/global/scripts/app.js" type="text/javascript"></script>
@@ -437,7 +371,7 @@ if it's not present, don't show loader */
 	<!-- BEGIN THEME LAYOUT SCRIPTS -->
 	<script src="assets/dash6/layouts/layout6/scripts/layout.min.js" type="text/javascript"></script>
 	<!-- END THEME LAYOUT SCRIPTS -->
-	<!--     CPR Dashboard    Custom     -->
+	<!--   CPR Dashboard    Custom     -->
 	<script src="assets/dash6/js/jquery/jquery-ui-1.12.1.min.js" type="text/javascript"></script>
 	<!-- load touch punch library to enable dragging on touch based devices -->
 	<!-- <script src="assets/dash6/js/touchpunch/jquery.ui.touch-punch.js" 	type="text/javascript"></script> -->
@@ -446,22 +380,23 @@ if it's not present, don't show loader */
 	<!-- load datatables library -->
 	<!--<script src="assets/dash6/js/datatables/jquery.dataTables.js"></script>  -->
 	<script src="assets/dash6/js/plotly-latest.min.js"></script>
-	<!-- <script src="assets/dash6/js/chart/Chart.bundle.js"></script> -->
+	<!-- Chart JS<script src="assets/dash6/js/chart/Chart.bundle.js"></script> -->
 	<script src="assets/dash6/js/c3/c3.min.js"></script>
 	<!-- amcharts map -->	
 	<script src="assets/dash6/js/amchartsMap/ammap.js"	type="text/javascript"></script>
-	<!-- 	<script src="assets/dash6/js/amchartsMap/export.min.js"	type="text/javascript"></script> -->
 	<script src="assets/dash6/js/amchartsMap/light.js"	type="text/javascript"></script>
 	<script src="assets/dash6/js/amchartsMap/worldLow.js" type="text/javascript"></script>
+	<!-- 	<script src="assets/dash6/js/amchartsMap/export.min.js"	type="text/javascript"></script> -->	
 	<!-- <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script> -->	
-	<!-- load dashboard library -->
-	<script src="assets/dash6/js/jquery-cprDashboard.js" type="text/javascript"></script>	
 	<!-- theme switcher -->
 	<script src="assets/dash6/js/themeswitcher/jquery.themeswitcher.min.js" type="text/javascript"></script>
+	<!-- load CPR dashboard widget library -->
+	<script src="assets/dash6/js/jquery-cprDashboard.js" type="text/javascript"></script>	
+	
+	
 	<!-- sample data external script file -->
 	<script src="assets/dash6/js/exampleData.js" type="text/javascript"></script>
 	<!-- Datatable export function js files -->
-	<!-- <script src="assets/dash6/js/datatableNw/datatables.js"></script> -->
 	<script src="assets/dash6/js/datatableNw/jquery.dataTables.min.js"></script>
 
 	<script src="assets/dash6/js/datatableNw/dataTables.buttons.min.js"></script>
@@ -471,21 +406,6 @@ if it's not present, don't show loader */
 	<script src="assets/dash6/js/datatableNw/buttons.print.min.js"></script>
 	<script src="assets/dash6/js/datatableNw/buttons.html5.min.js"></script>
 	<script src="assets/dash6/js/datatableNw/buttons.flash.min.js"></script>
-
-	<!--  data grid export js files -->
-	<!-- 	<script type="text/javascript" src="assets/dash6/js/grid/jqxcore.js"></script>
-    <script type="text/javascript" src="assets/dash6/js/grid/jqxbuttons.js"></script>
-    <script type="text/javascript" src="assets/dash6/js/grid/jqxscrollbar.js"></script>
-    <script type="text/javascript" src="assets/dash6/js/grid/jqxmenu.js"></script>
-    <script type="text/javascript" src="assets/dash6/js/grid/jqxcheckbox.js"></script>
-    <script type="text/javascript" src="assets/dash6/js/grid/jqxgrid.js"></script>
-    <script type="text/javascript" src="assets/dash6/js/grid/jqxgrid.selection.js"></script> 
-    <script type="text/javascript" src="assets/dash6/js/grid/jqxgrid.columnsresize.js"></script> 
-    <script type="text/javascript" src="assets/dash6/js/grid/jqxdata.js"></script> 
-    <script type="text/javascript" src="assets/dash6/js/grid/jqxdata.export.js"></script> 
-    <script type="text/javascript" src="assets/dash6/js/grid/jqxgrid.export.js"></script> 
-    <script type="text/javascript" src="assets/dash6/js/grid/jqxgrid.sort.js"></script>  -->
-
 
 	<script type="text/javascript">
 		$(document).ready(function() {
@@ -727,7 +647,7 @@ if it's not present, don't show loader */
 									}
 								}, */
 								];
-								console.log(dashboardJSON);
+								//console.log(dashboardJSON);
 								//basic initialization examplemn.sDashboard
 								$("#cprDashboard").sDashboard({
 									dashboardData : dashboardJSON
@@ -762,59 +682,41 @@ if it's not present, don't show loader */
 										toastr.info(message, 'Information');
 									}
 								}								
-								//filter selected
-								$("#applyFilters").click( function() {
-									notification('info','Filters have been selected!');
-									if(console) {
-										console.log('from date: ' + $("#from").val() + " & to date: " + $("#to").val() +" & countries selected: " + $(".chzn-select").val());
-									}
-								});
-								
+															
 								//table row clicked event example
 								$("#cprDashboard").bind("sdashboardrowclicked",function(e, data) {
-												if (console) {
-														console.log("table row clicked, for widget: "
-																		+ data.selectedWidgetId);
-													}
+									if (console) {
+									console.log("table row clicked, for widget: "+ data.selectedWidgetId);
+									}
 								});
-
 								//plot selected event example
 								$("#cprDashboard").bind("sdashboardplotselected",function(e, data) {
 									notification('info','A plot has been selected within a chart widget!');
-										if (console) {
-											console.log("chart range selected, for widget: "+ data.selectedWidgetId);
-													}
+									if (console) {
+									console.log("chart range selected, for widget: "+ data.selectedWidgetId);
+									}
 								});
 								//plot click event example
 								$("#cprDashboard").bind("sdashboardplotclicked",function(e, data) {
-									notification('info','chart clicked, for widget:'
-														+ data.clickedWidgetId
-														+ ' the data passed is'
-														+ data.dataPoints
-														+ '!');
-								if (console) {
+									notification('info','chart clicked, for widget:'+ data.clickedWidgetId
+										+ ' the data passed is'+ data.dataPoints+ '!');
+									if (console) {
 										console.log("chart clicked, for widget: "+ data.selectedWidgetId);
-												}
+									}
 								});
 
 								//widget order changes event example
 								$("#cprDashboard").bind("sdashboardorderchanged",function(e, data) {
-								$.gritter.add({
-									position : 'bottom-left',
-									title : 'Order Changed',
-									time : 4000,
-									text : 'The widgets order has been changed,check the console for sorted widget definitions array'
-								});
-								if (console) {
-									console.log("Sorted Array");
-									console.log("+++++++++++++++++++++++++");
-									console.log(data.sortedDefinitions);
-									console.log("+++++++++++++++++++++++++");
-									}
+								/* 	if (console) {
+										console.log("Sorted Array");
+										console.log("+++++++++++++++++++++++++");
+										console.log(data.sortedDefinitions);
+										console.log("+++++++++++++++++++++++++");
+									} */
 								});
 							});
 						})
 	</script>
-	<!--     CPR Dashboard    Custom  -->
+	<!-- CPR Custom Dashboard  -->
 </body>
 </html>
