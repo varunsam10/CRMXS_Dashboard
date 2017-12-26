@@ -337,8 +337,8 @@ myExampleData.plotlylinelayout = {
 		color : '#7f7f7f'
 	},
 	autosize : true,
-	paper_bgcolor:'#E0E0E0',
-	plot_bgcolor:'#E0E0E0'
+	paper_bgcolor:'#FFFFFF',//E0E0E0
+	plot_bgcolor:'#FFFFFF'
 };
 
 myExampleData.plotlylineconfig = {
@@ -412,8 +412,8 @@ myExampleData.plotlyBubbleLayout = {
 		color : '#7f7f7f'
 	},
 	showlegend : false,
-	paper_bgcolor:'#E0E0E0',
-	plot_bgcolor:'#E0E0E0'
+	paper_bgcolor:'#FFFFFF',//E0E0E0
+	plot_bgcolor:'#FFFFFF'
 	
 };
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -482,8 +482,8 @@ myExampleData.plotlyBubbleLayout = {
 		color : '#7f7f7f'
 	},
 	showlegend : false,
-	paper_bgcolor:'#E0E0E0',
-	plot_bgcolor:'#E0E0E0'
+	paper_bgcolor:'#FFFFFF',//E0E0E0
+	plot_bgcolor:'#FFFFFF'
 	
 };
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -532,8 +532,8 @@ var trace1 = {
 				color : '#7f7f7f'
 		  },
 		  barmode: 'group',
-		  paper_bgcolor:'#E0E0E0',
-		  plot_bgcolor:'#E0E0E0'
+		  paper_bgcolor:'#FFFFFF',//E0E0E0
+		  plot_bgcolor:'#FFFFFF'
 		};
 		
 
@@ -621,8 +621,8 @@ var trace1 = {
 			  type: 'log'},
 			  margin: {t: 20},
 			  hovermode: 'closest',
-	          paper_bgcolor:'#E0E0E0',
-			  plot_bgcolor:'#E0E0E0'
+	          paper_bgcolor:'#FFFFFF',//E0E0E0
+			  plot_bgcolor:'#FFFFFF'
 			};
 			
 			myExampleData.plotlybubble2layout = layout;
@@ -655,7 +655,7 @@ var trace2 = {
 		  name: '<b>LA Brewries</b>',
 		  marker : {
 				//color : 'rgb(55, 83, 109)',
-			  	color : '#2C3E50',
+			  	color : '#2C3E50 ', 
 				opacity : 0.6
 			},
 			textfont:{
@@ -684,8 +684,8 @@ var barlinelayout = {
 			size : 18,
 			color : '#7f7f7f'
 		},
-        paper_bgcolor:'#E0E0E0',
-		plot_bgcolor:'#E0E0E0'
+        paper_bgcolor:'#FFFFFF',//E0E0E0
+		plot_bgcolor:'#FFFFFF'
 }
 
 		myExampleData.plotlybarlinedata = [trace1, trace2];
@@ -754,8 +754,8 @@ var barlinelayout = {
 						size : 18,
 						color : '#7f7f7f'
 				},
-		        paper_bgcolor:'#E0E0E0',
-				plot_bgcolor:'#E0E0E0'
+		        paper_bgcolor:'#FFFFFF',//E0E0E0
+				plot_bgcolor:'#FFFFFF'
 		}
 
 		myExampleData.plotlyareadata = [trace1, trace2];
@@ -869,8 +869,8 @@ myExampleData.barGroupChartLayout = {
 		},
 		barmode : 'stack',
 		autosize : true,
-        paper_bgcolor:'#E0E0E0',
-		plot_bgcolor:'#E0E0E0'
+        paper_bgcolor:'#FFFFFF',//E0E0E0
+		plot_bgcolor:'#FFFFFF'
 };
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //plotly pie chart sample data starts here 
@@ -898,8 +898,8 @@ myExampleData.plotlypielayout = {
 			color : '#7f7f7f'
   },
   autosize : true,
-  paper_bgcolor:'#E0E0E0',
-  plot_bgcolor:'#E0E0E0'
+  paper_bgcolor:'#FFFFFF',//E0E0E0
+  plot_bgcolor:'#FFFFFF'
 
 };
 myExampleData.plotlypieconfig = {
@@ -1029,8 +1029,8 @@ myExampleData.donutWidgetLayout =  {
 	      y: 0.5
 	    }
 	  ]*/,
-	  paper_bgcolor:'#E0E0E0',
-	  plot_bgcolor:'#E0E0E0'
+	  paper_bgcolor:'#FFFFFF',//E0E0E0
+	  plot_bgcolor:'#FFFFFF'
 	};
 
 myExampleData.donutWidgetConfig = {
@@ -1107,8 +1107,8 @@ myExampleData.plotlyBubbleLayout = {
 		color : '#7f7f7f'
 	},
 	showlegend : false,
-	paper_bgcolor:'#E0E0E0',
-	plot_bgcolor:'#E0E0E0'
+	paper_bgcolor:'#FFFFFF',//E0E0E0
+	plot_bgcolor:'#FFFFFF'
 	/*height : 600,
 	width : 600*/
 };
@@ -1321,8 +1321,8 @@ myExampleData.barGroupChartLayout = {
 		},
 		barmode : 'stack',
 		autosize : true,
-      paper_bgcolor:'#E0E0E0',
-		plot_bgcolor:'#E0E0E0'
+      paper_bgcolor:'#FFFFFF',//E0E0E0
+		plot_bgcolor:'#FFFFFF'
 };
 
 
@@ -1418,7 +1418,8 @@ var trace4 = {
 			type : 'scatter',
 			marker : {
 				//color : 'rgb(26, 118, 255)',
-				color : '#EC7063', // orange 
+				//color : '#EC7063', // orange 
+				color : '#D32D41', // orange ,
 				opacity : 0.6
 			},
 			textfont:{
@@ -1457,8 +1458,8 @@ myExampleData.plotlylinelayout = {
 		color : '#7f7f7f'
 	},
 	autosize : true,
-	paper_bgcolor:'#E0E0E0',
-	plot_bgcolor:'#E0E0E0'
+	paper_bgcolor:'#FFFFFF',//E0E0E0
+	plot_bgcolor:'#FFFFFF'
 };
 
 myExampleData.plotlylineconfig = {
