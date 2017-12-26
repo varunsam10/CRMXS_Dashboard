@@ -52,7 +52,7 @@
 				var that = this;
 				//call the jquery ui sortable on the columns
 				this.element.sortable({
-					handle : ".sDashboardWidgetHeader",
+					handle : ".cprDashboardWidgetHeader",
 					start : function(event, ui) {
 						ui.item.startPosition = ui.item.index();
 					},
@@ -94,14 +94,14 @@
 			_bindEvents : function() {
 				var self = this;
 				//click event for maximize button
-				this.element.on("click", ".sDashboardWidgetHeader div.sDashboard-iconcustomZoom.sDashboard-maximize-icon", function(e) {
+				this.element.on("click", ".cprDashboardWidgetHeader div.sDashboard-iconcustomZoom.sDashboard-maximize-icon", function(e) {
 
 					//get the widget List Item Dom
 					var widgetListItem = $(e.currentTarget).parents("li:first");
 					//get the widget Container
-					var widget = $(e.currentTarget).parents(".sDashboardWidget:first");
+					var widget = $(e.currentTarget).parents(".cprDashboardWidget:first");
 					//get the widget Content
-					var widgetContainer = widget.find(".sDashboardWidgetContent");
+					var widgetContainer = widget.find(".cprDashboardWidgetContent");
 
 					var widgetDefinition = self._getWidgetContentForId(widgetListItem.attr("id"), self);
 
@@ -111,14 +111,14 @@
 					if ($(e.currentTarget).attr("title") === "Maximize") {
 						$(".cprDashboard-overlay").hide();
 						$(e.currentTarget).attr("title", "Minimize");
-						$(".sDashboardWidgetHeader div.sDashboard-iconcustomDel.sDashboard-trash-icon ").hide();
+						$(".cprDashboardWidgetHeader div.sDashboard-iconcustomDel.sDashboard-trash-icon ").hide();
 						self._trigger("widgetMaximized", null, {
 							"widgetDefinition" : widgetDefinition
 						});
 					} else {
 						$(".cprDashboard-overlay").show();
 						$(e.currentTarget).attr("title", "Maximize");
-						$(".sDashboardWidgetHeader div.sDashboard-iconcustomDel.sDashboard-trash-icon ").show();
+						$(".cprDashboardWidgetHeader div.sDashboard-iconcustomDel.sDashboard-trash-icon ").show();
 						self._trigger("widgetMinimized", null, {
 							"widgetDefinition" : widgetDefinition
 						});
@@ -126,7 +126,7 @@
 
 					//toggle the class for widget and inner container
 					widget.toggleClass("sDashboardWidgetContainerMaximized");
-					widgetContainer.toggleClass("sDashboardWidgetContentMaximized ");
+					widgetContainer.toggleClass("cprDashboardWidgetContentMaximized ");
 
 					if (widgetDefinition.widgetType === "chart") {
 					var chartArea = widgetContainer.find(" div.cprDashboardChart");
@@ -155,7 +155,7 @@
 				});
 				
 				//refresh widget click event handler
-				this.element.on("click", ".sDashboardWidgetHeader div.sDashboard-iconcustomRefresh.sDashboard-refresh-icon", function(e) {
+				this.element.on("click", ".cprDashboardWidgetHeader div.sDashboard-iconcustomRefresh.sDashboard-refresh-icon", function(e) {
 					var widget = $(e.currentTarget).parents("li:first");
 					var widgetId = widget.attr("id");
 					var widgetDefinition = self._getWidgetContentForId(widgetId, self);
@@ -174,7 +174,7 @@
 				});
 
 				//delete widget by clicking the 'trash' icon on the widget
-				this.element.on("click", ".sDashboardWidgetHeader div.sDashboard-iconcustomDel.sDashboard-trash-icon ", function(e) {
+				this.element.on("click", ".cprDashboardWidgetHeader div.sDashboard-iconcustomDel.sDashboard-trash-icon ", function(e) {
 					var widget = $(e.currentTarget).parents("li:first");
 					//show hide effect
 					widget.hide("fold", {}, 300, function() {
@@ -185,7 +185,7 @@
 				});
 				
 				//delete widget by clicking the 'trash' icon on the widget
-				this.element.on("click", ".sDashboardWidgetHeader div.sDashboard-iconcustom.sDashboard-settings ", function(e) {
+				this.element.on("click", ".cprDashboardWidgetHeader div.sDashboard-iconcustom.sDashboard-settings ", function(e) {
 				/*	var widget = $(e.currentTarget).parents("li:first");
 					//show hide effect
 					widget.hide("fold", {}, 300, function() {
@@ -218,7 +218,7 @@
 				});
 
 				//table row click
-				this.element.on("click", ".sDashboardWidgetContent table.sDashboardTableView tbody tr", function(e) {
+				this.element.on("click", ".cprDashboardWidgetContent table.sDashboardTableView tbody tr", function(e) {
 					var selectedRow = $(e.currentTarget);
 
 					if (selectedRow.length > 0) {
@@ -248,15 +248,15 @@
 					 widget.addClass("cprDashboardSmall");
 				 }
 				//create a widget container
-				var widgetContainer = $("<div/>").addClass("sDashboardWidget");
+				var widgetContainer = $("<div/>").addClass("cprDashboardWidget");
 
 				//create a widget header
-				/*var widgetHeader = $("<div/>").addClass("sDashboardWidgetHeader portlet-title");
+				/*var widgetHeader = $("<div/>").addClass("cprDashboardWidgetHeader portlet-title");
 				var maximizeButton = $('<a class="btn btn-circle btn-icon-only btn-default fullscreen sDashboard-iconcustomStyle sDashboard-maximize-icon" data-container="false" data-placement="bottom" href="javascript:;"> </a>');
 				var settingsButton = $('<a class="btn btn-circle btn-icon-only btn-default sDashboard-iconcustomStyle sDashboard-settings" href="javascript:;"><i class="icon-wrench"></i></a>');
 				var deleteButton = $('<a class="btn btn-circle btn-icon-only btn-default sDashboard-iconcustomStyle sDashboard-trash-icon" href="javascript:;"><i class="icon-trash"></i></a>');*/
 				
-				var widgetHeader = $("<div/>").addClass("sDashboardWidgetHeader sDashboard-clearfix");
+				var widgetHeader = $("<div/>").addClass("cprDashboardWidgetHeader sDashboard-clearfix");
 				var maximizeButton = $('<div title="Maximize" class="sDashboard-iconcustomZoom sDashboard-maximize-icon "></span>');
 				var settingsButton = $('<div title="Setting" class="sDashboard-iconcustom sDashboard-settings "></span>');
 				
@@ -318,7 +318,7 @@
 				widgetHeader.append(widgetDefinition.widgetTitle);
 
 				//create a widget content
-				var widgetContent = $("<div/>").addClass("sDashboardWidgetContent");
+				var widgetContent = $("<div/>").addClass("cprDashboardWidgetContent");
 
 				if (widgetDefinition.widgetType === 'table') {
 					var dataTable = $('<table cellpadding="0" cellspacing="0" border="0" class="display sDashboardTableView table table-bordered"></table>');
@@ -361,18 +361,18 @@
 				return widget;
 			},
 			_refreshRegularWidget : function(widgetDefinition, widget) {
-				var isMaximized = widget.find(".sDashboardWidgetContent").hasClass('sDashboardWidgetContentMaximized');
+				var isMaximized = widget.find(".cprDashboardWidgetContent").hasClass('cprDashboardWidgetContentMaximized');
 				//first remove the content
-				widget.find('.sDashboardWidgetContent').empty().remove();
+				widget.find('.cprDashboardWidgetContent').empty().remove();
 				//then create the content again
-				var widgetContent = $("<div/>").addClass("sDashboardWidgetContent");
+				var widgetContent = $("<div/>").addClass("cprDashboardWidgetContent");
 				//if its maximized add the maximized class
 				if (isMaximized) {
-					widgetContent.addClass('sDashboardWidgetContentMaximized');
+					widgetContent.addClass('cprDashboardWidgetContentMaximized');
 				}
 				widgetContent.append(widgetDefinition.widgetContent);
 				//then append this to the widget again;
-				widget.find(".sDashboardWidget").append(widgetContent);
+				widget.find(".cprDashboardWidget").append(widgetContent);
 			},
 			_refreshTable : function(widgetDefinition, widget) {
 				var selectedDataTable = widget.find('table:first').dataTable();
