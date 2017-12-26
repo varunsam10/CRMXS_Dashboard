@@ -76,7 +76,7 @@ div#users-contain table td, div#users-contain table th {
 
 .cprDashboard {
 	list-style-type: none;
-	margin: 0;f
+	margin: 0;
 	padding-left: 10px;
 	padding-top: 10px;
 	width: 100%;
@@ -562,7 +562,7 @@ div#users-contain table td, div#users-contain table th {
 
 
 
-.cprDashboard-icon.sDashboard-minimize-icon {
+.sDashboard-icon.sDashboard-minimize-icon {
 	background-position: -2px -236px;
 }
 

@@ -125,7 +125,7 @@
 					}
 
 					//toggle the class for widget and inner container
-					widget.toggleClass("sDashboardWidgetContainerMaximized");
+					widget.toggleClass("cprDashboardWidgetContainerMaximized");
 					widgetContainer.toggleClass("cprDashboardWidgetContentMaximized ");
 
 					if (widgetDefinition.widgetType === "chart") {

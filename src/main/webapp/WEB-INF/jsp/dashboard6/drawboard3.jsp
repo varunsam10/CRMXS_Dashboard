@@ -879,7 +879,7 @@ $(window).load(function() {
 	}];
 
         //basic initialization examplemn.sDashboard
-        $("#cprDashboard").sDashboard({
+        $("#cprDashboard").cprDashboard({
         	dashboardData : dashboardJSON
         });
 		
@@ -929,7 +929,7 @@ $(window).load(function() {
 		});
 
         //table row clicked event example
-        $("#cprDashboard").bind("sdashboardrowclicked",function(e, data) {
+        $("#cprDashboard").bind("cprdashboardrowclicked",function(e, data) {
    
         if (console) {
         	console.log("table row clicked, for widget: " + data.selectedWidgetId);
@@ -937,14 +937,14 @@ $(window).load(function() {
         });
 
         //plot selected event example
-        $("#cprDashboard").bind("sdashboardplotselected",function(e, data) {  
+        $("#cprDashboard").bind("cprdashboardplotselected",function(e, data) {  
         	notification('info', 'A plot has been selected within a chart widget!');
         if (console) {
         	console.log("chart range selected, for widget: "+ data.selectedWidgetId);
         }
         });
         //plot click event example
-        $("#cprDashboard").bind("sdashboardplotclicked",function(e, data) {        	
+        $("#cprDashboard").bind("cprdashboardplotclicked",function(e, data) {        	
         /* 	 $.ajax({
                  type: "GET",
         		 	url : 'widgetClick.html',
@@ -959,14 +959,8 @@ $(window).load(function() {
        			 }
         });
         //widget order changes event example
-        $("#cprDashboard").bind("sdashboardorderchanged",function(e, data) {
-	        $.gritter.add({
-		        position : 'bottom-left',
-		        title : 'Order Changed',
-		        time : 4000,
-		        text : 'The widgets order has been changed,check the console for the sorted widget definitions array'
-	        });
-	        if (console) {
+        $("#cprDashboard").bind("cprdashboardorderchanged",function(e, data) {
+	       if (console) {
 		        console.log("Sorted Array");
 		        console.log("+++++++++++++++++++++++++");
 		        console.log(data.sortedDefinitions);
