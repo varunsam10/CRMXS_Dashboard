@@ -74,9 +74,9 @@ div#users-contain table td, div#users-contain table th {
 	padding: 0.3em;
 }
 
-.sDashboard {
+.cprDashboard {
 	list-style-type: none;
-	margin: 0;
+	margin: 0;f
 	padding-left: 10px;
 	padding-top: 10px;
 	width: 100%;
@@ -88,7 +88,7 @@ div#users-contain table td, div#users-contain table th {
 	
 }
 
-.sDashboard  li {
+.cprDashboard  li {
 	margin: 3px 3px 3px 0;
 	padding: 1px;
 	float: left;
@@ -215,7 +215,7 @@ div#users-contain table td, div#users-contain table th {
 }
 
 /*for centering trick see  : http://css-tricks.com/quick-css-trick-how-to-center-an-object-exactly-in-the-center/*/
-.sDashboardWidgetContainerMaximized {
+.cprDashboardWidgetContainerMaximized {
 	/* z-index: 9999;
 	position: fixed;
 	width: 1000px;
@@ -289,7 +289,7 @@ div#users-contain table td, div#users-contain table th {
 }
 
 /*dashboard chart view css*/
-.sDashboardChart {
+.cprDashboardChart {
 	/*	width: 200px;
 	 height: 180px;*/
 	width: 100%;
@@ -386,11 +386,11 @@ div#users-contain table td, div#users-contain table th {
    }
   }
 
-.sDashboardChartClickable {
+.cprDashboardChartClickable {
 	cursor: pointer;
 }
 
-.sDashboardChartSelectable {
+.cprDashboardChartSelectable {
 	width: 100%;
 	height: 100%;
 	cursor: crosshair;
@@ -562,21 +562,21 @@ div#users-contain table td, div#users-contain table th {
 
 
 
-.sDashboard-icon.sDashboard-minimize-icon {
+.cprDashboard-icon.sDashboard-minimize-icon {
 	background-position: -2px -236px;
 }
 
 /*clear fix*/
-.sDashboard-clearfix:before, .sDashboard-clearfix:after {
+.cprDashboard-clearfix:before, .cprDashboard-clearfix:after {
 	content: "";
 	display: table;
 }
 
-.sDashboard-clearfix:after {
+.cprDashboard-clearfix:after {
 	clear: both;
 }
 
-.sDashboard-clearfix {
+.cprDashboard-clearfix {
 	zoom: 1; /* For IE 6/7 (trigger hasLayout) */
 }
 

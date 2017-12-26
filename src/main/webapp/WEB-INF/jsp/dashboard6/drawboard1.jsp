@@ -38,7 +38,7 @@
 <link type="text/css" href="assets/dash6/css/chosen.min.css" 	rel="stylesheet" />
 <link type="text/css" href="assets/dash6/css/jqueryNw/jquery-ui-1.12.1.min.css" 	rel="stylesheet" />
 <!-- amcharts map export css-->	
- <!-- <link rel="stylesheet" href="assets/dash6/js/amchartsMap/export.css" type="text/css" media="all" /> -->
+<!-- <link rel="stylesheet" href="assets/dash6/js/amchartsMap/export.css" type="text/css" media="all" /> -->
 <!-- <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />	 -->
 <!-- load the dashboard css -->
 <link href="assets/dash6/css/cprDashboard.css" rel="stylesheet">
@@ -48,16 +48,16 @@
 <link href="assets/dash6/css/toastr/toastr.css" rel="stylesheet" />
 <!-- C3 css -->
 <link href="assets/dash6/css/c3/c3.css" rel="stylesheet" />
-<!--     cpr Dashboard Custom     -->
+<!-- CPR Dashboard Custom     -->
 <!-- END HEAD -->
 <script src="assets/dash6/js/jqueryNw/jquery-1.12.4.js"	type="text/javascript"></script>
 <script type="text/javascript">
-	// Wait for window load
-	$(window).load(function() {
+// Wait for window load
+$(window).load(function() {
 		// Animate loader off screen
 		$(".se-pre-con").fadeOut("slow");
 		
-	});
+});
 </script> 
 <div class="se-pre-con"></div>
 <body class="page-md">
@@ -648,8 +648,8 @@
 								}, */
 								];
 								//console.log(dashboardJSON);
-								//basic initialization examplemn.sDashboard
-								$("#cprDashboard").sDashboard({
+								//basic initialization example mn.sDashboard
+								$("#cprDashboard").cprDashboard({
 									dashboardData : dashboardJSON
 								});
 								//Toastr settings 
@@ -684,20 +684,20 @@
 								}								
 															
 								//table row clicked event example
-								$("#cprDashboard").bind("sdashboardrowclicked",function(e, data) {
+								$("#cprDashboard").bind("cprdashboardrowclicked",function(e, data) {
 									if (console) {
 									console.log("table row clicked, for widget: "+ data.selectedWidgetId);
 									}
 								});
 								//plot selected event example
-								$("#cprDashboard").bind("sdashboardplotselected",function(e, data) {
+								$("#cprDashboard").bind("cprdashboardplotselected",function(e, data) {
 									notification('info','A plot has been selected within a chart widget!');
 									if (console) {
 									console.log("chart range selected, for widget: "+ data.selectedWidgetId);
 									}
 								});
 								//plot click event example
-								$("#cprDashboard").bind("sdashboardplotclicked",function(e, data) {
+								$("#cprDashboard").bind("cprdashboardplotclicked",function(e, data) {
 									notification('info','chart clicked, for widget:'+ data.clickedWidgetId
 										+ ' the data passed is'+ data.dataPoints+ '!');
 									if (console) {
@@ -706,7 +706,7 @@
 								});
 
 								//widget order changes event example
-								$("#cprDashboard").bind("sdashboardorderchanged",function(e, data) {
+								$("#cprDashboard").bind("cprdashboardorderchanged",function(e, data) {
 								/* 	if (console) {
 										console.log("Sorted Array");
 										console.log("+++++++++++++++++++++++++");

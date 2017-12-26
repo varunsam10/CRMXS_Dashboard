@@ -9,13 +9,13 @@
 		}
 	}(function($,Plotly,c3,AmCharts) {
 		"use strict";
-		$.widget("mn.sDashboard", {
+		$.widget("mn.cprDashboard", {
 			version : "1.0",
 			options : {
 				dashboardData : []
 			},
 			_create : function() {
-				this.element.addClass("sDashboard");
+				this.element.addClass("cprDashboard");
 				this._createView();
 
 			},
@@ -256,7 +256,7 @@
 				var settingsButton = $('<a class="btn btn-circle btn-icon-only btn-default sDashboard-iconcustomStyle sDashboard-settings" href="javascript:;"><i class="icon-wrench"></i></a>');
 				var deleteButton = $('<a class="btn btn-circle btn-icon-only btn-default sDashboard-iconcustomStyle sDashboard-trash-icon" href="javascript:;"><i class="icon-trash"></i></a>');*/
 				
-				var widgetHeader = $("<div/>").addClass("cprDashboardWidgetHeader sDashboard-clearfix");
+				var widgetHeader = $("<div/>").addClass("cprDashboardWidgetHeader cprDashboard-clearfix");
 				var maximizeButton = $('<div title="Maximize" class="sDashboard-iconcustomZoom sDashboard-maximize-icon "></span>');
 				var settingsButton = $('<div title="Setting" class="sDashboard-iconcustom sDashboard-settings "></span>');
 				
@@ -332,10 +332,10 @@
 				
 					var chart = $('<div/>').addClass("cprDashboardChart");
 					if (widgetDefinition.getDataBySelection) {
-						chart.addClass("sDashboardChartSelectable");
+						chart.addClass("cprDashboardChartSelectable");
 //						chart.addClass("chart");
 					} else {
-						chart.addClass("sDashboardChartClickable");
+						chart.addClass("cprDashboardChartClickable");
 					}
 					widgetContent.append(chart);
 				} else if (widgetDefinition.widgetType === 'map') {
