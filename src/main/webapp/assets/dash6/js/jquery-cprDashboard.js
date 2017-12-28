@@ -182,10 +182,9 @@
 						$(this).remove();
 						$(".cprDashboard-overlay").hide();
 					});
-				});
-				
+				});				
 				//delete widget by clicking the 'trash' icon on the widget
-				this.element.on("click", ".cprDashboardWidgetHeader div.cprDashboard-iconcustom.cprDashboard-settings ", function(e) {
+				this.element.on("click", ".cprDashboardWidgetHeader div.cprDashboard-iconcustom.cprDashboard-settings", function(e) {
 				/*	var widget = $(e.currentTarget).parents("li:first");
 					//show hide effect
 					widget.hide("fold", {}, 300, function() {
@@ -194,7 +193,9 @@
 						$(".cprDashboard-overlay").hide();
 					});*/
 					//console.log("Settings button clicked");
-					var dialog;
+					
+					
+				/*	var dialog;
 					dialog = $( "#cprdialog").dialog({
 					      autoOpen: false,
 					      height: 400,
@@ -212,9 +213,25 @@
 					      }
 					});
 					
-					dialog.dialog( "open" );
-					
+					dialog.dialog( "open" );*/
+					var widget = $(e.currentTarget).parents("li:first");
+					var widgetId = widget.attr("id");
+					var widgetDefinition = self._getWidgetContentForId(widgetId, self);
 				
+					var graphToThisChart = $("#changeGraphForm input:checked" ).val();
+					$('#changeGraphForm input:checkbox').bootstrapSwitch('state', false, true);
+					if(graphToThisChart === widgetDefinition.chartType){
+						
+					}else{
+						
+						$("#changeGraphForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('state', true, true);
+					}
+					
+					
+					$("#cgwidgetId").text(widgetId );
+					$("#changeGraphModal").modal('show');
+					
+					
 				});
 
 				//table row click
@@ -470,6 +487,93 @@
 					});
 				}
 			},*/
+			redrawChart:function(chartArea,data,layout,config)
+			{
+				Plotly.animate(chartArea[0], { data, layout,config} ,{
+					transition: {  
+						duration: 2000,
+						easing: 'cubic-in-out' 
+							} 
+				});
+				Plotly.newPlot(chartArea[0], data , layout,config);
+				Plotly.redraw(chartArea[0]);				
+				
+			},			
+			changeChart: function(changeGraphObject) {
+			//	alert("Grpah to change to "+changeGraphObject.chartTo);
+				var widgetDefinition = this._getWidgetContentForId(changeGraphObject.widgetId, this);
+
+				var id = "li#" + widgetDefinition.widgetId;
+				var chartArea;
+				var data;
+				var layout;
+				var config;
+				var chart;
+				chartArea = this.element.find(id + " div.cprDashboardChart");
+				
+				if (widgetDefinition.widgetType === 'chart') {
+					
+					data = widgetDefinition.widgetContent.data;
+					layout = widgetDefinition.widgetContent.layout;
+					config = widgetDefinition.widgetContent.config;
+					var layout = {
+							  xaxis: {
+							    tickangle: -45
+							  },
+							  barmode: 'group'
+							};
+
+					if(widgetDefinition.graphType === 'normal'){
+						
+						var chart = c3.generate({bindto:chartArea[0],data:widgetDefinition.widgetContent.data});
+						
+					}else{						
+						
+						
+						//code for changing the bar to scatter (line graph) 
+						
+						if(widgetDefinition.chartType === 'bar' && changeGraphObject.chartTo ==='line'){ 
+							var i=0;
+							for(i=0;i<widgetDefinition.widgetContent.data.length;i++)
+								{
+									widgetDefinition.widgetContent.data[i].type = 'scatter';
+								}	
+							
+						}
+						if(widgetDefinition.chartType === 'line' && changeGraphObject.chartTo ==='bar'){ 
+							var i=0;
+							for(i=0;i<widgetDefinition.widgetContent.data.length;i++)
+								{
+									widgetDefinition.widgetContent.data[i].type = 'bar';
+								}	
+							
+						}
+						
+						data = widgetDefinition.widgetContent.data;
+						this.redrawChart(chartArea,data,layout,config);
+						
+					}					
+					if (widgetDefinition.getDataBySelection) {
+						
+						this._bindSelectEvent(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+					} else {
+						if(widgetDefinition.graphType === 'exploratory'){
+							this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+						}
+					}
+				}
+				else if(widgetDefinition.widgetType === 'static')
+					{
+						chart = new Chart(chartArea[0], widgetDefinition.widgetId, widgetDefinition.widgetContent.data);
+						
+						if (widgetDefinition.getDataBySelection) {
+							this._bindSelectEvent(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+						} else {
+							this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+						}
+					}	
+				
+			},
 			_refreshChart: function(widgetDefinition) {
 				var id = "li#" + widgetDefinition.widgetId;
 				var chartArea;
@@ -516,7 +620,13 @@
 							//Plotly.newPlot(chartArea[0], widgetDefinition.widgetContent.data , widgetDefinition.widgetContent.layout,widgetDefinition.widgetContent.config);
 							//Plotly.redraw(chartArea[0]);
 						}*/
-						Plotly.newPlot(chartArea[0], widgetDefinition.widgetContent.data , widgetDefinition.widgetContent.layout,widgetDefinition.widgetContent.config);
+						Plotly.animate(chartArea[0], { data, layout,config} ,{
+							transition: {  
+								duration: 2000,
+								easing: 'cubic-in-out' 
+									} 
+						});
+						Plotly.newPlot(chartArea[0], data,layout,config);
 						Plotly.redraw(chartArea[0]);
 					}					
 					if (widgetDefinition.getDataBySelection) {
@@ -842,8 +952,7 @@
 			_bindChartEventsC3 : function(chartArea, widgetId, widgetDefinition, context) {
 				var myPlot = chartArea;
 				var id = "li#" + widgetDefinition.widgetId;
-				var chartArea = this.element.find(id + " div.cprDashboardChart");
-			
+				var chartArea = this.element.find(id + " div.cprDashboardChart");			
 			/*	myPlot.on('onclick', function(data,irt){					
 					 var pts = '';
 					 for(var i=0; i < data.points.length; i++){
@@ -926,7 +1035,6 @@
 					this._removeWidgetFromWidgetDefinitions(widgetId);
 				}
 			},
-
 			//get the wigetDefinitions
 			getDashboardData : function() {
 				return this.options.dashboardData;

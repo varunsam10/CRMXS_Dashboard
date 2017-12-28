@@ -230,10 +230,10 @@ $(window).load(function() {
 								class="fa fa-circle"></i>
 						</button>
 						<ul class="dropdown-menu-v2">
-							<li><a href="start.html">Application</a></li>
-							<li><a href="start.html">Reports</a></li>
+							<li><a href="start.html">Themes</a></li>
+						<!-- 	<li><a href="start.html">Reports</a></li>
 							<li><a href="start.html">Templates</a></li>
-							<li><a href="start.html">Settings</a></li>
+							<li><a href="start.html">Settings</a></li> -->
 						</ul>
 					</div>
 					<!-- END DROPDOWN AJAX MENU -->
@@ -315,7 +315,43 @@ $(window).load(function() {
 						<!--     CPR Dashboard -->						
 						<ul id="cprDashboard">
 						</ul>
-						<div id="cprdialog" title="Change graphs">						
+					<!-- 	<div id="cprdialog" title="Change graphs">		 -->	
+						   	<div id="changeGraphModal" class="modal fade" role="dialog" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <a href="javascript:;" class="close" data-dismiss="modal" aria-hidden="true"></a>
+                                                    <p><h4 class="modal-title">Change Graphs of <label  for="cgwidgetId" id="cgwidgetId" value=""/></h4></p>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form action="#" id="changeGraphForm" class="form-horizontal">
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3">Line chart</label>
+                                                            <div class="col-md-9">                                                                
+                                                               <input type="checkbox" class="make-switch"  data-on-color="primary" data-off-color="danger" value="line" id="line"> </div>                                                               
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3">Bar chart</label>
+                                                            <div class="col-md-9">                                                          
+                                                                <input type="checkbox" class="make-switch"  data-on-color="primary" data-off-color="danger" value="bar" id="bar"> </div>
+                                                       		 </div>
+                                                        <div class="form-group last">
+                                                            <label class="control-label col-md-3">Pie chart</label>
+                                                            <div class="col-md-9">
+                                                                <input type="checkbox" disabled class="make-switch" data-on-color="primary" data-off-color="danger" value="pie" id="pie"/>
+                                                          <!--       <input type="checkbox" checked readonly class="make-switch" /> --> 
+                                                             </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <a href="javascript:;" class="btn grey-salsa btn-outline" data-dismiss="modal">Close</a>
+                                                    <button id="applyChanges" class="btn green">
+                                                        <i class="fa fa-check"></i> Apply changes</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                              </div>			
 						<%--  	<form>
     					 		<fieldset>
       							<label for="name">Name</label>
@@ -652,6 +688,8 @@ $(window).load(function() {
 								$("#cprDashboard").cprDashboard({
 									dashboardData : dashboardJSON
 								});
+							//	$("#cprDashboard").cprDashboard("widgetcallCheck","sree");
+								
 								//Toastr settings 
 								toastr.options = {
 									"closeButton" : false,
@@ -714,6 +752,30 @@ $(window).load(function() {
 										console.log("+++++++++++++++++++++++++");
 									} */
 								});
+								
+								$('#applyChanges').on('click', function (e) {
+								    e.preventDefault(); 
+								   // alert("Inside Apply changes click ");
+								   // alert($("#changeGraphForm input:checked" ).val() +" is checked!" );
+								    var graphToThisChart = $("#changeGraphForm input:checked" ).val();
+								    var widgetID =$("#cgwidgetId").text();
+								    var changeGraphObject ={
+								    		chartTo: graphToThisChart,
+								    		widgetId: widgetID
+								    };
+								    $("#cprDashboard").cprDashboard("changeChart",changeGraphObject);
+								    $('#changeGraphModal').modal('hide');
+								 });
+								
+								$("#changeGraphForm input:checkbox[value='bar']").change(function() {
+								      //$(this).prop('checked');
+								      $("#changeGraphForm input:checkbox[value='line']").bootstrapSwitch('state', false, true);
+								})
+								$("#changeGraphForm input:checkbox[value='line']").change(function() {
+								      //$(this).prop('checked');
+								      $("#changeGraphForm input:checkbox[value='bar']").bootstrapSwitch('state', false, true);
+								})
+								
 							});
 						})
 	</script>
