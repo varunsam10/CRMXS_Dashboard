@@ -158,6 +158,13 @@ myExampleData.amchartsCountryMapData =	{
 		    "autoZoom": true,
 		    "selectedColor": "#CC0000"
 		  },
+		  "smallMap": {},
+		  "listeners": [{
+			    "event": "clickMapObject",
+			    "method": function(event) {
+			        console.log(event.mapObject.title);
+			    }
+			  }]
 }  ;
 	
 /* {
