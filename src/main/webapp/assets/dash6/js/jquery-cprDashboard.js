@@ -221,13 +221,56 @@
 					var graphToThisChart = $("#changeChartForm input:checked" ).val();
 					$('#changeChartForm input:checkbox').bootstrapSwitch('state', false, true);
 					if(graphToThisChart === widgetDefinition.chartType){
-						
+						$("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('state', true, true);
 					}else{
 						
 						$("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('state', true, true);
 					}
 					
-					
+					if(widgetDefinition.chartType === 'bar'){
+						
+						$('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
+						$("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
+						$("#changeChartForm input:checkbox[value='line']").bootstrapSwitch('disabled',false);
+					}
+					if(widgetDefinition.chartType === 'line'){
+						
+						$('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
+						$("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
+						$("#changeChartForm input:checkbox[value='bar']").bootstrapSwitch('disabled',false);
+						$("#changeChartForm input:checkbox[value='barline']").bootstrapSwitch('disabled',false);
+					}
+					if(widgetDefinition.chartType === 'area'){
+						
+						$('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
+						$("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
+						$("#changeChartForm input:checkbox[value='bar']").bootstrapSwitch('disabled',false);
+						
+					}
+					if(widgetDefinition.chartType === 'column'){
+						
+						$('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
+						$("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
+									
+					}
+					if(widgetDefinition.chartType === 'barline'){
+						
+						$('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
+						$("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
+									
+					}
+					if(widgetDefinition.chartType === 'pie'){
+						
+						$('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
+						$("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
+									
+					}
+					if(widgetDefinition.chartType === 'pie'){
+						
+						$('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
+						$("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
+									
+					}
 					$("#cgwidgetId").text(widgetId );
 					$("#changeChartModal").modal('show');
 					
@@ -508,9 +551,9 @@
 					}else{						
 						
 						
-						//code for changing the bar to scatter (line graph) 
+					//code for changing the bar to scatter (line graph) 
 					
-						
+					//bar chart 	
 					if(widgetDefinition.chartType === 'bar' && changeChartObject.chartTo ==='line'){ 
 						var i=0;
 						for(i=0;i<widgetDefinition.widgetContent.data.length;i++)
@@ -536,6 +579,7 @@
 						}	
 							
 					}
+					//area to line
 					else if(widgetDefinition.chartType === 'area' && changeChartObject.chartTo ==='line'){ 
 						var i=0;
 						for(i=0;i<widgetDefinition.widgetContent.data.length;i++)
@@ -560,30 +604,7 @@
 						}	
 							
 					}	
-					else if(widgetDefinition.chartType === 'area' && changeChartObject.chartTo ==='bar'){ 
-						var i=0;
-						for(i=0;i<widgetDefinition.widgetContent.data.length;i++)
-						{
-								widgetDefinition.widgetContent.data[i].type = 'bar';
-						}	
-							
-					}	
-					else if(widgetDefinition.chartType === 'area' && changeChartObject.chartTo ==='bar'){ 
-						var i=0;
-						for(i=0;i<widgetDefinition.widgetContent.data.length;i++)
-						{
-								widgetDefinition.widgetContent.data[i].type = 'bar';
-						}	
-							
-					}	
-					else if(widgetDefinition.chartType === 'area' && changeChartObject.chartTo ==='bar'){ 
-						var i=0;
-						for(i=0;i<widgetDefinition.widgetContent.data.length;i++)
-						{
-								widgetDefinition.widgetContent.data[i].type = 'bar';
-						}	
-							
-					}	
+					
 						data = widgetDefinition.widgetContent.data;
 						this.redrawChart(chartArea,data,layout,config);
 						
