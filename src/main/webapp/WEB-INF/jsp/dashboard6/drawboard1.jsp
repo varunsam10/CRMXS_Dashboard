@@ -13,6 +13,7 @@
 <link href="assets/dash6/global/plugins/simple-line-icons/simple-line-icons.min.css"	rel="stylesheet" type="text/css" />
 <link href="assets/dash6/global/plugins/bootstrap/css/bootstrap.min.css"	rel="stylesheet" type="text/css" />
 <link href="assets/dash6/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css"	rel="stylesheet" type="text/css" />
+
 <!-- END GLOBAL MANDATORY STYLES -->
 <!-- BEGIN PAGE LEVEL PLUGINS -->
 <link href="assets/dash6/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css" rel="stylesheet" type="text/css" />
@@ -48,6 +49,7 @@
 <link href="assets/dash6/css/toastr/toastr.css" rel="stylesheet" />
 <!-- C3 css -->
 <link href="assets/dash6/css/c3/c3.css" rel="stylesheet" />
+<link href="assets/dash6/global/plugins/bootstrap-sweetalert/sweetalert.css"	rel="stylesheet" type="text/css" /> 
 <!-- CPR Dashboard Custom     -->
 <!-- END HEAD -->
 <script src="assets/dash6/js/jqueryNw/jquery-1.12.4.js"	type="text/javascript"></script>
@@ -398,6 +400,7 @@ $(window).load(function() {
 	<script	src="assets/dash6/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
 	<script src="assets/dash6/global/plugins/jquery.blockui.min.js"	type="text/javascript"></script>
 	<script	src="assets/dash6/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+	<script	src="assets/dash6/global/plugins/bootstrap-sweetalert/sweetalert.js" type="text/javascript"></script>
 	<!-- END CORE PLUGINS -->
 	<!-- BEGIN PAGE LEVEL PLUGINS -->
 	<script src="assets/dash6/global/plugins/moment.min.js"	type="text/javascript"></script>
@@ -769,6 +772,10 @@ $(window).load(function() {
 								   // alert("Inside Apply changes click ");
 								   // alert($("#changeGraphForm input:checked" ).val() +" is checked!" );
 								    var graphToThisChart = $("#changeChartForm input:checked" ).val();
+								    var numberOfChecks = $("#changeChartForm input:checked" ).size();
+								    if(numberOfChecks>1){
+								   		swal("Only one graph can be selected!", "Un-check others!", "error");
+								    }
 								    var widgetID =$("#cgwidgetId").text();
 								    var changeChartObject ={
 								    		chartTo: graphToThisChart,
