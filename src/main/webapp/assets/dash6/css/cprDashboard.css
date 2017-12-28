@@ -1,4 +1,20 @@
-
+.control-label {
+    margin-top: 1px;
+    font-weight: 400;
+   	min-width: 33%;
+    max-width: 42%;
+   word-break: break-word;
+	-webkit-hyphens: auto;
+   -moz-hyphens: auto;
+    hyphens: auto;
+}
+.modal-group{
+	padding-bottom: 3%;	
+	min-width: 45%;
+}
+.modal-input{
+	min-width: 40%;
+}
 /*
 if it's not present, don't show loader */
 .no-js #loader {

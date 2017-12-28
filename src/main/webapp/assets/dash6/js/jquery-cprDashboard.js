@@ -267,64 +267,42 @@
 				//create a widget container
 				var widgetContainer = $("<div/>").addClass("cprDashboardWidget");
 
-				//create a widget header
-				/*var widgetHeader = $("<div/>").addClass("cprDashboardWidgetHeader portlet-title");
-				var maximizeButton = $('<a class="btn btn-circle btn-icon-only btn-default fullscreen sDashboard-iconcustomStyle sDashboard-maximize-icon" data-container="false" data-placement="bottom" href="javascript:;"> </a>');
-				var settingsButton = $('<a class="btn btn-circle btn-icon-only btn-default sDashboard-iconcustomStyle sDashboard-settings" href="javascript:;"><i class="icon-wrench"></i></a>');
-				var deleteButton = $('<a class="btn btn-circle btn-icon-only btn-default sDashboard-iconcustomStyle sDashboard-trash-icon" href="javascript:;"><i class="icon-trash"></i></a>');*/
-				
 				var widgetHeader = $("<div/>").addClass("cprDashboardWidgetHeader cprDashboard-clearfix");
 				var maximizeButton = $('<div title="Maximize" class="cprDashboard-iconcustomZoom cprDashboard-maximize-icon "></span>');
 				var settingsButton = $('<div title="Setting" class="cprDashboard-iconcustom cprDashboard-settings "></span>');
-				
 				var deleteButton = $('<div title="Delete" class="cprDashboard-iconcustomDel cprDashboard-trash-icon"></div>');
 				var filterButton = $('<div title="Filter" class="cprDashboard-iconcustomFilter cprDashboard-filter-icon"></div>');
 				
-				//maximise button for map
-				//add delete button
-				if (widgetDefinition.widgetType === 'map' && widgetDefinition.graphType === "exploratory" ){
-					//add Maximizebutton
+				if (widgetDefinition.graphType === "exploratory" && widgetDefinition.chartType !== "bubble"){
 					widgetHeader.append(maximizeButton);
-					widgetHeader.append(settingsButton);
 					widgetHeader.append(deleteButton);
+					widgetHeader.append(settingsButton);
 					widgetHeader.append(filterButton);
 					
-				}
-				else if(widgetDefinition.widgetType === 'map' && widgetDefinition.graphType === "normal" ){
-					//add Maximizebutton
+					
+				}else if(widgetDefinition.graphType === "exploratory" && widgetDefinition.chartType === "bubble"){
 					widgetHeader.append(maximizeButton);
 					widgetHeader.append(deleteButton);
-										
-				}				
+					widgetHeader.append(filterButton);					
+				}
+				else if(widgetDefinition.graphType === "normal" && widgetDefinition.widgetType === 'chart' ){
+					//add Maximizebutton
+					widgetHeader.append(maximizeButton);
+					widgetHeader.append(deleteButton);										
+				}
+				else if(widgetDefinition.widgetType === 'map' && widgetDefinition.graphType === "normal" ){
+					widgetHeader.append(maximizeButton);
+					widgetHeader.append(deleteButton);										
+				}	
+				else if(widgetDefinition.widgetType === 'table'){
+					//add Maximizebutton
+					widgetHeader.append(maximizeButton);
+					widgetHeader.append(deleteButton);					
+				}
 				else{
 					widgetHeader.append(deleteButton);
 				}
 				
-				
-				//add delete button
-				if (widgetDefinition.widgetType === 'chart' && widgetDefinition.graphType === "exploratory" ){
-					//add Maximizebutton
-					widgetHeader.append(maximizeButton);
-					widgetHeader.append(settingsButton);
-					widgetHeader.append(deleteButton);
-					widgetHeader.append(filterButton);
-					
-				}
-				else if(widgetDefinition.widgetType === 'chart' && widgetDefinition.graphType === "normal" ){
-					//add Maximizebutton
-					widgetHeader.append(maximizeButton);
-					widgetHeader.append(deleteButton);
-										
-				}				
-				else if(widgetDefinition.widgetType === 'table'){
-					//add Maximizebutton
-					widgetHeader.append(maximizeButton);
-					widgetHeader.append(deleteButton);
-					
-				}else{
-					widgetHeader.append(deleteButton);
-				}
-
 				if (widgetDefinition.hasOwnProperty("enableRefresh") && widgetDefinition.enableRefresh) {
 					var refreshButton = $('<div title="Refresh" class="cprDashboard-iconcustomRefresh cprDashboard-refresh-icon "></div>');
 					//add refresh button

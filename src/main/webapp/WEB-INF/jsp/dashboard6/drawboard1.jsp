@@ -324,24 +324,52 @@ $(window).load(function() {
                                                     <p><h4 class="modal-title">Change Graphs of <label  for="cgwidgetId" id="cgwidgetId" value=""/></h4></p>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <form action="#" id="changeGraphForm" class="form-horizontal">
-                                                        <div class="form-group">
-                                                            <label class="control-label col-md-3">Line chart</label>
-                                                            <div class="col-md-9">                                                                
-                                                               <input type="checkbox" class="make-switch"  data-on-color="primary" data-off-color="danger" value="line" id="line"> </div>                                                               
+                                                    <form action="#" id="changeGraphForm" class="form-inline">
+                                                        <div class="form-group modal-group">
+                                                            <label class="control-label col-md-6">Line chart</label>
+                                                            <div class="col-sm-3 col-md-3">                                                                
+                                                            <input type="checkbox" class="make-switch modal-input"  data-on-color="primary" data-off-color="danger" value="line" id="line"> </div>                                                               
                                                         </div>
-                                                        <div class="form-group">
-                                                            <label class="control-label col-md-3">Bar chart</label>
-                                                            <div class="col-md-9">                                                          
-                                                                <input type="checkbox" class="make-switch"  data-on-color="primary" data-off-color="danger" value="bar" id="bar"> </div>
-                                                       		 </div>
-                                                        <div class="form-group last">
-                                                            <label class="control-label col-md-3">Pie chart</label>
-                                                            <div class="col-md-9">
-                                                                <input type="checkbox" disabled class="make-switch" data-on-color="primary" data-off-color="danger" value="pie" id="pie"/>
+                                                        <div class="form-group modal-group">
+                                                            <label class="control-label col-md-6">Bar chart</label>
+                                                            <div class="col-sm-3 col-md-3">                                                          
+                                                            <input type="checkbox" class="make-switch modal-input"  data-on-color="primary" data-off-color="danger" value="bar" id="bar"> </div>
+                                                       </div>
+                                                        <div class="form-group  modal-group">
+                                                            <label class="control-label col-md-6">Pie chart</label>
+                                                            <div class="col-sm-3 col-md-3">
+                                                            <input type="checkbox" disabled class="make-switch modal-input" data-on-color="primary" data-off-color="danger" value="pie" id="pie"/>
                                                           <!--       <input type="checkbox" checked readonly class="make-switch" /> --> 
                                                              </div>
                                                         </div>
+                                                        <div class="form-group  modal-group">
+                                                            <label class="control-label col-md-6">Area chart</label>
+                                                            <div class="col-sm-3 col-md-3">
+                                                            <input type="checkbox"  class="make-switch modal-input" data-on-color="primary" data-off-color="danger" value="area" id="area"/>
+                                                          <!--       <input type="checkbox" checked readonly class="make-switch" /> --> 
+                                                             </div>
+                                                        </div>
+                                                        <div class="form-group modal-group">
+                                                            <label class="control-label col-md-6">Column chart</label>
+                                                            <div class="col-sm-3 col-md-3">
+                                                            <input type="checkbox"  class="make-switch modal-input" data-on-color="primary" data-off-color="danger" value="column" id="column"/>
+                                                          <!--       <input type="checkbox" checked readonly class="make-switch" /> --> 
+                                                             </div>
+                                                        </div>
+                                                        <div class="form-group modal-group">
+                                                            <label class="control-label col-md-6">Bar-line chart</label>
+                                                            <div class="col-sm-3 col-md-3">
+                                                            <input type="checkbox"  class="make-switch modal-input" data-on-color="primary" data-off-color="danger" value="barline" id="barline"/>
+                                                          <!--       <input type="checkbox" checked readonly class="make-switch" /> --> 
+                                                             </div>
+                                                        </div>
+                                                        <div class="form-group modal-group">
+                                                            <label class="control-label col-md-6">Doughnut chart</label>
+                                                            <div class="col-sm-3 col-md-3">
+                                                            <input type="checkbox"  class="make-switch modal-input" data-on-color="primary" data-off-color="danger" value="pie" id="doughnut"/>
+                                                          <!--       <input type="checkbox" checked readonly class="make-switch" /> --> 
+                                                             </div>
+                                                        </div>                                                     
                                                     </form>
                                                 </div>
                                                 <div class="modal-footer">
