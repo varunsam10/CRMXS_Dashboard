@@ -265,17 +265,17 @@ div#users-contain table td, div#users-contain table th {
 
 .cprDashboardTableView tbody tr:nth-child(odd){
 	/* background-color:  #1a76ff !important; */
-	 background-color:  #138D75 !important;
+	 background-color:  #32c5d2!important;/* #138D75 */
 	
 }
 .cprDashboardTableView tbody tr:nth-child(even){
 	/*  background-color: #abd9e9 !important; */
-	 background-color: #EC7063 !important;
+	 background-color: #3598dc!important;/* #EC7063 */
 	
 }
 .cprDashboardTableView tbody tr:nth-child(odd):hover, .cprDashboardTableView tbody tr:nth-child(even):hover
 {
-	background-color: #FCEFA1;
+	background-color: #b6ff5f;/* #FCEFA1 */
 	cursor: pointer;
 }
 

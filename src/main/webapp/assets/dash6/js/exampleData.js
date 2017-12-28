@@ -192,7 +192,7 @@ myExampleData.amchartsCountryMapData =	{
  * C3 data
  */
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-//c3 pie chart sample data starts here 
+//c3  chart sample data starts here 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 myExampleData.c3piedata = {
@@ -288,7 +288,7 @@ var trace1 = {
 	type : 'scatter',
 	marker : {
 	//	color : 'rgb(55, 83, 109)',
-		color : '#EC7063',
+		color : '#FF0000',
 		opacity : 0.6
 	},
 	textfont:{
@@ -356,7 +356,7 @@ var trace1 = {
 	marker : {
 		size : [ 40, 60, 80, 100 ],
 		//color : 'rgb(26, 118, 255)',
-		color : '#EC7063', 
+		color : '#FF0000', 
 		opacity : 0.6
 
 		
@@ -374,7 +374,7 @@ var trace2 = {
 		marker : {
 			size : [ 30, 65, 75, 90 ],
 			//color : 'rgb(26, 118, 255)',
-			color : '#1ABC9C',
+			color : '#32c5d2',
 			opacity : 0.6
 
 		},
@@ -444,7 +444,7 @@ var trace2 = {
 		marker : {
 			size : [ 30, 65, 75, 90 ],
 			//color : 'rgb(26, 118, 255)',
-			color : '#EC7063',
+			color : '#FF0000',
 			opacity : 0.6
 
 		},
@@ -496,7 +496,7 @@ var trace1 = {
 		  orientation: 'h',
 		  marker: {
 		  // color: 'rgb(55, 83, 109)',
-		   color : '#1ABC9C',
+		   color : '#2C3E50', // #1ABC9C
 		   opacity: 0.6
 		    
 		  },
@@ -510,8 +510,8 @@ var trace1 = {
 		  orientation: 'h',
 		  type: 'bar',
 		  marker: {
-		   // color: 'rgb(26, 118, 255)',
-			color : '#2C3E50',
+//		   color: 'rgb(26, 118, 255)',
+   		color : '#32c5d2',//#2C3E50
 		    opcacity: 0.6
 		    
 		  },
@@ -554,7 +554,7 @@ var trace1 = {
 			"size": ["31889923", "708573", "150448339", "14131858", "1318683096", "6980412", "1110396331", "223547000", "69453570", "27499638", "6426679", "127467972", "6053193", "23301725", "49044790", "2505559", "3921278", "24821286", "2874127", "47761980", "28901790", "3204897", "169270617", "91077287", "27601038", "4553009", "20378239", "19314747", "23174294", "65068149", "85262356", "4018332", "22211743"],
 			"sizeref": 200000,
 			//color: 'rgb(69,117,180)'
-			color : '#138D75', // green
+			color : '##32c5d2', //Blue (green #138D75)
 		}
 	}, {
 		"mode": "markers",
@@ -567,7 +567,7 @@ var trace1 = {
 			"size": ["3600523", "8199783", "10392226", "4552198", "7322858", "4493312", "10228744", "5468120", "5238460", "61083916", "82400996", "10706290", "9956108", "301931", "4109086", "58147733", "684736", "16570613", "4627926", "38518241", "10642836", "22276056", "10150265", "5447502", "2009245", "40448191", "9031088", "7554661", "71158647", "60776238"],
 			"sizeref": 200000,
 			//color:  'rgb(26, 118, 255)'
-			color : '#EC7063', // orange 
+			color : '#FF0000', // orange 
 		}
 	}, {
 		"mode": "markers",
@@ -606,7 +606,7 @@ var trace1 = {
 			"size": ["40301927", "9119152", "190010647", "33390141", "16284741", "44227550", "4133884", "11416987", "9319622", "13755680", "6939688", "12572928", "8502814", "7483763", "2780132", "108700891", "5675356", "3242173", "6667147", "28674757", "3942491", "1056608", "301139947", "3447496", "26084662"],
 			"sizeref": 200000,
 			//color: 'rgb(171,217,233)'
-			color : '#2C3E50', //  black
+			color : '#8E44AD', //Purple  (black-#2C3E50) 
 		}
 	}];
 	var layout = {
@@ -639,7 +639,7 @@ var trace1 = {
 		  name: '<b>SF Brewries</b>',
 		  marker : {
 				//color : 'rgb(26, 118, 255)',
-			  	color : '#138D75',
+			  	color : '#32c5d2',//#138D75
 				opacity : 0.6
 			},
 			textfont:{
@@ -655,7 +655,7 @@ var trace2 = {
 		  name: '<b>LA Brewries</b>',
 		  marker : {
 				//color : 'rgb(55, 83, 109)',
-			  	color : '#2C3E50 ', 
+			  	color : '#2C3E50', //#2C3E50
 				opacity : 0.6
 			},
 			textfont:{
@@ -699,15 +699,15 @@ var barlinelayout = {
 //plotly area graph sample data starts here 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	var trace1 = {
-				  x: [1, 2, 3, 4], 
-				  y: [0, 2, 3, 5], 
+				  x: [1, 2.5, 3.5, 4.5,5], 
+				  y: [2, 3, 2, 3.5,2], 
 				  fill: 'tozeroy', 
 				  type: 'scatter',
 				  name: '<b>SF Brewries</b>',
 				  mode: 'lines',
 				  marker : {
 						//color : 'rgb(55, 83, 109)',
-					  	color : '#138D75', // green
+					  	color : '#F4D03F', //'#138D75', green
 						opacity : 0.6
 					},
 					textfont:{
@@ -718,15 +718,15 @@ var barlinelayout = {
 				};
 
 	var trace2 = {
-				  x: [1, 2, 3, 4], 
-				  y: [3, 5, 1, 7], 
+				  x: [1, 2, 3, 4,5], 
+				  y: [3, 5, 4, 7,4], 
 				  fill: 'tonexty', 
 				  type: 'scatter',
 				  name: '<b>LA Brewries</b>',
 				  mode: 'lines',
 				  marker : {
 						//color : 'rgb(26, 118, 255)',
-					  	color : '#2C3E50', //  black
+					  	color : '#32c5d2', //'#2C3E50', //  black
 						opacity : 0.6
 					},
 					textfont:{
@@ -776,7 +776,7 @@ var trace1 = {
 	type : 'bar',
 	marker : {
 		//color : 'rgb(55, 83, 109)',
-		color : '#138D75', // green
+		color : '#32c5d2', // green #138D75  
 		opacity : 0.6
 	}
 };
@@ -800,7 +800,7 @@ var trace3 = {
 		type : 'bar',
 		marker : {
 			//color : 'rgb(171,217,233)',
-			color : '#EC7063', // orange 
+			color : '#e7505a', // orange 
 			opacity : 0.6
 		}
 };
@@ -813,7 +813,7 @@ var trace4 = {
 		type : 'bar',
 		marker : {
 			//color : 'rgb(116,173,209)',
-			color : '#EC7063', // orange 
+			color : '#1ABC9C', // orange 
 			opacity : 0.4
 		}
 };
@@ -824,8 +824,8 @@ var trace5 = {
 		name : 'YZ Breweries',
 		type : 'bar',
 		marker : {
-			//color : 'rgb(254,224,144)',
-			color : '#138D75', // green
+			//color : 'rgb(254,224,144)'
+			color : '#1ABC9C', // green
 			opacity : 0.4
 		}
 };
@@ -843,7 +843,7 @@ var trace6 = {
 };
 
 myExampleData.barGroupChartData = [ trace1, trace2, trace3];
-myExampleData.barGroupRefreshChartData = [ trace4, trace5, trace6 ];
+myExampleData.barGroupRefreshChartData = [ trace4, trace5, trace6 ,trace3];
 myExampleData.barGroupChartLayout = {
 		title : '<b>Revenue in US $</b>',	
 		xaxis : {
@@ -881,7 +881,7 @@ myExampleData.plotlypiedata = [ {
 	type : 'pie',
 	marker: {
 		//colors:  ['rgb(69,117,180)', 'rgb(26, 118, 255)', 'rgb(49,54,149)', 'rgb(116,173,209)', 'rgb(171,217,233)'],
-		colors:  ['#2C3E50', '#138D75', '#EC7063', '#F4D03F', '#95A5A6'],
+		colors:  ['#2C3E50', '#3598dc', '#e7505a', '#F4D03F', '#32c5d2'],
 		opacity: 0.6
 	},
 	textfont:{
@@ -969,8 +969,8 @@ myExampleData.tableWidgetData = {
 //do-nut widget config
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 myExampleData.donutWidgetData = [{
-	  values: [16, 15, 12, 6, 4, 42],
-	  labels: ['<b>US</b>', '<b>China</b>', '<b>Europe</b>', '<b>Russia</b>', '<b>India</b>', '<b>Rest of World</b>' ],
+	  values: [16, 15, 6, 22, 32],
+	  labels: ['<b>US</b>', '<b>China</b>', '<b>Russia</b>', '<b>India</b>', '<b>Rest of World</b>' ],
 	  domain: {
 	    x: [0, .48]
 	  },
@@ -980,7 +980,7 @@ myExampleData.donutWidgetData = [{
 	  type: 'pie',
 	  marker: {
 		  //colors:  ['rgb(69,117,180)', 'rgb(26, 118, 255)', 'rgb(49,54,149)', 'rgb(116,173,209)', 'rgb(171,217,233), rgb(36, 55, 57), rgb(34, 53, 101),rgb(55, 83, 109)'],
-		  colors:  ['#2C3E50', '#F4D03F', '#EC7063', '#95A5A6', 'rgb(49,54,149)','#138D75'],
+		  colors:  ['#2C3E50', '#F4D03F', '#95A5A6', '#32c5d2','#e7505a'],
 		  opacity: 0.6
 	  },
 		textfont:{
@@ -988,7 +988,7 @@ myExampleData.donutWidgetData = [{
 			family:'Helvetica'
 		}
 	}/*,{
-	  values: [27, 11, 25, 8, 3, 25],
+	  values: [15, 11, 25, 8, 12, 25],
 	  labels: ['US', 'China', 'European Union', 'Russian Federation', 'India', 'Rest of World' ],
 	  text: 'CO2',
 	  textposition: 'inside',
@@ -1054,7 +1054,7 @@ var trace1 = {
 	marker : {
 		size : [ 60, 80, 100 ],
 		//color : 'rgb(26, 118, 255)',
-		color : '#138D75', // green
+		color : '#32c5d2', // green
 		opacity : 0.6		
 	},
 	textfont:{
@@ -1070,7 +1070,7 @@ var trace2 = {
 		marker : {
 			size : [ 65, 75, 90 ],
 			//color : 'rgb(26, 118, 255)',
-			color : '#138D75', // green
+			color : '#3598dc', // green
 			opacity : 0.6
 		},
 		textfont:{
@@ -1170,19 +1170,19 @@ var trace1 = {
 
 var trace2 = {
 	x : [ '<b>Tiger</b>', '<b>Desperado</b>', '<b>Heiniken</b>' ,'<b>Kingfisher</b>', '<b>brand1</b>', '<b>brand2</b>','<b>brand3</b>', '<b>brand4</b>', '<b>brand5</b>', '<b>brand9</b>', '<b>brand10</b>', '<b>brand11</b>'],
-	y : [ 12, 18, 39, 22, 28, 19, 18, 58, 49, 65, 63, 71],
+	y : [ 12, 18, 39, 22, 28, 19, 18, 58, 49, 65, 63, 71,34,90,89,88],
 	name : '<b>LA Breweries</b>',
 	type : 'bar',
 	marker : {
 		//color : 'rgb(26, 118, 255)',
-		color : '#EC7063', 
+		color : '#00BFFF', 
 		opacity : 0.6
 	}
 };
 
 var trace3 = {
 		x : [ '<b>Tiger</b>', '<b>Desperado</b>', '<b>Heiniken</b>' ,'<b>Kingfisher</b>', '<b>brand1</b>', '<b>brand2</b>','<b>brand3</b>', '<b>brand4</b>', '<b>brand5</b>', '<b>brand9</b>', '<b>brand10</b>', '<b>brand11</b>'],
-		y : [ 21, 18, 43, 22, 28, 45, 18, 17, 49, 71, 63, 33],
+		y : [ 21, 18, 43, 22, 28, 45, 18, 17, 49, 71, 63, 33,32,56,59],
 		name : '<b>NY Breweries</b>',
 		type : 'bar',
 		marker : {
@@ -1195,30 +1195,30 @@ var trace3 = {
 
 var trace4 = {
 		x : [ 'Carlburg', 'Anchor', 'Guiness' ,'Breidweiser', 'Erdinger', 'brand2','brand3', 'brand4', 'brand5', 'brand9', 'brand10', 'brand11'],
-		y : [ 22, 24, 33,45, 44, 26,68, 64, 63, 47, 49, 35 ],
+		y : [ 22, 24, 33,45, 44, 26,68, 64, 63, 47, 49, 35,25,30,46,50,71,45, 18, 17, 49, 71, 63, 33,32,56,59],
 		name : 'XL Breweries',
 		type : 'bar',
 		marker : {
-			color : '#EC7063', // orange 
+			color : '#1ABC9C', // orange 
 			opacity : 0.6
 		}
 };
 
 var trace5 = {
 		x : ['Carlburg', 'Anchor', 'Guiness' ,'Breidweiser', 'Erdinger', 'brand2','brand3', 'brand4', 'brand5', 'brand9', 'brand10', 'brand11'],
-		y : [ 12, 14, 33, 22, 38, 19, 28, 53, 69, 71, 29, 50 ],
+		y : [ 12, 14, 33, 22, 38, 19, 28, 53, 69, 71, 29, 50,45, 18, 17, 49, 71, 63, 33,32,56,59],
 		name : 'YZ Breweries',
 		type : 'bar',
 		marker : {
 			//color : 'rgb(26, 118, 255)',
-			color : '#138D75', // green
+			color : '#736F6E', // green
 			opacity : 0.6
 		}
 };
 
 var trace6 = {
 		x : ['Carlburg', 'Anchor', 'Guiness' ,'Breidweiser', 'Erdinger', 'brand2','brand3', 'brand4', 'brand5', 'brand9', 'brand10', 'brand11'],
-		y : [ 9, 14, 45, 22, 38, 19, 51, 53, 22, 65, 29, 59 ],
+		y : [ 9, 14, 45, 22, 38, 19, 51, 53, 22, 65, 29, 59,29,50,48,50,49 ],
 		name : 'XZ Breweries',
 		type : 'bar',
 		marker : {
@@ -1248,7 +1248,7 @@ var trace8 = {
 		type : 'bar',
 		marker : {
 			//color : 'rgb(26, 118, 255)',
-			color : '#2C3E50', //  black
+			color : '#3215c4', //  black
 			opacity : 0.6
 		}
 };
@@ -1261,14 +1261,14 @@ var trace9 = {
 		type : 'bar',
 		marker : {
 			//color : 'rgb(55, 83, 109)',
-			color : '#EC7063', // orange 
+			color : '#2C3E50', // orange 
 			opacity : 0.6
 		}
 };
 
 var trace10 = {
-		x : [ '<b>Tiger</b>', '<b>Desperado</b>', '<b>Heiniken</b>' ,'<b>Kingfisher</b>'],
-		y : [ 12, 48, 39, 32],
+		x : [ '<b>Tiger</b>', '<b>Desperado</b>', '<b>Heiniken</b>' ,'<b>Kingfisher</b>',],
+		y : [ 12, 48, 39, 32,54,26,77,43,28],
 		name : '<b>LA Breweries</b>',
 		type : 'bar',
 		marker : {
@@ -1295,7 +1295,7 @@ myExampleData.barGroupChartData2 = [ trace9, trace10, trace11];
 
 
 
-myExampleData.barGroupRefreshChartData = [ trace4, trace5, trace6 ];
+myExampleData.barGroupRefreshChartData = [ trace4, trace5, trace6 ,trace10];
 myExampleData.barGroupChartLayout = {
 		title : '<b>Revenue in US $</b>',	
 		xaxis : {
@@ -1319,7 +1319,7 @@ myExampleData.barGroupChartLayout = {
 			size : 18,
 			color : '#7f7f7f'
 		},
-		barmode : 'stack',
+		barmode : 'group',
 		autosize : true,
       paper_bgcolor:'#FFFFFF',//E0E0E0
 		plot_bgcolor:'#FFFFFF'
@@ -1356,7 +1356,7 @@ var trace2 = {
 	type : 'scatter',
 	marker : {
 		//color : 'rgb(26, 118, 255)',
-		color : '#EC7063', // orange 
+		color : '#F75D59', // orange 
 		opacity : 0.6
 	},
 	textfont:{
@@ -1387,7 +1387,7 @@ var trace4 = {
 		type : 'scatter',
 		marker : {
 			//color : 'rgb(26, 118, 255)',
-			color : '#EC7063', // orange 
+			color : '#FF0000', // orange 
 			opacity : 0.6
 		},
 		textfont:{
@@ -1418,7 +1418,7 @@ var trace4 = {
 			type : 'scatter',
 			marker : {
 				//color : 'rgb(26, 118, 255)',
-				//color : '#EC7063', // orange 
+				//color : '#FF0000', // orange 
 				color : '#D32D41', // orange ,
 				opacity : 0.6
 			},
