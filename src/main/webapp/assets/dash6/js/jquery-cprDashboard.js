@@ -218,18 +218,18 @@
 					var widgetId = widget.attr("id");
 					var widgetDefinition = self._getWidgetContentForId(widgetId, self);
 				
-					var graphToThisChart = $("#changeGraphForm input:checked" ).val();
-					$('#changeGraphForm input:checkbox').bootstrapSwitch('state', false, true);
+					var graphToThisChart = $("#changeChartForm input:checked" ).val();
+					$('#changeChartForm input:checkbox').bootstrapSwitch('state', false, true);
 					if(graphToThisChart === widgetDefinition.chartType){
 						
 					}else{
 						
-						$("#changeGraphForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('state', true, true);
+						$("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('state', true, true);
 					}
 					
 					
 					$("#cgwidgetId").text(widgetId );
-					$("#changeGraphModal").modal('show');
+					$("#changeChartModal").modal('show');
 					
 					
 				});
@@ -473,13 +473,13 @@
 						easing: 'cubic-in-out' 
 							} 
 				});
-				Plotly.newPlot(chartArea[0], data , layout,config);
+				//Plotly.newPlot(chartArea[0], data , layout,config);
 				Plotly.redraw(chartArea[0]);				
-				
+				return;
 			},			
-			changeChart: function(changeGraphObject) {
-			//	alert("Grpah to change to "+changeGraphObject.chartTo);
-				var widgetDefinition = this._getWidgetContentForId(changeGraphObject.widgetId, this);
+			changeChart: function(changeChartObject) {
+			
+				var widgetDefinition = this._getWidgetContentForId(changeChartObject.widgetId, this);
 
 				var id = "li#" + widgetDefinition.widgetId;
 				var chartArea;
@@ -509,24 +509,81 @@
 						
 						
 						//code for changing the bar to scatter (line graph) 
+					
 						
-						if(widgetDefinition.chartType === 'bar' && changeGraphObject.chartTo ==='line'){ 
-							var i=0;
-							for(i=0;i<widgetDefinition.widgetContent.data.length;i++)
-								{
-									widgetDefinition.widgetContent.data[i].type = 'scatter';
-								}	
+					if(widgetDefinition.chartType === 'bar' && changeChartObject.chartTo ==='line'){ 
+						var i=0;
+						for(i=0;i<widgetDefinition.widgetContent.data.length;i++)
+						{
+							widgetDefinition.widgetContent.data[i].type = 'scatter';
+						}	
 							
-						}
-						if(widgetDefinition.chartType === 'line' && changeGraphObject.chartTo ==='bar'){ 
-							var i=0;
-							for(i=0;i<widgetDefinition.widgetContent.data.length;i++)
-								{
-									widgetDefinition.widgetContent.data[i].type = 'bar';
-								}	
+					}
+					else if(widgetDefinition.chartType === 'line' && changeChartObject.chartTo ==='bar'){ 
+						var i=0;
+						for(i=0;i<widgetDefinition.widgetContent.data.length;i++)
+						{
+								widgetDefinition.widgetContent.data[i].type = 'bar';
+						}	
 							
-						}
-						
+					}
+					else if(widgetDefinition.chartType === 'line' && changeChartObject.chartTo ==='barline'){ 
+						var widgetLength =widgetDefinition.widgetContent.data.length;
+						if(widgetLength === 2)
+						{
+								widgetDefinition.widgetContent.data[0].type = 'bar';
+								widgetDefinition.widgetContent.data[1].type = 'scatter';
+						}	
+							
+					}
+					else if(widgetDefinition.chartType === 'area' && changeChartObject.chartTo ==='line'){ 
+						var i=0;
+						for(i=0;i<widgetDefinition.widgetContent.data.length;i++)
+						{
+								widgetDefinition.widgetContent.data[i].type = 'bar';
+						}	
+							
+					}
+					/** bar to column chart **/
+					else if(widgetDefinition.chartType === 'bar' && changeChartObject.chartTo ==='column'){ 
+						if(widgetDefinition.widgetContent.layout.length!=0)
+						{
+								widgetDefinition.widgetContent.layout.barmode = 'group';
+						}	
+							
+					}
+					else if(widgetDefinition.chartType === 'area' && changeChartObject.chartTo ==='bar'){ 
+						var i=0;
+						for(i=0;i<widgetDefinition.widgetContent.data.length;i++)
+						{
+								widgetDefinition.widgetContent.data[i].type = 'bar';
+						}	
+							
+					}	
+					else if(widgetDefinition.chartType === 'area' && changeChartObject.chartTo ==='bar'){ 
+						var i=0;
+						for(i=0;i<widgetDefinition.widgetContent.data.length;i++)
+						{
+								widgetDefinition.widgetContent.data[i].type = 'bar';
+						}	
+							
+					}	
+					else if(widgetDefinition.chartType === 'area' && changeChartObject.chartTo ==='bar'){ 
+						var i=0;
+						for(i=0;i<widgetDefinition.widgetContent.data.length;i++)
+						{
+								widgetDefinition.widgetContent.data[i].type = 'bar';
+						}	
+							
+					}	
+					else if(widgetDefinition.chartType === 'area' && changeChartObject.chartTo ==='bar'){ 
+						var i=0;
+						for(i=0;i<widgetDefinition.widgetContent.data.length;i++)
+						{
+								widgetDefinition.widgetContent.data[i].type = 'bar';
+						}	
+							
+					}	
 						data = widgetDefinition.widgetContent.data;
 						this.redrawChart(chartArea,data,layout,config);
 						
@@ -579,33 +636,8 @@
 						
 					}else{						
 						
+						this.redrawChart(chartArea,data,layout,config);
 						
-						//code for changing the bar to scatter (line graph) 
-						
-						/*if(widgetDefinition.chartType === 'bar'){ 
-							var i=0;
-							for(i=0;i<widgetDefinition.widgetContent.data.length;i++)
-								{
-								widgetDefinition.widgetContent.data[i].type = 'scatter';
-								}
-							
-							Plotly.animate(chartArea[0], { data, layout,config} ,{
-								transition: {  
-									duration: 2000,
-									easing: 'cubic-in-out' 
-										} 
-							});
-							//Plotly.newPlot(chartArea[0], widgetDefinition.widgetContent.data , widgetDefinition.widgetContent.layout,widgetDefinition.widgetContent.config);
-							//Plotly.redraw(chartArea[0]);
-						}*/
-						Plotly.animate(chartArea[0], { data, layout,config} ,{
-							transition: {  
-								duration: 2000,
-								easing: 'cubic-in-out' 
-									} 
-						});
-						Plotly.newPlot(chartArea[0], data,layout,config);
-						Plotly.redraw(chartArea[0]);
 					}					
 					if (widgetDefinition.getDataBySelection) {
 						

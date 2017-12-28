@@ -316,15 +316,15 @@ $(window).load(function() {
 						<ul id="cprDashboard">
 						</ul>
 					<!-- 	<div id="cprdialog" title="Change graphs">		 -->	
-						   	<div id="changeGraphModal" class="modal fade" role="dialog" aria-hidden="true">
+						   	<div id="changeChartModal" class="modal fade" role="dialog" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <a href="javascript:;" class="close" data-dismiss="modal" aria-hidden="true"></a>
-                                                    <p><h4 class="modal-title">Change Graphs of <label  for="cgwidgetId" id="cgwidgetId" value=""/></h4></p>
+                                                    <p><h4 class="modal-title">Change Graph of widget - <label  for="cgwidgetId" id="cgwidgetId" value=""/></h4></p>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <form action="#" id="changeGraphForm" class="form-inline">
+                                                    <form action="#" id="changeChartForm" class="form-inline">
                                                         <div class="form-group modal-group">
                                                             <label class="control-label col-md-6">Line chart</label>
                                                             <div class="col-sm-3 col-md-3">                                                                
@@ -339,6 +339,7 @@ $(window).load(function() {
                                                             <label class="control-label col-md-6">Pie chart</label>
                                                             <div class="col-sm-3 col-md-3">
                                                             <input type="checkbox" disabled class="make-switch modal-input" data-on-color="primary" data-off-color="danger" value="pie" id="pie"/>
+                                                            <!--  <input type="checkbox" disabled class="make-switch modal-input" data-on-color="primary" data-off-color="danger" value="pie" id="pie"/> -->
                                                           <!--       <input type="checkbox" checked readonly class="make-switch" /> --> 
                                                              </div>
                                                         </div>
@@ -346,29 +347,25 @@ $(window).load(function() {
                                                             <label class="control-label col-md-6">Area chart</label>
                                                             <div class="col-sm-3 col-md-3">
                                                             <input type="checkbox"  class="make-switch modal-input" data-on-color="primary" data-off-color="danger" value="area" id="area"/>
-                                                          <!--       <input type="checkbox" checked readonly class="make-switch" /> --> 
-                                                             </div>
+                                                            </div>
                                                         </div>
                                                         <div class="form-group modal-group">
                                                             <label class="control-label col-md-6">Column chart</label>
                                                             <div class="col-sm-3 col-md-3">
                                                             <input type="checkbox"  class="make-switch modal-input" data-on-color="primary" data-off-color="danger" value="column" id="column"/>
-                                                          <!--       <input type="checkbox" checked readonly class="make-switch" /> --> 
-                                                             </div>
+                                                            </div>
                                                         </div>
                                                         <div class="form-group modal-group">
                                                             <label class="control-label col-md-6">Bar-line chart</label>
                                                             <div class="col-sm-3 col-md-3">
                                                             <input type="checkbox"  class="make-switch modal-input" data-on-color="primary" data-off-color="danger" value="barline" id="barline"/>
-                                                          <!--       <input type="checkbox" checked readonly class="make-switch" /> --> 
-                                                             </div>
+                                                            </div>
                                                         </div>
                                                         <div class="form-group modal-group">
                                                             <label class="control-label col-md-6">Doughnut chart</label>
                                                             <div class="col-sm-3 col-md-3">
                                                             <input type="checkbox"  class="make-switch modal-input" data-on-color="primary" data-off-color="danger" value="pie" id="doughnut"/>
-                                                          <!--       <input type="checkbox" checked readonly class="make-switch" /> --> 
-                                                             </div>
+                                                            </div>
                                                         </div>                                                     
                                                     </form>
                                                 </div>
@@ -785,24 +782,24 @@ $(window).load(function() {
 								    e.preventDefault(); 
 								   // alert("Inside Apply changes click ");
 								   // alert($("#changeGraphForm input:checked" ).val() +" is checked!" );
-								    var graphToThisChart = $("#changeGraphForm input:checked" ).val();
+								    var graphToThisChart = $("#changeChartForm input:checked" ).val();
 								    var widgetID =$("#cgwidgetId").text();
-								    var changeGraphObject ={
+								    var changeChartObject ={
 								    		chartTo: graphToThisChart,
 								    		widgetId: widgetID
 								    };
-								    $("#cprDashboard").cprDashboard("changeChart",changeGraphObject);
-								    $('#changeGraphModal').modal('hide');
+								    $("#cprDashboard").cprDashboard("changeChart",changeChartObject);
+								    $('#changeChartModal').modal('hide');
 								 });
 								
-								$("#changeGraphForm input:checkbox[value='bar']").change(function() {
+							/* 	$("#changeGraphForm input:checkbox[value='bar']").change(function() {
 								      //$(this).prop('checked');
 								      $("#changeGraphForm input:checkbox[value='line']").bootstrapSwitch('state', false, true);
 								})
 								$("#changeGraphForm input:checkbox[value='line']").change(function() {
 								      //$(this).prop('checked');
 								      $("#changeGraphForm input:checkbox[value='bar']").bootstrapSwitch('state', false, true);
-								})
+								}) */
 								
 							});
 						})
