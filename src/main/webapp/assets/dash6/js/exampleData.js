@@ -506,8 +506,8 @@ var trace1 = {
 		  type: 'bar',
 		  marker: {
 //		   color: 'rgb(26, 118, 255)',
-   		color : '#32c5d2',//#2C3E50
-		    opcacity: 0.6
+		  color : '#32c5d2',//#2C3E50
+		  opcacity: 0.6
 		    
 		  },
 			textfont:{

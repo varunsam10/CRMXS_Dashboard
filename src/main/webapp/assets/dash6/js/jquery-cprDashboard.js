@@ -208,15 +208,17 @@
 					case "area":$('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
 								$("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
 								$("#changeChartForm input:checkbox[value='bar']").bootstrapSwitch('disabled',false);
-								 $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('state', true, true);
+								$("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('state', true, true);
 								break;
 					case "column":$('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
 								  $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
 								  $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('state', true, true);
+								  $("#changeChartForm input:checkbox[value='bar']").bootstrapSwitch('disabled',false);
 								  break;
 					case "barline":$('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
 								   $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
 								   $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('state', true, true);
+								   $("#changeChartForm input:checkbox[value='column']").bootstrapSwitch('disabled',false);
 								   break;
 					case "pie": $('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
 								$("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
@@ -484,7 +486,6 @@
 			changeChart: function(changeChartObject) {
 			
 				var widgetDefinition = this._getWidgetContentForId(changeChartObject.widgetId, this);
-
 				var id = "li#" + widgetDefinition.widgetId;
 				var chartArea;
 				var data;
@@ -510,10 +511,7 @@
 						var chart = c3.generate({bindto:chartArea[0],data:widgetDefinition.widgetContent.data});
 						
 					}else{						
-						
-						
 					//code for changing the bar to scatter (line graph) 
-					
 					//bar chart 	
 					if(widgetDefinition.chartType === 'bar' && changeChartObject.chartTo ==='line'){ 
 						var i=0;
@@ -550,7 +548,7 @@
 							
 					}
 					/** bar to column chart **/
-					else if(widgetDefinition.chartType === 'bar' && changeChartObject.chartTo ==='column'){ 
+					else if(widgetDefinition.chartType === 'bar' && changeChartObject.chartTo === 'column'){ 
 						if(widgetDefinition.widgetContent.layout.length!=0)
 						{
 								widgetDefinition.widgetContent.layout.barmode = 'group';
@@ -565,8 +563,16 @@
 						}	
 							
 					}	
-					
+					else if(widgetDefinition.chartType === 'column' && changeChartObject.chartTo ==='bar'){ 
+						var i=0;
+						for(i=0;i<widgetDefinition.widgetContent.data.length;i++)
+						{
+								widgetDefinition.widgetContent.layout.barmode = 'stack';
+						}	
+							
+					}	
 						data = widgetDefinition.widgetContent.data;
+						layout = widgetDefinition.widgetContent.layout;
 						this.redrawChart(chartArea,data,layout,config);
 						
 					}					
