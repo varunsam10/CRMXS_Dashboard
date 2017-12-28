@@ -185,92 +185,53 @@
 				});				
 				//delete widget by clicking the 'trash' icon on the widget
 				this.element.on("click", ".cprDashboardWidgetHeader div.cprDashboard-iconcustom.cprDashboard-settings", function(e) {
-				/*	var widget = $(e.currentTarget).parents("li:first");
-					//show hide effect
-					widget.hide("fold", {}, 300, function() {
-						self._removeWidgetFromWidgetDefinitions(this.id);
-						$(this).remove();
-						$(".cprDashboard-overlay").hide();
-					});*/
-					//console.log("Settings button clicked");
-					
-					
-				/*	var dialog;
-					dialog = $( "#cprdialog").dialog({
-					      autoOpen: false,
-					      height: 400,
-					      width: 350,
-					      modal: true,
-					      buttons: {
-					        //"Change graph": addUser,
-					        Cancel: function() {
-					          dialog.dialog( "close" );
-					        }
-					      },
-					      close: function() {
-					        form[ 0 ].reset();
-					        allFields.removeClass( "ui-state-error" );
-					      }
-					});
-					
-					dialog.dialog( "open" );*/
 					var widget = $(e.currentTarget).parents("li:first");
 					var widgetId = widget.attr("id");
 					var widgetDefinition = self._getWidgetContentForId(widgetId, self);
 				
 					var graphToThisChart = $("#changeChartForm input:checked" ).val();
-					$('#changeChartForm input:checkbox').bootstrapSwitch('state', false, true);
-					if(graphToThisChart === widgetDefinition.chartType){
+					
+					var chartType = widgetDefinition.chartType ;
+					$('#changeChartForm input:checkbox').bootstrapSwitch('state', false, true);	
+					switch(chartType){
+					case "bar":  $('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
+								 $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
+								 $("#changeChartForm input:checkbox[value='line']").bootstrapSwitch('disabled',false);
+								 $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('state', true, true);
+								 break;
+					case "line":$('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
+								$("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
+								$("#changeChartForm input:checkbox[value='bar']").bootstrapSwitch('disabled',false);
+								$("#changeChartForm input:checkbox[value='barline']").bootstrapSwitch('disabled',false);
+								 $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('state', true, true);
+								break;
+					case "area":$('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
+								$("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
+								$("#changeChartForm input:checkbox[value='bar']").bootstrapSwitch('disabled',false);
+								 $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('state', true, true);
+								break;
+					case "column":$('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
+								  $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
+								  $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('state', true, true);
+								  break;
+					case "barline":$('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
+								   $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
+								   $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('state', true, true);
+								   break;
+					case "pie": $('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
+								$("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
+								 $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('state', true, true);
+								break;
+											
+					}
+								
+				/*	if(graphToThisChart === widgetDefinition.chartType){
+						$('#changeChartForm input:checkbox').bootstrapSwitch('state', false, true);
 						$("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('state', true, true);
 					}else{
-						
+						$('#changeChartForm input:checkbox').bootstrapSwitch('state', false, true);
 						$("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('state', true, true);
-					}
-					
-					if(widgetDefinition.chartType === 'bar'){
-						
-						$('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
-						$("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
-						$("#changeChartForm input:checkbox[value='line']").bootstrapSwitch('disabled',false);
-					}
-					if(widgetDefinition.chartType === 'line'){
-						
-						$('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
-						$("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
-						$("#changeChartForm input:checkbox[value='bar']").bootstrapSwitch('disabled',false);
-						$("#changeChartForm input:checkbox[value='barline']").bootstrapSwitch('disabled',false);
-					}
-					if(widgetDefinition.chartType === 'area'){
-						
-						$('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
-						$("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
-						$("#changeChartForm input:checkbox[value='bar']").bootstrapSwitch('disabled',false);
-						
-					}
-					if(widgetDefinition.chartType === 'column'){
-						
-						$('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
-						$("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
-									
-					}
-					if(widgetDefinition.chartType === 'barline'){
-						
-						$('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
-						$("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
-									
-					}
-					if(widgetDefinition.chartType === 'pie'){
-						
-						$('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
-						$("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
-									
-					}
-					if(widgetDefinition.chartType === 'pie'){
-						
-						$('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
-						$("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
-									
-					}
+					}*/
 					$("#cgwidgetId").text(widgetId );
 					$("#changeChartModal").modal('show');
 					
