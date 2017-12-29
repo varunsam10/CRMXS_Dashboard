@@ -1005,9 +1005,14 @@
 				   	var evtObj = {};
 					evtObj.clickedWidgetId = widgetId;
 					evtObj.dataPoints = pts;
-				   // context._trigger("plotclicked", null, evtObj);	
+					if(widgetId==='id015'||widgetId==='id016'||widgetId==='id017'
+						||widgetId==='id018'){
+						context._trigger("plotclicked", null, evtObj);	
+					}else{
+						
+						context._interactChart(widgetDefinition,evtObj);
+					}
 					
-					context._interactChart(widgetDefinition,evtObj);
 				});		
 				
 			},

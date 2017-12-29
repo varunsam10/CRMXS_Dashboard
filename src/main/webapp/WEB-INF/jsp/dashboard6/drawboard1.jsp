@@ -487,7 +487,7 @@ $(window).load(function() {
 
 										{
 											widgetTitle : "Hour Wise Redemptions",
-											widgetId : "id003",
+											widgetId : "id002",
 											widgetType : "chart",
 											graphType : "exploratory",
 											widgetDimension : "normal",
@@ -500,7 +500,7 @@ $(window).load(function() {
 										},
 										{
 											widgetTitle : "Sales Figures",
-											widgetId : "id011",
+											widgetId : "id003",
 											widgetType : "chart",
 											graphType : "exploratory",
 											widgetDimension : "normal",
@@ -513,7 +513,7 @@ $(window).load(function() {
 										},
 										{
 											widgetTitle : "Sales Figures2",
-											widgetId : "id012",
+											widgetId : "id004",
 											widgetType : "chart",
 											graphType : "exploratory",
 											widgetDimension : "normal",
@@ -526,7 +526,7 @@ $(window).load(function() {
 										},
 										{
 											widgetTitle : "Hour Wise Redemptions",
-											widgetId : "id002",
+											widgetId : "id005",
 											widgetType : "chart",
 											graphType : "exploratory",
 											widgetDimension : "normal",
@@ -540,7 +540,7 @@ $(window).load(function() {
 
 										{
 											widgetTitle : "Age group",
-											widgetId : "id004",
+											widgetId : "id006",
 											widgetType : "chart",
 											graphType : "exploratory",
 											widgetDimension : "normal",
@@ -564,7 +564,7 @@ $(window).load(function() {
 										},
 										{
 											widgetTitle : "Revenue by region",
-											widgetId : "id005",
+											widgetId : "id007",
 											widgetType : "chart",
 											graphType : "exploratory",
 											widgetDimension : "large",
@@ -578,7 +578,7 @@ $(window).load(function() {
 
 										{
 											widgetTitle : "Revenue",
-											widgetId : "id006",
+											widgetId : "id008",
 											widgetType : "chart",
 											graphType : "exploratory",
 											widgetDimension : "large",
@@ -600,7 +600,7 @@ $(window).load(function() {
 										},
 										{
 											widgetTitle : "Items sold",
-											widgetId : "id007",
+											widgetId : "id009",
 											widgetType : "chart",
 											graphType : "exploratory",
 											widgetDimension : "large",
@@ -625,7 +625,7 @@ $(window).load(function() {
 										}, */
 										{
 											widgetTitle : "Stats",
-											widgetId : "id008",
+											widgetId : "id010",
 											widgetType : "Text",
 											widgetDimension : "small",
 											widgetContent : "Redemptions : 4,636"
@@ -633,7 +633,7 @@ $(window).load(function() {
 										},
 										{
 											widgetTitle : "Browser used",
-											widgetId : "id009",
+											widgetId : "id011",
 											widgetType : "table",
 											//widgetDimension: "large",
 											setJqueryStyle : true,
@@ -649,7 +649,7 @@ $(window).load(function() {
 										},
 										{
 											widgetTitle : "Revenue",
-											widgetId : "id010",
+											widgetId : "id012",
 											widgetType : "Text",
 											widgetDimension : "small",
 											widgetContent : "231,800$"
