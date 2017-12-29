@@ -197,19 +197,24 @@
 					case "bar":  $('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
 								 $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
 								 $("#changeChartForm input:checkbox[value='line']").bootstrapSwitch('disabled',false);
+								 $("#changeChartForm input:checkbox[value='area']").bootstrapSwitch('disabled',false);
+								 $("#changeChartForm input:checkbox[value='column']").bootstrapSwitch('disabled',false);
+								 $("#changeChartForm input:checkbox[value='barline']").bootstrapSwitch('disabled',false);
 								 $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('state', true, true);
 								 break;
-					case "line":$('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
-								$("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
-								$("#changeChartForm input:checkbox[value='bar']").bootstrapSwitch('disabled',false);
-								$("#changeChartForm input:checkbox[value='barline']").bootstrapSwitch('disabled',false);
+					case "line": $('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
+								 $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
+								 $("#changeChartForm input:checkbox[value='bar']").bootstrapSwitch('disabled',false);
+								 $("#changeChartForm input:checkbox[value='barline']").bootstrapSwitch('disabled',false);
+								 $("#changeChartForm input:checkbox[value='area']").bootstrapSwitch('disabled',false);
 								 $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('state', true, true);
-								break;
-					case "area":$('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
-								$("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
-								$("#changeChartForm input:checkbox[value='bar']").bootstrapSwitch('disabled',false);
-								$("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('state', true, true);
-								break;
+								 break;
+					case "area": $('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
+								 $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
+								 $("#changeChartForm input:checkbox[value='bar']").bootstrapSwitch('disabled',false);
+								 $("#changeChartForm input:checkbox[value='line']").bootstrapSwitch('disabled',false);
+								 $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('state', true, true);
+								 break;
 					case "column":$('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
 								  $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
 								  $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('state', true, true);
@@ -218,13 +223,15 @@
 					case "barline":$('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
 								   $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
 								   $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('state', true, true);
-								   $("#changeChartForm input:checkbox[value='column']").bootstrapSwitch('disabled',false);
+								   $("#changeChartForm input:checkbox[value='line']").bootstrapSwitch('disabled',false);
+								   $("#changeChartForm input:checkbox[value='bar']").bootstrapSwitch('disabled',false);
+								   $("#changeChartForm input:checkbox[value='area']").bootstrapSwitch('disabled',false);
+								   /*$("#changeChartForm input:checkbox[value='column']").bootstrapSwitch('disabled',false);*/
 								   break;
-					case "pie": $('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
-								$("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
-								 $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('state', true, true);
-								break;
-											
+					case "pie":   $('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
+								  $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
+								  $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('state', true, true);
+								  break;											
 					}
 								
 				/*	if(graphToThisChart === widgetDefinition.chartType){
@@ -513,28 +520,58 @@
 					}else{						
 					//code for changing the bar to scatter (line graph) 
 					//bar chart 	
-					if(widgetDefinition.chartType === 'bar' && changeChartObject.chartTo ==='line'){ 
+					if(widgetDefinition.chartType === 'bar' && changeChartObject.chartTo ==='line'
+						||widgetDefinition.chartType === 'area' && changeChartObject.chartTo ==='line'
+						||widgetDefinition.chartType === 'barline' && changeChartObject.chartTo ==='line'){ 
 						var i=0;
 						for(i=0;i<widgetDefinition.widgetContent.data.length;i++)
 						{
 							widgetDefinition.widgetContent.data[i].type = 'scatter';
+							widgetDefinition.widgetContent.data[i].mode = null;
+							widgetDefinition.widgetContent.data[i].fill = null;
 						}	
-							
+													
 					}
-					else if(widgetDefinition.chartType === 'line' && changeChartObject.chartTo ==='bar'){ 
+					else if(widgetDefinition.chartType === 'line' && changeChartObject.chartTo ==='bar'
+						||widgetDefinition.chartType === 'barline' && changeChartObject.chartTo ==='bar'){ 
 						var i=0;
 						for(i=0;i<widgetDefinition.widgetContent.data.length;i++)
 						{
 								widgetDefinition.widgetContent.data[i].type = 'bar';
 						}	
 							
-					}
-					else if(widgetDefinition.chartType === 'line' && changeChartObject.chartTo ==='barline'){ 
+					}					
+					else if(widgetDefinition.chartType === 'line' && changeChartObject.chartTo ==='barline'
+						||widgetDefinition.chartType === 'bar' && changeChartObject.chartTo ==='barline'){ 
 						var widgetLength =widgetDefinition.widgetContent.data.length;
 						if(widgetLength === 2)
 						{
 								widgetDefinition.widgetContent.data[0].type = 'bar';
 								widgetDefinition.widgetContent.data[1].type = 'scatter';
+						}	else if(widgetLength === 3){
+							widgetDefinition.widgetContent.data[0].type = 'bar';
+							widgetDefinition.widgetContent.data[1].type = 'scatter';
+							widgetDefinition.widgetContent.data[0].type = 'bar';
+							widgetDefinition.widgetContent.data[2].type = 'bar';
+						}
+						if(widgetDefinition.chartType === 'bar'){
+							if(widgetDefinition.widgetContent.layout.length!=0)
+							{
+									widgetDefinition.widgetContent.layout.barmode = null;
+							}
+						}
+							
+					}
+					else if(widgetDefinition.chartType === 'line' && changeChartObject.chartTo ==='area' ||
+							widgetDefinition.chartType === 'bar' && changeChartObject.chartTo ==='area'
+							||widgetDefinition.chartType === 'barline' && changeChartObject.chartTo ==='area'){ 
+						var i=0;
+						for(i=0;i<widgetDefinition.widgetContent.data.length;i++)
+						{
+								widgetDefinition.widgetContent.data[i].type = 'scatter';
+								widgetDefinition.widgetContent.data[i].mode = 'lines';
+								widgetDefinition.widgetContent.data[i].fill = 'tonexty';
+								
 						}	
 							
 					}
@@ -543,15 +580,9 @@
 						var i=0;
 						for(i=0;i<widgetDefinition.widgetContent.data.length;i++)
 						{
-								widgetDefinition.widgetContent.data[i].type = 'bar';
-						}	
-							
-					}
-					/** bar to column chart **/
-					else if(widgetDefinition.chartType === 'bar' && changeChartObject.chartTo === 'column'){ 
-						if(widgetDefinition.widgetContent.layout.length!=0)
-						{
-								widgetDefinition.widgetContent.layout.barmode = 'group';
+								widgetDefinition.widgetContent.data[i].type = 'scatter';
+								widgetDefinition.widgetContent.data[i].mode = null;
+								widgetDefinition.widgetContent.data[i].fill = null;
 						}	
 							
 					}
@@ -562,13 +593,36 @@
 								widgetDefinition.widgetContent.data[i].type = 'bar';
 						}	
 							
-					}	
+					}
+					/** bar to column chart **/
+					else if(widgetDefinition.chartType === 'bar' && changeChartObject.chartTo === 'column'
+						||widgetDefinition.chartType === 'barline' && changeChartObject.chartTo === 'column'){ 
+						if(widgetDefinition.widgetContent.layout.length!=0)
+						{
+								widgetDefinition.widgetContent.layout.barmode = 'group';
+						}
+						var i=0;
+						for(i=0;i<widgetDefinition.widgetContent.data.length;i++)
+						{
+								widgetDefinition.widgetContent.data[i].orientation = 'h';
+								widgetDefinition.widgetContent.data[i].type = 'bar';
+								
+						}
+							
+					}
+					
 					else if(widgetDefinition.chartType === 'column' && changeChartObject.chartTo ==='bar'){ 
 						var i=0;
 						for(i=0;i<widgetDefinition.widgetContent.data.length;i++)
 						{
 								widgetDefinition.widgetContent.layout.barmode = 'stack';
 						}	
+						var i=0;
+						for(i=0;i<widgetDefinition.widgetContent.data.length;i++)
+						{
+								widgetDefinition.widgetContent.data[i].orientation = null;
+								
+						}
 							
 					}	
 						data = widgetDefinition.widgetContent.data;
