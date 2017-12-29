@@ -542,20 +542,21 @@
 							
 					}					
 					else if(widgetDefinition.chartType === 'line' && changeChartObject.chartTo ==='barline'
-						||widgetDefinition.chartType === 'bar' && changeChartObject.chartTo ==='barline'){ 
+						||widgetDefinition.chartType === 'bar' && changeChartObject.chartTo ==='barline'
+						||widgetDefinition.chartType === 'area' && changeChartObject.chartTo ==='barline'){ 
 						var widgetLength =widgetDefinition.widgetContent.data.length;
 						if(widgetLength === 2)
 						{
-								widgetDefinition.widgetContent.data[0].type = 'bar';
-								widgetDefinition.widgetContent.data[1].type = 'scatter';
+							widgetDefinition.widgetContent.data[0].type = 'bar';
+							widgetDefinition.widgetContent.data[1].type = 'scatter';
+							
 						}	else if(widgetLength === 3){
 							widgetDefinition.widgetContent.data[0].type = 'bar';
 							widgetDefinition.widgetContent.data[1].type = 'scatter';
-							widgetDefinition.widgetContent.data[0].type = 'bar';
-							widgetDefinition.widgetContent.data[2].type = 'bar';
+							widgetDefinition.widgetContent.data[2].type = 'bar';						
 						}
 						if(widgetDefinition.chartType === 'bar'){
-							if(widgetDefinition.widgetContent.layout.length!=0)
+						if(widgetDefinition.widgetContent.layout.length!=0)
 							{
 									widgetDefinition.widgetContent.layout.barmode = null;
 							}
