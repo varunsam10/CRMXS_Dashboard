@@ -232,11 +232,9 @@ $(window).load(function() {
 								class="fa fa-circle"></i>
 						</button>
 						<ul class="dropdown-menu-v2">
-							<li><a href="start.html">Themes</a></li>
-						<!-- 	<li><a href="start.html">Reports</a></li>
-							<li><a href="start.html">Templates</a></li>
-							<li><a href="start.html">Settings</a></li> -->
-						</ul>
+							<li class="menuItem"><a href="#">Themes</a></li>
+						</ul>				
+					
 					</div>
 					<!-- END DROPDOWN AJAX MENU -->
 					<!-- BEGIN MENU TOGGLER -->
@@ -384,8 +382,6 @@ $(window).load(function() {
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							---Select Country---
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							
-							
 							<select data-placeholder="Choose a Country..." class="chzn-select" multiple>
 					            <option value=""></option>
 					            <option value="United States">United States</option>
@@ -715,6 +711,43 @@ $(window).load(function() {
 						</div>
 					</div>
 					</div>
+					
+					<div id="changeThemeModal" class="modal fade" role="dialog" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<a href="javascript:;" class="close" data-dismiss="modal" aria-hidden="true"></a>
+								<p><h4 class="modal-title">Change theme</h4></p>
+							</div>
+							<div class="modal-body">
+								<form action="#" id="changeThemeForm" class="form-inline">
+									<div class="form-group modal-group">
+										<label class="control-label col-md-6">Theme 1</label>
+										<div class="col-sm-3 col-md-3">
+										<input type="checkbox" class="make-switch modal-input"  data-on-color="primary" data-off-color="danger" value="theme1" id="theme1"> </div>
+									</div>
+									<div class="form-group modal-group">
+										<label class="control-label col-md-6">Theme 2</label>
+										<div class="col-sm-3 col-md-3">
+										<input type="checkbox" class="make-switch modal-input"  data-on-color="primary" data-off-color="danger" value="theme2" id="theme2"> </div>
+								   </div>
+									<div class="form-group  modal-group">
+										<label class="control-label col-md-6">Theme 3</label>
+										<div class="col-sm-3 col-md-3">
+										<input type="checkbox" disabled class="make-switch modal-input" data-on-color="primary" data-off-color="danger" value="theme3" id="theme3"/>
+										</div>
+									</div>									
+								</form>
+							</div>
+							<div class="modal-footer">
+								<a href="javascript:;" class="btn grey-salsa btn-outline" data-dismiss="modal">Close</a>
+								<button id="applyThemes" class="btn green">
+									<i class="fa fa-check"></i> Apply changes</button>
+							</div>
+						</div>
+					</div>
+					</div>
+					
 					</div>
 				</div>
 				<!-- END PAGE BASE CONTENT -->
@@ -801,10 +834,10 @@ $(window).load(function() {
 			imgpath : "assets/dash6/css/images/",
 			loadTheme : "Cupertino"
 	});
- //**********************************************//
- //dashboard json data
- //this is the data format that the dashboard framework expects
-//**********************************************
+ 	//**********************************************
+    //dashboard json data
+    //this is the data format that the dashboard framework expects
+	//**********************************************
 	var dashboardJSON =[
 		{
 			widgetTitle: "Sales Figures",
@@ -885,116 +918,139 @@ $(window).load(function() {
 	//	$("#cprDashboard").cprDashboard("widgetcallCheck","sree");
 	// filter selected
 		$("#applyFilters").click( function() {
-			notification('info','Filters have been selected!');
+			//notification('info','Filters have been selected!');
 			if(console) {
 				console.log('from date: ' + $("#from").val() + " & to date: " + $("#to").val() +" & countries selected: " + $(".chzn-select").val());
 			} 
 			var fromDate = $("#from").val();
 			var toDate = $("#to").val();
 			var countriesSelected = $(".chzn-select").val();
-			
+			// window.location.href='/Crmxs-Dashboard/applyFilter.html?clickedWidgetId='+data.clickedWidgetId+'&datapoints='+data.dataPoints;
 			//this._filterCharts(fromDate,toDate,countriesSelected);
+			 $.ajax({
+                 type: "GET",
+        		 	url : 'applyFilter.html',
+                 success : function(data) {
+                        //$('#result').html(data);                                    
+             }});
 			
 		});
-								//Toastr settings 
-								toastr.options = {
-									"closeButton" : false,
-									"debug" : false,
-									"newestOnTop" : false,
-									"progressBar" : false,
-									"positionClass" : "toast-top-right",
-									"preventDuplicates" : false,
-									"onclick" : null,
-									"showDuration" : "200",
-									"hideDuration" : "1000",
-									"timeOut" : "5000",
-									"extendedTimeOut" : "1000",
-									"showEasing" : "swing",
-									"hideEasing" : "linear",
-									"showMethod" : "fadeIn",
-									"hideMethod" : "fadeOut"
-								}
-								function notification(type, message) {
-									if (type == 'success') {
-										toastr.success(message,
-												'<i>Success</i>');
-									} else if (type == 'error') {
-										toastr.error(message, 'Error');
-									} else if (type == 'warning') {
-										toastr.warning(message, 'Warning');
-									} else {
-										toastr.info(message, 'Information');
-									}
-								}								
-															
-								//table row clicked event example
-								$("#cprDashboard").bind("cprdashboardrowclicked",function(e, data) {
-									if (console) {
-									console.log("table row clicked, for widget: "+ data.selectedWidgetId);
-									}
-								});
-								//plot selected event example
-								$("#cprDashboard").bind("cprdashboardplotselected",function(e, data) {
-									notification('info','A plot has been selected within a chart widget!');
-									if (console) {
-									console.log("chart range selected, for widget: "+ data.selectedWidgetId);
-									}
-								});
-								//plot click event example
-						        $("#cprDashboard").bind("cprdashboardplotclicked",function(e, data) {        	
-						        /* 	 $.ajax({
-						                 type: "GET",
-						        		 	url : 'widgetClick.html',
-						                 success : function(data) {
-						                        //$('#result').html(data);                                    
-						                }});   */	 
-						        	 
-						        	 window.location.href='/Crmxs-Dashboard/widgetClick.html?clickedWidgetId='+data.clickedWidgetId+'&datapoints='+data.dataPoints;
-						       //		notification('info', 'chart clicked, for widget:'+ data.clickedWidgetId +' the data passed is'+data.dataPoints+'!');      		
-						       			 if (console) {
-						        			console.log("chart clicked, for widget: " + data.selectedWidgetId);
-						       			 }
-						        });
+		//Toastr settings 
+		toastr.options = {
+			"closeButton" : false,
+			"debug" : false,
+			"newestOnTop" : false,
+			"progressBar" : false,
+			"positionClass" : "toast-top-right",
+			"preventDuplicates" : false,
+			"onclick" : null,
+			"showDuration" : "200",
+			"hideDuration" : "1000",
+			"timeOut" : "5000",
+			"extendedTimeOut" : "1000",
+			"showEasing" : "swing",
+			"hideEasing" : "linear",
+			"showMethod" : "fadeIn",
+			"hideMethod" : "fadeOut"
+		}
 
-								//widget order changes event example
-								$("#cprDashboard").bind("cprdashboardorderchanged",function(e, data) {
-								/* 	if (console) {
-										console.log("Sorted Array");
-										console.log("+++++++++++++++++++++++++");
-										console.log(data.sortedDefinitions);
-										console.log("+++++++++++++++++++++++++");
-									} */
-								});
-								
-								$('#applyChanges').on('click', function (e) {
-								    e.preventDefault(); 
-								   // alert("Inside Apply changes click ");
-								   // alert($("#changeGraphForm input:checked" ).val() +" is checked!" );
-								    var graphToThisChart = $("#changeChartForm input:checked" ).val();
-								    var numberOfChecks = $("#changeChartForm input:checked" ).size();
-								    if(numberOfChecks>1){
-								   		swal("Only one graph can be selected!", "Un-check others!", "error");
-								    }
-								    var widgetID =$("#cgwidgetId").text();
-								    var changeChartObject ={
-								    		chartTo: graphToThisChart,
-								    		widgetId: widgetID
-								    };
-								    $("#cprDashboard").cprDashboard("changeChart",changeChartObject);
-								    $('#changeChartModal').modal('hide');
-								 });
-								
-							/* 	$("#changeGraphForm input:checkbox[value='bar']").change(function() {
-								      //$(this).prop('checked');
-								      $("#changeGraphForm input:checkbox[value='line']").bootstrapSwitch('state', false, true);
-								})
-								$("#changeGraphForm input:checkbox[value='line']").change(function() {
-								      //$(this).prop('checked');
-								      $("#changeGraphForm input:checkbox[value='bar']").bootstrapSwitch('state', false, true);
-								}) */
-								
-							});
-						})
+		function notification(type, message) {
+			if (type == 'success') {
+				toastr.success(message,
+						'<i>Success</i>');
+			} else if (type == 'error') {
+				toastr.error(message, 'Error');
+			} else if (type == 'warning') {
+				toastr.warning(message, 'Warning');
+			} else {
+				toastr.info(message, 'Information');
+			}
+		}								
+									
+		//table row clicked event example
+		$("#cprDashboard").bind("cprdashboardrowclicked",function(e, data) {
+			if (console) {
+			console.log("table row clicked, for widget: "+ data.selectedWidgetId);
+			}
+		});
+		//plot selected event example
+		$("#cprDashboard").bind("cprdashboardplotselected",function(e, data) {
+			notification('info','A plot has been selected within a chart widget!');
+			if (console) {
+			console.log("chart range selected, for widget: "+ data.selectedWidgetId);
+			}
+		});
+		//plot click event example
+        $("#cprDashboard").bind("cprdashboardplotclicked",function(e, data) {        	
+        /* 	 $.ajax({
+                 type: "GET",
+        		 	url : 'widgetClick.html',
+                 success : function(data) {
+                        //$('#result').html(data);                                    
+                }});   */	 
+        	 
+        	 window.location.href='/Crmxs-Dashboard/widgetClick.html?clickedWidgetId='+data.clickedWidgetId+'&datapoints='+data.dataPoints;
+       //		notification('info', 'chart clicked, for widget:'+ data.clickedWidgetId +' the data passed is'+data.dataPoints+'!');      		
+       			 if (console) {
+        			console.log("chart clicked, for widget: " + data.selectedWidgetId);
+       			 }
+        });
+
+		//widget order changes event example
+		$("#cprDashboard").bind("cprdashboardorderchanged",function(e, data) {
+		/* 	if (console) {
+				console.log("Sorted Array");
+				console.log("+++++++++++++++++++++++++");
+				console.log(data.sortedDefinitions);
+				console.log("+++++++++++++++++++++++++");
+			} */
+		});
+		
+		$('#applyChanges').on('click', function (e) {
+		    e.preventDefault(); 
+		   // alert("Inside Apply changes click ");
+		   // alert($("#changeGraphForm input:checked" ).val() +" is checked!" );
+		    var graphToThisChart = $("#changeChartForm input:checked" ).val();
+		    var numberOfChecks = $("#changeChartForm input:checked" ).size();
+		    if(numberOfChecks>1){
+		   		swal("Only one graph can be selected!", "Un-check others!", "error");
+		    }
+		    var widgetID =$("#cgwidgetId").text();
+		    var changeChartObject ={
+		    		chartTo: graphToThisChart,
+		    		widgetId: widgetID
+		    };
+		    $("#cprDashboard").cprDashboard("changeChart",changeChartObject);
+		    $('#changeChartModal').modal('hide');
+		 });
+		 $('#applyThemes').on('click', function (e) {
+			e.preventDefault(); 
+			var themeSelected = $("#changeThemeForm input:checked" ).val();
+		    var numberOfChecks = $("#changeThemeForm input:checked" ).size();
+		    if(numberOfChecks>1){
+		    	$('#changeThemeModal').modal('hide');
+		   		swal("Only one theme can be selected!", "Un-check others!", "error");
+		   		return;
+		    }
+		    $('#changeThemeModal').modal('hide');
+		    $("#cprDashboard").cprDashboard("changeTheme",themeSelected);	
+		    if(typeof themeSelected != 'undefined'){
+		    	  swal(themeSelected +" have been applied !", "", "success");	
+		    }
+		  							   
+		});
+		
+	/* 	$("#changeGraphForm input:checkbox[value='bar']").change(function() {
+		      //$(this).prop('checked');
+		      $("#changeGraphForm input:checkbox[value='line']").bootstrapSwitch('state', false, true);
+		})
+		$("#changeGraphForm input:checkbox[value='line']").change(function() {
+		      //$(this).prop('checked');
+		      $("#changeGraphForm input:checkbox[value='bar']").bootstrapSwitch('state', false, true);
+		}) */
+		
+	});
+	})
 	</script>
 	<!-- CPR Custom Dashboard  -->
 </body>

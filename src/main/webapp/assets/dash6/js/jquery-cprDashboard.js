@@ -112,6 +112,10 @@
 						$(".cprDashboard-overlay").hide();
 						$(e.currentTarget).attr("title", "Minimize");
 						$(".cprDashboardWidgetHeader div.cprDashboard-iconcustomDel.cprDashboard-trash-icon ").hide();
+						$(".cprDashboardWidgetHeader div.cprDashboard-iconcustom.cprDashboard-settings ").hide();
+						$(".cprDashboardWidgetHeader div.cprDashboard-iconcustomInteract ").hide();
+						$(".cprDashboardWidgetHeader div.cprDashboard-iconcustomFilter").hide();
+						
 						self._trigger("widgetMaximized", null, {
 							"widgetDefinition" : widgetDefinition
 						});
@@ -119,6 +123,9 @@
 						$(".cprDashboard-overlay").show();
 						$(e.currentTarget).attr("title", "Maximize");
 						$(".cprDashboardWidgetHeader div.cprDashboard-iconcustomDel.cprDashboard-trash-icon ").show();
+						$(".cprDashboardWidgetHeader div.cprDashboard-iconcustom.cprDashboard-settings ").show();
+						$(".cprDashboardWidgetHeader div.cprDashboard-iconcustomInteract ").show();
+						$(".cprDashboardWidgetHeader div.cprDashboard-iconcustomFilter").show();
 						self._trigger("widgetMinimized", null, {
 							"widgetDefinition" : widgetDefinition
 						});
@@ -183,7 +190,7 @@
 						$(".cprDashboard-overlay").hide();
 					});
 				});				
-				//delete widget by clicking the 'trash' icon on the widget
+				//change graph by clicking the 'settings' icon on the widget
 				this.element.on("click", ".cprDashboardWidgetHeader div.cprDashboard-iconcustom.cprDashboard-settings", function(e) {
 					var widget = $(e.currentTarget).parents("li:first");
 					var widgetId = widget.attr("id");
@@ -245,8 +252,34 @@
 					$("#changeChartModal").modal('show');
 					
 					
-				});
-
+				});				
+				
+				//Interaction model of  widget by clicking the 'details' icon on the widget
+				this.element.on("click", ".cprDashboardWidgetHeader div.cprDashboard-iconcustomInteract", function(e) {
+					var widget = $(e.currentTarget).parents("li:first");
+					var widgetId = widget.attr("id");
+					var widgetDefinition = self._getWidgetContentForId(widgetId, self);
+				
+					//var graphToThisChart = $("#changeChartForm input:checked" ).val();
+					
+					var interactionType = widgetDefinition.widgetClick ;
+					$('#interactForm input:checkbox').bootstrapSwitch('state', false, true);	
+					if(interactionType === "details"){
+						$('#interactForm input:checkbox').bootstrapSwitch('disabled',true);
+						$('#interactForm input:checkbox[value="details"]').bootstrapSwitch('disabled',false);
+						$('#interactForm input:checkbox[value="details"]').bootstrapSwitch('state', true, true);
+						
+					}else if(interactionType === "interact"){
+						$('#interactForm input:checkbox').bootstrapSwitch('disabled',true);
+						$('#interactForm input:checkbox[value="interact"]').bootstrapSwitch('disabled',false);
+						$('#interactForm input:checkbox[value="interact"]').bootstrapSwitch('state', true, true);
+						
+					}			
+	
+					$("#interactionModal").modal('show');					
+					
+				});	
+				
 				//table row click
 				this.element.on("click", ".cprDashboardWidgetContent table.cprDashboardTableView tbody tr", function(e) {
 					var selectedRow = $(e.currentTarget);
@@ -284,19 +317,26 @@
 				var maximizeButton = $('<div title="Maximize" class="cprDashboard-iconcustomZoom cprDashboard-maximize-icon "></span>');
 				var settingsButton = $('<div title="Setting" class="cprDashboard-iconcustom cprDashboard-settings "></span>');
 				var deleteButton = $('<div title="Delete" class="cprDashboard-iconcustomDel cprDashboard-trash-icon"></div>');
-				var filterButton = $('<div title="Filter" class="cprDashboard-iconcustomFilter cprDashboard-filter-icon"></div>');
+				var filterButton = $('<div title="Filter" class="cprDashboard-iconcustomFilter"></div>');
+				var detailsButton = $('<div title="Interact" class="cprDashboard-iconcustomInteract"></div>');
 				
+				//if(widgetDefinition.widgetClick != null){
 				if (widgetDefinition.graphType === "exploratory" && widgetDefinition.chartType !== "bubble"){
 					widgetHeader.append(maximizeButton);
 					widgetHeader.append(deleteButton);
 					widgetHeader.append(settingsButton);
 					widgetHeader.append(filterButton);
-					
+					if(widgetDefinition.widgetClick != "disable"){
+						widgetHeader.append(detailsButton);
+					}					
 					
 				}else if(widgetDefinition.graphType === "exploratory" && widgetDefinition.chartType === "bubble"){
 					widgetHeader.append(maximizeButton);
 					widgetHeader.append(deleteButton);
-					widgetHeader.append(filterButton);					
+					widgetHeader.append(filterButton);
+					if(widgetDefinition.widgetClick != "disable"){
+						widgetHeader.append(detailsButton);
+					}
 				}
 				else if(widgetDefinition.graphType === "normal" && widgetDefinition.widgetType === 'chart' ){
 					//add Maximizebutton
@@ -315,6 +355,7 @@
 				else{
 					widgetHeader.append(deleteButton);
 				}
+				//}
 				
 				if (widgetDefinition.hasOwnProperty("enableRefresh") && widgetDefinition.enableRefresh) {
 					var refreshButton = $('<div title="Refresh" class="cprDashboard-iconcustomRefresh cprDashboard-refresh-icon "></div>');
@@ -576,6 +617,10 @@
 						}
 					}				
 				}			
+			},
+			widgetClick:function(interactionType) {
+			
+			
 			},
 			changeChart: function(changeChartObject) {
 			
@@ -1092,16 +1137,23 @@
 				   	var evtObj = {};
 					evtObj.clickedWidgetId = widgetId;
 					evtObj.dataPoints = pts;
-					if(widgetId==='id015'||widgetId==='id016'||widgetId==='id017'
-						||widgetId==='id018'){
+					if(null!= widgetDefinition.widgetClick){
+					if(widgetDefinition.widgetClick === "details"){
+							
 						context._trigger("plotclicked", null, evtObj);	
-					}else{
 						
-						context._interactChart(widgetDefinition,evtObj);
+					}else if(widgetDefinition.widgetClick === "interact"){
+						
+							context._interactChart(widgetDefinition,evtObj);
+						}
 					}
-					
-				});		
-				
+					/*					
+					if(widgetId==='id015'||widgetId==='id016'||widgetId==='id017'
+						||widgetId==='id018'){						
+					}else{						
+						
+					}*/					
+				});				
 			},
 			_bindChartEventsC3 : function(chartArea, widgetId, widgetDefinition, context) {
 				var myPlot = chartArea;

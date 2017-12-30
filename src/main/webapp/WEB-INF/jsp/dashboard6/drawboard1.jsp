@@ -414,6 +414,35 @@ $(window).load(function() {
 					</div>
 					</div>
 					
+					<div id="interactionModal" class="modal fade" role="dialog" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<a href="javascript:;" class="close" data-dismiss="modal" aria-hidden="true"></a>
+								<p><h4 class="modal-title">Chart interaction type</h4></p>
+							</div>
+							<div class="modal-body">
+								<form action="#" id="interactForm" class="form-inline">
+									<div class="form-group modal-group">
+										<label class="control-label col-md-6">Details view</label>
+										<div class="col-sm-3 col-md-3">
+										<input type="checkbox" class="make-switch modal-input" data-on-color="primary" data-off-color="danger" value="details" id="details"> </div>
+									</div>
+									<div class="form-group modal-group">
+										<label class="control-label col-md-6">Interactive</label>
+										<div class="col-sm-3 col-md-3">
+										<input type="checkbox" class="make-switch modal-input"  data-on-color="primary" data-off-color="danger" value="interact" id="interact"> </div>
+								   </div>																		
+								</form>
+							</div>
+							<div class="modal-footer">
+								<a href="javascript:;" class="btn grey-salsa btn-outline" data-dismiss="modal">Close</a>
+								<!-- <button id="applyThemes" class="btn green">
+									<i class="fa fa-check"></i> Apply changes</button> -->
+							</div>
+						</div>
+					</div>
+					</div>
 					
 					</div>
 				</div>
@@ -511,6 +540,7 @@ $(window).load(function() {
 											widgetTitle : "Day Wise",
 											widgetId : "id001",
 											widgetType : "chart",
+											widgetClick:"disable",
 											graphType : "exploratory",
 											widgetDimension : "normal",
 											chartType : "column",
@@ -525,6 +555,7 @@ $(window).load(function() {
 											widgetTitle : "Hour Wise Redemptions",
 											widgetId : "id002",
 											widgetType : "chart",
+											widgetClick:"disable",
 											graphType : "exploratory",
 											widgetDimension : "normal",
 											chartType : "barline",
@@ -538,6 +569,7 @@ $(window).load(function() {
 											widgetTitle : "Sales Figures",
 											widgetId : "id003",
 											widgetType : "chart",
+											widgetClick:"disable",
 											graphType : "exploratory",
 											widgetDimension : "normal",
 											chartType : "pie",
@@ -551,6 +583,7 @@ $(window).load(function() {
 											widgetTitle : "Sales Figures2",
 											widgetId : "id004",
 											widgetType : "chart",
+											widgetClick:"disable",
 											graphType : "exploratory",
 											widgetDimension : "normal",
 											chartType : "pie",
@@ -564,6 +597,7 @@ $(window).load(function() {
 											widgetTitle : "Hour Wise Redemptions",
 											widgetId : "id005",
 											widgetType : "chart",
+											widgetClick:"disable",
 											graphType : "exploratory",
 											widgetDimension : "normal",
 											chartType : "area",
@@ -578,6 +612,7 @@ $(window).load(function() {
 											widgetTitle : "Age group",
 											widgetId : "id006",
 											widgetType : "chart",
+											widgetClick:"disable",
 											graphType : "exploratory",
 											widgetDimension : "normal",
 											chartType : "bubble",
@@ -602,6 +637,7 @@ $(window).load(function() {
 											widgetTitle : "Revenue by region",
 											widgetId : "id007",
 											widgetType : "chart",
+											widgetClick:"disable",
 											graphType : "exploratory",
 											widgetDimension : "large",
 											chartType : "bubble",
@@ -616,6 +652,7 @@ $(window).load(function() {
 											widgetTitle : "Revenue",
 											widgetId : "id008",
 											widgetType : "chart",
+											widgetClick:"disable",
 											graphType : "exploratory",
 											widgetDimension : "large",
 											chartType : "bar",
@@ -638,6 +675,7 @@ $(window).load(function() {
 											widgetTitle : "Items sold",
 											widgetId : "id009",
 											widgetType : "chart",
+											widgetClick:"disable",
 											graphType : "exploratory",
 											widgetDimension : "large",
 											chartType : "line",
@@ -663,6 +701,7 @@ $(window).load(function() {
 											widgetTitle : "Stats",
 											widgetId : "id010",
 											widgetType : "Text",
+											widgetClick:"disable",
 											widgetDimension : "small",
 											widgetContent : "Redemptions : 4,636"
 													
@@ -671,6 +710,7 @@ $(window).load(function() {
 											widgetTitle : "Browser used",
 											widgetId : "id011",
 											widgetType : "table",
+											widgetClick:"disable",
 											//widgetDimension: "large",
 											setJqueryStyle : true,
 											enableRefresh : true,
@@ -687,6 +727,7 @@ $(window).load(function() {
 											widgetTitle : "Revenue",
 											widgetId : "id012",
 											widgetType : "Text",
+											widgetClick:"disable",
 											widgetDimension : "small",
 											widgetContent : "231,800$"
 										},
@@ -694,6 +735,7 @@ $(window).load(function() {
 											widgetTitle : "Where the customers are ",
 											widgetId : "id013",
 											widgetType : "map",
+											widgetClick:"disable",
 											graphType : "normal",  
 											widgetDimension : "normal",										
 											widgetContent :myExampleData.amchartsMapData 
@@ -704,6 +746,7 @@ $(window).load(function() {
 										widgetTitle : "World Maps",
 										widgetId : "id014",
 										widgetType : "map",
+										widgetClick:"disable",
 										graphType : "normal",
 										widgetDimension : "normal",
 										/* chartType : "line",
@@ -711,6 +754,167 @@ $(window).load(function() {
 										widgetContent : myExampleData.amchartsCountryMapData
 											
 									},
+									//Drawboard 3 
+									{
+										widgetTitle: "Sales Figures",
+										widgetId: "id015",
+										widgetType: "chart",
+										widgetClick:"details",
+										graphType: "exploratory",
+										widgetDimension: "normal",
+										chartType: "pie",
+										widgetContent: {			 
+											data: myExampleData.plotlypiedata,
+											layout: myExampleData.plotlypielayout,
+											config: myExampleData.plotlypieconfig
+										}
+									},    	
+							    	{
+							    		widgetTitle: "Age group",
+							    		widgetId: "id016",
+							    		widgetClick:"details",
+							    		widgetType: "chart",
+							    		graphType: "exploratory",
+							    		widgetDimension: "normal",
+							    		chartType: "bubble",
+							    		enableRefresh: true,
+							    		refreshCallBack : function(widgetId){ 
+							    			//Inside refresh callback		
+							    			//notification('info', 'Inside the refresh callback of '+widgetId+'!');
+							    			var refreshedData = {
+							    					data: myExampleData.plotlyRefreshBubbleData,
+							    					layout: myExampleData.plotlyBubbleLayout,
+							    					config: myExampleData.plotlybarconfig
+							    			};
+							    			return refreshedData; 
+							    		},
+							    		widgetContent: {
+							    			data: myExampleData.plotlyBubbleData,
+							    			layout: myExampleData.plotlyBubbleLayout,
+							    			config: myExampleData.plotlybarconfig
+							    		}
+							    	},{
+									widgetTitle: "Revenue",
+									widgetId: "id017",
+									widgetType: "chart",
+									widgetClick:"details",
+									graphType: "exploratory",
+									widgetDimension: "large",
+									chartType: "bar",
+									enableRefresh: true,
+									refreshCallBack : function(widgetId){ 		
+										var refreshedData = {
+												data: myExampleData.barGroupRefreshChartData,
+												layout: myExampleData.barGroupChartLayout,
+												config: myExampleData.plotlybarconfig
+										};
+										return refreshedData; 
+									},
+									widgetContent: {
+										data: myExampleData.barGroupChartData,
+										layout: myExampleData.barGroupChartLayout,
+										config: myExampleData.plotlybarconfig
+									}
+									}, /* {
+									widgetTitle: "Items sold",
+									widgetId: "id018",
+									widgetType: "chart",
+									widgetClick:"details",
+									graphType: "exploratory",
+									widgetDimension: "large",
+									chartType: "line",
+									getDataBySelection: true,
+									widgetContent: {		
+										data: myExampleData.plotlylinedata,
+										layout: myExampleData.plotlylinelayout,
+										config: myExampleData.plotlylineconfig			  
+									}
+									}, */
+									{
+										widgetTitle : "Age group",
+										widgetId : "id019",
+										widgetType : "chart",
+										widgetClick:"interact",
+										graphType : "exploratory",
+										widgetDimension : "normal",
+										chartType : "bubble",
+										linkedWidgets:["id020","id021"],
+										enableRefresh : true,
+										refreshCallBack : function(widgetId) {
+											//Inside refresh callback		
+											//notification('info', 'Inside the refresh callback of '+widgetId+'!');
+											var refreshedData = {
+												data : myExampleData.plotlyRefreshBubbleData,
+												layout : myExampleData.plotlyBubbleLayout,
+												config : myExampleData.plotlybarconfig
+											};
+											return refreshedData;
+										},
+										widgetContent : {
+											data : myExampleData.plotlyBubbleData,
+											layout : myExampleData.plotlyBubbleLayout,
+											config : myExampleData.plotlybarconfig
+										}
+									},{
+									widgetTitle: "Revenue",
+									widgetId: "id020",
+									widgetType: "chart",
+									widgetClick:"interact",
+									graphType: "exploratory",
+									widgetDimension: "normal",
+									chartType: "bar",
+									enableRefresh: true,
+									refreshCallBack : function(widgetId){ 		
+										var refreshedData = {
+												data: myExampleData.barGroupRefreshChartData,
+												layout: myExampleData.barGroupChartLayout,
+												config: myExampleData.plotlybarconfigDash4
+										};
+										return refreshedData; 
+									},
+									widgetContent: {
+										data: myExampleData.barGroupChartData,
+										layout: myExampleData.barGroupChartLayout,
+										config: myExampleData.plotlybarconfigDash4
+									},
+									widgetContentNew : {
+										data : myExampleData.barGroupChartDataOriginal,
+										layout : myExampleData.barGroupChartLayout,
+										config : myExampleData.plotlybarconfigDash4
+									},
+									widgetContentNew1 : {
+										data : myExampleData.barGroupChartData1,		
+									},
+									widgetContentNew2 : {
+										data : myExampleData.barGroupChartData2,
+										
+									}		
+								},
+								{
+									widgetTitle : "Items sold",
+									widgetId : "id021",
+									widgetType : "chart",
+									widgetClick:"interact",
+									graphType : "exploratory",
+									widgetDimension : "large",
+									chartType : "line",
+									getDataBySelection : true,
+									widgetContent : {
+										data : myExampleData.plotlylinedata,
+										layout : myExampleData.plotlylinelayout,
+										config : myExampleData.plotlylineconfig
+									},
+									widgetContentNew : {
+										data : myExampleData.plotlylinedata1,
+									},
+									widgetContentNew1 : {
+										data : myExampleData.plotlylinedata2,		
+									},
+									widgetContentNew2 : {
+										data : myExampleData.plotlylinedata3,
+										
+									}	
+								}
 								/* 	{
 								 widgetTitle: "Items Sold Grid",
 								 widgetId: "id010",
@@ -785,13 +989,28 @@ $(window).load(function() {
 									}
 								});
 								//plot click event example
-								$("#cprDashboard").bind("cprdashboardplotclicked",function(e, data) {
+							/* 	$("#cprDashboard").bind("cprdashboardplotclicked",function(e, data) {
 									notification('info','chart clicked, for widget:'+ data.clickedWidgetId
 										+ ' the data passed is'+ data.dataPoints+ '!');
 									if (console) {
 										console.log("chart clicked, for widget: "+ data.selectedWidgetId);
 									}
-								});
+								}); */
+								//Drawboard 4
+							    $("#cprDashboard").bind("cprdashboardplotclicked",function(e, data) {        	
+							        /* 	 $.ajax({
+							                 type: "GET",
+							        		 	url : 'widgetClick.html',
+							                 success : function(data) {
+							                        //$('#result').html(data);                                    
+							                }});   */	 
+							        	 
+							        	 window.location.href='/Crmxs-Dashboard/widgetClick.html?clickedWidgetId='+data.clickedWidgetId+'&datapoints='+data.dataPoints;
+							       //		notification('info', 'chart clicked, for widget:'+ data.clickedWidgetId +' the data passed is'+data.dataPoints+'!');      		
+							       			 if (console) {
+							        			console.log("chart clicked, for widget: " + data.selectedWidgetId);
+							       			 }
+							        });
 
 								//widget order changes event example
 								$("#cprDashboard").bind("cprdashboardorderchanged",function(e, data) {

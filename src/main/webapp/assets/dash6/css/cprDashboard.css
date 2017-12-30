@@ -475,7 +475,13 @@ div#users-contain table td, div#users-contain table th {
 	width: 20px;
 	height: 20px;
 }
-
+.cprDashboard-iconcustomInteract {
+	margin: 0 5px 0 5px;
+	float: right;
+	background: url('images/ic_details_white_18dp_1x.png') no-repeat;
+	width: 20px;
+	height: 20px;
+}
 .cprDashboard-iconcustomStyle {
 	margin: 0 5px 0 5px;
 	float: right;
@@ -518,7 +524,12 @@ div#users-contain table td, div#users-contain table th {
 	transition: .3s all ease;
   	transform: translateY(-0.15em);
 }
-
+.cprDashboard-iconcustomInteract:hover {
+	cursor: pointer;
+	box-shadow: 0 0.3em 0.3em -0.2em var(--hover) grey;
+	transition: .3s all ease;
+  	transform: translateY(-0.15em);
+}
 .cprDashboard-iconcustomZoom:hover {
 	cursor: pointer;
 	box-shadow: 0 0.3em 0.3em -0.2em var(--hover) grey;
