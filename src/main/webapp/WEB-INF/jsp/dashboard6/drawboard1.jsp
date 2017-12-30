@@ -838,8 +838,8 @@ $(window).load(function() {
 								    }
 								    $('#changeThemeModal').modal('hide');
 								    $("#cprDashboard").cprDashboard("changeTheme",themeSelected);	
-								    if(null!=themeSelected){
-								    	  swal(themeSelected+" have been applied !", "", "success");	
+								    if(typeof themeSelected != 'undefined'){
+								    	  swal(themeSelected +" have been applied !", "", "success");	
 								    }
 								  							   
 								});

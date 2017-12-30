@@ -518,9 +518,8 @@
 							|| widgetDefinition.chartType ==='line'
 							||widgetDefinition.chartType === 'barline' 
 							||widgetDefinition.chartType === 'area'
-							||widgetDefinition.chartType === 'column'
-							||widgetDefinition.chartType === 'bubble'){
-						if(null!=widgetDefinition.widgetContent.data[j].marker ){
+							||widgetDefinition.chartType === 'column'){
+						if(typeof widgetDefinition.widgetContent.data[j].marker != 'undefined'){
 							if(themeSelected==="theme1"){
 								widgetDefinition.widgetContent.data[j].marker = theme1[j];										
 							}else if(themeSelected==="theme2"){
@@ -529,7 +528,7 @@
 								//widgetDefinition.widgetContent.data[j].marker = theme3[j];
 							}
 						}
-						}else if(widgetDefinition.chartType === 'pie' && null!=widgetDefinition.widgetContent.data[j].marker){
+						}else if(widgetDefinition.chartType === 'pie' && (typeof widgetDefinition.widgetContent.data[j].marker != 'undefined')){
 							if(themeSelected==="theme1"){
 								if(j===0){
 									widgetDefinition.widgetContent.data[j].marker.colors=[];
@@ -551,12 +550,14 @@
 					}	
 					if(widgetDefinition.widgetContent.layout.length!=0)
 					{
+						if(typeof themeSelected != 'undefined'){
 						if(themeSelected==="theme1"){
 							widgetDefinition.widgetContent.layout.paper_bgcolor = layoutBackground.paper_bgcolor;
 							widgetDefinition.widgetContent.layout.plot_bgcolor = layoutBackground.plot_bgcolor;
-						}else if(null!=themeSelected){
+						}else {
 							widgetDefinition.widgetContent.layout.paper_bgcolor = layoutNormal.paper_bgcolor;
 							widgetDefinition.widgetContent.layout.plot_bgcolor = layoutNormal.plot_bgcolor;
+						}
 						}
 					}						
 						data = widgetDefinition.widgetContent.data;
