@@ -506,7 +506,7 @@
 						opacity : 0.6
 					}
 				};
-			
+				
 				for ( i = 0; i < _dashboardData.length; i++) {
 					var widgetDefinition = _dashboardData[i];
 					var id = "li#" + widgetDefinition.widgetId;
@@ -526,25 +526,34 @@
 									||widgetDefinition.chartType === 'area'
 										||widgetDefinition.chartType === 'column'){
 								if(null!=widgetDefinition.widgetContent.data[j].marker ){
-								widgetDefinition.widgetContent.data[0].marker = theme1.trace1;
-								widgetDefinition.widgetContent.data[1].marker = theme1.trace2;
+									
+									if(themeSelected==="theme1"){
+										widgetDefinition.widgetContent.data[0].marker = theme1.trace1;
+										widgetDefinition.widgetContent.data[1].marker = theme1.trace2;
+									}
 								}
 							}
 						}	
 						if(widgetDefinition.widgetContent.layout.length!=0)
 						{
+							if(themeSelected==="theme1"){
 								widgetDefinition.widgetContent.layout.paper_bgcolor = theme1.layout.paper_bgcolor;
 								widgetDefinition.widgetContent.layout.plot_bgcolor = theme1.layout.plot_bgcolor;
+							}
 						}
 						
 						data = widgetDefinition.widgetContent.data;
 						layout = widgetDefinition.widgetContent.layout;
 						config = widgetDefinition.widgetContent.config;
 						this.redrawChart(chartArea,data,layout,config);
-					}
-				
-				}		
-			
+						//$(".js-plotly-plot .plotly .modebar").css("background","#E0E0E0 !important");
+						if(themeSelected==="theme1"){
+						$('.js-plotly-plot .plotly .modebar').attr('style', 'background: #E0E0E0 !important');
+						}else{
+							$('.js-plotly-plot .plotly .modebar').attr('style', 'background: #FFFFF !important');
+						}
+					}				
+				}			
 			},
 			changeChart: function(changeChartObject) {
 			
