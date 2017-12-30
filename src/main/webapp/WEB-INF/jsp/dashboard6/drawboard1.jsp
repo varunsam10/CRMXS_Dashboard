@@ -232,11 +232,9 @@ $(window).load(function() {
 								class="fa fa-circle"></i>
 						</button>
 						<ul class="dropdown-menu-v2">
-							<li><a href="start.html">Themes</a></li>
-						<!-- 	<li><a href="start.html">Reports</a></li>
-							<li><a href="start.html">Templates</a></li>
-							<li><a href="start.html">Settings</a></li> -->
-						</ul>
+							<li class="menuItem"><a href="#">Themes</a></li>
+						</ul>				
+					
 					</div>
 					<!-- END DROPDOWN AJAX MENU -->
 					<!-- BEGIN MENU TOGGLER -->
@@ -379,6 +377,44 @@ $(window).load(function() {
 						</div>
 					</div>
 					</div>
+					
+					<div id="changeThemeModal" class="modal fade" role="dialog" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<a href="javascript:;" class="close" data-dismiss="modal" aria-hidden="true"></a>
+								<p><h4 class="modal-title">Change theme</h4></p>
+							</div>
+							<div class="modal-body">
+								<form action="#" id="changeThemeForm" class="form-inline">
+									<div class="form-group modal-group">
+										<label class="control-label col-md-6">Theme 1</label>
+										<div class="col-sm-3 col-md-3">
+										<input type="checkbox" class="make-switch modal-input"  data-on-color="primary" data-off-color="danger" value="theme1" id="theme1"> </div>
+									</div>
+									<div class="form-group modal-group">
+										<label class="control-label col-md-6">Theme 2</label>
+										<div class="col-sm-3 col-md-3">
+										<input type="checkbox" class="make-switch modal-input"  data-on-color="primary" data-off-color="danger" value="theme2" id="theme2"> </div>
+								   </div>
+									<div class="form-group  modal-group">
+										<label class="control-label col-md-6">Theme 3</label>
+										<div class="col-sm-3 col-md-3">
+										<input type="checkbox" disabled class="make-switch modal-input" data-on-color="primary" data-off-color="danger" value="theme3" id="theme3"/>
+										</div>
+									</div>									
+								</form>
+							</div>
+							<div class="modal-footer">
+								<a href="javascript:;" class="btn grey-salsa btn-outline" data-dismiss="modal">Close</a>
+								<button id="applyThemes" class="btn green">
+									<i class="fa fa-check"></i> Apply changes</button>
+							</div>
+						</div>
+					</div>
+					</div>
+					
+					
 					</div>
 				</div>
 				<!-- END PAGE BASE CONTENT -->
@@ -768,9 +804,7 @@ $(window).load(function() {
 								});
 								
 								$('#applyChanges').on('click', function (e) {
-								    e.preventDefault(); 
-								   // alert("Inside Apply changes click ");
-								   // alert($("#changeGraphForm input:checked" ).val() +" is checked!" );
+									e.preventDefault(); 
 								    var graphToThisChart = $("#changeChartForm input:checked" ).val();
 								    var numberOfChecks = $("#changeChartForm input:checked" ).size();
 								    if(numberOfChecks>1){
@@ -783,8 +817,30 @@ $(window).load(function() {
 								    };
 								    $("#cprDashboard").cprDashboard("changeChart",changeChartObject);
 								    $('#changeChartModal').modal('hide');
-								 });
+								});
 								
+								$("li.menuItem").click(function(e) {
+								
+									e.preventDefault(); 
+									$("#changeThemeModal").modal('show');    
+								
+									
+								});
+
+								$('#applyThemes').on('click', function (e) {
+									e.preventDefault(); 
+									var themeSelected = $("#changeThemeForm input:checked" ).val();
+								    var numberOfChecks = $("#changeThemeForm input:checked" ).size();
+								    if(numberOfChecks>1){
+								    	$('#changeThemeModal').modal('hide');
+								   		swal("Only one theme can be selected!", "Un-check others!", "error");
+								   		return;
+								    }
+								    $('#changeThemeModal').modal('hide');
+								    $("#cprDashboard").cprDashboard("changeTheme",themeSelected);								    
+								    swal(themeSelected+" have been applied !", "", "success");								   
+								});
+								//Handling on Change event 
 							/* 	$("#changeGraphForm input:checkbox[value='bar']").change(function() {
 								      //$(this).prop('checked');
 								      $("#changeGraphForm input:checkbox[value='line']").bootstrapSwitch('state', false, true);

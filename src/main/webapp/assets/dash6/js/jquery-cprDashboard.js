@@ -327,7 +327,6 @@
 
 				//create a widget content
 				var widgetContent = $("<div/>").addClass("cprDashboardWidgetContent");
-
 				if (widgetDefinition.widgetType === 'table') {
 					var dataTable = $('<table cellpadding="0" cellspacing="0" border="0" class="display cprDashboardTableView table table-bordered"></table>');
 					widgetContent.append(dataTable);
@@ -347,16 +346,12 @@
 					}
 					widgetContent.append(chart);
 				} else if (widgetDefinition.widgetType === 'map') {
-				
 					var map = $('<div/>').addClass("cprDashboardMap");
-				
-					
 					widgetContent.append(map);
 				} 			
 				else {
 					widgetContent.append(widgetDefinition.widgetContent);
 				}
-
 				//add widgetHeader to widgetContainer
 				widgetContainer.append(widgetHeader);
 				//add widgetContent to widgetContainer
@@ -411,7 +406,8 @@
 					if (widgetDefinition.setJqueryStyle) {
 						tableDef["bJQueryUI"] = true;
 					}
-					tableDef["dom"] = "<'row' <'col-md-6 col-sm-6'B>><'row'<'col-md-6 col-sm-6'l><'col-md-6 col-sm-12'f>r><'table-scrollable't><'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>"; // horizobtal scrollable datatable
+					// horizontal scrollable datatable
+					tableDef["dom"] = "<'row' <'col-md-6 col-sm-6'B>><'row'<'col-md-6 col-sm-6'l><'col-md-6 col-sm-12'f>r><'table-scrollable't><'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>"; 
 					/*tableDef["buttons"] =  [
 			            $.extend( true, {}, buttonCommon, {
 			                extend: 'excelHtml5'
@@ -419,9 +415,9 @@
 			            $.extend( true, {}, buttonCommon, {
 			                extend: 'pdfHtml5'
 			            })
-			               //{ extend: 'print', className: 'btn dark btn-outline' },
-			                //{ extend: 'pdf', className: 'btn green btn-outline' },
-			                //{ extend: 'excelHtml5', className: 'btn purple btn-outline ' }
+			           	//{ extend: 'print', className: 'btn dark btn-outline' },
+			            //{ extend: 'pdf', className: 'btn green btn-outline' },
+			            //{ extend: 'excelHtml5', className: 'btn purple btn-outline ' }
 			        ];
 					*/
 					tableDef["buttons"] =  [  					
@@ -489,7 +485,67 @@
 				//Plotly.newPlot(chartArea[0], data , layout,config);
 				Plotly.redraw(chartArea[0]);				
 				return;
-			},			
+			},
+			changeTheme: function(themeSelected) {
+			
+				var _dashboardData = this.options.dashboardData;
+				var i;
+				//console.log(_dashboardData);
+				//console.log(_dashboardData.length);
+				var theme1={
+					trace1:{	
+						color : '#FF0000',
+						opacity : 0.6
+					},
+					layout:{
+						paper_bgcolor:'#E0E0E0',//E0E0E0
+						plot_bgcolor:'#E0E0E0'
+					},
+					trace2:{
+						color : '#1ABC9C',	
+						opacity : 0.6
+					}
+				};
+			
+				for ( i = 0; i < _dashboardData.length; i++) {
+					var widgetDefinition = _dashboardData[i];
+					var id = "li#" + widgetDefinition.widgetId;
+					var chartArea;
+					var data;
+					var layout;
+					var config;
+					var chart;
+					chartArea = this.element.find(id + " div.cprDashboardChart");
+					if (widgetDefinition.widgetType === 'chart') {
+						
+						var j=0;
+						for(j=0;j<widgetDefinition.widgetContent.data.length;j++)
+						{
+							if(widgetDefinition.chartType === 'bar' || widgetDefinition.chartType ==='line'
+								||widgetDefinition.chartType === 'barline' 
+									||widgetDefinition.chartType === 'area'
+										||widgetDefinition.chartType === 'column'){
+								if(null!=widgetDefinition.widgetContent.data[j].marker ){
+								widgetDefinition.widgetContent.data[0].marker = theme1.trace1;
+								widgetDefinition.widgetContent.data[1].marker = theme1.trace2;
+								}
+							}
+						}	
+						if(widgetDefinition.widgetContent.layout.length!=0)
+						{
+								widgetDefinition.widgetContent.layout.paper_bgcolor = theme1.layout.paper_bgcolor;
+								widgetDefinition.widgetContent.layout.plot_bgcolor = theme1.layout.plot_bgcolor;
+						}
+						
+						data = widgetDefinition.widgetContent.data;
+						layout = widgetDefinition.widgetContent.layout;
+						config = widgetDefinition.widgetContent.config;
+						this.redrawChart(chartArea,data,layout,config);
+					}
+				
+				}		
+			
+			},
 			changeChart: function(changeChartObject) {
 			
 				var widgetDefinition = this._getWidgetContentForId(changeChartObject.widgetId, this);
