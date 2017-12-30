@@ -837,8 +837,11 @@ $(window).load(function() {
 								   		return;
 								    }
 								    $('#changeThemeModal').modal('hide');
-								    $("#cprDashboard").cprDashboard("changeTheme",themeSelected);								    
-								    swal(themeSelected+" have been applied !", "", "success");								   
+								    $("#cprDashboard").cprDashboard("changeTheme",themeSelected);	
+								    if(null!=themeSelected){
+								    	  swal(themeSelected+" have been applied !", "", "success");	
+								    }
+								  							   
 								});
 								//Handling on Change event 
 							/* 	$("#changeGraphForm input:checkbox[value='bar']").change(function() {

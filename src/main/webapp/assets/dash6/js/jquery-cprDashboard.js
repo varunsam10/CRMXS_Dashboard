@@ -486,27 +486,21 @@
 				Plotly.redraw(chartArea[0]);				
 				return;
 			},
-			changeTheme: function(themeSelected) {
-			
+			changeTheme: function(themeSelected) {			
 				var _dashboardData = this.options.dashboardData;
 				var i;
-				//console.log(_dashboardData);
-				//console.log(_dashboardData.length);
-				var theme1={
-					trace1:{	
-						color : '#FF0000',
-						opacity : 0.6
-					},
-					layout:{
-						paper_bgcolor:'#E0E0E0',//E0E0E0
-						plot_bgcolor:'#E0E0E0'
-					},
-					trace2:{
-						color : '#1ABC9C',	
-						opacity : 0.6
-					}
+				var layoutNormal ={						
+						paper_bgcolor:'#FFFFFF',
+						plot_bgcolor:'#FFFFFF'		
+						
+				};				
+				var layoutBackground ={
+						paper_bgcolor:'#E0E0E0',
+						plot_bgcolor:'#E0E0E0'						
 				};
-				
+				var theme1=[{color : '#FF0000',opacity : 0.6},{color : '#1ABC9C',opacity : 0.6},{color : '#1ABC9C',opacity : 0.6}];
+				var theme2=[{color : '#138D75',opacity : 0.6},{color : '#EC7063',opacity : 0.6},{color : '#2C3E50',opacity : 0.6}
+				,{color : '#F4D03F',opacity : 0.6},{color : '#95A5A6',opacity : 0.6}];
 				for ( i = 0; i < _dashboardData.length; i++) {
 					var widgetDefinition = _dashboardData[i];
 					var id = "li#" + widgetDefinition.widgetId;
@@ -516,41 +510,68 @@
 					var config;
 					var chart;
 					chartArea = this.element.find(id + " div.cprDashboardChart");
-					if (widgetDefinition.widgetType === 'chart') {
-						
-						var j=0;
-						for(j=0;j<widgetDefinition.widgetContent.data.length;j++)
-						{
-							if(widgetDefinition.chartType === 'bar' || widgetDefinition.chartType ==='line'
-								||widgetDefinition.chartType === 'barline' 
-									||widgetDefinition.chartType === 'area'
-										||widgetDefinition.chartType === 'column'){
-								if(null!=widgetDefinition.widgetContent.data[j].marker ){
-									
-									if(themeSelected==="theme1"){
-										widgetDefinition.widgetContent.data[0].marker = theme1.trace1;
-										widgetDefinition.widgetContent.data[1].marker = theme1.trace2;
-									}
-								}
-							}
-						}	
-						if(widgetDefinition.widgetContent.layout.length!=0)
-						{
+					if (widgetDefinition.widgetType === 'chart') {						
+					var j=0;
+					for(j=0;j<widgetDefinition.widgetContent.data.length;j++)
+					{
+						if(widgetDefinition.chartType === 'bar' 
+							|| widgetDefinition.chartType ==='line'
+							||widgetDefinition.chartType === 'barline' 
+							||widgetDefinition.chartType === 'area'
+							||widgetDefinition.chartType === 'column'
+							||widgetDefinition.chartType === 'bubble'){
+						if(null!=widgetDefinition.widgetContent.data[j].marker ){
 							if(themeSelected==="theme1"){
-								widgetDefinition.widgetContent.layout.paper_bgcolor = theme1.layout.paper_bgcolor;
-								widgetDefinition.widgetContent.layout.plot_bgcolor = theme1.layout.plot_bgcolor;
+								widgetDefinition.widgetContent.data[j].marker = theme1[j];										
+							}else if(themeSelected==="theme2"){
+								widgetDefinition.widgetContent.data[j].marker = theme2[j];
+							}else if(themeSelected==="theme3"){
+								//widgetDefinition.widgetContent.data[j].marker = theme3[j];
 							}
 						}
-						
+						}else if(widgetDefinition.chartType === 'pie' && null!=widgetDefinition.widgetContent.data[j].marker){
+							if(themeSelected==="theme1"){
+								if(j===0){
+									widgetDefinition.widgetContent.data[j].marker.colors=[];
+									for(var k=0;k<theme1.length;k++){
+										widgetDefinition.widgetContent.data[j].marker.colors.push(theme1[k].color);
+									}
+								}							
+								
+							}else if(themeSelected==="theme2"){
+								if(j===0){
+									widgetDefinition.widgetContent.data[j].marker.colors=[];
+									for(var k=0;k<theme2.length;k++){
+										widgetDefinition.widgetContent.data[j].marker.colors.push(theme2[k].color);
+									}
+								}
+							
+							}
+						}
+					}	
+					if(widgetDefinition.widgetContent.layout.length!=0)
+					{
+						if(themeSelected==="theme1"){
+							widgetDefinition.widgetContent.layout.paper_bgcolor = layoutBackground.paper_bgcolor;
+							widgetDefinition.widgetContent.layout.plot_bgcolor = layoutBackground.plot_bgcolor;
+						}else if(null!=themeSelected){
+							widgetDefinition.widgetContent.layout.paper_bgcolor = layoutNormal.paper_bgcolor;
+							widgetDefinition.widgetContent.layout.plot_bgcolor = layoutNormal.plot_bgcolor;
+						}
+					}						
 						data = widgetDefinition.widgetContent.data;
 						layout = widgetDefinition.widgetContent.layout;
 						config = widgetDefinition.widgetContent.config;
 						this.redrawChart(chartArea,data,layout,config);
 						//$(".js-plotly-plot .plotly .modebar").css("background","#E0E0E0 !important");
 						if(themeSelected==="theme1"){
-						$('.js-plotly-plot .plotly .modebar').attr('style', 'background: #E0E0E0 !important');
+							$('.js-plotly-plot .plotly .modebar').attr('style', 'background: #E0E0E0 !important');
+							$('.cprDashboardTableView tbody tr:nth-child(odd)').attr('style', 'background-color: #E0E0E0 !important');
+							$('.cprDashboardTableView tbody tr:nth-child(even)').attr('style', 'background-color: #1ABC9C !important');
 						}else{
 							$('.js-plotly-plot .plotly .modebar').attr('style', 'background: #FFFFF !important');
+							$('.cprDashboardTableView tbody tr:nth-child(odd)').attr('style', 'background-color: #138D75 !important');
+							$('.cprDashboardTableView tbody tr:nth-child(even)').attr('style', 'background-color: #EC7063 !important');
 						}
 					}				
 				}			

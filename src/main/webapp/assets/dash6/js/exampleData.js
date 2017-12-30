@@ -332,7 +332,7 @@ myExampleData.plotlylinelayout = {
 		color : '#7f7f7f'
 	},
 	autosize : true,
-	paper_bgcolor:'#FFFFFF',//E0E0E0
+	paper_bgcolor:'#FFFFFF',
 	plot_bgcolor:'#FFFFFF'
 };
 
