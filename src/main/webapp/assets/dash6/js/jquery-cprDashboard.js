@@ -280,6 +280,19 @@
 					
 				});	
 				
+				
+				//Filter model of  widget by clicking the 'filter' icon on the widget
+				this.element.on("click", ".cprDashboardWidgetHeader div.cprDashboard-iconcustomFilter", function(e) {
+					var widget = $(e.currentTarget).parents("li:first");
+					var widgetId = widget.attr("id");
+					var widgetDefinition = self._getWidgetContentForId(widgetId, self);
+				
+				
+	
+					$("#filterModal").modal('show');					
+					
+				});	
+				
 				//table row click
 				this.element.on("click", ".cprDashboardWidgetContent table.cprDashboardTableView tbody tr", function(e) {
 					var selectedRow = $(e.currentTarget);
