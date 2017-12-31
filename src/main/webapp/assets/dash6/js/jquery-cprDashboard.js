@@ -9,13 +9,13 @@
 		}
 	}(function($,Plotly,c3,AmCharts) {
 		"use strict";
-		$.widget("mn.sDashboard", {
-			version : "2.5",
+		$.widget("mn.cprDashboard", {
+			version : "1.0",
 			options : {
 				dashboardData : []
 			},
 			_create : function() {
-				this.element.addClass("sDashboard");
+				this.element.addClass("cprDashboard");
 				this._createView();
 
 			},
@@ -41,7 +41,7 @@
 				//console.log(_dashboardData.length);
 				for ( i = 0; i < _dashboardData.length; i++) {
 					var widget = this._constructWidget(_dashboardData[i]);
-					console.log(widget);
+					//console.log(widget);
 					//append the widget to the dashboard
 					this.element.append(widget);
 					this._renderTable(_dashboardData[i]);
@@ -52,7 +52,7 @@
 				var that = this;
 				//call the jquery ui sortable on the columns
 				this.element.sortable({
-					handle : ".sDashboardWidgetHeader",
+					handle : ".cprDashboardWidgetHeader",
 					start : function(event, ui) {
 						ui.item.startPosition = ui.item.index();
 					},
@@ -94,42 +94,49 @@
 			_bindEvents : function() {
 				var self = this;
 				//click event for maximize button
-				this.element.on("click", ".sDashboardWidgetHeader div.sDashboard-iconcustomZoom.sDashboard-maximize-icon", function(e) {
+				this.element.on("click", ".cprDashboardWidgetHeader div.cprDashboard-iconcustomZoom.cprDashboard-maximize-icon", function(e) {
 
 					//get the widget List Item Dom
 					var widgetListItem = $(e.currentTarget).parents("li:first");
 					//get the widget Container
-					var widget = $(e.currentTarget).parents(".sDashboardWidget:first");
+					var widget = $(e.currentTarget).parents(".cprDashboardWidget:first");
 					//get the widget Content
-					var widgetContainer = widget.find(".sDashboardWidgetContent");
+					var widgetContainer = widget.find(".cprDashboardWidgetContent");
 
 					var widgetDefinition = self._getWidgetContentForId(widgetListItem.attr("id"), self);
 
 					//toggle the maximize icon into minimize icon
-					$(e.currentTarget).toggleClass("sDashboard-minimize-icon");
+					$(e.currentTarget).toggleClass("cprDashboard-minimize-icon");
 					//change the tooltip on the maximize/minimize icon buttons
 					if ($(e.currentTarget).attr("title") === "Maximize") {
 						$(".cprDashboard-overlay").hide();
 						$(e.currentTarget).attr("title", "Minimize");
-						$(".sDashboardWidgetHeader div.sDashboard-iconcustomDel.sDashboard-trash-icon ").hide();
+						$(".cprDashboardWidgetHeader div.cprDashboard-iconcustomDel.cprDashboard-trash-icon ").hide();
+						$(".cprDashboardWidgetHeader div.cprDashboard-iconcustom.cprDashboard-settings ").hide();
+						$(".cprDashboardWidgetHeader div.cprDashboard-iconcustomInteract ").hide();
+						$(".cprDashboardWidgetHeader div.cprDashboard-iconcustomFilter").hide();
+						
 						self._trigger("widgetMaximized", null, {
 							"widgetDefinition" : widgetDefinition
 						});
 					} else {
 						$(".cprDashboard-overlay").show();
 						$(e.currentTarget).attr("title", "Maximize");
-						$(".sDashboardWidgetHeader div.sDashboard-iconcustomDel.sDashboard-trash-icon ").show();
+						$(".cprDashboardWidgetHeader div.cprDashboard-iconcustomDel.cprDashboard-trash-icon ").show();
+						$(".cprDashboardWidgetHeader div.cprDashboard-iconcustom.cprDashboard-settings ").show();
+						$(".cprDashboardWidgetHeader div.cprDashboard-iconcustomInteract ").show();
+						$(".cprDashboardWidgetHeader div.cprDashboard-iconcustomFilter").show();
 						self._trigger("widgetMinimized", null, {
 							"widgetDefinition" : widgetDefinition
 						});
 					}
 
 					//toggle the class for widget and inner container
-					widget.toggleClass("sDashboardWidgetContainerMaximized");
-					widgetContainer.toggleClass("sDashboardWidgetContentMaximized ");
+					widget.toggleClass("cprDashboardWidgetContainerMaximized");
+					widgetContainer.toggleClass("cprDashboardWidgetContentMaximized ");
 
 					if (widgetDefinition.widgetType === "chart") {
-					var chartArea = widgetContainer.find(" div.sDashboardChart");
+					var chartArea = widgetContainer.find(" div.cprDashboardChart");
 					var layout = {
 								  xaxis: {
 								    tickangle: -45
@@ -155,7 +162,7 @@
 				});
 				
 				//refresh widget click event handler
-				this.element.on("click", ".sDashboardWidgetHeader div.sDashboard-iconcustomRefresh.sDashboard-refresh-icon", function(e) {
+				this.element.on("click", ".cprDashboardWidgetHeader div.cprDashboard-iconcustomRefresh.cprDashboard-refresh-icon", function(e) {
 					var widget = $(e.currentTarget).parents("li:first");
 					var widgetId = widget.attr("id");
 					var widgetDefinition = self._getWidgetContentForId(widgetId, self);
@@ -174,7 +181,7 @@
 				});
 
 				//delete widget by clicking the 'trash' icon on the widget
-				this.element.on("click", ".sDashboardWidgetHeader div.sDashboard-iconcustomDel.sDashboard-trash-icon ", function(e) {
+				this.element.on("click", ".cprDashboardWidgetHeader div.cprDashboard-iconcustomDel.cprDashboard-trash-icon ", function(e) {
 					var widget = $(e.currentTarget).parents("li:first");
 					//show hide effect
 					widget.hide("fold", {}, 300, function() {
@@ -182,43 +189,99 @@
 						$(this).remove();
 						$(".cprDashboard-overlay").hide();
 					});
-				});
+				});				
+				//change graph by clicking the 'settings' icon on the widget
+				this.element.on("click", ".cprDashboardWidgetHeader div.cprDashboard-iconcustom.cprDashboard-settings", function(e) {
+					var widget = $(e.currentTarget).parents("li:first");
+					var widgetId = widget.attr("id");
+					var widgetDefinition = self._getWidgetContentForId(widgetId, self);
 				
-				//delete widget by clicking the 'trash' icon on the widget
-				this.element.on("click", ".sDashboardWidgetHeader div.sDashboard-iconcustom.sDashboard-settings ", function(e) {
-				/*	var widget = $(e.currentTarget).parents("li:first");
-					//show hide effect
-					widget.hide("fold", {}, 300, function() {
-						self._removeWidgetFromWidgetDefinitions(this.id);
-						$(this).remove();
-						$(".cprDashboard-overlay").hide();
-					});*/
-					//console.log("Settings button clicked");
-					var dialog;
-					dialog = $( "#cprdialog").dialog({
-					      autoOpen: false,
-					      height: 400,
-					      width: 350,
-					      modal: true,
-					      buttons: {
-					        //"Change graph": addUser,
-					        Cancel: function() {
-					          dialog.dialog( "close" );
-					        }
-					      },
-					      close: function() {
-					        form[ 0 ].reset();
-					        allFields.removeClass( "ui-state-error" );
-					      }
-					});
+					var graphToThisChart = $("#changeChartForm input:checked" ).val();
 					
-					dialog.dialog( "open" );
+					var chartType = widgetDefinition.chartType ;
+					$('#changeChartForm input:checkbox').bootstrapSwitch('state', false, true);	
+					switch(chartType){
+					case "bar":  $('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
+								 $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
+								 $("#changeChartForm input:checkbox[value='line']").bootstrapSwitch('disabled',false);
+								 $("#changeChartForm input:checkbox[value='area']").bootstrapSwitch('disabled',false);
+								 $("#changeChartForm input:checkbox[value='column']").bootstrapSwitch('disabled',false);
+								 $("#changeChartForm input:checkbox[value='barline']").bootstrapSwitch('disabled',false);
+								 $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('state', true, true);
+								 break;
+					case "line": $('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
+								 $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
+								 $("#changeChartForm input:checkbox[value='bar']").bootstrapSwitch('disabled',false);
+								 $("#changeChartForm input:checkbox[value='barline']").bootstrapSwitch('disabled',false);
+								 $("#changeChartForm input:checkbox[value='area']").bootstrapSwitch('disabled',false);
+								 $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('state', true, true);
+								 break;
+					case "area": $('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
+								 $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
+								 $("#changeChartForm input:checkbox[value='bar']").bootstrapSwitch('disabled',false);
+								 $("#changeChartForm input:checkbox[value='line']").bootstrapSwitch('disabled',false);
+								 $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('state', true, true);
+								 break;
+					case "column":$('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
+								  $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
+								  $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('state', true, true);
+								  $("#changeChartForm input:checkbox[value='bar']").bootstrapSwitch('disabled',false);
+								  break;
+					case "barline":$('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
+								   $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
+								   $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('state', true, true);
+								   $("#changeChartForm input:checkbox[value='line']").bootstrapSwitch('disabled',false);
+								   $("#changeChartForm input:checkbox[value='bar']").bootstrapSwitch('disabled',false);
+								   $("#changeChartForm input:checkbox[value='area']").bootstrapSwitch('disabled',false);
+								   /*$("#changeChartForm input:checkbox[value='column']").bootstrapSwitch('disabled',false);*/
+								   break;
+					case "pie":   $('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
+								  $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
+								  $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('state', true, true);
+								  break;											
+					}
+								
+				/*	if(graphToThisChart === widgetDefinition.chartType){
+						$('#changeChartForm input:checkbox').bootstrapSwitch('state', false, true);
+						$("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('state', true, true);
+					}else{
+						$('#changeChartForm input:checkbox').bootstrapSwitch('state', false, true);
+						$("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('state', true, true);
+					}*/
+					$("#cgwidgetId").text(widgetId );
+					$("#changeChartModal").modal('show');
 					
+					
+				});				
 				
-				});
-
+				//Interaction model of  widget by clicking the 'details' icon on the widget
+				this.element.on("click", ".cprDashboardWidgetHeader div.cprDashboard-iconcustomInteract", function(e) {
+					var widget = $(e.currentTarget).parents("li:first");
+					var widgetId = widget.attr("id");
+					var widgetDefinition = self._getWidgetContentForId(widgetId, self);
+				
+					//var graphToThisChart = $("#changeChartForm input:checked" ).val();
+					
+					var interactionType = widgetDefinition.widgetClick ;
+					$('#interactForm input:checkbox').bootstrapSwitch('state', false, true);	
+					if(interactionType === "details"){
+						$('#interactForm input:checkbox').bootstrapSwitch('disabled',true);
+						$('#interactForm input:checkbox[value="details"]').bootstrapSwitch('disabled',false);
+						$('#interactForm input:checkbox[value="details"]').bootstrapSwitch('state', true, true);
+						
+					}else if(interactionType === "interact"){
+						$('#interactForm input:checkbox').bootstrapSwitch('disabled',true);
+						$('#interactForm input:checkbox[value="interact"]').bootstrapSwitch('disabled',false);
+						$('#interactForm input:checkbox[value="interact"]').bootstrapSwitch('state', true, true);
+						
+					}			
+	
+					$("#interactionModal").modal('show');					
+					
+				});	
+				
 				//table row click
-				this.element.on("click", ".sDashboardWidgetContent table.sDashboardTableView tbody tr", function(e) {
+				this.element.on("click", ".cprDashboardWidgetContent table.cprDashboardTableView tbody tr", function(e) {
 					var selectedRow = $(e.currentTarget);
 
 					if (selectedRow.length > 0) {
@@ -248,68 +311,54 @@
 					 widget.addClass("cprDashboardSmall");
 				 }
 				//create a widget container
-				var widgetContainer = $("<div/>").addClass("sDashboardWidget");
+				var widgetContainer = $("<div/>").addClass("cprDashboardWidget");
 
-				//create a widget header
-				/*var widgetHeader = $("<div/>").addClass("sDashboardWidgetHeader portlet-title");
-				var maximizeButton = $('<a class="btn btn-circle btn-icon-only btn-default fullscreen sDashboard-iconcustomStyle sDashboard-maximize-icon" data-container="false" data-placement="bottom" href="javascript:;"> </a>');
-				var settingsButton = $('<a class="btn btn-circle btn-icon-only btn-default sDashboard-iconcustomStyle sDashboard-settings" href="javascript:;"><i class="icon-wrench"></i></a>');
-				var deleteButton = $('<a class="btn btn-circle btn-icon-only btn-default sDashboard-iconcustomStyle sDashboard-trash-icon" href="javascript:;"><i class="icon-trash"></i></a>');*/
+				var widgetHeader = $("<div/>").addClass("cprDashboardWidgetHeader cprDashboard-clearfix");
+				var maximizeButton = $('<div title="Maximize" class="cprDashboard-iconcustomZoom cprDashboard-maximize-icon "></span>');
+				var settingsButton = $('<div title="Setting" class="cprDashboard-iconcustom cprDashboard-settings "></span>');
+				var deleteButton = $('<div title="Delete" class="cprDashboard-iconcustomDel cprDashboard-trash-icon"></div>');
+				var filterButton = $('<div title="Filter" class="cprDashboard-iconcustomFilter"></div>');
+				var detailsButton = $('<div title="Interact" class="cprDashboard-iconcustomInteract"></div>');
 				
-				var widgetHeader = $("<div/>").addClass("sDashboardWidgetHeader sDashboard-clearfix");
-				var maximizeButton = $('<div title="Maximize" class="sDashboard-iconcustomZoom sDashboard-maximize-icon "></span>');
-				var settingsButton = $('<div title="Setting" class="sDashboard-iconcustom sDashboard-settings "></span>');
-				
-				var deleteButton = $('<div title="Delete" class="sDashboard-iconcustomDel sDashboard-trash-icon"></div>');
-				var filterButton = $('<div title="Filter" class="sDashboard-iconcustomFilter sDashboard-filter-icon"></div>');
-				
-				//maximise button for map
-				//add delete button
-				if (widgetDefinition.widgetType === 'map' && widgetDefinition.graphType === "exploratory" ){
-					//add Maximizebutton
+				//if(widgetDefinition.widgetClick != null){
+				if (widgetDefinition.graphType === "exploratory" && widgetDefinition.chartType !== "bubble"){
 					widgetHeader.append(maximizeButton);
+					widgetHeader.append(deleteButton);
 					widgetHeader.append(settingsButton);
+					widgetHeader.append(filterButton);
+					if(widgetDefinition.widgetClick != "disable"){
+						widgetHeader.append(detailsButton);
+					}					
+					
+				}else if(widgetDefinition.graphType === "exploratory" && widgetDefinition.chartType === "bubble"){
+					widgetHeader.append(maximizeButton);
 					widgetHeader.append(deleteButton);
 					widgetHeader.append(filterButton);
-					
+					if(widgetDefinition.widgetClick != "disable"){
+						widgetHeader.append(detailsButton);
+					}
+				}
+				else if(widgetDefinition.graphType === "normal" && widgetDefinition.widgetType === 'chart' ){
+					//add Maximizebutton
+					widgetHeader.append(maximizeButton);
+					widgetHeader.append(deleteButton);										
 				}
 				else if(widgetDefinition.widgetType === 'map' && widgetDefinition.graphType === "normal" ){
-					//add Maximizebutton
 					widgetHeader.append(maximizeButton);
-					widgetHeader.append(deleteButton);
-										
-				}				
-				else{
-					widgetHeader.append(deleteButton);
-				}
-				
-				
-				//add delete button
-				if (widgetDefinition.widgetType === 'chart' && widgetDefinition.graphType === "exploratory" ){
-					//add Maximizebutton
-					widgetHeader.append(maximizeButton);
-					widgetHeader.append(settingsButton);
-					widgetHeader.append(deleteButton);
-					widgetHeader.append(filterButton);
-					
-				}
-				else if(widgetDefinition.widgetType === 'chart' && widgetDefinition.graphType === "normal" ){
-					//add Maximizebutton
-					widgetHeader.append(maximizeButton);
-					widgetHeader.append(deleteButton);
-										
-				}				
+					widgetHeader.append(deleteButton);										
+				}	
 				else if(widgetDefinition.widgetType === 'table'){
 					//add Maximizebutton
 					widgetHeader.append(maximizeButton);
-					widgetHeader.append(deleteButton);
-					
-				}else{
+					widgetHeader.append(deleteButton);					
+				}
+				else{
 					widgetHeader.append(deleteButton);
 				}
-
+				//}
+				
 				if (widgetDefinition.hasOwnProperty("enableRefresh") && widgetDefinition.enableRefresh) {
-					var refreshButton = $('<div title="Refresh" class="sDashboard-iconcustomRefresh sDashboard-refresh-icon "></div>');
+					var refreshButton = $('<div title="Refresh" class="cprDashboard-iconcustomRefresh cprDashboard-refresh-icon "></div>');
 					//add refresh button
 					widgetHeader.append(refreshButton);
 				}
@@ -318,10 +367,9 @@
 				widgetHeader.append(widgetDefinition.widgetTitle);
 
 				//create a widget content
-				var widgetContent = $("<div/>").addClass("sDashboardWidgetContent");
-
+				var widgetContent = $("<div/>").addClass("cprDashboardWidgetContent");
 				if (widgetDefinition.widgetType === 'table') {
-					var dataTable = $('<table cellpadding="0" cellspacing="0" border="0" class="display sDashboardTableView table table-bordered"></table>');
+					var dataTable = $('<table cellpadding="0" cellspacing="0" border="0" class="display cprDashboardTableView table table-bordered"></table>');
 					widgetContent.append(dataTable);
 					widgetContent.addClass("cprWidgetContentTable");
 				}else if(widgetDefinition.widgetType === 'grid'){
@@ -330,25 +378,21 @@
 					widgetContent.addClass("cprWidgetContentTable");
 				}	else if (widgetDefinition.widgetType === 'chart') {
 				
-					var chart = $('<div/>').addClass("sDashboardChart");
+					var chart = $('<div/>').addClass("cprDashboardChart");
 					if (widgetDefinition.getDataBySelection) {
-						chart.addClass("sDashboardChartSelectable");
+						chart.addClass("cprDashboardChartSelectable");
 //						chart.addClass("chart");
 					} else {
-						chart.addClass("sDashboardChartClickable");
+						chart.addClass("cprDashboardChartClickable");
 					}
 					widgetContent.append(chart);
 				} else if (widgetDefinition.widgetType === 'map') {
-				
 					var map = $('<div/>').addClass("cprDashboardMap");
-				
-					
 					widgetContent.append(map);
 				} 			
 				else {
 					widgetContent.append(widgetDefinition.widgetContent);
 				}
-
 				//add widgetHeader to widgetContainer
 				widgetContainer.append(widgetHeader);
 				//add widgetContent to widgetContainer
@@ -361,18 +405,18 @@
 				return widget;
 			},
 			_refreshRegularWidget : function(widgetDefinition, widget) {
-				var isMaximized = widget.find(".sDashboardWidgetContent").hasClass('sDashboardWidgetContentMaximized');
+				var isMaximized = widget.find(".cprDashboardWidgetContent").hasClass('cprDashboardWidgetContentMaximized');
 				//first remove the content
-				widget.find('.sDashboardWidgetContent').empty().remove();
+				widget.find('.cprDashboardWidgetContent').empty().remove();
 				//then create the content again
-				var widgetContent = $("<div/>").addClass("sDashboardWidgetContent");
+				var widgetContent = $("<div/>").addClass("cprDashboardWidgetContent");
 				//if its maximized add the maximized class
 				if (isMaximized) {
-					widgetContent.addClass('sDashboardWidgetContentMaximized');
+					widgetContent.addClass('cprDashboardWidgetContentMaximized');
 				}
 				widgetContent.append(widgetDefinition.widgetContent);
 				//then append this to the widget again;
-				widget.find(".sDashboardWidget").append(widgetContent);
+				widget.find(".cprDashboardWidget").append(widgetContent);
 			},
 			_refreshTable : function(widgetDefinition, widget) {
 				var selectedDataTable = widget.find('table:first').dataTable();
@@ -384,7 +428,7 @@
 				var id = "li#" + widgetDefinition.widgetId;
 				var table;
 				if(widgetDefinition.widgetType === 'table'){
-					table = this.element.find(id + " table.sDashboardTableView");
+					table = this.element.find(id + " table.cprDashboardTableView");
 					var buttonCommon = {
 					        exportOptions: {
 					            format: {
@@ -403,7 +447,8 @@
 					if (widgetDefinition.setJqueryStyle) {
 						tableDef["bJQueryUI"] = true;
 					}
-					tableDef["dom"] = "<'row' <'col-md-6 col-sm-6'B>><'row'<'col-md-6 col-sm-6'l><'col-md-6 col-sm-12'f>r><'table-scrollable't><'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>"; // horizobtal scrollable datatable
+					// horizontal scrollable datatable
+					tableDef["dom"] = "<'row' <'col-md-6 col-sm-6'B>><'row'<'col-md-6 col-sm-6'l><'col-md-6 col-sm-12'f>r><'table-scrollable't><'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>"; 
 					/*tableDef["buttons"] =  [
 			            $.extend( true, {}, buttonCommon, {
 			                extend: 'excelHtml5'
@@ -411,9 +456,9 @@
 			            $.extend( true, {}, buttonCommon, {
 			                extend: 'pdfHtml5'
 			            })
-			               //{ extend: 'print', className: 'btn dark btn-outline' },
-			                //{ extend: 'pdf', className: 'btn green btn-outline' },
-			                //{ extend: 'excelHtml5', className: 'btn purple btn-outline ' }
+			           	//{ extend: 'print', className: 'btn dark btn-outline' },
+			            //{ extend: 'pdf', className: 'btn green btn-outline' },
+			            //{ extend: 'excelHtml5', className: 'btn purple btn-outline ' }
 			        ];
 					*/
 					tableDef["buttons"] =  [  					
@@ -470,6 +515,275 @@
 					});
 				}
 			},*/
+			redrawChart:function(chartArea,data,layout,config)
+			{
+				Plotly.animate(chartArea[0], { data, layout,config} ,{
+					transition: {  
+						duration: 2000,
+						easing: 'cubic-in-out' 
+							} 
+				});
+				//Plotly.newPlot(chartArea[0], data , layout,config);
+				Plotly.redraw(chartArea[0]);				
+				return;
+			},
+			changeTheme: function(themeSelected) {			
+				var _dashboardData = this.options.dashboardData;
+				var i;
+				var layoutNormal ={						
+						paper_bgcolor:'#FFFFFF',
+						plot_bgcolor:'#FFFFFF'		
+						
+				};				
+				var layoutBackground ={
+						paper_bgcolor:'#E0E0E0',
+						plot_bgcolor:'#E0E0E0'						
+				};
+				var theme1=[{color : '#FF0000',opacity : 0.6},{color : '#1ABC9C',opacity : 0.6},{color : '#1ABC9C',opacity : 0.6}];
+				var theme2=[{color : '#138D75',opacity : 0.6},{color : '#EC7063',opacity : 0.6},{color : '#2C3E50',opacity : 0.6}
+				,{color : '#F4D03F',opacity : 0.6},{color : '#95A5A6',opacity : 0.6}];
+				for ( i = 0; i < _dashboardData.length; i++) {
+					var widgetDefinition = _dashboardData[i];
+					var id = "li#" + widgetDefinition.widgetId;
+					var chartArea;
+					var data;
+					var layout;
+					var config;
+					var chart;
+					chartArea = this.element.find(id + " div.cprDashboardChart");
+					if (widgetDefinition.widgetType === 'chart') {						
+					var j=0;
+					for(j=0;j<widgetDefinition.widgetContent.data.length;j++)
+					{
+						if(widgetDefinition.chartType === 'bar' 
+							|| widgetDefinition.chartType ==='line'
+							||widgetDefinition.chartType === 'barline' 
+							||widgetDefinition.chartType === 'area'
+							||widgetDefinition.chartType === 'column'){
+						if(typeof widgetDefinition.widgetContent.data[j].marker != 'undefined'){
+							if(themeSelected==="theme1"){
+								widgetDefinition.widgetContent.data[j].marker = theme1[j];										
+							}else if(themeSelected==="theme2"){
+								widgetDefinition.widgetContent.data[j].marker = theme2[j];
+							}else if(themeSelected==="theme3"){
+								//widgetDefinition.widgetContent.data[j].marker = theme3[j];
+							}
+						}
+						}else if(widgetDefinition.chartType === 'pie' && (typeof widgetDefinition.widgetContent.data[j].marker != 'undefined')){
+							if(themeSelected==="theme1"){
+								if(j===0){
+									widgetDefinition.widgetContent.data[j].marker.colors=[];
+									for(var k=0;k<theme1.length;k++){
+										widgetDefinition.widgetContent.data[j].marker.colors.push(theme1[k].color);
+									}
+								}							
+								
+							}else if(themeSelected==="theme2"){
+								if(j===0){
+									widgetDefinition.widgetContent.data[j].marker.colors=[];
+									for(var k=0;k<theme2.length;k++){
+										widgetDefinition.widgetContent.data[j].marker.colors.push(theme2[k].color);
+									}
+								}
+							
+							}
+						}
+					}	
+					if(widgetDefinition.widgetContent.layout.length!=0)
+					{
+						if(typeof themeSelected != 'undefined'){
+						if(themeSelected==="theme1"){
+							widgetDefinition.widgetContent.layout.paper_bgcolor = layoutBackground.paper_bgcolor;
+							widgetDefinition.widgetContent.layout.plot_bgcolor = layoutBackground.plot_bgcolor;
+						}else {
+							widgetDefinition.widgetContent.layout.paper_bgcolor = layoutNormal.paper_bgcolor;
+							widgetDefinition.widgetContent.layout.plot_bgcolor = layoutNormal.plot_bgcolor;
+						}
+						}
+					}						
+						data = widgetDefinition.widgetContent.data;
+						layout = widgetDefinition.widgetContent.layout;
+						config = widgetDefinition.widgetContent.config;
+						this.redrawChart(chartArea,data,layout,config);
+						//$(".js-plotly-plot .plotly .modebar").css("background","#E0E0E0 !important");
+						if(themeSelected==="theme1"){
+							$('.js-plotly-plot .plotly .modebar').attr('style', 'background: #E0E0E0 !important');
+							$('.cprDashboardTableView tbody tr:nth-child(odd)').attr('style', 'background-color: #E0E0E0 !important');
+							$('.cprDashboardTableView tbody tr:nth-child(even)').attr('style', 'background-color: #1ABC9C !important');
+						}else{
+							$('.js-plotly-plot .plotly .modebar').attr('style', 'background: #FFFFF !important');
+							$('.cprDashboardTableView tbody tr:nth-child(odd)').attr('style', 'background-color: #138D75 !important');
+							$('.cprDashboardTableView tbody tr:nth-child(even)').attr('style', 'background-color: #EC7063 !important');
+						}
+					}				
+				}			
+			},
+			widgetClick:function(interactionType) {
+			
+			
+			},
+			changeChart: function(changeChartObject) {
+			
+				var widgetDefinition = this._getWidgetContentForId(changeChartObject.widgetId, this);
+				var id = "li#" + widgetDefinition.widgetId;
+				var chartArea;
+				var data;
+				var layout;
+				var config;
+				var chart;
+				chartArea = this.element.find(id + " div.cprDashboardChart");
+				
+				if (widgetDefinition.widgetType === 'chart') {
+					
+					data = widgetDefinition.widgetContent.data;
+					layout = widgetDefinition.widgetContent.layout;
+					config = widgetDefinition.widgetContent.config;
+					var layout = {
+							  xaxis: {
+							    tickangle: -45
+							  },
+							  barmode: 'group'
+							};
+
+					if(widgetDefinition.graphType === 'normal'){
+						
+						var chart = c3.generate({bindto:chartArea[0],data:widgetDefinition.widgetContent.data});
+						
+					}else{						
+					//code for changing the bar to scatter (line graph) 
+					//bar chart 	
+					if(widgetDefinition.chartType === 'bar' && changeChartObject.chartTo ==='line'
+						||widgetDefinition.chartType === 'area' && changeChartObject.chartTo ==='line'
+						||widgetDefinition.chartType === 'barline' && changeChartObject.chartTo ==='line'){ 
+						var i=0;
+						for(i=0;i<widgetDefinition.widgetContent.data.length;i++)
+						{
+							widgetDefinition.widgetContent.data[i].type = 'scatter';
+							widgetDefinition.widgetContent.data[i].mode = null;
+							widgetDefinition.widgetContent.data[i].fill = null;
+						}	
+													
+					}
+					else if(widgetDefinition.chartType === 'line' && changeChartObject.chartTo ==='bar'
+						||widgetDefinition.chartType === 'barline' && changeChartObject.chartTo ==='bar'){ 
+						var i=0;
+						for(i=0;i<widgetDefinition.widgetContent.data.length;i++)
+						{
+								widgetDefinition.widgetContent.data[i].type = 'bar';
+						}	
+							
+					}					
+					else if(widgetDefinition.chartType === 'line' && changeChartObject.chartTo ==='barline'
+						||widgetDefinition.chartType === 'bar' && changeChartObject.chartTo ==='barline'
+						||widgetDefinition.chartType === 'area' && changeChartObject.chartTo ==='barline'){ 
+						var widgetLength =widgetDefinition.widgetContent.data.length;
+						if(widgetLength === 2)
+						{
+							widgetDefinition.widgetContent.data[0].type = 'bar';
+							widgetDefinition.widgetContent.data[1].type = 'scatter';
+							
+						}	else if(widgetLength === 3){
+							widgetDefinition.widgetContent.data[0].type = 'bar';
+							widgetDefinition.widgetContent.data[1].type = 'scatter';
+							widgetDefinition.widgetContent.data[2].type = 'bar';						
+						}
+						if(widgetDefinition.chartType === 'bar'){
+						if(widgetDefinition.widgetContent.layout.length!=0)
+							{
+									widgetDefinition.widgetContent.layout.barmode = null;
+							}
+						}
+							
+					}
+					else if(widgetDefinition.chartType === 'line' && changeChartObject.chartTo ==='area' ||
+							widgetDefinition.chartType === 'bar' && changeChartObject.chartTo ==='area'
+							||widgetDefinition.chartType === 'barline' && changeChartObject.chartTo ==='area'){ 
+						var i=0;
+						for(i=0;i<widgetDefinition.widgetContent.data.length;i++)
+						{
+								widgetDefinition.widgetContent.data[i].type = 'scatter';
+								widgetDefinition.widgetContent.data[i].mode = 'lines';
+								widgetDefinition.widgetContent.data[i].fill = 'tonexty';
+								
+						}	
+							
+					}
+					//area to line
+					else if(widgetDefinition.chartType === 'area' && changeChartObject.chartTo ==='line'){ 
+						var i=0;
+						for(i=0;i<widgetDefinition.widgetContent.data.length;i++)
+						{
+								widgetDefinition.widgetContent.data[i].type = 'scatter';
+								widgetDefinition.widgetContent.data[i].mode = null;
+								widgetDefinition.widgetContent.data[i].fill = null;
+						}	
+							
+					}
+					else if(widgetDefinition.chartType === 'area' && changeChartObject.chartTo ==='bar'){ 
+						var i=0;
+						for(i=0;i<widgetDefinition.widgetContent.data.length;i++)
+						{
+								widgetDefinition.widgetContent.data[i].type = 'bar';
+						}	
+							
+					}
+					/** bar to column chart **/
+					else if(widgetDefinition.chartType === 'bar' && changeChartObject.chartTo === 'column'
+						||widgetDefinition.chartType === 'barline' && changeChartObject.chartTo === 'column'){ 
+						if(widgetDefinition.widgetContent.layout.length!=0)
+						{
+								widgetDefinition.widgetContent.layout.barmode = 'group';
+						}
+						var i=0;
+						for(i=0;i<widgetDefinition.widgetContent.data.length;i++)
+						{
+								widgetDefinition.widgetContent.data[i].orientation = 'h';
+								widgetDefinition.widgetContent.data[i].type = 'bar';
+								
+						}
+							
+					}
+					
+					else if(widgetDefinition.chartType === 'column' && changeChartObject.chartTo ==='bar'){ 
+						var i=0;
+						for(i=0;i<widgetDefinition.widgetContent.data.length;i++)
+						{
+								widgetDefinition.widgetContent.layout.barmode = 'stack';
+						}	
+						var i=0;
+						for(i=0;i<widgetDefinition.widgetContent.data.length;i++)
+						{
+								widgetDefinition.widgetContent.data[i].orientation = null;
+								
+						}
+							
+					}	
+						data = widgetDefinition.widgetContent.data;
+						layout = widgetDefinition.widgetContent.layout;
+						this.redrawChart(chartArea,data,layout,config);
+						
+					}					
+					if (widgetDefinition.getDataBySelection) {
+						
+						this._bindSelectEvent(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+					} else {
+						if(widgetDefinition.graphType === 'exploratory'){
+							this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+						}
+					}
+				}
+				else if(widgetDefinition.widgetType === 'static')
+					{
+						chart = new Chart(chartArea[0], widgetDefinition.widgetId, widgetDefinition.widgetContent.data);
+						
+						if (widgetDefinition.getDataBySelection) {
+							this._bindSelectEvent(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+						} else {
+							this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+						}
+					}	
+				
+			},
 			_refreshChart: function(widgetDefinition) {
 				var id = "li#" + widgetDefinition.widgetId;
 				var chartArea;
@@ -477,7 +791,7 @@
 				var layout;
 				var config;
 				var chart;
-				chartArea = this.element.find(id + " div.sDashboardChart");
+				chartArea = this.element.find(id + " div.cprDashboardChart");
 				
 				if (widgetDefinition.widgetType === 'chart') {
 					
@@ -497,27 +811,8 @@
 						
 					}else{						
 						
+						this.redrawChart(chartArea,data,layout,config);
 						
-						//code for changing the bar to scatter (line graph) 
-						
-						/*if(widgetDefinition.chartType === 'bar'){ 
-							var i=0;
-							for(i=0;i<widgetDefinition.widgetContent.data.length;i++)
-								{
-								widgetDefinition.widgetContent.data[i].type = 'scatter';
-								}
-							
-							Plotly.animate(chartArea[0], { data, layout,config} ,{
-								transition: {  
-									duration: 2000,
-									easing: 'cubic-in-out' 
-										} 
-							});
-							//Plotly.newPlot(chartArea[0], widgetDefinition.widgetContent.data , widgetDefinition.widgetContent.layout,widgetDefinition.widgetContent.config);
-							//Plotly.redraw(chartArea[0]);
-						}*/
-						Plotly.newPlot(chartArea[0], widgetDefinition.widgetContent.data , widgetDefinition.widgetContent.layout,widgetDefinition.widgetContent.config);
-						Plotly.redraw(chartArea[0]);
 					}					
 					if (widgetDefinition.getDataBySelection) {
 						
@@ -565,7 +860,7 @@
 				//console.log(_dashboardData);
 				//console.log(_dashboardData.length);				
 				
-				chartArea = this.element.find(id + " div.sDashboardChart");
+				chartArea = this.element.find(id + " div.cprDashboardChart");
 			//	var refreshedData = widgetDefinition.refreshCallBack.apply(self, [widgetDefinition.linkedWidgets]);
 				//widgetDefinition.widgetContent = refreshedData;
 				if (WidgetDefinitionToChange.widgetType === 'chart') {
@@ -656,7 +951,7 @@
 				var layout;
 				var config;
 				var chart;
-				chartArea = this.element.find(id + " div.sDashboardChart");
+				chartArea = this.element.find(id + " div.cprDashboardChart");
 				
 				if (widgetDefinition.widgetType === 'chart') {
 					
@@ -719,9 +1014,18 @@
 				
 				if (widgetDefinition.widgetType === 'map') {
 					
-					var targetSVG = "M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z";
+					//var targetSVG = "M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z";
 					var map = AmCharts.makeChart(mapArea[0], widgetDefinition.widgetContent);
-					
+					map.addListener("click", event => {
+				        // find out the coordinates of under mouse cursor
+				        var info = event.chart.getDevInfo();
+				    
+				        // print in console as well
+				        console.log({
+				           "latitude": info.latitude,
+				           "longitude": info.longitude
+				        });
+				    });
 
 					/*if(widgetDefinition.graphType === 'normal'){
 						
@@ -822,7 +1126,7 @@
 			_bindChartEvents : function(chartArea, widgetId, widgetDefinition, context) {
 				var myPlot = chartArea;
 				var id = "li#" + widgetDefinition.widgetId;
-				var chartArea = this.element.find(id + " div.sDashboardChart");
+				var chartArea = this.element.find(id + " div.cprDashboardChart");
 				myPlot.on('plotly_click', function(data){					
 					 var pts = '';
 					 for(var i=0; i < data.points.length; i++){
@@ -833,17 +1137,28 @@
 				   	var evtObj = {};
 					evtObj.clickedWidgetId = widgetId;
 					evtObj.dataPoints = pts;
-				   // context._trigger("plotclicked", null, evtObj);	
-					
-					context._interactChart(widgetDefinition,evtObj);
-				});		
-				
+					if(null!= widgetDefinition.widgetClick){
+					if(widgetDefinition.widgetClick === "details"){
+							
+						context._trigger("plotclicked", null, evtObj);	
+						
+					}else if(widgetDefinition.widgetClick === "interact"){
+						
+							context._interactChart(widgetDefinition,evtObj);
+						}
+					}
+					/*					
+					if(widgetId==='id015'||widgetId==='id016'||widgetId==='id017'
+						||widgetId==='id018'){						
+					}else{						
+						
+					}*/					
+				});				
 			},
 			_bindChartEventsC3 : function(chartArea, widgetId, widgetDefinition, context) {
 				var myPlot = chartArea;
 				var id = "li#" + widgetDefinition.widgetId;
-				var chartArea = this.element.find(id + " div.sDashboardChart");
-			
+				var chartArea = this.element.find(id + " div.cprDashboardChart");			
 			/*	myPlot.on('onclick', function(data,irt){					
 					 var pts = '';
 					 for(var i=0; i < data.points.length; i++){
@@ -926,7 +1241,6 @@
 					this._removeWidgetFromWidgetDefinitions(widgetId);
 				}
 			},
-
 			//get the wigetDefinitions
 			getDashboardData : function() {
 				return this.options.dashboardData;

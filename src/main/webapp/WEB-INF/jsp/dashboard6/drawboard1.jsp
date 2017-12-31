@@ -1,80 +1,45 @@
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-
 <!DOCTYPE html>
-
 <html lang="en">
-<!--<![endif]-->
-<!-- BEGIN HEAD -->
-
 <head>
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta content="width=device-width, initial-scale=1" name="viewport" />
-<meta
-	content="Preview page of Metronic Admin Theme #6 for statistics, charts, recent events and reports"
-	name="description" />
 <meta content="" name="author" />
-<!-- BEGIN LAYOUT FIRST STYLES -->
-<!-- <link href="//fonts.googleapis.com/css?family=Oswald:400,300,700"
-	rel="stylesheet" type="text/css" /> -->
-<link href="assets/css/Oswald-font.css"	rel="stylesheet" type="text/css" />
-<!-- END LAYOUT FIRST STYLES -->
 <!-- BEGIN GLOBAL MANDATORY STYLES -->
-<!-- <link
-	href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all"	rel="stylesheet" type="text/css" /> -->
-<link
-	href="assets/dash6/global/plugins/font-awesome/css/font-awesome.min.css"	rel="stylesheet" type="text/css" />
-<link
-	href="assets/dash6/global/plugins/simple-line-icons/simple-line-icons.min.css"	rel="stylesheet" type="text/css" />
+<link href="assets/dash6/global/plugins/font-awesome/css/font-awesome.min.css"	rel="stylesheet" type="text/css" />
+<link href="assets/dash6/global/plugins/simple-line-icons/simple-line-icons.min.css"	rel="stylesheet" type="text/css" />
 <link href="assets/dash6/global/plugins/bootstrap/css/bootstrap.min.css"	rel="stylesheet" type="text/css" />
-<link
-	href="assets/dash6/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css"	rel="stylesheet" type="text/css" />
+<link href="assets/dash6/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css"	rel="stylesheet" type="text/css" />
+
 <!-- END GLOBAL MANDATORY STYLES -->
 <!-- BEGIN PAGE LEVEL PLUGINS -->
-<link
-	href="assets/dash6/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css" rel="stylesheet" type="text/css" />
+<link href="assets/dash6/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css" rel="stylesheet" type="text/css" />
 <link href="assets/dash6/global/plugins/morris/morris.css" 	rel="stylesheet" type="text/css" />
-<link
-	href="assets/dash6/global/plugins/fullcalendar/fullcalendar.min.css" 	rel="stylesheet" type="text/css" />
-<link href="assets/dash6/global/plugins/jqvmap/jqvmap/jqvmap.css" 	rel="stylesheet" type="text/css" />
+<link href="assets/dash6/global/plugins/fullcalendar/fullcalendar.min.css" 	rel="stylesheet" type="text/css" />
 <!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN THEME GLOBAL STYLES -->
-<link href="assets/dash6/global/css/components-md.min.css"
-	rel="stylesheet" id="style_components" type="text/css" />
+<link href="assets/dash6/global/css/components-md.min.css" rel="stylesheet" id="style_components" type="text/css" />
 <link href="assets/dash6/global/css/plugins-md.min.css" rel="stylesheet" 	type="text/css" />
 <!-- END THEME GLOBAL STYLES -->
 <!-- BEGIN THEME LAYOUT STYLES -->
 <link href="assets/dash6/layouts/layout6/css/layout.css" 	rel="stylesheet" type="text/css" />
-<link href="assets/dash6/layouts/layout6/css/custom.css" 	rel="stylesheet" type="text/css" />
-	
+<link href="assets/dash6/layouts/layout6/css/custom.css" 	rel="stylesheet" type="text/css" />	
 <!-- datatable CSS  -->
-<!-- <link href="assets/dash6/css/datatable/jquery.dataTables.min.css" rel="stylesheet" type="text/css" /> -->
-<link href="assets/dash6/css/datatable/buttons.dataTables.min.css"
-	rel="stylesheet" type="text/css" />
-<link href="assets/dash6/css/datatable/datatables.css" rel="stylesheet"
-	type="text/css" />
-
-
+<link href="assets/dash6/css/datatable/buttons.dataTables.min.css"	rel="stylesheet" type="text/css" />
+<link href="assets/dash6/css/datatable/datatables.css" rel="stylesheet"	type="text/css" />
 <!-- END THEME LAYOUT STYLES -->
 <link rel="shortcut icon" href="favicon.ico" />
 </head>
 <!--     CPR Dashboard     -->
 <!-- load jquery ui css theme -->
-<!-- <link type="text/css" href="assets/dash6/css/jquery-ui.css"
-	rel="stylesheet" /> -->
-
+<!-- <link type="text/css" href="assets/dash6/css/jquery-ui.css" rel="stylesheet" /> -->
 <link type="text/css" href="assets/dash6/css/chosen.min.css" 	rel="stylesheet" />
-	
-
-<!-- <link type="text/css" href="assets/dash6/css/jquery-ui.css" 	rel="stylesheet" /> -->
-
 <link type="text/css" href="assets/dash6/css/jqueryNw/jquery-ui-1.12.1.min.css" 	rel="stylesheet" />
-<!-- amcharts map -->	
- <!-- <link rel="stylesheet" href="assets/dash6/js/amchartsMap/export.css" type="text/css" media="all" /> 
- -->
+<!-- amcharts map export css-->	
+<!-- <link rel="stylesheet" href="assets/dash6/js/amchartsMap/export.css" type="text/css" media="all" /> -->
 <!-- <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />	 -->
 <!-- load the dashboard css -->
 <link href="assets/dash6/css/cprDashboard.css" rel="stylesheet">
@@ -84,45 +49,19 @@
 <link href="assets/dash6/css/toastr/toastr.css" rel="stylesheet" />
 <!-- C3 css -->
 <link href="assets/dash6/css/c3/c3.css" rel="stylesheet" />
-<!--     sDashboard     -->
+<link href="assets/dash6/global/plugins/bootstrap-sweetalert/sweetalert.css"	rel="stylesheet" type="text/css" /> 
+<!-- CPR Dashboard Custom     -->
 <!-- END HEAD -->
-<style>
-/*
-if it's not present, don't show loader */
-.no-js #loader {
-	display: none;
-}
-
-.js #loader {
-	display: block;
-	position: absolute;
-	left: 100px;
-	top: 0;
-}
-
-.se-pre-con {
-	position: fixed;
-	left: 0px;
-	top: 0px;
-	width: 100%;
-	height: 100%;
-	z-index: 9999;
-	background: url(assets/img/loader-128x/Preloader_3.gif) center no-repeat
-		#fff;
-}
-</style> 
 <script src="assets/dash6/js/jqueryNw/jquery-1.12.4.js"	type="text/javascript"></script>
-<script src="assets/js/modernizr-2.8.2.js"	type="text/javascript"></script>
 <script type="text/javascript">
-	// Wait for window load
-	$(window).load(function() {
+// Wait for window load
+$(window).load(function() {
 		// Animate loader off screen
 		$(".se-pre-con").fadeOut("slow");
 		
-	});
+});
 </script> 
-<div class="se-pre-con"></div> 
-
+<div class="se-pre-con"></div>
 <body class="page-md">
 	<!-- BEGIN HEADER -->
 	<header class="page-header">
@@ -149,87 +88,87 @@ if it's not present, don't show loader */
 						</form>
 						<!-- END HEADER SEARCH BOX -->
 						<!-- BEGIN GROUP NOTIFICATION -->
-						<div class="btn-group-notification btn-group"
-							id="header_notification_bar">
-							<button type="button" class="btn md-skip dropdown-toggle"
-								data-toggle="dropdown" data-hover="dropdown"
-								data-close-others="true">
-								<span class="badge">9</span>
-							</button>
-							<ul class="dropdown-menu-v2">
-								<li class="external">
-									<h3>
-										<span class="bold">12 pending</span> notifications
-									</h3> <a href="#">view all</a>
-								</li>
-								<li>
-									<ul class="dropdown-menu-list scroller"
-										style="height: 250px; padding: 0;" data-handle-color="#637283">
-										<li><a href="javascript:;"> <span class="details">
-													<span
-													class="label label-sm label-icon label-success md-skip">
-														<i class="fa fa-plus"></i>
-												</span> New user registered.
-											</span> <span class="time">just now</span>
-										</a></li>
-										<li><a href="javascript:;"> <span class="details">
-													<span
-													class="label label-sm label-icon label-danger md-skip">
-														<i class="fa fa-bolt"></i>
-												</span> Server #12 overloaded.
-											</span> <span class="time">3 mins</span>
-										</a></li>
-										<li><a href="javascript:;"> <span class="details">
-													<span
-													class="label label-sm label-icon label-warning md-skip">
-														<i class="fa fa-bell-o"></i>
-												</span> Server #2 not responding.
-											</span> <span class="time">10 mins</span>
-										</a></li>
-										<li><a href="javascript:;"> <span class="details">
-													<span class="label label-sm label-icon label-info md-skip">
-														<i class="fa fa-bullhorn"></i>
-												</span> Application error.
-											</span> <span class="time">14 hrs</span>
-										</a></li>
-										<li><a href="javascript:;"> <span class="details">
-													<span
-													class="label label-sm label-icon label-danger md-skip">
-														<i class="fa fa-bolt"></i>
-												</span> Database overloaded 68%.
-											</span> <span class="time">2 days</span>
-										</a></li>
-										<li><a href="javascript:;"> <span class="details">
-													<span
-													class="label label-sm label-icon label-danger md-skip">
-														<i class="fa fa-bolt"></i>
-												</span> A user IP blocked.
-											</span> <span class="time">3 days</span>
-										</a></li>
-										<li><a href="javascript:;"> <span class="details">
-													<span
-													class="label label-sm label-icon label-warning md-skip">
-														<i class="fa fa-bell-o"></i>
-												</span> Storage Server #4 not responding dfdfdfd.
-											</span> <span class="time">4 days</span>
-										</a></li>
-										<li><a href="javascript:;"> <span class="details">
-													<span class="label label-sm label-icon label-info md-skip">
-														<i class="fa fa-bullhorn"></i>
-												</span> System Error.
-											</span> <span class="time">5 days</span>
-										</a></li>
-										<li><a href="javascript:;"> <span class="details">
-													<span
-													class="label label-sm label-icon label-danger md-skip">
-														<i class="fa fa-bolt"></i>
-												</span> Storage server failed.
-											</span> <span class="time">9 days</span>
-										</a></li>
-									</ul>
-								</li>
+				<div class="btn-group-notification btn-group"
+					id="header_notification_bar">
+					<button type="button" class="btn md-skip dropdown-toggle"
+						data-toggle="dropdown" data-hover="dropdown"
+						data-close-others="true">
+						<span class="badge">9</span>
+					</button>
+					<ul class="dropdown-menu-v2">
+						<li class="external">
+							<h3>
+								<span class="bold">12 pending</span> notifications
+							</h3> <a href="#">view all</a>
+						</li>
+						<li>
+							<ul class="dropdown-menu-list scroller"
+								style="height: 250px; padding: 0;" data-handle-color="#637283">
+								<li><a href="javascript:;"> <span class="details">
+											<span
+											class="label label-sm label-icon label-success md-skip">
+												<i class="fa fa-plus"></i>
+										</span> New user registered.
+									</span> <span class="time">just now</span>
+								</a></li>
+								<li><a href="javascript:;"> <span class="details">
+											<span
+											class="label label-sm label-icon label-danger md-skip">
+												<i class="fa fa-bolt"></i>
+										</span> Server #12 overloaded.
+									</span> <span class="time">3 mins</span>
+								</a></li>
+								<li><a href="javascript:;"> <span class="details">
+											<span
+											class="label label-sm label-icon label-warning md-skip">
+												<i class="fa fa-bell-o"></i>
+										</span> Server #2 not responding.
+									</span> <span class="time">10 mins</span>
+								</a></li>
+								<li><a href="javascript:;"> <span class="details">
+											<span class="label label-sm label-icon label-info md-skip">
+												<i class="fa fa-bullhorn"></i>
+										</span> Application error.
+									</span> <span class="time">14 hrs</span>
+								</a></li>
+								<li><a href="javascript:;"> <span class="details">
+											<span
+											class="label label-sm label-icon label-danger md-skip">
+												<i class="fa fa-bolt"></i>
+										</span> Database overloaded 68%.
+									</span> <span class="time">2 days</span>
+								</a></li>
+								<li><a href="javascript:;"> <span class="details">
+											<span
+											class="label label-sm label-icon label-danger md-skip">
+												<i class="fa fa-bolt"></i>
+										</span> A user IP blocked.
+									</span> <span class="time">3 days</span>
+								</a></li>
+								<li><a href="javascript:;"> <span class="details">
+											<span
+											class="label label-sm label-icon label-warning md-skip">
+												<i class="fa fa-bell-o"></i>
+										</span> Storage Server #4 not responding dfdfdfd.
+									</span> <span class="time">4 days</span>
+								</a></li>
+								<li><a href="javascript:;"> <span class="details">
+											<span class="label label-sm label-icon label-info md-skip">
+												<i class="fa fa-bullhorn"></i>
+										</span> System Error.
+									</span> <span class="time">5 days</span>
+								</a></li>
+								<li><a href="javascript:;"> <span class="details">
+											<span
+											class="label label-sm label-icon label-danger md-skip">
+												<i class="fa fa-bolt"></i>
+										</span> Storage server failed.
+									</span> <span class="time">9 days</span>
+								</a></li>
 							</ul>
-						</div>
+						</li>
+					</ul>
+				</div>
 						<!-- END GROUP NOTIFICATION -->
 						<!-- BEGIN USER PROFILE -->
 						<div class="btn-group-img btn-group">
@@ -293,11 +232,9 @@ if it's not present, don't show loader */
 								class="fa fa-circle"></i>
 						</button>
 						<ul class="dropdown-menu-v2">
-							<li><a href="start.html">Application</a></li>
-							<li><a href="start.html">Reports</a></li>
-							<li><a href="start.html">Templates</a></li>
-							<li><a href="start.html">Settings</a></li>
-						</ul>
+							<li class="menuItem"><a href="#">Themes</a></li>
+						</ul>				
+					
 					</div>
 					<!-- END DROPDOWN AJAX MENU -->
 					<!-- BEGIN MENU TOGGLER -->
@@ -367,40 +304,7 @@ if it's not present, don't show loader */
 						</a>
 					</div>
 				</div>
-				<script>
-				  $( function() {
-				    var dateFormat = "mm/dd/yy",
-				      from = $( "#from" )
-				        .datepicker({
-				          defaultDate: "+1w",
-				          changeMonth: true,
-				          numberOfMonths: 3,
-				        })
-				        .on( "change", function() {
-				          to.datepicker( "option", "minDate", getDate( this ));
-				        }),
-				      to = $( "#to" ).datepicker({
-				        defaultDate: "+1w",
-				        changeMonth: true,
-				        numberOfMonths: 3
-				      })
-				      .on( "change", function() {
-				        from.datepicker( "option", "maxDate", getDate( this ) );
-				      });
-				 
-				    function getDate( element ) {
-				      var date;
-				      try {
-				        date = $.datepicker.parseDate( dateFormat, element.value );
-				      } catch( error ) {
-				        date = null;
-				      }
-				 
-				      return date;
-				    }
-				  } );
-				  </script>
-				
+			
 				<script src="assets/dash6/js/Dropdown/chosen.jquery.min.js"></script>
 				
 				<div class="clearfix"></div>
@@ -411,21 +315,135 @@ if it's not present, don't show loader */
 						<!--     CPR Dashboard -->						
 						<ul id="cprDashboard">
 						</ul>
-						<div id="cprdialog" title="Change graphs">						
-						<%--  	<form>
-    					 		<fieldset>
-      							<label for="name">Name</label>
-      							<input type="text" name="name" id="name" value="Jane Smith" class="text ui-widget-content ui-corner-all">
-      							<label for="email">Email</label>
-      							<input type="text" name="email" id="email" value="jane@smith.com" class="text ui-widget-content ui-corner-all">
-      							<label for="password">Password</label>
-      							<input type="password" name="password" id="password" value="xxxxxxx" class="text ui-widget-content ui-corner-all">
- 
-      							<!-- Allow form submission with keyboard without duplicating the dialog button -->
-     							 <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
-    							</fieldset>
-  							</form> --%>
+					</div>
+					<div id="changeChartModal" class="modal fade" role="dialog" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<a href="javascript:;" class="close" data-dismiss="modal" aria-hidden="true"></a>
+								<p><h4 class="modal-title">Change Graph of widget - <label  for="cgwidgetId" id="cgwidgetId" value=""/></h4></p>
+							</div>
+							<div class="modal-body">
+								<form action="#" id="changeChartForm" class="form-inline">
+									<div class="form-group modal-group">
+										<label class="control-label col-md-6">Line chart</label>
+										<div class="col-sm-3 col-md-3">
+										<input type="checkbox" class="make-switch modal-input"  data-on-color="primary" data-off-color="danger" value="line" id="line"> </div>
+									</div>
+									<div class="form-group modal-group">
+										<label class="control-label col-md-6">Bar chart</label>
+										<div class="col-sm-3 col-md-3">
+										<input type="checkbox" class="make-switch modal-input"  data-on-color="primary" data-off-color="danger" value="bar" id="bar"> </div>
+								   </div>
+									<div class="form-group  modal-group">
+										<label class="control-label col-md-6">Pie chart</label>
+										<div class="col-sm-3 col-md-3">
+										<input type="checkbox" disabled class="make-switch modal-input" data-on-color="primary" data-off-color="danger" value="pie" id="pie"/>
+										<!--  <input type="checkbox" disabled class="make-switch modal-input" data-on-color="primary" data-off-color="danger" value="pie" id="pie"/> -->
+									  <!--       <input type="checkbox" checked readonly class="make-switch" /> -->
+										 </div>
+									</div>
+									<div class="form-group  modal-group">
+										<label class="control-label col-md-6">Area chart</label>
+										<div class="col-sm-3 col-md-3">
+										<input type="checkbox"  class="make-switch modal-input" data-on-color="primary" data-off-color="danger" value="area" id="area"/>
+										</div>
+									</div>
+									<div class="form-group modal-group">
+										<label class="control-label col-md-6">Column chart</label>
+										<div class="col-sm-3 col-md-3">
+										<input type="checkbox"  class="make-switch modal-input" data-on-color="primary" data-off-color="danger" value="column" id="column"/>
+										</div>
+									</div>
+									<div class="form-group modal-group">
+										<label class="control-label col-md-6">Bar-line chart</label>
+										<div class="col-sm-3 col-md-3">
+										<input type="checkbox"  class="make-switch modal-input" data-on-color="primary" data-off-color="danger" value="barline" id="barline"/>
+										</div>
+									</div>
+									<div class="form-group modal-group">
+										<label class="control-label col-md-6">Doughnut chart</label>
+										<div class="col-sm-3 col-md-3">
+										<input type="checkbox" disabled class="make-switch modal-input" data-on-color="primary" data-off-color="danger" value="pie" id="doughnut"/>
+										</div>
+									</div>
+								</form>
+							</div>
+							<div class="modal-footer">
+								<a href="javascript:;" class="btn grey-salsa btn-outline" data-dismiss="modal">Close</a>
+								<button id="applyChanges" class="btn green">
+									<i class="fa fa-check"></i> Apply changes</button>
+							</div>
 						</div>
+					</div>
+					</div>
+					
+					<div id="changeThemeModal" class="modal fade" role="dialog" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<a href="javascript:;" class="close" data-dismiss="modal" aria-hidden="true"></a>
+								<p><h4 class="modal-title">Change theme</h4></p>
+							</div>
+							<div class="modal-body">
+								<form action="#" id="changeThemeForm" class="form-inline">
+									<div class="form-group modal-group">
+										<label class="control-label col-md-6">Theme 1</label>
+										<div class="col-sm-3 col-md-3">
+										<input type="checkbox" class="make-switch modal-input"  data-on-color="primary" data-off-color="danger" value="theme1" id="theme1"> </div>
+									</div>
+									<div class="form-group modal-group">
+										<label class="control-label col-md-6">Theme 2</label>
+										<div class="col-sm-3 col-md-3">
+										<input type="checkbox" class="make-switch modal-input"  data-on-color="primary" data-off-color="danger" value="theme2" id="theme2"> </div>
+								   </div>
+									<div class="form-group  modal-group">
+										<label class="control-label col-md-6">Theme 3</label>
+										<div class="col-sm-3 col-md-3">
+										<input type="checkbox" disabled class="make-switch modal-input" data-on-color="primary" data-off-color="danger" value="theme3" id="theme3"/>
+										</div>
+									</div>									
+								</form>
+							</div>
+							<div class="modal-footer">
+								<a href="javascript:;" class="btn grey-salsa btn-outline" data-dismiss="modal">Close</a>
+								<button id="applyThemes" class="btn green">
+									<i class="fa fa-check"></i> Apply changes</button>
+							</div>
+						</div>
+					</div>
+					</div>
+					
+					<div id="interactionModal" class="modal fade" role="dialog" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<a href="javascript:;" class="close" data-dismiss="modal" aria-hidden="true"></a>
+								<p><h4 class="modal-title">Chart interaction type</h4></p>
+							</div>
+							<div class="modal-body">
+								<form action="#" id="interactForm" class="form-inline">
+									<div class="form-group modal-group">
+										<label class="control-label col-md-6">Details view</label>
+										<div class="col-sm-3 col-md-3">
+										<input type="checkbox" class="make-switch modal-input" data-on-color="primary" data-off-color="danger" value="details" id="details"> </div>
+									</div>
+									<div class="form-group modal-group">
+										<label class="control-label col-md-6">Interactive</label>
+										<div class="col-sm-3 col-md-3">
+										<input type="checkbox" class="make-switch modal-input"  data-on-color="primary" data-off-color="danger" value="interact" id="interact"> </div>
+								   </div>																		
+								</form>
+							</div>
+							<div class="modal-footer">
+								<a href="javascript:;" class="btn grey-salsa btn-outline" data-dismiss="modal">Close</a>
+								<!-- <button id="applyThemes" class="btn green">
+									<i class="fa fa-check"></i> Apply changes</button> -->
+							</div>
+						</div>
+					</div>
+					</div>
+					
 					</div>
 				</div>
 				<!-- END PAGE BASE CONTENT -->
@@ -439,60 +457,25 @@ if it's not present, don't show loader */
 		</div>
 	</div>
 	<!-- END CONTAINER -->
-
-	<!-- BEGIN QUICK NAV -->
-	<!-- END QUICK NAV -->
-
 	<!-- BEGIN CORE PLUGINS -->
 	<!-- <script src="assets/dash6/global/plugins/jquery.min.js"	type="text/javascript"></script>  --> 
 	<!-- remove -->
-	<script src="assets/dash6/js/jqueryNw/jquery-1.12.4.js"	type="text/javascript"></script>
-	<script src="assets/dash6/global/plugins/bootstrap/js/bootstrap.min.js"
-		type="text/javascript"></script>
-	<script src="assets/dash6/global/plugins/js.cookie.min.js"
-		type="text/javascript"></script>
-	<script
-		src="assets/dash6/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js"
-		type="text/javascript"></script>
-	<script src="assets/dash6/global/plugins/jquery.blockui.min.js"
-		type="text/javascript"></script>
-	<script
-		src="assets/dash6/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js"
-		type="text/javascript"></script>
+	<script src="assets/dash6/global/plugins/bootstrap/js/bootstrap.min.js"	type="text/javascript"></script>
+	<script src="assets/dash6/global/plugins/js.cookie.min.js"	type="text/javascript"></script>
+	<script	src="assets/dash6/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+	<script src="assets/dash6/global/plugins/jquery.blockui.min.js"	type="text/javascript"></script>
+	<script	src="assets/dash6/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+	<script	src="assets/dash6/global/plugins/bootstrap-sweetalert/sweetalert.js" type="text/javascript"></script>
 	<!-- END CORE PLUGINS -->
 	<!-- BEGIN PAGE LEVEL PLUGINS -->
-	<script src="assets/dash6/global/plugins/moment.min.js"
-		type="text/javascript"></script>
-	<script
-		src="assets/dash6/global/plugins/bootstrap-daterangepicker/daterangepicker.min.js"
-		type="text/javascript"></script>
-	<script src="assets/dash6/global/plugins/morris/morris.min.js"
-		type="text/javascript"></script>
-	<script src="assets/dash6/global/plugins/morris/raphael-min.js"
-		type="text/javascript"></script>
-	<script
-		src="assets/dash6/global/plugins/counterup/jquery.waypoints.min.js"
-		type="text/javascript"></script>
-	<script
-		src="assets/dash6/global/plugins/counterup/jquery.counterup.min.js"
-		type="text/javascript"></script>
-	<script
-		src="assets/dash6/global/plugins/fullcalendar/fullcalendar.min.js"
-		type="text/javascript"></script>
-	<script
-		src="assets/dash6/global/plugins/horizontal-timeline/horizontal-timeline.js"
-		type="text/javascript"></script>
-	<script src="assets/dash6/global/plugins/flot/jquery.flot.min.js"
-		type="text/javascript"></script>
-	<script
-		src="assets/dash6/global/plugins/flot/jquery.flot.resize.min.js"
-		type="text/javascript"></script>
-	<script
-		src="assets/dash6/global/plugins/flot/jquery.flot.categories.min.js"
-		type="text/javascript"></script>
-	<script src="assets/dash6/global/plugins/jquery.sparkline.min.js"
-		type="text/javascript"></script>
-
+	<script src="assets/dash6/global/plugins/moment.min.js"	type="text/javascript"></script>
+	<script	src="assets/dash6/global/plugins/bootstrap-daterangepicker/daterangepicker.min.js" type="text/javascript"></script>
+	<script src="assets/dash6/global/plugins/morris/morris.min.js"	type="text/javascript"></script>
+	<script src="assets/dash6/global/plugins/morris/raphael-min.js"	type="text/javascript"></script>
+	<script	src="assets/dash6/global/plugins/counterup/jquery.waypoints.min.js"	type="text/javascript"></script>
+	<script	src="assets/dash6/global/plugins/counterup/jquery.counterup.min.js"	type="text/javascript"></script>
+	<script	src="assets/dash6/global/plugins/fullcalendar/fullcalendar.min.js"	type="text/javascript"></script>
+	<script	src="assets/dash6/global/plugins/horizontal-timeline/horizontal-timeline.js" type="text/javascript"></script>
 	<!-- END PAGE LEVEL PLUGINS -->
 	<!-- BEGIN THEME GLOBAL SCRIPTS -->
 	<script src="assets/dash6/global/scripts/app.js" type="text/javascript"></script>
@@ -503,49 +486,32 @@ if it's not present, don't show loader */
 	<!-- BEGIN THEME LAYOUT SCRIPTS -->
 	<script src="assets/dash6/layouts/layout6/scripts/layout.min.js" type="text/javascript"></script>
 	<!-- END THEME LAYOUT SCRIPTS -->
-
-	<!--     CPR Dashboard    Custom     -->
-	<!-- Load jquery library -->
-	<!-- <script src="assets/dash6/js/jquery/jquery-1.8.2.js"	type="text/javascript"></script> -->
-	<!-- load jquery ui library -->
-	<!-- <script src="assets/dash6/js/jquery/jquery-ui.js" type="text/javascript"></script> -->
-	
-	
+	<!--   CPR Dashboard    Custom     -->
 	<script src="assets/dash6/js/jquery/jquery-ui-1.12.1.min.js" type="text/javascript"></script>
-	<!--  remove -->
-	<!-- <script src="assets/dash6/js/jqueryNw/jquery-ui.js" type="text/javascript"></script> -->
 	<!-- load touch punch library to enable dragging on touch based devices -->
-	<script src="assets/dash6/js/touchpunch/jquery.ui.touch-punch.js" 	type="text/javascript"></script>
-	<!-- load gitter notification library -->
-	<!-- 	<script src="assets/dash6/js/gitter/jquery.gritter.js" type="text/javascript"></script> -->
+	<!-- <script src="assets/dash6/js/touchpunch/jquery.ui.touch-punch.js" 	type="text/javascript"></script> -->
 	<!-- Toastr notification library -->
 	<script src="assets/dash6/js/toastr/toastr.js" type="text/javascript"></script>
 	<!-- load datatables library -->
 	<!--<script src="assets/dash6/js/datatables/jquery.dataTables.js"></script>  -->
-	<script src="assets/js/dash1/plotly-latest.min.js"></script>
-	<script src="assets/dash6/js/chart/Chart.bundle.js"></script>
-	<!-- <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>  -->	
+	<script src="assets/dash6/js/plotly-latest.min.js"></script>
+	<!-- Chart JS<script src="assets/dash6/js/chart/Chart.bundle.js"></script> -->
 	<script src="assets/dash6/js/c3/c3.min.js"></script>
-	<!--  <script src="assets/dash6/js/c3/bubble.js"></script> -->
-	
 	<!-- amcharts map -->	
 	<script src="assets/dash6/js/amchartsMap/ammap.js"	type="text/javascript"></script>
-	<!-- 	<script src="assets/dash6/js/amchartsMap/export.min.js"	type="text/javascript"></script> -->
 	<script src="assets/dash6/js/amchartsMap/light.js"	type="text/javascript"></script>
 	<script src="assets/dash6/js/amchartsMap/worldLow.js" type="text/javascript"></script>
-	<!-- <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script> -->
-	
-	<!-- load dashboard library -->
-	<script src="assets/dash6/js/jquery-cprDashboard.js" type="text/javascript"></script>
-		
-	
+	<!-- 	<script src="assets/dash6/js/amchartsMap/export.min.js"	type="text/javascript"></script> -->	
+	<!-- <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script> -->	
 	<!-- theme switcher -->
-	<script src="assets/dash6/js/themeswitcher/jquery.themeswitcher.min.js"
-		type="text/javascript"></script>
+	<script src="assets/dash6/js/themeswitcher/jquery.themeswitcher.min.js" type="text/javascript"></script>
+	<!-- load CPR dashboard widget library -->
+	<script src="assets/dash6/js/jquery-cprDashboard.js" type="text/javascript"></script>	
+	
+	
 	<!-- sample data external script file -->
 	<script src="assets/dash6/js/exampleData.js" type="text/javascript"></script>
 	<!-- Datatable export function js files -->
-	<!-- <script src="assets/dash6/js/datatableNw/datatables.js"></script> -->
 	<script src="assets/dash6/js/datatableNw/jquery.dataTables.min.js"></script>
 
 	<script src="assets/dash6/js/datatableNw/dataTables.buttons.min.js"></script>
@@ -553,32 +519,12 @@ if it's not present, don't show loader */
 	<script src="assets/dash6/js/datatableNw/pdfmake.min.js"></script>
 	<script src="assets/dash6/js/datatableNw/vfs_fonts.js"></script>
 	<script src="assets/dash6/js/datatableNw/buttons.print.min.js"></script>
-
 	<script src="assets/dash6/js/datatableNw/buttons.html5.min.js"></script>
 	<script src="assets/dash6/js/datatableNw/buttons.flash.min.js"></script>
 
-	<!--  data grid export js files -->
-	<!-- 	<script type="text/javascript" src="assets/dash6/js/grid/jqxcore.js"></script>
-    <script type="text/javascript" src="assets/dash6/js/grid/jqxbuttons.js"></script>
-    <script type="text/javascript" src="assets/dash6/js/grid/jqxscrollbar.js"></script>
-    <script type="text/javascript" src="assets/dash6/js/grid/jqxmenu.js"></script>
-    <script type="text/javascript" src="assets/dash6/js/grid/jqxcheckbox.js"></script>
-    <script type="text/javascript" src="assets/dash6/js/grid/jqxgrid.js"></script>
-    <script type="text/javascript" src="assets/dash6/js/grid/jqxgrid.selection.js"></script> 
-    <script type="text/javascript" src="assets/dash6/js/grid/jqxgrid.columnsresize.js"></script> 
-    <script type="text/javascript" src="assets/dash6/js/grid/jqxdata.js"></script> 
-    <script type="text/javascript" src="assets/dash6/js/grid/jqxdata.export.js"></script> 
-    <script type="text/javascript" src="assets/dash6/js/grid/jqxgrid.export.js"></script> 
-    <script type="text/javascript" src="assets/dash6/js/grid/jqxgrid.sort.js"></script> 
-	 -->
-
-
 	<script type="text/javascript">
-		$(document)
-				.ready(
-						function() {
-
-							$(function() {
+		$(document).ready(function() {
+		$(function() {
 								//Theme switcher plugin
 								$("#switcher").themeswitcher({
 									imgpath : "assets/dash6/css/images/",
@@ -594,6 +540,7 @@ if it's not present, don't show loader */
 											widgetTitle : "Day Wise",
 											widgetId : "id001",
 											widgetType : "chart",
+											widgetClick:"disable",
 											graphType : "exploratory",
 											widgetDimension : "normal",
 											chartType : "column",
@@ -606,8 +553,9 @@ if it's not present, don't show loader */
 
 										{
 											widgetTitle : "Hour Wise Redemptions",
-											widgetId : "id003",
+											widgetId : "id002",
 											widgetType : "chart",
+											widgetClick:"disable",
 											graphType : "exploratory",
 											widgetDimension : "normal",
 											chartType : "barline",
@@ -619,8 +567,9 @@ if it's not present, don't show loader */
 										},
 										{
 											widgetTitle : "Sales Figures",
-											widgetId : "id011",
+											widgetId : "id003",
 											widgetType : "chart",
+											widgetClick:"disable",
 											graphType : "exploratory",
 											widgetDimension : "normal",
 											chartType : "pie",
@@ -632,8 +581,9 @@ if it's not present, don't show loader */
 										},
 										{
 											widgetTitle : "Sales Figures2",
-											widgetId : "id012",
+											widgetId : "id004",
 											widgetType : "chart",
+											widgetClick:"disable",
 											graphType : "exploratory",
 											widgetDimension : "normal",
 											chartType : "pie",
@@ -645,8 +595,9 @@ if it's not present, don't show loader */
 										},
 										{
 											widgetTitle : "Hour Wise Redemptions",
-											widgetId : "id002",
+											widgetId : "id005",
 											widgetType : "chart",
+											widgetClick:"disable",
 											graphType : "exploratory",
 											widgetDimension : "normal",
 											chartType : "area",
@@ -659,8 +610,9 @@ if it's not present, don't show loader */
 
 										{
 											widgetTitle : "Age group",
-											widgetId : "id004",
+											widgetId : "id006",
 											widgetType : "chart",
+											widgetClick:"disable",
 											graphType : "exploratory",
 											widgetDimension : "normal",
 											chartType : "bubble",
@@ -683,8 +635,9 @@ if it's not present, don't show loader */
 										},
 										{
 											widgetTitle : "Revenue by region",
-											widgetId : "id005",
+											widgetId : "id007",
 											widgetType : "chart",
+											widgetClick:"disable",
 											graphType : "exploratory",
 											widgetDimension : "large",
 											chartType : "bubble",
@@ -697,8 +650,9 @@ if it's not present, don't show loader */
 
 										{
 											widgetTitle : "Revenue",
-											widgetId : "id006",
+											widgetId : "id008",
 											widgetType : "chart",
+											widgetClick:"disable",
 											graphType : "exploratory",
 											widgetDimension : "large",
 											chartType : "bar",
@@ -719,8 +673,9 @@ if it's not present, don't show loader */
 										},
 										{
 											widgetTitle : "Items sold",
-											widgetId : "id007",
+											widgetId : "id009",
 											widgetType : "chart",
+											widgetClick:"disable",
 											graphType : "exploratory",
 											widgetDimension : "large",
 											chartType : "line",
@@ -744,16 +699,18 @@ if it's not present, don't show loader */
 										}, */
 										{
 											widgetTitle : "Stats",
-											widgetId : "id008",
+											widgetId : "id010",
 											widgetType : "Text",
+											widgetClick:"disable",
 											widgetDimension : "small",
 											widgetContent : "Redemptions : 4,636"
 													
 										},
 										{
 											widgetTitle : "Browser used",
-											widgetId : "id009",
+											widgetId : "id011",
 											widgetType : "table",
+											widgetClick:"disable",
 											//widgetDimension: "large",
 											setJqueryStyle : true,
 											enableRefresh : true,
@@ -768,8 +725,9 @@ if it's not present, don't show loader */
 										},
 										{
 											widgetTitle : "Revenue",
-											widgetId : "id010",
+											widgetId : "id012",
 											widgetType : "Text",
+											widgetClick:"disable",
 											widgetDimension : "small",
 											widgetContent : "231,800$"
 										},
@@ -777,201 +735,186 @@ if it's not present, don't show loader */
 											widgetTitle : "Where the customers are ",
 											widgetId : "id013",
 											widgetType : "map",
+											widgetClick:"disable",
 											graphType : "normal",  
 											widgetDimension : "normal",										
-											widgetContent : /* {
-													  "type": "map",
-													  "theme": "light",
-													  "projection": "miller",
-
-													  "dataProvider": {
-													    "map": "worldLow",
-													    "getAreasFromMap": true
-													  },
-													  "areasSettings": {
-													    "autoZoom": true,
-													    "selectedColor": "#CC0000"
-													  },
-													  "smallMap": {},
-													  "export": {
-													    "enabled": true,
-													    "position": "bottom-right"
-													  }
-												}  */
-												{
-												  "type": "map",
-												  "theme": "light",
-												  "projection": "miller",
-
-												  "imagesSettings": {
-												    "rollOverColor": "#089282",
-												    "rollOverScale": 3,
-												    "selectedScale": 3,
-												    "selectedColor": "#089282",
-												    "color": "#13564e"
-												  },
-												  "areasSettings": {
-													    "autoZoom": true,
-													    "selectedColor": "#CC0000"
-													  },
-
-												  "areasSettings": {
-												    "unlistedAreasColor": "#15A892"
-												  },
-
-												  "dataProvider": {
-													 
-												//"getAreasFromMap": true
-												    "map": "worldLow",
-												    "images": [ {
-												      "zoomLevel": 5,
-												      "scale": 0.5,
-												      "map-marker" : "Brussels",
-												      "title": "Brussels",
-												      "latitude": 50.8371,
-												      "longitude": 4.3676
-												    }, {
-												      "zoomLevel": 5,
-												      "scale": 0.5,
-												      "title": "Copenhagen",
-												      "latitude": 55.6763,
-												      "longitude": 12.5681
-												    }, {
-												      "zoomLevel": 5,
-												      "scale": 0.5,
-												      "title": "Paris",
-												      "latitude": 48.8567,
-												      "longitude": 2.3510
-												    }, {
-												      "zoomLevel": 5,
-												      "scale": 0.5,
-												      "title": "Reykjavik",
-												      "latitude": 64.1353,
-												      "longitude": -21.8952
-												    }, {
-												      "zoomLevel": 5,
-												      "scale": 0.5,
-												      "title": "Moscow",
-												      "latitude": 55.7558,
-												      "longitude": 37.6176
-												    }, {
-												      "zoomLevel": 5,
-												      "scale": 0.5,
-												      "title": "Madrid",
-												      "latitude": 40.4167,
-												      "longitude": -3.7033
-												    }, {
-												      "zoomLevel": 5,
-												      "scale": 0.5,
-												      "title": "London",
-												      "latitude": 51.5002,
-												      "longitude": -0.1262,
-												      //"url": "http://www.google.co.uk"
-												    }, {
-												      "zoomLevel": 5,
-												      "scale": 0.5,
-												      "title": "Peking",
-												      "latitude": 39.9056,
-												      "longitude": 116.3958
-												    }, {
-												      "zoomLevel": 5,
-												      "scale": 0.5,
-												      
-												      "title": "New Delhi",
-												      "latitude": 28.6353,
-												      "longitude": 77.2250
-												    }, {
-												      "zoomLevel": 5,
-												      "scale": 0.5,
-												      "title": "Tokyo",
-												      "latitude": 35.6785,
-												      "longitude": 139.6823,
-												      //"url": "http://www.google.co.jp"
-												    }, {
-												      "zoomLevel": 5,
-												      "scale": 0.5,
-												      "title": "Ankara",
-												      "latitude": 39.9439,
-												      "longitude": 32.8560
-												    }, {
-												      "zoomLevel": 5,
-												      "scale": 0.5,
-												      "title": "Buenos Aires",
-												      "latitude": -34.6118,
-												      "longitude": -58.4173
-												    }, {
-												      "zoomLevel": 5,
-												      "scale": 0.5,
-												      "title": "Brasilia",
-												      "latitude": -15.7801,
-												      "longitude": -47.9292
-												    }, {
-												      "zoomLevel": 5,
-												      "scale": 0.5,
-												      "title": "Ottawa",
-												      "latitude": 45.4235,
-												      "longitude": -75.6979
-												    }, {
-												      "zoomLevel": 5,
-												      "scale": 0.5,
-												      "title": "Washington",
-												      "latitude": 38.8921,
-												      "longitude": -77.0241
-												    }, {
-												      "zoomLevel": 5,
-												      "scale": 0.5,
-												      "title": "Kinshasa",
-												      "latitude": -4.3369,
-												      "longitude": 15.3271
-												    }, {
-												      "zoomLevel": 5,
-												      "scale": 0.5,
-												      "title": "Cairo",
-												      "latitude": 30.0571,
-												      "longitude": 31.2272
-												    }, {
-												      "zoomLevel": 5,
-												      "scale": 0.5,
-												      "title": "Pretoria",
-												      "latitude": -25.7463,
-												      "longitude": 28.1876
-												    }
-												    
-												    ]
-												  }
-												} 
+											widgetContent :myExampleData.amchartsMapData 
+											
 									},
 									
 									{
 										widgetTitle : "World Maps",
 										widgetId : "id014",
 										widgetType : "map",
+										widgetClick:"disable",
 										graphType : "normal",
 										widgetDimension : "normal",
 										/* chartType : "line",
 										getDataBySelection : true, */
-										widgetContent : 
-											{
-											  "type": "map",
-											  "theme": "light",
-											  "projection": "miller",
-
-											  "dataProvider": {
-											    "map": "worldLow",
-											    "getAreasFromMap": true
-											  },
-											  "areasSettings": {
-											    "autoZoom": true,
-											    "selectedColor": "#CC0000"
-											  },
-											  "smallMap": {},
-											  "export": {
-											    "enabled": true,
-											    "position": "bottom-right"
-											  }
-										}  
-										
+										widgetContent : myExampleData.amchartsCountryMapData
+											
 									},
+									//Drawboard 3 
+									{
+										widgetTitle: "Sales Figures",
+										widgetId: "id015",
+										widgetType: "chart",
+										widgetClick:"details",
+										graphType: "exploratory",
+										widgetDimension: "normal",
+										chartType: "pie",
+										widgetContent: {			 
+											data: myExampleData.plotlypiedata,
+											layout: myExampleData.plotlypielayout,
+											config: myExampleData.plotlypieconfig
+										}
+									},    	
+							    	{
+							    		widgetTitle: "Age group",
+							    		widgetId: "id016",
+							    		widgetClick:"details",
+							    		widgetType: "chart",
+							    		graphType: "exploratory",
+							    		widgetDimension: "normal",
+							    		chartType: "bubble",
+							    		enableRefresh: true,
+							    		refreshCallBack : function(widgetId){ 
+							    			//Inside refresh callback		
+							    			//notification('info', 'Inside the refresh callback of '+widgetId+'!');
+							    			var refreshedData = {
+							    					data: myExampleData.plotlyRefreshBubbleData,
+							    					layout: myExampleData.plotlyBubbleLayout,
+							    					config: myExampleData.plotlybarconfig
+							    			};
+							    			return refreshedData; 
+							    		},
+							    		widgetContent: {
+							    			data: myExampleData.plotlyBubbleData,
+							    			layout: myExampleData.plotlyBubbleLayout,
+							    			config: myExampleData.plotlybarconfig
+							    		}
+							    	},{
+									widgetTitle: "Revenue",
+									widgetId: "id017",
+									widgetType: "chart",
+									widgetClick:"details",
+									graphType: "exploratory",
+									widgetDimension: "large",
+									chartType: "bar",
+									enableRefresh: true,
+									refreshCallBack : function(widgetId){ 		
+										var refreshedData = {
+												data: myExampleData.barGroupRefreshChartData,
+												layout: myExampleData.barGroupChartLayout,
+												config: myExampleData.plotlybarconfig
+										};
+										return refreshedData; 
+									},
+									widgetContent: {
+										data: myExampleData.barGroupChartData,
+										layout: myExampleData.barGroupChartLayout,
+										config: myExampleData.plotlybarconfig
+									}
+									}, /* {
+									widgetTitle: "Items sold",
+									widgetId: "id018",
+									widgetType: "chart",
+									widgetClick:"details",
+									graphType: "exploratory",
+									widgetDimension: "large",
+									chartType: "line",
+									getDataBySelection: true,
+									widgetContent: {		
+										data: myExampleData.plotlylinedata,
+										layout: myExampleData.plotlylinelayout,
+										config: myExampleData.plotlylineconfig			  
+									}
+									}, */
+									{
+										widgetTitle : "Age group",
+										widgetId : "id019",
+										widgetType : "chart",
+										widgetClick:"interact",
+										graphType : "exploratory",
+										widgetDimension : "normal",
+										chartType : "bubble",
+										linkedWidgets:["id020","id021"],
+										enableRefresh : true,
+										refreshCallBack : function(widgetId) {
+											//Inside refresh callback		
+											//notification('info', 'Inside the refresh callback of '+widgetId+'!');
+											var refreshedData = {
+												data : myExampleData.plotlyRefreshBubbleData,
+												layout : myExampleData.plotlyBubbleLayout,
+												config : myExampleData.plotlybarconfig
+											};
+											return refreshedData;
+										},
+										widgetContent : {
+											data : myExampleData.plotlyBubbleData,
+											layout : myExampleData.plotlyBubbleLayout,
+											config : myExampleData.plotlybarconfig
+										}
+									},{
+									widgetTitle: "Revenue",
+									widgetId: "id020",
+									widgetType: "chart",
+									widgetClick:"interact",
+									graphType: "exploratory",
+									widgetDimension: "normal",
+									chartType: "bar",
+									enableRefresh: true,
+									refreshCallBack : function(widgetId){ 		
+										var refreshedData = {
+												data: myExampleData.barGroupRefreshChartData,
+												layout: myExampleData.barGroupChartLayout,
+												config: myExampleData.plotlybarconfigDash4
+										};
+										return refreshedData; 
+									},
+									widgetContent: {
+										data: myExampleData.barGroupChartData,
+										layout: myExampleData.barGroupChartLayout,
+										config: myExampleData.plotlybarconfigDash4
+									},
+									widgetContentNew : {
+										data : myExampleData.barGroupChartDataOriginal,
+										layout : myExampleData.barGroupChartLayout,
+										config : myExampleData.plotlybarconfigDash4
+									},
+									widgetContentNew1 : {
+										data : myExampleData.barGroupChartData1,		
+									},
+									widgetContentNew2 : {
+										data : myExampleData.barGroupChartData2,
+										
+									}		
+								},
+								{
+									widgetTitle : "Items sold",
+									widgetId : "id021",
+									widgetType : "chart",
+									widgetClick:"interact",
+									graphType : "exploratory",
+									widgetDimension : "large",
+									chartType : "line",
+									getDataBySelection : true,
+									widgetContent : {
+										data : myExampleData.plotlylinedata,
+										layout : myExampleData.plotlylinelayout,
+										config : myExampleData.plotlylineconfig
+									},
+									widgetContentNew : {
+										data : myExampleData.plotlylinedata1,
+									},
+									widgetContentNew1 : {
+										data : myExampleData.plotlylinedata2,		
+									},
+									widgetContentNew2 : {
+										data : myExampleData.plotlylinedata3,
+										
+									}	
+								}
 								/* 	{
 								 widgetTitle: "Items Sold Grid",
 								 widgetId: "id010",
@@ -994,12 +937,13 @@ if it's not present, don't show loader */
 									}
 								}, */
 								];
-								console.log(dashboardJSON);
-								//basic initialization examplemn.sDashboard
-								$("#cprDashboard").sDashboard({
+								//console.log(dashboardJSON);
+								//basic initialization example mn.sDashboard
+								$("#cprDashboard").cprDashboard({
 									dashboardData : dashboardJSON
 								});
-
+							//	$("#cprDashboard").cprDashboard("widgetcallCheck","sree");
+								
 								//Toastr settings 
 								toastr.options = {
 									"closeButton" : false,
@@ -1029,88 +973,108 @@ if it's not present, don't show loader */
 									} else {
 										toastr.info(message, 'Information');
 									}
-								}
-								
-								//filter selected
-								$("#applyFilters").click( function() {
-									notification('info','Filters have been selected!');
-									if(console) {
-										console.log('from date: ' + $("#from").val() + " & to date: " + $("#to").val() +" & countries selected: " + $(".chzn-select").val());
+								}								
+															
+								//table row clicked event example
+								$("#cprDashboard").bind("cprdashboardrowclicked",function(e, data) {
+									if (console) {
+									console.log("table row clicked, for widget: "+ data.selectedWidgetId);
 									}
 								});
-								
-								//table row clicked event example
-								$("#cprDashboard")
-										.bind(
-												"sdashboardrowclicked",
-												function(e, data) {
-
-													if (console) {
-														console
-																.log("table row clicked, for widget: "
-																		+ data.selectedWidgetId);
-													}
-												});
-
 								//plot selected event example
-								$("#cprDashboard")
-										.bind(
-												"sdashboardplotselected",
-												function(e, data) {
-													notification('info',
-															'A plot has been selected within a chart widget!');
-													if (console) {
-														console
-																.log("chart range selected, for widget: "
-																		+ data.selectedWidgetId);
-													}
-												});
+								$("#cprDashboard").bind("cprdashboardplotselected",function(e, data) {
+									notification('info','A plot has been selected within a chart widget!');
+									if (console) {
+									console.log("chart range selected, for widget: "+ data.selectedWidgetId);
+									}
+								});
 								//plot click event example
-								$("#cprDashboard")
-										.bind(
-												"sdashboardplotclicked",
-												function(e, data) {
-													notification(
-															'info',
-															'chart clicked, for widget:'
-																	+ data.clickedWidgetId
-																	+ ' the data passed is'
-																	+ data.dataPoints
-																	+ '!');
-													if (console) {
-														console
-																.log("chart clicked, for widget: "
-																		+ data.selectedWidgetId);
-													}
-												});
+							/* 	$("#cprDashboard").bind("cprdashboardplotclicked",function(e, data) {
+									notification('info','chart clicked, for widget:'+ data.clickedWidgetId
+										+ ' the data passed is'+ data.dataPoints+ '!');
+									if (console) {
+										console.log("chart clicked, for widget: "+ data.selectedWidgetId);
+									}
+								}); */
+								//Drawboard 4
+							    $("#cprDashboard").bind("cprdashboardplotclicked",function(e, data) {        	
+							        /* 	 $.ajax({
+							                 type: "GET",
+							        		 	url : 'widgetClick.html',
+							                 success : function(data) {
+							                        //$('#result').html(data);                                    
+							                }});   */	 
+							        	 
+							        	 window.location.href='/Crmxs-Dashboard/widgetClick.html?clickedWidgetId='+data.clickedWidgetId+'&datapoints='+data.dataPoints;
+							       //		notification('info', 'chart clicked, for widget:'+ data.clickedWidgetId +' the data passed is'+data.dataPoints+'!');      		
+							       			 if (console) {
+							        			console.log("chart clicked, for widget: " + data.selectedWidgetId);
+							       			 }
+							        });
 
 								//widget order changes event example
-								$("#cprDashboard")
-										.bind(
-												"sdashboardorderchanged",
-												function(e, data) {
-													$.gritter
-															.add({
-																position : 'bottom-left',
-																title : 'Order Changed',
-																time : 4000,
-																text : 'The widgets order has been changed,check the console for sorted widget definitions array'
-															});
-													if (console) {
-														console
-																.log("Sorted Array");
-														console
-																.log("+++++++++++++++++++++++++");
-														console
-																.log(data.sortedDefinitions);
-														console
-																.log("+++++++++++++++++++++++++");
-													}
-												});
+								$("#cprDashboard").bind("cprdashboardorderchanged",function(e, data) {
+								/* 	if (console) {
+										console.log("Sorted Array");
+										console.log("+++++++++++++++++++++++++");
+										console.log(data.sortedDefinitions);
+										console.log("+++++++++++++++++++++++++");
+									} */
+								});
+								
+								$('#applyChanges').on('click', function (e) {
+									e.preventDefault(); 
+								    var graphToThisChart = $("#changeChartForm input:checked" ).val();
+								    var numberOfChecks = $("#changeChartForm input:checked" ).size();
+								    if(numberOfChecks>1){
+								   		swal("Only one graph can be selected!", "Un-check others!", "error");
+								    }
+								    var widgetID =$("#cgwidgetId").text();
+								    var changeChartObject ={
+								    		chartTo: graphToThisChart,
+								    		widgetId: widgetID
+								    };
+								    $("#cprDashboard").cprDashboard("changeChart",changeChartObject);
+								    $('#changeChartModal').modal('hide');
+								});
+								
+								$("li.menuItem").click(function(e) {
+								
+									e.preventDefault(); 
+									$("#changeThemeModal").modal('show');    
+								
+									
+								});
 
+								$('#applyThemes').on('click', function (e) {
+									e.preventDefault(); 
+									var themeSelected = $("#changeThemeForm input:checked" ).val();
+								    var numberOfChecks = $("#changeThemeForm input:checked" ).size();
+								    if(numberOfChecks>1){
+								    	$('#changeThemeModal').modal('hide');
+								   		swal("Only one theme can be selected!", "Un-check others!", "error");
+								   		return;
+								    }
+								    $('#changeThemeModal').modal('hide');
+								    $("#cprDashboard").cprDashboard("changeTheme",themeSelected);	
+								    if(typeof themeSelected != 'undefined'){
+								    	  swal(themeSelected +" have been applied !", "", "success");	
+								    }
+								  							   
+								});
+								//Handling on Change event 
+							/* 	$("#changeGraphForm input:checkbox[value='bar']").change(function() {
+								      //$(this).prop('checked');
+								      $("#changeGraphForm input:checkbox[value='line']").bootstrapSwitch('state', false, true);
+								})
+								$("#changeGraphForm input:checkbox[value='line']").change(function() {
+								      //$(this).prop('checked');
+								      $("#changeGraphForm input:checkbox[value='bar']").bootstrapSwitch('state', false, true);
+								}) */
+								
 							});
 						})
 	</script>
-	<!--     CPR Dashboard    Custom  -->
+	<!-- CPR Custom Dashboard  -->
 </body>
 </html>

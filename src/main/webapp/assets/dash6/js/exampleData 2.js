@@ -158,6 +158,13 @@ myExampleData.amchartsCountryMapData =	{
 		    "autoZoom": true,
 		    "selectedColor": "#CC0000"
 		  },
+		  "smallMap": {},
+		  "listeners": [{
+			    "event": "clickMapObject",
+			    "method": function(event) {
+			        console.log(event.mapObject.title);
+			    }
+			  }]
 }  ;
 	
 /* {
@@ -332,7 +339,7 @@ myExampleData.plotlylinelayout = {
 		color : '#7f7f7f'
 	},
 	autosize : true,
-	paper_bgcolor:'#FFFFFF',
+	paper_bgcolor:'#FFFFFF',//E0E0E0
 	plot_bgcolor:'#FFFFFF'
 };
 
@@ -506,8 +513,8 @@ var trace1 = {
 		  type: 'bar',
 		  marker: {
 //		   color: 'rgb(26, 118, 255)',
-		  color : '#32c5d2',//#2C3E50
-		  opcacity: 0.6
+   		color : '#32c5d2',//#2C3E50
+		    opcacity: 0.6
 		    
 		  },
 			textfont:{

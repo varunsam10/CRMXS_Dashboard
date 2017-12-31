@@ -1,7 +1,47 @@
+.control-label {
+    margin-top: 1px;
+    font-weight: 400;
+   	min-width: 33%;
+    max-width: 42%;
+   word-break: break-word;
+	-webkit-hyphens: auto;
+   -moz-hyphens: auto;
+    hyphens: auto;
+}
+.modal-group{
+	padding-bottom: 3%;	
+	min-width: 45%;
+}
+.modal-input{
+	min-width: 40%;
+}
+/*
+if it's not present, don't show loader */
+.no-js #loader {
+	display: none;
+}
+
+.js #loader {
+	display: block;
+	position: absolute;
+	left: 100px;
+	top: 0;
+} 
+
+.se-pre-con {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background: url(../../../assets/img/loader-128x/Preloader_3.gif) center no-repeat
+		#fff;
+}
 /*
 * Dialog styles 
 */
-label, input {
+/* label, input {
 	display: block;
 }
 
@@ -41,14 +81,16 @@ div#users-contain table td, div#users-contain table th {
 
 .ui-dialog .ui-state-error {
 	padding: .3em;
-}
-
+} */
+/*
+* Dialog styles 
+*/
 .validateTips {
 	border: 1px solid transparent;
 	padding: 0.3em;
 }
 
-.sDashboard {
+.cprDashboard {
 	list-style-type: none;
 	margin: 0;
 	padding-left: 10px;
@@ -62,7 +104,7 @@ div#users-contain table td, div#users-contain table th {
 	
 }
 
-.sDashboard  li {
+.cprDashboard  li {
 	margin: 3px 3px 3px 0;
 	padding: 1px;
 	float: left;
@@ -96,11 +138,22 @@ div#users-contain table td, div#users-contain table th {
 	height:100px !important;
 	/* font-size: 27px; */
     line-height: 27px;
+   /*  color: #7D8C9D; */
+    color : #EC7063; orange
+} 
+/* .cprDashboardSmall {
+	width: 410px !important;
+	min-width:0px !important;
+	min-height:0px !important;
+	height:200px !important;
+	font-size: 27px;
+    line-height: 27px;
     color: #7D8C9D;
-}
-
+    color : #EC7063; orange
+} 
+ */
 /*dashboard widget css*/
-.sDashboardWidget {
+.cprDashboardWidget {
 	margin: 0 1em 1em 0;
 	border-radius: 25px;
 	border: 2px solid #e7ecf1 !important;
@@ -123,7 +176,7 @@ div#users-contain table td, div#users-contain table th {
 }
 
 
-.sDashboardWidget:hover {
+.cprDashboardWidget:hover {
 	border: 1px solid #AFAFAF;
 	-webkit-transition: border-color 0.3s;
 	-moz-transition: border-color 0.3s;
@@ -132,7 +185,7 @@ div#users-contain table td, div#users-contain table th {
 }
 
 /*dashboard widget header css*/
-.sDashboardWidgetHeader {
+.cprDashboardWidgetHeader {
 	margin: 0.3em; 
 	padding: 2px 0.2em 2px 1em;
 	cursor: move;
@@ -140,20 +193,20 @@ div#users-contain table td, div#users-contain table th {
 	border-bottom: 1px solid #CBCBCB;
 	color: white;
     /* font-weight: bold; */
-    background-color: #7B7E8B;
+    background-color: #2c3e50; /* 7B7E8B */
     border-radius: 25px;
 	border: 2px solid #e7ecf1 !important;
 }
 
 /*dashboard widget content css*/
-.sDashboardWidgetContent {
+.cprDashboardWidgetContent {
 	margin: 0.3em; 
 	margin: 0.1em;
 	padding: 0.4em;	
 	overflow-x: auto;
 	overflow-y: auto;
 	transition: .3s all ease;
-	background-color: #E0E0E0;
+	background-color: #ffffff;
 	border-radius: 25px;
 	border: 2px solid #e7ecf1 !important;
 }
@@ -169,8 +222,7 @@ div#users-contain table td, div#users-contain table th {
 }
 }
 
-.sDashboardWidgetContentMaximized {
-	/* margin: 0.3em; */
+.cprDashboardWidgetContentMaximized {
 	margin: 0.7em;
 	padding: 0.4em;
 	height: 90%;
@@ -178,7 +230,7 @@ div#users-contain table td, div#users-contain table th {
 }
 
 /*for centering trick see  : http://css-tricks.com/quick-css-trick-how-to-center-an-object-exactly-in-the-center/*/
-.sDashboardWidgetContainerMaximized {
+.cprDashboardWidgetContainerMaximized {
 	/* z-index: 9999;
 	position: fixed;
 	width: 1000px;
@@ -201,7 +253,7 @@ div#users-contain table td, div#users-contain table th {
 }
 
 /*dashboard table widget css*/
-.sDashboardTableView {
+.cprDashboardTableView {
 	width: 100%;
 	height: 95%;
 	overflow: auto;
@@ -227,17 +279,19 @@ div#users-contain table td, div#users-contain table th {
 	background-color: #abd9e9;
 }  */
 
-.sDashboardTableView tbody tr:nth-child(odd){
-	 background-color:  #1a76ff !important;
+.cprDashboardTableView tbody tr:nth-child(odd){
+	/* background-color:  #1a76ff !important; */
+	 background-color:  #32c5d2!important;/* #138D75 */
 	
 }
-.sDashboardTableView tbody tr:nth-child(even){
-	 background-color: #abd9e9 !important;
+.cprDashboardTableView tbody tr:nth-child(even){
+	/*  background-color: #abd9e9 !important; */
+	 background-color: #3598dc!important;/* #EC7063 */
 	
 }
-.sDashboardTableView tbody tr:nth-child(odd):hover, .sDashboardTableView tbody tr:nth-child(even):hover
+.cprDashboardTableView tbody tr:nth-child(odd):hover, .cprDashboardTableView tbody tr:nth-child(even):hover
 {
-	background-color: #FCEFA1;
+	background-color: #b6ff5f;/* #FCEFA1 */
 	cursor: pointer;
 }
 
@@ -250,7 +304,7 @@ div#users-contain table td, div#users-contain table th {
 }
 
 /*dashboard chart view css*/
-.sDashboardChart {
+.cprDashboardChart {
 	/*	width: 200px;
 	 height: 180px;*/
 	width: 100%;
@@ -347,11 +401,11 @@ div#users-contain table td, div#users-contain table th {
    }
   }
 
-.sDashboardChartClickable {
+.cprDashboardChartClickable {
 	cursor: pointer;
 }
 
-.sDashboardChartSelectable {
+.cprDashboardChartSelectable {
 	width: 100%;
 	height: 100%;
 	cursor: crosshair;
@@ -374,7 +428,7 @@ div#users-contain table td, div#users-contain table th {
 }
  */
 /*icons*/
-.sDashboard-icon {
+.cprDashboard-icon {
 	margin: 0 5px 0 5px;
 	float: right;
 	background: url('images/icon-sprite.PNG') no-repeat;
@@ -382,7 +436,7 @@ div#users-contain table td, div#users-contain table th {
 	height: 20px;
 }
 
-.sDashboard-iconcustom {
+.cprDashboard-iconcustom {
 	margin: 0 5px 0 5px;
 	float: right;
 	background: url('images/ic_settings_white_18dp_1x.png') no-repeat;
@@ -390,7 +444,7 @@ div#users-contain table td, div#users-contain table th {
 	height: 20px;
 }
 
-.sDashboard-iconcustomDel {
+.cprDashboard-iconcustomDel {
 	margin: 0 5px 0 5px;
 	float: right;
 	background: url('images/ic_delete_white_18dp_1x.png') no-repeat;
@@ -398,7 +452,7 @@ div#users-contain table td, div#users-contain table th {
 	height: 20px;
 }
 
-.sDashboard-iconcustomZoom {
+.cprDashboard-iconcustomZoom {
 	margin: 0 5px 0 5px;
 	float: right;
 	background: url('images/ic_zoom_out_map_white_18dp_1x.png') no-repeat;
@@ -406,7 +460,7 @@ div#users-contain table td, div#users-contain table th {
 	height: 20px;
 }
 
-.sDashboard-iconcustomRefresh {
+.cprDashboard-iconcustomRefresh {
 	margin: 0 5px 0 5px;
 	float: right;
 	background: url('images/ic_refresh_white_18dp_1x.png') no-repeat;
@@ -414,30 +468,36 @@ div#users-contain table td, div#users-contain table th {
 	height: 20px;
 }
 
-.sDashboard-iconcustomFilter {
+.cprDashboard-iconcustomFilter {
 	margin: 0 5px 0 5px;
 	float: right;
 	background: url('images/ic_filter_list_white_18dp_1x.png') no-repeat;
 	width: 20px;
 	height: 20px;
 }
-
-.sDashboard-iconcustomStyle {
+.cprDashboard-iconcustomInteract {
+	margin: 0 5px 0 5px;
+	float: right;
+	background: url('images/ic_details_white_18dp_1x.png') no-repeat;
+	width: 20px;
+	height: 20px;
+}
+.cprDashboard-iconcustomStyle {
 	margin: 0 5px 0 5px;
 	float: right;
 	width: 20px;
 	height: 20px;
 }
 
-.sDashboard-icon:hover,
-.sDashboard-icon:focus {
+.cprDashboard-icon:hover,
+.cprDashboard-icon:focus {
 	cursor: pointer;
 	box-shadow: 0 0.3em 0.3em -0.2em grey var(--hover);
 	transition: .3s all ease;
   	transform: translateY(-0.15em);
 }
 
-.sDashboard-iconcustom:hover
+.cprDashboard-iconcustom:hover
  {
 	cursor: pointer;
 	box-shadow: 0 0.3em 0.3em -0.2em var(--hover) grey;
@@ -445,46 +505,51 @@ div#users-contain table td, div#users-contain table th {
   	transform: translateY(-0.15em);
 }
 
-.sDashboard-iconcustomDel:hover {
+.cprDashboard-iconcustomDel:hover {
 	cursor: pointer;
 	box-shadow: 0 0.3em 0.3em -0.2em var(--hover) grey;
 	transition: .3s all ease;
   	transform: translateY(-0.15em);
 }
-.sDashboard-iconcustomFilter:hover {
-	cursor: pointer;
-	box-shadow: 0 0.3em 0.3em -0.2em var(--hover) grey;
-	transition: .3s all ease;
-  	transform: translateY(-0.15em);
-}
-
-.sDashboard-iconcustomRefresh:hover {
+.cprDashboard-iconcustomFilter:hover {
 	cursor: pointer;
 	box-shadow: 0 0.3em 0.3em -0.2em var(--hover) grey;
 	transition: .3s all ease;
   	transform: translateY(-0.15em);
 }
 
-.sDashboard-iconcustomZoom:hover {
+.cprDashboard-iconcustomRefresh:hover {
+	cursor: pointer;
+	box-shadow: 0 0.3em 0.3em -0.2em var(--hover) grey;
+	transition: .3s all ease;
+  	transform: translateY(-0.15em);
+}
+.cprDashboard-iconcustomInteract:hover {
+	cursor: pointer;
+	box-shadow: 0 0.3em 0.3em -0.2em var(--hover) grey;
+	transition: .3s all ease;
+  	transform: translateY(-0.15em);
+}
+.cprDashboard-iconcustomZoom:hover {
 	cursor: pointer;
 	box-shadow: 0 0.3em 0.3em -0.2em var(--hover) grey;
 	transition: .3s all ease;
   	transform: translateY(-0.15em);
 }
 
-.sDashboard-iconcustom .sDashboard-settings {
+.cprDashboard-iconcustom .cprDashboard-settings {
 	background-position: -2px -230px;
 }
 
-.sDashboard-icon.sDashboard-trash-icon {
+.cprDashboard-icon.cprDashboard-trash-icon {
 	background-position: -4px -159px;
 }
 
-.sDashboard-icon.sDashboard-refresh-icon {
+.cprDashboard-icon.cprDashboard-refresh-icon {
 	background-position: -3px -186px;
 }
 
-.sDashboard-icon.sDashboard-maximize-icon {
+.cprDashboard-icon.cprDashboard-maximize-icon {
 	background-position: -2px -212px;
 }
 
@@ -493,51 +558,51 @@ div#users-contain table td, div#users-contain table th {
 } */
 
 .js-plotly-plot .plotly .modebar {
-	        background: #E0E0E0 !important;
+	        background: #FFFFF !important;
 }
 
 
-.sDashboard-icon.sDashboard-circle-plus-icon {
+.cprDashboard-icon.cprDashboard-circle-plus-icon {
 	background-position: -2px -3px;
 }
 
-.sDashboard-icon.sDashboard-circle-minus-icon {
+.cprDashboard-icon.cprDashboard-circle-minus-icon {
 	background-position: -2px -29px;
 }
 
-.sDashboard-icon.sDashboard-circle-remove-icon {
+.cprDashboard-icon.cprDashboard-circle-remove-icon {
 	background-position: -2px -55px;
 }
 
-.sDashboard-icon.sDashboard-plus-icon {
+.cprDashboard-icon.cprDashboard-plus-icon {
 	background-position: -3px -83px;
 }
 
-.sDashboard-icon.sDashboard-minus-icon {
+.cprDashboard-icon.cprDashboard-minus-icon {
 	background-position: -2px -109px;
 }
 
-.sDashboard-icon.sDashboard-remove-icon {
+.cprDashboard-icon.cprDashboard-remove-icon {
 	background-position: -3px -135px;
 }
 
 
 
-.sDashboard-icon.sDashboard-minimize-icon {
+.cprDashboard-icon.cprDashboard-minimize-icon {
 	background-position: -2px -236px;
 }
 
 /*clear fix*/
-.sDashboard-clearfix:before, .sDashboard-clearfix:after {
+.cprDashboard-clearfix:before, .cprDashboard-clearfix:after {
 	content: "";
 	display: table;
 }
 
-.sDashboard-clearfix:after {
+.cprDashboard-clearfix:after {
 	clear: both;
 }
 
-.sDashboard-clearfix {
+.cprDashboard-clearfix {
 	zoom: 1; /* For IE 6/7 (trigger hasLayout) */
 }
 
@@ -551,7 +616,7 @@ div#users-contain table td, div#users-contain table th {
 	width: 100%;
 	z-index: 9998;z-index one less than window maximized css
 } */
-.sDashboard-overlay {
+.cprDashboard-overlay {
 	width: 100%;
 	height: 100%;
 	background: rgba(0, 0, 0, 0.1);
