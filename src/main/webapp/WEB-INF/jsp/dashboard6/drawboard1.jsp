@@ -232,7 +232,8 @@ $(window).load(function() {
 								class="fa fa-circle"></i>
 						</button>
 						<ul class="dropdown-menu-v2">
-							<li class="menuItem"><a href="#">Themes</a></li>
+							<li class="menuItem themes"><a href="#">Themes</a></li>
+							<li class="menuItem filters"><a href="#">Filters</a></li>
 						</ul>				
 					
 					</div>
@@ -1119,11 +1120,18 @@ $(window).load(function() {
 								    $("#cprDashboard").cprDashboard("changeChart",changeChartObject);
 								    $('#changeChartModal').modal('hide');
 								});								
-								$("li.menuItem").click(function(e) {
+								$("li.menuItem.themes").click(function(e) {
 								
 									e.preventDefault(); 
 									$("#changeThemeModal").modal('show');    
 								
+									
+								});
+								$("li.menuItem.filters").click(function(e) {
+									
+									e.preventDefault(); 
+									//$("#changeThemeModal").modal('show');    
+									$("#filterModal").modal('show');		
 									
 								});
 								$('#applyThemes').on('click', function (e) {
