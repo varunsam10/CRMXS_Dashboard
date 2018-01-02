@@ -222,23 +222,23 @@
 								 $("#changeChartForm input:checkbox[value='line']").bootstrapSwitch('disabled',false);
 								 $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('state', true, true);
 								 break;
-					case "column":$('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
-								  $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
-								  $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('state', true, true);
-								  $("#changeChartForm input:checkbox[value='bar']").bootstrapSwitch('disabled',false);
-								  break;
-					case "barline":$('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
-								   $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
-								   $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('state', true, true);
-								   $("#changeChartForm input:checkbox[value='line']").bootstrapSwitch('disabled',false);
-								   $("#changeChartForm input:checkbox[value='bar']").bootstrapSwitch('disabled',false);
-								   $("#changeChartForm input:checkbox[value='area']").bootstrapSwitch('disabled',false);
+				   case "column":$('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
+								 $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
+								 $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('state', true, true);
+								 $("#changeChartForm input:checkbox[value='bar']").bootstrapSwitch('disabled',false);
+							     break;
+				  case "barline":$('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
+								 $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
+								 $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('state', true, true);
+								 $("#changeChartForm input:checkbox[value='line']").bootstrapSwitch('disabled',false);
+								 $("#changeChartForm input:checkbox[value='bar']").bootstrapSwitch('disabled',false);
+								 $("#changeChartForm input:checkbox[value='area']").bootstrapSwitch('disabled',false);
 								   /*$("#changeChartForm input:checkbox[value='column']").bootstrapSwitch('disabled',false);*/
-								   break;
-					case "pie":   $('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
-								  $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
-								  $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('state', true, true);
-								  break;											
+								 break;
+				   case "pie":   $('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
+								 $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
+								 $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('state', true, true);
+								 break;											
 					}
 								
 				/*	if(graphToThisChart === widgetDefinition.chartType){
