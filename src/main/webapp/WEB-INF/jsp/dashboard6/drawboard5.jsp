@@ -38,10 +38,10 @@
 <link type="text/css" href="assets/dash6/css/chosen.min.css" 	rel="stylesheet" />
 <link type="text/css" href="assets/dash6/css/jqueryNw/jquery-ui-1.12.1.min.css" rel="stylesheet" />
 <!-- amcharts map export css-->	
-<!-- <link rel="stylesheet" href="assets/dash6/js/amchartsMap/export.css" type="text/css" media="all" /> -->
-<!-- <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />	 -->
+<link rel="stylesheet" href="assets/dash6/js/amchartsMap/export.css" type="text/css" media="all" /> 
+<!-- <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" /> -->
 <!-- load the dashboard css -->
-<link href="assets/dash6/css/cprDashboard.css" rel="stylesheet">
+<link href="assets/dash6/css/cprDashboard2.css" rel="stylesheet">
 <!-- load gitter css -->
 <!-- <link href="assets/dash6/css/jquery.gritter.css" rel="stylesheet" /> -->
 <!-- toastr css -->
@@ -218,7 +218,7 @@ $(window).load(function() {
 		<div class="page-content-fixed-header">
 			<!-- BEGIN BREADCRUMBS -->
 			<ul class="page-breadcrumb">
-				<li><a href="#">Maifest BI Insights</a></li>
+				<li><a href="#">Customer location Insights</a></li>
 			</ul>
 			<!-- END BREADCRUMBS -->
 			<div class="content-header-menu">
@@ -596,6 +596,7 @@ $(window).load(function() {
 <script src="assets/dash6/js/amchartsMap/ammap.js"	type="text/javascript"></script>
 <script src="assets/dash6/js/amchartsMap/light.js"	type="text/javascript"></script>
 <script src="assets/dash6/js/amchartsMap/worldLow.js" type="text/javascript"></script>
+<script src="assets/dash6/js/amchartsMap/usaLow.js" type="text/javascript"></script>
 <!-- 	<script src="assets/dash6/js/amchartsMap/export.min.js"	type="text/javascript"></script> -->
 <!-- <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script> -->
 <!-- theme switcher -->
@@ -677,406 +678,30 @@ $(document).ready(function() {
 //this is the data format that the dashboard framework expects
 //**********************************************
 	var dashboardJSON = [
+			
 			{
-				widgetTitle : "Day Wise",
-				widgetId : "id001",
-				widgetType : "chart",
-				widgetClick:"disable",
-				graphType : "exploratory",
-				widgetDimension : "normal",
-				chartType : "column",
-				widgetContent : {
-					data : myExampleData.plotlycolumndata,
-					layout : myExampleData.plotlycolumnlayout,
-					config : myExampleData.plotlycolumnconfig
-				}
-			},
-
-			{
-				widgetTitle : "Hour Wise Redemptions",
-				widgetId : "id002",
-				widgetType : "chart",
-				widgetClick:"disable",
-				graphType : "exploratory",
-				widgetDimension : "normal",
-				chartType : "barline",
-				widgetContent : {
-					data : myExampleData.plotlybarlinedata,
-					layout : myExampleData.plotlybarlinelayout,
-					config : myExampleData.plotlybarlineconfig
-				}
-			},
-			{
-				widgetTitle : "Sales Figures",
-				widgetId : "id003",
-				widgetType : "chart",
-				widgetClick:"disable",
-				graphType : "exploratory",
-				widgetDimension : "normal",
-				chartType : "pie",
-				widgetContent : {
-					data : myExampleData.plotlypiedata,
-					layout : myExampleData.plotlypielayout,
-					config : myExampleData.plotlypieconfig
-				}
-			},
-			{
-				widgetTitle : "Sales Figures2",
-				widgetId : "id004",
-				widgetType : "chart",
-				widgetClick:"disable",
-				graphType : "exploratory",
-				widgetDimension : "normal",
-				chartType : "pie",
-				widgetContent : {
-					data : myExampleData.donutWidgetData,
-					layout : myExampleData.donutWidgetLayout,
-					config : myExampleData.donutWidgetConfig
-				}
-			},
-			{
-				widgetTitle : "Hour Wise Redemptions",
-				widgetId : "id005",
-				widgetType : "chart",
-				widgetClick:"disable",
-				graphType : "exploratory",
-				widgetDimension : "normal",
-				chartType : "area",
-				widgetContent : {
-					data : myExampleData.plotlyareadata,
-					layout : myExampleData.plotlyarealayout,
-					config : myExampleData.plotlyareaconfig
-				}
-			},
-
-			{
-				widgetTitle : "Age group",
-				widgetId : "id006",
-				widgetType : "chart",
-				widgetClick:"disable",
-				graphType : "exploratory",
-				widgetDimension : "normal",
-				chartType : "bubble",
-				enableRefresh : true,
-				refreshCallBack : function(widgetId) {
-					//Inside refresh callback
-					//notification('info', 'Inside the refresh callback of '+widgetId+'!');
-					var refreshedData = {
-						data : myExampleData.plotlyRefreshBubbleData,
-						layout : myExampleData.plotlyBubbleLayout,
-						config : myExampleData.plotlybarconfig
-					};
-					return refreshedData;
-				},
-				widgetContent : {
-					data : myExampleData.plotlyBubbleData,
-					layout : myExampleData.plotlyBubbleLayout,
-					config : myExampleData.plotlybarconfig
-				}
-			},
-			{
-				widgetTitle : "Revenue by region",
-				widgetId : "id007",
-				widgetType : "chart",
-				widgetClick:"disable",
-				graphType : "exploratory",
-				widgetDimension : "large",
-				chartType : "bubble",
-				widgetContent : {
-					data : myExampleData.plotlybubble2data,
-					layout : myExampleData.plotlybubble2layout,
-					config : myExampleData.plotlybubble2config
-				}
-			},
-
-			{
-				widgetTitle : "Revenue",
-				widgetId : "id008",
-				widgetType : "chart",
-				widgetClick:"disable",
-				graphType : "exploratory",
-				widgetDimension : "large",
-				chartType : "bar",
-				enableRefresh : true,
-				refreshCallBack : function(widgetId) {
-					var refreshedData = {
-						data : myExampleData.barGroupRefreshChartData,
-						layout : myExampleData.barGroupChartLayout,
-						config : myExampleData.plotlybarconfig
-					};
-					return refreshedData;
-				},
-				widgetContent : {
-					data : myExampleData.barGroupChartData,
-					layout : myExampleData.barGroupChartLayout,
-					config : myExampleData.plotlybarconfig
-				}
-			},
-			{
-				widgetTitle : "Items sold",
-				widgetId : "id009",
-				widgetType : "chart",
-				widgetClick:"disable",
-				graphType : "exploratory",
-				widgetDimension : "large",
-				chartType : "line",
-				getDataBySelection : true,
-				widgetContent : {
-					data : myExampleData.plotlylinedata,
-					layout : myExampleData.plotlylinelayout,
-					config : myExampleData.plotlylineconfig
-				}
-			},
-			/* {
-				widgetTitle: "Sales Figures",
-				widgetId: "id006",
-				widgetType: "chart",
-				graphType: "normal",
-				widgetDimension: "normal",
-				chartType: "pie",
-				widgetContent: {
-					data: myExampleData.c3piedata
-				}
-			}, */
-			{
-				widgetTitle : "Stats",
-				widgetId : "id010",
-				widgetType : "Text",
-				widgetClick:"disable",
-				widgetDimension : "small",
-				widgetContent : "Redemptions : 4,636"
-
-			},
-			{
-				widgetTitle : "Browser used",
-				widgetId : "id011",
-				widgetType : "table",
-				widgetClick:"disable",
-				//widgetDimension: "large",
-				setJqueryStyle : true,
-				enableRefresh : true,
-				refreshCallBack : function(widgetId) {
-					//Inside refresh callback
-					notification('info',
-							'Inside the refresh callback of '
-									+ widgetId
-									+ '!');
-				},
-				widgetContent : myExampleData.tableWidgetData
-			},
-			{
-				widgetTitle : "Revenue",
-				widgetId : "id012",
-				widgetType : "Text",
-				widgetClick:"disable",
-				widgetDimension : "small",
-				widgetContent : "231,800$"
-			},
-			{
-				widgetTitle : "Where the customers are ",
-				widgetId : "id013",
+				widgetTitle : "Outlet location ",
+				widgetId : "id022",
 				widgetType : "map",
-				widgetClick:"disable",
+				widgetClick:"interact",
+				graphType : "normal",
+				linkedWidgets:["id023"],
+				widgetDimension : "large",
+				widgetContent : myExampleData.mapDataStoreLocUS,
+				linkedData:myExampleData.dataSetsp
+
+			},
+
+			{
+				widgetTitle : "Customer location",
+				widgetId : "id023",
+				widgetType : "map",
+				widgetClick:"interact",
 				graphType : "normal",
 				widgetDimension : "large",
-				widgetContent : myExampleData.amchartsMapData
+				widgetContent : myExampleData.mapDataCustomerLocUS
 
-			},
-
-			/* {
-				widgetTitle : "World Maps",
-				widgetId : "id014",
-				widgetType : "map",
-				widgetClick:"disable",
-				graphType : "normal",
-				widgetDimension : "normal",
-				// chartType : "line",
-				//getDataBySelection : true, 
-				widgetContent : myExampleData.amchartsCountryMapData
-
-			}, */
-			//Drawboard 3
-			{
-				widgetTitle: "Sales Figures",
-				widgetId: "id015",
-				widgetType: "chart",
-				widgetClick:"details",
-				graphType: "exploratory",
-				widgetDimension: "normal",
-				chartType: "pie",
-				widgetContent: {
-					data: myExampleData.plotlypiedata,
-					layout: myExampleData.plotlypielayout,
-					config: myExampleData.plotlypieconfig
-				}
-			},
-			{
-				widgetTitle: "Age group",
-				widgetId: "id016",
-				widgetClick:"details",
-				widgetType: "chart",
-				graphType: "exploratory",
-				widgetDimension: "normal",
-				chartType: "bubble",
-				enableRefresh: true,
-				refreshCallBack : function(widgetId){
-					//Inside refresh callback
-					//notification('info', 'Inside the refresh callback of '+widgetId+'!');
-					var refreshedData = {
-						data: myExampleData.plotlyRefreshBubbleData,
-						layout: myExampleData.plotlyBubbleLayout,
-						config: myExampleData.plotlybarconfig
-					};
-					return refreshedData;
-				},
-				widgetContent: {
-					data: myExampleData.plotlyBubbleData,
-					layout: myExampleData.plotlyBubbleLayout,
-					config: myExampleData.plotlybarconfig
-				}
-			},{
-				widgetTitle: "Revenue",
-				widgetId: "id017",
-				widgetType: "chart",
-				widgetClick:"details",
-				graphType: "exploratory",
-				widgetDimension: "large",
-				chartType: "bar",
-				enableRefresh: true,
-				refreshCallBack : function(widgetId){
-				var refreshedData = {
-					data: myExampleData.barGroupRefreshChartData,
-					layout: myExampleData.barGroupChartLayout,
-					config: myExampleData.plotlybarconfig
-				};
-				return refreshedData;
-			},
-				widgetContent: {
-					data: myExampleData.barGroupChartData,
-					layout: myExampleData.barGroupChartLayout,
-					config: myExampleData.plotlybarconfig
 			}
-			}, /* {
-		widgetTitle: "Items sold",
-		widgetId: "id018",
-		widgetType: "chart",
-		widgetClick:"details",
-		graphType: "exploratory",
-		widgetDimension: "large",
-		chartType: "line",
-		getDataBySelection: true,
-		widgetContent: {
-			data: myExampleData.plotlylinedata,
-			layout: myExampleData.plotlylinelayout,
-			config: myExampleData.plotlylineconfig
-		}
-		}, */
-		{
-			widgetTitle : "Age group",
-			widgetId : "id019",
-			widgetType : "chart",
-			widgetClick:"interact",
-			graphType : "exploratory",
-			widgetDimension : "normal",
-			chartType : "bubble",
-			linkedWidgets:["id020","id021"],
-			enableRefresh : true,
-			refreshCallBack : function(widgetId) {
-				//Inside refresh callback
-				//notification('info', 'Inside the refresh callback of '+widgetId+'!');
-				var refreshedData = {
-					data : myExampleData.plotlyRefreshBubbleData,
-					layout : myExampleData.plotlyBubbleLayout,
-					config : myExampleData.plotlybarconfig
-				};
-				return refreshedData;
-			},
-			widgetContent : {
-				data : myExampleData.plotlyBubbleData,
-				layout : myExampleData.plotlyBubbleLayout,
-				config : myExampleData.plotlybarconfig
-			}
-		},{
-			widgetTitle: "Revenue",
-			widgetId: "id020",
-			widgetType: "chart",
-			widgetClick:"interact",
-			graphType: "exploratory",
-			widgetDimension: "normal",
-			chartType: "bar",
-			enableRefresh: true,
-			refreshCallBack : function(widgetId){
-			var refreshedData = {
-					data: myExampleData.barGroupRefreshChartData,
-					layout: myExampleData.barGroupChartLayout,
-					config: myExampleData.plotlybarconfigDash4
-			};
-			return refreshedData;
-			},
-			widgetContent: {
-				data: myExampleData.barGroupChartData,
-				layout: myExampleData.barGroupChartLayout,
-				config: myExampleData.plotlybarconfigDash4
-		},
-			widgetContentNew : {
-				data : myExampleData.barGroupChartDataOriginal,
-				layout : myExampleData.barGroupChartLayout,
-				config : myExampleData.plotlybarconfigDash4
-		},
-			widgetContentNew1 : {
-			data : myExampleData.barGroupChartData1,
-		},
-			widgetContentNew2 : {
-			data : myExampleData.barGroupChartData2,
-
-		}
-	},
-	{
-		widgetTitle : "Items sold",
-		widgetId : "id021",
-		widgetType : "chart",
-		widgetClick:"interact",
-		graphType : "exploratory",
-		widgetDimension : "large",
-		chartType : "line",
-		getDataBySelection : true,
-		widgetContent : {
-			data : myExampleData.plotlylinedata,
-			layout : myExampleData.plotlylinelayout,
-			config : myExampleData.plotlylineconfig
-		},
-		widgetContentNew : {
-			data : myExampleData.plotlylinedata1,
-		},
-		widgetContentNew1 : {
-			data : myExampleData.plotlylinedata2,
-		},
-		widgetContentNew2 : {
-			data : myExampleData.plotlylinedata3,
-
-		}
-	}
-	/* 	{
-	 widgetTitle: "Items Sold Grid",
-	 widgetId: "id010",
-	 widgetType: "grid",
-	 widgetContent:{
-	 data:myExampleData.tableGridSource,
-	 coloumns:myExampleData.GridColoumns,
-	 width:myExampleData.GridWidth
-	 }
-	 } */
-	/* {
-		widgetTitle: "Table",
-		widgetId: "id007",
-		widgetType: "table",
-		setJqueryStyle: true,
-		widgetContent: {
-			data: myExampleData.tableWidgetDataNw,
-			coloumns: myExampleData.tableWidgetColoumnNw,
-			buttons:myExampleData.tableWidgetButtonNw
-		}
-	}, */
 	];
 //console.log(dashboardJSON);
 //basic initialization example mn.sDashboard
@@ -1151,7 +776,7 @@ $("#cprDashboard").bind("cprdashboardplotclicked",function(e, data) {
 	if (console) {
 		console.log("chart clicked, for widget: " + data.selectedWidgetId);
 	}
-	});
+});
 
 //widget order changes event example
 $("#cprDashboard").bind("cprdashboardorderchanged",function(e, data) {

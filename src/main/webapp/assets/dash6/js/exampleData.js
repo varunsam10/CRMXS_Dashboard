@@ -2,6 +2,449 @@ var myExampleData = {};
 /**
  * Amcharts map data 
  */
+myExampleData.targetSVG = "M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z";
+
+myExampleData.mapDataStoreLocUS =	{
+	  "type": "map",
+	  "theme": "light",
+	  "colorSteps": 10,
+	  "imagesSettings": {
+		   "rollOverColor": "#089282",
+		   "rollOverScale": 3,
+		   "selectedScale": 3,
+		   "selectedColor": "#089282",
+		   "color": "#13564e"
+	  },
+	  "dataProvider": {
+	    "map": "usaLow",
+	    "zoomLatitude": 0,
+	    "zoomLongitude": 0,
+	    "images": [{
+		      "svgPath": myExampleData.targetSVG,
+		      "zoomLevel": 5,
+		      "scale": 0.5,
+		      "title": "Atmosphere",
+		      "latitude": 33.448376,
+		      "longitude": -132.074036
+		    }, {
+		      "svgPath": myExampleData.targetSVG,
+		      "zoomLevel": 5,
+		      "scale": 0.5,
+		      "title": "Cafe Football",
+		      "latitude": 34.448376,
+		      "longitude": -102.074036
+		    }, {
+		      "svgPath": myExampleData.targetSVG,
+		      "zoomLevel": 5,
+		      "scale": 0.5,
+		      "title": "Serenity",
+		      "latitude": 34.048927,
+		      "longitude": -111.093735
+		    }, {
+		      "svgPath": myExampleData.targetSVG,
+		      "zoomLevel": 5,
+		      "scale": 0.5,
+		      "title": "The Bark cafe",
+		      "latitude": 34.048927,
+		      "longitude": -119.093735
+		    }, {
+		      "svgPath": myExampleData.targetSVG,
+		      "zoomLevel": 5,
+		      "scale": 0.5,
+		      "title": "Cafe Frienze",
+		      "latitude": 34.848927,
+		      "longitude": -115.993735
+		    }]
+	  },
+	  "areasSettings": {
+	    "autoZoom": true,
+	    "unlistedAreasColor": "#15A892",
+		"outlineThickness": 0.1
+	  },
+
+	  "valueLegend": {
+	    "right": 10,
+	    "minValue": "little",
+	    "maxValue": "a lot!"
+	  }
+
+};
+//datasets for interaction
+myExampleData.dataSetsp = [
+[{
+    "id": "US-AL",
+    "value": 4447100
+  }, {
+    "id": "US-AK",
+    "value": 626932
+  }, {
+    "id": "US-AZ",
+    "value": 5130632
+  }, {
+    "id": "US-AR",
+    "value": 2673400
+  }, {
+    "id": "US-CA",
+    "value": 33871648
+  }, {
+    "id": "US-CO",
+    "value": 4301261
+  }, {
+    "id": "US-CT",
+    "value": 3405565
+  }, {
+    "id": "US-DE",
+    "value": 783600
+  }, {
+    "id": "US-FL",
+    "value": 15982378
+  }, {
+    "id": "US-GA",
+    "value": 8186453
+  }, {
+    "id": "US-HI",
+    "value": 1211537
+  }, {
+    "id": "US-ID",
+    "value": 1293953
+  }, {
+    "id": "US-IL",
+    "value": 12419293
+  }, {
+    "id": "US-IN",
+    "value": 6080485
+  }, {
+    "id": "US-IA",
+    "value": 2926324
+  }, {
+    "id": "US-KS",
+    "value": 2688418
+  }, {
+    "id": "US-KY",
+    "value": 4041769
+  }, {
+    "id": "US-LA",
+    "value": 4468976
+  }, {
+    "id": "US-ME",
+    "value": 1274923
+  }, {
+    "id": "US-MD",
+    "value": 5296486
+  }, {
+    "id": "US-MA",
+    "value": 6349097
+  }, {
+    "id": "US-MI",
+    "value": 9938444
+  }, {
+    "id": "US-MN",
+    "value": 4919479
+  }, {
+    "id": "US-MS",
+    "value": 2844658
+  }, {
+    "id": "US-MO",
+    "value": 5595211
+  }, {
+    "id": "US-MT",
+    "value": 902195
+  }, {
+    "id": "US-NE",
+    "value": 1711263
+  }, {
+    "id": "US-NV",
+    "value": 1998257
+  }, {
+    "id": "US-NH",
+    "value": 1235786
+  }, {
+    "id": "US-NJ",
+    "value": 8414350
+  }, {
+    "id": "US-NM",
+    "value": 1819046
+  }, {
+    "id": "US-NY",
+    "value": 18976457
+  }, {
+    "id": "US-NC",
+    "value": 8049313
+  }, {
+    "id": "US-ND",
+    "value": 642200
+  }, {
+    "id": "US-OH",
+    "value": 11353140
+  }, {
+    "id": "US-OK",
+    "value": 3450654
+  }, {
+    "id": "US-OR",
+    "value": 3421399
+  }, {
+    "id": "US-PA",
+    "value": 12281054
+  }, {
+    "id": "US-RI",
+    "value": 1048319
+  }, {
+    "id": "US-SC",
+    "value": 4012012
+  }, {
+    "id": "US-SD",
+    "value": 754844
+  }, {
+    "id": "US-TN",
+    "value": 5689283
+  }, {
+    "id": "US-TX",
+    "value": 20851820
+  }, {
+    "id": "US-UT",
+    "value": 2233169
+  }, {
+    "id": "US-VT",
+    "value": 608827
+  }, {
+    "id": "US-VA",
+    "value": 7078515
+  }, {
+    "id": "US-WA",
+    "value": 5894121
+  }, {
+    "id": "US-WV",
+    "value": 1808344
+  }, {
+    "id": "US-WI",
+    "value": 5363675
+  }, {
+    "id": "US-WY",
+    "value": 493782
+  }], 
+  [{
+	    "id": "US-AL",
+	    "value": 2447100
+	  }, {
+	    "id": "US-AK",
+	    "value": 326932
+	  }, {
+	    "id": "US-AZ",
+	    "value": 2130632
+	  }, {
+	    "id": "US-AR",
+	    "value": 2673400
+	  }, {
+	    "id": "US-CA",
+	    "value": 34871648
+	  }, {
+	    "id": "US-CO",
+	    "value": 4301261
+	  }, {
+	    "id": "US-CT",
+	    "value": 5405565
+	  }, {
+	    "id": "US-DE",
+	    "value": 983600
+	  }, {
+	    "id": "US-FL",
+	    "value": 12982378
+	  }, {
+	    "id": "US-GA",
+	    "value": 12186453
+	  }, {
+	    "id": "US-HI",
+	    "value": 2211537
+	  }, {
+	    "id": "US-ID",
+	    "value": 3293953
+	  }, {
+	    "id": "US-IL",
+	    "value": 42419293
+	  }, {
+	    "id": "US-IN",
+	    "value": 1080485
+	  }, {
+	    "id": "US-IA",
+	    "value": 2826324
+	  }, {
+	    "id": "US-KS",
+	    "value": 1688418
+	  }, {
+	    "id": "US-KY",
+	    "value": 2041769
+	  }, {
+	    "id": "US-LA",
+	    "value": 1468976
+	  }, {
+	    "id": "US-ME",
+	    "value": 1274923
+	  }, {
+	    "id": "US-MD",
+	    "value": 2296486
+	  }, {
+	    "id": "US-MA",
+	    "value": 3349097
+	  }, {
+	    "id": "US-MI",
+	    "value": 6938444
+	  }, {
+	    "id": "US-MN",
+	    "value": 4919479
+	  }, {
+	    "id": "US-MS",
+	    "value": 2844658
+	  }, {
+	    "id": "US-MO",
+	    "value": 5595211
+	  }, {
+	    "id": "US-MT",
+	    "value": 7702195
+	  }, {
+	    "id": "US-NE",
+	    "value": 55711263
+	  }, {
+	    "id": "US-NV",
+	    "value": 17698257
+	  }, {
+	    "id": "US-NH",
+	    "value": 1235786
+	  }, {
+	    "id": "US-NJ",
+	    "value": 8414350
+	  }, {
+	    "id": "US-NM",
+	    "value": 1819046
+	  }, {
+	    "id": "US-NY",
+	    "value": 18976457
+	  }, {
+	    "id": "US-NC",
+	    "value": 8049313
+	  }, {
+	    "id": "US-ND",
+	    "value": 642200
+	  }, {
+	    "id": "US-OH",
+	    "value": 11353140
+	  }, {
+	    "id": "US-OK",
+	    "value": 3450654
+	  }, {
+	    "id": "US-OR",
+	    "value": 3421399
+	  }, {
+	    "id": "US-PA",
+	    "value": 12281054
+	  }, {
+	    "id": "US-RI",
+	    "value": 1048319
+	  }, {
+	    "id": "US-SC",
+	    "value": 4012012
+	  }, {
+	    "id": "US-SD",
+	    "value": 754844
+	  }, {
+	    "id": "US-TN",
+	    "value": 5689283
+	  }, {
+	    "id": "US-TX",
+	    "value": 20851820
+	  }, {
+	    "id": "US-UT",
+	    "value": 2233169
+	  }, {
+	    "id": "US-VT",
+	    "value": 608827
+	  }, {
+	    "id": "US-VA",
+	    "value": 7078515
+	  }, {
+	    "id": "US-WA",
+	    "value": 5894121
+	  }, {
+	    "id": "US-WV",
+	    "value": 1808344
+	  }, {
+	    "id": "US-WI",
+	    "value": 5363675
+	  }, {
+	    "id": "US-WY",
+	    "value": 493782
+	  }],
+	  [{
+		    id: "US-AK",
+		    value: 226932
+		  }, {
+		    id: "US-CA",
+		    value: 123871648
+		  }, {
+		    id: "US-FL",
+		    value: 112982378
+		  }, {
+		    id: "US-IL",
+		    value: 222419293
+		  }, {
+		    id: "US-NY",
+		    value: 14976457
+		  }, {
+		    id: "US-TX",
+		    value: 2851820
+	}],
+	 [{
+		    id: "US-AK",
+		    value: 2431233
+		  }, {
+		    id: "US-CA",
+		    value: 25646466
+		  }, {
+		    id: "US-FL",
+		    value: 31231333
+		  }, {
+		    id: "US-IL",
+		    value: 24584796
+		  }, {
+		    id: "US-NY",
+		    value: 41213132
+		  }, {
+		    id: "US-TX",
+		    value: 42356464
+		  }]
+];
+
+myExampleData.mapDataCustomerLocUS =	{
+		  "type": "map",
+		  "theme": "light",
+		  "colorSteps": 10,
+		  "imagesSettings": {
+			   "rollOverColor": "#089282",
+			   "rollOverScale": 3,
+			   "selectedScale": 3,
+			   "selectedColor": "#089282",
+			   "color": "#13564e"
+		  },
+		  "dataProvider": {
+		    "map": "usaLow",
+		    "zoomLatitude": 0,
+		    "zoomLongitude": 0,
+		    "areas": myExampleData.dataSetsp[0]  
+		  },
+		  "areasSettings": {
+		    "autoZoom": true,
+		    "unlistedAreasColor": "#15A892",
+			"outlineThickness": 0.1
+		  },
+
+		  "valueLegend": {
+		    "right": 10,
+		    "minValue": "little",
+		    "maxValue": "a lot!"
+		  }
+
+};
+
+
 myExampleData.amchartsMapData =	{
 		  "type": "map",
 		  "theme": "light",
@@ -14,138 +457,102 @@ myExampleData.amchartsMapData =	{
 		    "selectedColor": "#089282",
 		    "color": "#13564e"
 		  },
-		  "areasSettings": {
-			    "autoZoom": true,
-			    "selectedColor": "#CC0000"
-			  },
 
 		  "areasSettings": {
 		    "unlistedAreasColor": "#15A892"
-		  },
-
-		  "dataProvider": {
-			 
-		//"getAreasFromMap": true
-		    "map": "worldLow",
-		    "images": [ {
+		  },		
+		 "backgroundZoomsToTop": true,
+		  "dataProvider": {		    
+			  "map": "worldLow",
+		     "images": [{
+		      //"map-marker" : "Brussels",
 		      "zoomLevel": 5,
 		      "scale": 0.5,
-		      "map-marker" : "Brussels",
 		      "title": "Brussels",
 		      "latitude": 50.8371,
 		      "longitude": 4.3676
+		     /* "label": "SF Breweries",
+	          "left": 100,
+	          "top": 45,
+	          "labelShiftY": 5,
+	          "color": "#CC0000",
+	          "labelColor": "#CC0000",
+	          "labelRollOverColor": "#CC0000",
+	          "labelFontSize": 20	 */     
+		      
 		    }, {
 		      "zoomLevel": 5,
 		      "scale": 0.5,
-		      "title": "Copenhagen",
+		      "title": "Cellarmaker Brewing Co.",
 		      "latitude": 55.6763,
 		      "longitude": 12.5681
 		    }, {
 		      "zoomLevel": 5,
 		      "scale": 0.5,
-		      "title": "Paris",
+		      "title": "Black Sands Brewery",
 		      "latitude": 48.8567,
 		      "longitude": 2.3510
 		    }, {
 		      "zoomLevel": 5,
 		      "scale": 0.5,
-		      "title": "Reykjavik",
+		      "title": "Speakeasy Ales & Lagers",
 		      "latitude": 64.1353,
 		      "longitude": -21.8952
 		    }, {
 		      "zoomLevel": 5,
 		      "scale": 0.5,
-		      "title": "Moscow",
+		      "title": "Black Hammer Brewing",
 		      "latitude": 55.7558,
 		      "longitude": 37.6176
 		    }, {
 		      "zoomLevel": 5,
 		      "scale": 0.5,
-		      "title": "Madrid",
+		      "title": "Harmonic Brewing",
 		      "latitude": 40.4167,
 		      "longitude": -3.7033
 		    }, {
 		      "zoomLevel": 5,
 		      "scale": 0.5,
-		      "title": "London",
+		      "title": "Barebottle Brewing Company",
 		      "latitude": 51.5002,
 		      "longitude": -0.1262,
 		      //"url": "http://www.google.co.uk"
 		    }, {
 		      "zoomLevel": 5,
 		      "scale": 0.5,
-		      "title": "Peking",
+		      "title": "Laughing Monk Brewing",
 		      "latitude": 39.9056,
 		      "longitude": 116.3958
 		    }, {
 		      "zoomLevel": 5,
-		      "scale": 0.5,
-		      
-		      "title": "New Delhi",
+		      "scale": 0.5,		      
+		      "title": "Triple Voodoo Brewery",
 		      "latitude": 28.6353,
 		      "longitude": 77.2250
 		    }, {
 		      "zoomLevel": 5,
 		      "scale": 0.5,
-		      "title": "Tokyo",
+		      "title": "Social Kitchen & Brewery",
 		      "latitude": 35.6785,
 		      "longitude": 139.6823,
 		      //"url": "http://www.google.co.jp"
 		    }, {
 		      "zoomLevel": 5,
 		      "scale": 0.5,
-		      "title": "Ankara",
+		      "title": "Local Brewing Co.",
 		      "latitude": 39.9439,
 		      "longitude": 32.8560
 		    }, {
 		      "zoomLevel": 5,
 		      "scale": 0.5,
-		      "title": "Buenos Aires",
-		      "latitude": -34.6118,
-		      "longitude": -58.4173
-		    }, {
-		      "zoomLevel": 5,
-		      "scale": 0.5,
-		      "title": "Brasilia",
-		      "latitude": -15.7801,
-		      "longitude": -47.9292
-		    }, {
-		      "zoomLevel": 5,
-		      "scale": 0.5,
-		      "title": "Ottawa",
-		      "latitude": 45.4235,
-		      "longitude": -75.6979
-		    }, {
-		      "zoomLevel": 5,
-		      "scale": 0.5,
-		      "title": "Washington",
+		      "title": "Anchor Brewers & Distillers",
 		      "latitude": 38.8921,
 		      "longitude": -77.0241
-		    }, {
-		      "zoomLevel": 5,
-		      "scale": 0.5,
-		      "title": "Kinshasa",
-		      "latitude": -4.3369,
-		      "longitude": 15.3271
-		    }, {
-		      "zoomLevel": 5,
-		      "scale": 0.5,
-		      "title": "Cairo",
-		      "latitude": 30.0571,
-		      "longitude": 31.2272
-		    }, {
-		      "zoomLevel": 5,
-		      "scale": 0.5,
-		      "title": "Pretoria",
-		      "latitude": -25.7463,
-		      "longitude": 28.1876
-		    }
-		    
-		    ]
+		    }]	
 		  }
 };
 
-myExampleData.amchartsCountryMapData =	{
+/*myExampleData.amchartsCountryMapData =	{
 		  "type": "map",
 		  "theme": "light",
 		  "projection": "miller",
@@ -158,30 +565,8 @@ myExampleData.amchartsCountryMapData =	{
 		    "autoZoom": true,
 		    "selectedColor": "#CC0000"
 		  },
-}  ;
+};*/
 	
-/* {
-"type": "map",
-"theme": "light",
-"projection": "miller",
-
-"dataProvider": {
-  "map": "worldLow",
-  "getAreasFromMap": true
-},myExampleData.amchartsMapData
-"areasSettings": {
-  "autoZoom": true,
-  "selectedColor": "#CC0000"
-},
-"smallMap": {},
-"export": {
-  "enabled": true,
-  "position": "bottom-right"
-}
-}  */
-
-
-
 
 /**
  * C3 data

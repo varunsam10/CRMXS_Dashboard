@@ -304,24 +304,29 @@
                                 </a>
                                 <ul class="sub-menu">
                                     <li class="nav-item  ">
-                                        <a href="drawboard1.html"  class="nav-link "><i class="icon-check"></i>
-                                        <span class="title">Maifest</span>
-                                        </a>
+                                        	 <a href="drawboard1.html"  class="nav-link "><i class="icon-check"></i>
+                                        	 <span class="title">Maifest</span>
+                                       		 </a>
                                        </li>
                                        <li class="nav-item  ">
-                                        <a href="drawboard2.html"  class="nav-link "><i class="icon-check"></i>
-                                        <span class="title">Maifest dynamic</span>
-                                        </a>
+                                        	<a href="drawboard2.html"  class="nav-link "><i class="icon-check"></i>
+                                        	<span class="title">Maifest dynamic</span>
+                                        	</a>
                                         </li> 
   										<li class="nav-item  ">
-                                        <a href="drawboard3.html"  class="nav-link "><i class="icon-check"></i>
-                                        <span class="title">Details view</span>
-                                        </a>
+                                        	<a href="drawboard3.html"  class="nav-link "><i class="icon-check"></i>
+                                       		<span class="title">Details view</span>
+                                        	</a>
                                         </li>
                                         <li class="nav-item  ">
-                                        <a href="drawboard4.html"  class="nav-link "><i class="icon-check"></i>
-                                        <span class="title">Widget interaction</span>
-                                        </a>
+                                        	<a href="drawboard4.html"  class="nav-link "><i class="icon-check"></i>
+                                       		<span class="title">Widget interaction</span>
+                                        	</a>
+                                        </li>  
+                                        <li class="nav-item  ">
+                                        	<a href="drawboard5.html"  class="nav-link "><i class="icon-check"></i>
+                                        	<span class="title">Customer location</span>
+                                       		</a>
                                         </li>                                                     
                                   
                                 </ul>

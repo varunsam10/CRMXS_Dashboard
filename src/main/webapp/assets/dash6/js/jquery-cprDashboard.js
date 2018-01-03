@@ -860,6 +860,44 @@
 				//location.reload(true);
 				
 			},
+			_interactMap: function(widgetDefinition,dataPoint) {
+				var _dashboardData = this.options.dashboardData;
+				var i;
+				var WidgetDefinitionToChange;
+				var linkedWidget ;
+				for (var j =0; j<widgetDefinition.linkedWidgets.length;j++){
+					linkedWidget = widgetDefinition.linkedWidgets[j];
+					for ( i = 0; i < _dashboardData.length; i++) {
+						if(_dashboardData[i].widgetId === linkedWidget){
+							
+							WidgetDefinitionToChange = _dashboardData[i];
+						}					
+					}
+					
+					var id = "li#" + WidgetDefinitionToChange.widgetId;
+					var mapArea;
+					var mapRedraw;
+					var WidgetContentToChange = WidgetDefinitionToChange.widgetContent;
+					var cust=1;
+					mapArea = this.element.find(id + " div.cprDashboardMap");
+									
+					if(dataPoint.latitude==="33.448376" && dataPoint.longitude ==="-132.074036"){
+						cust = 3;
+					}else if(dataPoint.latitude==="34.448376"){
+						cust = 2;
+					}else if(dataPoint.latitude==="34.048927"){
+						cust = 4;
+					}					
+					if (widgetDefinition.widgetType === 'map') {
+						
+						WidgetContentToChange.dataProvider.areas = widgetDefinition.linkedData[cust];
+						mapRedraw =AmCharts.makeChart(mapArea[0], WidgetContentToChange);
+						mapRedraw.validateData();
+										
+					}
+					
+				}
+			},
 			_interactChart: function(widgetDefinition,dataPoint) {
 				var _dashboardData = this.options.dashboardData;
 				var i;
@@ -1037,107 +1075,15 @@
 				mapArea = this.element.find(id + " div.cprDashboardMap");
 				
 				if (widgetDefinition.widgetType === 'map') {
-					
-					//var targetSVG = "M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z";
 					var map = AmCharts.makeChart(mapArea[0], widgetDefinition.widgetContent);
-					map.addListener("click", event => {
-				        // find out the coordinates of under mouse cursor
-				        var info = event.chart.getDevInfo();
-				    
-				        // print in console as well
-				        console.log({
-				           "latitude": info.latitude,
-				           "longitude": info.longitude
-				        });
-				    });
-
-					/*if(widgetDefinition.graphType === 'normal'){
-						
-						var chart = c3.generate({bindto:chartArea[0],data:widgetDefinition.widgetContent.data});
-						
-					}else{
-						
-						Plotly.newPlot(chartArea[0],  widgetDefinition.widgetContent.data, widgetDefinition.widgetContent.layout,widgetDefinition.widgetContent.config);
-						Plotly.redraw(chartArea[0]);
-					}	*/				
-				/*	if (widgetDefinition.getDataBySelection) {
-						
-						this._bindSelectEvent(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
-					} else {
-						if(widgetDefinition.graphType === 'exploratory'){
-							this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
-						}else if(widgetDefinition.graphType === 'normal'){
-							this._bindChartEventsC3(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
-						}
-					}*/
-					map.addListener( "positionChanged", updateCustomMarkers );
-
-					// this function will take current images on the map and create HTML elements for them
-					function updateCustomMarkers( event ) {
-					  // get map object
-					  var map = event.chart;
-
-					  // go through all of the images
-					  for ( var x in map.dataProvider.images ) {
-					    // get MapImage object
-					    var image = map.dataProvider.images[ x ];
-
-					    // check if it has corresponding HTML element
-					    if ( 'undefined' == typeof image.externalElement )
-					      image.externalElement = createCustomMarker( image );
-
-					    // reposition the element accoridng to coordinates
-					    var xy = map.coordinatesToStageXY( image.longitude, image.latitude );
-					    image.externalElement.style.top = xy.y + 'px';
-					    image.externalElement.style.left = xy.x + 'px';
-					  }
-					}
-
-					// this function creates and returns a new marker element
-					function createCustomMarker( image ) {
-					  // create holder
-					  var holder = document.createElement( 'div' );
-					  holder.className = 'map-marker';
-					  holder.title = image.title;
-					  holder.style.position = 'absolute';
-
-					  // maybe add a link to it?
-					  if ( undefined != image.url ) {
-					    holder.onclick = function() {
-					      window.location.href = image.url;
-					    };
-					    holder.className += ' map-clickable';
-					  }
-
-					  // create dot
-					  var dot = document.createElement( 'div' );
-					  dot.className = 'dot';
-					  holder.appendChild( dot );
-
-					  // create pulse
-					  var pulse = document.createElement( 'div' );
-					  pulse.className = 'pulse';
-					  holder.appendChild( pulse );
-
-					  // append the marker to the map container
-					  image.chart.chartDiv.appendChild( holder );
-
-					  return holder;
-					}
+					if(widgetDefinition.widgetClick === "interact"){
+						this._bindMapEvents(map, widgetDefinition.widgetId, widgetDefinition, this);
+					}					
 				}
-				else if(widgetDefinition.widgetType === 'static')
-				{
-						/*chart = new Chart(chartArea[0], widgetDefinition.widgetId, widgetDefinition.widgetContent.data);
-						
-						if (widgetDefinition.getDataBySelection) {
-							this._bindSelectEvent(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
-						} else {
-							this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
-						}*/
-				}
-
+				
 			},
 			_bindSelectEvent : function(chartArea, widgetId, widgetDefinition, context) {
+				//Flotr implementation
 			/*	Flotr.EventAdapter.observe(chartArea, "flotr:select", function(area) {
 					var evtObj = {
 						selectedWidgetId : widgetId,
@@ -1147,10 +1093,26 @@
 				});		*/	
 				
 			},
+			_bindMapEvents : function(mapArea, widgetId, widgetDefinition, context) {		
+				var id = "li#" + widgetDefinition.widgetId;				
+				mapArea.addListener("click", event => {
+			
+			        var info = event.chart.getDevInfo();			    
+		
+			       var eventObj ={
+			           "latitude": info.latitude,
+			           "longitude": info.longitude
+			        };
+			      
+			    	context._interactMap(widgetDefinition,eventObj);			       
+				});
+						
+			},
 			_bindChartEvents : function(chartArea, widgetId, widgetDefinition, context) {
 				var myPlot = chartArea;
 				var id = "li#" + widgetDefinition.widgetId;
 				var chartArea = this.element.find(id + " div.cprDashboardChart");
+				
 				myPlot.on('plotly_click', function(data){					
 					 var pts = '';
 					 for(var i=0; i < data.points.length; i++){
@@ -1171,13 +1133,9 @@
 							context._interactChart(widgetDefinition,evtObj);
 						}
 					}
-					/*					
-					if(widgetId==='id015'||widgetId==='id016'||widgetId==='id017'
-						||widgetId==='id018'){						
-					}else{						
-						
-					}*/					
-				});				
+									
+				});
+				
 			},
 			_bindChartEventsC3 : function(chartArea, widgetId, widgetDefinition, context) {
 				var myPlot = chartArea;
