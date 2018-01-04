@@ -878,15 +878,15 @@
 					var mapArea;
 					var mapRedraw;
 					var WidgetContentToChange = WidgetDefinitionToChange.widgetContent;
-					var cust=1;
+					var cust=0;
 					mapArea = this.element.find(id + " div.cprDashboardMap");
 									
-					if(dataPoint.latitude==="33.448376" && dataPoint.longitude ==="-132.074036"){
+					if(dataPoint.id==="Atmosphere"){
 						cust = 3;
-					}else if(dataPoint.latitude==="34.448376"){
+					}else if(dataPoint.id=="CafeFootball"){
 						cust = 2;
-					}else if(dataPoint.latitude==="34.048927"){
-						cust = 4;
+					}else if(dataPoint.id==="Serenity"){
+						cust = 1;
 					}					
 					if (widgetDefinition.widgetType === 'map') {
 						
@@ -1098,10 +1098,24 @@
 				mapArea.addListener("click", event => {
 			
 			        var info = event.chart.getDevInfo();			    
-		
+			        var mapObject = event.mapObject.id;
 			       var eventObj ={
 			           "latitude": info.latitude,
-			           "longitude": info.longitude
+			           "longitude": info.longitude,
+			           "title":info.title,
+			           "id":mapObject
+			        };
+			      
+			    	//context._interactMap(widgetDefinition,eventObj);			       
+				});
+				mapArea.addListener("clickMapObject", event => {
+					
+			       // var info = event.chart.getDevInfo();			    
+			        var id = event.mapObject.id;
+			        var title = event.mapObject.title ;
+			       var eventObj ={
+			           "title":title,
+			           "id":id
 			        };
 			      
 			    	context._interactMap(widgetDefinition,eventObj);			       

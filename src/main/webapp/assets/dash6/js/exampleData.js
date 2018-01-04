@@ -24,37 +24,47 @@ myExampleData.mapDataStoreLocUS =	{
 		      "zoomLevel": 5,
 		      "scale": 0.5,
 		      "title": "Atmosphere",
+		      "id": "Atmosphere",
 		      "latitude": 33.448376,
-		      "longitude": -132.074036
+		      "longitude": -132.074036,
+		      "selectable": true
 		    }, {
 		      "svgPath": myExampleData.targetSVG,
 		      "zoomLevel": 5,
 		      "scale": 0.5,
 		      "title": "Cafe Football",
-		      "latitude": 34.448376,
-		      "longitude": -102.074036
+		      "id": "CafeFootball",
+		      "latitude": 37.448376,
+		      "longitude": -72.074036,
+		      "selectable": true
 		    }, {
 		      "svgPath": myExampleData.targetSVG,
 		      "zoomLevel": 5,
 		      "scale": 0.5,
 		      "title": "Serenity",
-		      "latitude": 34.048927,
-		      "longitude": -111.093735
-		    }, {
+		      "id": "Serenity",
+		      "latitude": 38.048927,
+		      "longitude": -41.093735,
+		      "selectable": true
+		    }/*, {
 		      "svgPath": myExampleData.targetSVG,
 		      "zoomLevel": 5,
 		      "scale": 0.5,
 		      "title": "The Bark cafe",
+		      "id": "BarkCafe",
 		      "latitude": 34.048927,
-		      "longitude": -119.093735
+		      "longitude": -119.093735,
+		      "selectable": true
 		    }, {
 		      "svgPath": myExampleData.targetSVG,
 		      "zoomLevel": 5,
 		      "scale": 0.5,
 		      "title": "Cafe Frienze",
+		      "id": "CafeFrienze",
 		      "latitude": 34.848927,
-		      "longitude": -115.993735
-		    }]
+		      "longitude": -115.993735,
+		      "selectable": true
+		    }*/]
 	  },
 	  "areasSettings": {
 	    "autoZoom": true,
@@ -449,7 +459,6 @@ myExampleData.amchartsMapData =	{
 		  "type": "map",
 		  "theme": "light",
 		  "projection": "miller",
-
 		  "imagesSettings": {
 		    "rollOverColor": "#089282",
 		    "rollOverScale": 3,
