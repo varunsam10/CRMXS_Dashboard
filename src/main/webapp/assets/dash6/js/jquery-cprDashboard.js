@@ -1072,8 +1072,7 @@
 				var layout;
 				var config;
 				var chart;
-				mapArea = this.element.find(id + " div.cprDashboardMap");
-				
+				mapArea = this.element.find(id + " div.cprDashboardMap");				
 				if (widgetDefinition.widgetType === 'map') {
 					var map = AmCharts.makeChart(mapArea[0], widgetDefinition.widgetContent);
 					if(widgetDefinition.widgetClick === "interact"){
@@ -1098,12 +1097,12 @@
 				mapArea.addListener("click", event => {
 			
 			        var info = event.chart.getDevInfo();			    
-			        var mapObject = event.mapObject.id;
+			       // var mapObject = event.mapObject.id;
 			       var eventObj ={
 			           "latitude": info.latitude,
 			           "longitude": info.longitude,
-			           "title":info.title,
-			           "id":mapObject
+			          // "title":info.title,
+			         // "id":mapObject
 			        };
 			      
 			    	//context._interactMap(widgetDefinition,eventObj);			       
