@@ -553,10 +553,12 @@
 						plot_bgcolor:'#E0E0E0'						
 				};
 				//var theme1=[{color : '#FF0000',opacity : 0.6},{color : '#1ABC9C',opacity : 0.6},{color : '#1ABC9C',opacity : 0.6}];
-				var theme1=[{color : 'rgb(49,54,149)',opacity : 0.6},{color : 'rgb(26, 118, 255)',opacity : 0.6},{color : 'rgb(69,117,180)',opacity : 0.6},
-					{color : 'rgb(116,173,209)',opacity : 0.6},{color : 'rgb(171,217,233)',opacity : 0.6}];
+				var theme1=[{color : '#26456e',opacity : 0.6},{color : '#7bc8e2',opacity : 0.6},{color : '#1c73b1',opacity : 0.6},
+					{color : '#3a87b7',opacity : 0.6},{color : '#67add4',opacity : 0.6}];
 				var theme2=[{color : '#138D75',opacity : 0.6},{color : '#EC7063',opacity : 0.6},{color : '#2C3E50',opacity : 0.6}
 				,{color : '#F4D03F',opacity : 0.6},{color : '#95A5A6',opacity : 0.6}];
+				var theme3=[{color : '#69b764',opacity : 0.6},{color : '#f26c64',opacity : 0.6},{color : '#ff800e',opacity : 0.6}
+				,{color : '#ffbc79',opacity : 0.6},{color : '#aec7e8',opacity : 0.6}];
 				for ( i = 0; i < _dashboardData.length; i++) {
 					var widgetDefinition = _dashboardData[i];
 					var id = "li#" + widgetDefinition.widgetId;
@@ -590,8 +592,12 @@
 										widgetDefinition.widgetContent.data[j].marker.color = theme2[j].color;
 									}
 								}else if(themeSelected==="theme3"){
-								//widgetDefinition.widgetContent.data[j].marker = theme3[j];
-								}
+									if(widgetDefinition.chartType != 'bubble'){
+										widgetDefinition.widgetContent.data[j].marker = theme3[j];	
+									}else{
+										widgetDefinition.widgetContent.data[j].marker.color = theme3[j].color;
+										}
+												}
 							}
 						}else if(widgetDefinition.chartType === 'pie' && (typeof widgetDefinition.widgetContent.data[j].marker != 'undefined')){
 							if(themeSelected==="theme1"){
@@ -607,6 +613,15 @@
 									widgetDefinition.widgetContent.data[j].marker.colors=[];
 									for(var k=0;k<theme2.length;k++){
 										widgetDefinition.widgetContent.data[j].marker.colors.push(theme2[k].color);
+									}
+								}
+							
+							}
+							else if(themeSelected==="theme3"){
+								if(j===0){
+									widgetDefinition.widgetContent.data[j].marker.colors=[];
+									for(var k=0;k<theme3.length;k++){
+										widgetDefinition.widgetContent.data[j].marker.colors.push(theme3[k].color);
 									}
 								}
 							
@@ -634,11 +649,17 @@
 							$('.js-plotly-plot .plotly .modebar').attr('style', 'background: #E0E0E0 !important');
 							$('.cprDashboardTableView tbody tr:nth-child(odd)').attr('style', 'background-color: rgb(69,117,180)!important');
 							$('.cprDashboardTableView tbody tr:nth-child(even)').attr('style', 'background-color: rgb(26, 118, 255)!important');
-						}else{
+						}else if(themeSelected==="theme2"){
 							$('.js-plotly-plot .plotly .modebar').attr('style', 'background: #FFFFF !important');
 							$('.cprDashboardTableView tbody tr:nth-child(odd)').attr('style', 'background-color: #138D75 !important');
 							$('.cprDashboardTableView tbody tr:nth-child(even)').attr('style', 'background-color: #EC7063 !important');
 						}
+						else if(themeSelected==="theme3"){
+							$('.js-plotly-plot .plotly .modebar').attr('style', 'background: #FFFFF !important');
+							$('.cprDashboardTableView tbody tr:nth-child(odd)').attr('style', 'background-color: #FF800E !important');
+							$('.cprDashboardTableView tbody tr:nth-child(even)').attr('style', 'background-color: #FFBC79 !important');
+						}
+				
 					}				
 				}			
 			},
@@ -878,15 +899,15 @@
 					var mapArea;
 					var mapRedraw;
 					var WidgetContentToChange = WidgetDefinitionToChange.widgetContent;
-					var cust=1;
+					var cust=0;
 					mapArea = this.element.find(id + " div.cprDashboardMap");
 									
-					if(dataPoint.latitude==="33.448376" && dataPoint.longitude ==="-132.074036"){
+					if(dataPoint.id==="Atmosphere"){
 						cust = 3;
-					}else if(dataPoint.latitude==="34.448376"){
+					}else if(dataPoint.id=="CafeFootball"){
 						cust = 2;
-					}else if(dataPoint.latitude==="34.048927"){
-						cust = 4;
+					}else if(dataPoint.id==="Serenity"){
+						cust = 1;
 					}					
 					if (widgetDefinition.widgetType === 'map') {
 						
@@ -1072,8 +1093,7 @@
 				var layout;
 				var config;
 				var chart;
-				mapArea = this.element.find(id + " div.cprDashboardMap");
-				
+				mapArea = this.element.find(id + " div.cprDashboardMap");				
 				if (widgetDefinition.widgetType === 'map') {
 					var map = AmCharts.makeChart(mapArea[0], widgetDefinition.widgetContent);
 					if(widgetDefinition.widgetClick === "interact"){
@@ -1098,10 +1118,24 @@
 				mapArea.addListener("click", event => {
 			
 			        var info = event.chart.getDevInfo();			    
-		
+			       // var mapObject = event.mapObject.id;
 			       var eventObj ={
 			           "latitude": info.latitude,
-			           "longitude": info.longitude
+			           "longitude": info.longitude,
+			          // "title":info.title,
+			         // "id":mapObject
+			        };
+			      
+			    	//context._interactMap(widgetDefinition,eventObj);			       
+				});
+				mapArea.addListener("clickMapObject", event => {
+					
+			       // var info = event.chart.getDevInfo();			    
+			        var id = event.mapObject.id;
+			        var title = event.mapObject.title ;
+			       var eventObj ={
+			           "title":title,
+			           "id":id
 			        };
 			      
 			    	context._interactMap(widgetDefinition,eventObj);			       
