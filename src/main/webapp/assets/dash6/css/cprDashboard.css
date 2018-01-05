@@ -280,12 +280,12 @@ div#users-contain table td, div#users-contain table th {
 
 .cprDashboardTableView tbody tr:nth-child(odd){
 	/* background-color:  #1a76ff !important; */
-	 background-color:  #32c5d2!important;/* #138D75 */
+	 background-color:  #32c5d2!important ;/* #138D75 */ 
 	
 }
 .cprDashboardTableView tbody tr:nth-child(even){
 	/*  background-color: #abd9e9 !important; */
-	 background-color: #3598dc!important;/* #EC7063 */
+	  background-color: #3598dc ;/* #EC7063 */ 
 	
 }
 .cprDashboardTableView tbody tr:nth-child(odd):hover, .cprDashboardTableView tbody tr:nth-child(even):hover

@@ -1315,7 +1315,7 @@ myExampleData.tableWidgetData = {
 
 	"aoColumns" : [ {
 		"sTitle" : "<b>Engine</b>",
-		'orderable': false
+		'orderable': true
 	}, {
 		"sTitle" : "<b>Browser</b>"
 	}],

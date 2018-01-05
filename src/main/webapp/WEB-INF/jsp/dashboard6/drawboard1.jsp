@@ -400,7 +400,7 @@ $(window).load(function() {
 						<div class="form-group  modal-group">
 							<label class="control-label col-md-6">Theme 3</label>
 							<div class="col-sm-3 col-md-3">
-							<input type="checkbox" disabled class="make-switch modal-input" data-on-color="primary" data-off-color="danger" value="theme3" id="theme3"/>
+							<input type="checkbox"  class="make-switch modal-input" data-on-color="primary" data-off-color="danger" value="theme3" id="theme3"/>
 							</div>
 						</div>
 					</form>
