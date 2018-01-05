@@ -7,7 +7,6 @@ myExampleData.targetSVG = "M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.9
 myExampleData.mapDataStoreLocUS =	{
 	  "type": "map",
 	  "theme": "light",
-	  "colorSteps": 10,
 	  "imagesSettings": {
 		   "rollOverColor": "#089282",
 		   "rollOverScale": 3,
@@ -24,51 +23,161 @@ myExampleData.mapDataStoreLocUS =	{
 		      "zoomLevel": 5,
 		      "scale": 0.5,
 		      "title": "Atmosphere",
+		      "id": "Atmosphere",
 		      "latitude": 33.448376,
-		      "longitude": -132.074036
+		      "longitude": -132.074036,
+		      "selectable": true
 		    }, {
 		      "svgPath": myExampleData.targetSVG,
 		      "zoomLevel": 5,
 		      "scale": 0.5,
 		      "title": "Cafe Football",
-		      "latitude": 34.448376,
-		      "longitude": -102.074036
+		      "id": "CafeFootball",
+		      "latitude": 37.448376,
+		      "longitude": -72.074036,
+		      "selectable": true
 		    }, {
 		      "svgPath": myExampleData.targetSVG,
 		      "zoomLevel": 5,
 		      "scale": 0.5,
 		      "title": "Serenity",
-		      "latitude": 34.048927,
-		      "longitude": -111.093735
-		    }, {
+		      "id": "Serenity",
+		      "latitude": 38.048927,
+		      "longitude": -41.093735,
+		      "selectable": true
+		    }/*, {
 		      "svgPath": myExampleData.targetSVG,
 		      "zoomLevel": 5,
 		      "scale": 0.5,
 		      "title": "The Bark cafe",
+		      "id": "BarkCafe",
 		      "latitude": 34.048927,
-		      "longitude": -119.093735
+		      "longitude": -119.093735,
+		      "selectable": true
 		    }, {
 		      "svgPath": myExampleData.targetSVG,
 		      "zoomLevel": 5,
 		      "scale": 0.5,
 		      "title": "Cafe Frienze",
+		      "id": "CafeFrienze",
 		      "latitude": 34.848927,
-		      "longitude": -115.993735
-		    }]
+		      "longitude": -115.993735,
+		      "selectable": true
+		    }*/]
 	  },
 	  "areasSettings": {
 	    "autoZoom": true,
 	    "unlistedAreasColor": "#15A892",
 		"outlineThickness": 0.1
-	  },
-
-	  "valueLegend": {
-	    "right": 10,
-	    "minValue": "little",
-	    "maxValue": "a lot!"
 	  }
-
 };
+myExampleData.mapDataStoreLocUSTest =	{
+		  "type": "map",
+		  "theme": "light",
+		  "imagesSettings": {
+			   "rollOverColor": "#089282",
+			   "rollOverScale": 3,
+			   "selectedScale": 3,
+			   "selectedColor": "#089282",
+			   "color": "#13564e"
+		  },
+		  "dataProvider": {
+		    "map": "usaLow",
+		    "zoomLatitude": 0,
+		    "zoomLongitude": 0,
+		    "images": [{
+			      "svgPath": myExampleData.targetSVG,
+			      "zoomLevel": 5,
+			      "scale": 0.5,
+			      "title": "Atmosphere",
+			      "id": "Atmosphere",
+			      "latitude": 33.448376,
+			      "longitude": -132.074036,
+			      "selectable": true
+			    }, {
+			      "svgPath": myExampleData.targetSVG,
+			      "zoomLevel": 5,
+			      "scale": 0.5,
+			      "title": "Cafe Football",
+			      "id": "CafeFootball",
+			      "latitude": 37.448376,
+			      "longitude": -72.074036,
+			      "selectable": true
+			    }, {
+			      "svgPath": myExampleData.targetSVG,
+			      "zoomLevel": 5,
+			      "scale": 0.5,
+			      "title": "Serenity",
+			      "id": "Serenity",
+			      "latitude": 38.048927,
+			      "longitude": -41.093735,
+			      "selectable": true
+			    }, {
+			      "svgPath": myExampleData.targetSVG,
+			      "zoomLevel": 5,
+			      "scale": 0.5,
+			      "title": "The Bark cafe",
+			      "id": "BarkCafe",
+			      "latitude": 34.048927,
+			      "longitude": -30.093735,
+			      "selectable": true
+			    }, {
+			      "svgPath": myExampleData.targetSVG,
+			      "zoomLevel": 5,
+			      "scale": 0.5,
+			      "title": "Cafe Frienze",
+			      "id": "CafeFrienze",
+			      "latitude": 34.848927,
+			      "longitude": -21.993735,
+			      "selectable": true
+			    },
+			    {
+				  "svgPath": myExampleData.targetSVG,
+				  "zoomLevel": 5,
+				  "scale": 0.5,
+				  "title": "Cafe 1",
+				  "id": "CafeFrienze",
+				  "latitude": 34.848927,
+				  "longitude": -11.993735,
+				  "selectable": true
+			    },
+				{
+				 "svgPath": myExampleData.targetSVG,
+				 "zoomLevel": 5,
+				 "scale": 0.5,
+				 "title": "Cafe 2",
+				 "id": "CafeFrienze",
+				 "latitude": 38.848927,
+				 "longitude": 15.993735,
+				 "selectable": true
+				},
+				{
+				"svgPath": myExampleData.targetSVG,
+				"zoomLevel": 5,
+				"scale": 0.5,
+				"title": "Cafe 3",
+				"id": "CafeFrienze",
+				"latitude": 34.848927,
+				"longitude": 55.993735,
+				"selectable": true
+				},
+				{
+				"svgPath": myExampleData.targetSVG,
+				"zoomLevel": 5,
+				"scale": 0.5,
+				"title": "Cafe 4",
+				"id": "CafeFrienze",
+				"latitude": 24.848927,
+				"longitude": 75.993735,
+				"selectable": true
+				}]
+		  },
+		  "areasSettings": {
+		    "autoZoom": true,
+		    "unlistedAreasColor": "#15A892",
+			"outlineThickness": 0.1
+		  }
+	};
 //datasets for interaction
 myExampleData.dataSetsp = [
 [{
@@ -446,111 +555,270 @@ myExampleData.mapDataCustomerLocUS =	{
 
 
 myExampleData.amchartsMapData =	{
-		  "type": "map",
+		   "type": "map",
 		  "theme": "light",
 		  "projection": "miller",
-
-		  "imagesSettings": {
+		 /* "imagesSettings": {
 		    "rollOverColor": "#089282",
 		    "rollOverScale": 3,
 		    "selectedScale": 3,
 		    "selectedColor": "#089282",
 		    "color": "#13564e"
+		  },*/
+		  "imagesSettings": {
+			   "rollOverColor": "#089282",
+			   "rollOverScale": 3,
+			   "selectedScale": 3,
+			   "selectedColor": "#089282",
+			   "color": "#13564e"
 		  },
-
 		  "areasSettings": {
 		    "unlistedAreasColor": "#15A892"
 		  },		
 		 "backgroundZoomsToTop": true,
 		  "dataProvider": {		    
 			  "map": "worldLow",
-		     "images": [{
-		      //"map-marker" : "Brussels",
-		      "zoomLevel": 5,
+		     "images": [{		 
+		     /* "zoomLevel": 5,
 		      "scale": 0.5,
 		      "title": "Brussels",
 		      "latitude": 50.8371,
-		      "longitude": 4.3676
-		     /* "label": "SF Breweries",
+		      "longitude": 4.3676*/
+		      "label": "SF Breweries",
 	          "left": 100,
 	          "top": 45,
 	          "labelShiftY": 5,
 	          "color": "#CC0000",
 	          "labelColor": "#CC0000",
 	          "labelRollOverColor": "#CC0000",
-	          "labelFontSize": 20	 */     
+	          "labelFontSize": 20	  
 		      
 		    }, {
-		      "zoomLevel": 5,
-		      "scale": 0.5,
-		      "title": "Cellarmaker Brewing Co.",
-		      "latitude": 55.6763,
-		      "longitude": 12.5681
+		    	  "svgPath": myExampleData.targetSVG,
+			      "zoomLevel": 5,
+			      "scale": 0.5,
+			      "title": "Atmosphere",
+			      "id": "Atmosphere",
+			      "latitude": 33.448376,
+			      "longitude": -132.074036
+			     
 		    }, {
+		    
+		      "svgPath": myExampleData.targetSVG,
+			  "zoomLevel": 5,
+			  "scale": 0.5,
 		      "zoomLevel": 5,
 		      "scale": 0.5,
-		      "title": "Black Sands Brewery",
+		      "title": "BlackSands Brewery",
 		      "latitude": 48.8567,
 		      "longitude": 2.3510
 		    }, {
+		    	
+		      "svgPath": myExampleData.targetSVG,
+			  "zoomLevel": 5,
+			  "scale": 0.5,
 		      "zoomLevel": 5,
 		      "scale": 0.5,
-		      "title": "Speakeasy Ales & Lagers",
+		      "title": "SpeakeasyAles Lagers",
 		      "latitude": 64.1353,
 		      "longitude": -21.8952
 		    }, {
-		      "zoomLevel": 5,
-		      "scale": 0.5,
-		      "title": "Black Hammer Brewing",
+		    	
+		      "svgPath": myExampleData.targetSVG,
+			  "zoomLevel": 5,
+			  "scale": 0.5,
+		      "title": "BlackHammer Brewing",
 		      "latitude": 55.7558,
 		      "longitude": 37.6176
 		    }, {
 		      "zoomLevel": 5,
 		      "scale": 0.5,
+		      "svgPath": myExampleData.targetSVG,
 		      "title": "Harmonic Brewing",
 		      "latitude": 40.4167,
 		      "longitude": -3.7033
 		    }, {
 		      "zoomLevel": 5,
 		      "scale": 0.5,
-		      "title": "Barebottle Brewing Company",
+		      "svgPath": myExampleData.targetSVG,
+		      "title": "BarebottleBrewing Company",
 		      "latitude": 51.5002,
 		      "longitude": -0.1262,
-		      //"url": "http://www.google.co.uk"
+		    
 		    }, {
 		      "zoomLevel": 5,
 		      "scale": 0.5,
-		      "title": "Laughing Monk Brewing",
+		      "svgPath": myExampleData.targetSVG,
+		      "title": "LaughingMonk Brewing",
 		      "latitude": 39.9056,
 		      "longitude": 116.3958
 		    }, {
 		      "zoomLevel": 5,
-		      "scale": 0.5,		      
-		      "title": "Triple Voodoo Brewery",
+		      "scale": 0.5,
+		      "svgPath": myExampleData.targetSVG,
+		      "title": "TripleVoodoo Brewery",
 		      "latitude": 28.6353,
 		      "longitude": 77.2250
 		    }, {
 		      "zoomLevel": 5,
 		      "scale": 0.5,
-		      "title": "Social Kitchen & Brewery",
+		      "svgPath": myExampleData.targetSVG,
+		      "title": "SocialKitchen Brewery",
 		      "latitude": 35.6785,
 		      "longitude": 139.6823,
-		      //"url": "http://www.google.co.jp"
+		    
 		    }, {
 		      "zoomLevel": 5,
 		      "scale": 0.5,
-		      "title": "Local Brewing Co.",
+		      "svgPath": myExampleData.targetSVG,
+		      "title": "LocalBrewing Co",
 		      "latitude": 39.9439,
 		      "longitude": 32.8560
 		    }, {
 		      "zoomLevel": 5,
 		      "scale": 0.5,
-		      "title": "Anchor Brewers & Distillers",
+		      "svgPath": myExampleData.targetSVG,
+		      "title": "AnchorBrewers Distillers",
 		      "latitude": 38.8921,
 		      "longitude": -77.0241
 		    }]	
 		  }
 };
+
+
+myExampleData.amchartsMapDataTest =	{
+	  "type": "map",
+	  "theme": "light",
+	  "projection": "miller",
+
+	  "imagesSettings": {
+	    "rollOverColor": "#089282",
+	    "rollOverScale": 3,
+	    "selectedScale": 3,
+	    "selectedColor": "#089282",
+	    "color": "#13564e"
+	  },
+
+	  "areasSettings": {
+	    "unlistedAreasColor": "#15A892"
+	  },
+
+	  "dataProvider": {
+	    "map": "worldLow",
+	    "images": [ {
+	      "zoomLevel": 5,
+	      "scale": 0.5,
+	      "title": "Brussels",
+	      "latitude": 50.8371,
+	      "longitude": 4.3676
+	    }, {
+	      "zoomLevel": 5,
+	      "scale": 0.5,
+	      "title": "Copenhagen",
+	      "latitude": 55.6763,
+	      "longitude": 12.5681
+	    }, {
+	      "zoomLevel": 5,
+	      "scale": 0.5,
+	      "title": "Paris",
+	      "latitude": 48.8567,
+	      "longitude": 2.3510
+	    }, {
+	      "zoomLevel": 5,
+	      "scale": 0.5,
+	      "title": "Reykjavik",
+	      "latitude": 64.1353,
+	      "longitude": -21.8952
+	    }, {
+	      "zoomLevel": 5,
+	      "scale": 0.5,
+	      "title": "Moscow",
+	      "latitude": 55.7558,
+	      "longitude": 37.6176
+	    }, {
+	      "zoomLevel": 5,
+	      "scale": 0.5,
+	      "title": "Madrid",
+	      "latitude": 40.4167,
+	      "longitude": -3.7033
+	    }, {
+	      "zoomLevel": 5,
+	      "scale": 0.5,
+	      "title": "London",
+	      "latitude": 51.5002,
+	      "longitude": -0.1262,
+	     // "url": "http://www.google.co.uk"
+	    }, {
+	      "zoomLevel": 5,
+	      "scale": 0.5,
+	      "title": "Peking",
+	      "latitude": 39.9056,
+	      "longitude": 116.3958
+	    }, {
+	      "zoomLevel": 5,
+	      "scale": 0.5,
+	      "title": "New Delhi",
+	      "latitude": 28.6353,
+	      "longitude": 77.2250
+	    }, {
+	      "zoomLevel": 5,
+	      "scale": 0.5,
+	      "title": "Tokyo",
+	      "latitude": 35.6785,
+	      "longitude": 139.6823,
+	     // "url": "http://www.google.co.jp"
+	    }, {
+	      "zoomLevel": 5,
+	      "scale": 0.5,
+	      "title": "Ankara",
+	      "latitude": 39.9439,
+	      "longitude": 32.8560
+	    }, {
+	      "zoomLevel": 5,
+	      "scale": 0.5,
+	      "title": "Buenos Aires",
+	      "latitude": -34.6118,
+	      "longitude": -58.4173
+	    }, {
+	      "zoomLevel": 5,
+	      "scale": 0.5,
+	      "title": "Brasilia",
+	      "latitude": -15.7801,
+	      "longitude": -47.9292
+	    }, {
+	      "zoomLevel": 5,
+	      "scale": 0.5,
+	      "title": "Ottawa",
+	      "latitude": 45.4235,
+	      "longitude": -75.6979
+	    }, {
+	      "zoomLevel": 5,
+	      "scale": 0.5,
+	      "title": "Washington",
+	      "latitude": 38.8921,
+	      "longitude": -77.0241
+	    }, {
+	      "zoomLevel": 5,
+	      "scale": 0.5,
+	      "title": "Kinshasa",
+	      "latitude": -4.3369,
+	      "longitude": 15.3271
+	    }, {
+	      "zoomLevel": 5,
+	      "scale": 0.5,
+	      "title": "Cairo",
+	      "latitude": 30.0571,
+	      "longitude": 31.2272
+	    }, {
+	      "zoomLevel": 5,
+	      "scale": 0.5,
+	      "title": "Pretoria",
+	      "latitude": -25.7463,
+	      "longitude": 28.1876
+	    }]
+	  }
+};
+
 
 /*myExampleData.amchartsCountryMapData =	{
 		  "type": "map",
