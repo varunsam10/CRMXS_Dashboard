@@ -222,23 +222,23 @@
 								 $("#changeChartForm input:checkbox[value='line']").bootstrapSwitch('disabled',false);
 								 $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('state', true, true);
 								 break;
-					case "column":$('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
-								  $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
-								  $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('state', true, true);
-								  $("#changeChartForm input:checkbox[value='bar']").bootstrapSwitch('disabled',false);
-								  break;
-					case "barline":$('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
-								   $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
-								   $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('state', true, true);
-								   $("#changeChartForm input:checkbox[value='line']").bootstrapSwitch('disabled',false);
-								   $("#changeChartForm input:checkbox[value='bar']").bootstrapSwitch('disabled',false);
-								   $("#changeChartForm input:checkbox[value='area']").bootstrapSwitch('disabled',false);
+				   case "column":$('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
+								 $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
+								 $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('state', true, true);
+								 $("#changeChartForm input:checkbox[value='bar']").bootstrapSwitch('disabled',false);
+							     break;
+				  case "barline":$('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
+								 $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
+								 $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('state', true, true);
+								 $("#changeChartForm input:checkbox[value='line']").bootstrapSwitch('disabled',false);
+								 $("#changeChartForm input:checkbox[value='bar']").bootstrapSwitch('disabled',false);
+								 $("#changeChartForm input:checkbox[value='area']").bootstrapSwitch('disabled',false);
 								   /*$("#changeChartForm input:checkbox[value='column']").bootstrapSwitch('disabled',false);*/
-								   break;
-					case "pie":   $('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
-								  $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
-								  $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('state', true, true);
-								  break;											
+								 break;
+				   case "pie":   $('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
+								 $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
+								 $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('state', true, true);
+								 break;											
 					}
 								
 				/*	if(graphToThisChart === widgetDefinition.chartType){
@@ -277,6 +277,19 @@
 					}			
 	
 					$("#interactionModal").modal('show');					
+					
+				});	
+				
+				
+				//Filter model of  widget by clicking the 'filter' icon on the widget
+				this.element.on("click", ".cprDashboardWidgetHeader div.cprDashboard-iconcustomFilter", function(e) {
+					var widget = $(e.currentTarget).parents("li:first");
+					var widgetId = widget.attr("id");
+					var widgetDefinition = self._getWidgetContentForId(widgetId, self);
+				
+				
+	
+					$("#filterModal").modal('show');					
 					
 				});	
 				
@@ -540,10 +553,12 @@
 						plot_bgcolor:'#E0E0E0'						
 				};
 				//var theme1=[{color : '#FF0000',opacity : 0.6},{color : '#1ABC9C',opacity : 0.6},{color : '#1ABC9C',opacity : 0.6}];
-				var theme1=[{color : 'rgb(49,54,149)',opacity : 0.6},{color : 'rgb(26, 118, 255)',opacity : 0.6},{color : 'rgb(69,117,180)',opacity : 0.6},
-					{color : 'rgb(116,173,209)',opacity : 0.6},{color : 'rgb(171,217,233)',opacity : 0.6}];
+				var theme1=[{color : '#26456e',opacity : 0.6},{color : '#7bc8e2',opacity : 0.6},{color : '#1c73b1',opacity : 0.6},
+					{color : '#3a87b7',opacity : 0.6},{color : '#67add4',opacity : 0.6}];
 				var theme2=[{color : '#138D75',opacity : 0.6},{color : '#EC7063',opacity : 0.6},{color : '#2C3E50',opacity : 0.6}
 				,{color : '#F4D03F',opacity : 0.6},{color : '#95A5A6',opacity : 0.6}];
+				var theme3=[{color : '#69b764',opacity : 0.6},{color : '#f26c64',opacity : 0.6},{color : '#ff800e',opacity : 0.6}
+				,{color : '#ffbc79',opacity : 0.6},{color : '#aec7e8',opacity : 0.6}];
 				for ( i = 0; i < _dashboardData.length; i++) {
 					var widgetDefinition = _dashboardData[i];
 					var id = "li#" + widgetDefinition.widgetId;
@@ -577,8 +592,12 @@
 										widgetDefinition.widgetContent.data[j].marker.color = theme2[j].color;
 									}
 								}else if(themeSelected==="theme3"){
-								//widgetDefinition.widgetContent.data[j].marker = theme3[j];
-								}
+									if(widgetDefinition.chartType != 'bubble'){
+										widgetDefinition.widgetContent.data[j].marker = theme3[j];	
+									}else{
+										widgetDefinition.widgetContent.data[j].marker.color = theme3[j].color;
+										}
+												}
 							}
 						}else if(widgetDefinition.chartType === 'pie' && (typeof widgetDefinition.widgetContent.data[j].marker != 'undefined')){
 							if(themeSelected==="theme1"){
@@ -594,6 +613,15 @@
 									widgetDefinition.widgetContent.data[j].marker.colors=[];
 									for(var k=0;k<theme2.length;k++){
 										widgetDefinition.widgetContent.data[j].marker.colors.push(theme2[k].color);
+									}
+								}
+							
+							}
+							else if(themeSelected==="theme3"){
+								if(j===0){
+									widgetDefinition.widgetContent.data[j].marker.colors=[];
+									for(var k=0;k<theme3.length;k++){
+										widgetDefinition.widgetContent.data[j].marker.colors.push(theme3[k].color);
 									}
 								}
 							
@@ -621,11 +649,17 @@
 							$('.js-plotly-plot .plotly .modebar').attr('style', 'background: #E0E0E0 !important');
 							$('.cprDashboardTableView tbody tr:nth-child(odd)').attr('style', 'background-color: rgb(69,117,180)!important');
 							$('.cprDashboardTableView tbody tr:nth-child(even)').attr('style', 'background-color: rgb(26, 118, 255)!important');
-						}else{
+						}else if(themeSelected==="theme2"){
 							$('.js-plotly-plot .plotly .modebar').attr('style', 'background: #FFFFF !important');
 							$('.cprDashboardTableView tbody tr:nth-child(odd)').attr('style', 'background-color: #138D75 !important');
 							$('.cprDashboardTableView tbody tr:nth-child(even)').attr('style', 'background-color: #EC7063 !important');
 						}
+						else if(themeSelected==="theme3"){
+							$('.js-plotly-plot .plotly .modebar').attr('style', 'background: #FFFFF !important');
+							$('.cprDashboardTableView tbody tr:nth-child(odd)').attr('style', 'background-color: #FF800E !important');
+							$('.cprDashboardTableView tbody tr:nth-child(even)').attr('style', 'background-color: #FFBC79 !important');
+						}
+				
 					}				
 				}			
 			},
@@ -847,6 +881,44 @@
 				//location.reload(true);
 				
 			},
+			_interactMap: function(widgetDefinition,dataPoint) {
+				var _dashboardData = this.options.dashboardData;
+				var i;
+				var WidgetDefinitionToChange;
+				var linkedWidget ;
+				for (var j =0; j<widgetDefinition.linkedWidgets.length;j++){
+					linkedWidget = widgetDefinition.linkedWidgets[j];
+					for ( i = 0; i < _dashboardData.length; i++) {
+						if(_dashboardData[i].widgetId === linkedWidget){
+							
+							WidgetDefinitionToChange = _dashboardData[i];
+						}					
+					}
+					
+					var id = "li#" + WidgetDefinitionToChange.widgetId;
+					var mapArea;
+					var mapRedraw;
+					var WidgetContentToChange = WidgetDefinitionToChange.widgetContent;
+					var cust=0;
+					mapArea = this.element.find(id + " div.cprDashboardMap");
+									
+					if(dataPoint.id==="Atmosphere"){
+						cust = 3;
+					}else if(dataPoint.id=="CafeFootball"){
+						cust = 2;
+					}else if(dataPoint.id==="Serenity"){
+						cust = 1;
+					}					
+					if (widgetDefinition.widgetType === 'map') {
+						
+						WidgetContentToChange.dataProvider.areas = widgetDefinition.linkedData[cust];
+						mapRedraw =AmCharts.makeChart(mapArea[0], WidgetContentToChange);
+						mapRedraw.validateData();
+										
+					}
+					
+				}
+			},
 			_interactChart: function(widgetDefinition,dataPoint) {
 				var _dashboardData = this.options.dashboardData;
 				var i;
@@ -1021,110 +1093,17 @@
 				var layout;
 				var config;
 				var chart;
-				mapArea = this.element.find(id + " div.cprDashboardMap");
-				
+				mapArea = this.element.find(id + " div.cprDashboardMap");				
 				if (widgetDefinition.widgetType === 'map') {
-					
-					//var targetSVG = "M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z";
 					var map = AmCharts.makeChart(mapArea[0], widgetDefinition.widgetContent);
-					map.addListener("click", event => {
-				        // find out the coordinates of under mouse cursor
-				        var info = event.chart.getDevInfo();
-				    
-				        // print in console as well
-				        console.log({
-				           "latitude": info.latitude,
-				           "longitude": info.longitude
-				        });
-				    });
-
-					/*if(widgetDefinition.graphType === 'normal'){
-						
-						var chart = c3.generate({bindto:chartArea[0],data:widgetDefinition.widgetContent.data});
-						
-					}else{
-						
-						Plotly.newPlot(chartArea[0],  widgetDefinition.widgetContent.data, widgetDefinition.widgetContent.layout,widgetDefinition.widgetContent.config);
-						Plotly.redraw(chartArea[0]);
-					}	*/				
-				/*	if (widgetDefinition.getDataBySelection) {
-						
-						this._bindSelectEvent(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
-					} else {
-						if(widgetDefinition.graphType === 'exploratory'){
-							this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
-						}else if(widgetDefinition.graphType === 'normal'){
-							this._bindChartEventsC3(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
-						}
-					}*/
-					map.addListener( "positionChanged", updateCustomMarkers );
-
-					// this function will take current images on the map and create HTML elements for them
-					function updateCustomMarkers( event ) {
-					  // get map object
-					  var map = event.chart;
-
-					  // go through all of the images
-					  for ( var x in map.dataProvider.images ) {
-					    // get MapImage object
-					    var image = map.dataProvider.images[ x ];
-
-					    // check if it has corresponding HTML element
-					    if ( 'undefined' == typeof image.externalElement )
-					      image.externalElement = createCustomMarker( image );
-
-					    // reposition the element accoridng to coordinates
-					    var xy = map.coordinatesToStageXY( image.longitude, image.latitude );
-					    image.externalElement.style.top = xy.y + 'px';
-					    image.externalElement.style.left = xy.x + 'px';
-					  }
-					}
-
-					// this function creates and returns a new marker element
-					function createCustomMarker( image ) {
-					  // create holder
-					  var holder = document.createElement( 'div' );
-					  holder.className = 'map-marker';
-					  holder.title = image.title;
-					  holder.style.position = 'absolute';
-
-					  // maybe add a link to it?
-					  if ( undefined != image.url ) {
-					    holder.onclick = function() {
-					      window.location.href = image.url;
-					    };
-					    holder.className += ' map-clickable';
-					  }
-
-					  // create dot
-					  var dot = document.createElement( 'div' );
-					  dot.className = 'dot';
-					  holder.appendChild( dot );
-
-					  // create pulse
-					  var pulse = document.createElement( 'div' );
-					  pulse.className = 'pulse';
-					  holder.appendChild( pulse );
-
-					  // append the marker to the map container
-					  image.chart.chartDiv.appendChild( holder );
-
-					  return holder;
-					}
+					if(widgetDefinition.widgetClick === "interact"){
+						this._bindMapEvents(map, widgetDefinition.widgetId, widgetDefinition, this);
+					}					
 				}
-				else if(widgetDefinition.widgetType === 'static')
-				{
-						/*chart = new Chart(chartArea[0], widgetDefinition.widgetId, widgetDefinition.widgetContent.data);
-						
-						if (widgetDefinition.getDataBySelection) {
-							this._bindSelectEvent(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
-						} else {
-							this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
-						}*/
-				}
-
+				
 			},
 			_bindSelectEvent : function(chartArea, widgetId, widgetDefinition, context) {
+				//Flotr implementation
 			/*	Flotr.EventAdapter.observe(chartArea, "flotr:select", function(area) {
 					var evtObj = {
 						selectedWidgetId : widgetId,
@@ -1134,10 +1113,40 @@
 				});		*/	
 				
 			},
+			_bindMapEvents : function(mapArea, widgetId, widgetDefinition, context) {		
+				var id = "li#" + widgetDefinition.widgetId;				
+				mapArea.addListener("click", event => {
+			
+			        var info = event.chart.getDevInfo();			    
+			       // var mapObject = event.mapObject.id;
+			       var eventObj ={
+			           "latitude": info.latitude,
+			           "longitude": info.longitude,
+			          // "title":info.title,
+			         // "id":mapObject
+			        };
+			      
+			    	//context._interactMap(widgetDefinition,eventObj);			       
+				});
+				mapArea.addListener("clickMapObject", event => {
+					
+			       // var info = event.chart.getDevInfo();			    
+			        var id = event.mapObject.id;
+			        var title = event.mapObject.title ;
+			       var eventObj ={
+			           "title":title,
+			           "id":id
+			        };
+			      
+			    	context._interactMap(widgetDefinition,eventObj);			       
+				});
+						
+			},
 			_bindChartEvents : function(chartArea, widgetId, widgetDefinition, context) {
 				var myPlot = chartArea;
 				var id = "li#" + widgetDefinition.widgetId;
 				var chartArea = this.element.find(id + " div.cprDashboardChart");
+				
 				myPlot.on('plotly_click', function(data){					
 					 var pts = '';
 					 for(var i=0; i < data.points.length; i++){
@@ -1158,13 +1167,9 @@
 							context._interactChart(widgetDefinition,evtObj);
 						}
 					}
-					/*					
-					if(widgetId==='id015'||widgetId==='id016'||widgetId==='id017'
-						||widgetId==='id018'){						
-					}else{						
-						
-					}*/					
-				});				
+									
+				});
+				
 			},
 			_bindChartEventsC3 : function(chartArea, widgetId, widgetDefinition, context) {
 				var myPlot = chartArea;
