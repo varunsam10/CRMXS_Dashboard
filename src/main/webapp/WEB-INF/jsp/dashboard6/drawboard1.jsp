@@ -1504,7 +1504,7 @@ $('#applyThemes').on('click', function (e) {
 
 });
 });
-<!-- CPR Custom Dashboard  -->
+<!-- CPR Custom Dashboard  !-->
 </script>
 </body>
 </html>
