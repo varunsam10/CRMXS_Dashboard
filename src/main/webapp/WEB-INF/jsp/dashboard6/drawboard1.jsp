@@ -1503,29 +1503,21 @@ $("#cprDashboard").cprDashboard({
 		var toDate = $("#to").val();
 		var countriesSelected = $(".chzn-select").val();
 		// window.location.href='/Crmxs-Dashboard/applyFilter.html?clickedWidgetId='+data.clickedWidgetId+'&datapoints='+data.dataPoints;
-		//this._filterCharts(fromDate,toDate,countriesSelected);
-		
+		//this._filterCharts(fromDate,toDate,countriesSelected);		
 		var filterData ={
 				fromdate:fromDate,
 				todate:toDate,
 				countries:countriesSelected
 		};
-		 $.ajax({
+		$.ajax({
              type: "GET",
     		 url : 'applyFilter.html',
-    		 data: JSON.stringify(data),
-             success : function(filterData) {
-                    //$('#result').html(data);                                    
-         }});
-		
-		
-		
-		
-		
-		$("#cprDashboard").cprDashboard("changeTheme",themeSelected);
-		
-	});
-	
+    		 data: JSON.stringify(filterData),
+             success : function(data) {
+                    //$('#result').html(data); 
+            	 $("#cprDashboard").cprDashboard("applyFilter",data);
+        }});			
+		});	
 	//Handling on Change event
 	/*	$("#changeGraphForm input:checkbox[value='bar']").change(function() {
 		  //$(this).prop('checked');
