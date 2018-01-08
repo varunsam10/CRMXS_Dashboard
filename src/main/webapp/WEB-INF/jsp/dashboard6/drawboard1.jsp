@@ -535,7 +535,7 @@ $(window).load(function() {
 					
 					<div class="modal-footer">
 						<button class="btn dark btn-outline" data-dismiss="modal" aria-hidden="true">Close</button>
-						<button class="btn green" data-dismiss="modal">Save changes</button>
+						<button id="applyFilter" class="btn green" data-dismiss="modal">Apply Filter</button>
 				   </div>
 			</div>
 			</div>
@@ -1098,7 +1098,7 @@ $(document).ready(function() {
 			data : myExampleData.plotlylinedata3,
 
 		}
-	}
+	}];
 	/* 	{
 	 widgetTitle: "Items Sold Grid",
 	 widgetId: "id010",
@@ -1120,7 +1120,7 @@ $(document).ready(function() {
 			buttons:myExampleData.tableWidgetButtonNw
 		}
 	}, */
-	];
+	
 //console.log(dashboardJSON);
 //basic initialization example mn.sDashboard
 $("#cprDashboard").cprDashboard({
@@ -1129,7 +1129,7 @@ $("#cprDashboard").cprDashboard({
 //	$("#cprDashboard").cprDashboard("widgetcallCheck","sree");
 
 //Toastr settings
-toastr.options = {
+	toastr.options = {
 	"closeButton" : false,
 	"debug" : false,
 	"newestOnTop" : false,
@@ -1145,8 +1145,8 @@ toastr.options = {
 	"hideEasing" : "linear",
 	"showMethod" : "fadeIn",
 	"hideMethod" : "fadeOut"
-}
-function notification(type, message) {
+	}
+	function notification(type, message) {
 	if (type == 'success') {
 		toastr.success(message,
 				'<i>Success</i>');
@@ -1157,21 +1157,20 @@ function notification(type, message) {
 	} else {
 		toastr.info(message, 'Information');
 	}
-}
-
-//table row clicked event example
-$("#cprDashboard").bind("cprdashboardrowclicked",function(e, data) {
+	}
+	//table row clicked event example
+	$("#cprDashboard").bind("cprdashboardrowclicked",function(e, data) {
 	if (console) {
 	console.log("table row clicked, for widget: "+ data.selectedWidgetId);
 	}
-});
-//plot selected event example
-$("#cprDashboard").bind("cprdashboardplotselected",function(e, data) {
-	notification('info','A plot has been selected within a chart widget!');
-	if (console) {
-	console.log("chart range selected, for widget: "+ data.selectedWidgetId);
-	}
-});
+	});
+	//plot selected event example
+	$("#cprDashboard").bind("cprdashboardplotselected",function(e, data) {
+		notification('info','A plot has been selected within a chart widget!');
+		if (console) {
+			console.log("chart range selected, for widget: "+ data.selectedWidgetId);
+		}
+	});
 //plot click event example
 /* 	$("#cprDashboard").bind("cprdashboardplotclicked",function(e, data) {
 	notification('info','chart clicked, for widget:'+ data.clickedWidgetId
@@ -1181,7 +1180,7 @@ $("#cprDashboard").bind("cprdashboardplotselected",function(e, data) {
 	}
 }); */
 //Drawboard 4
-$("#cprDashboard").bind("cprdashboardplotclicked",function(e, data) {
+	$("#cprDashboard").bind("cprdashboardplotclicked",function(e, data) {
 	/* 	 $.ajax({
 			 type: "GET",
 				url : 'widgetClick.html',
@@ -1190,69 +1189,104 @@ $("#cprDashboard").bind("cprdashboardplotclicked",function(e, data) {
 			}});   */
 
 		 window.location.href='/Crmxs-Dashboard/widgetClick.html?clickedWidgetId='+data.clickedWidgetId+'&datapoints='+data.dataPoints;
-   //		notification('info', 'chart clicked, for widget:'+ data.clickedWidgetId +' the data passed is'+data.dataPoints+'!');
-	if (console) {
-		console.log("chart clicked, for widget: " + data.selectedWidgetId);
-	}
+   	//	notification('info', 'chart clicked, for widget:'+ data.clickedWidgetId +' the data passed is'+data.dataPoints+'!');
+		if (console) {
+			console.log("chart clicked, for widget: " + data.selectedWidgetId);
+		}
 	});
 
-//widget order changes event example
-$("#cprDashboard").bind("cprdashboardorderchanged",function(e, data) {
-/* 	if (console) {
+	//widget order changes event example
+	$("#cprDashboard").bind("cprdashboardorderchanged",function(e, data) {
+	/* 	if (console) {
 		console.log("Sorted Array");
 		console.log("+++++++++++++++++++++++++");
 		console.log(data.sortedDefinitions);
 		console.log("+++++++++++++++++++++++++");
 	} */
-});
+	});
 
-$('#applyChanges').on('click', function (e) {
-	e.preventDefault();
-	var graphToThisChart = $("#changeChartForm input:checked" ).val();
-	var numberOfChecks = $("#changeChartForm input:checked" ).size();
-	if(numberOfChecks>1){
-		swal("Only one graph can be selected!", "Un-check others!", "error");
-	}
-	var widgetID =$("#cgwidgetId").text();
-	var changeChartObject ={
+	$('#applyChanges').on('click', function (e) {
+		e.preventDefault();
+		var graphToThisChart = $("#changeChartForm input:checked" ).val();
+		var numberOfChecks = $("#changeChartForm input:checked" ).size();
+		if(numberOfChecks>1){
+			swal("Only one graph can be selected!", "Un-check others!", "error");
+		}
+		var widgetID =$("#cgwidgetId").text();
+		var changeChartObject ={
 			chartTo: graphToThisChart,
 			widgetId: widgetID
-	};
-	$("#cprDashboard").cprDashboard("changeChart",changeChartObject);
-	$('#changeChartModal').modal('hide');
-});
-$("li.menuItem.themes").click(function(e) {
-
-	e.preventDefault();
-	$("#changeThemeModal").modal('show');
-
-
-});
-$("li.menuItem.filters").click(function(e) {
-
-	e.preventDefault();
-	//$("#changeThemeModal").modal('show');
-	$("#filterModal").modal('show');
-
-});
-$('#applyThemes').on('click', function (e) {
-	e.preventDefault();
-	var themeSelected = $("#changeThemeForm input:checked" ).val();
-	var numberOfChecks = $("#changeThemeForm input:checked" ).size();
-	if(numberOfChecks>1){
+		};
+		$("#cprDashboard").cprDashboard("changeChart",changeChartObject);
+		$('#changeChartModal').modal('hide');
+	});
+	$("li.menuItem.themes").click(function(e) {
+		e.preventDefault();
+		$("#changeThemeModal").modal('show');
+	});
+	$("li.menuItem.filters").click(function(e) {
+		e.preventDefault();
+		//$("#changeThemeModal").modal('show');
+		$("#filterModal").modal('show');
+	});
+	$('#applyThemes').on('click', function (e) {
+		e.preventDefault();
+		var themeSelected = $("#changeThemeForm input:checked" ).val();
+		var numberOfChecks = $("#changeThemeForm input:checked" ).size();
+		if(numberOfChecks>1){
+			$('#changeThemeModal').modal('hide');
+			swal("Only one theme can be selected!", "Un-check others!", "error");
+			return;
+		}
 		$('#changeThemeModal').modal('hide');
-		swal("Only one theme can be selected!", "Un-check others!", "error");
-		return;
-	}
-	$('#changeThemeModal').modal('hide');
-	$("#cprDashboard").cprDashboard("changeTheme",themeSelected);
-	if(typeof themeSelected != 'undefined'){
+		$("#cprDashboard").cprDashboard("changeTheme",themeSelected);
+		if(typeof themeSelected != 'undefined'){
 		  swal(themeSelected +" have been applied !", "", "success");
-	}
-
-});
+		}
+	});
+	$('#applyFilter').on('click', function (e) {
+		e.preventDefault();
+	/* 	var themeSelected = $("#changeThemeForm input:checked" ).val();
+		var numberOfChecks = $("#changeThemeForm input:checked" ).size();
+		if(numberOfChecks>1){
+			$('#changeThemeModal').modal('hide');
+			swal("Only one theme can be selected!", "Un-check others!", "error");
+			return;
+		}
+		$('#changeThemeModal').modal('hide'); */
+		
+		if(console) {
+			console.log('from date: ' + $("#from").val() + " & to date: " + $("#to").val() +" & countries selected: " + $(".chzn-select").val());
+		} 
+		var fromDate = $("#from").val();
+		var toDate = $("#to").val();
+		var countriesSelected = $(".chzn-select").val();
+		// window.location.href='/Crmxs-Dashboard/applyFilter.html?clickedWidgetId='+data.clickedWidgetId+'&datapoints='+data.dataPoints;
+		//this._filterCharts(fromDate,toDate,countriesSelected);
+		
+		var filterData ={
+				fromdate:fromDate,
+				todate:toDate,
+				countries:countriesSelected
+		};
+		 $.ajax({
+             type: "GET",
+    		 url : 'applyFilter.html',
+    		 data: JSON.stringify(data),
+             success : function(filterData) {
+                    //$('#result').html(data);                                    
+         }});
+		
+		
+		
+		
+		
+		$("#cprDashboard").cprDashboard("changeTheme",themeSelected);
+		
+	});
+	
 	//Handling on Change event
-/* 	$("#changeGraphForm input:checkbox[value='bar']").change(function() {
+	/*	$("#changeGraphForm input:checkbox[value='bar']").change(function() {
 		  //$(this).prop('checked');
 		  $("#changeGraphForm input:checkbox[value='line']").bootstrapSwitch('state', false, true);
 	})
@@ -1261,9 +1295,8 @@ $('#applyThemes').on('click', function (e) {
 		  $("#changeGraphForm input:checkbox[value='bar']").bootstrapSwitch('state', false, true);
 	}) */
 
-});
-});
-<!-- CPR Custom Dashboard  -->
+	});
+	});
 </script>
 </body>
 </html>

@@ -510,24 +510,6 @@
 					            });
 				}
 			},
-		/*	_renderTable : function(widgetDefinition){
-			
-				var id = "li#" + widgetDefinition.widgetId;
-				var table;
-				if(widgetDefinition.widgetType === 'table'){
-					table = this.element.find(id + " table.sDashboardTableView");
-
-					table.DataTable({data :widgetDefinition.widgetContent.data,
-						columns:widgetDefinition.widgetContent.coloumns,
-						dom: 'Bfrtip',				
-						buttons:  [
-					        'colvis',
-					        'excel',
-					        'print'
-					    ]					
-					});
-				}
-			},*/
 			redrawChart:function(chartArea,data,layout,config)
 			{
 				Plotly.animate(chartArea[0], { data, layout,config} ,{
@@ -535,8 +517,7 @@
 						duration: 2000,
 						easing: 'cubic-in-out' 
 							} 
-				});
-				//Plotly.newPlot(chartArea[0], data , layout,config);
+				});				
 				Plotly.redraw(chartArea[0]);				
 				return;
 			},
