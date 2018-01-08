@@ -1,20 +1,18 @@
 package com.cpr.model;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Properties;
+import java.util.List;
+import java.util.Map;
+
+import javax.sql.DataSource;
+
+import org.springframework.jdbc.core.JdbcTemplate;
 
 
 public class FetchData {
 
-    private static Connection connection = null;
+   /* private static Connection connection = null;
 
     public static Connection getConnection() {
         if (connection != null)
@@ -38,16 +36,23 @@ public class FetchData {
             return connection;
         }
 
-    }
+    }*/
+	private JdbcTemplate jdbcTemplate;
+	private DataSource dataSource;
+
+	public void setDataSource(DataSource dataSource) {
+		this.dataSource = dataSource;
+	}
     
-    public static ArrayList<Countries> getAllCountries() {
-    	connection = FetchData.getConnection();
+    public ArrayList<Countries> getAllCountries() {
+    //	connection = FetchData.getConnection();
         ArrayList<Countries> countryList = new ArrayList<Countries>();
         try {
-            Statement statement = connection.createStatement();
-            ResultSet rs = statement.executeQuery("select * from country limit 10");
-        
-            while(rs.next()) {	
+           // Statement statement = connection.createStatement();
+          //  ResultSet rs = statement.executeQuery("select * from country limit 10");
+        	String sql = "select * from country limit 10";
+        	jdbcTemplate = new JdbcTemplate(dataSource);
+       /* 	while(rs.next()) {	
             	Countries country=new Countries();
             	country.setCode(rs.getString("Code"));
             	country.setName(rs.getString("Name"));
@@ -56,8 +61,21 @@ public class FetchData {
             	country.setPopulation(rs.getInt("Population"));
             	country.setCapital(rs.getString("Capital"));
             	countryList.add(country);
-            }
-        } catch (SQLException e) {
+            }*/
+        	
+        	List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql);
+        	for (Map<String, Object> rs : rows) {
+        		Countries country = new Countries();
+        		country.setCode(rs.get("Code").toString());
+            	country.setName(rs.get("Name").toString());
+                country.setContinent(rs.get("Continent").toString());
+                country.setRegion(rs.get("Region").toString());
+            	country.setPopulation((Integer)rs.get("Population"));
+            	country.setCapital(rs.get("Capital").toString());
+        	}     	
+        	
+        	
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
