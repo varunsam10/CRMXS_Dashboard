@@ -1422,7 +1422,7 @@ $("#cprDashboard").bind("cprdashboardplotselected",function(e, data) {
 	}
 }); */
 //Drawboard 4
-$("#cprDashboard").bind("cprdashboardplotclicked",function(e, data) {
+	$("#cprDashboard").bind("cprdashboardplotclicked",function(e, data) {
 	/* 	 $.ajax({
 			 type: "GET",
 				url : 'widgetClick.html',
@@ -1431,69 +1431,63 @@ $("#cprDashboard").bind("cprdashboardplotclicked",function(e, data) {
 			}});   */
 
 		 window.location.href='/Crmxs-Dashboard/widgetClick.html?clickedWidgetId='+data.clickedWidgetId+'&datapoints='+data.dataPoints;
-   //		notification('info', 'chart clicked, for widget:'+ data.clickedWidgetId +' the data passed is'+data.dataPoints+'!');
-	if (console) {
-		console.log("chart clicked, for widget: " + data.selectedWidgetId);
-	}
+   	//	notification('info', 'chart clicked, for widget:'+ data.clickedWidgetId +' the data passed is'+data.dataPoints+'!');
+		if (console) {
+			console.log("chart clicked, for widget: " + data.selectedWidgetId);
+		}
 	});
 
-//widget order changes event example
-$("#cprDashboard").bind("cprdashboardorderchanged",function(e, data) {
-/* 	if (console) {
+	//widget order changes event example
+	$("#cprDashboard").bind("cprdashboardorderchanged",function(e, data) {
+	/* 	if (console) {
 		console.log("Sorted Array");
 		console.log("+++++++++++++++++++++++++");
 		console.log(data.sortedDefinitions);
 		console.log("+++++++++++++++++++++++++");
 	} */
-});
+	});
 
-$('#applyChanges').on('click', function (e) {
-	e.preventDefault();
-	var graphToThisChart = $("#changeChartForm input:checked" ).val();
-	var numberOfChecks = $("#changeChartForm input:checked" ).size();
-	if(numberOfChecks>1){
-		swal("Only one graph can be selected!", "Un-check others!", "error");
-	}
-	var widgetID =$("#cgwidgetId").text();
-	var changeChartObject ={
+	$('#applyChanges').on('click', function (e) {
+		e.preventDefault();
+		var graphToThisChart = $("#changeChartForm input:checked" ).val();
+		var numberOfChecks = $("#changeChartForm input:checked" ).size();
+		if(numberOfChecks>1){
+			swal("Only one graph can be selected!", "Un-check others!", "error");
+		}
+		var widgetID =$("#cgwidgetId").text();
+		var changeChartObject ={
 			chartTo: graphToThisChart,
 			widgetId: widgetID
-	};
-	$("#cprDashboard").cprDashboard("changeChart",changeChartObject);
-	$('#changeChartModal').modal('hide');
-});
-$("li.menuItem.themes").click(function(e) {
-
-	e.preventDefault();
-	$("#changeThemeModal").modal('show');
-
-
-});
-$("li.menuItem.filters").click(function(e) {
-
-	e.preventDefault();
-	//$("#changeThemeModal").modal('show');
-	$("#filterModal").modal('show');
-
-});
-$('#applyThemes').on('click', function (e) {
-	e.preventDefault();
-	var themeSelected = $("#changeThemeForm input:checked" ).val();
-	var numberOfChecks = $("#changeThemeForm input:checked" ).size();
-	if(numberOfChecks>1){
+		};
+		$("#cprDashboard").cprDashboard("changeChart",changeChartObject);
+		$('#changeChartModal').modal('hide');
+	});
+	$("li.menuItem.themes").click(function(e) {
+		e.preventDefault();
+		$("#changeThemeModal").modal('show');
+	});
+	$("li.menuItem.filters").click(function(e) {
+		e.preventDefault();
+		//$("#changeThemeModal").modal('show');
+		$("#filterModal").modal('show');
+	});
+	$('#applyThemes').on('click', function (e) {
+		e.preventDefault();
+		var themeSelected = $("#changeThemeForm input:checked" ).val();
+		var numberOfChecks = $("#changeThemeForm input:checked" ).size();
+		if(numberOfChecks>1){
+			$('#changeThemeModal').modal('hide');
+			swal("Only one theme can be selected!", "Un-check others!", "error");
+			return;
+		}
 		$('#changeThemeModal').modal('hide');
-		swal("Only one theme can be selected!", "Un-check others!", "error");
-		return;
-	}
-	$('#changeThemeModal').modal('hide');
-	$("#cprDashboard").cprDashboard("changeTheme",themeSelected);
-	if(typeof themeSelected != 'undefined'){
+		$("#cprDashboard").cprDashboard("changeTheme",themeSelected);
+		if(typeof themeSelected != 'undefined'){
 		  swal(themeSelected +" have been applied !", "", "success");
-	}
-
-});
+		}
+	});
 	//Handling on Change event
-/* 	$("#changeGraphForm input:checkbox[value='bar']").change(function() {
+	/*	$("#changeGraphForm input:checkbox[value='bar']").change(function() {
 		  //$(this).prop('checked');
 		  $("#changeGraphForm input:checkbox[value='line']").bootstrapSwitch('state', false, true);
 	})
@@ -1502,8 +1496,8 @@ $('#applyThemes').on('click', function (e) {
 		  $("#changeGraphForm input:checkbox[value='bar']").bootstrapSwitch('state', false, true);
 	}) */
 
-});
-});
+	});
+	});
 </script>
 </body>
 </html>
