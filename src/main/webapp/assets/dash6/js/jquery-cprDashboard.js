@@ -657,6 +657,10 @@
 			
 			
 			},
+			applyFilter:function(data) {
+				
+				
+			},
 			changeChart: function(changeChartObject) {
 			
 				var widgetDefinition = this._getWidgetContentForId(changeChartObject.widgetId, this);
