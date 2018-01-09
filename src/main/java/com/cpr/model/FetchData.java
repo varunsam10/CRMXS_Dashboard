@@ -37,21 +37,24 @@ public class FetchData {
         }
 
     }*/
-	private JdbcTemplate jdbcTemplate;
 	private DataSource dataSource;
 
 	public void setDataSource(DataSource dataSource) {
 		this.dataSource = dataSource;
 	}
     
-    public ArrayList<Countries> getAllCountries() {
+    public DataSource getDataSource() {
+		return dataSource;
+	}
+
+	public ArrayList<Countries> getAllCountries() {
     //	connection = FetchData.getConnection();
         ArrayList<Countries> countryList = new ArrayList<Countries>();
         try {
            // Statement statement = connection.createStatement();
           //  ResultSet rs = statement.executeQuery("select * from country limit 10");
         	String sql = "select * from country limit 10";
-        	jdbcTemplate = new JdbcTemplate(dataSource);
+        	JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
        /* 	while(rs.next()) {	
             	Countries country=new Countries();
             	country.setCode(rs.getString("Code"));

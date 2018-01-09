@@ -51,7 +51,7 @@ public class populateTableHandler implements HttpRequestHandler {
 	public void handleRequest(HttpServletRequest arg0, HttpServletResponse arg1) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		ArrayList<Countries> country = new ArrayList<Countries>();
-		country = FetchData.getAllCountries();
+		//country = FetchData.getAllCountries();
 		Gson gson = new Gson();
 		JsonElement element = gson.toJsonTree(country, new TypeToken<List<Countries>>() {
 		}.getType());

@@ -28,7 +28,7 @@ public class PopulateTable {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 				
 		ArrayList<Countries> country=new ArrayList<Countries>();
-		country=FetchData.getAllCountries();
+		//country=FetchData.getAllCountries();
 		Gson gson = new Gson();
 		JsonElement element = gson.toJsonTree(country, new TypeToken<List<Countries>>() {}.getType());
 
