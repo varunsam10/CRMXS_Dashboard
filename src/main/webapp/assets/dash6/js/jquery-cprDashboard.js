@@ -814,8 +814,9 @@
 						for(i=0;i<widgetDefinition.widgetContent.data.length;i++)
 						{
 								widgetDefinition.widgetContent.data[i].type = 'pie';
-								widgetDefinition.widgetContent.data[i].hole = null ;
+								widgetDefinition.widgetContent.data[i].domain = [0,.48] ;
 								widgetDefinition.widgetContent.data[i].fill = null;
+								widgetDefinition.widgetContent.data[i].hole = null;
 						}	
 							
 					}

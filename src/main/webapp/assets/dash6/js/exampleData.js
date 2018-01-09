@@ -1625,7 +1625,7 @@ myExampleData.donutWidgetData = [{
 	  name: '<b>Consumptions</b>',
 	  hoverinfo: 'label+percent+name',
 	  hole: .4,
-	  type: 'donut',
+	  type: 'pie',
 	  marker: {
 		  //colors:  ['rgb(69,117,180)', 'rgb(26, 118, 255)', 'rgb(49,54,149)', 'rgb(116,173,209)', 'rgb(171,217,233), rgb(36, 55, 57), rgb(34, 53, 101),rgb(55, 83, 109)'],
 		  colors:  ['#2C3E50', '#F4D03F', '#95A5A6', '#32c5d2','#e7505a'],
