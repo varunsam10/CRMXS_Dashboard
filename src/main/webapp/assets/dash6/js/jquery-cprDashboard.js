@@ -297,7 +297,7 @@
 					var widgetDefinition = self._getWidgetContentForId(widgetId, self);
 				
 				
-	
+					$("#fgwidgetId").text(widgetId );
 					$("#filterModal").modal('show');					
 					
 				});	
