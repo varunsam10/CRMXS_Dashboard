@@ -549,6 +549,8 @@
 				,{color : '#F4D03F',opacity : 0.6},{color : '#95A5A6',opacity : 0.6}];
 				var theme3=[{color : '#69b764',opacity : 0.6},{color : '#f26c64',opacity : 0.6},{color : '#ff800e',opacity : 0.6}
 				,{color : '#ffbc79',opacity : 0.6},{color : '#aec7e8',opacity : 0.6}];
+				var theme4=[{color : '#ffd94a',opacity : 0.6},{color : '#ffaa0e',opacity : 0.6},{color : '#ffbf50',opacity : 0.6}
+				,{color : '#fcba49',opacity : 0.6},{color : '#b59727',opacity : 0.6}];
 				for ( i = 0; i < _dashboardData.length; i++) {
 					var widgetDefinition = _dashboardData[i];
 					var id = "li#" + widgetDefinition.widgetId;
@@ -567,6 +569,8 @@
 							||widgetDefinition.chartType === 'barline' 
 							||widgetDefinition.chartType === 'area'
 							||widgetDefinition.chartType === 'column'
+//							||widgetDefinition.chartType === 'pie'
+							//||widgetDefinition.chartType === 'donut'	
 							||widgetDefinition.chartType === 'bubble'){
 							if(typeof widgetDefinition.widgetContent.data[j].marker != 'undefined'){
 								if(themeSelected==="theme1"){
@@ -588,8 +592,15 @@
 										widgetDefinition.widgetContent.data[j].marker.color = theme3[j].color;
 										}
 												}
+								else if(themeSelected==="theme4"){
+									if(widgetDefinition.chartType != 'bubble'){
+										widgetDefinition.widgetContent.data[j].marker = theme4[j];	
+									}else{
+										widgetDefinition.widgetContent.data[j].marker.color = theme4[j].color;
+										}
+												}
 							}
-						}else if(widgetDefinition.chartType === 'pie' && (typeof widgetDefinition.widgetContent.data[j].marker != 'undefined')){
+						}else if((widgetDefinition.chartType === 'pie'||'donut') && (typeof widgetDefinition.widgetContent.data[j].marker != 'undefined')){
 							if(themeSelected==="theme1"){
 								if(j===0){
 									widgetDefinition.widgetContent.data[j].marker.colors=[];
@@ -612,6 +623,14 @@
 									widgetDefinition.widgetContent.data[j].marker.colors=[];
 									for(var k=0;k<theme3.length;k++){
 										widgetDefinition.widgetContent.data[j].marker.colors.push(theme3[k].color);
+									}
+								}
+							}
+							else if(themeSelected==="theme4"){
+								if(j===0){
+									widgetDefinition.widgetContent.data[j].marker.colors=[];
+									for(var k=0;k<theme4.length;k++){
+										widgetDefinition.widgetContent.data[j].marker.colors.push(theme4[k].color);
 									}
 								}
 							
@@ -649,7 +668,11 @@
 							$('.cprDashboardTableView tbody tr:nth-child(odd)').attr('style', 'background-color: #FF800E !important');
 							$('.cprDashboardTableView tbody tr:nth-child(even)').attr('style', 'background-color: #FFBC79 !important');
 						}
-				
+						else if(themeSelected==="theme4"){
+							$('.js-plotly-plot .plotly .modebar').attr('style', 'background: #FFFFF !important');
+							$('.cprDashboardTableView tbody tr:nth-child(odd)').attr('style', 'background-color: #ffd94a !important');
+							$('.cprDashboardTableView tbody tr:nth-child(even)').attr('style', 'background-color: #ffdd71 !important');
+						}
 					}				
 				}			
 			},
@@ -815,7 +838,7 @@
 						{
 								widgetDefinition.widgetContent.data[i].type = 'pie';
 								widgetDefinition.widgetContent.data[i].domain = [0,.48] ;
-								widgetDefinition.widgetContent.data[i].fill = null;
+								//widgetDefinition.widgetContent.data[i].fill = null;
 								widgetDefinition.widgetContent.data[i].hole = null;
 						}	
 							
