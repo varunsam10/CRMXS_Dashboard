@@ -1,10 +1,12 @@
 package com.cpr.model;
 
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.sql.DataSource;
 
@@ -59,6 +61,27 @@ public class DashboardDAO {
 	    }
 		return null;
 	}
+	
+	public void getDateFilteredData(){
+		String from = "2010-01-01";
+		String to = "2011-12-31";
+		Date fromDate = Date.valueOf(from);
+		Date toDate = Date.valueOf(to);
+		//System.out.println(from.toString());
+		//System.out.println(to.toString());
+		String sql = "SELECT * FROM crmxsdashboard.redemption where date >= ? and date<= ?";
+		
+		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+		
+		List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql, fromDate, toDate);
+		System.out.println(rows.size());
+		for(Map<String, Object> rs : rows) {
+			System.out.println("here1");
+			System.out.println("Revenue-> " + rs.get("revenue").toString() + " Date->" + rs.get("date").toString());
+			
+		}
+	}
+	
 	public String getFilteredWidgetConfig(){
 		
 		return "Hello world";

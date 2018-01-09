@@ -47,10 +47,11 @@ public class Dashboard6Controller {
 	
 	@RequestMapping(value = "/applyFilter", method = RequestMethod.POST)
 	@ResponseBody
-	public String applyFilter(@RequestBody FilterData filterdata){
+	public void applyFilter(@RequestBody FilterData filterdata){
+		dashboardDAO.getDateFilteredData();
 		System.out.println("the filtered data widgetID:"+filterdata.getWidgetId());
-		return dashboardDAO.getFilteredWidgetConfig();
 	}	
+	
 	@RequestMapping(value = "/getWidgetsInteract", method = RequestMethod.GET)
 	@ResponseBody
 	public String getInteractiveWidgets() {
