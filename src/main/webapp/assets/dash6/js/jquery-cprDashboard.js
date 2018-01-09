@@ -226,6 +226,7 @@
 								 $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
 								 $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('state', true, true);
 								 $("#changeChartForm input:checkbox[value='bar']").bootstrapSwitch('disabled',false);
+								 $("#changeChartForm input:checkbox[value='pie']").bootstrapSwitch('disabled',false);
 							     break;
 				  case "barline":$('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
 								 $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
@@ -237,8 +238,16 @@
 								 break;
 				   case "pie":   $('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
 								 $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
+								 $("#changeChartForm input:checkbox[value='pie']").bootstrapSwitch('disabled',false);
+					   			 $("#changeChartForm input:checkbox[value='doughnut']").bootstrapSwitch('disabled',false);
 								 $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('state', true, true);
-								 break;											
+								 break;	
+				  case "doughnut": $('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
+				   				$("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
+				   				$("#changeChartForm input:checkbox[value='doughnut']").bootstrapSwitch('disabled',false);
+				   				$("#changeChartForm input:checkbox[value='pie']").bootstrapSwitch('disabled',false);
+				   				$("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('state', true, true);
+				   				break;	
 					}
 								
 				/*	if(graphToThisChart === widgetDefinition.chartType){
@@ -787,7 +796,29 @@
 								
 						}
 							
-					}	
+					}
+					//pie to doughnut
+					else if(widgetDefinition.chartType === 'pie' && changeChartObject.chartTo ==='doughnut'){ 
+						var i=0;
+						for(i=0;i<widgetDefinition.widgetContent.data.length;i++)
+						{
+								widgetDefinition.widgetContent.data[i].type = 'pie';
+								widgetDefinition.widgetContent.data[i].hole = .4 ;
+								widgetDefinition.widgetContent.data[i].fill = null;
+						}	
+							
+					}
+					//doughnut to pie
+					else if(widgetDefinition.chartType === 'doughnut' && changeChartObject.chartTo ==='pie'){ 
+						var i=0;
+						for(i=0;i<widgetDefinition.widgetContent.data.length;i++)
+						{
+								widgetDefinition.widgetContent.data[i].type = 'pie';
+								widgetDefinition.widgetContent.data[i].hole = null ;
+								widgetDefinition.widgetContent.data[i].fill = null;
+						}	
+							
+					}
 						data = widgetDefinition.widgetContent.data;
 						layout = widgetDefinition.widgetContent.layout;
 						this.redrawChart(chartArea,data,layout,config);
