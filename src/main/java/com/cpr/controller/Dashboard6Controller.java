@@ -1,8 +1,6 @@
 package com.cpr.controller;
-
-
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -45,7 +43,8 @@ public class Dashboard6Controller {
 		return response;
 	}
 	
-	@RequestMapping(value = "/applyFilter", method = RequestMethod.POST)
+	@RequestMapping(value = "/applyFilter", method = RequestMethod.POST,consumes=MediaType.APPLICATION_JSON_VALUE)
+	//@RequestMapping(value = "/applyFilter", method = RequestMethod.POST)
 	@ResponseBody
 	public String applyFilter(@RequestBody FilterData filterdata){
 		System.out.println("the filtered data widgetID:"+filterdata.getWidgetId());
