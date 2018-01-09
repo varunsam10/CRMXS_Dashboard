@@ -432,7 +432,7 @@ $(window).load(function() {
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-						<h4 class="modal-title">Apply filters on the charts</h4>
+						<p><h4 class="modal-title">Apply filters on the widget- <label  for="fgwidgetId" id="fgwidgetId"></label></h4></p>
 					</div>
 					<div class="modal-body">
 						<%-- <form action="#" class="form-horizontal"> --%>
@@ -451,25 +451,19 @@ $(window).load(function() {
 							</div>
 							<div class="col-md-6">
 								<span><input class="date-picker" size="16" type="text" value="" id="to" name="to"/></span>
-							</div>
-							
+							</div>							
 							<hr>
 							<hr>
 							<!-- </div> -->  
-							<!-- <div class="form-group"> -->
-							
+							<!-- <div class="form-group"> -->							
 							<label class="col-md-4" style="padding-left:150px">Select Country</label>
 							
-							<div class="col-md-8">		
-							
-							
-							
+							<div class="col-md-8">							
 									
-							<select id="country-select" multiple="multiple">
-					            
-					            <option value="United States">United States</option>
-					            <option value="United Kingdom">United Kingdom</option>
-					            <option value="Afghanistan">Afghanistan</option>
+							<select id="country-select" multiple="multiple">					            
+					            <option value="US">United States</option>
+					            <option value="UK">United Kingdom</option>
+					         	<option value="Afghanistan">Afghanistan</option>
 					            <option value="Aland Islands">Aland Islands</option>
 					            <option value="Albania">Albania</option>					        
 					            <option value="Bahrain">Bahrain</option>
@@ -517,22 +511,12 @@ $(window).load(function() {
 					            <option value="Spain">Spain</option>
 					            <option value="Sri Lanka">Sri Lanka</option>
 					            <option value="Sudan">Sudan</option>
-					          </select>
-					          
-					       	
+					          </select>					       	
 					       	</div>
-					        <!-- </div> -->
-					        
-					         
-
-					        
-					          
-						<%-- </form> --%>
-						
-						
+					        <!-- </div> -->					          
+						<%-- </form> --%>						
 					</div>
-					<hr>
-					
+					<hr>					
 					<div class="modal-footer">
 						<button class="btn dark btn-outline" data-dismiss="modal" aria-hidden="true">Close</button>
 						<button id="applyFilter" class="btn green" data-dismiss="modal">Apply Filter</button>
@@ -1254,28 +1238,30 @@ $("#cprDashboard").cprDashboard({
 			return;
 		}
 		$('#changeThemeModal').modal('hide'); */
-		
-		if(console) {
-			console.log('from date: ' + $("#from").val() + " & to date: " + $("#to").val() +" & countries selected: " + $(".chzn-select").val());
-		} 
+		var widgetId =$("#fgwidgetId").text();
+
 		var fromDate = $("#from").val();
 		var toDate = $("#to").val();
-		var countriesSelected = $(".chzn-select").val();
+		var countriesSelected = $("#country-select").val();
 		// window.location.href='/Crmxs-Dashboard/applyFilter.html?clickedWidgetId='+data.clickedWidgetId+'&datapoints='+data.dataPoints;
 		//this._filterCharts(fromDate,toDate,countriesSelected);		
 		var filterData ={
-				fromdate:fromDate,
-				todate:toDate,
-				countries:countriesSelected
+				fromDate:fromDate,
+				toDate:toDate,
+				countries:countriesSelected,
+				widgetId:widgetId
 		};
 		$.ajax({
-             type: "GET",
+             type: "POST",
+             contentType: 'application/json; charset=utf-8',
     		 url : 'applyFilter.html',
+    		 processData: false,
     		 data: JSON.stringify(filterData),
              success : function(data) {
                     //$('#result').html(data); 
             	 $("#cprDashboard").cprDashboard("applyFilter",data);
-        }});			
+        	}
+            });			
 		});	
 	//Handling on Change event
 	/*	$("#changeGraphForm input:checkbox[value='bar']").change(function() {

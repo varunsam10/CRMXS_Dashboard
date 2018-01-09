@@ -6,12 +6,24 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.sql.DataSource;
+
+import org.springframework.jdbc.core.JdbcTemplate;
+
 import com.google.gson.Gson;
 
 
 public class DashboardDAO {
-	
-	public static String getDashboardJson(){
+	private DataSource dataSource;
+
+	public void setDataSource(DataSource dataSource) {
+		this.dataSource = dataSource;
+	}
+    
+    public DataSource getDataSource() {
+		return dataSource;
+	}
+	public String getDashboardJson(){
 		Gson gson = new Gson();
 		//java.sql.Connection con = FetchData.getConnection();
 		try {
@@ -32,6 +44,10 @@ public class DashboardDAO {
             	
             }*/
             //String dashboardJson = widgetConfig.build().toString();
+            
+        	JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+            
+                 
             String dashboardJson = widgetContent.toString();
         	//String dashboardJson = gson.toJson(widgetContent);
         	System.out.println(dashboardJson);
@@ -43,5 +59,8 @@ public class DashboardDAO {
 	    }
 		return null;
 	}
-	
+	public String getFilteredWidgetConfig(){
+		
+		return "Hello world";
+	}
 }
