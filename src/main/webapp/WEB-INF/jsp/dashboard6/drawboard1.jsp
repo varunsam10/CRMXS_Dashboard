@@ -350,7 +350,7 @@ $(window).load(function() {
 						<div class="form-group  modal-group">
 							<label class="control-label col-md-6">Pie chart</label>
 							<div class="col-sm-3 col-md-3">
-							<input type="checkbox" disabled class="make-switch modal-input" data-on-color="primary" data-off-color="danger" value="pie" id="pie"/>
+							<input type="checkbox"  class="make-switch modal-input" data-on-color="primary" data-off-color="danger" value="pie" id="pie"/>
 							<!--  <input type="checkbox" disabled class="make-switch modal-input" data-on-color="primary" data-off-color="danger" value="pie" id="pie"/> -->
 						  <!--       <input type="checkbox" checked readonly class="make-switch" /> -->
 							 </div>
@@ -376,7 +376,7 @@ $(window).load(function() {
 						<div class="form-group modal-group">
 							<label class="control-label col-md-6">Doughnut chart</label>
 							<div class="col-sm-3 col-md-3">
-							<input type="checkbox" disabled class="make-switch modal-input" data-on-color="primary" data-off-color="danger" value="pie" id="doughnut"/>
+							<input type="checkbox" disabled class="make-switch modal-input" data-on-color="primary" data-off-color="danger" value="doughnut" id="doughnut"/>
 							</div>
 						</div>
 					</form>
@@ -1011,7 +1011,7 @@ $(document).ready(function() {
 				widgetClick:"disable",
 				graphType : "exploratory",
 				widgetDimension : "normal",
-				chartType : "pie",
+				chartType : "doughnut",
 				widgetContent : {
 					data : myExampleData.donutWidgetData,
 					layout : myExampleData.donutWidgetLayout,
