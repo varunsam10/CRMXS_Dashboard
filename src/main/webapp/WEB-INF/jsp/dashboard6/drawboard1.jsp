@@ -1243,8 +1243,6 @@ $("#cprDashboard").cprDashboard({
 		var fromDate = $("#from").val();
 		var toDate = $("#to").val();
 		var countriesSelected = $("#country-select").val();
-		// window.location.href='/Crmxs-Dashboard/applyFilter.html?clickedWidgetId='+data.clickedWidgetId+'&datapoints='+data.dataPoints;
-		//this._filterCharts(fromDate,toDate,countriesSelected);		
 		var filterData ={
 				fromDate:fromDate,
 				toDate:toDate,
@@ -1255,8 +1253,10 @@ $("#cprDashboard").cprDashboard({
              type: "POST",
              contentType: 'application/json; charset=utf-8',
     		 url : 'applyFilter.html',
-    		 processData: false,
     		 data: JSON.stringify(filterData),
+    		 async: false,    //Cross-domain requests and dataType: "jsonp" requests do not support synchronous operation
+    		 cache: false,        
+    		 processData:false, 
              success : function(data) {
                     //$('#result').html(data); 
             	 $("#cprDashboard").cprDashboard("applyFilter",data);
