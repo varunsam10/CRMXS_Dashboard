@@ -1276,7 +1276,7 @@ var trace1 = {
 			myExampleData.plotlybubble2layout = layout;
 			
 			myExampleData.plotlybubble2config = {showLink: false, modeBarButtonsToRemove : [ 'sendDataToCloud' ],
-					displaylogo : false };
+					displaylogo : true };
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //plotly bar and line chart sample data starts here 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
