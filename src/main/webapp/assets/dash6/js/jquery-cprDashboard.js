@@ -1025,21 +1025,19 @@
 						var chart = c3.generate({bindto:chartArea[0],data:WidgetDefinitionToChange.widgetContent.data});
 						
 					}else{						
-						//Plotly.redraw(chartArea[0]);
 						if(WidgetDefinitionToChange.chartType === 'line'){
 							Plotly.animate(chartArea[0], { data, layout,config} ,{
 								transition: {  
 									duration: 500,
 									easing: 'cubic-in-out' 
 										} 
-								});
-							
-							console.log("line");
+							});						
+							Plotly.redraw(chartArea[0]);							
 						}
 						else{
 							Plotly.newPlot(chartArea[0], data, layout,config);
 							Plotly.redraw(chartArea[0]);
-							console.log("other charts")
+						
 						}
 						
 					}					

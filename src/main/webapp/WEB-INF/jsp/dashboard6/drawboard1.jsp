@@ -1109,7 +1109,7 @@ $(document).ready(function() {
 			graphType : "exploratory",
 			widgetDimension : "normal",
 			chartType : "bubble",
-			linkedWidgets:["id020","id021"],
+			linkedWidgets:["id020","w0008"],
 			enableRefresh : true,
 			refreshCallBack : function(widgetId) {
 				//Inside refresh callback
