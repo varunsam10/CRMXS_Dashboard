@@ -531,7 +531,103 @@ $(window).load(function() {
 			</div>
 			</div>
 		</div>
-					
+		<div id="filterAllModal" class="modal fade" role="dialog" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+						<p><h4 class="modal-title">Apply filters all widgets</h4></p>
+					</div>
+					<div class="modal-body">
+						<%-- <form action="#" class="form-horizontal"> --%>
+							 <!-- <div class="form-group"> -->
+								<div class="col-md-4" style="padding-left:150px">
+								<label>From</label>
+								</div>
+								<div class="col-md-6">
+								<input class="date-picker" size="16" type="text" value="" id="from" name="from"/>
+								</div>
+								<hr>
+						     <!-- </div> -->
+							<!-- <div class="form-group"> -->
+							<div class="col-md-4" style="padding-left:150px">
+								<label>To</label>
+							</div>
+							<div class="col-md-6">
+								<span><input class="date-picker" size="16" type="text" value="" id="to" name="to"/></span>
+							</div>							
+							<hr>
+							<hr>
+							<!-- </div> -->  
+							<!-- <div class="form-group"> -->							
+							<label class="col-md-4" style="padding-left:150px">Select Country</label>
+							
+							<div class="col-md-8">							
+									
+							<select id="country-select" multiple="multiple">					            
+					            <option value="US">United States</option>
+					            <option value="UK">United Kingdom</option>
+					         	<option value="Afghanistan">Afghanistan</option>
+					            <option value="Aland Islands">Aland Islands</option>
+					            <option value="Albania">Albania</option>					        
+					            <option value="Bahrain">Bahrain</option>
+					            <option value="Bangladesh">Bangladesh</option>
+					            <option value="Barbados">Barbados</option>
+					            <option value="Belarus">Belarus</option>
+					            <option value="Belgium">Belgium</option>
+					            <option value="Chad">Chad</option>
+					            <option value="Chile">Chile</option>
+					            <option value="China">China</option>
+					            <option value="Denmark">Denmark</option>
+					            <option value="Djibouti">Djibouti</option>
+					            <option value="Dominica">Dominica</option>
+					            <option value="Fiji">Fiji</option>
+					            <option value="Finland">Finland</option>
+					            <option value="France">France</option>
+					            <option value="Guam">Guam</option>
+					            <option value="Guatemala">Guatemala</option>
+					            <option value="Guernsey">Guernsey</option>
+					            <option value="Guinea">Guinea</option>
+					            <option value="Hungary">Hungary</option>
+					            <option value="Iceland">Iceland</option>
+					            <option value="India">India</option>
+					            <option value="Israel">Israel</option>
+					            <option value="Italy">Italy</option>
+					            <option value="Jamaica">Jamaica</option>
+					            <option value="Japan">Japan</option>
+					            <option value="Jersey">Jersey</option>
+					            <option value="Jordan">Jordan</option>
+					            <option value="Myanmar">Myanmar</option>
+					            <option value="Namibia">Namibia</option>
+					            <option value="Nauru">Nauru</option>
+					            <option value="Nepal">Nepal</option>
+					            <option value="Netherlands">Netherlands</option>
+					            <option value="New Caledonia">New Caledonia</option>
+					            <option value="Paraguay">Paraguay</option>
+					            <option value="Peru">Peru</option>
+					            <option value="Philippines">Philippines</option>
+					            <option value="Pitcairn">Pitcairn</option>
+					            <option value="Poland">Poland</option>
+					            <option value="Portugal">Portugal</option>
+					            <option value="Puerto Rico">Puerto Rico</option>
+					            <option value="Qatar">Qatar</option>
+					            <option value="Reunion">Reunion</option>
+					            <option value="Spain">Spain</option>
+					            <option value="Sri Lanka">Sri Lanka</option>
+					            <option value="Sudan">Sudan</option>
+					          </select>					       	
+					       	</div>
+					        <!-- </div> -->					          
+						<%-- </form> --%>						
+					</div>
+					<hr>					
+					<div class="modal-footer">
+						<button class="btn dark btn-outline" data-dismiss="modal" aria-hidden="true">Close</button>
+						<button id="applyFilter" class="btn green" data-dismiss="modal">Apply Filters</button>
+				   </div>
+			</div>
+			</div>
+		</div>			
 		<div id="interactionModal" class="modal fade" role="dialog" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -1067,7 +1163,7 @@ $(document).ready(function() {
 	},
 	{
 		widgetTitle : "Items sold",
-		widgetId : "id021",
+		widgetId : "w0008",
 		widgetType : "chart",
 		widgetClick:"interact",
 		graphType : "exploratory",
@@ -1121,21 +1217,21 @@ $("#cprDashboard").cprDashboard({
 
 //Toastr settings
 	toastr.options = {
-	"closeButton" : false,
-	"debug" : false,
-	"newestOnTop" : false,
-	"progressBar" : false,
-	"positionClass" : "toast-top-right",
-	"preventDuplicates" : false,
-	"onclick" : null,
-	"showDuration" : "200",
-	"hideDuration" : "1000",
-	"timeOut" : "5000",
-	"extendedTimeOut" : "1000",
-	"showEasing" : "swing",
-	"hideEasing" : "linear",
-	"showMethod" : "fadeIn",
-	"hideMethod" : "fadeOut"
+		"closeButton" : false,
+		"debug" : false,
+		"newestOnTop" : false,
+		"progressBar" : false,
+		"positionClass" : "toast-top-right",
+		"preventDuplicates" : false,
+		"onclick" : null,
+		"showDuration" : "200",
+		"hideDuration" : "1000",
+		"timeOut" : "5000",
+		"extendedTimeOut" : "1000",
+		"showEasing" : "swing",
+		"hideEasing" : "linear",
+		"showMethod" : "fadeIn",
+		"hideMethod" : "fadeOut"
 	}
 	function notification(type, message) {
 	if (type == 'success') {
@@ -1162,15 +1258,15 @@ $("#cprDashboard").cprDashboard({
 			console.log("chart range selected, for widget: "+ data.selectedWidgetId);
 		}
 	});
-//plot click event example
-/* 	$("#cprDashboard").bind("cprdashboardplotclicked",function(e, data) {
+	//plot click event example
+	/* 	$("#cprDashboard").bind("cprdashboardplotclicked",function(e, data) {
 	notification('info','chart clicked, for widget:'+ data.clickedWidgetId
 		+ ' the data passed is'+ data.dataPoints+ '!');
 	if (console) {
 		console.log("chart clicked, for widget: "+ data.selectedWidgetId);
 	}
-}); */
-//Drawboard 4
+	}); */
+	//Drawboard 4
 	$("#cprDashboard").bind("cprdashboardplotclicked",function(e, data) {
 	/* 	 $.ajax({
 			 type: "GET",
@@ -1218,7 +1314,7 @@ $("#cprDashboard").cprDashboard({
 	$("li.menuItem.filters").click(function(e) {
 		e.preventDefault();
 		//$("#changeThemeModal").modal('show');
-		$("#filterModal").modal('show');
+		$("#filterAllModal").modal('show');
 	});
 	$('#applyThemes').on('click', function (e) {
 		e.preventDefault();
@@ -1237,14 +1333,7 @@ $("#cprDashboard").cprDashboard({
 	});
 	$('#applyFilter').on('click', function (e) {
 		e.preventDefault();
-	/* 	var themeSelected = $("#changeThemeForm input:checked" ).val();
-		var numberOfChecks = $("#changeThemeForm input:checked" ).size();
-		if(numberOfChecks>1){
-			$('#changeThemeModal').modal('hide');
-			swal("Only one theme can be selected!", "Un-check others!", "error");
-			return;
-		}
-		$('#changeThemeModal').modal('hide'); */
+
 		var widgetId =$("#fgwidgetId").text();
 
 		var fromDate = $("#from").val();
@@ -1256,48 +1345,32 @@ $("#cprDashboard").cprDashboard({
 				countries:countriesSelected,
 				widgetId:widgetId
 		};
-	/* 	$.ajax({
-             type: "POST",
-             contentType: 'application/json; charset=utf-8',
-    		 url : 'applyFilter.html',
-    		 data: JSON.stringify(filterData),
-    		 async: false,    //Cross-domain requests and dataType: "jsonp" requests do not support synchronous operation
-    		 cache: false,        
-    		 processData:false, 
-             success : function(data) {
-                    //$('#result').html(data); 
-            	 $("#cprDashboard").cprDashboard("applyFilter",data);
-        	}
-        });	 */
+
 		$.ajax({
-         type: "POST",
-         //contentType: 'application/json; charset=utf-8',
-         contentType : "application/json",
-         //dataType: 'json',
-   		 url : 'applyFilter.html',
+         type: 'POST',
+         contentType : 'application/json',
+         dataType: 'json',
+   		 url : 'applyFilters.html',
    		 data: JSON.stringify(filterData),
-   	 	// async: false,    //Cross-domain requests and dataType: "jsonp" requests do not support synchronous operation
+   	 	// async: false,.//Cross-domain requests and dataType: "jsonp" requests do not support synchronous operation
    		 cache: false,        
-   		// processData:false, 
-   		//dataType : 'json',
-		timeout : 100000,
+		 timeout : 100000,
          success : function(data) {
-                   //$('#result').html(data); 
-           	 $("#cprDashboard").cprDashboard("applyFilter",data);
-       	}
-       });	
-		
+           //$('#result').html(data); 
+           $("#cprDashboard").cprDashboard("applyFilter",data);
+       	 }
+         });	
 		
 		});	
-	//Handling on Change event
-	/*	$("#changeGraphForm input:checkbox[value='bar']").change(function() {
-		  //$(this).prop('checked');
-		  $("#changeGraphForm input:checkbox[value='line']").bootstrapSwitch('state', false, true);
-	})
-	$("#changeGraphForm input:checkbox[value='line']").change(function() {
-		  //$(this).prop('checked');
-		  $("#changeGraphForm input:checkbox[value='bar']").bootstrapSwitch('state', false, true);
-	}) */
+		//Handling on Change event
+		/*	$("#changeGraphForm input:checkbox[value='bar']").change(function() {
+		  	//$(this).prop('checked');
+		  	$("#changeGraphForm input:checkbox[value='line']").bootstrapSwitch('state', false, true);
+		})
+		$("#changeGraphForm input:checkbox[value='line']").change(function() {
+		 	 //$(this).prop('checked');
+		  	$("#changeGraphForm input:checkbox[value='bar']").bootstrapSwitch('state', false, true);
+		}) */
 
 	});
 	});

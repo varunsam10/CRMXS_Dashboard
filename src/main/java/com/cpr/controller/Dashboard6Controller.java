@@ -1,6 +1,5 @@
 package com.cpr.controller;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +12,8 @@ import com.cpr.model.Dashboard3;
 import com.cpr.model.DashboardDAO;
 import com.cpr.model.FilterData;
 import com.cpr.service.DashboardService;
+import com.fasterxml.jackson.core.JsonParser;
+import com.google.gson.Gson;
 
 @Controller
 @SessionAttributes("/dashboard6")
@@ -54,7 +55,10 @@ public class Dashboard6Controller {
 	@RequestMapping(value = "/applyFilters", method = RequestMethod.POST)
 	@ResponseBody
 	public String applyFilter(@RequestBody String filterdata){
-		System.out.println("the filtered data widgetID:"+filterdata);
+		//System.out.println("the filtered data widgetID:"+filterdata);
+		Gson gson = new Gson();
+		FilterData filterData = gson.fromJson(filterdata, FilterData.class);
+		System.out.println("The filter is "+filterData.getToDate());
 		return dashboardDAO.getFilteredWidgetConfig();
 	}
 /*	@RequestMapping(value = "/applyFiller", method = RequestMethod.POST)
