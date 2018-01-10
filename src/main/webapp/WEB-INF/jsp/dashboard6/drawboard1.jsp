@@ -1333,7 +1333,7 @@ $("#cprDashboard").cprDashboard({
 	});
 	$('#applyFilter').on('click', function (e) {
 		e.preventDefault();
-
+		var widgetConfig;
 		var widgetId =$("#fgwidgetId").text();
 
 		var fromDate = $("#from").val();
@@ -1356,8 +1356,8 @@ $("#cprDashboard").cprDashboard({
    		 cache: false,        
 		 timeout : 100000,
          success : function(data) {
-           //$('#result').html(data); 
-           $("#cprDashboard").cprDashboard("applyFilter",data);
+           widgetConfig = JSON.parse(data);
+           $("#cprDashboard").cprDashboard("applyFilter",widgetConfig,widgetId);
        	 }
          });	
 		

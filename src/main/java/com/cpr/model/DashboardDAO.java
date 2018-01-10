@@ -2,14 +2,24 @@ package com.cpr.model;
 
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import com.cpr.util.AxisLayout;
+import com.cpr.util.TitleFont;
+import com.cpr.util.WidgetConfig;
+import com.cpr.util.WidgetContent;
+import com.cpr.util.WidgetData;
+import com.cpr.util.WidgetLayout;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
 
 
 public class DashboardDAO {
@@ -59,32 +69,82 @@ public class DashboardDAO {
 		return null;
 	}
 	
-	public void getDateFilteredData(FilterData filterData){
-
+	public String getDateFilteredData(FilterData filterData){
+		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 		String sql = null;
 		Date fromDate = null;
-		Date toDate = null;
+		Date toDate = null;	
+		Integer resultSize =0;
+		Map<String,List<GraphParams>>countryMap =new HashMap<String,List<GraphParams>>();
 		if(null!=filterData.getFromDate() && null!= filterData.getToDate() && (filterData.getCountries().length == 0)){
 			fromDate = Date.valueOf(filterData.getFromDate());
 			toDate  = Date.valueOf(filterData.getToDate());
-			sql = "SELECT * FROM crmxsdashboard.redemption where date >= ? and date<= ?";
+			sql = "SELECT * FROM crmxsdashboard.redemption where date >= ? and date<= ?";			
+			List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql, fromDate, toDate);
+			System.out.println(rows.size());
+			resultSize = rows.size();
+			
+			for(Map<String, Object> rs : rows) {
+				
+				GraphParams graphParam = new GraphParams();
+				graphParam.setxValue(rs.get("revenue").toString());
+				graphParam.setxValue(rs.get("date").toString());
+				String country = rs.get("country").toString();
+				if(countryMap.isEmpty()){
+					List<GraphParams> graphParamsList = new ArrayList<GraphParams>();
+					graphParamsList.add(graphParam);
+					countryMap.put(country,graphParamsList);
+				}else{				
+					if(countryMap.containsKey(country)){
+						countryMap.get(country).add(graphParam);
+					}					
+				}											
+				//System.out.println("Revenue-> " + rs.get("revenue").toString() + " Date->" + rs.get("date").toString());
+			}			
 		}else{
 			
-		}
-			
-		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
-		
-		List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql, fromDate, toDate);
-		System.out.println(rows.size());
-		for(Map<String, Object> rs : rows) {
-			System.out.println("here1");
-			System.out.println("Revenue-> " + rs.get("revenue").toString() + " Date->" + rs.get("date").toString());
-			
-		}
+		}		
+		String widgetContentConfig = getFilteredWidgetConfig(resultSize,countryMap);	
+		return widgetContentConfig;
 	}
 	
-	public String getFilteredWidgetConfig(){
+	public String getFilteredWidgetConfig(Integer resultSize,Map<String,List<GraphParams>> countryMap){
+		//WidgetData[] widgetTraces = new WidgetData[countryMap.size()];
+		ArrayList<WidgetData> widgetsDataList = new ArrayList<WidgetData>();
+		Object[] xaxis =  new Object[resultSize]; 
+		Object[] yaxis  =  new Object[resultSize];
+		Set<String> keys = countryMap.keySet();
+		int i=0;
+		for(String country : keys){
+			List<GraphParams> graphParamList = countryMap.get(country);
+			for(int j=0;j<graphParamList.size();j++){
+				xaxis[j] = graphParamList.get(j).getxValue();
+				yaxis[j] = graphParamList.get(j).getyValue();
+			}
+			WidgetData trace = new WidgetData(xaxis, yaxis, country, "scatter");
+			//widgetTraces[i] = trace;
+			i++;
+			widgetsDataList.add(trace);
+		}
 		
-		return "Hello world";
+		
+		TitleFont x_TitleFont = new TitleFont("Courier New, monospace", 18, "#7f7f7f");
+		AxisLayout x_AxisLayout = new AxisLayout("Age", x_TitleFont);
+
+		TitleFont y_TitleFont = new TitleFont("Courier New, monospace", 18, "#7f7f7f");
+		AxisLayout y_AxisLayout = new AxisLayout("Number of Customers", y_TitleFont);
+
+		WidgetLayout widgetLayout = new WidgetLayout("How old are they ?", x_AxisLayout, y_AxisLayout, true);
+
+		String[] modeBarButtonsToRemove = { "sendDataToCloud" };
+		WidgetConfig widgetConfig = new WidgetConfig(modeBarButtonsToRemove);
+		
+		WidgetContent widgetContent = new WidgetContent(widgetsDataList, widgetLayout, widgetConfig);
+		
+		Gson gson = new GsonBuilder().create();
+		JsonElement element = gson.toJsonTree(widgetContent);
+		String response = gson.toJson(element);
+		return response;	
+		
 	}
 }

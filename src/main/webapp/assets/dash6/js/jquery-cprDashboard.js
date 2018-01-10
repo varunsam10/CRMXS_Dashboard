@@ -679,8 +679,25 @@
 			
 			
 			},
-			applyFilter:function(data) {
+			applyFilter:function(widgetConfig,widgetId) {
 				
+				var widgetDefinition = this._getWidgetContentForId(widgetId, this);
+				var id = "li#" + widgetDefinition.widgetId;
+				var chartArea;
+				var data;
+				var layout;
+				var config;
+				var chart;
+				chartArea = this.element.find(id + " div.cprDashboardChart");
+				
+				if (widgetDefinition.widgetType === 'chart') {
+					
+					data = widgetConfig.data;
+					layout = widgetDefinition.widgetContent.layout;
+					config = widgetDefinition.widgetContent.config;
+					
+					this.redrawChart(chartArea,data,layout,config);
+				}
 				
 			},
 			changeChart: function(changeChartObject) {

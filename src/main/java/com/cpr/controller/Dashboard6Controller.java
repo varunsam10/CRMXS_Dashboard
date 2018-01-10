@@ -59,9 +59,9 @@ public class Dashboard6Controller {
 		Gson gson = new Gson();
 		FilterData filterData = gson.fromJson(filterdata, FilterData.class);
 		System.out.println("The filter is "+filterData.getToDate());
-		dashboardDAO.getDateFilteredData(filterData);
+		String filteredWidgetData = dashboardDAO.getDateFilteredData(filterData);
 		 
-		 return "Success";
+		 return filteredWidgetData;
 	}
 /*	@RequestMapping(value = "/applyFiller", method = RequestMethod.POST)
 	public void applyFiller(){
