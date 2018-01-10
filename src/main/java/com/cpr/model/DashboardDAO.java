@@ -1,9 +1,6 @@
 package com.cpr.model;
 
 import java.sql.Date;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -13,7 +10,6 @@ import javax.sql.DataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.google.gson.Gson;
-import com.sun.xml.internal.bind.v2.runtime.FilterTransducer;
 
 
 public class DashboardDAO {
@@ -66,8 +62,8 @@ public class DashboardDAO {
 	public void getDateFilteredData(FilterData filterData){
 
 		String sql = null;
-		Date fromDate = new Date(System.currentTimeMillis());
-		Date toDate = new Date(System.currentTimeMillis());
+		Date fromDate = null;
+		Date toDate = null;
 		if(null!=filterData.getFromDate() && null!= filterData.getToDate() && (filterData.getCountries().length == 0)){
 			fromDate = Date.valueOf(filterData.getFromDate());
 			toDate  = Date.valueOf(filterData.getToDate());
