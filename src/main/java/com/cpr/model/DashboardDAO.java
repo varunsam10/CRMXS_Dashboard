@@ -13,6 +13,7 @@ import javax.sql.DataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.google.gson.Gson;
+import com.sun.xml.internal.bind.v2.runtime.FilterTransducer;
 
 
 public class DashboardDAO {
@@ -62,15 +63,19 @@ public class DashboardDAO {
 		return null;
 	}
 	
-	public void getDateFilteredData(){
-		String from = "2010-01-01";
-		String to = "2011-12-31";
-		Date fromDate = Date.valueOf(from);
-		Date toDate = Date.valueOf(to);
-		//System.out.println(from.toString());
-		//System.out.println(to.toString());
-		String sql = "SELECT * FROM crmxsdashboard.redemption where date >= ? and date<= ?";
-		
+	public void getDateFilteredData(FilterData filterData){
+
+		String sql = null;
+		Date fromDate = new Date(System.currentTimeMillis());
+		Date toDate = new Date(System.currentTimeMillis());
+		if(null!=filterData.getFromDate() && null!= filterData.getToDate() && (filterData.getCountries().length == 0)){
+			fromDate = Date.valueOf(filterData.getFromDate());
+			toDate  = Date.valueOf(filterData.getToDate());
+			sql = "SELECT * FROM crmxsdashboard.redemption where date >= ? and date<= ?";
+		}else{
+			
+		}
+			
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 		
 		List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql, fromDate, toDate);
