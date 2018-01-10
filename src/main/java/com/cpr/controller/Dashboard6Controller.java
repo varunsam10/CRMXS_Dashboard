@@ -43,13 +43,32 @@ public class Dashboard6Controller {
 		return response;
 	}
 	
-	@RequestMapping(value = "/applyFilter", method = RequestMethod.POST,consumes=MediaType.APPLICATION_JSON_VALUE)
-	//@RequestMapping(value = "/applyFilter", method = RequestMethod.POST)
+	//@RequestMapping(value = "/applyFilter", method = RequestMethod.POST,consumes=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/applyFilter", method = RequestMethod.POST)
 	@ResponseBody
 	public String applyFilter(@RequestBody FilterData filterdata){
 		System.out.println("the filtered data widgetID:"+filterdata.getWidgetId());
 		return dashboardDAO.getFilteredWidgetConfig();
 	}	
+	@RequestMapping(value = "/applyFilters", method = RequestMethod.POST)
+	@ResponseBody
+	public String applyFilter(@RequestBody String filterdata){
+		System.out.println("the filtered data widgetID:"+filterdata);
+		return dashboardDAO.getFilteredWidgetConfig();
+	}
+/*	@RequestMapping(value = "/applyFiller", method = RequestMethod.POST)
+	public void applyFiller(){
+		System.out.println("the filtered data widgetID:");
+	
+	}	*/
+	/*@RequestMapping(value = "/getWidgetsInteractTest", method = RequestMethod.GET)
+	@ResponseBody
+	public String getInteractiveWidgetsTest() {
+		DashboardService dashboardJSON = new DashboardService();
+		//System.out.println(dashboardJSON.createDashboardJson());
+		return "Hello world";
+		//return DashboardDAO.getDashboardJson();
+	}*/
 	@RequestMapping(value = "/getWidgetsInteract", method = RequestMethod.GET)
 	@ResponseBody
 	public String getInteractiveWidgets() {
