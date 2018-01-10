@@ -1256,7 +1256,7 @@ $("#cprDashboard").cprDashboard({
 				countries:countriesSelected,
 				widgetId:widgetId
 		};
-		$.ajax({
+	/* 	$.ajax({
              type: "POST",
              contentType: 'application/json; charset=utf-8',
     		 url : 'applyFilter.html',
@@ -1268,7 +1268,26 @@ $("#cprDashboard").cprDashboard({
                     //$('#result').html(data); 
             	 $("#cprDashboard").cprDashboard("applyFilter",data);
         	}
-            });			
+        });	 */
+		$.ajax({
+         type: "POST",
+         //contentType: 'application/json; charset=utf-8',
+         contentType : "application/json",
+         //dataType: 'json',
+   		 url : 'applyFilter.html',
+   		 data: JSON.stringify(filterData),
+   	 	// async: false,    //Cross-domain requests and dataType: "jsonp" requests do not support synchronous operation
+   		 cache: false,        
+   		// processData:false, 
+   		//dataType : 'json',
+		timeout : 100000,
+         success : function(data) {
+                   //$('#result').html(data); 
+           	 $("#cprDashboard").cprDashboard("applyFilter",data);
+       	}
+       });	
+		
+		
 		});	
 	//Handling on Change event
 	/*	$("#changeGraphForm input:checkbox[value='bar']").change(function() {
