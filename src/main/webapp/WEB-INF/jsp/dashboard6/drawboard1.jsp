@@ -1086,20 +1086,21 @@ $(document).ready(function() {
 					layout: myExampleData.barGroupChartLayout,
 					config: myExampleData.plotlybarconfig
 			}
-			}, /* {
-		widgetTitle: "Items sold",
-		widgetId: "id018",
-		widgetType: "chart",
-		widgetClick:"details",
-		graphType: "exploratory",
-		widgetDimension: "large",
-		chartType: "line",
-		getDataBySelection: true,
-		widgetContent: {
-			data: myExampleData.plotlylinedata,
-			layout: myExampleData.plotlylinelayout,
-			config: myExampleData.plotlylineconfig
-		}
+			}, 
+			/* {
+				widgetTitle: "Items sold",
+				widgetId: "id018",
+				widgetType: "chart",
+				widgetClick:"details",
+				graphType: "exploratory",
+				widgetDimension: "large",
+				chartType: "line",
+				getDataBySelection: true,
+				widgetContent: {
+					data: myExampleData.plotlylinedata,
+					layout: myExampleData.plotlylinelayout,
+					config: myExampleData.plotlylineconfig
+				}
 		}, */
 		{
 			widgetTitle : "Age group",
@@ -1147,44 +1148,43 @@ $(document).ready(function() {
 				data: myExampleData.barGroupChartData,
 				layout: myExampleData.barGroupChartLayout,
 				config: myExampleData.plotlybarconfigDash4
-		},
+			},
 			widgetContentNew : {
 				data : myExampleData.barGroupChartDataOriginal,
 				layout : myExampleData.barGroupChartLayout,
 				config : myExampleData.plotlybarconfigDash4
-		},
+			},
 			widgetContentNew1 : {
 			data : myExampleData.barGroupChartData1,
-		},
+			},
 			widgetContentNew2 : {
 			data : myExampleData.barGroupChartData2,
 
-		}
-	},
-	{
-		widgetTitle : "Items sold",
-		widgetId : "w0008",
-		widgetType : "chart",
-		widgetClick:"interact",
-		graphType : "exploratory",
-		widgetDimension : "large",
-		chartType : "line",
-		getDataBySelection : true,
-		widgetContent : {
-			data : myExampleData.plotlylinedata,
-			layout : myExampleData.plotlylinelayout,
-			config : myExampleData.plotlylineconfig
+			}
 		},
-		widgetContentNew : {
-			data : myExampleData.plotlylinedata1,
-		},
-		widgetContentNew1 : {
-			data : myExampleData.plotlylinedata2,
-		},
-		widgetContentNew2 : {
-			data : myExampleData.plotlylinedata3,
-
-		}
+		{
+			widgetTitle : "Items sold",
+			widgetId : "w0008",
+			widgetType : "chart",
+			widgetClick:"interact",
+			graphType : "exploratory",
+			widgetDimension : "large",
+			chartType : "line",
+			getDataBySelection : true,
+			widgetContent : {
+				data : myExampleData.plotlylinedata,
+				layout : myExampleData.plotlylinelayout,
+				config : myExampleData.plotlylineconfig
+			},
+			widgetContentNew : {
+				data : myExampleData.plotlylinedata1,
+			},
+			widgetContentNew1 : {
+				data : myExampleData.plotlylinedata2,
+			},
+			widgetContentNew2 : {
+				data : myExampleData.plotlylinedata3,
+			}
 	}];
 	/* 	{
 	 widgetTitle: "Items Sold Grid",
