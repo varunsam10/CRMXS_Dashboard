@@ -450,15 +450,17 @@ $(window).load(function() {
 								<div class="col-md-6">
 								<input class="date-picker" size="16" type="text" value="" id="from" name="from"/>
 								</div>
-								
+								<hr>
 						     <!-- </div> -->
 							<!-- <div class="form-group"> -->
 							<div class="col-md-4" style="padding-left:150px">
 								<label>To</label>
 							</div>
 							<div class="col-md-6">
-								<span><input class="date-pi	cker" size="16" type="text" value="" id="to" name="to"/></span>
+								<span><input class="date-picker" size="16" type="text" value="" id="to" name="to"/></span>
 							</div>							
+							<hr>
+							<hr>
 							<!-- </div> -->  
 							<!-- <div class="form-group"> -->							
 							<label class="col-md-4" style="padding-left:150px">Select Country</label>
@@ -520,7 +522,8 @@ $(window).load(function() {
 					       	</div>
 					        <!-- </div> -->					          
 						<%-- </form> --%>						
-					</div>					
+					</div>
+					<hr>					
 					<div class="modal-footer">
 						<button class="btn dark btn-outline" data-dismiss="modal" aria-hidden="true">Close</button>
 						<button id="applyFilter" class="btn green" data-dismiss="modal">Apply Filter</button>
@@ -542,23 +545,26 @@ $(window).load(function() {
 								<label>From</label>
 								</div>
 								<div class="col-md-6">
-								<input class="date-picker" size="16" type="text" value="" id="from2" name="from"/>
+								<input class="date-picker" size="16" type="text" value="" id="from" name="from"/>
 								</div>
+								<hr>
 						     <!-- </div> -->
 							<!-- <div class="form-group"> -->
 							<div class="col-md-4" style="padding-left:150px">
 								<label>To</label>
 							</div>
 							<div class="col-md-6">
-								<span><input class="date-picker" size="16" type="text" value="" id="to2" name="to"/></span>
+								<span><input class="date-picker" size="16" type="text" value="" id="to" name="to"/></span>
 							</div>							
+							<hr>
+							<hr>
 							<!-- </div> -->  
 							<!-- <div class="form-group"> -->							
 							<label class="col-md-4" style="padding-left:150px">Select Country</label>
 							
 							<div class="col-md-8">							
 									
-							<select id="country-selected" multiple="multiple">					            
+							<select id="country-select" multiple="multiple">					            
 					            <option value="US">United States</option>
 					            <option value="UK">United Kingdom</option>
 					         	<option value="Afghanistan">Afghanistan</option>
@@ -613,7 +619,8 @@ $(window).load(function() {
 					       	</div>
 					        <!-- </div> -->					          
 						<%-- </form> --%>						
-					</div>					
+					</div>
+					<hr>					
 					<div class="modal-footer">
 						<button class="btn dark btn-outline" data-dismiss="modal" aria-hidden="true">Close</button>
 						<button id="applyFilter" class="btn green" data-dismiss="modal">Apply Filters</button>
@@ -739,22 +746,15 @@ $(window).load(function() {
 $(document).ready(function() {
 	$(function() {
 	//Theme switcher plugin
-	$("#switcher").themeswitcher({
+	/* $("#switcher").themeswitcher({
 		imgpath : "assets/dash6/css/images/",
 		loadTheme : "Cupertino"
-	});	
+	});	 */
 	 
 	 $('#country-select').multiselect({
 		  includeSelectAllOption: true,
           enableFiltering: true,
           maxHeight: 200
-		 
-	 });
-	 
-	 $('#country-selected').multiselect({
-		  includeSelectAllOption: true,
-         enableFiltering: true,
-         maxHeight: 200
 		 
 	 });
 	 
@@ -799,35 +799,7 @@ $(document).ready(function() {
 		      return date;
 		    } 
 
-		    var dateFormat = "mm/dd/yy",
-		      from = $("#from2").datepicker({
-		          showOn: "button",
-		          buttonImage: 'assets/dash6/css/calendar-range.png',
-		          buttonImageOnly: true,
-		          buttonText: "Select date",
-		          defaultDate: "+1w",
-		          changeMonth: true,
-		          changeYear: true,
-		          numberOfMonths: 1,
-		          showAnim: "drop"
-		        })
-		        .on( "change", function() {
-		          to.datepicker( "option", "minDate", getDate( this ));
-		        }),
-		      to = $( "#to2").datepicker({
-		    	showOn: "button",
-		        buttonImage: 'assets/dash6/css/calendar-range.png',
-		        buttonImageOnly: true,
-		     	buttonText: "Select date",
-		    	defaultDate: "+1w",
-		        changeMonth: true,
-		        changeYear: true,
-		        numberOfMonths: 1,
-		        showAnim: "drop"
-		      })
-		      .on( "change", function() {
-		        from.datepicker( "option", "maxDate", getDate( this ) );
-		      });
+	 
 	 
 	
 //**********************************************//
