@@ -450,7 +450,7 @@ $(window).load(function() {
 								<div class="col-md-6">
 								<input class="date-picker" size="16" type="text" value="" id="from" name="from"/>
 								</div>
-								<hr>
+								
 						     <!-- </div> -->
 							<!-- <div class="form-group"> -->
 							<div class="col-md-4" style="padding-left:150px">
@@ -459,8 +459,6 @@ $(window).load(function() {
 							<div class="col-md-6">
 								<span><input class="date-pi	cker" size="16" type="text" value="" id="to" name="to"/></span>
 							</div>							
-							<hr>
-							<hr>
 							<!-- </div> -->  
 							<!-- <div class="form-group"> -->							
 							<label class="col-md-4" style="padding-left:150px">Select Country</label>
@@ -522,8 +520,7 @@ $(window).load(function() {
 					       	</div>
 					        <!-- </div> -->					          
 						<%-- </form> --%>						
-					</div>
-					<hr>					
+					</div>					
 					<div class="modal-footer">
 						<button class="btn dark btn-outline" data-dismiss="modal" aria-hidden="true">Close</button>
 						<button id="applyFilter" class="btn green" data-dismiss="modal">Apply Filter</button>
@@ -547,7 +544,6 @@ $(window).load(function() {
 								<div class="col-md-6">
 								<input class="date-picker" size="16" type="text" value="" id="from2" name="from"/>
 								</div>
-								<hr>
 						     <!-- </div> -->
 							<!-- <div class="form-group"> -->
 							<div class="col-md-4" style="padding-left:150px">
@@ -556,8 +552,6 @@ $(window).load(function() {
 							<div class="col-md-6">
 								<span><input class="date-picker" size="16" type="text" value="" id="to2" name="to"/></span>
 							</div>							
-							<hr>
-							<hr>
 							<!-- </div> -->  
 							<!-- <div class="form-group"> -->							
 							<label class="col-md-4" style="padding-left:150px">Select Country</label>
@@ -619,8 +613,7 @@ $(window).load(function() {
 					       	</div>
 					        <!-- </div> -->					          
 						<%-- </form> --%>						
-					</div>
-					<hr>					
+					</div>					
 					<div class="modal-footer">
 						<button class="btn dark btn-outline" data-dismiss="modal" aria-hidden="true">Close</button>
 						<button id="applyFilter" class="btn green" data-dismiss="modal">Apply Filters</button>
