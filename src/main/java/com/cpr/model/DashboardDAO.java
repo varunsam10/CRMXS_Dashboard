@@ -1,6 +1,7 @@
 package com.cpr.model;
 
 import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -20,6 +21,7 @@ import com.cpr.util.WidgetLayout;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
+import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
 
 
 public class DashboardDAO {
@@ -76,18 +78,29 @@ public class DashboardDAO {
 		Date toDate = null;	
 		Integer resultSize =0;
 		Map<String,List<GraphParams>>countryMap =new HashMap<String,List<GraphParams>>();
-		if(null!=filterData.getFromDate() && null!= filterData.getToDate() && (filterData.getCountries().length == 0)){
-			fromDate = Date.valueOf(filterData.getFromDate());
-			toDate  = Date.valueOf(filterData.getToDate());
+		if(null!=filterData.getFromDate() && null!= filterData.getToDate() && (filterData.getCountries().length != 0)){
+			
+			try{
+						SimpleDateFormat format = new SimpleDateFormat("MM/DD/YYYY");
+						java.util.Date parsedFrom = format.parse(filterData.getFromDate());
+						java.util.Date parsedTo = format.parse(filterData.getToDate());
+						fromDate = new Date(parsedFrom.getTime());
+						toDate  = new Date(parsedTo.getTime());
+						
+			}catch(ParseException ex){
+				
+			} catch (java.text.ParseException e) {
+				// TODO Auto-generated catch block
+				//e.printStackTrace();
+			}		
 			sql = "SELECT * FROM crmxsdashboard.redemption where date >= ? and date<= ?";			
 			List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql, fromDate, toDate);
 			System.out.println(rows.size());
 			resultSize = rows.size();
 			
-			for(Map<String, Object> rs : rows) {
-				
+			for(Map<String, Object> rs : rows) {				
 				GraphParams graphParam = new GraphParams();
-				graphParam.setxValue(rs.get("revenue").toString());
+				graphParam.setyValue(rs.get("revenue").toString());
 				graphParam.setxValue(rs.get("date").toString());
 				String country = rs.get("country").toString();
 				if(countryMap.isEmpty()){
@@ -99,7 +112,6 @@ public class DashboardDAO {
 						countryMap.get(country).add(graphParam);
 					}					
 				}											
-				//System.out.println("Revenue-> " + rs.get("revenue").toString() + " Date->" + rs.get("date").toString());
 			}			
 		}else{
 			
@@ -109,7 +121,6 @@ public class DashboardDAO {
 	}
 	
 	public String getFilteredWidgetConfig(Integer resultSize,Map<String,List<GraphParams>> countryMap){
-		//WidgetData[] widgetTraces = new WidgetData[countryMap.size()];
 		ArrayList<WidgetData> widgetsDataList = new ArrayList<WidgetData>();
 		Object[] xaxis =  new Object[resultSize]; 
 		Object[] yaxis  =  new Object[resultSize];
@@ -122,7 +133,6 @@ public class DashboardDAO {
 				yaxis[j] = graphParamList.get(j).getyValue();
 			}
 			WidgetData trace = new WidgetData(xaxis, yaxis, country, "scatter");
-			//widgetTraces[i] = trace;
 			i++;
 			widgetsDataList.add(trace);
 		}

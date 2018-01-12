@@ -746,10 +746,10 @@ $(window).load(function() {
 $(document).ready(function() {
 	$(function() {
 	//Theme switcher plugin
-	$("#switcher").themeswitcher({
+/* 	$("#switcher").themeswitcher({
 		imgpath : "assets/dash6/css/images/",
 		loadTheme : "Cupertino"
-	});	
+	});	 */
 	 
 	 $('#country-select').multiselect({
 		  includeSelectAllOption: true,
@@ -1170,7 +1170,6 @@ $(document).ready(function() {
 			graphType : "exploratory",
 			widgetDimension : "large",
 			chartType : "line",
-			getDataBySelection : true,
 			widgetContent : {
 				data : myExampleData.plotlylinedata,
 				layout : myExampleData.plotlylinelayout,
@@ -1185,7 +1184,20 @@ $(document).ready(function() {
 			widgetContentNew2 : {
 				data : myExampleData.plotlylinedata3,
 			}
-	}];
+		},
+		{
+			widgetTitle : "Revenue with filter",
+			widgetId : "id031",
+			widgetType : "chart",			
+			graphType : "exploratory",
+			widgetDimension : "large",
+			chartType : "line",
+			widgetContent: {
+				data : myExampleData.plotlylineFilterdata,
+				layout : myExampleData.plotlylineFilterlayout,
+				config : myExampleData.plotlylineconfig
+			}
+		}];
 	/* 	{
 	 widgetTitle: "Items Sold Grid",
 	 widgetId: "id010",
@@ -1356,7 +1368,7 @@ $("#cprDashboard").cprDashboard({
    		 cache: false,        
 		 timeout : 100000,
          success : function(data) {
-           widgetConfig = JSON.parse(data);
+           widgetConfig = data;
            $("#cprDashboard").cprDashboard("applyFilter",widgetConfig,widgetId);
        	 }
          });	
