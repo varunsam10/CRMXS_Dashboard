@@ -746,7 +746,7 @@ $(window).load(function() {
 $(document).ready(function() {
 	$(function() {
 	//Theme switcher plugin
-/* 	$("#switcher").themeswitcher({
+	/* $("#switcher").themeswitcher({
 		imgpath : "assets/dash6/css/images/",
 		loadTheme : "Cupertino"
 	});	 */
@@ -797,9 +797,7 @@ $(document).ready(function() {
 		      }
 		 
 		      return date;
-		    } 
-
-	 
+		    }  
 	 
 	
 //**********************************************//

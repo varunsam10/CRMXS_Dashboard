@@ -105,7 +105,8 @@ public class DashboardDAO {
 				String country = rs.get("country").toString();
 				if(countryMap.isEmpty()){
 					List<GraphParams> graphParamsList = new ArrayList<GraphParams>();
-					graphParamsList.add(graphParam);
+					graphParamsList.add(graphParam);       
+					
 					countryMap.put(country,graphParamsList);
 				}else{				
 					if(countryMap.containsKey(country)){
