@@ -1139,8 +1139,8 @@ myExampleData.plotlyBubbleLayout = {
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 var trace1 = {
 		  x: [20, 14, 23, 8, 11, 25 ],
-		  y : [ '<b>Tiger</b>', '<b>Desperado</b>', '<b>Heiniken</b>' ,'<b>Kingfisher</b>', '<b>brand1</b>', '<b>brand2</b>'],
-		  name: '<b>SF Breweries</b>',
+		  y : [ 'Tiger', 'Desperado', 'Heiniken' ,'Kingfisher', 'brand1', 'brand2'],
+		  name: 'SF Breweries',
 		  orientation: 'h',
 		  marker: {
 		  // color: 'rgb(55, 83, 109)',
@@ -1153,8 +1153,8 @@ var trace1 = {
 
 		var trace2 = {
 		  x: [12, 18, 29, 11, 15, 21],
-		  y : [ '<b>Tiger</b>', '<b>Desperado</b>', '<b>Heiniken</b>' ,'<b>Kingfisher</b>', '<b>brand1</b>', '<b>brand2</b>'],
-		  name: '<b>LA Breweries</b>',
+		  y : [ 'Tiger', 'Desperado', 'Heiniken' ,'Kingfisher', 'brand1', 'brand2'],
+		  name: 'LA Breweries',
 		  orientation: 'h',
 		  type: 'bar',
 		  marker: {
@@ -1173,7 +1173,7 @@ var trace1 = {
 		myExampleData.plotlycolumndata = data;
 
 		var layout = {
-		  title: '<b>Number of records</b>',
+		  title: 'Number of records',
 		  titlefont : {
 				family : 'Helvetica',
 				size : 18,
@@ -1189,8 +1189,16 @@ var trace1 = {
 	
 		myExampleData.plotlycolumnconfig = {
 				modeBarButtonsToRemove : [ 'sendDataToCloud' ],
-				displaylogo : false
+				displaylogo : false,
+				editable: true
 		};
+		
+		
+		
+//-------------------------------------------------------------------------------------------------------------------
+//bubble chart data
+//-------------------------------------------------------------------------------------------------------------------		
+		
 	myExampleData.plotlybubble2data = 	[{
 		"mode": "markers",
 		"name": "<b>Asia</b>",
@@ -1284,7 +1292,7 @@ var trace1 = {
 		  x: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
 		  y: [1.5, 1, 1.3, 0.7, 0.8, 0.9, 1.1, 1.3, 1.5, 1, 1.4, 0.6, 1.3],
 		  type: 'bar',
-		  name: '<b>SF Brewries</b>',
+		  name: 'SF Brewries',
 		  marker : {
 				//color : 'rgb(26, 118, 255)',
 			  	color : '#32c5d2',//#138D75
@@ -1300,7 +1308,7 @@ var trace2 = {
 		  x: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
 		  y: [1, 0.5, 0.7, 1.2, 0.3, 0.4, 0.6, 0.7, 1, 0.5, 0.8, 0.9, 1.3],
 		  type: 'scatter',
-		  name: '<b>LA Brewries</b>',
+		  name: 'LA Brewries',
 		  marker : {
 				//color : 'rgb(55, 83, 109)',
 			  	color : '#2C3E50', //#2C3E50
@@ -1315,13 +1323,13 @@ var trace2 = {
 		
 var barlinelayout = {
 		
-		xaxis: {title: "<b>Hours</b>",
+		xaxis: {title: "Hours",
 			titlefont : {
 				family : 'Helvetica',
 				size : 18,
 				color : '#7f7f7f'
 			} },
-		yaxis: {title: "<b>Number of redemptions</b>" ,
+		yaxis: {title: "Number of redemptions" ,
 			titlefont : {
 				family : 'Helvetica',
 				size : 18,
@@ -1341,7 +1349,8 @@ var barlinelayout = {
 		myExampleData.plotlybarlineconfig = {
 				modeBarButtonsToRemove : [ 'sendDataToCloud' ],
 				displaylogo : false,
-				displayModeBar: 'true'
+				displayModeBar: 'true',
+				editable: true
 			};
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //plotly area graph sample data starts here 
