@@ -995,6 +995,69 @@ myExampleData.plotlylineconfig = {
 	displayModeBar: 'true'
 };
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//plotly simple line chart sample data starts here 
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+var trace1 = {
+	x : [ '2010-07-02 22:23:00', '2010-02-05 22:23:00','2010-05-23 22:23:00'],
+	y : [ 22, 36,23],
+	name : '<b>US</b>',
+	type : 'scatter',
+	marker : {
+		color : '#FF0000',
+		opacity : 0.6
+	},
+	textfont:{
+		color:'rgb(255,255,255)',
+		family:'Helvetica'
+	}
+
+};
+/*var trace2 = {
+	x : [ 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110 ],
+	y : [ 10, 15, 60, 22, 25, 80, 28, 36, 48, 18, 26, 48 ],
+	name : '<b>UK</b>',
+	type : 'scatter',
+	marker : {
+		//color : 'rgb(26, 118, 255)',
+		color : '#1ABC9C',	
+		opacity : 0.6
+	},
+	textfont:{
+		color:'rgb(255,255,255)',
+		family:'Helvetica'
+	}
+};*/
+myExampleData.plotlylineFilterdata = [ trace1];
+myExampleData.plotlylineFilterlayout = {
+	title : '<b>Revenue on dates ?</b>',
+	xaxis : {
+		title : 'Dates',
+		titlefont : {
+			family : 'Helvetica',
+			size : 18,
+			color : '#7f7f7f'
+		}
+	},
+	yaxis : {
+		title : '<b>Revenue</b>',
+		titlefont : {
+			family : 'Helvetica',
+			size : 18,
+			color : '#7f7f7f'
+		}
+	},
+	titlefont : {
+		family : 'Helvetica',
+		size : 18,
+		color : '#7f7f7f'
+	},
+	autosize : true,
+	paper_bgcolor:'#FFFFFF',
+	plot_bgcolor:'#FFFFFF'
+};
+
+
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //plotly bubble chart sample data starts here 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 var trace1 = {
