@@ -1186,7 +1186,8 @@ $(document).ready(function() {
 		{
 			widgetTitle : "Revenue with filter",
 			widgetId : "id031",
-			widgetType : "chart",			
+			widgetType : "chart",	
+			widgetClick:"disable",
 			graphType : "exploratory",
 			widgetDimension : "large",
 			chartType : "line",
