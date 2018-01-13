@@ -1256,7 +1256,7 @@ var trace1 = {
 		myExampleData.plotlycolumnconfig = {
 				modeBarButtonsToRemove : [ 'sendDataToCloud' ],
 				displaylogo : false,
-				editable: true
+				
 		};
 		
 		
@@ -1416,7 +1416,7 @@ var barlinelayout = {
 				modeBarButtonsToRemove : [ 'sendDataToCloud' ],
 				displaylogo : false,
 				displayModeBar: 'true',
-				editable: true
+				
 			};
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //plotly area graph sample data starts here 

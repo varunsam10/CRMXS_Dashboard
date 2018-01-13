@@ -2,12 +2,12 @@
 		"use strict";
 		if ( typeof define === 'function' && define.amd) {
 			// Register as an AMD module 
-			define(['jquery','Plotly','c3','AmCharts'], factory);
+			define(['jquery','Plotly','c3','AmCharts','swal'], factory);
 		} else {
 			// Browser globals 
-			factory($, Plotly, c3, AmCharts);
+			factory($, Plotly, c3, AmCharts,swal);
 		}
-	}(function($,Plotly,c3,AmCharts) {
+	}(function($,Plotly,c3,AmCharts,swal) {
 		"use strict";
 		$.widget("mn.cprDashboard", {
 			version : "1.0",
@@ -287,8 +287,39 @@
 					$("#interactionModal").modal('show');					
 					
 				});	
+				//Edit click action handler 
+				this.element.on("click", ".cprDashboardWidgetHeader div.cprDashboard-iconcustomEdit", function(e) {
+					var widget = $(e.currentTarget).parents("li:first");
+					var widgetId = widget.attr("id");
+					var widgetDefinition = self._getWidgetContentForId(widgetId, self);
 				
-				
+					var editMode = widgetDefinition.widgetEdit;
+					
+					if(editMode === "enable"){
+						
+						swal({
+							  title: "Do you want to enable edit mode?",
+							  text: "The Changes made will not be saved!",
+							  type: "warning",
+							  showCancelButton: true,
+							  confirmButtonClass: "btn-danger",
+							  confirmButtonText: "Enable!",
+							  cancelButtonText: "No, cancel!",
+							  closeOnConfirm: false,
+							  closeOnCancel: false
+							},
+							function(isConfirm) {
+							  if (isConfirm) {
+							    swal("Edit on!", "Edit mode enabled on widget.", "success");
+							    self._enableEdit(widgetDefinition,widgetId);
+							  } else {
+							    swal("Cancelled", "Edit mode disabled", "error");
+							  }
+							});					
+						
+					}
+					
+				});
 				//Filter model of  widget by clicking the 'filter' icon on the widget
 				this.element.on("click", ".cprDashboardWidgetHeader div.cprDashboard-iconcustomFilter", function(e) {
 					var widget = $(e.currentTarget).parents("li:first");
@@ -340,7 +371,7 @@
 				var deleteButton = $('<div title="Delete" class="cprDashboard-iconcustomDel cprDashboard-trash-icon"></div>');
 				var filterButton = $('<div title="Filter" class="cprDashboard-iconcustomFilter"></div>');
 				var detailsButton = $('<div title="Interact" class="cprDashboard-iconcustomInteract"></div>');
-				
+				var editButton = $('<div title="Interact" class="cprDashboard-iconcustomEdit"></div>');
 				//if(widgetDefinition.widgetClick != null){
 				if (widgetDefinition.graphType === "exploratory" && widgetDefinition.chartType !== "bubble"){
 					widgetHeader.append(maximizeButton);
@@ -349,7 +380,10 @@
 					widgetHeader.append(filterButton);
 					if(widgetDefinition.widgetClick != "disable"){
 						widgetHeader.append(detailsButton);
-					}					
+					}
+					if(widgetDefinition.widgetEdit !="disable"){
+						widgetHeader.append(editButton);
+					}
 					
 				}else if(widgetDefinition.graphType === "exploratory" && widgetDefinition.chartType === "bubble"){
 					widgetHeader.append(maximizeButton);
@@ -357,6 +391,9 @@
 					widgetHeader.append(filterButton);
 					if(widgetDefinition.widgetClick != "disable"){
 						widgetHeader.append(detailsButton);
+					}
+					if(widgetDefinition.widgetEdit !="disable"){
+						widgetHeader.append(editButton);
 					}
 				}
 				else if(widgetDefinition.graphType === "normal" && widgetDefinition.widgetType === 'chart' ){
@@ -526,6 +563,12 @@
 						easing: 'cubic-in-out' 
 							} 
 				});				
+				Plotly.redraw(chartArea[0]);				
+				return;
+			},
+			renderNewChart:function(chartArea,data,layout,config)
+			{
+				Plotly.newPlot(chartArea[0],data,layout,config);
 				Plotly.redraw(chartArea[0]);				
 				return;
 			},
@@ -699,6 +742,33 @@
 					this.redrawChart(chartArea,data,layout,config);
 				}
 				
+			},
+			_enableEdit:function(widgetDefinition,widgetId){
+				var id = "li#" + widgetDefinition.widgetId;
+				var data;
+				var layout;
+				var config;
+				var chart;
+				var chartArea = this.element.find(id + " div.cprDashboardChart");
+				if (widgetDefinition.widgetType === 'chart') {
+					
+					data = widgetDefinition.widgetContent.data;
+					layout = widgetDefinition.widgetContent.layout;
+					config = widgetDefinition.widgetContent.config;
+					
+					config.editable=true;
+					widgetDefinition.widgetContent.config = config;				
+					this.renderNewChart(chartArea,data,layout,config);						
+					if (widgetDefinition.getDataBySelection) {
+					
+						this._bindSelectEvent(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+					} else {
+						if(widgetDefinition.graphType === 'exploratory'){
+							this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+						}
+					}						
+					
+				}
 			},
 			changeChart: function(changeChartObject) {
 			
