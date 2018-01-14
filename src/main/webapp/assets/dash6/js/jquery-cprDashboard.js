@@ -2,12 +2,12 @@
 		"use strict";
 		if ( typeof define === 'function' && define.amd) {
 			// Register as an AMD module 
-			define(['jquery','Plotly','c3','AmCharts'], factory);
+			define(['jquery','Plotly','c3','AmCharts','swal'], factory);
 		} else {
 			// Browser globals 
-			factory($, Plotly, c3, AmCharts);
+			factory($, Plotly, c3, AmCharts,swal);
 		}
-	}(function($,Plotly,c3,AmCharts) {
+	}(function($,Plotly,c3,AmCharts,swal) {
 		"use strict";
 		$.widget("mn.cprDashboard", {
 			version : "1.0",
@@ -237,8 +237,16 @@
 								 break;
 				   case "pie":   $('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
 								 $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
+								 $("#changeChartForm input:checkbox[value='pie']").bootstrapSwitch('disabled',false);
+					   			 $("#changeChartForm input:checkbox[value='doughnut']").bootstrapSwitch('disabled',false);
 								 $("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('state', true, true);
-								 break;											
+								 break;	
+				  case "doughnut": $('#changeChartForm input:checkbox').bootstrapSwitch('disabled',true);
+				   				$("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('disabled',false);
+				   				$("#changeChartForm input:checkbox[value='doughnut']").bootstrapSwitch('disabled',false);
+				   				$("#changeChartForm input:checkbox[value='pie']").bootstrapSwitch('disabled',false);
+				   				$("#changeChartForm input:checkbox[value="+widgetDefinition.chartType+"]").bootstrapSwitch('state', true, true);
+				   				break;	
 					}
 								
 				/*	if(graphToThisChart === widgetDefinition.chartType){
@@ -279,8 +287,39 @@
 					$("#interactionModal").modal('show');					
 					
 				});	
+				//Edit click action handler 
+				this.element.on("click", ".cprDashboardWidgetHeader div.cprDashboard-iconcustomEdit", function(e) {
+					var widget = $(e.currentTarget).parents("li:first");
+					var widgetId = widget.attr("id");
+					var widgetDefinition = self._getWidgetContentForId(widgetId, self);
 				
-				
+					var editMode = widgetDefinition.widgetEdit;
+					
+					if(editMode === "enable"){
+						
+						swal({
+							  title: "Do you want to enable edit mode?",
+							  text: "The Changes made will not be saved!",
+							  type: "warning",
+							  showCancelButton: true,
+							  confirmButtonClass: "btn-danger",
+							  confirmButtonText: "Enable!",
+							  cancelButtonText: "No, cancel!",
+							  closeOnConfirm: false,
+							  closeOnCancel: false
+							},
+							function(isConfirm) {
+							  if (isConfirm) {
+							    swal("Edit on!", "Edit mode enabled on widget.", "success");
+							    self._enableEdit(widgetDefinition,widgetId);
+							  } else {
+							    swal("Cancelled", "Edit mode disabled", "error");
+							  }
+							});					
+						
+					}
+					
+				});
 				//Filter model of  widget by clicking the 'filter' icon on the widget
 				this.element.on("click", ".cprDashboardWidgetHeader div.cprDashboard-iconcustomFilter", function(e) {
 					var widget = $(e.currentTarget).parents("li:first");
@@ -288,7 +327,7 @@
 					var widgetDefinition = self._getWidgetContentForId(widgetId, self);
 				
 				
-	
+					$("#fgwidgetId").text(widgetId );
 					$("#filterModal").modal('show');					
 					
 				});	
@@ -332,7 +371,7 @@
 				var deleteButton = $('<div title="Delete" class="cprDashboard-iconcustomDel cprDashboard-trash-icon"></div>');
 				var filterButton = $('<div title="Filter" class="cprDashboard-iconcustomFilter"></div>');
 				var detailsButton = $('<div title="Interact" class="cprDashboard-iconcustomInteract"></div>');
-				
+				var editButton = $('<div title="Interact" class="cprDashboard-iconcustomEdit"></div>');
 				//if(widgetDefinition.widgetClick != null){
 				if (widgetDefinition.graphType === "exploratory" && widgetDefinition.chartType !== "bubble"){
 					widgetHeader.append(maximizeButton);
@@ -341,7 +380,10 @@
 					widgetHeader.append(filterButton);
 					if(widgetDefinition.widgetClick != "disable"){
 						widgetHeader.append(detailsButton);
-					}					
+					}
+					if(widgetDefinition.widgetEdit !="disable"){
+						widgetHeader.append(editButton);
+					}
 					
 				}else if(widgetDefinition.graphType === "exploratory" && widgetDefinition.chartType === "bubble"){
 					widgetHeader.append(maximizeButton);
@@ -349,6 +391,9 @@
 					widgetHeader.append(filterButton);
 					if(widgetDefinition.widgetClick != "disable"){
 						widgetHeader.append(detailsButton);
+					}
+					if(widgetDefinition.widgetEdit !="disable"){
+						widgetHeader.append(editButton);
 					}
 				}
 				else if(widgetDefinition.graphType === "normal" && widgetDefinition.widgetType === 'chart' ){
@@ -510,24 +555,6 @@
 					            });
 				}
 			},
-		/*	_renderTable : function(widgetDefinition){
-			
-				var id = "li#" + widgetDefinition.widgetId;
-				var table;
-				if(widgetDefinition.widgetType === 'table'){
-					table = this.element.find(id + " table.sDashboardTableView");
-
-					table.DataTable({data :widgetDefinition.widgetContent.data,
-						columns:widgetDefinition.widgetContent.coloumns,
-						dom: 'Bfrtip',				
-						buttons:  [
-					        'colvis',
-					        'excel',
-					        'print'
-					    ]					
-					});
-				}
-			},*/
 			redrawChart:function(chartArea,data,layout,config)
 			{
 				Plotly.animate(chartArea[0], { data, layout,config} ,{
@@ -535,8 +562,13 @@
 						duration: 2000,
 						easing: 'cubic-in-out' 
 							} 
-				});
-				//Plotly.newPlot(chartArea[0], data , layout,config);
+				});				
+				Plotly.redraw(chartArea[0]);				
+				return;
+			},
+			renderNewChart:function(chartArea,data,layout,config)
+			{
+				Plotly.newPlot(chartArea[0],data,layout,config);
 				Plotly.redraw(chartArea[0]);				
 				return;
 			},
@@ -559,6 +591,8 @@
 				,{color : '#F4D03F',opacity : 0.6},{color : '#95A5A6',opacity : 0.6}];
 				var theme3=[{color : '#69b764',opacity : 0.6},{color : '#f26c64',opacity : 0.6},{color : '#ff800e',opacity : 0.6}
 				,{color : '#ffbc79',opacity : 0.6},{color : '#aec7e8',opacity : 0.6}];
+				var theme4=[{color : '#ffd94a',opacity : 0.6},{color : '#ffaa0e',opacity : 0.6},{color : '#ffbf50',opacity : 0.6}
+				,{color : '#fcba49',opacity : 0.6},{color : '#b59727',opacity : 0.6}];
 				for ( i = 0; i < _dashboardData.length; i++) {
 					var widgetDefinition = _dashboardData[i];
 					var id = "li#" + widgetDefinition.widgetId;
@@ -577,6 +611,8 @@
 							||widgetDefinition.chartType === 'barline' 
 							||widgetDefinition.chartType === 'area'
 							||widgetDefinition.chartType === 'column'
+//							||widgetDefinition.chartType === 'pie'
+							//||widgetDefinition.chartType === 'donut'	
 							||widgetDefinition.chartType === 'bubble'){
 							if(typeof widgetDefinition.widgetContent.data[j].marker != 'undefined'){
 								if(themeSelected==="theme1"){
@@ -598,8 +634,15 @@
 										widgetDefinition.widgetContent.data[j].marker.color = theme3[j].color;
 										}
 												}
+								else if(themeSelected==="theme4"){
+									if(widgetDefinition.chartType != 'bubble'){
+										widgetDefinition.widgetContent.data[j].marker = theme4[j];	
+									}else{
+										widgetDefinition.widgetContent.data[j].marker.color = theme4[j].color;
+										}
+												}
 							}
-						}else if(widgetDefinition.chartType === 'pie' && (typeof widgetDefinition.widgetContent.data[j].marker != 'undefined')){
+						}else if((widgetDefinition.chartType === 'pie'||'donut') && (typeof widgetDefinition.widgetContent.data[j].marker != 'undefined')){
 							if(themeSelected==="theme1"){
 								if(j===0){
 									widgetDefinition.widgetContent.data[j].marker.colors=[];
@@ -622,6 +665,14 @@
 									widgetDefinition.widgetContent.data[j].marker.colors=[];
 									for(var k=0;k<theme3.length;k++){
 										widgetDefinition.widgetContent.data[j].marker.colors.push(theme3[k].color);
+									}
+								}
+							}
+							else if(themeSelected==="theme4"){
+								if(j===0){
+									widgetDefinition.widgetContent.data[j].marker.colors=[];
+									for(var k=0;k<theme4.length;k++){
+										widgetDefinition.widgetContent.data[j].marker.colors.push(theme4[k].color);
 									}
 								}
 							
@@ -659,13 +710,65 @@
 							$('.cprDashboardTableView tbody tr:nth-child(odd)').attr('style', 'background-color: #FF800E !important');
 							$('.cprDashboardTableView tbody tr:nth-child(even)').attr('style', 'background-color: #FFBC79 !important');
 						}
-				
+						else if(themeSelected==="theme4"){
+							$('.js-plotly-plot .plotly .modebar').attr('style', 'background: #FFFFF !important');
+							$('.cprDashboardTableView tbody tr:nth-child(odd)').attr('style', 'background-color: #ffd94a !important');
+							$('.cprDashboardTableView tbody tr:nth-child(even)').attr('style', 'background-color: #ffdd71 !important');
+						}
 					}				
 				}			
 			},
 			widgetClick:function(interactionType) {
 			
 			
+			},
+			applyFilter:function(widgetConfig,widgetId) {
+				
+				var widgetDefinition = this._getWidgetContentForId(widgetId, this);
+				var id = "li#" + widgetDefinition.widgetId;
+				var chartArea;
+				var data;
+				var layout;
+				var config;
+				var chart;
+				chartArea = this.element.find(id + " div.cprDashboardChart");
+				
+				if (widgetDefinition.widgetType === 'chart') {
+					
+					data = widgetConfig.data;
+					layout = widgetDefinition.widgetContent.layout;
+					config = widgetDefinition.widgetContent.config;
+					
+					this.redrawChart(chartArea,data,layout,config);
+				}
+				
+			},
+			_enableEdit:function(widgetDefinition,widgetId){
+				var id = "li#" + widgetDefinition.widgetId;
+				var data;
+				var layout;
+				var config;
+				var chart;
+				var chartArea = this.element.find(id + " div.cprDashboardChart");
+				if (widgetDefinition.widgetType === 'chart') {
+					
+					data = widgetDefinition.widgetContent.data;
+					layout = widgetDefinition.widgetContent.layout;
+					config = widgetDefinition.widgetContent.config;
+					
+					config.editable=true;
+					widgetDefinition.widgetContent.config = config;				
+					this.renderNewChart(chartArea,data,layout,config);						
+					if (widgetDefinition.getDataBySelection) {
+					
+						this._bindSelectEvent(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+					} else {
+						if(widgetDefinition.graphType === 'exploratory'){
+							this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+						}
+					}						
+					
+				}
 			},
 			changeChart: function(changeChartObject) {
 			
@@ -802,7 +905,30 @@
 								
 						}
 							
-					}	
+					}
+					//pie to doughnut
+					else if(widgetDefinition.chartType === 'pie' && changeChartObject.chartTo ==='doughnut'){ 
+						var i=0;
+						for(i=0;i<widgetDefinition.widgetContent.data.length;i++)
+						{
+								widgetDefinition.widgetContent.data[i].type = 'pie';
+								widgetDefinition.widgetContent.data[i].hole = .4 ;
+								widgetDefinition.widgetContent.data[i].fill = null;
+						}	
+							
+					}
+					//doughnut to pie
+					else if(widgetDefinition.chartType === 'doughnut' && changeChartObject.chartTo ==='pie'){ 
+						var i=0;
+						for(i=0;i<widgetDefinition.widgetContent.data.length;i++)
+						{
+								widgetDefinition.widgetContent.data[i].type = 'pie';
+								widgetDefinition.widgetContent.data[i].domain = [0,.48] ;
+								//widgetDefinition.widgetContent.data[i].fill = null;
+								widgetDefinition.widgetContent.data[i].hole = null;
+						}	
+							
+					}
 						data = widgetDefinition.widgetContent.data;
 						layout = widgetDefinition.widgetContent.layout;
 						this.redrawChart(chartArea,data,layout,config);
@@ -986,21 +1112,19 @@
 						var chart = c3.generate({bindto:chartArea[0],data:WidgetDefinitionToChange.widgetContent.data});
 						
 					}else{						
-						//Plotly.redraw(chartArea[0]);
 						if(WidgetDefinitionToChange.chartType === 'line'){
 							Plotly.animate(chartArea[0], { data, layout,config} ,{
 								transition: {  
 									duration: 500,
 									easing: 'cubic-in-out' 
 										} 
-								});
-							
-							console.log("line");
+							});						
+							Plotly.redraw(chartArea[0]);							
 						}
 						else{
 							Plotly.newPlot(chartArea[0], data, layout,config);
 							Plotly.redraw(chartArea[0]);
-							console.log("other charts")
+						
 						}
 						
 					}					

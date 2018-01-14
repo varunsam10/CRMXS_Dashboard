@@ -201,8 +201,63 @@ UNLOCK TABLES;
 
 -- Dump completed on 2017-12-13 17:13:00
 
+---------------------------------------------------------------------------------------------------------------------
+Redemption table for testing filters
+---------------------------------------------------------------------------------------------------------------------
 
+-- MySQL dump 10.13  Distrib 5.6.23, for Win64 (x86_64)
+--
+-- Host: localhost    Database: crmxsdashboard
+-- ------------------------------------------------------
+-- Server version	5.6.24-log
 
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `redemption`
+--
+
+DROP TABLE IF EXISTS `redemption`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `redemption` (
+  `redId` int(11) NOT NULL,
+  `revenue` int(11) NOT NULL,
+  `country` varchar(45) NOT NULL,
+  `date` date NOT NULL,
+  PRIMARY KEY (`redId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `redemption`
+--
+
+LOCK TABLES `redemption` WRITE;
+/*!40000 ALTER TABLE `redemption` DISABLE KEYS */;
+INSERT INTO `redemption` VALUES (1,12,'India','2010-07-02'),(2,22,'US','2010-07-02'),(3,15,'UK','2010-07-02'),(4,16,'UK','2010-02-05'),(5,36,'US','2010-02-05'),(6,23,'India','2010-02-05'),(7,23,'US','2010-05-23'),(8,41,'UK','2010-05-23'),(9,27,'India','2010-05-23'),(10,27,'US','2010-11-13'),(11,34,'UK','2010-11-13'),(13,41,'UK','2011-01-03'),(14,29,'US','2011-06-18'),(15,19,'India','2011-06-18'),(16,23,'UK','2011-06-18'),(17,23,'US','2011-01-03'),(18,31,'India','2011-01-03'),(19,33,'India','2011-09-15'),(20,41,'US','2011-09-15'),(21,26,'UK','2011-09-15'),(22,35,'UK','2011-12-25'),(23,29,'US','2011-12-25'),(24,33,'India','2011-12-25'),(25,28,'US','2012-02-09'),(26,35,'UK','2012-02-09'),(27,49,'India','2012-02-09'),(28,15,'US','2012-05-30'),(29,28,'UK','2012-05-30'),(30,17,'India','2012-05-30'),(31,39,'US','2012-10-26'),(32,20,'UK','2012-10-26'),(33,56,'India','2012-10-26'),(34,23,'US','2012-12-31'),(35,36,'UK','2012-12-31'),(36,38,'India','2012-12-31');
+/*!40000 ALTER TABLE `redemption` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2018-01-09 18:23:51
 
 
 

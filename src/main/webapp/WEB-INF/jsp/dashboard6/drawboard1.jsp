@@ -36,7 +36,10 @@
 <!-- load jquery ui css theme -->
 <!-- <link type="text/css" href="assets/dash6/css/jquery-ui.css" rel="stylesheet" /> -->
 <link type="text/css" href="assets/dash6/css/chosen.min.css" 	rel="stylesheet" />
+<link href="assets/dash6/css/chosen-sprite.png"/>
+<link href="assets/dash6/css/chosen-sprite@2px.png"/>
 <link type="text/css" href="assets/dash6/css/jqueryNw/jquery-ui-1.12.1.min.css" rel="stylesheet" />
+<link type="text/css" href="assets/dash6/js/Dropdown/dropdown.css" rel="stylesheet">
 <!-- amcharts map export css-->	
 <!-- <link rel="stylesheet" href="assets/dash6/js/amchartsMap/export.css" type="text/css" media="all" /> -->
 <!-- <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />	 -->
@@ -52,6 +55,14 @@
 <!-- CPR Dashboard Custom     -->
 <!-- END HEAD -->
 <script src="assets/dash6/js/jqueryNw/jquery-1.12.4.js"	type="text/javascript"></script>
+<script src="assets/dash6/js/Dropdown/chosen.jquery.js"></script>
+<script src="assets/dash6/js/Dropdown/chosen.proto.js"></script>
+
+<script src="assets/dash6/js/Dropdown/dropdown.js" type="text/javascript"></script>
+
+<script src="assets/dash6/js/Dropdown/bootstrap-multiselect.js" type="text/javascript"></script>
+<link href="assets/dash6/css/bootstrap-multiselect.css" rel="stylesheet" type="text/css">	
+
 <script type="text/javascript">
 // Wait for window load
 $(window).load(function() {
@@ -60,6 +71,8 @@ $(window).load(function() {
 		
 });
 </script> 
+
+
 <div class="se-pre-con"></div>
 <body class="page-md">
 	<!-- BEGIN HEADER -->
@@ -305,7 +318,7 @@ $(window).load(function() {
 				</div>
 			</div>
 
-			<script src="assets/dash6/js/Dropdown/chosen.jquery.min.js"></script>
+			<!-- <script src="assets/dash6/js/Dropdown/chosen.jquery.min.js"></script> -->
 				
 	<div class="clearfix"></div>
 	<!-- END DASHBOARD STATS 1-->
@@ -321,7 +334,7 @@ $(window).load(function() {
 			<div class="modal-content">
 				<div class="modal-header">
 					<a href="javascript:;" class="close" data-dismiss="modal" aria-hidden="true"></a>
-					<p><h4 class="modal-title">Change Graph of widget - <label  for="cgwidgetId" id="cgwidgetId" value=""/></h4></p>
+					<p><h4 class="modal-title">Change Graph of widget - <label  for="cgwidgetId" id="cgwidgetId"></label></h4></p>
 				</div>
 				<div class="modal-body">
 					<form action="#" id="changeChartForm" class="form-inline">
@@ -338,7 +351,7 @@ $(window).load(function() {
 						<div class="form-group  modal-group">
 							<label class="control-label col-md-6">Pie chart</label>
 							<div class="col-sm-3 col-md-3">
-							<input type="checkbox" disabled class="make-switch modal-input" data-on-color="primary" data-off-color="danger" value="pie" id="pie"/>
+							<input type="checkbox"  class="make-switch modal-input" data-on-color="primary" data-off-color="danger" value="pie" id="pie"/>
 							<!--  <input type="checkbox" disabled class="make-switch modal-input" data-on-color="primary" data-off-color="danger" value="pie" id="pie"/> -->
 						  <!--       <input type="checkbox" checked readonly class="make-switch" /> -->
 							 </div>
@@ -364,7 +377,7 @@ $(window).load(function() {
 						<div class="form-group modal-group">
 							<label class="control-label col-md-6">Doughnut chart</label>
 							<div class="col-sm-3 col-md-3">
-							<input type="checkbox" disabled class="make-switch modal-input" data-on-color="primary" data-off-color="danger" value="pie" id="doughnut"/>
+							<input type="checkbox" disabled class="make-switch modal-input" data-on-color="primary" data-off-color="danger" value="doughnut" id="doughnut"/>
 							</div>
 						</div>
 					</form>
@@ -403,6 +416,13 @@ $(window).load(function() {
 							<input type="checkbox"  class="make-switch modal-input" data-on-color="primary" data-off-color="danger" value="theme3" id="theme3"/>
 							</div>
 						</div>
+						<div class="form-group  modal-group">
+							<label class="control-label col-md-6">Theme 4</label>
+							<div class="col-sm-3 col-md-3">
+							<input type="checkbox"  class="make-switch modal-input" data-on-color="primary" data-off-color="danger" value="theme4" id="theme4"/>
+							</div>
+						</div>
+						
 					</form>
 				</div>
 				<div class="modal-footer">
@@ -419,30 +439,38 @@ $(window).load(function() {
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-						<h4 class="modal-title">Apply filters on the charts</h4>
+						<p><h4 class="modal-title">Apply filters on the widget- <label  for="fgwidgetId" id="fgwidgetId"></label></h4></p>
 					</div>
 					<div class="modal-body">
-						<form action="#" class="form-horizontal">
-							 <div class="form-group">
-								<label class="control-label col-md-4">From</label>
-								<div class="col-md-6">
-								<span><input class="form-control input-medium date-picker" size="16" type="text" value="" id="from" name="from"/> </span>
+						<%-- <form action="#" class="form-horizontal"> --%>
+							 <!-- <div class="form-group"> -->
+								<div class="col-md-4" style="padding-left:150px">
+								<label>From</label>
 								</div>
+								<div class="col-md-6">
+								<input class="date-picker" size="16" type="text" value="" id="from" name="from"/>
+								</div>
+								<hr>
+						     <!-- </div> -->
+							<!-- <div class="form-group"> -->
+							<div class="col-md-4" style="padding-left:150px">
+								<label>To</label>
 							</div>
-							<div class="form-group">
-								<label class="control-label col-md-4">To</label>
-								<div class="col-md-6">
-								<span><input class="form-control input-medium date-picker" size="16" type="text" value="" id="to" name="to"/></span>
-								</div>
-							</div>  
-							<div class="form-group">
-							<label class="control-label col-md-4">Select Country</label>
-							<div class="col-md-6">				
-							<select data-placeholder="Choose a Country..." class="chzn-select form-control input-medium " multiple>
-					            <option value=""></option>
-					            <option value="United States">United States</option>
-					            <option value="United Kingdom">United Kingdom</option>
-					            <option value="Afghanistan">Afghanistan</option>
+							<div class="col-md-6">
+								<span><input class="date-picker" size="16" type="text" value="" id="to" name="to"/></span>
+							</div>							
+							<hr>
+							<hr>
+							<!-- </div> -->  
+							<!-- <div class="form-group"> -->							
+							<label class="col-md-4" style="padding-left:150px">Select Country</label>
+							
+							<div class="col-md-8">							
+									
+							<select id="country-select" multiple="multiple">					            
+					            <option value="US">United States</option>
+					            <option value="UK">United Kingdom</option>
+					         	<option value="Afghanistan">Afghanistan</option>
 					            <option value="Aland Islands">Aland Islands</option>
 					            <option value="Albania">Albania</option>					        
 					            <option value="Bahrain">Bahrain</option>
@@ -490,20 +518,116 @@ $(window).load(function() {
 					            <option value="Spain">Spain</option>
 					            <option value="Sri Lanka">Sri Lanka</option>
 					            <option value="Sudan">Sudan</option>
-					          </select>
-					          </div>
-					          </div>
-					          
-						</form>
+					          </select>					       	
+					       	</div>
+					        <!-- </div> -->					          
+						<%-- </form> --%>						
 					</div>
+					<hr>					
 					<div class="modal-footer">
 						<button class="btn dark btn-outline" data-dismiss="modal" aria-hidden="true">Close</button>
-						<button class="btn green" data-dismiss="modal">Save changes</button>
+						<button id="applyFilter" class="btn green" data-dismiss="modal">Apply Filter</button>
 				   </div>
 			</div>
 			</div>
 		</div>
-					
+		<div id="filterAllModal" class="modal fade" role="dialog" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+						<p><h4 class="modal-title">Apply filters all widgets</h4></p>
+					</div>
+					<div class="modal-body">
+						<%-- <form action="#" class="form-horizontal"> --%>
+							 <!-- <div class="form-group"> -->
+								<div class="col-md-4" style="padding-left:150px">
+								<label>From</label>
+								</div>
+								<div class="col-md-6">
+								<input class="date-picker" size="16" type="text" value="" id="from" name="from"/>
+								</div>
+								<hr>
+						     <!-- </div> -->
+							<!-- <div class="form-group"> -->
+							<div class="col-md-4" style="padding-left:150px">
+								<label>To</label>
+							</div>
+							<div class="col-md-6">
+								<span><input class="date-picker" size="16" type="text" value="" id="to" name="to"/></span>
+							</div>							
+							<hr>
+							<hr>
+							<!-- </div> -->  
+							<!-- <div class="form-group"> -->							
+							<label class="col-md-4" style="padding-left:150px">Select Country</label>
+							
+							<div class="col-md-8">							
+									
+							<select id="country-select" multiple="multiple">					            
+					            <option value="US">United States</option>
+					            <option value="UK">United Kingdom</option>
+					         	<option value="Afghanistan">Afghanistan</option>
+					            <option value="Aland Islands">Aland Islands</option>
+					            <option value="Albania">Albania</option>					        
+					            <option value="Bahrain">Bahrain</option>
+					            <option value="Bangladesh">Bangladesh</option>
+					            <option value="Barbados">Barbados</option>
+					            <option value="Belarus">Belarus</option>
+					            <option value="Belgium">Belgium</option>
+					            <option value="Chad">Chad</option>
+					            <option value="Chile">Chile</option>
+					            <option value="China">China</option>
+					            <option value="Denmark">Denmark</option>
+					            <option value="Djibouti">Djibouti</option>
+					            <option value="Dominica">Dominica</option>
+					            <option value="Fiji">Fiji</option>
+					            <option value="Finland">Finland</option>
+					            <option value="France">France</option>
+					            <option value="Guam">Guam</option>
+					            <option value="Guatemala">Guatemala</option>
+					            <option value="Guernsey">Guernsey</option>
+					            <option value="Guinea">Guinea</option>
+					            <option value="Hungary">Hungary</option>
+					            <option value="Iceland">Iceland</option>
+					            <option value="India">India</option>
+					            <option value="Israel">Israel</option>
+					            <option value="Italy">Italy</option>
+					            <option value="Jamaica">Jamaica</option>
+					            <option value="Japan">Japan</option>
+					            <option value="Jersey">Jersey</option>
+					            <option value="Jordan">Jordan</option>
+					            <option value="Myanmar">Myanmar</option>
+					            <option value="Namibia">Namibia</option>
+					            <option value="Nauru">Nauru</option>
+					            <option value="Nepal">Nepal</option>
+					            <option value="Netherlands">Netherlands</option>
+					            <option value="New Caledonia">New Caledonia</option>
+					            <option value="Paraguay">Paraguay</option>
+					            <option value="Peru">Peru</option>
+					            <option value="Philippines">Philippines</option>
+					            <option value="Pitcairn">Pitcairn</option>
+					            <option value="Poland">Poland</option>
+					            <option value="Portugal">Portugal</option>
+					            <option value="Puerto Rico">Puerto Rico</option>
+					            <option value="Qatar">Qatar</option>
+					            <option value="Reunion">Reunion</option>
+					            <option value="Spain">Spain</option>
+					            <option value="Sri Lanka">Sri Lanka</option>
+					            <option value="Sudan">Sudan</option>
+					          </select>					       	
+					       	</div>
+					        <!-- </div> -->					          
+						<%-- </form> --%>						
+					</div>
+					<hr>					
+					<div class="modal-footer">
+						<button class="btn dark btn-outline" data-dismiss="modal" aria-hidden="true">Close</button>
+						<button id="applyFilter" class="btn green" data-dismiss="modal">Apply Filters</button>
+				   </div>
+			</div>
+			</div>
+		</div>			
 		<div id="interactionModal" class="modal fade" role="dialog" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -545,7 +669,7 @@ $(window).load(function() {
 	</a>
 	<!-- END FOOTER -->
 	</div>
-	</div>
+	
 <!-- END CONTAINER -->
 <!-- BEGIN CORE PLUGINS -->
 <!-- <script src="assets/dash6/global/plugins/jquery.min.js"	type="text/javascript"></script>  -->
@@ -617,18 +741,23 @@ $(window).load(function() {
 <script src="assets/dash6/js/datatableNw/buttons.print.min.js"></script>
 <script src="assets/dash6/js/datatableNw/buttons.html5.min.js"></script>
 <script src="assets/dash6/js/datatableNw/buttons.flash.min.js"></script>
-<script src="assets/dash6/js/Dropdown/chosen.jquery.js"></script>
-<script src="assets/dash6/js/Dropdown/chosen.proto.js"></script>
+
 <script type="text/javascript">
 $(document).ready(function() {
 	$(function() {
 	//Theme switcher plugin
-	$("#switcher").themeswitcher({
+	/* $("#switcher").themeswitcher({
 		imgpath : "assets/dash6/css/images/",
 		loadTheme : "Cupertino"
-	});	
-	 $(function() {	
-		 $(".chzn-select").chosen();
+	});	 */
+	 
+	 $('#country-select').multiselect({
+		  includeSelectAllOption: true,
+          enableFiltering: true,
+          maxHeight: 200
+		 
+	 });
+	 
 		  var dateFormat = "mm/dd/yy",
 		      from = $("#from").datepicker({
 		          showOn: "button",
@@ -668,9 +797,7 @@ $(document).ready(function() {
 		      }
 		 
 		      return date;
-		    } 
-
-	 }); 
+		    }  
 	 
 	
 //**********************************************//
@@ -683,6 +810,7 @@ $(document).ready(function() {
 				widgetId : "id001",
 				widgetType : "chart",
 				widgetClick:"disable",
+				widgetEdit:"enable",
 				graphType : "exploratory",
 				widgetDimension : "normal",
 				chartType : "column",
@@ -698,6 +826,7 @@ $(document).ready(function() {
 				widgetId : "id002",
 				widgetType : "chart",
 				widgetClick:"disable",
+				widgetEdit:"enable",
 				graphType : "exploratory",
 				widgetDimension : "normal",
 				chartType : "barline",
@@ -712,6 +841,7 @@ $(document).ready(function() {
 				widgetId : "id003",
 				widgetType : "chart",
 				widgetClick:"disable",
+				widgetEdit:"disable",
 				graphType : "exploratory",
 				widgetDimension : "normal",
 				chartType : "pie",
@@ -726,9 +856,10 @@ $(document).ready(function() {
 				widgetId : "id004",
 				widgetType : "chart",
 				widgetClick:"disable",
+				widgetEdit:"disable",
 				graphType : "exploratory",
 				widgetDimension : "normal",
-				chartType : "pie",
+				chartType : "doughnut",
 				widgetContent : {
 					data : myExampleData.donutWidgetData,
 					layout : myExampleData.donutWidgetLayout,
@@ -740,6 +871,7 @@ $(document).ready(function() {
 				widgetId : "id005",
 				widgetType : "chart",
 				widgetClick:"disable",
+				widgetEdit:"disable",
 				graphType : "exploratory",
 				widgetDimension : "normal",
 				chartType : "area",
@@ -755,6 +887,7 @@ $(document).ready(function() {
 				widgetId : "id006",
 				widgetType : "chart",
 				widgetClick:"disable",
+				widgetEdit:"disable",
 				graphType : "exploratory",
 				widgetDimension : "normal",
 				chartType : "bubble",
@@ -780,6 +913,7 @@ $(document).ready(function() {
 				widgetId : "id007",
 				widgetType : "chart",
 				widgetClick:"disable",
+				widgetEdit:"disable",
 				graphType : "exploratory",
 				widgetDimension : "large",
 				chartType : "bubble",
@@ -795,6 +929,7 @@ $(document).ready(function() {
 				widgetId : "id008",
 				widgetType : "chart",
 				widgetClick:"disable",
+				widgetEdit:"disable",
 				graphType : "exploratory",
 				widgetDimension : "large",
 				chartType : "bar",
@@ -818,6 +953,7 @@ $(document).ready(function() {
 				widgetId : "id009",
 				widgetType : "chart",
 				widgetClick:"disable",
+				widgetEdit:"disable",
 				graphType : "exploratory",
 				widgetDimension : "large",
 				chartType : "line",
@@ -844,6 +980,7 @@ $(document).ready(function() {
 				widgetId : "id010",
 				widgetType : "Text",
 				widgetClick:"disable",
+				widgetEdit:"disable",
 				widgetDimension : "small",
 				widgetContent : "Redemptions : 4,636"
 
@@ -853,6 +990,7 @@ $(document).ready(function() {
 				widgetId : "id011",
 				widgetType : "table",
 				widgetClick:"disable",
+				widgetEdit:"disable",
 				//widgetDimension: "large",
 				setJqueryStyle : true,
 				enableRefresh : true,
@@ -870,6 +1008,7 @@ $(document).ready(function() {
 				widgetId : "id012",
 				widgetType : "Text",
 				widgetClick:"disable",
+				widgetEdit:"disable",
 				widgetDimension : "small",
 				widgetContent : "231,800$"
 			},
@@ -878,6 +1017,7 @@ $(document).ready(function() {
 				widgetId : "id013",
 				widgetType : "map",
 				widgetClick:"disable",
+				widgetEdit:"disable",
 				graphType : "normal",
 				widgetDimension : "large",
 				//widgetContent : myExampleData.amchartsMapData
@@ -902,6 +1042,7 @@ $(document).ready(function() {
 				widgetId: "id015",
 				widgetType: "chart",
 				widgetClick:"details",
+				widgetEdit:"disable",
 				graphType: "exploratory",
 				widgetDimension: "normal",
 				chartType: "pie",
@@ -915,6 +1056,7 @@ $(document).ready(function() {
 				widgetTitle: "Age group",
 				widgetId: "id016",
 				widgetClick:"details",
+				widgetEdit:"disable",
 				widgetType: "chart",
 				graphType: "exploratory",
 				widgetDimension: "normal",
@@ -940,6 +1082,7 @@ $(document).ready(function() {
 				widgetId: "id017",
 				widgetType: "chart",
 				widgetClick:"details",
+				widgetEdit:"disable",
 				graphType: "exploratory",
 				widgetDimension: "large",
 				chartType: "bar",
@@ -957,30 +1100,32 @@ $(document).ready(function() {
 					layout: myExampleData.barGroupChartLayout,
 					config: myExampleData.plotlybarconfig
 			}
-			}, /* {
-		widgetTitle: "Items sold",
-		widgetId: "id018",
-		widgetType: "chart",
-		widgetClick:"details",
-		graphType: "exploratory",
-		widgetDimension: "large",
-		chartType: "line",
-		getDataBySelection: true,
-		widgetContent: {
-			data: myExampleData.plotlylinedata,
-			layout: myExampleData.plotlylinelayout,
-			config: myExampleData.plotlylineconfig
-		}
+			}, 
+			/* {
+				widgetTitle: "Items sold",
+				widgetId: "id018",
+				widgetType: "chart",
+				widgetClick:"details",
+				graphType: "exploratory",
+				widgetDimension: "large",
+				chartType: "line",
+				getDataBySelection: true,
+				widgetContent: {
+					data: myExampleData.plotlylinedata,
+					layout: myExampleData.plotlylinelayout,
+					config: myExampleData.plotlylineconfig
+				}
 		}, */
 		{
 			widgetTitle : "Age group",
 			widgetId : "id019",
 			widgetType : "chart",
 			widgetClick:"interact",
+			widgetEdit:"disable",
 			graphType : "exploratory",
 			widgetDimension : "normal",
 			chartType : "bubble",
-			linkedWidgets:["id020","id021"],
+			linkedWidgets:["id020","w0008"],
 			enableRefresh : true,
 			refreshCallBack : function(widgetId) {
 				//Inside refresh callback
@@ -1002,6 +1147,7 @@ $(document).ready(function() {
 			widgetId: "id020",
 			widgetType: "chart",
 			widgetClick:"interact",
+			widgetEdit:"disable",
 			graphType: "exploratory",
 			widgetDimension: "normal",
 			chartType: "bar",
@@ -1018,45 +1164,59 @@ $(document).ready(function() {
 				data: myExampleData.barGroupChartData,
 				layout: myExampleData.barGroupChartLayout,
 				config: myExampleData.plotlybarconfigDash4
-		},
+			},
 			widgetContentNew : {
 				data : myExampleData.barGroupChartDataOriginal,
 				layout : myExampleData.barGroupChartLayout,
 				config : myExampleData.plotlybarconfigDash4
-		},
+			},
 			widgetContentNew1 : {
 			data : myExampleData.barGroupChartData1,
-		},
+			},
 			widgetContentNew2 : {
 			data : myExampleData.barGroupChartData2,
 
-		}
-	},
-	{
-		widgetTitle : "Items sold",
-		widgetId : "id021",
-		widgetType : "chart",
-		widgetClick:"interact",
-		graphType : "exploratory",
-		widgetDimension : "large",
-		chartType : "line",
-		getDataBySelection : true,
-		widgetContent : {
-			data : myExampleData.plotlylinedata,
-			layout : myExampleData.plotlylinelayout,
-			config : myExampleData.plotlylineconfig
+			}
 		},
-		widgetContentNew : {
-			data : myExampleData.plotlylinedata1,
+		{
+			widgetTitle : "Items sold",
+			widgetId : "w0008",
+			widgetType : "chart",
+			widgetClick:"interact",
+			widgetEdit:"disable",
+			graphType : "exploratory",
+			widgetDimension : "large",
+			chartType : "line",
+			widgetContent : {
+				data : myExampleData.plotlylinedata,
+				layout : myExampleData.plotlylinelayout,
+				config : myExampleData.plotlylineconfig
+			},
+			widgetContentNew : {
+				data : myExampleData.plotlylinedata1,
+			},
+			widgetContentNew1 : {
+				data : myExampleData.plotlylinedata2,
+			},
+			widgetContentNew2 : {
+				data : myExampleData.plotlylinedata3,
+			}
 		},
-		widgetContentNew1 : {
-			data : myExampleData.plotlylinedata2,
-		},
-		widgetContentNew2 : {
-			data : myExampleData.plotlylinedata3,
-
-		}
-	}
+		{
+			widgetTitle : "Revenue with filter",
+			widgetId : "id031",
+			widgetType : "chart",	
+			widgetClick:"disable",
+			widgetEdit:"disable",
+			graphType : "exploratory",
+			widgetDimension : "large",
+			chartType : "line",
+			widgetContent: {
+				data : myExampleData.plotlylineFilterdata,
+				layout : myExampleData.plotlylineFilterlayout,
+				config : myExampleData.plotlylineconfig
+			}
+		}];
 	/* 	{
 	 widgetTitle: "Items Sold Grid",
 	 widgetId: "id010",
@@ -1078,7 +1238,7 @@ $(document).ready(function() {
 			buttons:myExampleData.tableWidgetButtonNw
 		}
 	}, */
-	];
+	
 //console.log(dashboardJSON);
 //basic initialization example mn.sDashboard
 $("#cprDashboard").cprDashboard({
@@ -1087,24 +1247,24 @@ $("#cprDashboard").cprDashboard({
 //	$("#cprDashboard").cprDashboard("widgetcallCheck","sree");
 
 //Toastr settings
-toastr.options = {
-	"closeButton" : false,
-	"debug" : false,
-	"newestOnTop" : false,
-	"progressBar" : false,
-	"positionClass" : "toast-top-right",
-	"preventDuplicates" : false,
-	"onclick" : null,
-	"showDuration" : "200",
-	"hideDuration" : "1000",
-	"timeOut" : "5000",
-	"extendedTimeOut" : "1000",
-	"showEasing" : "swing",
-	"hideEasing" : "linear",
-	"showMethod" : "fadeIn",
-	"hideMethod" : "fadeOut"
-}
-function notification(type, message) {
+	toastr.options = {
+		"closeButton" : false,
+		"debug" : false,
+		"newestOnTop" : false,
+		"progressBar" : false,
+		"positionClass" : "toast-top-right",
+		"preventDuplicates" : false,
+		"onclick" : null,
+		"showDuration" : "200",
+		"hideDuration" : "1000",
+		"timeOut" : "5000",
+		"extendedTimeOut" : "1000",
+		"showEasing" : "swing",
+		"hideEasing" : "linear",
+		"showMethod" : "fadeIn",
+		"hideMethod" : "fadeOut"
+	}
+	function notification(type, message) {
 	if (type == 'success') {
 		toastr.success(message,
 				'<i>Success</i>');
@@ -1115,31 +1275,30 @@ function notification(type, message) {
 	} else {
 		toastr.info(message, 'Information');
 	}
-}
-
-//table row clicked event example
-$("#cprDashboard").bind("cprdashboardrowclicked",function(e, data) {
+	}
+	//table row clicked event example
+	$("#cprDashboard").bind("cprdashboardrowclicked",function(e, data) {
 	if (console) {
 	console.log("table row clicked, for widget: "+ data.selectedWidgetId);
 	}
-});
-//plot selected event example
-$("#cprDashboard").bind("cprdashboardplotselected",function(e, data) {
-	notification('info','A plot has been selected within a chart widget!');
-	if (console) {
-	console.log("chart range selected, for widget: "+ data.selectedWidgetId);
-	}
-});
-//plot click event example
-/* 	$("#cprDashboard").bind("cprdashboardplotclicked",function(e, data) {
+	});
+	//plot selected event example
+	$("#cprDashboard").bind("cprdashboardplotselected",function(e, data) {
+		notification('info','A plot has been selected within a chart widget!');
+		if (console) {
+			console.log("chart range selected, for widget: "+ data.selectedWidgetId);
+		}
+	});
+	//plot click event example
+	/* 	$("#cprDashboard").bind("cprdashboardplotclicked",function(e, data) {
 	notification('info','chart clicked, for widget:'+ data.clickedWidgetId
 		+ ' the data passed is'+ data.dataPoints+ '!');
 	if (console) {
 		console.log("chart clicked, for widget: "+ data.selectedWidgetId);
 	}
-}); */
-//Drawboard 4
-$("#cprDashboard").bind("cprdashboardplotclicked",function(e, data) {
+	}); */
+	//Drawboard 4
+	$("#cprDashboard").bind("cprdashboardplotclicked",function(e, data) {
 	/* 	 $.ajax({
 			 type: "GET",
 				url : 'widgetClick.html',
@@ -1148,80 +1307,104 @@ $("#cprDashboard").bind("cprdashboardplotclicked",function(e, data) {
 			}});   */
 
 		 window.location.href='/Crmxs-Dashboard/widgetClick.html?clickedWidgetId='+data.clickedWidgetId+'&datapoints='+data.dataPoints;
-   //		notification('info', 'chart clicked, for widget:'+ data.clickedWidgetId +' the data passed is'+data.dataPoints+'!');
-	if (console) {
-		console.log("chart clicked, for widget: " + data.selectedWidgetId);
-	}
+   	//	notification('info', 'chart clicked, for widget:'+ data.clickedWidgetId +' the data passed is'+data.dataPoints+'!');
+		if (console) {
+			console.log("chart clicked, for widget: " + data.selectedWidgetId);
+		}
 	});
 
-//widget order changes event example
-$("#cprDashboard").bind("cprdashboardorderchanged",function(e, data) {
-/* 	if (console) {
+	//widget order changes event example
+	$("#cprDashboard").bind("cprdashboardorderchanged",function(e, data) {
+	/* 	if (console) {
 		console.log("Sorted Array");
 		console.log("+++++++++++++++++++++++++");
 		console.log(data.sortedDefinitions);
 		console.log("+++++++++++++++++++++++++");
 	} */
-});
+	});
 
-$('#applyChanges').on('click', function (e) {
-	e.preventDefault();
-	var graphToThisChart = $("#changeChartForm input:checked" ).val();
-	var numberOfChecks = $("#changeChartForm input:checked" ).size();
-	if(numberOfChecks>1){
-		swal("Only one graph can be selected!", "Un-check others!", "error");
-	}
-	var widgetID =$("#cgwidgetId").text();
-	var changeChartObject ={
+	$('#applyChanges').on('click', function (e) {
+		e.preventDefault();
+		var graphToThisChart = $("#changeChartForm input:checked" ).val();
+		var numberOfChecks = $("#changeChartForm input:checked" ).size();
+		if(numberOfChecks>1){
+			swal("Only one graph can be selected!", "Un-check others!", "error");
+		}
+		var widgetID =$("#cgwidgetId").text();
+		var changeChartObject ={
 			chartTo: graphToThisChart,
 			widgetId: widgetID
-	};
-	$("#cprDashboard").cprDashboard("changeChart",changeChartObject);
-	$('#changeChartModal').modal('hide');
-});
-$("li.menuItem.themes").click(function(e) {
-
-	e.preventDefault();
-	$("#changeThemeModal").modal('show');
-
-
-});
-$("li.menuItem.filters").click(function(e) {
-
-	e.preventDefault();
-	//$("#changeThemeModal").modal('show');
-	$("#filterModal").modal('show');
-
-});
-$('#applyThemes').on('click', function (e) {
-	e.preventDefault();
-	var themeSelected = $("#changeThemeForm input:checked" ).val();
-	var numberOfChecks = $("#changeThemeForm input:checked" ).size();
-	if(numberOfChecks>1){
+		};
+		$("#cprDashboard").cprDashboard("changeChart",changeChartObject);
+		$('#changeChartModal').modal('hide');
+	});
+	$("li.menuItem.themes").click(function(e) {
+		e.preventDefault();
+		$("#changeThemeModal").modal('show');
+	});
+	$("li.menuItem.filters").click(function(e) {
+		e.preventDefault();
+		//$("#changeThemeModal").modal('show');
+		$("#filterAllModal").modal('show');
+	});
+	$('#applyThemes').on('click', function (e) {
+		e.preventDefault();
+		var themeSelected = $("#changeThemeForm input:checked" ).val();
+		var numberOfChecks = $("#changeThemeForm input:checked" ).size();
+		if(numberOfChecks>1){
+			$('#changeThemeModal').modal('hide');
+			swal("Only one theme can be selected!", "Un-check others!", "error");
+			return;
+		}
 		$('#changeThemeModal').modal('hide');
-		swal("Only one theme can be selected!", "Un-check others!", "error");
-		return;
-	}
-	$('#changeThemeModal').modal('hide');
-	$("#cprDashboard").cprDashboard("changeTheme",themeSelected);
-	if(typeof themeSelected != 'undefined'){
+		$("#cprDashboard").cprDashboard("changeTheme",themeSelected);
+		if(typeof themeSelected != 'undefined'){
 		  swal(themeSelected +" have been applied !", "", "success");
-	}
+		}
+	});
+	$('#applyFilter').on('click', function (e) {
+		e.preventDefault();
+		var widgetConfig;
+		var widgetId =$("#fgwidgetId").text();
 
-});
-	//Handling on Change event
-/* 	$("#changeGraphForm input:checkbox[value='bar']").change(function() {
-		  //$(this).prop('checked');
-		  $("#changeGraphForm input:checkbox[value='line']").bootstrapSwitch('state', false, true);
-	})
-	$("#changeGraphForm input:checkbox[value='line']").change(function() {
-		  //$(this).prop('checked');
-		  $("#changeGraphForm input:checkbox[value='bar']").bootstrapSwitch('state', false, true);
-	}) */
+		var fromDate = $("#from").val();
+		var toDate = $("#to").val();
+		var countriesSelected = $("#country-select").val();
+		var filterData ={
+				fromDate:fromDate,
+				toDate:toDate,
+				countries:countriesSelected,
+				widgetId:widgetId
+		};
 
-});
-})
+		$.ajax({
+         type: 'POST',
+         contentType : 'application/json',
+         dataType: 'json',
+   		 url : 'applyFilters.html',
+   		 data: JSON.stringify(filterData),
+   	 	// async: false,.//Cross-domain requests and dataType: "jsonp" requests do not support synchronous operation
+   		 cache: false,        
+		 timeout : 100000,
+         success : function(data) {
+           widgetConfig = data;
+           $("#cprDashboard").cprDashboard("applyFilter",widgetConfig,widgetId);
+       	 }
+         });	
+		
+		});	
+		//Handling on Change event
+		/*	$("#changeGraphForm input:checkbox[value='bar']").change(function() {
+		  	//$(this).prop('checked');
+		  	$("#changeGraphForm input:checkbox[value='line']").bootstrapSwitch('state', false, true);
+		})
+		$("#changeGraphForm input:checkbox[value='line']").change(function() {
+		 	 //$(this).prop('checked');
+		  	$("#changeGraphForm input:checkbox[value='bar']").bootstrapSwitch('state', false, true);
+		}) */
+
+	});
+	});
 </script>
-<!-- CPR Custom Dashboard  -->
 </body>
 </html>

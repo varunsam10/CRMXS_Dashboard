@@ -67,7 +67,7 @@
 	<bean class="org.springframework.web.servlet.view.BeanNameViewResolver"
 		p:order="0" />
 
-
+	
 	<!-- <bean id="populateTableHandler" class="com.cpr.controller.PopulateTableWithData"></bean> -->
 
 </beans>

@@ -465,6 +465,14 @@ div#users-contain table td, div#users-contain table th {
 	height: 20px;
 }
 
+.cprDashboard-iconcustomEdit{
+	margin: 0 5px 0 5px;
+	float: right;
+	background: url('images/ic_mode_edit_white_18dp_1x.png') no-repeat;
+	width: 20px;
+	height: 20px;
+}
+
 .cprDashboard-iconcustomFilter {
 	margin: 0 5px 0 5px;
 	float: right;
@@ -534,21 +542,34 @@ div#users-contain table td, div#users-contain table th {
   	transform: translateY(-0.15em);
 }
 
-.cprDashboard-iconcustom .cprDashboard-settings {
-	background-position: -2px -230px;
-}
-
-.cprDashboard-icon.cprDashboard-trash-icon {
-	background-position: -4px -159px;
-}
-
-.cprDashboard-icon.cprDashboard-refresh-icon {
-	background-position: -3px -186px;
+.cprDashboard-iconcustomEdit:hover {
+	cursor: pointer;
+	box-shadow: 0 0.3em 0.3em -0.2em var(--hover) grey;
+	transition: .3s all ease;
+  	transform: translateY(-0.15em);
 }
 
 .cprDashboard-icon.cprDashboard-maximize-icon {
 	background-position: -2px -212px;
 }
+.cprDashboard-icon.cprDashboard-trash-icon {
+	background-position: -4px -159px;
+}
+
+.cprDashboard-iconcustom .cprDashboard-settings {
+	background-position: -2px -230px;
+}
+
+/* 
+.cprDashboard-icon.cprDashboard-iconcustomEdit {
+	background-position: -3px -186px;
+}
+ */
+.cprDashboard-icon.cprDashboard-refresh-icon {
+	background-position: -3px -186px;
+}
+
+
 
 /* .sDashboard-iconcustomFilter.sDashboard-filter-icon {
 	background-position: -4px -248px;
