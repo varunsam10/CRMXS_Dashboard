@@ -302,9 +302,9 @@
 							  text: "The Changes made will not be saved!",
 							  type: "warning",
 							  showCancelButton: true,
-							  confirmButtonClass: "btn-danger",
-							  confirmButtonText: "Enable!",
-							  cancelButtonText: "No, cancel!",
+							  confirmButtonClass: "btn-success",
+							  confirmButtonText: "Enable",
+							  cancelButtonText: "Cancel",
 							  closeOnConfirm: false,
 							  closeOnCancel: false
 							},
@@ -314,6 +314,7 @@
 							    self._enableEdit(widgetDefinition,widgetId);
 							  } else {
 							    swal("Cancelled", "Edit mode disabled", "error");
+							    self._disableEdit(widgetDefinition,widgetId);
 							  }
 							});					
 						
@@ -757,6 +758,33 @@
 					config = widgetDefinition.widgetContent.config;
 					
 					config.editable=true;
+					widgetDefinition.widgetContent.config = config;				
+					this.renderNewChart(chartArea,data,layout,config);						
+					if (widgetDefinition.getDataBySelection) {
+					
+						this._bindSelectEvent(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+					} else {
+						if(widgetDefinition.graphType === 'exploratory'){
+							this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+						}
+					}						
+					
+				}
+			},
+			_disableEdit:function(widgetDefinition,widgetId){
+				var id = "li#" + widgetDefinition.widgetId;
+				var data;
+				var layout;
+				var config;
+				var chart;
+				var chartArea = this.element.find(id + " div.cprDashboardChart");
+				if (widgetDefinition.widgetType === 'chart') {
+					
+					data = widgetDefinition.widgetContent.data;
+					layout = widgetDefinition.widgetContent.layout;
+					config = widgetDefinition.widgetContent.config;
+					
+					config.editable=false;
 					widgetDefinition.widgetContent.config = config;				
 					this.renderNewChart(chartArea,data,layout,config);						
 					if (widgetDefinition.getDataBySelection) {
