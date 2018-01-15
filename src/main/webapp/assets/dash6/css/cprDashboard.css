@@ -8,6 +8,13 @@
    -moz-hyphens: auto;
     hyphens: auto;
 }
+a {
+    text-decoration: none !important;
+}
+.widgetHeaderPopup{
+	
+	color:white;
+}
 .modal-group{
 	padding-bottom: 3%;	
 	min-width: 45%;

@@ -61,7 +61,8 @@
 <script src="assets/dash6/js/Dropdown/dropdown.js" type="text/javascript"></script>
 
 <script src="assets/dash6/js/Dropdown/bootstrap-multiselect.js" type="text/javascript"></script>
-<link href="assets/dash6/css/bootstrap-multiselect.css" rel="stylesheet" type="text/css">	
+<link href="assets/dash6/css/bootstrap-multiselect.css" rel="stylesheet" type="text/css">
+<link href="assets/dash6/css/bootstrap-editable.css" rel="stylesheet" type="text/css">
 
 <script type="text/javascript">
 // Wait for window load
@@ -741,6 +742,7 @@ $(window).load(function() {
 <script src="assets/dash6/js/datatableNw/buttons.print.min.js"></script>
 <script src="assets/dash6/js/datatableNw/buttons.html5.min.js"></script>
 <script src="assets/dash6/js/datatableNw/buttons.flash.min.js"></script>
+<script src="assets/dash6/js/bootstrap-editable.min.js"></script>
 
 <script type="text/javascript">
 $(document).ready(function() {
@@ -1282,6 +1284,8 @@ $("#cprDashboard").cprDashboard({
 	console.log("table row clicked, for widget: "+ data.selectedWidgetId);
 	}
 	});
+
+	
 	//plot selected event example
 	$("#cprDashboard").bind("cprdashboardplotselected",function(e, data) {
 		notification('info','A plot has been selected within a chart widget!');
@@ -1312,7 +1316,7 @@ $("#cprDashboard").cprDashboard({
 			console.log("chart clicked, for widget: " + data.selectedWidgetId);
 		}
 	});
-
+	
 	//widget order changes event example
 	$("#cprDashboard").bind("cprdashboardorderchanged",function(e, data) {
 	/* 	if (console) {

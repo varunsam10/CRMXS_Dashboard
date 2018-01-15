@@ -292,9 +292,9 @@
 					var widget = $(e.currentTarget).parents("li:first");
 					var widgetId = widget.attr("id");
 					var widgetDefinition = self._getWidgetContentForId(widgetId, self);
-				
+					$.fn.editable.defaults.mode = 'popup';
 					var editMode = widgetDefinition.widgetEdit;
-					
+					var widgetTitleFromDefinition = widgetDefinition.widgetTitle;
 					if(editMode === "enable"){
 						
 						swal({
@@ -312,9 +312,24 @@
 							  if (isConfirm) {
 							    swal("Edit on!", "Edit mode enabled on widget.", "success");
 							    self._enableEdit(widgetDefinition,widgetId);
+							    /*
+								Adding the inline editor functionality for widget header 	
+								*/
+								var widgetIdS= "header"+$.trim(widgetId);
+								
+								//widgetHeaderPopup
+							   /* $("'#"+widgetIdS+"'").editable({
+									disabled:false
+								});*/							    
+							    $('.widgetHeaderPopup').editable({
+									disabled:false
+								});
 							  } else {
 							    swal("Cancelled", "Edit mode disabled", "error");
-							    self._disableEdit(widgetDefinition,widgetId);
+							    $('.widgetHeaderPopup').editable({
+									disabled:true
+								});
+							    
 							  }
 							});					
 						
@@ -373,6 +388,8 @@
 				var filterButton = $('<div title="Filter" class="cprDashboard-iconcustomFilter"></div>');
 				var detailsButton = $('<div title="Interact" class="cprDashboard-iconcustomInteract"></div>');
 				var editButton = $('<div title="Interact" class="cprDashboard-iconcustomEdit"></div>');
+				var widgetTitle = $('<a href="#" class="widgetHeaderPopup" data-type="text" data-url="editHeader.html" data-title="Enter widget title"></a>');
+				//var header = $('<div title="Interact" class="cprDashboard-iconcustomEdit"></div>');
 				//if(widgetDefinition.widgetClick != null){
 				if (widgetDefinition.graphType === "exploratory" && widgetDefinition.chartType !== "bubble"){
 					widgetHeader.append(maximizeButton);
@@ -422,9 +439,13 @@
 					widgetHeader.append(refreshButton);
 				}
 
-				//add widget title
-				widgetHeader.append(widgetDefinition.widgetTitle);
-
+				//  add widget title
+				//	widgetHeader.append(widgetDefinition.widgetTitle);
+				var widgetIdFromDefinition ="header"+$.trim(widgetDefinition.widgetId);
+				widgetTitle.attr("id",widgetIdFromDefinition);
+				widgetHeader.append(widgetTitle);
+			
+				widgetTitle.text(widgetDefinition.widgetTitle);
 				//create a widget content
 				var widgetContent = $("<div/>").addClass("cprDashboardWidgetContent");
 				if (widgetDefinition.widgetType === 'table') {
