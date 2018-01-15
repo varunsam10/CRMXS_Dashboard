@@ -28,26 +28,22 @@ cprDashboard depends on the following libraries
 •	D3 charts (required for charting widgets)
 •	Bootstrap based alerts and toastr 
 
-
 How to set up JavaScript engine 
 To set up a basic dashboard engine:
 •	include the dependent libraries and css files.
 <!--   CPR Dashboard    Custom     -->
 <script src="assets/dash6/js/jquery/jquery-ui-1.12.1.min.js" type="text/javascript"></script>
-<!-- load datatables library -->
 <script src="assets/dash6/js/plotly-latest.min.js"></script>
 <script src="assets/dash6/js/c3/c3.min.js"></script>
 <!-- amcharts map -->
-<script src="assets/dash6/js/amchartsMap/ammap.js"	type="text/javascript"></script>
-<script src="assets/dash6/js/amchartsMap/light.js"	type="text/javascript"></script>
+<script src="assets/dash6/js/amchartsMap/ammap.js" type="text/javascript"></script>
+<script src="assets/dash6/js/amchartsMap/light.js" type="text/javascript"></script>
 <script src="assets/dash6/js/amchartsMap/worldLow.js" type="text/javascript"></script>
 <script src="assets/dash6/js/amchartsMap/usaLow.js" type="text/javascript"></script>
 <script src="assets/dash6/js/themeswitcher/jquery.themeswitcher.min.js" type="text/javascript"></script>
 <!-- load CPR dashboard widget library -->
 <script src="assets/dash6/js/jquery-cprDashboard.js" type="text/javascript"></script>
-<!-- sample data external script file -->
 <script src="assets/dash6/js/exampleData.js" type="text/javascript"></script>
-<!-- Datatable export function js files -->
 <script src="assets/dash6/js/datatableNw/jquery.dataTables.min.js"></script>
 
 •	Create a ul dom element to render the dashboard
@@ -67,7 +63,8 @@ Var dashboardJSON =
 			data : myExampleData.plotlycolumndata, 
 			layout : myExampleData.plotlycolumnlayout,
 			config : myExampleData.plotlycolumnconfig
-		}}];
+		}
+}];
 
 •	call the cprDashboard plugin on the ul and pass in the widgetDefinitions by setting the dashboardData options
 
