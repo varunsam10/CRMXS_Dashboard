@@ -9,8 +9,12 @@ A simple & light weight dashboard framework in Javascript and JQuery
 cprDashboard is a jQuery plugin that converts an array of objects into a dashboard. Each object in the array would be rendered as a dashboard widget that can be rearranged by dragging around.
 cprDashboard has built in support for rendering data table’s and D3 based charts. It also has support to listen for events such as table row click, chart data click and data selection built-in.
 Cpr Dashboard also support maps which are an extension of the amCharts graphing framework.
+
+
 ##Demo
-You can deploy the application to tomcat and browse the application in the following url 
+You can deploy the application to tomcat and browse the application in the following url
+
+
 Access the application at: http://localhost:8080/Crmxs-Dashboard/
 ##Dependencies
 cprDashboard depends on the following libraries
@@ -25,15 +29,12 @@ cprDashboard depends on the following libraries
 •	Bootstrap based alerts and toastr 
 
 
-
-
 How to set up JavaScript engine 
 To set up a basic dashboard engine:
 •	include the dependent libraries and css files.
 <!--   CPR Dashboard    Custom     -->
 <script src="assets/dash6/js/jquery/jquery-ui-1.12.1.min.js" type="text/javascript"></script>
 <!-- load datatables library -->
-<!--<script src="assets/dash6/js/datatables/jquery.dataTables.js"></script>  -->
 <script src="assets/dash6/js/plotly-latest.min.js"></script>
 <script src="assets/dash6/js/c3/c3.min.js"></script>
 <!-- amcharts map -->
