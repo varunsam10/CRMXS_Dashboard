@@ -891,16 +891,13 @@ $(document).ready(function() {
 				data : myExampleData.plotlylinedata3,
 			}
 		}];
-
-	
-//console.log(dashboardJSON);
-//basic initialization example mn.sDashboard
-$("#cprDashboard").cprDashboard({
-	dashboardData : dashboardJSON
-});
-//	$("#cprDashboard").cprDashboard("widgetcallCheck","sree");
-
-//Toastr settings
+	//console.log(dashboardJSON);
+	//basic initialization example mn.sDashboard
+	$("#cprDashboard").cprDashboard({
+		dashboardData : dashboardJSON
+	});
+	//	$("#cprDashboard").cprDashboard("widgetcallCheck","sree");
+	//Toastr settings
 	toastr.options = {
 		"closeButton" : false,
 		"debug" : false,
