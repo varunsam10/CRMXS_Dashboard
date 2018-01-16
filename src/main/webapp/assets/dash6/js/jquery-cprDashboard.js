@@ -389,7 +389,7 @@
 				var filterButton = $('<div title="Filter" class="cprDashboard-iconcustomFilter"></div>');
 				var detailsButton = $('<div title="Interact" class="cprDashboard-iconcustomInteract"></div>');
 				var editButton = $('<div title="Interact" class="cprDashboard-iconcustomEdit"></div>');
-				var widgetTitle = $('<a href="#" class="widgetHeaderPopup" data-type="text" data-url="editHeader.html" data-title="Enter widget title"></a>');
+				var widgetTitle = $('<a href="#" class="widgetHeaderPopup" data-type="text" data-url="editHeader.html" data-title="Enter Widget Title"></a>');
 				//var header = $('<div title="Interact" class="cprDashboard-iconcustomEdit"></div>');
 				//if(widgetDefinition.widgetClick != null){
 				if (widgetDefinition.graphType === "exploratory" && widgetDefinition.chartType !== "bubble"){
