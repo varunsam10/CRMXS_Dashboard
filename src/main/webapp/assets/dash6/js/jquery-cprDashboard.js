@@ -115,7 +115,7 @@
 						$(".cprDashboardWidgetHeader div.cprDashboard-iconcustom.cprDashboard-settings ").hide();
 						$(".cprDashboardWidgetHeader div.cprDashboard-iconcustomInteract ").hide();
 						$(".cprDashboardWidgetHeader div.cprDashboard-iconcustomFilter").hide();
-						
+						$(".cprDashboardWidgetHeader div.cprDashboard-iconcustomEdit").hide();
 						self._trigger("widgetMaximized", null, {
 							"widgetDefinition" : widgetDefinition
 						});
@@ -126,6 +126,7 @@
 						$(".cprDashboardWidgetHeader div.cprDashboard-iconcustom.cprDashboard-settings ").show();
 						$(".cprDashboardWidgetHeader div.cprDashboard-iconcustomInteract ").show();
 						$(".cprDashboardWidgetHeader div.cprDashboard-iconcustomFilter").show();
+						$(".cprDashboardWidgetHeader div.cprDashboard-iconcustomEdit").show();
 						self._trigger("widgetMinimized", null, {
 							"widgetDefinition" : widgetDefinition
 						});
@@ -292,9 +293,9 @@
 					var widget = $(e.currentTarget).parents("li:first");
 					var widgetId = widget.attr("id");
 					var widgetDefinition = self._getWidgetContentForId(widgetId, self);
-				
+					$.fn.editable.defaults.mode = 'popup';
 					var editMode = widgetDefinition.widgetEdit;
-					
+					var widgetTitleFromDefinition = widgetDefinition.widgetTitle;
 					if(editMode === "enable"){
 						
 						swal({
@@ -302,9 +303,9 @@
 							  text: "The Changes made will not be saved!",
 							  type: "warning",
 							  showCancelButton: true,
-							  confirmButtonClass: "btn-danger",
-							  confirmButtonText: "Enable!",
-							  cancelButtonText: "No, cancel!",
+							  confirmButtonClass: "btn-success",
+							  confirmButtonText: "Enable",
+							  cancelButtonText: "Cancel",
 							  closeOnConfirm: false,
 							  closeOnCancel: false
 							},
@@ -312,8 +313,24 @@
 							  if (isConfirm) {
 							    swal("Edit on!", "Edit mode enabled on widget.", "success");
 							    self._enableEdit(widgetDefinition,widgetId);
+							    /*
+								Adding the inline editor functionality for widget header 	
+								*/
+								var widgetIdS= "header"+$.trim(widgetId);
+								
+								//widgetHeaderPopup
+							   /* $("'#"+widgetIdS+"'").editable({
+									disabled:false
+								});*/							    
+							    $('.widgetHeaderPopup').editable({
+									disabled:false
+								});
 							  } else {
 							    swal("Cancelled", "Edit mode disabled", "error");
+							    $('.widgetHeaderPopup').editable({
+									disabled:true
+								});
+							    
 							  }
 							});					
 						
@@ -372,6 +389,8 @@
 				var filterButton = $('<div title="Filter" class="cprDashboard-iconcustomFilter"></div>');
 				var detailsButton = $('<div title="Interact" class="cprDashboard-iconcustomInteract"></div>');
 				var editButton = $('<div title="Interact" class="cprDashboard-iconcustomEdit"></div>');
+				var widgetTitle = $('<a href="#" class="widgetHeaderPopup" data-type="text" data-url="editHeader.html" data-title="Enter Widget Title"></a>');
+				//var header = $('<div title="Interact" class="cprDashboard-iconcustomEdit"></div>');
 				//if(widgetDefinition.widgetClick != null){
 				if (widgetDefinition.graphType === "exploratory" && widgetDefinition.chartType !== "bubble"){
 					widgetHeader.append(maximizeButton);
@@ -421,9 +440,13 @@
 					widgetHeader.append(refreshButton);
 				}
 
-				//add widget title
-				widgetHeader.append(widgetDefinition.widgetTitle);
-
+				//  add widget title
+				//	widgetHeader.append(widgetDefinition.widgetTitle);
+				var widgetIdFromDefinition ="header"+$.trim(widgetDefinition.widgetId);
+				widgetTitle.attr("id",widgetIdFromDefinition);
+				widgetHeader.append(widgetTitle);
+			
+				widgetTitle.text(widgetDefinition.widgetTitle);
 				//create a widget content
 				var widgetContent = $("<div/>").addClass("cprDashboardWidgetContent");
 				if (widgetDefinition.widgetType === 'table') {
@@ -757,6 +780,33 @@
 					config = widgetDefinition.widgetContent.config;
 					
 					config.editable=true;
+					widgetDefinition.widgetContent.config = config;				
+					this.renderNewChart(chartArea,data,layout,config);						
+					if (widgetDefinition.getDataBySelection) {
+					
+						this._bindSelectEvent(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+					} else {
+						if(widgetDefinition.graphType === 'exploratory'){
+							this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+						}
+					}						
+					
+				}
+			},
+			_disableEdit:function(widgetDefinition,widgetId){
+				var id = "li#" + widgetDefinition.widgetId;
+				var data;
+				var layout;
+				var config;
+				var chart;
+				var chartArea = this.element.find(id + " div.cprDashboardChart");
+				if (widgetDefinition.widgetType === 'chart') {
+					
+					data = widgetDefinition.widgetContent.data;
+					layout = widgetDefinition.widgetContent.layout;
+					config = widgetDefinition.widgetContent.config;
+					
+					config.editable=false;
 					widgetDefinition.widgetContent.config = config;				
 					this.renderNewChart(chartArea,data,layout,config);						
 					if (widgetDefinition.getDataBySelection) {
