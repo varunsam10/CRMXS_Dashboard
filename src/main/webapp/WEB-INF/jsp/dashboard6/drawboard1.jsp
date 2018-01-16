@@ -546,7 +546,7 @@ $(window).load(function() {
 								<label>From</label>
 								</div>
 								<div class="col-md-6">
-								<input class="date-picker" size="16" type="text" value="" id="from" name="from"/>
+								<input class="date-picker" size="16" type="text" value="" id="from2" name="from"/>
 								</div>
 								<hr>
 						     <!-- </div> -->
@@ -555,7 +555,7 @@ $(window).load(function() {
 								<label>To</label>
 							</div>
 							<div class="col-md-6">
-								<span><input class="date-picker" size="16" type="text" value="" id="to" name="to"/></span>
+								<span><input class="date-picker" size="16" type="text" value="" id="to2" name="to"/></span>
 							</div>							
 							<hr>
 							<hr>
@@ -565,7 +565,7 @@ $(window).load(function() {
 							
 							<div class="col-md-8">							
 									
-							<select id="country-select" multiple="multiple">					            
+							<select id="countries-select" multiple="multiple">					            
 					            <option value="US">United States</option>
 					            <option value="UK">United Kingdom</option>
 					         	<option value="Afghanistan">Afghanistan</option>
@@ -759,6 +759,13 @@ $(document).ready(function() {
           maxHeight: 200
 		 
 	 });
+	
+	 $('#countries-select').multiselect({
+		  includeSelectAllOption: true,
+         enableFiltering: true,
+         maxHeight: 200
+		 
+	 });
 	 
 		  var dateFormat = "mm/dd/yy",
 		      from = $("#from").datepicker({
@@ -789,6 +796,37 @@ $(document).ready(function() {
 		      .on( "change", function() {
 		        from.datepicker( "option", "maxDate", getDate( this ) );
 		      });
+		  
+		  var dateFormat2 = "mm/dd/yy",
+	      from = $("#from2").datepicker({
+	          showOn: "button",
+	          buttonImage: 'assets/dash6/css/calendar-range.png',
+	          buttonImageOnly: true,
+	          buttonText: "Select date",
+	          defaultDate: "+1w",
+	          changeMonth: true,
+	          changeYear: true,
+	          numberOfMonths: 1,
+	          showAnim: "drop"
+	        })
+	        .on( "change", function() {
+	          to.datepicker( "option", "minDate", getDate( this ));
+	        }),
+	      to = $( "#to2").datepicker({
+	    	showOn: "button",
+	        buttonImage: 'assets/dash6/css/calendar-range.png',
+	        buttonImageOnly: true,
+	     	buttonText: "Select date",
+	    	defaultDate: "+1w",
+	        changeMonth: true,
+	        changeYear: true,
+	        numberOfMonths: 1,
+	        showAnim: "drop"
+	      })
+	      .on( "change", function() {
+	        from.datepicker( "option", "maxDate", getDate( this ) );
+	      });
+	 
 		 
 		    function getDate( element ) {
 		      var date;
