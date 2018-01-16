@@ -115,7 +115,7 @@
 						$(".cprDashboardWidgetHeader div.cprDashboard-iconcustom.cprDashboard-settings ").hide();
 						$(".cprDashboardWidgetHeader div.cprDashboard-iconcustomInteract ").hide();
 						$(".cprDashboardWidgetHeader div.cprDashboard-iconcustomFilter").hide();
-						
+						$(".cprDashboardWidgetHeader div.cprDashboard-iconcustomEdit").hide();
 						self._trigger("widgetMaximized", null, {
 							"widgetDefinition" : widgetDefinition
 						});
@@ -126,6 +126,7 @@
 						$(".cprDashboardWidgetHeader div.cprDashboard-iconcustom.cprDashboard-settings ").show();
 						$(".cprDashboardWidgetHeader div.cprDashboard-iconcustomInteract ").show();
 						$(".cprDashboardWidgetHeader div.cprDashboard-iconcustomFilter").show();
+						$(".cprDashboardWidgetHeader div.cprDashboard-iconcustomEdit").show();
 						self._trigger("widgetMinimized", null, {
 							"widgetDefinition" : widgetDefinition
 						});
