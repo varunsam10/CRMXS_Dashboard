@@ -58,7 +58,7 @@ public class Dashboard6Controller {
 		//System.out.println("the filtered data widgetID:"+filterdata);
 		Gson gson = new Gson();
 		FilterData filterData = gson.fromJson(filterdata, FilterData.class);
-		System.out.println("The filter is "+filterData.getToDate());
+		System.out.println("The filter is "+filterData.getToDate() + "\t" +filterData.getFromDate() + "\t" + filterData.getCountries()[0]);
 		String filteredWidgetData = dashboardDAO.getDateFilteredData(filterData);
 		 
 		 return filteredWidgetData;
