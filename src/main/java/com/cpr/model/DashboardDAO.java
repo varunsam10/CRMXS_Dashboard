@@ -138,6 +138,7 @@ public class DashboardDAO {
 			//List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql, fromDate, toDate,countryInFilter);
 			System.out.println(rows.size());
 			resultSize = rows.size();
+			List<GraphParams> graphParamsList = new ArrayList<GraphParams>();
 			
 			for(Map<String, Object> rs : rows) {				
 				GraphParams graphParam = new GraphParams();
@@ -146,18 +147,20 @@ public class DashboardDAO {
 				String country = rs.get("country").toString();
 				System.out.println(country);
 				if(countryMap.isEmpty()){
-					List<GraphParams> graphParamsList = new ArrayList<GraphParams>();
+				
 					graphParamsList.add(graphParam);       
 					
 					countryMap.put(country,graphParamsList);
 				}else{				
 					if(countryMap.containsKey(country)){
 						countryMap.get(country).add(graphParam);
-					}					
+					}else{		
+						List<GraphParams> graphParamsListNew = new ArrayList<GraphParams>();
+						graphParamsListNew.add(graphParam);       
+						countryMap.put(country,graphParamsListNew);
+					}
 				}											
 			}			
-		}else{
-			
 		}		
 		String widgetContentConfig = getFilteredWidgetConfig(resultSize,countryMap);	
 		return widgetContentConfig;
@@ -165,11 +168,11 @@ public class DashboardDAO {
 	
 	public String getFilteredWidgetConfig(Integer resultSize,Map<String,List<GraphParams>> countryMap){
 		ArrayList<WidgetData> widgetsDataList = new ArrayList<WidgetData>();
-		Object[] xaxis =  new Object[resultSize]; 
-		Object[] yaxis  =  new Object[resultSize];
 		Set<String> keys = countryMap.keySet();
 		int i=0;
 		for(String country : keys){
+			Object[] xaxis =  new Object[resultSize]; 
+			Object[] yaxis  =  new Object[resultSize];
 			List<GraphParams> graphParamList = countryMap.get(country);
 			for(int j=0;j<graphParamList.size();j++){
 				xaxis[j] = graphParamList.get(j).getxValue();

@@ -995,7 +995,7 @@ myExampleData.plotlylineconfig = {
 	displayModeBar: 'true'
 };
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-//plotly simple line chart sample data starts here 
+//plotly simple line chart  with filter sample data starts here 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 var trace1 = {
 	x : ['2010-02-05', '2010-05-23','2010-07-02','2011-01-03','2011-06-18',

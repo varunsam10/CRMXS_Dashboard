@@ -762,7 +762,7 @@
 					layout = widgetDefinition.widgetContent.layout;
 					config = widgetDefinition.widgetContent.config;
 					
-					this.redrawChart(chartArea,data,layout,config);
+					this.renderNewChart(chartArea,data,layout,config);
 				}
 				
 			},
