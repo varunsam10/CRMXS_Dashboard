@@ -85,13 +85,15 @@ public class DashboardDAO {
 		List<Map<String, Object>> rows = null;
 		//String[] countriesInFilter = null;
 		Integer resultSize =0;
+		java.util.Date parsedFrom=null;
+		java.util.Date parsedTo=null;
 		Map<String,List<GraphParams>>countryMap =new HashMap<String,List<GraphParams>>();
 		if(null!=filterData.getFromDate() && null!= filterData.getToDate() && (filterData.getCountries().length != 0)){
 			
 			try{
 						SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
-						java.util.Date parsedFrom = format.parse(filterData.getFromDate());
-						java.util.Date parsedTo = format.parse(filterData.getToDate());
+						parsedFrom = format.parse(filterData.getFromDate());
+						parsedTo = format.parse(filterData.getToDate());
 						System.out.println(parsedFrom + "\t" + parsedTo);
 						fromDate = new Date(parsedFrom.getTime());
 						toDate  = new Date(parsedTo.getTime());
@@ -162,11 +164,11 @@ public class DashboardDAO {
 				}											
 			}			
 		}		
-		String widgetContentConfig = getFilteredWidgetConfig(resultSize,countryMap);	
+		String widgetContentConfig = getFilteredWidgetConfig(resultSize,countryMap,parsedFrom,parsedTo);	
 		return widgetContentConfig;
 	}
 	
-	public String getFilteredWidgetConfig(Integer resultSize,Map<String,List<GraphParams>> countryMap){
+	public String getFilteredWidgetConfig(Integer resultSize,Map<String,List<GraphParams>> countryMap,java.util.Date parsedFrom,java.util.Date parsedTo){
 		ArrayList<WidgetData> widgetsDataList = new ArrayList<WidgetData>();
 		Set<String> keys = countryMap.keySet();
 		int i=0;
@@ -182,11 +184,14 @@ public class DashboardDAO {
 			i++;
 			widgetsDataList.add(trace);
 		}
-		
-		
+		String [] range =new String[2];
+		if(null!=parsedFrom && null!=parsedTo){
+			range[0]=parsedFrom.toString();
+			range[1]=parsedTo.toString();
+		}
 		TitleFont x_TitleFont = new TitleFont("Courier New, monospace", 18, "#7f7f7f");
-		AxisLayout x_AxisLayout = new AxisLayout("Age", x_TitleFont);
-
+		AxisLayout x_AxisLayout = new AxisLayout("Age", x_TitleFont,range);
+		//AxisLayout x_AxisLayout = new AxisLayout("Age", x_TitleFont);
 		TitleFont y_TitleFont = new TitleFont("Courier New, monospace", 18, "#7f7f7f");
 		AxisLayout y_AxisLayout = new AxisLayout("Number of Customers", y_TitleFont);
 
