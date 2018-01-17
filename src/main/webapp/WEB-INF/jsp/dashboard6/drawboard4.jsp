@@ -61,7 +61,8 @@
 <script src="assets/dash6/js/Dropdown/dropdown.js" type="text/javascript"></script>
 
 <script src="assets/dash6/js/Dropdown/bootstrap-multiselect.js" type="text/javascript"></script>
-<link href="assets/dash6/css/bootstrap-multiselect.css" rel="stylesheet" type="text/css">	
+<link href="assets/dash6/css/bootstrap-multiselect.css" rel="stylesheet" type="text/css">
+<link href="assets/dash6/css/bootstrap-editable.css" rel="stylesheet" type="text/css">
 
 <script type="text/javascript">
 // Wait for window load
@@ -71,8 +72,6 @@ $(window).load(function() {
 		
 });
 </script> 
-
-
 <div class="se-pre-con"></div>
 <body class="page-md">
 	<!-- BEGIN HEADER -->
@@ -545,7 +544,7 @@ $(window).load(function() {
 								<label>From</label>
 								</div>
 								<div class="col-md-6">
-								<input class="date-picker" size="16" type="text" value="" id="from" name="from"/>
+								<input class="date-picker" size="16" type="text" value="" id="from2" name="from"/>
 								</div>
 								<hr>
 						     <!-- </div> -->
@@ -554,7 +553,7 @@ $(window).load(function() {
 								<label>To</label>
 							</div>
 							<div class="col-md-6">
-								<span><input class="date-picker" size="16" type="text" value="" id="to" name="to"/></span>
+								<span><input class="date-picker" size="16" type="text" value="" id="to2" name="to"/></span>
 							</div>							
 							<hr>
 							<hr>
@@ -564,7 +563,7 @@ $(window).load(function() {
 							
 							<div class="col-md-8">							
 									
-							<select id="country-select" multiple="multiple">					            
+							<select id="countries-select" multiple="multiple">					            
 					            <option value="US">United States</option>
 					            <option value="UK">United Kingdom</option>
 					         	<option value="Afghanistan">Afghanistan</option>
@@ -741,6 +740,7 @@ $(window).load(function() {
 <script src="assets/dash6/js/datatableNw/buttons.print.min.js"></script>
 <script src="assets/dash6/js/datatableNw/buttons.html5.min.js"></script>
 <script src="assets/dash6/js/datatableNw/buttons.flash.min.js"></script>
+<script src="assets/dash6/js/bootstrap-editable.min.js"></script>
 
 <script type="text/javascript">
 $(document).ready(function() {
@@ -755,6 +755,13 @@ $(document).ready(function() {
 		  includeSelectAllOption: true,
           enableFiltering: true,
           maxHeight: 200
+		 
+	 });
+	
+	 $('#countries-select').multiselect({
+		  includeSelectAllOption: true,
+         enableFiltering: true,
+         maxHeight: 200
 		 
 	 });
 	 
@@ -787,6 +794,37 @@ $(document).ready(function() {
 		      .on( "change", function() {
 		        from.datepicker( "option", "maxDate", getDate( this ) );
 		      });
+		  
+		  var dateFormat2 = "mm/dd/yy",
+	      from = $("#from2").datepicker({
+	          showOn: "button",
+	          buttonImage: 'assets/dash6/css/calendar-range.png',
+	          buttonImageOnly: true,
+	          buttonText: "Select date",
+	          defaultDate: "+1w",
+	          changeMonth: true,
+	          changeYear: true,
+	          numberOfMonths: 1,
+	          showAnim: "drop"
+	        })
+	        .on( "change", function() {
+	          to.datepicker( "option", "minDate", getDate( this ));
+	        }),
+	      to = $( "#to2").datepicker({
+	    	showOn: "button",
+	        buttonImage: 'assets/dash6/css/calendar-range.png',
+	        buttonImageOnly: true,
+	     	buttonText: "Select date",
+	    	defaultDate: "+1w",
+	        changeMonth: true,
+	        changeYear: true,
+	        numberOfMonths: 1,
+	        showAnim: "drop"
+	      })
+	      .on( "change", function() {
+	        from.datepicker( "option", "maxDate", getDate( this ) );
+	      });
+	 
 		 
 		    function getDate( element ) {
 		      var date;
@@ -804,7 +842,7 @@ $(document).ready(function() {
 //dashboard json data
 //this is the data format that the dashboard framework expects
 //**********************************************
-	var dashboardJSON = [
+var dashboardJSON = [
 		{
 			widgetTitle : "Age group",
 			widgetId : "id019",
@@ -890,14 +928,16 @@ $(document).ready(function() {
 			widgetContentNew2 : {
 				data : myExampleData.plotlylinedata3,
 			}
-		}];
-	//console.log(dashboardJSON);
-	//basic initialization example mn.sDashboard
-	$("#cprDashboard").cprDashboard({
-		dashboardData : dashboardJSON
-	});
-	//	$("#cprDashboard").cprDashboard("widgetcallCheck","sree");
-	//Toastr settings
+}];
+	
+//console.log(dashboardJSON);
+//basic initialization example mn.sDashboard
+$("#cprDashboard").cprDashboard({
+	dashboardData : dashboardJSON
+});
+//	$("#cprDashboard").cprDashboard("widgetcallCheck","sree");
+
+//Toastr settings
 	toastr.options = {
 		"closeButton" : false,
 		"debug" : false,
@@ -933,6 +973,8 @@ $(document).ready(function() {
 	console.log("table row clicked, for widget: "+ data.selectedWidgetId);
 	}
 	});
+
+	
 	//plot selected event example
 	$("#cprDashboard").bind("cprdashboardplotselected",function(e, data) {
 		notification('info','A plot has been selected within a chart widget!');
@@ -963,7 +1005,7 @@ $(document).ready(function() {
 			console.log("chart clicked, for widget: " + data.selectedWidgetId);
 		}
 	});
-
+	
 	//widget order changes event example
 	$("#cprDashboard").bind("cprdashboardorderchanged",function(e, data) {
 	/* 	if (console) {

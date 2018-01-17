@@ -842,72 +842,22 @@ $(document).ready(function() {
 //dashboard json data
 //this is the data format that the dashboard framework expects
 //**********************************************
-var dashboardJSON = [
-			//Drawboard 3
-			{
-				widgetTitle: "Sales Figures",
-				widgetId: "id015",
-				widgetType: "chart",
-				widgetClick:"details",
-				widgetEdit:"disable",
-				graphType: "exploratory",
-				widgetDimension: "normal",
-				chartType: "pie",
-				widgetContent: {
-					data: myExampleData.plotlypiedata,
-					layout: myExampleData.plotlypielayout,
-					config: myExampleData.plotlypieconfig
-				}
-			},
-			{
-				widgetTitle: "Age group",
-				widgetId: "id016",
-				widgetClick:"details",
-				widgetEdit:"disable",
-				widgetType: "chart",
-				graphType: "exploratory",
-				widgetDimension: "normal",
-				chartType: "bubble",
-				enableRefresh: true,
-				refreshCallBack : function(widgetId){
-					//Inside refresh callback
-					//notification('info', 'Inside the refresh callback of '+widgetId+'!');
-					var refreshedData = {
-						data: myExampleData.plotlyRefreshBubbleData,
-						layout: myExampleData.plotlyBubbleLayout,
-						config: myExampleData.plotlybarconfig
-					};
-					return refreshedData;
-				},
-				widgetContent: {
-					data: myExampleData.plotlyBubbleData,
-					layout: myExampleData.plotlyBubbleLayout,
-					config: myExampleData.plotlybarconfig
-				}
-				},{
-				widgetTitle: "Revenue",
-				widgetId: "id017",
-				widgetType: "chart",
-				widgetClick:"details",
-				widgetEdit:"disable",
-				graphType: "exploratory",
-				widgetDimension: "large",
-				chartType: "bar",
-				enableRefresh: true,
-				refreshCallBack : function(widgetId){
-				var refreshedData = {
-					data: myExampleData.barGroupRefreshChartData,
-					layout: myExampleData.barGroupChartLayout,
-					config: myExampleData.plotlybarconfig
-				};
-				return refreshedData;
-				},
-				widgetContent: {
-					data: myExampleData.barGroupChartData,
-					layout: myExampleData.barGroupChartLayout,
-					config: myExampleData.plotlybarconfig
-				}
-			}];
+	var dashboardJSON = [
+		{
+			widgetTitle : "Revenue with filter",
+			widgetId : "id031",
+			widgetType : "chart",	
+			widgetClick:"disable",
+			widgetEdit:"disable",
+			graphType : "exploratory",
+			widgetDimension : "large",
+			chartType : "line",
+			widgetContent: {
+				data : myExampleData.plotlylineFilterdata,
+				layout : myExampleData.plotlylineFilterlayout,
+				config : myExampleData.plotlylineconfig
+			}
+		}];
 
 	
 //console.log(dashboardJSON);
