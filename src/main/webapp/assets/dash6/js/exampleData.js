@@ -345,6 +345,7 @@ myExampleData.dataSetsp = [
 	    "value": 2673400
 	  }, {
 	    "id": "US-CA",
+	    title:"California,No:of Customers:340",
 	    "value": 34871648
 	  }, {
 	    "id": "US-CO",
@@ -357,9 +358,11 @@ myExampleData.dataSetsp = [
 	    "value": 983600
 	  }, {
 	    "id": "US-FL",
+	    title:"Florida,No:of Customers:100",
 	    "value": 12982378
 	  }, {
 	    "id": "US-GA",
+	    title:"Georgia,No:of Customers:101",
 	    "value": 12186453
 	  }, {
 	    "id": "US-HI",
@@ -369,6 +372,7 @@ myExampleData.dataSetsp = [
 	    "value": 3293953
 	  }, {
 	    "id": "US-IL",
+	    title:"Illinios,No:of Customers:420",
 	    "value": 42419293
 	  }, {
 	    "id": "US-IN",
@@ -396,6 +400,7 @@ myExampleData.dataSetsp = [
 	    "value": 3349097
 	  }, {
 	    "id": "US-MI",
+	    title:"Michigan,No:of Customers:90",
 	    "value": 6938444
 	  }, {
 	    "id": "US-MN",
@@ -405,15 +410,19 @@ myExampleData.dataSetsp = [
 	    "value": 2844658
 	  }, {
 	    "id": "US-MO",
+	    title:"Missouri,No:of Customers:99",
 	    "value": 5595211
 	  }, {
 	    "id": "US-MT",
+	    title:"Montana,No:of Customers:120",
 	    "value": 7702195
 	  }, {
 	    "id": "US-NE",
+	    title:"Nebraska,No:of Customers:550",
 	    "value": 55711263
 	  }, {
 	    "id": "US-NV",
+	    title:"Nevada,No:of Customers:199",
 	    "value": 17698257
 	  }, {
 	    "id": "US-NH",
@@ -426,15 +435,18 @@ myExampleData.dataSetsp = [
 	    "value": 1819046
 	  }, {
 	    "id": "US-NY",
+	    title:"New York,No:of Customers:189",
 	    "value": 18976457
 	  }, {
 	    "id": "US-NC",
+	    title:"North Carolina,No:of Customers:100",
 	    "value": 8049313
 	  }, {
 	    "id": "US-ND",
 	    "value": 642200
 	  }, {
 	    "id": "US-OH",
+	    title:"Ohio,No:of Customers:113",
 	    "value": 11353140
 	  }, {
 	    "id": "US-OK",
@@ -444,6 +456,7 @@ myExampleData.dataSetsp = [
 	    "value": 3421399
 	  }, {
 	    "id": "US-PA",
+	    title:"Pennsylvania,No:of Customers:122",
 	    "value": 12281054
 	  }, {
 	    "id": "US-RI",
@@ -459,6 +472,7 @@ myExampleData.dataSetsp = [
 	    "value": 5689283
 	  }, {
 	    "id": "US-TX",
+	    title:"Texas,No:of Customers:210",
 	    "value": 20851820
 	  }, {
 	    "id": "US-UT",
@@ -468,9 +482,11 @@ myExampleData.dataSetsp = [
 	    "value": 608827
 	  }, {
 	    "id": "US-VA",
+	    title:"Virginia,No:of Customers:102",
 	    "value": 7078515
 	  }, {
 	    "id": "US-WA",
+	    title:"Washinton,No:of Customers:100",
 	    "value": 5894121
 	  }, {
 	    "id": "US-WV",
@@ -484,41 +500,53 @@ myExampleData.dataSetsp = [
 	  }],
 	  [{
 		    id: "US-AK",
-		    value: 226932
+		    title:"Alaska,No: of Customers:256",
+		    value: 2269326
 		  }, {
 		    id: "US-CA",
-		    value: 123871648
+		    title:"California,No: of Customers:120",
+		    value: 1238716
 		  }, {
 		    id: "US-FL",
-		    value: 112982378
+		    title:"Florida,No: of Customers:112",
+		    value: 1129823
 		  }, {
 		    id: "US-IL",
-		    value: 222419293
+		    title:"Illinous,No:of Customers:220",
+		    value: 2224192
 		  }, {
 		    id: "US-NY",
-		    value: 14976457
+		    title:"New York,No:of Customers:200",
+		    value: 1497645
 		  }, {
 		    id: "US-TX",
+		    title:"Texas,No:of Customers:280",
 		    value: 2851820
 	}],
 	 [{
 		    id: "US-AK",
-		    value: 2431233
+		    value: 2431233,
+		    title:"Alaska, No:of Customers:240",
 		  }, {
 		    id: "US-CA",
-		    value: 25646466
+		    value: 25646466,
+		    title:"California,No:of Customers:256",
 		  }, {
 		    id: "US-FL",
-		    value: 31231333
+		    value: 31231333,
+		    title:"Florida, No:of Customers:213",
 		  }, {
 		    id: "US-IL",
-		    value: 24584796
+		    value: 24584796,
+		    title:"Illinous,No:of Customers:250",
 		  }, {
 		    id: "US-NY",
-		    value: 41213132
+		    value: 41213132,
+		    title:"New York,No:of Customers:420",
 		  }, {
 		    id: "US-TX",
-		    value: 42356464
+		    value: 42356464,
+		    title:"Texas,No:of Customers:430",
 		  }]
 ];
 
