@@ -8,6 +8,13 @@
     color: white !important;
     background-color: #2c3e50 !important;    
 }
+.buttonFilterModal{
+	
+	border-radius: 24px!important;
+    border: none;
+    background-color: #32c5d2!important;
+    color: #FFF!important;
+}
 .control-label {
     margin-top: 1px;
     font-weight: 400;

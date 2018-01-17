@@ -524,8 +524,9 @@ $(window).load(function() {
 					</div>
 					<hr>					
 					<div class="modal-footer">
-						<button class="btn dark btn-outline" data-dismiss="modal" aria-hidden="true">Close</button>
-						<button id="applyFilter" class="btn green" data-dismiss="modal">Apply Filter</button>
+						<button class="btn dark btn-outline buttonFilterModal" data-dismiss="modal" aria-hidden="true">Close</button>
+						<button id="resetFilter" class="btn green buttonFilterModal" data-dismiss="modal">Reset</button>
+						<button id="applyFilter" class="btn green buttonFilterModal" data-dismiss="modal">Apply Filter</button>
 				   </div>
 			</div>
 			</div>
@@ -985,6 +986,20 @@ $("#cprDashboard").cprDashboard({
 		  swal(themeSelected +" have been applied !", "", "success");
 		}
 	});
+	$('#resetFilter').on('click', function (e) {
+		e.preventDefault();
+		var widgetId =$("#fgwidgetId").text();
+		var fromDate = $("#from").val();
+		var toDate = $("#to").val();
+		var countriesSelected = $("#country-select").val();
+		var filterData ={
+				fromDate:fromDate,
+				toDate:toDate,
+				countries:countriesSelected,
+				widgetId:widgetId
+		};
+		$("#cprDashboard").cprDashboard("resetFilter",widgetId);			
+	});	
 	$('#applyFilter').on('click', function (e) {
 		e.preventDefault();
 		var widgetConfig;

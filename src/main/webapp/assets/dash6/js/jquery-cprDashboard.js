@@ -745,6 +745,23 @@
 			
 			
 			},
+			resetFilter:function(widgetId) {				
+				var widgetDefinition = this._getWidgetContentForId(widgetId, this);
+				var id = "li#" + widgetDefinition.widgetId;
+				var chartArea;
+				var data;
+				var layout;
+				var config;
+				var chart;
+				chartArea = this.element.find(id + " div.cprDashboardChart");				
+				if (widgetDefinition.widgetType === 'chart') {					
+					data = widgetDefinition.widgetContent.data;
+					layout = widgetDefinition.widgetContent.layout;
+					config = widgetDefinition.widgetContent.config;					
+					this.renderNewChart(chartArea,data,layout,config);
+				}
+				
+			},
 			applyFilter:function(widgetConfig,widgetId) {
 				
 				var widgetDefinition = this._getWidgetContentForId(widgetId, this);
