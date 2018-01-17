@@ -1,11 +1,9 @@
 package com.cpr.model;
 
 import java.sql.Date;
-import java.sql.Array;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -94,10 +92,10 @@ public class DashboardDAO {
 						SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
 						parsedFrom = format.parse(filterData.getFromDate());
 						parsedTo = format.parse(filterData.getToDate());
-						System.out.println(parsedFrom + "\t" + parsedTo);
+						//System.out.println(parsedFrom + "\t" + parsedTo);
 						fromDate = new Date(parsedFrom.getTime());
 						toDate  = new Date(parsedTo.getTime());
-						System.out.println(fromDate + "\t" + toDate);
+						//System.out.println(fromDate + "\t" + toDate);
 			}catch(ParseException ex){
 				
 			} catch (java.text.ParseException e) {
@@ -108,7 +106,7 @@ public class DashboardDAO {
 			countryInFilter = filterData.getCountries();
 			NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(dataSource);
 			
-			System.out.println(fromDate + "\t" + toDate + "\t" + countryInFilter);
+			//System.out.println(fromDate + "\t" + toDate + "\t" + countryInFilter);
 			if(filterData.getCountries().length == 0)
 			{
 				sql = "SELECT * FROM crmxsdashboard.redemption where date >= ? and date <= ?  order by date asc";
@@ -119,9 +117,9 @@ public class DashboardDAO {
 			{
 				sql = "SELECT * FROM crmxsdashboard.redemption where date >= (:fromDate) and date <= (:toDate) and country IN (:countries) order by date asc";
 				List<String> countriesList = Arrays.asList(countryInFilter);
-				for(String c: countriesList){
+				/*for(String c: countriesList){
 					System.out.println(c);
-				}
+				}*/
 				MapSqlParameterSource parameters = new MapSqlParameterSource();
 				parameters.addValue("countries", countriesList);
 				parameters.addValue("fromDate", fromDate);
@@ -138,7 +136,7 @@ public class DashboardDAO {
 				
 				
 			//List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql, fromDate, toDate,countryInFilter);
-			System.out.println(rows.size());
+			//System.out.println(rows.size());
 			resultSize = rows.size();
 			List<GraphParams> graphParamsList = new ArrayList<GraphParams>();
 			
@@ -147,7 +145,7 @@ public class DashboardDAO {
 				graphParam.setyValue(rs.get("revenue").toString());
 				graphParam.setxValue(rs.get("date").toString());
 				String country = rs.get("country").toString();
-				System.out.println(country);
+				//System.out.println(country);
 				if(countryMap.isEmpty()){
 				
 					graphParamsList.add(graphParam);       

@@ -327,6 +327,11 @@
                                         	<a href="drawboard5.html"  class="nav-link "><i class="icon-check"></i>
                                         	<span class="title">Customer location</span>
                                        		</a>
+                                        </li>  
+                                         <li class="nav-item  ">
+                                        	<a href="drawboard6.html"  class="nav-link "><i class="icon-check"></i>
+                                        	<span class="title">Filters on Widget</span>
+                                       		</a>
                                         </li>                                                     
                                   
                                 </ul>

@@ -108,7 +108,11 @@ public class Dashboard6Controller {
 		// Click for graph type
 		return "dashboard6/drawboard5";
 	}	
-
+	@RequestMapping("/drawboard6")
+	public String initializeFormDrawboard6() {
+		// Click for graph type
+		return "dashboard6/drawboard6";
+	}	
 	@RequestMapping("/graphDetails")
 	public String graphDetailsPage() {
 
