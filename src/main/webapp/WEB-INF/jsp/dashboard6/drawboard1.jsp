@@ -376,8 +376,8 @@ $(window).load(function() {
 					</form>
 				</div>
 				<div class="modal-footer">
-					<a href="javascript:;" class="btn grey-salsa btn-outline" data-dismiss="modal">Close</a>
-					<button id="applyChanges" class="btn green">
+					<a href="javascript:;" class="btn grey-salsa btn-outline buttonFilterModal" data-dismiss="modal">Close</a>
+					<button id="applyChanges" class="btn green buttonFilterModal">
 						<i class="fa fa-check"></i> Apply changes</button>
 				</div>
 			</div>
@@ -418,8 +418,8 @@ $(window).load(function() {
 					</form>
 				</div>
 				<div class="modal-footer">
-					<a href="javascript:;" class="btn grey-salsa btn-outline" data-dismiss="modal">Close</a>
-					<button id="applyThemes" class="btn green">
+					<a href="javascript:;" class="btn grey-salsa btn-outline buttonFilterModal" data-dismiss="modal">Close</a>
+					<button id="applyThemes" class="btn green buttonFilterModal">
 						<i class="fa fa-check"></i> Apply changes</button>
 				</div>
 			</div>

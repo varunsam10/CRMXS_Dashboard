@@ -838,8 +838,7 @@
 					
 				}
 			},
-			changeChart: function(changeChartObject) {
-			
+			changeChart: function(changeChartObject) {			
 				var widgetDefinition = this._getWidgetContentForId(changeChartObject.widgetId, this);
 				var id = "li#" + widgetDefinition.widgetId;
 				var chartArea;
@@ -847,10 +846,8 @@
 				var layout;
 				var config;
 				var chart;
-				chartArea = this.element.find(id + " div.cprDashboardChart");
-				
-				if (widgetDefinition.widgetType === 'chart') {
-					
+				chartArea = this.element.find(id + " div.cprDashboardChart");				
+				if (widgetDefinition.widgetType === 'chart') {					
 					data = widgetDefinition.widgetContent.data;
 					layout = widgetDefinition.widgetContent.layout;
 					config = widgetDefinition.widgetContent.config;
@@ -891,17 +888,22 @@
 					}					
 					else if(widgetDefinition.chartType === 'line' && changeChartObject.chartTo ==='barline'
 						||widgetDefinition.chartType === 'bar' && changeChartObject.chartTo ==='barline'
-						||widgetDefinition.chartType === 'area' && changeChartObject.chartTo ==='barline'){ 
+						||widgetDefinition.chartType === 'area' && changeChartObject.chartTo ==='barline'
+						||widgetDefinition.chartType === 'column' && changeChartObject.chartTo ==='barline'){ 
 						var widgetLength =widgetDefinition.widgetContent.data.length;
 						if(widgetLength === 2)
 						{
 							widgetDefinition.widgetContent.data[0].type = 'bar';
+							widgetDefinition.widgetContent.data[0].orientation = null;
 							widgetDefinition.widgetContent.data[1].type = 'scatter';
 							
 						}	else if(widgetLength === 3){
 							widgetDefinition.widgetContent.data[0].type = 'bar';
+							widgetDefinition.widgetContent.data[0].orientation = null;
 							widgetDefinition.widgetContent.data[1].type = 'scatter';
-							widgetDefinition.widgetContent.data[2].type = 'bar';						
+							widgetDefinition.widgetContent.data[1].fill = null;
+							widgetDefinition.widgetContent.data[2].type = 'bar';
+							widgetDefinition.widgetContent.data[2].orientation = null;
 						}
 						if(widgetDefinition.chartType === 'bar'){
 						if(widgetDefinition.widgetContent.layout.length!=0)
