@@ -15,7 +15,7 @@ Cpr Dashboard also support maps which are an extension of the amCharts graphing 
 You can deploy the application to tomcat and browse the application in the following url
 
 
-Access the application at: http://localhost:8080/Crmxs-Dashboard/
+Access the application at: http://ec2-18-218-153-216.us-east-2.compute.amazonaws.com:8080/Crmxs-Dashboard/
 ##Dependencies
 cprDashboard depends on the following libraries
 •	Jquery
