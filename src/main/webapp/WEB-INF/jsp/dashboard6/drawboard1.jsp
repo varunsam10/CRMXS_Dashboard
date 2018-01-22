@@ -639,8 +639,6 @@ $(window).load(function() {
 				</div>
 				<div class="modal-footer">
 					<a href="javascript:;" class="btn grey-salsa btn-outline" data-dismiss="modal">Close</a>
-					<!-- <button id="applyThemes" class="btn green">
-						<i class="fa fa-check"></i> Apply changes</button> -->
 				</div>
 			</div>
 		</div>
@@ -804,7 +802,7 @@ $(document).ready(function() {
 	      });
 	 
 		 
-		    function getDate( element ) {
+		 function getDate( element ) {
 		      var date;
 		      try {
 		        date = $.datepicker.parseDate( dateFormat, element.value );
@@ -813,7 +811,7 @@ $(document).ready(function() {
 		      }
 		 
 		      return date;
-		    } 
+		 } 
 	
 //**********************************************//
 //dashboard json data
@@ -1258,7 +1256,7 @@ $("#cprDashboard").cprDashboard({
 });
 //	$("#cprDashboard").cprDashboard("widgetcallCheck","sree");
 //Toastr settings
-toastr.options = {
+	toastr.options = {
 		"closeButton" : false,
 		"debug" : false,
 		"newestOnTop" : false,
@@ -1274,7 +1272,7 @@ toastr.options = {
 		"hideEasing" : "linear",
 		"showMethod" : "fadeIn",
 		"hideMethod" : "fadeOut"
-}
+	}
 	function notification(type, message) {
 		if (type == 'success') {
 			toastr.success(message,'<i>Success</i>');

@@ -91,11 +91,9 @@ public class DashboardDAO {
 			try{
 						SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
 						parsedFrom = format.parse(filterData.getFromDate());
-						parsedTo = format.parse(filterData.getToDate());
-						//System.out.println(parsedFrom + "\t" + parsedTo);
+						parsedTo = format.parse(filterData.getToDate());					
 						fromDate = new Date(parsedFrom.getTime());
-						toDate  = new Date(parsedTo.getTime());
-						//System.out.println(fromDate + "\t" + toDate);
+						toDate  = new Date(parsedTo.getTime());						
 			}catch(ParseException ex){
 				
 			} catch (java.text.ParseException e) {
@@ -106,7 +104,6 @@ public class DashboardDAO {
 			countryInFilter = filterData.getCountries();
 			NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(dataSource);
 			
-			//System.out.println(fromDate + "\t" + toDate + "\t" + countryInFilter);
 			if(filterData.getCountries().length == 0)
 			{
 				sql = "SELECT * FROM crmxsdashboard.redemption where date >= ? and date <= ?  order by date asc";
@@ -117,19 +114,14 @@ public class DashboardDAO {
 			{
 				sql = "SELECT * FROM crmxsdashboard.redemption where date >= (:fromDate) and date <= (:toDate) and country IN (:countries) order by date asc";
 				List<String> countriesList = Arrays.asList(countryInFilter);
-				/*for(String c: countriesList){
-					System.out.println(c);
-				}*/
 				MapSqlParameterSource parameters = new MapSqlParameterSource();
 				parameters.addValue("countries", countriesList);
 				parameters.addValue("fromDate", fromDate);
 				parameters.addValue("toDate", toDate);
 				
-				//Map<String, List> paramMap = Collections.singletonMap("countries", countriesList);
-				
+				//Map<String, List> paramMap = Collections.singletonMap("countries", countriesList);				
 				//Map<String, Date> paramMap2 = Collections.singletonMap("fromDate", fromDate);
-				//Map<String, Date> paramMap3 = Collections.singletonMap("toDate", toDate);
-				
+				//Map<String, Date> paramMap3 = Collections.singletonMap("toDate", toDate);				
 				rows = template.queryForList(sql, parameters);
 				//rows = jdbcTemplate.queryForList(sql, fromDate, toDate,paramMap);
 			}
@@ -145,11 +137,8 @@ public class DashboardDAO {
 				graphParam.setyValue(rs.get("revenue").toString());
 				graphParam.setxValue(rs.get("date").toString());
 				String country = rs.get("country").toString();
-				//System.out.println(country);
-				if(countryMap.isEmpty()){
-				
-					graphParamsList.add(graphParam);       
-					
+				if(countryMap.isEmpty()){				
+					graphParamsList.add(graphParam);  
 					countryMap.put(country,graphParamsList);
 				}else{				
 					if(countryMap.containsKey(country)){
@@ -196,10 +185,8 @@ public class DashboardDAO {
 		WidgetLayout widgetLayout = new WidgetLayout("How old are they ?", x_AxisLayout, y_AxisLayout, true);
 
 		String[] modeBarButtonsToRemove = { "sendDataToCloud" };
-		WidgetConfig widgetConfig = new WidgetConfig(modeBarButtonsToRemove);
-		
-		WidgetContent widgetContent = new WidgetContent(widgetsDataList, widgetLayout, widgetConfig);
-		
+		WidgetConfig widgetConfig = new WidgetConfig(modeBarButtonsToRemove);		
+		WidgetContent widgetContent = new WidgetContent(widgetsDataList, widgetLayout, widgetConfig);		
 		Gson gson = new GsonBuilder().create();
 		JsonElement element = gson.toJsonTree(widgetContent);
 		String response = gson.toJson(element);

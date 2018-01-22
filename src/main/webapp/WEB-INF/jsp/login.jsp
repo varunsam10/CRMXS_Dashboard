@@ -147,27 +147,7 @@
   		-webkit-transition-duration: 0.6s; -moz-transition-duration: 0.6s; -o-transition-duration: 0.6s; transition-duration: 0.6s; -webkit-transition-property: -webkit-transform; -moz-transition-property: -moz-transform; -o-transition-property: -o-transform; transition-property: transform; overflow:hidden; 
 	}
 	.profile:hover	 { -webkit-transform:rotate(360deg); -moz-transform:rotate(360deg); -o-transform:rotate(360deg); }
-		#content form { margin: 0 20px 0 0px ; position: relative }
-		#content form input[type="text"],
-		#content form input[type="password"] {
-		-webkit-border-radius: 3px;
-		-moz-border-radius: 3px;
-		-ms-border-radius: 3px;
-		-o-border-radius: 3px;
-		border-radius: 3px;
-		-webkit-box-shadow: 0 1px 0 #fff, 0 -2px 5px rgba(0,0,0,0.08) inset;
-		-moz-box-shadow: 0 1px 0 #fff, 0 -2px 5px rgba(0,0,0,0.08) inset;
-		-ms-box-shadow: 0 1px 0 #fff, 0 -2px 5px rgba(0,0,0,0.08) inset;
-		-o-box-shadow: 0 1px 0 #fff, 0 -2px 5px rgba(0,0,0,0.08) inset;
-		box-shadow: 0 1px 0 #fff, 0 -2px 5px rgba(0,0,0,0.08) inset;	
-		background: #eae7e7 url(http://cssdeck.com/uploads/media/items/8/8bcLQqF.png) no-repeat;
-		border: 1px solid #c8c8c8;
-		color: #777;
-		font: 13px ;
-		margin: 0 0 10px;
-		padding: 15px 10px 15px 40px;
-		width: 89%;
-	}
+	
 	</style>
 	</head>
 	<body onload='document.f.j_username.focus();'>
