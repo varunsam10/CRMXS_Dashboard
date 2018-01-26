@@ -58,10 +58,9 @@ public class Dashboard6Controller {
 		//System.out.println("the filtered data widgetID:"+filterdata);
 		Gson gson = new Gson();
 		FilterData filterData = gson.fromJson(filterdata, FilterData.class);
-		System.out.println("The filter is "+filterData.getToDate());
+		//System.out.println("The filter is "+filterData.getToDate() + "\t" +filterData.getFromDate() + "\t" + filterData.getCountries()[0]);
 		String filteredWidgetData = dashboardDAO.getDateFilteredData(filterData);
-		 
-		 return filteredWidgetData;
+		return filteredWidgetData;
 	}
 /*	@RequestMapping(value = "/applyFiller", method = RequestMethod.POST)
 	public void applyFiller(){
@@ -108,7 +107,11 @@ public class Dashboard6Controller {
 		// Click for graph type
 		return "dashboard6/drawboard5";
 	}	
-
+	@RequestMapping("/drawboard6")
+	public String initializeFormDrawboard6() {
+		// Click for graph type
+		return "dashboard6/drawboard6";
+	}	
 	@RequestMapping("/graphDetails")
 	public String graphDetailsPage() {
 

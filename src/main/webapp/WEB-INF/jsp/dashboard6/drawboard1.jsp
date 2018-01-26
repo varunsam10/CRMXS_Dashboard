@@ -52,17 +52,15 @@
 <!-- C3 css -->
 <link href="assets/dash6/css/c3/c3.css" rel="stylesheet" />
 <link href="assets/dash6/global/plugins/bootstrap-sweetalert/sweetalert.css"	rel="stylesheet" type="text/css" /> 
+<link href="assets/dash6/css/bootstrap-multiselect.css" rel="stylesheet" type="text/css">
+<link href="assets/dash6/css/bootstrap-editable.css" rel="stylesheet" type="text/css">
 <!-- CPR Dashboard Custom     -->
 <!-- END HEAD -->
 <script src="assets/dash6/js/jqueryNw/jquery-1.12.4.js"	type="text/javascript"></script>
 <script src="assets/dash6/js/Dropdown/chosen.jquery.js"></script>
 <script src="assets/dash6/js/Dropdown/chosen.proto.js"></script>
-
 <script src="assets/dash6/js/Dropdown/dropdown.js" type="text/javascript"></script>
-
 <script src="assets/dash6/js/Dropdown/bootstrap-multiselect.js" type="text/javascript"></script>
-<link href="assets/dash6/css/bootstrap-multiselect.css" rel="stylesheet" type="text/css">	
-
 <script type="text/javascript">
 // Wait for window load
 $(window).load(function() {
@@ -70,12 +68,10 @@ $(window).load(function() {
 		$(".se-pre-con").fadeOut("slow");
 		
 });
-</script> 
-
-
+</script>
 <div class="se-pre-con"></div>
 <body class="page-md">
-	<!-- BEGIN HEADER -->
+<!-- BEGIN HEADER -->
 <header class="page-header">
 	<nav class="navbar" role="navigation">
 		<div class="container-fluid">
@@ -317,17 +313,14 @@ $(window).load(function() {
 					</a>
 				</div>
 			</div>
-
-			<!-- <script src="assets/dash6/js/Dropdown/chosen.jquery.min.js"></script> -->
-				
+			<!-- <script src="assets/dash6/js/Dropdown/chosen.jquery.min.js"></script> -->				
 	<div class="clearfix"></div>
 	<!-- END DASHBOARD STATS 1-->
 	<!-- BEGIN PAGE BASE CONTENT -->
 	<div class="content">
 	<div class="container-fluid">
 	<!--     CPR Dashboard -->
-	<ul id="cprDashboard">
-		</ul>
+	<ul id="cprDashboard"></ul>
 	</div>
 	<div id="changeChartModal" class="modal fade" role="dialog" aria-hidden="true">
 	<div class="modal-dialog">
@@ -348,7 +341,7 @@ $(window).load(function() {
 							<div class="col-sm-3 col-md-3">
 							<input type="checkbox" class="make-switch modal-input"  data-on-color="primary" data-off-color="danger" value="bar" id="bar"> </div>
 					   </div>
-						<div class="form-group  modal-group">
+					   <div class="form-group  modal-group">
 							<label class="control-label col-md-6">Pie chart</label>
 							<div class="col-sm-3 col-md-3">
 							<input type="checkbox"  class="make-switch modal-input" data-on-color="primary" data-off-color="danger" value="pie" id="pie"/>
@@ -383,14 +376,13 @@ $(window).load(function() {
 					</form>
 				</div>
 				<div class="modal-footer">
-					<a href="javascript:;" class="btn grey-salsa btn-outline" data-dismiss="modal">Close</a>
-					<button id="applyChanges" class="btn green">
+					<a href="javascript:;" class="btn grey-salsa btn-outline buttonFilterModal" data-dismiss="modal">Close</a>
+					<button id="applyChanges" class="btn green buttonFilterModal">
 						<i class="fa fa-check"></i> Apply changes</button>
 				</div>
 			</div>
 		</div>
-		</div>
-					
+		</div>					
 		<div id="changeThemeModal" class="modal fade" role="dialog" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -426,15 +418,14 @@ $(window).load(function() {
 					</form>
 				</div>
 				<div class="modal-footer">
-					<a href="javascript:;" class="btn grey-salsa btn-outline" data-dismiss="modal">Close</a>
-					<button id="applyThemes" class="btn green">
+					<a href="javascript:;" class="btn grey-salsa btn-outline buttonFilterModal" data-dismiss="modal">Close</a>
+					<button id="applyThemes" class="btn green buttonFilterModal">
 						<i class="fa fa-check"></i> Apply changes</button>
 				</div>
 			</div>
 			</div>
-		</div>
-					
-		 <div id="filterModal" class="modal fade" role="dialog" aria-hidden="true">
+		</div>					
+		<div id="filterModal" class="modal fade" role="dialog" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -464,9 +455,7 @@ $(window).load(function() {
 							<!-- </div> -->  
 							<!-- <div class="form-group"> -->							
 							<label class="col-md-4" style="padding-left:150px">Select Country</label>
-							
-							<div class="col-md-8">							
-									
+							<div class="col-md-8">	
 							<select id="country-select" multiple="multiple">					            
 					            <option value="US">United States</option>
 					            <option value="UK">United Kingdom</option>
@@ -525,8 +514,9 @@ $(window).load(function() {
 					</div>
 					<hr>					
 					<div class="modal-footer">
-						<button class="btn dark btn-outline" data-dismiss="modal" aria-hidden="true">Close</button>
-						<button id="applyFilter" class="btn green" data-dismiss="modal">Apply Filter</button>
+						<button class="btn dark btn-outline buttonFilterModal" data-dismiss="modal" aria-hidden="true">Close</button>
+						<button id="resetFilter" class="btn green buttonFilterModal" data-dismiss="modal">Reset</button>
+						<button id="applyFilter" class="btn green buttonFilterModal" data-dismiss="modal">Apply Filter</button>
 				   </div>
 			</div>
 			</div>
@@ -545,7 +535,7 @@ $(window).load(function() {
 								<label>From</label>
 								</div>
 								<div class="col-md-6">
-								<input class="date-picker" size="16" type="text" value="" id="from" name="from"/>
+								<input class="date-picker" size="16" type="text" value="" id="from2" name="from"/>
 								</div>
 								<hr>
 						     <!-- </div> -->
@@ -554,17 +544,15 @@ $(window).load(function() {
 								<label>To</label>
 							</div>
 							<div class="col-md-6">
-								<span><input class="date-picker" size="16" type="text" value="" id="to" name="to"/></span>
+								<span><input class="date-picker" size="16" type="text" value="" id="to2" name="to"/></span>
 							</div>							
 							<hr>
 							<hr>
 							<!-- </div> -->  
 							<!-- <div class="form-group"> -->							
 							<label class="col-md-4" style="padding-left:150px">Select Country</label>
-							
-							<div class="col-md-8">							
-									
-							<select id="country-select" multiple="multiple">					            
+							<div class="col-md-8">				
+							<select id="countries-select" multiple="multiple">					            
 					            <option value="US">United States</option>
 					            <option value="UK">United Kingdom</option>
 					         	<option value="Afghanistan">Afghanistan</option>
@@ -651,14 +639,11 @@ $(window).load(function() {
 				</div>
 				<div class="modal-footer">
 					<a href="javascript:;" class="btn grey-salsa btn-outline" data-dismiss="modal">Close</a>
-					<!-- <button id="applyThemes" class="btn green">
-						<i class="fa fa-check"></i> Apply changes</button> -->
 				</div>
 			</div>
 		</div>
 		</div>
-					
-			</div>
+		</div>
 		</div>
 		<!-- END PAGE BASE CONTENT -->
 	</div>
@@ -668,8 +653,7 @@ $(window).load(function() {
 	<a href="#index" class="go2top"> <i class="icon-arrow-up"></i>
 	</a>
 	<!-- END FOOTER -->
-	</div>
-	
+	</div>	
 <!-- END CONTAINER -->
 <!-- BEGIN CORE PLUGINS -->
 <!-- <script src="assets/dash6/global/plugins/jquery.min.js"	type="text/javascript"></script>  -->
@@ -679,16 +663,13 @@ $(window).load(function() {
 <script	src="assets/dash6/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
 <script src="assets/dash6/global/plugins/jquery.blockui.min.js"	type="text/javascript"></script>
 <!-- END CORE PLUGINS -->
-
  
 <!-- BEGIN PAGE LEVEL PLUGINS -->
 <script	src="assets/dash6/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
 <script	src="assets/dash6/global/plugins/bootstrap-sweetalert/sweetalert.js" type="text/javascript"></script>
-
 <script src="assets/dash6/global/plugins/moment.min.js"	type="text/javascript"></script>
 <script	src="assets/dash6/global/plugins/bootstrap-daterangepicker/daterangepicker.min.js" type="text/javascript"></script>
 <script src="assets/dash6/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
-
 <script src="assets/dash6/global/plugins/morris/morris.min.js"	type="text/javascript"></script>
 <script src="assets/dash6/global/plugins/morris/raphael-min.js"	type="text/javascript"></script>
 <script	src="assets/dash6/global/plugins/counterup/jquery.waypoints.min.js"	type="text/javascript"></script>
@@ -727,13 +708,11 @@ $(window).load(function() {
 <script src="assets/dash6/js/themeswitcher/jquery.themeswitcher.min.js" type="text/javascript"></script>
 <!-- load CPR dashboard widget library -->
 <script src="assets/dash6/js/jquery-cprDashboard.js" type="text/javascript"></script>
-
-
 <!-- sample data external script file -->
 <script src="assets/dash6/js/exampleData.js" type="text/javascript"></script>
 <!-- Datatable export function js files -->
 <script src="assets/dash6/js/datatableNw/jquery.dataTables.min.js"></script>
-
+<!-- Datatable js files -->
 <script src="assets/dash6/js/datatableNw/dataTables.buttons.min.js"></script>
 <script src="assets/dash6/js/datatableNw/jszip.min.js"></script>
 <script src="assets/dash6/js/datatableNw/pdfmake.min.js"></script>
@@ -741,7 +720,7 @@ $(window).load(function() {
 <script src="assets/dash6/js/datatableNw/buttons.print.min.js"></script>
 <script src="assets/dash6/js/datatableNw/buttons.html5.min.js"></script>
 <script src="assets/dash6/js/datatableNw/buttons.flash.min.js"></script>
-
+<script src="assets/dash6/js/bootstrap-editable.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
 	$(function() {
@@ -749,16 +728,20 @@ $(document).ready(function() {
 	/* $("#switcher").themeswitcher({
 		imgpath : "assets/dash6/css/images/",
 		loadTheme : "Cupertino"
-	});	 */
-	 
+	});	 */	 
 	 $('#country-select').multiselect({
 		  includeSelectAllOption: true,
           enableFiltering: true,
           maxHeight: 200
 		 
+	 });	
+	 $('#countries-select').multiselect({
+		  includeSelectAllOption: true,
+         enableFiltering: true,
+         maxHeight: 200
+		 
 	 });
-	 
-		  var dateFormat = "mm/dd/yy",
+	  var dateFormat = "mm/dd/yy",
 		      from = $("#from").datepicker({
 		          showOn: "button",
 		          buttonImage: 'assets/dash6/css/calendar-range.png',
@@ -787,8 +770,39 @@ $(document).ready(function() {
 		      .on( "change", function() {
 		        from.datepicker( "option", "maxDate", getDate( this ) );
 		      });
+		  
+	var dateFormat2 = "mm/dd/yy",
+	      from = $("#from2").datepicker({
+	          showOn: "button",
+	          buttonImage: 'assets/dash6/css/calendar-range.png',
+	          buttonImageOnly: true,
+	          buttonText: "Select date",
+	          defaultDate: "+1w",
+	          changeMonth: true,
+	          changeYear: true,
+	          numberOfMonths: 1,
+	          showAnim: "drop"
+	        })
+	        .on( "change", function() {
+	          to.datepicker( "option", "minDate", getDate( this ));
+	        }),
+	      to = $( "#to2").datepicker({
+	    	showOn: "button",
+	        buttonImage: 'assets/dash6/css/calendar-range.png',
+	        buttonImageOnly: true,
+	     	buttonText: "Select date",
+	    	defaultDate: "+1w",
+	        changeMonth: true,
+	        changeYear: true,
+	        numberOfMonths: 1,
+	        showAnim: "drop"
+	      })
+	      .on( "change", function() {
+	        from.datepicker( "option", "maxDate", getDate( this ) );
+	      });
+	 
 		 
-		    function getDate( element ) {
+		 function getDate( element ) {
 		      var date;
 		      try {
 		        date = $.datepicker.parseDate( dateFormat, element.value );
@@ -797,14 +811,13 @@ $(document).ready(function() {
 		      }
 		 
 		      return date;
-		    }  
-	 
+		 } 
 	
 //**********************************************//
 //dashboard json data
 //this is the data format that the dashboard framework expects
 //**********************************************
-	var dashboardJSON = [
+var dashboardJSON = [
 			{
 				widgetTitle : "Day Wise",
 				widgetId : "id001",
@@ -881,7 +894,6 @@ $(document).ready(function() {
 					config : myExampleData.plotlyareaconfig
 				}
 			},
-
 			{
 				widgetTitle : "Age group",
 				widgetId : "id006",
@@ -923,7 +935,6 @@ $(document).ready(function() {
 					config : myExampleData.plotlybubble2config
 				}
 			},
-
 			{
 				widgetTitle : "Revenue",
 				widgetId : "id008",
@@ -1218,13 +1229,13 @@ $(document).ready(function() {
 			}
 		}];
 	/* 	{
-	 widgetTitle: "Items Sold Grid",
-	 widgetId: "id010",
-	 widgetType: "grid",
-	 widgetContent:{
-	 data:myExampleData.tableGridSource,
-	 coloumns:myExampleData.GridColoumns,
-	 width:myExampleData.GridWidth
+	 		widgetTitle: "Items Sold Grid",
+	 		widgetId: "id010",
+	 		widgetType: "grid",
+			widgetContent:{
+	 		data:myExampleData.tableGridSource,
+	 		coloumns:myExampleData.GridColoumns,
+	 		width:myExampleData.GridWidth
 	 }
 	 } */
 	/* {
@@ -1237,15 +1248,13 @@ $(document).ready(function() {
 			coloumns: myExampleData.tableWidgetColoumnNw,
 			buttons:myExampleData.tableWidgetButtonNw
 		}
-	}, */
-	
+	}, */	
 //console.log(dashboardJSON);
 //basic initialization example mn.sDashboard
 $("#cprDashboard").cprDashboard({
 	dashboardData : dashboardJSON
 });
 //	$("#cprDashboard").cprDashboard("widgetcallCheck","sree");
-
 //Toastr settings
 	toastr.options = {
 		"closeButton" : false,
@@ -1265,26 +1274,25 @@ $("#cprDashboard").cprDashboard({
 		"hideMethod" : "fadeOut"
 	}
 	function notification(type, message) {
-	if (type == 'success') {
-		toastr.success(message,
-				'<i>Success</i>');
-	} else if (type == 'error') {
-		toastr.error(message, 'Error');
-	} else if (type == 'warning') {
-		toastr.warning(message, 'Warning');
-	} else {
-		toastr.info(message, 'Information');
-	}
+		if (type == 'success') {
+			toastr.success(message,'<i>Success</i>');
+		} else if (type == 'error') {
+			toastr.error(message, 'Error');
+		} else if (type == 'warning') {
+			toastr.warning(message, 'Warning');
+		} else {
+			toastr.info(message, 'Information');
+		}
 	}
 	//table row clicked event example
 	$("#cprDashboard").bind("cprdashboardrowclicked",function(e, data) {
-	if (console) {
-	console.log("table row clicked, for widget: "+ data.selectedWidgetId);
-	}
+		if (console) {
+			console.log("table row clicked, for widget: "+ data.selectedWidgetId);
+		}
 	});
 	//plot selected event example
 	$("#cprDashboard").bind("cprdashboardplotselected",function(e, data) {
-		notification('info','A plot has been selected within a chart widget!');
+			notification('info','A plot has been selected within a chart widget!');
 		if (console) {
 			console.log("chart range selected, for widget: "+ data.selectedWidgetId);
 		}
@@ -1306,23 +1314,21 @@ $("#cprDashboard").cprDashboard({
 					//$('#result').html(data);
 			}});   */
 
-		 window.location.href='/Crmxs-Dashboard/widgetClick.html?clickedWidgetId='+data.clickedWidgetId+'&datapoints='+data.dataPoints;
+		window.location.href='/Crmxs-Dashboard/widgetClick.html?clickedWidgetId='+data.clickedWidgetId+'&datapoints='+data.dataPoints;
    	//	notification('info', 'chart clicked, for widget:'+ data.clickedWidgetId +' the data passed is'+data.dataPoints+'!');
 		if (console) {
 			console.log("chart clicked, for widget: " + data.selectedWidgetId);
 		}
-	});
-
+	});	
 	//widget order changes event example
 	$("#cprDashboard").bind("cprdashboardorderchanged",function(e, data) {
-	/* 	if (console) {
-		console.log("Sorted Array");
-		console.log("+++++++++++++++++++++++++");
-		console.log(data.sortedDefinitions);
-		console.log("+++++++++++++++++++++++++");
-	} */
+		/*if (console) {
+			console.log("Sorted Array");
+			console.log("+++++++++++++++++++++++++");
+			console.log(data.sortedDefinitions);
+			console.log("+++++++++++++++++++++++++");
+		} */
 	});
-
 	$('#applyChanges').on('click', function (e) {
 		e.preventDefault();
 		var graphToThisChart = $("#changeChartForm input:checked" ).val();
@@ -1362,11 +1368,9 @@ $("#cprDashboard").cprDashboard({
 		  swal(themeSelected +" have been applied !", "", "success");
 		}
 	});
-	$('#applyFilter').on('click', function (e) {
+	$('#resetFilter').on('click', function (e) {
 		e.preventDefault();
-		var widgetConfig;
 		var widgetId =$("#fgwidgetId").text();
-
 		var fromDate = $("#from").val();
 		var toDate = $("#to").val();
 		var countriesSelected = $("#country-select").val();
@@ -1376,7 +1380,21 @@ $("#cprDashboard").cprDashboard({
 				countries:countriesSelected,
 				widgetId:widgetId
 		};
-
+		$("#cprDashboard").cprDashboard("resetFilter",widgetId);			
+	});	
+	$('#applyFilter').on('click', function (e) {
+		e.preventDefault();
+		var widgetConfig;
+		var widgetId =$("#fgwidgetId").text();
+		var fromDate = $("#from").val();
+		var toDate = $("#to").val();
+		var countriesSelected = $("#country-select").val();
+		var filterData ={
+				fromDate:fromDate,
+				toDate:toDate,
+				countries:countriesSelected,
+				widgetId:widgetId
+		};
 		$.ajax({
          type: 'POST',
          contentType : 'application/json',
@@ -1387,11 +1405,10 @@ $("#cprDashboard").cprDashboard({
    		 cache: false,        
 		 timeout : 100000,
          success : function(data) {
-           widgetConfig = data;
-           $("#cprDashboard").cprDashboard("applyFilter",widgetConfig,widgetId);
-       	 }
+          	 widgetConfig = data;
+           	 $("#cprDashboard").cprDashboard("applyFilter",widgetConfig,widgetId);
+       	 	}
          });	
-		
 		});	
 		//Handling on Change event
 		/*	$("#changeGraphForm input:checkbox[value='bar']").change(function() {
