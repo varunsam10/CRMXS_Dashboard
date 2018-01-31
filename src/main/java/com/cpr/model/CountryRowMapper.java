@@ -8,17 +8,16 @@ import javax.swing.tree.TreePath;
 
 public class CountryRowMapper implements RowMapper {
 
-	
 	public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
-		
-		Countries country=new Countries();
+
+		Countries country = new Countries();
 		country.setCode(rs.getString("Code"));
-    	country.setName(rs.getString("Name"));
-        country.setContinent(rs.getString("Continent"));
-        country.setRegion(rs.getString("Region"));
-    	country.setPopulation(rs.getInt("Population"));
-    	country.setCapital(rs.getString("Capital"));
-		
+		country.setName(rs.getString("Name"));
+		country.setContinent(rs.getString("Continent"));
+		country.setRegion(rs.getString("Region"));
+		country.setPopulation(rs.getInt("Population"));
+		country.setCapital(rs.getString("Capital"));
+
 		return country;
 	}
 

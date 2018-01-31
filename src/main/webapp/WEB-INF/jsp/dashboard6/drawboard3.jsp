@@ -912,12 +912,12 @@ var dashboardJSON = [
 	
 //console.log(dashboardJSON);
 //basic initialization example mn.sDashboard
-$("#cprDashboard").cprDashboard({
-	dashboardData : dashboardJSON
-});
-//	$("#cprDashboard").cprDashboard("widgetcallCheck","sree");
+	$("#cprDashboard").cprDashboard({
+		dashboardData : dashboardJSON
+	});
+	//	$("#cprDashboard").cprDashboard("widgetcallCheck","sree");
 
-//Toastr settings
+	//Toastr settings
 	toastr.options = {
 		"closeButton" : false,
 		"debug" : false,
@@ -936,22 +936,21 @@ $("#cprDashboard").cprDashboard({
 		"hideMethod" : "fadeOut"
 	}
 	function notification(type, message) {
-	if (type == 'success') {
-		toastr.success(message,
-				'<i>Success</i>');
-	} else if (type == 'error') {
-		toastr.error(message, 'Error');
-	} else if (type == 'warning') {
-		toastr.warning(message, 'Warning');
-	} else {
-		toastr.info(message, 'Information');
-	}
+		if (type == 'success') {
+			toastr.success(message,'<i>Success</i>');
+		} else if (type == 'error') {
+			toastr.error(message, 'Error');
+		} else if (type == 'warning') {
+			toastr.warning(message, 'Warning');
+		} else {
+			toastr.info(message, 'Information');
+		}
 	}
 	//table row clicked event example
 	$("#cprDashboard").bind("cprdashboardrowclicked",function(e, data) {
-	if (console) {
-	console.log("table row clicked, for widget: "+ data.selectedWidgetId);
-	}
+		if (console) {
+			console.log("table row clicked, for widget: "+ data.selectedWidgetId);
+		}
 	});
 
 	
@@ -988,14 +987,62 @@ $("#cprDashboard").cprDashboard({
 	
 	//widget order changes event example
 	$("#cprDashboard").bind("cprdashboardorderchanged",function(e, data) {
-	/* 	if (console) {
-		console.log("Sorted Array");
-		console.log("+++++++++++++++++++++++++");
-		console.log(data.sortedDefinitions);
-		console.log("+++++++++++++++++++++++++");
-	} */
+/* 		if (console) {
+			console.log("Sorted Array");
+			console.log("+++++++++++++++++++++++++");
+			console.log(data.affectedWidget.widgetTitle);
+			console.log("+++++++++++++++++++++++++");
+		}  */
+		notification('info', 'Widget order changed:'+ data.sortedDefinitions);
 	});
-
+	$("#cprDashboard").bind("cprdashboardstatechanged",function(e, data) {
+		if(data.triggerAction === "orderChanged"){
+			//notification('info', 'Widget order changed for widgetID:'+ data.affectedWidget.widgetTitle);
+			swal({
+				  title: "Do you want to save the order?",
+				  text: "The Changes made will not be saved!",
+				  type: "warning",
+				  showCancelButton: true,
+				  confirmButtonClass: "btn-success",
+				  confirmButtonText: "Save",
+				  cancelButtonText: "Cancel",
+				  closeOnConfirm: false,
+				  closeOnCancel: false
+				},
+				function(isConfirm) {
+				  if (isConfirm) {
+				    swal("Order change for "+data.affectedWidget.widgetTitle+" widget is saved!", "The widget order is saved.", "success");
+				  				
+				  } else {
+				    swal("Cancelled", "The order is not saved", "error");
+						    
+				  }
+				});	
+			
+		}else if(data.triggerAction === "widgetRemoved"){
+			//notification('info', 'The below widget with widgetID:'+ data.affectedWidget.widgetTitle+'deleted');
+			swal({
+				  title: "Do you want to save the change?",
+				  text: "The Changes made will not be saved!",
+				  type: "warning",
+				  showCancelButton: true,
+				  confirmButtonClass: "btn-success",
+				  confirmButtonText: "Save",
+				  cancelButtonText: "Cancel",
+				  closeOnConfirm: false,
+				  closeOnCancel: false
+				},
+				function(isConfirm) {
+				  if (isConfirm) {
+				    swal("Widget "+data.affectedWidget.widgetTitle, "is deleted!", "success");
+				  				
+				  } else {
+				    swal("Cancelled", "The deletion is not saved", "error");
+						    
+				  }
+				});	
+		}
+	});
 	$('#applyChanges').on('click', function (e) {
 		e.preventDefault();
 		var graphToThisChart = $("#changeChartForm input:checked" ).val();

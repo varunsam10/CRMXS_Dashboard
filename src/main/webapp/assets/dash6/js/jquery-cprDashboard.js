@@ -1109,10 +1109,8 @@
 						
 						WidgetContentToChange.dataProvider.areas = widgetDefinition.linkedData[cust];
 						mapRedraw =AmCharts.makeChart(mapArea[0], WidgetContentToChange);
-						mapRedraw.validateData();
-										
-					}
-					
+						mapRedraw.validateData();										
+					}					
 				}
 			},
 			_interactChart: function(widgetDefinition,dataPoint) {
@@ -1411,7 +1409,6 @@
 				}
 				return false;
 			},
-
 			/*public methods*/
 			//add a widget to the dashboard
 			addWidget : function(widgetDefinition) {
@@ -1432,8 +1429,7 @@
 					this._trigger("stateChanged", null,  {
 							triggerAction: 'widgetAdded',
 							affectedWidget: widgetDefinition
-						}
-					);
+					});
 				}
 			},
 			//remove a widget from the dashboard
