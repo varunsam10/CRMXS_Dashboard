@@ -63,7 +63,7 @@
 <script src="assets/dash6/js/Dropdown/bootstrap-multiselect.js" type="text/javascript"></script>
 <link href="assets/dash6/css/bootstrap-multiselect.css" rel="stylesheet" type="text/css">
 <link href="assets/dash6/css/bootstrap-editable.css" rel="stylesheet" type="text/css">
-
+<script src="assets/dash6/js/bootstrap-notify.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 // Wait for window load
 $(window).load(function() {
@@ -72,6 +72,20 @@ $(window).load(function() {
 		
 });
 </script> 
+
+  
+ <!--  <div class="alert alert-info">
+    <div class="media">
+      <span class="glyphicon glyphicon-info-sign pull-left"></span> 
+      <div class="media-body">
+        <label>The widget ordering has changed... Would you like to save it?</label> 
+         
+            <button class="btn btn-primary" type="button">Submit</button> 
+            <button class="btn btn-default" type="button">Cancel</button> 
+
+      </div>
+    </div>
+  </div> -->
 <div class="se-pre-con"></div>
 <body class="page-md">
 	<!-- BEGIN HEADER -->
@@ -998,7 +1012,7 @@ var dashboardJSON = [
 	$("#cprDashboard").bind("cprdashboardstatechanged",function(e, data) {
 		if(data.triggerAction === "orderChanged"){
 			//notification('info', 'Widget order changed for widgetID:'+ data.affectedWidget.widgetTitle);
-			swal({
+			/* swal({
 				  title: "Do you want to save the order?",
 				  text: "The Changes made will not be saved!",
 				  type: "warning",
@@ -1017,7 +1031,57 @@ var dashboardJSON = [
 				    swal("Cancelled", "The order is not saved", "error");
 						    
 				  }
-				});	
+				});	 */
+			$.notify({
+				// options
+				icon: 'glyphicon glyphicon-warning-sign',
+				title: 'Widget Order Changed!',
+				message: 'Would you like to save the current ordering ?',
+				url: 'https://github.com/mouse0270/bootstrap-notify',
+				target: '_blank'
+			},{
+				// settings
+				element: 'body',
+				position: null,
+				type: "info",
+				allow_dismiss: true,
+				newest_on_top: false,
+				showProgressbar: false,
+				placement: {
+					from: "top",
+					align: "center"
+				},
+				offset: 20,
+				spacing: 10,
+				z_index: 1031,
+				delay: 5000,
+				timer: 1000,
+				url_target: '_blank',
+				mouse_over: null,
+				animate: {
+					enter: 'animated fadeInDown',
+					exit: 'animated fadeOutUp'
+				},
+				onShow: null,
+				onShown: null,
+				onClose: null,
+				onClosed: null,
+				icon_type: 'class',
+				template: '<div data-notify="container" class="col-xs-12 col-sm-4 alert alert-{0}" role="alert">' +
+				'<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +	
+				'<div class="col-xs-10">' + 
+					
+					'<span data-notify="icon"></span> ' +
+					'<span data-notify="title">{1}</span><br/> ' +
+					'<span data-notify="message">{2} </span>' +
+					'</div>' +
+					'<div class="col-xs-2"><button type="button" aria-hidden="true" class="btn btn-primary btn-xs" id="saveOrder" data-notify="dismiss">Save</button></div>' +
+				'</div>' 
+			});
+				
+				$("#saveOrder").click(function() {
+					 swal("Widget Order Saved!"," ", "success");
+				});
 			
 		}else if(data.triggerAction === "widgetRemoved"){
 			//notification('info', 'The below widget with widgetID:'+ data.affectedWidget.widgetTitle+'deleted');
