@@ -8,17 +8,17 @@ public class WidgetContent {
 	private ArrayList<WidgetData> data;
 	
 	//the layout of the graph/chart contained in the widget
-	private WidgetLayout layout;
+	private WidgetLayout widgetLayout;
 	
 	//additional configs for the graph/chart plotted
-	private WidgetConfig config;
+	private WidgetConfig widgetConfig;
 
 	
 	public WidgetContent(ArrayList<WidgetData> widgetData, WidgetLayout widgetLayout, WidgetConfig widgetConfig) {
 		// TODO Auto-generated constructor stub
 		this.setData(widgetData);
-		this.setConfig(widgetConfig);
-		this.setLayout(widgetLayout);
+		this.setWidgetConfig(widgetConfig);
+		this.setWidgetLayout(widgetLayout);
 	}
 	
 	public WidgetContent() {
@@ -34,19 +34,20 @@ public class WidgetContent {
 		this.data = data;
 	}
 
-	public WidgetLayout getLayout() {
-		return layout;
+	public WidgetLayout getWidgetLayout() {
+		return widgetLayout;
 	}
-	public void setLayout(WidgetLayout layout) {
-		this.layout = layout;
+
+	public void setWidgetLayout(WidgetLayout widgetLayout) {
+		this.widgetLayout = widgetLayout;
 	}
-	public WidgetConfig getConfig() {
-		return config;
+
+	public WidgetConfig getWidgetConfig() {
+		return widgetConfig;
 	}
-	public void setConfig(WidgetConfig config) {
-		this.config = config;
-	}
-	
-	
+
+	public void setWidgetConfig(WidgetConfig widgetConfig) {
+		this.widgetConfig = widgetConfig;
+	}	
 
 }

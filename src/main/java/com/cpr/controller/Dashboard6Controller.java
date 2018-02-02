@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.cpr.model.Dashboard3;
 import com.cpr.model.DashboardDAO;
 import com.cpr.model.FilterData;
+import com.cpr.service.Dashboard2CreationService;
 import com.cpr.service.DashboardService;
 import com.google.gson.Gson;
 
@@ -20,10 +21,9 @@ import com.google.gson.Gson;
 public class Dashboard6Controller {
 
 	@Autowired
-	private DashboardDAO dashboardDAO;
-
+	private Dashboard2CreationService dashboard2CreationService;
 	@Autowired
-	private FilterData filterData;
+	private DashboardDAO dashboardDAO;
 
 	@RequestMapping("/drawboard1")
 	public ModelAndView initializeForm() {
@@ -43,8 +43,12 @@ public class Dashboard6Controller {
 		Dashboard3 dashboard3 = new Dashboard3();
 		// return new ModelAndView("dashboard6/drawboard2", "Dashboard3", new
 		// Dashboard3());
-
-		return "Sucess";
+		String response = dashboard2CreationService.createDashboard2();
+		if (null != response) {
+			return "success";
+		} else {
+			return "failure";
+		}
 	}
 
 	@RequestMapping(value = "/getWidgets", method = RequestMethod.GET)

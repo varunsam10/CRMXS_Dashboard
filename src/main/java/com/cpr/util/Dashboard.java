@@ -47,7 +47,7 @@ public class Dashboard {
 
 		WidgetContent widgetContent = new WidgetContent(widgetData, widgetLayout, widgetConfig);
 
-		Widget widgetLine = new Widget("Items sold", "id001", WidgetTypeEnum.CHART, GraphType.EXPLORATORY,
+		Widget widgetLine = new Widget("Items sold", "id001", WidgetTypeEnum.CHART, GraphTypeEnum.EXPLORATORY,
 				WidgetDimensionEnum.LARGE, ChartTypeEnum.LINE, widgetContent
 				);
 
@@ -75,7 +75,7 @@ public class Dashboard {
 
 		WidgetContent pieContent = new WidgetContent(pieWidgetDataList, pieLayout, widgetConfig);
 
-		Widget widgetPie = new Widget("Sales Figures", "id004", WidgetTypeEnum.CHART, GraphType.EXPLORATORY,
+		Widget widgetPie = new Widget("Sales Figures", "id004", WidgetTypeEnum.CHART, GraphTypeEnum.EXPLORATORY,
 				WidgetDimensionEnum.MEDIUM, ChartTypeEnum.PIE, pieContent);
 
 		ArrayList<WidgetData> barlineDataList = new ArrayList<WidgetData>();
@@ -104,7 +104,7 @@ public class Dashboard {
 		WidgetContent barlineContent = new WidgetContent(barlineDataList, barlineLayout, widgetConfig);
 
 		Widget widgetBarLine = new Widget("Hour Wise Redemptions", "id0010", WidgetTypeEnum.CHART,
-				GraphType.EXPLORATORY, WidgetDimensionEnum.MEDIUM, ChartTypeEnum.BARLINE, barlineContent);
+				GraphTypeEnum.EXPLORATORY, WidgetDimensionEnum.MEDIUM, ChartTypeEnum.BARLINE, barlineContent);
 
 		widgetList.add(widgetBarLine);
 

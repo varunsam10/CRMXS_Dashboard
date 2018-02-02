@@ -1,9 +1,7 @@
 package com.cpr.service;
 
 import java.util.ArrayList;
-
 import org.springframework.stereotype.Service;
-
 import com.cpr.util.Dashboard;
 import com.cpr.util.Widget;
 import com.google.gson.Gson;
@@ -36,7 +34,7 @@ public class DashboardService {
 		return response;
 	}
 
-	public String createDashboardJSON(ArrayList<Widget> widgets) {
+	public String createDashboardJson(ArrayList<Widget> widgets) {
 
 		Gson gson = new GsonBuilder().create();
 		JsonElement element = gson.toJsonTree(widgets);

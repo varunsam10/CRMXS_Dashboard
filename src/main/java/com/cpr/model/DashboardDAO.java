@@ -1,6 +1,7 @@
 package com.cpr.model;
 
 import java.sql.Date;
+import java.sql.SQLDataException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,6 +18,7 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
 import com.cpr.util.AxisLayout;
 import com.cpr.util.TitleFont;
+import com.cpr.util.Widget;
 import com.cpr.util.WidgetConfig;
 import com.cpr.util.WidgetContent;
 import com.cpr.util.WidgetData;
@@ -27,6 +29,7 @@ import com.google.gson.JsonElement;
 import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
 
 public class DashboardDAO {
+
 	private DataSource dataSource;
 
 	public void setDataSource(DataSource dataSource) {
@@ -38,6 +41,7 @@ public class DashboardDAO {
 	}
 
 	public String getDashboardJson() {
+
 		Gson gson = new Gson();
 		// java.sql.Connection con = FetchData.getConnection();
 		try {
@@ -56,9 +60,7 @@ public class DashboardDAO {
 			 * }
 			 */
 			// String dashboardJson = widgetConfig.build().toString();
-
 			JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
-
 			String dashboardJson = widgetContent.toString();
 			// String dashboardJson = gson.toJson(widgetContent);
 			System.out.println(dashboardJson);
@@ -68,9 +70,11 @@ public class DashboardDAO {
 			e.printStackTrace();
 		}
 		return null;
+
 	}
 
 	public String getDateFilteredData(FilterData filterData) {
+
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 		String sql = null;
 		Date fromDate = null;
@@ -97,16 +101,13 @@ public class DashboardDAO {
 				// TODO Auto-generated catch block
 				// e.printStackTrace();
 			}
-
 			countryInFilter = filterData.getCountries();
 			NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(dataSource);
 
 			if (filterData.getCountries().length == 0) {
 				sql = "SELECT * FROM crmxsdashboard.redemption where date >= ? and date <= ?  order by date asc";
 				rows = jdbcTemplate.queryForList(sql, fromDate, toDate);
-			}
-
-			else if (filterData.getCountries().length >= 1) {
+			} else if (filterData.getCountries().length >= 1) {
 				sql = "SELECT * FROM crmxsdashboard.redemption where date >= (:fromDate) and date <= (:toDate) and country IN (:countries) order by date asc";
 				List<String> countriesList = Arrays.asList(countryInFilter);
 				MapSqlParameterSource parameters = new MapSqlParameterSource();
@@ -124,7 +125,6 @@ public class DashboardDAO {
 				// rows = jdbcTemplate.queryForList(sql, fromDate,
 				// toDate,paramMap);
 			}
-
 			// List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql,
 			// fromDate, toDate,countryInFilter);
 			// System.out.println(rows.size());
@@ -152,10 +152,12 @@ public class DashboardDAO {
 		}
 		String widgetContentConfig = getFilteredWidgetConfig(resultSize, countryMap, parsedFrom, parsedTo);
 		return widgetContentConfig;
+
 	}
 
 	public String getFilteredWidgetConfig(Integer resultSize, Map<String, List<GraphParams>> countryMap,
 			java.util.Date parsedFrom, java.util.Date parsedTo) {
+		
 		ArrayList<WidgetData> widgetsDataList = new ArrayList<WidgetData>();
 		Set<String> keys = countryMap.keySet();
 		int i = 0;
@@ -192,5 +194,47 @@ public class DashboardDAO {
 		String response = gson.toJson(element);
 		return response;
 
+	}
+
+	public Map<String, List<GraphParams>> createWidgetproductList() {
+
+		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+		String sql = "SELECT * FROM crmxsdashboard.demosalesitem";
+		List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql);
+		Map<String, List<GraphParams>> productListMap = new HashMap<String, List<GraphParams>>();
+		List<GraphParams> graphParamsList = new ArrayList<GraphParams>();
+		for (Map<String, Object> rs : rows) {
+			GraphParams graphParam = new GraphParams();
+			graphParam.setyValue(rs.get("Product").toString());
+			graphParam.setxValue(rs.get("Quantity").toString());
+			String product = rs.get("Product").toString();
+			if (productListMap.isEmpty()) {
+				graphParamsList.add(graphParam);
+				productListMap.put(product, graphParamsList);
+			} else {
+				if (productListMap.containsKey(product)) {
+					productListMap.get(product).add(graphParam);
+				} else {
+					List<GraphParams> graphParamsListNew = new ArrayList<GraphParams>();
+					graphParamsListNew.add(graphParam);
+					productListMap.put(product, graphParamsListNew);
+				}
+			}
+		}
+		return productListMap;
+	}
+
+	public String insertWidgetConfig(String widgetJson, String widgetId, String dashboardId) {
+
+		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+		String sql = "INSERT INTO crmxsdashboard.widget ('widgetId,widgetContent,dashId) VALUES (?,?,?)";
+		try {
+
+			jdbcTemplate.update(sql, new Object[] { widgetId, widgetJson, dashboardId });
+
+		} catch (Exception ex) {
+
+		}
+		return "Success";
 	}
 }
