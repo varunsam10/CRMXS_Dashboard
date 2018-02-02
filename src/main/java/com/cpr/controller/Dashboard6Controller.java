@@ -31,7 +31,12 @@ public class Dashboard6Controller {
 		// DashboardDAO.getDashboardJson();
 		return new ModelAndView("dashboard6/drawboard1", "Dashboard3", new Dashboard3());
 	}
-
+	@RequestMapping("/index")
+	public ModelAndView initializeMainForm() {
+		Dashboard3 dashboard3 = new Dashboard3();
+		// DashboardDAO.getDashboardJson();
+		return new ModelAndView("index", "Dashboard3", new Dashboard3());
+	}
 	@RequestMapping("/drawboard2")
 	public ModelAndView initializeFormDrawboard2() {
 		Dashboard3 dashboard3 = new Dashboard3();

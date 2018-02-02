@@ -187,6 +187,11 @@ $(window).load(function() {
 						</button>
 						<ul class="dropdown-menu-v2" role="menu">
 							<li>
+								<a href="drawboard1.html"> 
+								<i class="icon-user"></i> Widgets Main <span class="badge badge-danger">1</span>
+								</a>
+							</li>
+							<li>
 								<a href="drawboard2.html"> 
 								<i class="icon-user"></i> Widgets Dynamic <span class="badge badge-danger">1</span>
 								</a>
