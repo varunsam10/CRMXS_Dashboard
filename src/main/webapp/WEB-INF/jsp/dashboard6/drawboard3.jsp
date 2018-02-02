@@ -448,8 +448,7 @@ $(window).load(function() {
 							<div class="col-sm-3 col-md-3">
 							<input type="checkbox"  class="make-switch modal-input" data-on-color="primary" data-off-color="danger" value="theme4" id="theme4"/>
 							</div>
-						</div>
-						
+						</div>						
 					</form>
 				</div>
 				<div class="modal-footer">

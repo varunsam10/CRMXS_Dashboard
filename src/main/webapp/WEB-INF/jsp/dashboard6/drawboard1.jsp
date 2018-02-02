@@ -61,6 +61,7 @@
 <script src="assets/dash6/js/Dropdown/chosen.proto.js"></script>
 <script src="assets/dash6/js/Dropdown/dropdown.js" type="text/javascript"></script>
 <script src="assets/dash6/js/Dropdown/bootstrap-multiselect.js" type="text/javascript"></script>
+<script src="assets/dash6/js/bootstrap-notify.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 // Wait for window load
 $(window).load(function() {
@@ -1342,6 +1343,84 @@ $("#cprDashboard").cprDashboard({
 			console.log(data.sortedDefinitions);
 			console.log("+++++++++++++++++++++++++");
 		} */
+	});
+	$("#cprDashboard").bind("cprdashboardstatechanged",function(e, data) {
+		if(data.triggerAction === "orderChanged"){
+	
+			$.notify({
+				// options
+				icon: 'glyphicon glyphicon-warning-sign',
+				title: 'Widget Order Changed!',
+				message: 'Would you like to save the current ordering ?',
+				url: 'https://github.com/mouse0270/bootstrap-notify',
+				target: '_blank'
+			},{
+				// settings
+				element: 'body',
+				position: null,
+				type: "info",
+				allow_dismiss: true,
+				newest_on_top: false,
+				showProgressbar: false,
+				placement: {
+					from: "top",
+					align: "center"
+				},
+				offset: 20,
+				spacing: 10,
+				z_index: 1031,
+				delay: 5000,
+				timer: 1000,
+				url_target: '_blank',
+				mouse_over: null,
+				animate: {
+					enter: 'animated fadeInDown',
+					exit: 'animated fadeOutUp'
+				},
+				onShow: null,
+				onShown: null,
+				onClose: null,
+				onClosed: null,
+				icon_type: 'class',
+				template: '<div data-notify="container" class="col-xs-12 col-sm-4 alert alert-{0}" role="alert">' +
+				'<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +	
+				'<div class="col-xs-10">' + 
+					
+					'<span data-notify="icon"></span> ' +
+					'<span data-notify="title">{1}</span><br/> ' +
+					'<span data-notify="message">{2} </span>' +
+					'</div>' +
+					'<div class="col-xs-2"><button type="button" aria-hidden="true" class="btn btn-primary btn-xs" id="saveOrder" data-notify="dismiss">Save</button></div>' +
+				'</div>' 
+			});
+				
+				$("#saveOrder").click(function() {
+					 swal("Widget Order Saved!"," ", "success");
+				});
+			
+		}else if(data.triggerAction === "widgetRemoved"){
+			//notification('info', 'The below widget with widgetID:'+ data.affectedWidget.widgetTitle+'deleted');
+			swal({
+				  title: "Do you want to save the change?",
+				  text: "The Changes made will not be saved!",
+				  type: "warning",
+				  showCancelButton: true,
+				  confirmButtonClass: "btn-success",
+				  confirmButtonText: "Save",
+				  cancelButtonText: "Cancel",
+				  closeOnConfirm: false,
+				  closeOnCancel: false
+				},
+				function(isConfirm) {
+				  if (isConfirm) {
+				    swal("Widget "+data.affectedWidget.widgetTitle, "is deleted!", "success");
+				  				
+				  } else {
+				    swal("Cancelled", "The deletion is not saved", "error");
+						    
+				  }
+				});	
+		}
 	});
 	$('#applyChanges').on('click', function (e) {
 		e.preventDefault();
