@@ -205,7 +205,7 @@ $(window).load(function() {
 						<ul class="dropdown-menu-v2" role="menu">
 							<li>
 								<a href="drawboard1.html"> 
-								<i class="icon-user"></i> Widgets Main <span class="badge badge-danger">1</span>
+								<i class="icon-user"></i> Widgets Main <span class="badge badge-danger">20</span>
 								</a>
 							</li>
 							<li>
@@ -215,7 +215,8 @@ $(window).load(function() {
 							</li>
 							<li>
 								<a href="drawboard3.html"> 
-								<i	class="icon-calendar"></i> Details view</a>
+								<i	class="icon-calendar"></i> Details view <span class="badge badge-danger">3</span>
+								</a>
 							</li>
 							<li>
 								<a href="drawboard4.html"> 
@@ -226,13 +227,13 @@ $(window).load(function() {
 							<li>
 								<a href="drawboard5.html"> 
 									<i class="icon-rocket"></i>Customer location
-									<span class="badge badge-success"> 7 </span>
+									<span class="badge badge-success"> 2 </span>
 								</a>
 							</li>
 							<li class="divider"></li>
 							<li>
 								<a href="drawboard6.html">
-								<i	class="icon-lock"></i> Filters on Widget
+								<i	class="icon-lock"></i> Filters on Widget <span class="badge badge-success"> 1 </span>
 								</a>
 							</li>
 							<!-- <li><a href="page_user_login_1.html"> <i
