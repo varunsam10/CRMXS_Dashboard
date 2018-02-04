@@ -241,7 +241,7 @@ $(window).load(function() {
 		<div class="page-content-fixed-header">
 			<!-- BEGIN BREADCRUMBS -->
 			<ul class="page-breadcrumb">
-				<li><a href="#">Maifest BI Insights</a></li>
+				<li><a href="#">Customer BI Insights</a></li>
 			</ul>
 			<!-- END BREADCRUMBS -->
 			<div class="content-header-menu">

@@ -8,7 +8,7 @@
 <meta content="width=device-width, initial-scale=1" name="viewport" />
 <meta content="" name="author" />
 <!-- BEGIN GLOBAL MANDATORY STYLES -->
-<link href="assets/dash6/global/plugins/font-awesome/css/font-awesome.min.css"	rel="stylesheet" type="text/css" />
+<link href="assets/dash6/global/plugins/font-awesome/css/font-awesome.mMaifest BI Insightsin.css"	rel="stylesheet" type="text/css" />
 <link href="assets/dash6/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
 <link href="assets/dash6/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 <!-- END GLOBAL MANDATORY STYLES -->
@@ -244,7 +244,7 @@ $(window).load(function() {
 		<div class="page-content-fixed-header">
 			<!-- BEGIN BREADCRUMBS -->
 			<ul class="page-breadcrumb">
-				<li><a href="#">Maifest BI Insights</a></li>
+				<li><a href="#">Customer BI Insights</a></li>
 			</ul>
 			<!-- END BREADCRUMBS -->
 			<div class="content-header-menu">

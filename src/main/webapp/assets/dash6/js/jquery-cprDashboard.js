@@ -776,7 +776,7 @@
 				if (widgetDefinition.widgetType === 'chart') {
 					
 					data = widgetConfig.data;
-					widgetDefinition.widgetContent.layout.xaxis.range = widgetConfig.layout.xaxis.range;
+					widgetDefinition.widgetContent.layout.xaxis.range = widgetConfig.widgetLayout.xaxis.range;
 					layout = widgetDefinition.widgetContent.layout;
 					config = widgetDefinition.widgetContent.config;
 					
