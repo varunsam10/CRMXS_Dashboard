@@ -6,6 +6,8 @@ import org.junit.Test;
 import junit.framework.TestCase;
 import static org.junit.Assert.*;
 
+import org.junit.After;
+
 import com.cpr.service.DynamicDashboardService;
 
 public class DynamicDashboardServiceTest {
@@ -21,5 +23,10 @@ public class DynamicDashboardServiceTest {
 	public void testfetchDashboard2Widgets(){
 		String response = dynamicDashboardService.fetchDashboard2Widgets("dd01");
 		assertNotNull(dynamicDashboardService.fetchDashboard2Widgets("dd01"));
+	}
+	
+	@After
+	public void tearDown(){
+		dynamicDashboardService = null;
 	}
 }
