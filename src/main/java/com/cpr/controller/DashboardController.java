@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.cpr.model.Dashboard3;
-import com.cpr.service.DashboardService;
+import com.cpr.service.CustomDashboardService;
 
 @Controller
 @SessionAttributes("/mainDashboard")
 public class DashboardController {
 
 	@Autowired
-	private DashboardService dashboardService;
+	private CustomDashboardService dashboardService;
 
 	@RequestMapping("/changeGraph")
 	public ResponseEntity changeGraphForWidgets(@RequestBody String widgetId) {

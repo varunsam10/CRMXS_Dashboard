@@ -12,7 +12,7 @@ import junit.framework.Assert;
 
 public class DynamicDashboardCreationServiceTest {
 	
-	public DynamicDashboardCreationService dynamicDashboardService;
+	private DynamicDashboardCreationService dynamicDashboardService;
 	
 	@Before
 	public void setup(){

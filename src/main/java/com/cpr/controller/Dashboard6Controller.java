@@ -15,7 +15,7 @@ import com.cpr.model.Dashboard3;
 import com.cpr.model.DashboardDAO;
 import com.cpr.model.FilterData;
 import com.cpr.service.DynamicDashboardCreationService;
-import com.cpr.service.DashboardService;
+import com.cpr.service.CustomDashboardService;
 import com.google.gson.Gson;
 
 @Controller
@@ -82,7 +82,7 @@ public class Dashboard6Controller {
 	@RequestMapping(value = "/getWidgetsInteract", method = RequestMethod.GET)
 	@ResponseBody
 	public String getInteractiveWidgets() {
-		DashboardService dashboardJSON = new DashboardService();
+		CustomDashboardService dashboardJSON = new CustomDashboardService();
 		return dashboardJSON.createDashboardJson();
 
 	}

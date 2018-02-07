@@ -25,7 +25,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 
 @Service
-public class DashboardService {
+public class CustomDashboardService {
 
 	@Autowired
 	private Dashboard dashboard;

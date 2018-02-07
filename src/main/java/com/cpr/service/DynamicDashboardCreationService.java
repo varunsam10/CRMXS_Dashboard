@@ -27,7 +27,7 @@ import com.cpr.util.WidgetLayout;
 public class DynamicDashboardCreationService {
 
 	@Autowired
-	private DashboardService dashboardService;
+	private CustomDashboardService dashboardService;
 
 	@Autowired
 	private DashboardDAO dashboardDAO;
