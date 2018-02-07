@@ -1,27 +1,28 @@
 package com.cpr.service.test;
 
-import java.util.ArrayList;
-import java.util.List;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.cpr.service.CustomDashboardService;
-import com.cpr.util.Dashboard;
 
-import junit.framework.TestCase;
-
-public class CustomDashboardServiceTest extends TestCase {
-
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration("classpath:test_crmxsDashboard.xml")
+public class CustomDashboardServiceTest {
+	@Autowired
 	private CustomDashboardService customDashboardService;
 	private String dashboardId;
 	private String widgetId;
 
 	@Before
 	public void setup() {
-
-		customDashboardService =  new CustomDashboardService();
 		dashboardId = "dd01";
 		widgetId = "w001";
 	}
@@ -31,53 +32,47 @@ public class CustomDashboardServiceTest extends TestCase {
 		String result = customDashboardService.createDashboardJson();
 		assertNotNull(customDashboardService.createDashboardJson());
 	}
-	
+
 	@Test
-	public void testchangeGraphForId(){
+	public void testchangeGraphForId() {
 		assertEquals("Success", customDashboardService.changeGraphForId(widgetId));
 	}
-	
+
 	@Test
-	public void testgetWidgetBoards(){
+	public void testgetWidgetBoards() {
 		assertEquals("Success", customDashboardService.getWidgetBoards(dashboardId));
 	}
-	
+
 	@Test
-	public void testaddWidgetById(){
+	public void testaddWidgetById() {
 		assertEquals("Success", customDashboardService.addWidgetById(widgetId));
 	}
-	
+
 	@Test
-	public void testupdateWidgetById(){
+	public void testupdateWidgetById() {
 		assertEquals("Success", customDashboardService.updateWidgetById(widgetId));
 	}
-	
+
 	@Test
-	public void testeditWidgetTitleById(){
+	public void testeditWidgetTitleById() {
 		assertEquals("Success", customDashboardService.editWidgetTitleById(widgetId));
 	}
-	
+
 	@Test
-	public void testdownloadWidgetDataofWidget(){
+	public void testdownloadWidgetDataofWidget() {
 		assertEquals("Success", customDashboardService.downloadWidgetDataofWidget(widgetId));
 	}
-	
+
 	@Test
-	public void testdeleteWidgetById(){
+	public void testdeleteWidgetById() {
 		assertEquals("Success", customDashboardService.deleteWidgetById(widgetId));
 	}
-	
-	
-	
+
 	@After
-	public void tearDown(){
+	public void tearDown() {
 		customDashboardService = null;
 		dashboardId = null;
 		widgetId = null;
 	}
-	
-	
-	
-	
 
 }

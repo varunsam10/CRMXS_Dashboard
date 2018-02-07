@@ -1,12 +1,6 @@
-package com.cpr.model;
+package com.cpr.Dao;
 
-import java.io.InputStream;
-import java.io.ObjectInputStream;
-import java.sql.Blob;
 import java.sql.Date;
-import java.sql.ResultSet;
-import java.sql.SQLDataException;
-import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -15,20 +9,18 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import javax.json.Json;
-import javax.json.JsonArrayBuilder;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.cpr.model.FilterData;
+import com.cpr.model.GraphParams;
 import com.cpr.util.AxisLayout;
 import com.cpr.util.TitleFont;
-import com.cpr.util.Widget;
 import com.cpr.util.WidgetConfig;
 import com.cpr.util.WidgetContent;
 import com.cpr.util.WidgetData;

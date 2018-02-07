@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.cpr.model.Dashboard3;
-import com.cpr.model.DashboardDAO;
+import com.cpr.Dao.DashboardDAO;
 import com.cpr.model.FilterData;
 import com.cpr.service.DynamicDashboardCreationService;
 import com.cpr.service.CustomDashboardService;
