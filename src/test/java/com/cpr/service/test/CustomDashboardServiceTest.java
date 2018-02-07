@@ -10,11 +10,14 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
 
 import com.cpr.service.CustomDashboardService;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("classpath:test_crmxsDashboard.xml")
+//@RunWith(SpringJUnit4ClassRunner.class)
+//@ContextConfiguration("classpath:test_crmxsDashboard.xml")
+@ContextConfiguration
+@WebAppConfiguration
 public class CustomDashboardServiceTest {
 	@Autowired
 	private CustomDashboardService customDashboardService;
@@ -63,10 +66,10 @@ public class CustomDashboardServiceTest {
 		assertEquals("Success", customDashboardService.downloadWidgetDataofWidget(widgetId));
 	}
 
-	@Test
+/*	@Test
 	public void testdeleteWidgetById() {
 		assertEquals("Success", customDashboardService.deleteWidgetById(widgetId));
-	}
+	}*/
 
 	@After
 	public void tearDown() {
