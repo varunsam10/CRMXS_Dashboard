@@ -23,7 +23,7 @@ import com.google.gson.Gson;
 public class Dashboard6Controller {
 
 	@Autowired
-	private DynamicDashboardCreationService dashboard2CreationService;
+	private DynamicDashboardCreationService dashboardCreationService;
 	@Autowired
 	private DashboardDAO dashboardDAO;
 
@@ -52,7 +52,7 @@ public class Dashboard6Controller {
 		Dashboard3 dashboard3 = new Dashboard3();
 		// return new ModelAndView("dashboard6/drawboard2", "Dashboard3", new
 		// Dashboard3());
-		String response = dashboard2CreationService.createDashboard2();
+		String response = dashboardCreationService.createDashboard2();
 		if (null != response) {
 			return new ResponseEntity(HttpStatus.OK);
 		} else {

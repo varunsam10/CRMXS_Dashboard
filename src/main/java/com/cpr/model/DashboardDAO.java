@@ -92,21 +92,23 @@ public class DashboardDAO {
 		try {
 
 			String sql = "select * from widget where dashId = ?";
-			
-			StringBuilder sqlQuery=new StringBuilder("SELECT * FROM widget");
-			sqlQuery.append(" WHERE dashId ='").append(dashboardID).append("'");
-			List<WidgetContentMap>widgetContent = jdbcTemplate.query(sqlQuery,  new widgetContentMapper());
-			//rows = jdbcTemplate.query(sql, dashboardID);
-		/*	JsonArrayBuilder widgetConfig = Json.createArrayBuilder();
-			for (Map<String, Object> rs : rows) {
 
-				Blob widgetBlob =  rs.getBlob("widgetContent");
-				InputStream input = widgetBlob.getBinaryStream();
-				ObjectInputStream object = new ObjectInputStream(input);
-				retrieveBlobAsString = (String) object.readObject();
-			}*/
+			StringBuilder sqlQuery = new StringBuilder("SELECT * FROM widget");
+			sqlQuery.append(" WHERE dashId ='").append(dashboardID).append("'");
+			// List<WidgetContentMap>widgetContent =
+			// jdbcTemplate.query(sqlQuery, new widgetContentMapper());
+			// rows = jdbcTemplate.query(sql, dashboardID);
+			/*
+			 * JsonArrayBuilder widgetConfig = Json.createArrayBuilder(); for
+			 * (Map<String, Object> rs : rows) {
+			 * 
+			 * Blob widgetBlob = rs.getBlob("widgetContent"); InputStream input
+			 * = widgetBlob.getBinaryStream(); ObjectInputStream object = new
+			 * ObjectInputStream(input); retrieveBlobAsString = (String)
+			 * object.readObject(); }
+			 */
 		} catch (Exception e) {
-				System.out.println("The exception is"+e);
+			System.out.println("The exception is" + e);
 		}
 
 		return retrieveBlobAsString;
@@ -277,7 +279,38 @@ public class DashboardDAO {
 
 		} catch (Exception ex) {
 			System.out.println("The exception is " + ex);
+			return "Failure";
 		}
 		return "Success";
 	}
+
+	public String changeGraph(String widgetId) {
+
+		return "Success";
+	}
+	public String getWidgetForDashboard(String dashboardId) {
+
+		return "Success";
+	}
+	public String updateWidget(String widgetId) {
+
+		return "Success";
+	}
+	public String deleteWidget(String widgetId) {
+
+		return "Success";
+	}
+	public String addWidget(String widgetId) {
+
+		return "Success";
+	}	
+	public String editWidgetTitle(String widgetId) {
+
+		return "Success";
+	}
+	public String downloadWidgetData(String widgetId) {
+
+		return "Success";
+	}
+
 }
