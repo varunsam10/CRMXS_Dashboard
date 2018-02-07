@@ -1,6 +1,8 @@
 package com.cpr.service;
 
 import java.util.ArrayList;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.cpr.util.Dashboard;
 import com.cpr.util.Widget;
@@ -10,13 +12,14 @@ import com.google.gson.JsonElement;
 
 @Service
 public class DashboardService {
-
+	
+	@Autowired
 	private Dashboard dashboard;
 
-	public DashboardService() {
+/*	public DashboardService() {
 
 		dashboard = new Dashboard();
-	}
+	}*/
 
 	public Dashboard getDashboard() {
 		return dashboard;

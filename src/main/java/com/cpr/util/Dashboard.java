@@ -2,6 +2,9 @@ package com.cpr.util;
 
 import java.util.ArrayList;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Dashboard {
 
 	private ArrayList<Widget> widgets;

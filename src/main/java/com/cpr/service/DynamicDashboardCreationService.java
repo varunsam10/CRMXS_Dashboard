@@ -24,7 +24,7 @@ import com.cpr.util.WidgetEditEnum;
 import com.cpr.util.WidgetLayout;
 
 @Service
-public class Dashboard2CreationService {
+public class DynamicDashboardCreationService {
 
 	@Autowired
 	private DashboardService dashboardService;
@@ -33,11 +33,15 @@ public class Dashboard2CreationService {
 	private DashboardDAO dashboardDAO;
 
 	public String createDashboard2() {
-		
-		ArrayList<Widget> widgets = dashboardService.getDashboard().getWidgets();
+
+		ArrayList<Widget> widgets = new ArrayList<Widget>();
 		Map<String, List<GraphParams>> productListMap = dashboardDAO.createWidgetproductList();
 		Widget widget = null;
-		
+		WidgetContent widgetContent = null;
+		WidgetData widgetData = null;
+		WidgetConfig widgetConfig = null;
+		WidgetLayout widgetLayout = null;
+		ArrayList<WidgetData> widgetDataList = new ArrayList<WidgetData>();
 		if (!productListMap.isEmpty()) {
 			widget = new Widget();
 			widget.setWidgetTitle("Test Widget");
@@ -48,13 +52,13 @@ public class Dashboard2CreationService {
 			widget.setGraphType(GraphTypeEnum.EXPLORATORY.toString());
 			widget.setWidgetClick(WidgetClickEnum.DISABLE.toString());
 			widget.setWidgetEdit(WidgetEditEnum.DISABLE.toString());
-			WidgetContent widgetContent = widget.getWidgetContent();
+			widgetContent = new WidgetContent();
 			Set<Map.Entry<String, List<GraphParams>>> mapset = productListMap.entrySet();
-			List<WidgetData> widgetDataList = widgetContent.getData();
+
 			List<Map.Entry<String, List<GraphParams>>> maplist = new ArrayList<Map.Entry<String, List<GraphParams>>>(
 					mapset);
 			for (Map.Entry<String, List<GraphParams>> entry : maplist) {
-				WidgetData widgetData = new WidgetData();
+				widgetData = new WidgetData();
 				Object[] x = new Object[entry.getValue().size()];
 				Object[] y = new Object[entry.getValue().size()];
 				for (GraphParams params : entry.getValue()) {
@@ -78,21 +82,25 @@ public class Dashboard2CreationService {
 		AxisLayout y_AxisLayout = new AxisLayout("Number of Customers", y_TitleFont);
 
 		if (null != widget) {
-			WidgetLayout widgetLayout = widget.getWidgetContent().getWidgetLayout();
+			widgetLayout = new WidgetLayout();
 			widgetLayout.setTitle("Products vs Quantity");
 			widgetLayout.setXaxis(x_AxisLayout);
 			widgetLayout.setYaxis(y_AxisLayout);
 			widgetLayout.setAutosize(true);
-			widget.getWidgetContent().setWidgetLayout(widgetLayout);
+			// widget.getWidgetContent().setWidgetLayout(widgetLayout);
 			String[] modeBarButtonsToRemove = { "sendDataToCloud" };
-			WidgetConfig widgetConfig = widget.getWidgetContent().getWidgetConfig();
+			widgetConfig = new WidgetConfig();
 			widgetConfig.setModeBarButtonsToRemove(modeBarButtonsToRemove);
-			widget.getWidgetContent().setWidgetConfig(widgetConfig);
+			// widget.getWidgetContent().setWidgetConfig(widgetConfig);
 		}
+		widgetContent.setData(widgetDataList);
+		widgetContent.setWidgetLayout(widgetLayout);
+		widgetContent.setWidgetConfig(widgetConfig);
+		widget.setWidgetContent(widgetContent);
 		widgets.add(widget);
-		String widgetConfig = dashboardService.createDashboardJson(widgets);
-		dashboardDAO.createWidgetproductList();
-		return "Sucess";
+		String widgetConfigGenerated = dashboardService.createDashboardJson(widgets);
+		String response = dashboardDAO.insertWidgetConfig(widgetConfigGenerated, "wd001", "dd001");
+		return response;
 	}
 
 }
