@@ -1432,6 +1432,9 @@
 					});
 				}
 			},
+			
+			
+
 			//remove a widget from the dashboard
 			removeWidget : function(widgetId) {
 				if (!widgetId) {
