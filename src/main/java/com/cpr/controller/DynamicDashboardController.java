@@ -32,7 +32,6 @@ public class DynamicDashboardController {
 		System.out.println("The response is" + dashboardJsonResponse);
 		return dashboardJsonResponse;
 	}
-
 	@RequestMapping("/dynamic/create")
 	public ResponseEntity createInitialDynamicBoard() {
 		Dashboard3 dashboard3 = new Dashboard3();
@@ -43,7 +42,6 @@ public class DynamicDashboardController {
 			return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-
 	@RequestMapping("/dynamic/delete")
 	public ResponseEntity deleteInitialDynamicBoard() {
 		Dashboard3 dashboard3 = new Dashboard3();
@@ -54,5 +52,4 @@ public class DynamicDashboardController {
 			return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-
 }

@@ -17,7 +17,6 @@ public class DashboardController {
 
 	@Autowired
 	private CustomDashboardService dashboardService;
-
 	@RequestMapping("/changeGraph")
 	public ResponseEntity changeGraphForWidgets(@RequestBody String widgetId) {
 		Dashboard3 dashboard3 = new Dashboard3();
@@ -61,7 +60,5 @@ public class DashboardController {
 		String response = dashboardService.downloadWidgetDataofWidget(widgetId);
 		return new ResponseEntity(HttpStatus.OK);
 	}
-	
-	
 
 }

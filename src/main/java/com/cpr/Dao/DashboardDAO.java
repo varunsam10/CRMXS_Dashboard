@@ -41,15 +41,7 @@ public class DashboardDAO {
 	@Autowired
 	private DataSource dataSource;
 
-	/*
-	 * public void setDataSource(DataSource dataSource) { this.dataSource =
-	 * dataSource; }
-	 * 
-	 * public DataSource getDataSource() { return dataSource; }
-	 */
-
 	public String getDashboardJson() {
-
 		Gson gson = new Gson();
 		// java.sql.Connection con = FetchData.getConnection();
 		try {
@@ -108,7 +100,6 @@ public class DashboardDAO {
 		String widgetContent = widgetContentMaps.get(0).getWidgetContent();
 		return widgetContent;
 	}
-
 	public String deleteDynamicDashboard(String dashboardId) {
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 
@@ -121,7 +112,6 @@ public class DashboardDAO {
 		}
 		return "Success";
 	}
-
 	public String getDateFilteredData(FilterData filterData) {
 
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
@@ -129,8 +119,7 @@ public class DashboardDAO {
 		Date fromDate = null;
 		Date toDate = null;
 		String[] countryInFilter = null;
-		List<Map<String, Object>> rows = null;
-		// String[] countriesInFilter = null;
+		List<Map<String, Object>> rows = null;	
 		Integer resultSize = 0;
 		java.util.Date parsedFrom = null;
 		java.util.Date parsedTo = null;
@@ -191,7 +180,6 @@ public class DashboardDAO {
 		return widgetContentConfig;
 
 	}
-
 	public String getFilteredWidgetConfig(Integer resultSize, Map<String, List<GraphParams>> countryMap,
 			java.util.Date parsedFrom, java.util.Date parsedTo) {
 
@@ -230,9 +218,7 @@ public class DashboardDAO {
 		JsonElement element = gson.toJsonTree(widgetContent);
 		String response = gson.toJson(element);
 		return response;
-
 	}
-
 	public Map<String, List<GraphParams>> createWidgetproductList() {
 
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
@@ -243,9 +229,6 @@ public class DashboardDAO {
 		List<GraphParams> graphParamsList = new ArrayList<GraphParams>();
 		for (Map<String, Object> rs : rows) {
 			GraphParams graphParam = new GraphParams();
-			// graphParam.setyValue(rs.get("Product").toString());
-			// graphParam.setxValue(rs.get("Quantity").toString());
-			// String product = rs.get("Product").toString();
 			Float quantity = (Float) (rs.get("Quantity"));
 			Float price = (Float) (rs.get("Price"));
 			Float spend = (price * quantity);
@@ -267,7 +250,6 @@ public class DashboardDAO {
 		}
 		return productListMap;
 	}
-
 	public String insertWidgetConfig(String widgetJson, String widgetId, String dashboardId) {
 
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
@@ -282,37 +264,30 @@ public class DashboardDAO {
 		}
 		return "Success";
 	}
-
 	public String changeGraph(String widgetId) {
 
 		return "Success";
 	}
-
 	public String getWidgetForDashboard(String dashboardId) {
 
 		return "Success";
 	}
-
 	public String updateWidget(String widgetId) {
 
 		return "Success";
 	}
-
 	public String deleteWidget(String widgetId) {
 
 		return "Success";
 	}
-
 	public String addWidget(String widgetId) {
 
 		return "Success";
 	}
-
 	public String editWidgetTitle(String widgetId) {
 
 		return "Success";
 	}
-
 	public String downloadWidgetData(String widgetId) {
 
 		return "Success";

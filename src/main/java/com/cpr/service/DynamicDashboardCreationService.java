@@ -29,10 +29,8 @@ public class DynamicDashboardCreationService {
 
 	@Autowired
 	private CustomDashboardService dashboardService;
-
 	@Autowired
 	private DashboardDAO dashboardDAO;
-
 	public String createDynamicDashboard() {
 
 		ArrayList<Widget> widgets = new ArrayList<Widget>();
@@ -103,12 +101,10 @@ public class DynamicDashboardCreationService {
 		String widgetConfigGenerated = dashboardService.createDashboardJson(widgets);
 		String response = dashboardDAO.insertWidgetConfig(widgetConfigGenerated, "wd001", "dd001");
 		return response;
-	}
-	
+	}	
 	public String deleteDynamicDashboard() {
 		
 		String response = dashboardDAO.deleteDynamicDashboard("dd001");
 		return response;
 	}
-
 }

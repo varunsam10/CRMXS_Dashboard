@@ -19,41 +19,29 @@
 		<param-value>/WEB-INF/config/security-config.xml</param-value>
 	</context-param>
 	<servlet>
-		<servlet-name>fitTrackerServlet</servlet-name>
+		<servlet-name>biSuiteServlet</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
-	<init-param>
+		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>/WEB-INF/config/servlet-config.xml</param-value>
-	</init-param>
+		</init-param>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>fitTrackerServlet</servlet-name>
+		<servlet-name>biSuiteServlet</servlet-name>
 		<url-pattern>*.html</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
-		<servlet-name>fitTrackerServlet</servlet-name>
+		<servlet-name>biSuiteServlet</servlet-name>
 		<url-pattern>/pdfs/**</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
-		<servlet-name>fitTrackerServlet</servlet-name>
+		<servlet-name>biSuiteServlet</servlet-name>
 		<url-pattern>/images/**</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
-		<servlet-name>fitTrackerServlet</servlet-name>
+		<servlet-name>biSuiteServlet</servlet-name>
 		<url-pattern>*.json</url-pattern>
 	</servlet-mapping>
-	<display-name>Archetype Created Web Application</display-name>
-<!-- 	<servlet>     
-                <display-name>populateTableHandler</display-name>
-                <servlet-name>populateTableHandler</servlet-name>
-                <servlet-class>
-   org.springframework.web.context.support.HttpRequestHandlerServlet
-               </servlet-class>
-     </servlet>
-
-        <servlet-mapping>
-                <servlet-name>populateTableHandler</servlet-name>
-                <url-pattern>/PopulateTable</url-pattern>
-        </servlet-mapping> -->
+	<display-name>CPR vision BI Suite</display-name>
 </web-app>

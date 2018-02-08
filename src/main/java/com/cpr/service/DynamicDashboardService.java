@@ -7,14 +7,11 @@ import com.cpr.Dao.DashboardDAO;
 
 @Service
 public class DynamicDashboardService {
-
 	@Autowired
 	private DashboardDAO dashboardDAO;
-
 	public String fetchDashboard2Widgets(String dashboardID) {
 
 		String dashboardJson = dashboardDAO.getDynamicDashboardJson(dashboardID);
 		return dashboardJson;
 	}
-
 }
