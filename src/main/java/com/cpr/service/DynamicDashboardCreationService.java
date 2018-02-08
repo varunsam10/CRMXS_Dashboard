@@ -45,7 +45,7 @@ public class DynamicDashboardCreationService {
 		ArrayList<WidgetData> widgetDataList = new ArrayList<WidgetData>();
 		if (!productListMap.isEmpty()) {
 			widget = new Widget();
-			widget.setWidgetTitle("Test Widget");
+			widget.setWidgetTitle("Test Widget1");
 			widget.setWidgetId("wd001");
 			widget.setEnableRefresh(false);
 			widget.setChartType(ChartTypeEnum.LINE.toString().toLowerCase());
@@ -78,14 +78,14 @@ public class DynamicDashboardCreationService {
 
 		}
 		TitleFont x_TitleFont = new TitleFont("Courier New, monospace", 18, "#7f7f7f");
-		AxisLayout x_AxisLayout = new AxisLayout("Age", x_TitleFont);
+		AxisLayout x_AxisLayout = new AxisLayout("Spend", x_TitleFont);
 
 		TitleFont y_TitleFont = new TitleFont("Courier New, monospace", 18, "#7f7f7f");
-		AxisLayout y_AxisLayout = new AxisLayout("Number of Customers", y_TitleFont);
+		AxisLayout y_AxisLayout = new AxisLayout("Customers", y_TitleFont);
 
 		if (null != widget) {
 			widgetLayout = new WidgetLayout();
-			widgetLayout.setTitle("Products vs Quantity");
+			widgetLayout.setTitle("Spend by cutsomer");
 			widgetLayout.setXaxis(x_AxisLayout);
 			widgetLayout.setYaxis(y_AxisLayout);
 			widgetLayout.setAutosize(true);

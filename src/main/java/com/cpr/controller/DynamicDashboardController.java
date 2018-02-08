@@ -28,10 +28,7 @@ public class DynamicDashboardController {
 	@RequestMapping(value = "/getDynamicWidgets", method = RequestMethod.GET)
 	@ResponseBody
 	public String getDynamicWidgets() {
-		// DashboardService dashboardJSON = new DashboardService();
-		// return dashboardJSON.createDashboardJson();
 		String dashboardJsonResponse = dynamicDashboardService.fetchDashboard2Widgets("dd001");
-		// String response = dashboardDAO.getDashboardJson();
 		System.out.println("The response is" + dashboardJsonResponse);
 		return dashboardJsonResponse;
 	}

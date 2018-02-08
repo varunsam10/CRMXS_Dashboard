@@ -839,19 +839,12 @@ $(document).ready(function() {
 	   		 	url : 'getDynamicWidgets.html',
 	            success : function(data) {
 	                  var dashboardJSON = JSON.parse(data);	
-	                 	//var dashboardJSON = data;
-	                  // console.log("dashJSON_new");
-	                   console.log(dashboardJSON);   
+					  console.log(dashboardJSON);   
 	                   $("#cprDashboard").cprDashboard({
 	                	   dashboardData : dashboardJSON   
 	                   });
 	           }});     
 	});
-//basic initialization example mn.sDashboard
-/* $("#cprDashboard").cprDashboard({
-	dashboardData : dashboardJSON
-}); */
-//	$("#cprDashboard").cprDashboard("widgetcallCheck","sree");
 //Toastr settings
 	toastr.options = {
 		"closeButton" : false,
