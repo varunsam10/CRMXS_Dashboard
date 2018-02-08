@@ -776,7 +776,7 @@
 				if (widgetDefinition.widgetType === 'chart') {
 					
 					data = widgetConfig.data;
-					widgetDefinition.widgetContent.layout.xaxis.range = widgetConfig.layout.xaxis.range;
+					widgetDefinition.widgetContent.layout.xaxis.range = widgetConfig.widgetLayout.xaxis.range;
 					layout = widgetDefinition.widgetContent.layout;
 					config = widgetDefinition.widgetContent.config;
 					
@@ -1109,10 +1109,8 @@
 						
 						WidgetContentToChange.dataProvider.areas = widgetDefinition.linkedData[cust];
 						mapRedraw =AmCharts.makeChart(mapArea[0], WidgetContentToChange);
-						mapRedraw.validateData();
-										
-					}
-					
+						mapRedraw.validateData();										
+					}					
 				}
 			},
 			_interactChart: function(widgetDefinition,dataPoint) {
@@ -1411,7 +1409,6 @@
 				}
 				return false;
 			},
-
 			/*public methods*/
 			//add a widget to the dashboard
 			addWidget : function(widgetDefinition) {
@@ -1432,10 +1429,12 @@
 					this._trigger("stateChanged", null,  {
 							triggerAction: 'widgetAdded',
 							affectedWidget: widgetDefinition
-						}
-					);
+					});
 				}
 			},
+			
+			
+
 			//remove a widget from the dashboard
 			removeWidget : function(widgetId) {
 				if (!widgetId) {

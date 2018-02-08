@@ -61,6 +61,7 @@
 <script src="assets/dash6/js/Dropdown/chosen.proto.js"></script>
 <script src="assets/dash6/js/Dropdown/dropdown.js" type="text/javascript"></script>
 <script src="assets/dash6/js/Dropdown/bootstrap-multiselect.js" type="text/javascript"></script>
+<script src="assets/dash6/js/bootstrap-notify.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 // Wait for window load
 $(window).load(function() {
@@ -85,6 +86,7 @@ $(window).load(function() {
 				<div class="topbar-actions">
 					<!-- DOC: Apply "search-form-expanded" right after the "search-form" class to have half expanded search box -->
 					<form class="search-form" action="extra_search.html" method="GET">
+						
 						<div class="input-group">
 							<input type="text" class="form-control"
 								placeholder="Search here" name="query"> <span
@@ -92,7 +94,7 @@ $(window).load(function() {
 								class="btn md-skip submit"> <i class="fa fa-search"></i>
 							</a>
 							</span>
-						</div>
+					</div>
 					</form>
 					<!-- END HEADER SEARCH BOX -->
 					<!-- BEGIN GROUP NOTIFICATION -->
@@ -186,30 +188,44 @@ $(window).load(function() {
 							<img src="assets/dash6/layouts/layout5/img/avatar1.jpg" alt="">
 						</button>
 						<ul class="dropdown-menu-v2" role="menu">
-							<li><a href="page_user_profile_1.html"> <i
-									class="icon-user"></i> My Profile <span
-									class="badge badge-danger">1</span>
-							</a></li>
-							<li><a href="app_calendar.html"> <i
-									class="icon-calendar"></i> My Calendar
-							</a></li>
-							<li><a href="app_inbox.html"> <i
-									class="icon-envelope-open"></i> My Inbox <span
-									class="badge badge-danger"> 3 </span>
-							</a></li>
-							<li><a href="app_todo_2.html"> <i class="icon-rocket"></i>
-									My Tasks <span class="badge badge-success"> 7 </span>
-							</a></li>
+							<li>
+								<a href="drawboard1.html"> 
+								<i class="icon-user"></i> Widgets Main <span class="badge badge-danger">20</span>
+								</a>
+							</li>
+							<li>
+								<a href="drawboard2.html"> 
+								<i class="icon-user"></i> Widgets Dynamic <span class="badge badge-danger">1</span>
+								</a>
+							</li>
+							<li>
+								<a href="drawboard3.html"> 
+								<i	class="icon-calendar"></i> Details view <span class="badge badge-danger">3</span>
+								</a>
+							</li>
+							<li>
+								<a href="drawboard4.html"> 
+									<i class="icon-envelope-open"></i> Widget interaction
+									<span class="badge badge-danger"> 3 </span>
+								</a>
+							</li>
+							<li>
+								<a href="drawboard5.html"> 
+									<i class="icon-rocket"></i>Customer location
+									<span class="badge badge-success"> 2 </span>
+								</a>
+							</li>
 							<li class="divider"></li>
-							<li><a href="page_user_lock_1.html"> <i
-									class="icon-lock"></i> Lock Screen
-							</a></li>
+							<li>
+								<a href="drawboard6.html">
+								<i	class="icon-lock"></i> Filters on Widget <span class="badge badge-success"> 1 </span>
+								</a>
+							</li>
 							<!-- <li><a href="page_user_login_1.html"> <i
 									class="icon-key"></i> Log Out
 							</a></li> -->
-							<li><a href="logout.html"> <i
-									class="icon-key"></i> Log Out
-							</a></li>
+							<li><a href="logout.html"> <i class="icon-key"></i> Log Out	</a>
+							</li>
 						</ul>
 					</div>
 					<!-- END USER PROFILE -->
@@ -227,9 +243,24 @@ $(window).load(function() {
 		<div class="page-content-fixed-header">
 			<!-- BEGIN BREADCRUMBS -->
 			<ul class="page-breadcrumb">
-				<li><a href="#">Maifest BI Insights</a></li>
+				<li><a href="#">Customer BI Insights</a></li>
 			</ul>
 			<!-- END BREADCRUMBS -->
+			<div class="dropdown-ajax-menu btn-group">
+    			<button class="btn dropdown-toggle" type="button" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" style="margin-top:3px;margin-left: 1080px">
+    			<span class=""></span>
+    			<img src="assets/dash6/css/images/ic_add_circle_black_24dp_2x.png" height="35"/>
+    			</button>
+    			<ul class="dropdown-menu-v2">
+      			<li><a>Add Widget</a>
+      			<ul>
+    			<li><a id="btnAddWidget">Pie Chart</a></li>
+			    <li><a id="btnAddWidgetbubble">Bubble Chart</a></li>
+    			<li><a id="btnAddWidgetarea">Area Graph</a></li>
+    			</ul>
+      			</li>
+				</ul>
+  			</div>  
 			<div class="content-header-menu">
 				<!-- BEGIN DROPDOWN AJAX MENU -->
 				<div class="dropdown-ajax-menu btn-group">
@@ -433,7 +464,6 @@ $(window).load(function() {
 						<p><h4 class="modal-title">Apply filters on the widget- <label  for="fgwidgetId" id="fgwidgetId"></label></h4></p>
 					</div>
 					<div class="modal-body">
-						<%-- <form action="#" class="form-horizontal"> --%>
 							 <!-- <div class="form-group"> -->
 								<div class="col-md-4" style="padding-left:150px">
 								<label>From</label>
@@ -812,7 +842,58 @@ $(document).ready(function() {
 		 
 		      return date;
 		 } 
-	
+		 $("#btnAddWidget").click(function() {
+				$("#cprDashboard").cprDashboard("addWidget", {
+					widgetTitle : "Sales Figures2",
+					widgetId : "id040",
+					widgetType : "chart",
+					widgetClick:"disable",
+					widgetEdit:"disable",
+					graphType : "exploratory",
+					widgetDimension : "normal",
+					chartType : "doughnut",
+					widgetContent : {
+						data : myExampleData.donutWidgetData,
+						layout : myExampleData.donutWidgetLayout,
+						config : myExampleData.donutWidgetConfig
+					}
+				});
+			});
+		 $("#btnAddWidgetbubble").click(function() {
+				$("#cprDashboard").cprDashboard("addWidget", {
+					widgetTitle : "Revenue by region",
+					widgetId : "id041",
+					widgetType : "chart",
+					widgetClick:"disable",
+					widgetEdit:"disable",
+					graphType : "exploratory",
+					widgetDimension : "large",
+					chartType : "bubble",
+					widgetContent : {
+						data : myExampleData.plotlybubble2data,
+						layout : myExampleData.plotlybubble2layout,
+						config : myExampleData.plotlybubble2config
+					}
+				});
+			});
+		 $("#btnAddWidgetarea").click(function() {
+				$("#cprDashboard").cprDashboard("addWidget", {
+					widgetTitle : "Hour Wise Redemptions",
+					widgetId : "id042",
+					widgetType : "chart",
+					widgetClick:"disable",
+					widgetEdit:"disable",
+					graphType : "exploratory",
+					widgetDimension : "normal",
+					chartType : "area",
+					widgetContent : {
+						data : myExampleData.plotlyareadata,
+						layout : myExampleData.plotlyarealayout,
+						config : myExampleData.plotlyareaconfig
+					}
+				});
+			});
+			
 //**********************************************//
 //dashboard json data
 //this is the data format that the dashboard framework expects
@@ -1328,6 +1409,84 @@ $("#cprDashboard").cprDashboard({
 			console.log(data.sortedDefinitions);
 			console.log("+++++++++++++++++++++++++");
 		} */
+	});
+	$("#cprDashboard").bind("cprdashboardstatechanged",function(e, data) {
+		if(data.triggerAction === "orderChanged"){
+	
+			$.notify({
+				// options
+				icon: 'glyphicon glyphicon-warning-sign',
+				title: 'Widget Order Changed!',
+				message: 'Would you like to save the current ordering ?',
+				url: 'https://github.com/mouse0270/bootstrap-notify',
+				target: '_blank'
+			},{
+				// settings
+				element: 'body',
+				position: null,
+				type: "info",
+				allow_dismiss: true,
+				newest_on_top: false,
+				showProgressbar: false,
+				placement: {
+					from: "top",
+					align: "center"
+				},
+				offset: 20,
+				spacing: 10,
+				z_index: 1031,
+				delay: 5000,
+				timer: 1000,
+				url_target: '_blank',
+				mouse_over: null,
+				animate: {
+					enter: 'animated fadeInDown',
+					exit: 'animated fadeOutUp'
+				},
+				onShow: null,
+				onShown: null,
+				onClose: null,
+				onClosed: null,
+				icon_type: 'class',
+				template: '<div data-notify="container" class="col-xs-12 col-sm-4 alert alert-{0}" role="alert">' +
+				'<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +	
+				'<div class="col-xs-10">' + 
+					
+					'<span data-notify="icon"></span> ' +
+					'<span data-notify="title">{1}</span><br/> ' +
+					'<span data-notify="message">{2} </span>' +
+					'</div>' +
+					'<div class="col-xs-2"><button type="button" aria-hidden="true" class="btn btn-primary btn-xs" id="saveOrder" data-notify="dismiss">Save</button></div>' +
+				'</div>' 
+			});
+				
+				$("#saveOrder").click(function() {
+					 swal("Widget Order Saved!"," ", "success");
+				});
+			
+		}else if(data.triggerAction === "widgetRemoved"){
+			//notification('info', 'The below widget with widgetID:'+ data.affectedWidget.widgetTitle+'deleted');
+			swal({
+				  title: "Do you want to save the change?",
+				  text: "The Changes made will not be saved!",
+				  type: "warning",
+				  showCancelButton: true,
+				  confirmButtonClass: "btn-success",
+				  confirmButtonText: "Save",
+				  cancelButtonText: "Cancel",
+				  closeOnConfirm: false,
+				  closeOnCancel: false
+				},
+				function(isConfirm) {
+				  if (isConfirm) {
+				    swal("Widget "+data.affectedWidget.widgetTitle, "is deleted!", "success");
+				  				
+				  } else {
+				    swal("Cancelled", "The deletion is not saved", "error");
+						    
+				  }
+				});	
+		}
 	});
 	$('#applyChanges').on('click', function (e) {
 		e.preventDefault();

@@ -1,33 +1,31 @@
 package com.cpr.model;
 
 public class Countries {
-	
-	public Countries(String code,String name, String continent,String region,int population,
-			String capital )
-    {      
-        this.setCode(code);
-        this.setName(name);
-        this.setContinent(continent);
-        this.setRegion(region);
-        this.setPopulation(population);
-        this.setCapital(capital);
-            }
-	
+
+	public Countries(String code, String name, String continent, String region, int population, String capital) {
+		this.setCode(code);
+		this.setName(name);
+		this.setContinent(continent);
+		this.setRegion(region);
+		this.setPopulation(population);
+		this.setCapital(capital);
+	}
+
 	public Countries() {
-		
+
 	}
 
 	private String code;
-    private String name;
-    private String continent;
-    private String region;
-    private int population;   
-    private String capital;
-    
-      
-    public void setCode(String code) {
+	private String name;
+	private String continent;
+	private String region;
+	private int population;
+	private String capital;
+
+	public void setCode(String code) {
 		this.code = code;
 	}
+
 	public String getCode() {
 		return code;
 	}
@@ -56,7 +54,6 @@ public class Countries {
 		return region;
 	}
 
-	
 	public void setPopulation(int population) {
 		this.population = population;
 	}
@@ -65,7 +62,6 @@ public class Countries {
 		return population;
 	}
 
-	
 	public void setCapital(String capital) {
 		this.capital = capital;
 	}
@@ -74,6 +70,4 @@ public class Countries {
 		return capital;
 	}
 
-
 }
-

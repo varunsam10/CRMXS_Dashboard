@@ -8,7 +8,7 @@
 <meta content="width=device-width, initial-scale=1" name="viewport" />
 <meta content="" name="author" />
 <!-- BEGIN GLOBAL MANDATORY STYLES -->
-<link href="assets/dash6/global/plugins/font-awesome/css/font-awesome.min.css"	rel="stylesheet" type="text/css" />
+<link href="assets/dash6/global/plugins/font-awesome/css/font-awesome.mMaifest BI Insightsin.css"	rel="stylesheet" type="text/css" />
 <link href="assets/dash6/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
 <link href="assets/dash6/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 <!-- END GLOBAL MANDATORY STYLES -->
@@ -189,30 +189,44 @@ $(window).load(function() {
 							<img src="assets/dash6/layouts/layout5/img/avatar1.jpg" alt="">
 						</button>
 						<ul class="dropdown-menu-v2" role="menu">
-							<li><a href="page_user_profile_1.html"> <i
-									class="icon-user"></i> My Profile <span
-									class="badge badge-danger">1</span>
-							</a></li>
-							<li><a href="app_calendar.html"> <i
-									class="icon-calendar"></i> My Calendar
-							</a></li>
-							<li><a href="app_inbox.html"> <i
-									class="icon-envelope-open"></i> My Inbox <span
-									class="badge badge-danger"> 3 </span>
-							</a></li>
-							<li><a href="app_todo_2.html"> <i class="icon-rocket"></i>
-									My Tasks <span class="badge badge-success"> 7 </span>
-							</a></li>
+								<li>
+								<a href="drawboard1.html"> 
+								<i class="icon-user"></i> Widgets Main <span class="badge badge-danger">20</span>
+								</a>
+							</li>
+							<li>
+								<a href="drawboard2.html"> 
+								<i class="icon-user"></i> Widgets Dynamic <span class="badge badge-danger">1</span>
+								</a>
+							</li>
+							<li>
+								<a href="drawboard3.html"> 
+								<i	class="icon-calendar"></i> Details view <span class="badge badge-danger">3</span>
+								</a>
+							</li>
+							<li>
+								<a href="drawboard4.html"> 
+									<i class="icon-envelope-open"></i> Widget interaction
+									<span class="badge badge-danger"> 3 </span>
+								</a>
+							</li>
+							<li>
+								<a href="drawboard5.html"> 
+									<i class="icon-rocket"></i>Customer location
+									<span class="badge badge-success"> 2 </span>
+								</a>
+							</li>
 							<li class="divider"></li>
-							<li><a href="page_user_lock_1.html"> <i
-									class="icon-lock"></i> Lock Screen
-							</a></li>
+							<li>
+								<a href="drawboard6.html">
+								<i	class="icon-lock"></i> Filters on Widget <span class="badge badge-success"> 1 </span>
+								</a>
+							</li>
 							<!-- <li><a href="page_user_login_1.html"> <i
 									class="icon-key"></i> Log Out
 							</a></li> -->
-							<li><a href="logout.html"> <i
-									class="icon-key"></i> Log Out
-							</a></li>
+							<li><a href="logout.html"> <i class="icon-key"></i> Log Out	</a>
+							</li>
 						</ul>
 					</div>
 					<!-- END USER PROFILE -->
@@ -230,7 +244,7 @@ $(window).load(function() {
 		<div class="page-content-fixed-header">
 			<!-- BEGIN BREADCRUMBS -->
 			<ul class="page-breadcrumb">
-				<li><a href="#">Maifest BI Insights</a></li>
+				<li><a href="#">Customer BI Insights</a></li>
 			</ul>
 			<!-- END BREADCRUMBS -->
 			<div class="content-header-menu">

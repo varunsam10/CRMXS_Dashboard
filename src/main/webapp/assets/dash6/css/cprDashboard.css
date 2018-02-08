@@ -225,7 +225,7 @@ div#users-contain table td, div#users-contain table th {
 	margin: 0.3em; 
 	margin: 0.1em;
 	padding: 0.4em;	
-	overflow-x: auto;
+	overflow-x: hidden;
 	overflow-y: auto;
 	transition: .3s all ease;
 	background-color: #ffffff;
@@ -507,9 +507,10 @@ div#users-contain table td, div#users-contain table th {
 .cprDashboard-iconcustomInteract {
 	margin: 0 5px 0 5px;
 	float: right;
-	background: url('images/ic_details_white_18dp_1x.png') no-repeat;
-	width: 20px;
-	height: 20px;
+	background: url('images/ic_touch_app_white_24dp_1x.gif') no-repeat;
+	width: 24px;
+	height: 24px;
+	float: left
 }
 .cprDashboard-iconcustomStyle {
 	margin: 0 5px 0 5px;

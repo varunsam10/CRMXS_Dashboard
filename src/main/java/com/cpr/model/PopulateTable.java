@@ -21,39 +21,43 @@ import com.google.gson.reflect.TypeToken;
 public class PopulateTable {
 	private static final long serialVersionUID = 1L;
 
-    public PopulateTable() {
-        
-    }
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-				
-		ArrayList<Countries> country=new ArrayList<Countries>();
-		//country=FetchData.getAllCountries();
+	public PopulateTable() {
+
+	}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		ArrayList<Countries> country = new ArrayList<Countries>();
+		// country=FetchData.getAllCountries();
 		Gson gson = new Gson();
-		JsonElement element = gson.toJsonTree(country, new TypeToken<List<Countries>>() {}.getType());
+		JsonElement element = gson.toJsonTree(country, new TypeToken<List<Countries>>() {
+		}.getType());
 
 		JsonArray jsonArray = element.getAsJsonArray();
 		response.setContentType("application/json");
 		response.getWriter().print(jsonArray);
-		
+
 	}
 
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 	}
 
-/*	public void handleRequest(HttpServletRequest arg0, HttpServletResponse arg1) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		ArrayList<Countries> country=new ArrayList<Countries>();
-		country=FetchData.getAllCountries();
-		Gson gson = new Gson();
-		JsonElement element = gson.toJsonTree(country, new TypeToken<List<Countries>>() {}.getType());
-
-		JsonArray jsonArray = element.getAsJsonArray();
-		arg1.setContentType("application/json");
-		arg1.getWriter().print(jsonArray);
-		
-	}*/
+	/*
+	 * public void handleRequest(HttpServletRequest arg0, HttpServletResponse
+	 * arg1) throws ServletException, IOException { // TODO Auto-generated
+	 * method stub ArrayList<Countries> country=new ArrayList<Countries>();
+	 * country=FetchData.getAllCountries(); Gson gson = new Gson(); JsonElement
+	 * element = gson.toJsonTree(country, new TypeToken<List<Countries>>()
+	 * {}.getType());
+	 * 
+	 * JsonArray jsonArray = element.getAsJsonArray();
+	 * arg1.setContentType("application/json");
+	 * arg1.getWriter().print(jsonArray);
+	 * 
+	 * }
+	 */
 
 }

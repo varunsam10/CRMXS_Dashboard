@@ -1,12 +1,12 @@
 package com.cpr.util;
 
-public enum GraphType {
+public enum GraphTypeEnum {
 	EXPLORATORY("exploratory"),
 	NORMAL("normal");
 	
 	private String graphType;
 	
-	private GraphType(String graphType) {
+	private GraphTypeEnum(String graphType) {
 		// TODO Auto-generated constructor stub
 		this.graphType = graphType;
 	}
