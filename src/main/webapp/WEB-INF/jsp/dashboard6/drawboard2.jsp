@@ -832,45 +832,20 @@ $(document).ready(function() {
 //dashboard json data
 //this is the data format that the dashboard framework expects
 //**********************************************
-		$("#loadWidgets").click(function(e) {     	
-       	
-        $.ajax({
-            type: "GET",
-   		 	url : 'getWidgets.html',
-            success : function(data) {
-                   //$('#result').html(data);
-                   
-                   dashboardJSON = JSON.parse(data);	
-                   console.log("dashJSON_new");
-                   console.log(dashboardJSON);   
-                   $("#cprDashboard").cprDashboard({
-                	   dashboardData : dashboardJSON   
-                   });
-           }});
-       	
-        e.preventDefault();
-		/* if(dashboardJSON){
-			 $("#cprDashboard").sDashboard({
-		        	
-		        	$("#cprDashboard").load(function() {
-		        		
-		        	});
-		        	}
-		        }); */	
-		
-		});
-	/* {
-		widgetTitle: "Table",
-		widgetId: "id007",
-		widgetType: "table",
-		setJqueryStyle: true,
-		widgetContent: {
-			data: myExampleData.tableWidgetDataNw,
-			coloumns: myExampleData.tableWidgetColoumnNw,
-			buttons:myExampleData.tableWidgetButtonNw
-		}
-	}, */	
-//console.log(dashboardJSON);
+	$("#loadWidgets").click(function(e) {   
+			e.preventDefault();
+	        $.ajax({
+	            type: "GET",
+	   		 	url : 'getDynamicWidgets.html',
+	            success : function(data) {
+	                   dashboardJSON = JSON.parse(data);	
+	                  // console.log("dashJSON_new");
+	                   console.log(dashboardJSON);   
+	                   $("#cprDashboard").cprDashboard({
+	                	   dashboardData : dashboardJSON   
+	                   });
+	           }});     
+	});
 //basic initialization example mn.sDashboard
 $("#cprDashboard").cprDashboard({
 	dashboardData : dashboardJSON

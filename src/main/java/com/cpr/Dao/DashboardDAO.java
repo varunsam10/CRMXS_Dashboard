@@ -1,7 +1,11 @@
-package com.cpr.model;
+package com.cpr.Dao;
 
+import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.sql.Blob;
 import java.sql.Date;
-import java.sql.SQLDataException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,13 +16,18 @@ import java.util.Set;
 
 import javax.sql.DataSource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.stereotype.Repository;
 
+import com.cpr.model.FilterData;
+import com.cpr.model.GraphParams;
+import com.cpr.model.WidgetContentMap;
 import com.cpr.util.AxisLayout;
 import com.cpr.util.TitleFont;
-import com.cpr.util.Widget;
 import com.cpr.util.WidgetConfig;
 import com.cpr.util.WidgetContent;
 import com.cpr.util.WidgetData;
@@ -28,17 +37,18 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
 
+@Repository
 public class DashboardDAO {
 
+	@Autowired
 	private DataSource dataSource;
 
-	public void setDataSource(DataSource dataSource) {
-		this.dataSource = dataSource;
-	}
-
-	public DataSource getDataSource() {
-		return dataSource;
-	}
+	/*
+	 * public void setDataSource(DataSource dataSource) { this.dataSource =
+	 * dataSource; }
+	 * 
+	 * public DataSource getDataSource() { return dataSource; }
+	 */
 
 	public String getDashboardJson() {
 
@@ -55,9 +65,7 @@ public class DashboardDAO {
 			 * String str = new String(widgetBlob.getBytes(1l, (int)
 			 * widgetBlob.length())); //System.out.println(str); //String
 			 * widgetJson = gson.toJson(str); widgetContent.add(str);
-			 * //widgetConfig.add(str); //Json.createArrayBuilder()
-			 * 
-			 * }
+			 * //widgetConfig.add(str); //Json.createArrayBuilder() }
 			 */
 			// String dashboardJson = widgetConfig.build().toString();
 			JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
@@ -65,12 +73,46 @@ public class DashboardDAO {
 			// String dashboardJson = gson.toJson(widgetContent);
 			System.out.println(dashboardJson);
 			return dashboardJson;
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return null;
+	}
 
+	public String getDynamicDashboardJson(String dashboardID) {
+		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+		final Gson gson = new Gson();
+		List<Map<String, Object>> rows = null;
+		String retrieveBlobAsString = null;
+		List<WidgetContentMap> widgetContentMaps = new ArrayList<WidgetContentMap>();
+		try {
+			String sql = "select * from widget where dashId = ?";
+			StringBuilder sqlQuery = new StringBuilder("SELECT * FROM widget");
+			sqlQuery.append(" WHERE dashId ='").append(dashboardID).append("'");
+			widgetContentMaps = jdbcTemplate.query(sqlQuery.toString(), new RowMapper<WidgetContentMap>() {
+				public WidgetContentMap mapRow(ResultSet rs, int rowNum) throws SQLException {
+					WidgetContentMap widgetContentMap = new WidgetContentMap();
+					Blob blob = rs.getBlob("widgetContent");
+					String retrieveBlobAsString = new String(blob.getBytes(1, (int) blob.length()));
+					widgetContentMap.setWidgetContent(gson.toJson(retrieveBlobAsString));
+					return widgetContentMap;
+				}
+			});
+			// rows = jdbcTemplate.query(sql, dashboardID);
+			/*
+			 * JsonArrayBuilder widgetConfig = Json.createArrayBuilder(); for
+			 * (Map<String, Object> rs : rows) {
+			 * 
+			 * Blob widgetBlob = rs.getBlob("widgetContent"); InputStream input
+			 * = widgetBlob.getBinaryStream(); ObjectInputStream object = new
+			 * ObjectInputStream(input); retrieveBlobAsString = (String)
+			 * object.readObject(); }
+			 */
+		} catch (Exception e) {
+			System.out.println("The exception is" + e);
+		}
+		String widgetContent = widgetContentMaps.get(0).getWidgetContent();
+		return widgetContent;
 	}
 
 	public String getDateFilteredData(FilterData filterData) {
@@ -157,7 +199,7 @@ public class DashboardDAO {
 
 	public String getFilteredWidgetConfig(Integer resultSize, Map<String, List<GraphParams>> countryMap,
 			java.util.Date parsedFrom, java.util.Date parsedTo) {
-		
+
 		ArrayList<WidgetData> widgetsDataList = new ArrayList<WidgetData>();
 		Set<String> keys = countryMap.keySet();
 		int i = 0;
@@ -199,25 +241,29 @@ public class DashboardDAO {
 	public Map<String, List<GraphParams>> createWidgetproductList() {
 
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
-		String sql = "SELECT * FROM crmxsdashboard.demosalesitem";
+		// String sql = "SELECT * FROM crmxsdashboard.demosalesitem";
+		String sql = "select Customer_Name,Quantity from demosalesitemTest";
 		List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql);
 		Map<String, List<GraphParams>> productListMap = new HashMap<String, List<GraphParams>>();
 		List<GraphParams> graphParamsList = new ArrayList<GraphParams>();
 		for (Map<String, Object> rs : rows) {
 			GraphParams graphParam = new GraphParams();
-			graphParam.setyValue(rs.get("Product").toString());
+			// graphParam.setyValue(rs.get("Product").toString());
+			// graphParam.setxValue(rs.get("Quantity").toString());
+			// String product = rs.get("Product").toString();
+			graphParam.setyValue(rs.get("Customer_Name").toString());
 			graphParam.setxValue(rs.get("Quantity").toString());
-			String product = rs.get("Product").toString();
+			String customerName = rs.get("Customer_Name").toString();
 			if (productListMap.isEmpty()) {
 				graphParamsList.add(graphParam);
-				productListMap.put(product, graphParamsList);
+				productListMap.put(customerName, graphParamsList);
 			} else {
-				if (productListMap.containsKey(product)) {
-					productListMap.get(product).add(graphParam);
+				if (productListMap.containsKey(customerName)) {
+					productListMap.get(customerName).add(graphParam);
 				} else {
 					List<GraphParams> graphParamsListNew = new ArrayList<GraphParams>();
 					graphParamsListNew.add(graphParam);
-					productListMap.put(product, graphParamsListNew);
+					productListMap.put(customerName, graphParamsListNew);
 				}
 			}
 		}
@@ -227,14 +273,51 @@ public class DashboardDAO {
 	public String insertWidgetConfig(String widgetJson, String widgetId, String dashboardId) {
 
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
-		String sql = "INSERT INTO crmxsdashboard.widget ('widgetId,widgetContent,dashId) VALUES (?,?,?)";
+		String sql = "INSERT INTO crmxsdashboard.widget (widgetId,widgetContent,dashId) VALUES (?,?,?)";
 		try {
 
 			jdbcTemplate.update(sql, new Object[] { widgetId, widgetJson, dashboardId });
 
 		} catch (Exception ex) {
-
+			System.out.println("The exception is " + ex);
+			return "Failure";
 		}
 		return "Success";
 	}
+
+	public String changeGraph(String widgetId) {
+
+		return "Success";
+	}
+
+	public String getWidgetForDashboard(String dashboardId) {
+
+		return "Success";
+	}
+
+	public String updateWidget(String widgetId) {
+
+		return "Success";
+	}
+
+	public String deleteWidget(String widgetId) {
+
+		return "Success";
+	}
+
+	public String addWidget(String widgetId) {
+
+		return "Success";
+	}
+
+	public String editWidgetTitle(String widgetId) {
+
+		return "Success";
+	}
+
+	public String downloadWidgetData(String widgetId) {
+
+		return "Success";
+	}
+
 }

@@ -1,6 +1,8 @@
 package com.cpr.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,10 +12,10 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.cpr.model.Dashboard3;
-import com.cpr.model.DashboardDAO;
+import com.cpr.Dao.DashboardDAO;
 import com.cpr.model.FilterData;
-import com.cpr.service.Dashboard2CreationService;
-import com.cpr.service.DashboardService;
+import com.cpr.service.DynamicDashboardCreationService;
+import com.cpr.service.CustomDashboardService;
 import com.google.gson.Gson;
 
 @Controller
@@ -21,7 +23,7 @@ import com.google.gson.Gson;
 public class Dashboard6Controller {
 
 	@Autowired
-	private Dashboard2CreationService dashboard2CreationService;
+	private DynamicDashboardCreationService dashboardCreationService;
 	@Autowired
 	private DashboardDAO dashboardDAO;
 
@@ -31,12 +33,14 @@ public class Dashboard6Controller {
 		// DashboardDAO.getDashboardJson();
 		return new ModelAndView("dashboard6/drawboard1", "Dashboard3", new Dashboard3());
 	}
+
 	@RequestMapping("/index")
 	public ModelAndView initializeMainForm() {
 		Dashboard3 dashboard3 = new Dashboard3();
 		// DashboardDAO.getDashboardJson();
 		return new ModelAndView("index", "Dashboard3", new Dashboard3());
 	}
+
 	@RequestMapping("/drawboard2")
 	public ModelAndView initializeFormDrawboard2() {
 		Dashboard3 dashboard3 = new Dashboard3();
@@ -44,15 +48,15 @@ public class Dashboard6Controller {
 	}
 
 	@RequestMapping("/drawboard2/create")
-	public String createInitialDrawboard2() {
+	public ResponseEntity createInitialDrawboard2() {
 		Dashboard3 dashboard3 = new Dashboard3();
 		// return new ModelAndView("dashboard6/drawboard2", "Dashboard3", new
 		// Dashboard3());
-		String response = dashboard2CreationService.createDashboard2();
+		String response = dashboardCreationService.createDashboard2();
 		if (null != response) {
-			return "success";
+			return new ResponseEntity(HttpStatus.OK);
 		} else {
-			return "failure";
+			return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 
@@ -78,7 +82,7 @@ public class Dashboard6Controller {
 	@RequestMapping(value = "/getWidgetsInteract", method = RequestMethod.GET)
 	@ResponseBody
 	public String getInteractiveWidgets() {
-		DashboardService dashboardJSON = new DashboardService();
+		CustomDashboardService dashboardJSON = new CustomDashboardService();
 		return dashboardJSON.createDashboardJson();
 
 	}
