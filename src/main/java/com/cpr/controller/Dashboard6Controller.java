@@ -47,19 +47,6 @@ public class Dashboard6Controller {
 		return new ModelAndView("dashboard6/drawboard2", "Dashboard3", new Dashboard3());
 	}
 
-	@RequestMapping("/drawboard2/create")
-	public ResponseEntity createInitialDrawboard2() {
-		Dashboard3 dashboard3 = new Dashboard3();
-		// return new ModelAndView("dashboard6/drawboard2", "Dashboard3", new
-		// Dashboard3());
-		String response = dashboardCreationService.createDashboard2();
-		if (null != response) {
-			return new ResponseEntity(HttpStatus.OK);
-		} else {
-			return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
-		}
-	}
-
 	@RequestMapping(value = "/getWidgets", method = RequestMethod.GET)
 	@ResponseBody
 	public String getWidgets() {

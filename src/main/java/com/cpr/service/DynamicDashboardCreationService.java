@@ -22,6 +22,7 @@ import com.cpr.util.WidgetData;
 import com.cpr.util.WidgetDimensionEnum;
 import com.cpr.util.WidgetEditEnum;
 import com.cpr.util.WidgetLayout;
+import com.cpr.util.WidgetTypeEnum;
 
 @Service
 public class DynamicDashboardCreationService {
@@ -32,7 +33,7 @@ public class DynamicDashboardCreationService {
 	@Autowired
 	private DashboardDAO dashboardDAO;
 
-	public String createDashboard2() {
+	public String createDynamicDashboard() {
 
 		ArrayList<Widget> widgets = new ArrayList<Widget>();
 		Map<String, List<GraphParams>> productListMap = dashboardDAO.createWidgetproductList();
@@ -47,11 +48,12 @@ public class DynamicDashboardCreationService {
 			widget.setWidgetTitle("Test Widget");
 			widget.setWidgetId("wd001");
 			widget.setEnableRefresh(false);
-			widget.setChartType(ChartTypeEnum.LINE.toString());
-			widget.setWidgetDimension(WidgetDimensionEnum.LARGE.toString());
-			widget.setGraphType(GraphTypeEnum.EXPLORATORY.toString());
-			widget.setWidgetClick(WidgetClickEnum.DISABLE.toString());
-			widget.setWidgetEdit(WidgetEditEnum.DISABLE.toString());
+			widget.setChartType(ChartTypeEnum.LINE.toString().toLowerCase());
+			widget.setWidgetDimension(WidgetDimensionEnum.LARGE.toString().toLowerCase());
+			widget.setGraphType(GraphTypeEnum.EXPLORATORY.toString().toLowerCase());
+			widget.setWidgetType(WidgetTypeEnum.CHART.toString().toLowerCase());
+			widget.setWidgetClick(WidgetClickEnum.DISABLE.toString().toLowerCase());
+			widget.setWidgetEdit(WidgetEditEnum.DISABLE.toString().toLowerCase());
 			widgetContent = new WidgetContent();
 			Set<Map.Entry<String, List<GraphParams>>> mapset = productListMap.entrySet();
 
@@ -88,18 +90,24 @@ public class DynamicDashboardCreationService {
 			widgetLayout.setYaxis(y_AxisLayout);
 			widgetLayout.setAutosize(true);
 			// widget.getWidgetContent().setWidgetLayout(widgetLayout);
-			String[] modeBarButtonsToRemove = { "sendDataToCloud" };
+			String[] modeBarButtonsToRemove = {"sendDataToCloud"};
 			widgetConfig = new WidgetConfig();
 			widgetConfig.setModeBarButtonsToRemove(modeBarButtonsToRemove);
 			// widget.getWidgetContent().setWidgetConfig(widgetConfig);
 		}
 		widgetContent.setData(widgetDataList);
-		widgetContent.setWidgetLayout(widgetLayout);
-		widgetContent.setWidgetConfig(widgetConfig);
+		widgetContent.setLayout(widgetLayout);
+		widgetContent.setConfig(widgetConfig);
 		widget.setWidgetContent(widgetContent);
 		widgets.add(widget);
 		String widgetConfigGenerated = dashboardService.createDashboardJson(widgets);
 		String response = dashboardDAO.insertWidgetConfig(widgetConfigGenerated, "wd001", "dd001");
+		return response;
+	}
+	
+	public String deleteDynamicDashboard() {
+		
+		String response = dashboardDAO.deleteDynamicDashboard("dd001");
 		return response;
 	}
 

@@ -14,6 +14,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.json.Json;
+import javax.json.JsonArrayBuilder;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,9 +34,11 @@ import com.cpr.util.WidgetConfig;
 import com.cpr.util.WidgetContent;
 import com.cpr.util.WidgetData;
 import com.cpr.util.WidgetLayout;
+import com.fasterxml.jackson.core.JsonParser;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
 
 @Repository
@@ -58,21 +62,22 @@ public class DashboardDAO {
 			String sql = "select * from widget";
 			// Statement statement = con.prepareStatement(sql);
 			// ResultSet rs = statement.executeQuery(sql);
-			List<String> widgetContent = new ArrayList<String>();
-			// JsonArrayBuilder widgetConfig = Json.createArrayBuilder();
-			/*
-			 * while(rs.next()) { java.sql.Blob widgetBlob = rs.getBlob(2);
-			 * String str = new String(widgetBlob.getBytes(1l, (int)
-			 * widgetBlob.length())); //System.out.println(str); //String
-			 * widgetJson = gson.toJson(str); widgetContent.add(str);
-			 * //widgetConfig.add(str); //Json.createArrayBuilder() }
-			 */
+	/*		List<String> widgetContent = new ArrayList<String>();
+			JsonArrayBuilder widgetConfig = Json.createArrayBuilder();
+			widgetConfig.add(str);
+			String dashboardJson = widgetConfig.build().toString()
+			 while(rs.next()) { java.sql.Blob widgetBlob = rs.getBlob(2);
+			 String str = new String(widgetBlob.getBytes(1l, (int)
+			  widgetBlob.length())); //System.out.println(str); //String
+			 widgetJson = gson.toJson(str); widgetContent.add(str);*/
+			 //widgetConfig.add(str); //Json.createArrayBuilder() }
+			 
 			// String dashboardJson = widgetConfig.build().toString();
-			JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
-			String dashboardJson = widgetContent.toString();
+			/*JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+			String dashboardJson = widgetContent.toString();*/
 			// String dashboardJson = gson.toJson(widgetContent);
-			System.out.println(dashboardJson);
-			return dashboardJson;
+			/*System.out.println(dashboardJson);
+			return dashboardJson;*/
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -93,8 +98,13 @@ public class DashboardDAO {
 				public WidgetContentMap mapRow(ResultSet rs, int rowNum) throws SQLException {
 					WidgetContentMap widgetContentMap = new WidgetContentMap();
 					Blob blob = rs.getBlob("widgetContent");
-					String retrieveBlobAsString = new String(blob.getBytes(1, (int) blob.length()));
-					widgetContentMap.setWidgetContent(gson.toJson(retrieveBlobAsString));
+					String retrieveBlobAsString = new String(blob.getBytes(1, (int) blob.length()));					
+								
+					
+				//	dashboardJson.add(retrieveBlobAsString);
+			    //  String dashboardJsonStr = dashboardJson.build().toString();					
+					widgetContentMap.setWidgetContent(retrieveBlobAsString);
+					//widgetContentMap.setWidgetContent(gson.toJson(retrieveBlobAsString));
 					return widgetContentMap;
 				}
 			});
@@ -113,6 +123,19 @@ public class DashboardDAO {
 		}
 		String widgetContent = widgetContentMaps.get(0).getWidgetContent();
 		return widgetContent;
+	}
+
+	public String deleteDynamicDashboard(String dashboardId) {
+		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+
+		try {
+			String sql = "delete from widget where dashId = ?";
+			jdbcTemplate.update(sql, new Object[] { dashboardId });
+		} catch (Exception e) {
+			System.out.println("The exception is" + e);
+			return "Failed";
+		}
+		return "Success";
 	}
 
 	public String getDateFilteredData(FilterData filterData) {
