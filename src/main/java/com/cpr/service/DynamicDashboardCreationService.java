@@ -59,13 +59,15 @@ public class DynamicDashboardCreationService {
 					mapset);
 			for (Map.Entry<String, List<GraphParams>> entry : maplist) {
 				widgetData = new WidgetData();
+				int i = 0;
+				int j = 0;
 				Object[] x = new Object[entry.getValue().size()];
 				Object[] y = new Object[entry.getValue().size()];
-				for (GraphParams params : entry.getValue()) {
-					for (int i = 0; i < entry.getValue().size(); i++) {
+				for (GraphParams params : entry.getValue()) {					
 						x[i] = params.getxValue();
-						y[i] = params.getyValue();
-					}
+						y[j] = params.getyValue();
+						i++;
+						j++;
 				}
 				widgetData.setY(y);
 				widgetData.setX(x);
@@ -76,10 +78,10 @@ public class DynamicDashboardCreationService {
 
 		}
 		TitleFont x_TitleFont = new TitleFont("Courier New, monospace", 18, "#7f7f7f");
-		AxisLayout x_AxisLayout = new AxisLayout("Spend", x_TitleFont);
+		AxisLayout x_AxisLayout = new AxisLayout("Products", x_TitleFont);
 
 		TitleFont y_TitleFont = new TitleFont("Courier New, monospace", 18, "#7f7f7f");
-		AxisLayout y_AxisLayout = new AxisLayout("Customers", y_TitleFont);
+		AxisLayout y_AxisLayout = new AxisLayout("Spend", y_TitleFont);
 
 		if (null != widget) {
 			widgetLayout = new WidgetLayout();
@@ -99,7 +101,7 @@ public class DynamicDashboardCreationService {
 		widget.setWidgetContent(widgetContent);
 		widgets.add(widget);
 		String widgetConfigGenerated = dashboardService.createDashboardJson(widgets);
-		String response = dashboardDAO.insertWidgetConfig(widgetConfigGenerated, "wd001", "dd001");
+		String response = dashboardDAO.insertWidgetConfig(widgetConfigGenerated, "wd001", "dd001",widget.getWidgetTitle());
 		return response;
 	}	
 	public String deleteDynamicDashboard() {

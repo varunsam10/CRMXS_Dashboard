@@ -32,6 +32,13 @@ public class DynamicDashboardController {
 		System.out.println("The response is" + dashboardJsonResponse);
 		return dashboardJsonResponse;
 	}
+	@RequestMapping(value = "/getDynamicWidgetNames", method = RequestMethod.GET)
+	@ResponseBody
+	public String getDynamicWidgetNames() {
+		String dashboardJsonResponse = dynamicDashboardService.fetchDashboard2WidgetsNames("dd001");
+		System.out.println("The response is" + dashboardJsonResponse);
+		return dashboardJsonResponse;
+	}
 	@RequestMapping("/dynamic/create")
 	public ResponseEntity createInitialDynamicBoard() {
 		Dashboard3 dashboard3 = new Dashboard3();

@@ -14250,7 +14250,8 @@ VALUES
   (1139978,'2016-01-30 00:00:00.000','Guest Checkout 118330','Store 409','Product 7397',1.0,0.0,'');
 
 
-
+ALTER TABLE `crmxsdashboard`.`widget` 
+ADD COLUMN `widgetTitle` VARCHAR(45) NOT NULL AFTER `dashId`
 
 
 
