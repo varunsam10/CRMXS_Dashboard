@@ -7,6 +7,7 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 
 	<mvc:annotation-driven />
+
 	<mvc:resources location="assets" mapping="/assets/**" />
 	<mvc:resources location="pdfs" mapping="/pdfs/**" />
 	<context:annotation-config />
@@ -30,6 +31,7 @@
 				</constructor-arg>
 			</bean>
 		</property>
+
 		<property name="defaultViews">
 			<list>
 				<bean
@@ -64,4 +66,8 @@
 
 	<bean class="org.springframework.web.servlet.view.BeanNameViewResolver"
 		p:order="0" />
+
+
+	<!-- <bean id="populateTableHandler" class="com.cpr.controller.PopulateTableWithData"></bean> -->
+
 </beans>

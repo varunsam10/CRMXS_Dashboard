@@ -86,6 +86,7 @@ $(window).load(function() {
 				<div class="topbar-actions">
 					<!-- DOC: Apply "search-form-expanded" right after the "search-form" class to have half expanded search box -->
 					<form class="search-form" action="extra_search.html" method="GET">
+						
 						<div class="input-group">
 							<input type="text" class="form-control"
 								placeholder="Search here" name="query"> <span
@@ -93,7 +94,7 @@ $(window).load(function() {
 								class="btn md-skip submit"> <i class="fa fa-search"></i>
 							</a>
 							</span>
-						</div>
+					</div>
 					</form>
 					<!-- END HEADER SEARCH BOX -->
 					<!-- BEGIN GROUP NOTIFICATION -->
@@ -245,6 +246,21 @@ $(window).load(function() {
 				<li><a href="#">Customer BI Insights</a></li>
 			</ul>
 			<!-- END BREADCRUMBS -->
+			<div class="dropdown-ajax-menu btn-group">
+    			<button class="btn dropdown-toggle" type="button" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" style="margin-top:3px;margin-left: 1080px">
+    			<span class=""></span>
+    			<img src="assets/dash6/css/images/ic_add_circle_black_24dp_2x.png" height="35"/>
+    			</button>
+    			<ul class="dropdown-menu-v2">
+      			<li><a>Add Widget</a>
+      			<ul>
+    			<li><a id="btnAddWidget">Pie Chart</a></li>
+			    <li><a id="btnAddWidgetbubble">Bubble Chart</a></li>
+    			<li><a id="btnAddWidgetarea">Area Graph</a></li>
+    			</ul>
+      			</li>
+				</ul>
+  			</div>  
 			<div class="content-header-menu">
 				<!-- BEGIN DROPDOWN AJAX MENU -->
 				<div class="dropdown-ajax-menu btn-group">
@@ -448,7 +464,6 @@ $(window).load(function() {
 						<p><h4 class="modal-title">Apply filters on the widget- <label  for="fgwidgetId" id="fgwidgetId"></label></h4></p>
 					</div>
 					<div class="modal-body">
-						<%-- <form action="#" class="form-horizontal"> --%>
 							 <!-- <div class="form-group"> -->
 							 <div id="tabs">
 							  <ul>
@@ -846,7 +861,58 @@ $(document).ready(function() {
 		 
 		      return date;
 		 } 
-	
+		 $("#btnAddWidget").click(function() {
+				$("#cprDashboard").cprDashboard("addWidget", {
+					widgetTitle : "Sales Figures2",
+					widgetId : "id040",
+					widgetType : "chart",
+					widgetClick:"disable",
+					widgetEdit:"disable",
+					graphType : "exploratory",
+					widgetDimension : "normal",
+					chartType : "doughnut",
+					widgetContent : {
+						data : myExampleData.donutWidgetData,
+						layout : myExampleData.donutWidgetLayout,
+						config : myExampleData.donutWidgetConfig
+					}
+				});
+			});
+		 $("#btnAddWidgetbubble").click(function() {
+				$("#cprDashboard").cprDashboard("addWidget", {
+					widgetTitle : "Revenue by region",
+					widgetId : "id041",
+					widgetType : "chart",
+					widgetClick:"disable",
+					widgetEdit:"disable",
+					graphType : "exploratory",
+					widgetDimension : "large",
+					chartType : "bubble",
+					widgetContent : {
+						data : myExampleData.plotlybubble2data,
+						layout : myExampleData.plotlybubble2layout,
+						config : myExampleData.plotlybubble2config
+					}
+				});
+			});
+		 $("#btnAddWidgetarea").click(function() {
+				$("#cprDashboard").cprDashboard("addWidget", {
+					widgetTitle : "Hour Wise Redemptions",
+					widgetId : "id042",
+					widgetType : "chart",
+					widgetClick:"disable",
+					widgetEdit:"disable",
+					graphType : "exploratory",
+					widgetDimension : "normal",
+					chartType : "area",
+					widgetContent : {
+						data : myExampleData.plotlyareadata,
+						layout : myExampleData.plotlyarealayout,
+						config : myExampleData.plotlyareaconfig
+					}
+				});
+			});
+			
 //**********************************************//
 //dashboard json data
 //this is the data format that the dashboard framework expects

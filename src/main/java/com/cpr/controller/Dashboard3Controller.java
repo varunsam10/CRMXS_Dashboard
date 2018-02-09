@@ -7,14 +7,11 @@ import org.springframework.web.servlet.ModelAndView;
 import com.cpr.model.Dashboard3;;
 @Controller
 @SessionAttributes("/dashboard3")
-public class Dashboard3Controller {
-	
+public class Dashboard3Controller {	
 	@RequestMapping("/dashboard3")
 	public ModelAndView initializeForm()
 	{
 		Dashboard3 dashboard3=new Dashboard3();
 		return new ModelAndView("dashboard3/dashboard3","Dashboard3",new Dashboard3());
 	}
-	
-
 }

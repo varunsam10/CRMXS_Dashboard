@@ -12,12 +12,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class JsonUtility {
 
-	/**
-	 * 
-	 * @param obj
-	 * @return
-	 * 
-	 */
 	public String convertObjectToJson(final Object obj) {
 		String jsonValue = null;
 		ObjectMapper mapper = new ObjectMapper();
@@ -36,12 +30,6 @@ public class JsonUtility {
 		return jsonValue;
 	}
 
-	/**
-	 * 
-	 * @param obj
-	 * @return
-	 * 
-	 */
 	public String convertObjectToJsonIgnoreNullValues(final Object obj) {
 		String jsonValue = null;
 		ObjectMapper mapper = new ObjectMapper();
@@ -61,13 +49,6 @@ public class JsonUtility {
 		return jsonValue;
 	}
 
-	/**
-	 * 
-	 * @param jsonValue
-	 * @param objValue
-	 * @return
-	 * 
-	 */
 	public Object convertJsonToObject(final String jsonValue, Object objValue) {
 		Object obj = null;
 		ObjectMapper mapper = new ObjectMapper();
