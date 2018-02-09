@@ -450,7 +450,14 @@ $(window).load(function() {
 					<div class="modal-body">
 						<%-- <form action="#" class="form-horizontal"> --%>
 							 <!-- <div class="form-group"> -->
-								<div class="col-md-4" style="padding-left:150px">
+							 <div id="tabs">
+							  <ul>
+							    <li><a href="#fragment-1"><span>One</span></a></li>
+							    <li><a href="#fragment-2"><span>Two</span></a></li>
+							    <li><a href="#fragment-3"><span>Three</span></a></li>
+							  </ul>
+							  <div id="fragment-1">
+							    <div class="col-md-4" style="padding-left:150px">
 								<label>From</label>
 								</div>
 								<div class="col-md-6">
@@ -524,6 +531,14 @@ $(window).load(function() {
 					            <option value="Sudan">Sudan</option>
 					          </select>					       	
 					       	</div>
+							  </div>
+							  <div id="fragment-2">
+							    
+							  </div>
+							  <div id="fragment-3">
+							  </div>
+							</div>
+								
 					        <!-- </div> -->					          
 						<%-- </form> --%>						
 					</div>
@@ -751,11 +766,15 @@ $(document).ready(function() {
 		 
 	 });	
 	 $('#countries-select').multiselect({
-		  includeSelectAllOption: true,
+		 includeSelectAllOption: true,
          enableFiltering: true,
          maxHeight: 200
-		 
 	 });
+	 
+	 $("#tabs").tabs({
+		 collapsible: true
+	 });
+	 
 	  var dateFormat = "mm/dd/yy",
 		      from = $("#from").datepicker({
 		          showOn: "button",
