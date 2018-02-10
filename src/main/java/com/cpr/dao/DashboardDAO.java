@@ -1,4 +1,4 @@
-package com.cpr.Dao;
+package com.cpr.dao;
 
 import java.sql.Blob;
 import java.sql.Date;
@@ -100,6 +100,34 @@ public class DashboardDAO {
 		}
 		String widgetContent = widgetContentMaps.get(0).getWidgetContent();
 		return widgetContent;
+	}
+	public String getWidgetDefinition(String widgetName){
+		
+		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+		List<Map<String, Object>> rows = null;
+		String retrieveBlobAsString = null;
+		List<WidgetContentMap> widgetContentMaps = new ArrayList<WidgetContentMap>();
+		try {
+			StringBuilder sqlQuery = new StringBuilder("SELECT * FROM widget");
+			sqlQuery.append(" WHERE widgetTitle ='").append(widgetName).append("'");
+			System.out.println("Sql query"+sqlQuery.toString());
+			widgetContentMaps = jdbcTemplate.query(sqlQuery.toString(), new RowMapper<WidgetContentMap>() {
+				public WidgetContentMap mapRow(ResultSet rs, int rowNum) throws SQLException {
+					WidgetContentMap widgetContentMap = new WidgetContentMap();
+					Blob blob = rs.getBlob("widgetContent");
+					String retrieveBlobAsString = new String(blob.getBytes(1, (int) blob.length()));
+					widgetContentMap.setWidgetContent(retrieveBlobAsString);
+					return widgetContentMap;
+				}
+			});
+
+		} catch (Exception e) {
+			System.out.println("The exception is" + e);
+		}
+		String widgetContent = widgetContentMaps.get(0).getWidgetContent();
+		return widgetContent;
+		
+		
 	}
 	public List<String> getDynamicDashboardWidgetNamesJson(String dashboardID) {
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);

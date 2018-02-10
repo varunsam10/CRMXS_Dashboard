@@ -261,7 +261,7 @@ $(window).load(function() {
 					</ul>
 
 				</div>
-				<div class="dropdown-ajax-menu btn-group">
+				<div class="dropdown-ajax-menu btn-group" id="cprAddWidgetElements">
 						<button class="btn dropdown-toggle" type="button"
 								data-toggle="dropdown" data-hover="dropdown"
 								data-close-others="true" id="cprAddButton">
@@ -269,14 +269,14 @@ $(window).load(function() {
 									src="assets/dash6/css/images/ic_add_circle_black_24dp_2x.png"
 									height="25" />
 						</button>
-						<ul class="dropdown-menu-v2">
-								<li><a>Add Widget</a>
+						<ul class="dropdown-menu-v2" id="addWidgetCprDashboards">
+								<!-- <li><a>Add Widget</a>
 									<ul id="addWidgetCprDashboards"> 
 										<li><a id="btnAddWidget">Pie Chart</a></li>
 										<li><a id="btnAddWidgetbubble">Bubble Chart</a></li>
 										<li><a id="btnAddWidgetarea">Area Graph</a></li>
 									</ul>
-								</li>
+								</li> -->
 						</ul>
 				</div>
 				<!-- END DROPDOWN AJAX MENU -->
@@ -468,17 +468,13 @@ $(window).load(function() {
 						<p><h4 class="modal-title">Apply filters on the widget- <label  for="fgwidgetId" id="fgwidgetId"></label></h4></p>
 					</div>
 					<div class="modal-body">
-						<%-- <form action="#" class="form-horizontal"> --%>
-							 <!-- <div class="form-group"> -->
-								<div class="col-md-4" style="padding-left:150px">
+							<div class="col-md-4" style="padding-left:150px">
 								<label>From</label>
 								</div>
 								<div class="col-md-6">
 								<input class="date-picker" size="16" type="text" value="" id="from" name="from"/>
 								</div>
-								<hr>
-						     <!-- </div> -->
-							<!-- <div class="form-group"> -->
+								<hr>					
 							<div class="col-md-4" style="padding-left:150px">
 								<label>To</label>
 							</div>
@@ -486,66 +482,16 @@ $(window).load(function() {
 								<span><input class="date-picker" size="16" type="text" value="" id="to" name="to"/></span>
 							</div>							
 							<hr>
-							<hr>
-							<!-- </div> -->  
-							<!-- <div class="form-group"> -->							
+							<hr>											
 							<label class="col-md-4" style="padding-left:150px">Select Country</label>
 							<div class="col-md-8">	
 							<select id="country-select" multiple="multiple">					            
 					            <option value="US">United States</option>
-					            <option value="UK">United Kingdom</option>
-					         	<option value="Afghanistan">Afghanistan</option>
-					            <option value="Aland Islands">Aland Islands</option>
-					            <option value="Albania">Albania</option>					        
-					            <option value="Bahrain">Bahrain</option>
-					            <option value="Bangladesh">Bangladesh</option>
-					            <option value="Barbados">Barbados</option>
-					            <option value="Belarus">Belarus</option>
-					            <option value="Belgium">Belgium</option>
-					            <option value="Chad">Chad</option>
-					            <option value="Chile">Chile</option>
-					            <option value="China">China</option>
-					            <option value="Denmark">Denmark</option>
-					            <option value="Djibouti">Djibouti</option>
-					            <option value="Dominica">Dominica</option>
-					            <option value="Fiji">Fiji</option>
-					            <option value="Finland">Finland</option>
-					            <option value="France">France</option>
-					            <option value="Guam">Guam</option>
-					            <option value="Guatemala">Guatemala</option>
-					            <option value="Guernsey">Guernsey</option>
-					            <option value="Guinea">Guinea</option>
-					            <option value="Hungary">Hungary</option>
-					            <option value="Iceland">Iceland</option>
-					            <option value="India">India</option>
-					            <option value="Israel">Israel</option>
-					            <option value="Italy">Italy</option>
-					            <option value="Jamaica">Jamaica</option>
-					            <option value="Japan">Japan</option>
-					            <option value="Jersey">Jersey</option>
-					            <option value="Jordan">Jordan</option>
-					            <option value="Myanmar">Myanmar</option>
-					            <option value="Namibia">Namibia</option>
-					            <option value="Nauru">Nauru</option>
-					            <option value="Nepal">Nepal</option>
-					            <option value="Netherlands">Netherlands</option>
-					            <option value="New Caledonia">New Caledonia</option>
-					            <option value="Paraguay">Paraguay</option>
-					            <option value="Peru">Peru</option>
-					            <option value="Philippines">Philippines</option>
-					            <option value="Pitcairn">Pitcairn</option>
-					            <option value="Poland">Poland</option>
-					            <option value="Portugal">Portugal</option>
-					            <option value="Puerto Rico">Puerto Rico</option>
-					            <option value="Qatar">Qatar</option>
-					            <option value="Reunion">Reunion</option>
-					            <option value="Spain">Spain</option>
-					            <option value="Sri Lanka">Sri Lanka</option>
-					            <option value="Sudan">Sudan</option>
-					          </select>					       	
-					       	</div>
-					        <!-- </div> -->					          
-						<%-- </form> --%>						
+					            <option value="UK">United Kingdom</option>					        
+					            <option value="China">China</option>					   
+					            <option value="India">India</option>		       
+					         </select>					       	
+					       	</div>					  					
 					</div>
 					<hr>					
 					<div class="modal-footer">
@@ -635,7 +581,7 @@ $(window).load(function() {
 		</div>
 		</div>
 		<!-- END PAGE BASE CONTENT -->
-		<button type="button" id="loadWidgets" class="btn btn-primary">Load Widgets</button>
+		<!-- <button type="button" id="loadWidgets" class="btn btn-primary">Load Widgets</button> -->
 	</div>
 	<!-- BEGIN FOOTER -->
 	<p class="copyright-v2">2017 &copy; CPR Vision</p>
@@ -922,6 +868,7 @@ $(document).ready(function() {
 		//$("#changeThemeModal").modal('show');
 		$("#filterAllModal").modal('show');
 	});
+
 	$('#applyThemes').on('click', function (e) {
 		e.preventDefault();
 		var themeSelected = $("#changeThemeForm input:checked" ).val();
@@ -937,23 +884,22 @@ $(document).ready(function() {
 		  swal(themeSelected +" have been applied !", "", "success");
 		}
 	});
+	$('#cprAddWidgetElements').on('click','li',function () {      
+        var widgetName = $(this).text();
+        $.ajax({
+			 type: "GET",
+			 url : "getWidgetDefinition.html?widgetName="+widgetName,
+			 success : function(data) {
+					var widgetDefinition = JSON.parse(data);	
+				 	console.log("+++++++++++++++++++++++++");
+				 	console.log(widgetDefinition[0]);
+				 	$("#cprDashboard").cprDashboard("addWidget",widgetDefinition[0]);
+				 	
+			}});
+
+    });
 	$("#cprAddButton").click(function() {
-			/* $("#cprDashboard").cprDashboard("addWidget", {
-				widgetTitle : "Sales Figures2",
-				widgetId : "id040",
-				widgetType : "chart",
-				widgetClick:"disable",
-				widgetEdit:"disable",
-				graphType : "exploratory",
-				widgetDimension : "normal",
-				chartType : "doughnut",
-				widgetContent : {
-					data : myExampleData.donutWidgetData,
-					layout : myExampleData.donutWidgetLayout,
-					config : myExampleData.donutWidgetConfig
-				}
-			}); */
-				$.ajax({
+			$.ajax({
 	            type: "GET",
 	   		 	url : 'getDynamicWidgetNames.html',
 	            success : function(data) {

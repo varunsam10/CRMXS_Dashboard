@@ -9,7 +9,6 @@ import com.cpr.model.Dashboard3;
 @Controller
 @SessionAttributes("/createWidget")
 public class CreateWidgetController {
-
 	@RequestMapping("/createWidget")
 	public ModelAndView initializeForm() {
 		Dashboard3 dashboard3 = new Dashboard3();
@@ -19,6 +18,5 @@ public class CreateWidgetController {
 	public ModelAndView initializeForm2() {
 		Dashboard3 dashboard3 = new Dashboard3();
 		return new ModelAndView("createWidget/configureWidget", "Dashboard3", new Dashboard3());
-	}
-	
+	}	
 }

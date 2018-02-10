@@ -8,7 +8,7 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cpr.Dao.DashboardDAO;
+import com.cpr.dao.DashboardDAO;
 import com.cpr.model.GraphParams;
 import com.cpr.util.AxisLayout;
 import com.cpr.util.ChartTypeEnum;
@@ -108,5 +108,5 @@ public class DynamicDashboardCreationService {
 		
 		String response = dashboardDAO.deleteDynamicDashboard("dd001");
 		return response;
-	}
+	}	
 }

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cpr.Dao.DashboardDAO;
+import com.cpr.dao.DashboardDAO;
 import com.cpr.util.AxisLayout;
 import com.cpr.util.ChartTypeEnum;
 import com.cpr.util.ColumnValue;

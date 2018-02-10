@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
-import com.cpr.Dao.DashboardDAO;
+
+import com.cpr.dao.DashboardDAO;
 import com.cpr.model.Dashboard3;
 import com.cpr.model.FilterData;
 import com.cpr.service.CustomDashboardService;
