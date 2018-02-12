@@ -109,8 +109,7 @@ public class DashboardDAO {
 		List<WidgetContentMap> widgetContentMaps = new ArrayList<WidgetContentMap>();
 		try {
 			StringBuilder sqlQuery = new StringBuilder("SELECT * FROM widget");
-			sqlQuery.append(" WHERE widgetTitle ='").append(widgetName).append("'");
-			System.out.println("Sql query"+sqlQuery.toString());
+			sqlQuery.append(" WHERE widgetTitle ='").append(widgetName).append("'");			
 			widgetContentMaps = jdbcTemplate.query(sqlQuery.toString(), new RowMapper<WidgetContentMap>() {
 				public WidgetContentMap mapRow(ResultSet rs, int rowNum) throws SQLException {
 					WidgetContentMap widgetContentMap = new WidgetContentMap();
@@ -267,7 +266,38 @@ public class DashboardDAO {
 
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 		// String sql = "SELECT * FROM crmxsdashboard.demosalesitem";
-		String sql = "select Product,Customer_Name,(Quantity*Price) as Spend from demosalesitemTest group by Spend";
+		String sql = "select Product,Customer_Name,(Quantity*Price) as Spend from demosalesitemTest group by Spend,Product,Customer_Name";
+		List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql);
+		Map<String, List<GraphParams>> productListMap = new HashMap<String, List<GraphParams>>();
+		List<GraphParams> graphParamsList = new LinkedList<GraphParams>();
+		for (Map<String, Object> rs : rows) {			
+			/*Float quantity = (Float) (rs.get("Quantity"));
+			Float price = (Float) (rs.get("Price"));
+			Float spend = (price * quantity);*/
+			GraphParams graphParam = new GraphParams();
+			graphParam.setyValue(rs.get("Spend").toString());
+			graphParam.setxValue(rs.get("Product").toString());
+			String customerName = rs.get("Customer_Name").toString();
+			if (productListMap.isEmpty()) {
+				graphParamsList.add(graphParam);
+				productListMap.put(customerName, graphParamsList);
+			} else {
+				if (productListMap.containsKey(customerName)) {
+					productListMap.get(customerName).add(graphParam);
+				} else {
+					List<GraphParams> graphParamsListNew = new ArrayList<GraphParams>();
+					graphParamsListNew.add(graphParam);
+					productListMap.put(customerName, graphParamsListNew);
+				}
+			}
+		}
+		return productListMap;
+	}
+	public Map<String, List<GraphParams>> createWidgetProductListActual() {
+
+		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+		// String sql = "SELECT * FROM crmxsdashboard.demosalesitem";
+		String sql = "select Product,Customer_Name,(Quantity*Price) as Spend from demosalesitem group by Spend";
 		List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql);
 		Map<String, List<GraphParams>> productListMap = new HashMap<String, List<GraphParams>>();
 		List<GraphParams> graphParamsList = new LinkedList<GraphParams>();

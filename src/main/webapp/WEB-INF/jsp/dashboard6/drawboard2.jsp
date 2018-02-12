@@ -911,9 +911,14 @@ $(document).ready(function() {
 	            	//addWidgetCprDashboards
 	            	 var select =$("#addWidgetCprDashboards");
     				 var items = [];
-    				$.each(dataJson, function (i, item) {
+    			/* 	$.each(dataJson, function (i, item) {
         					items.push('<li><a href="#">' + dataJson+ '</a></li>');
-    				});  
+    				});   */
+    				for (var i = 0; i < dataJson.length; i++) {
+    				    var counter = dataJson[i];
+    				    items.push('<li><a href="#">' + counter+ '</a></li>');
+    				    console.log(counter.counter_name);
+    				}
    					select.html(items.join(''));
 							
 	          	 }});   
