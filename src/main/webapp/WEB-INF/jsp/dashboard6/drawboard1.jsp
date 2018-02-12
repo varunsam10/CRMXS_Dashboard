@@ -246,21 +246,6 @@ $(window).load(function() {
 				<li><a href="#">Customer BI Insights</a></li>
 			</ul>
 			<!-- END BREADCRUMBS -->
-			<div class="dropdown-ajax-menu btn-group">
-    			<button class="btn dropdown-toggle" type="button" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" style="margin-top:3px;margin-left: 1080px">
-    			<span class=""></span>
-    			<img src="assets/dash6/css/images/ic_add_circle_black_24dp_2x.png" height="35"/>
-    			</button>
-    			<ul class="dropdown-menu-v2">
-      			<li><a>Add Widget</a>
-      			<ul>
-    			<li><a id="btnAddWidget">Pie Chart</a></li>
-			    <li><a id="btnAddWidgetbubble">Bubble Chart</a></li>
-    			<li><a id="btnAddWidgetarea">Area Graph</a></li>
-    			</ul>
-      			</li>
-				</ul>
-  			</div>  
 			<div class="content-header-menu">
 				<!-- BEGIN DROPDOWN AJAX MENU -->
 				<div class="dropdown-ajax-menu btn-group">

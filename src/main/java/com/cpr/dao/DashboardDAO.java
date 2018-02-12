@@ -1,4 +1,4 @@
-package com.cpr.Dao;
+package com.cpr.dao;
 
 import java.sql.Blob;
 import java.sql.Date;
@@ -8,6 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -100,9 +101,52 @@ public class DashboardDAO {
 		String widgetContent = widgetContentMaps.get(0).getWidgetContent();
 		return widgetContent;
 	}
+	public String getWidgetDefinition(String widgetName){
+		
+		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+		List<Map<String, Object>> rows = null;
+		String retrieveBlobAsString = null;
+		List<WidgetContentMap> widgetContentMaps = new ArrayList<WidgetContentMap>();
+		try {
+			StringBuilder sqlQuery = new StringBuilder("SELECT * FROM widget");
+			sqlQuery.append(" WHERE widgetTitle ='").append(widgetName).append("'");			
+			widgetContentMaps = jdbcTemplate.query(sqlQuery.toString(), new RowMapper<WidgetContentMap>() {
+				public WidgetContentMap mapRow(ResultSet rs, int rowNum) throws SQLException {
+					WidgetContentMap widgetContentMap = new WidgetContentMap();
+					Blob blob = rs.getBlob("widgetContent");
+					String retrieveBlobAsString = new String(blob.getBytes(1, (int) blob.length()));
+					widgetContentMap.setWidgetContent(retrieveBlobAsString);
+					return widgetContentMap;
+				}
+			});
+
+		} catch (Exception e) {
+			System.out.println("The exception is" + e);
+		}
+		String widgetContent = widgetContentMaps.get(0).getWidgetContent();
+		return widgetContent;
+		
+		
+	}
+	public List<String> getDynamicDashboardWidgetNamesJson(String dashboardID) {
+		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+		List<Map<String, Object>> rows = null;
+		List<String> widgetNames = new ArrayList<String>();
+		List<WidgetContentMap> widgetContentMaps = new ArrayList<WidgetContentMap>();
+		try {
+			String sql = "select widgetTitle from widget where dashId = ?";			
+			rows = jdbcTemplate.queryForList(sql,dashboardID);			
+			for (Map<String, Object> rs : rows) {	
+				widgetNames.add(rs.get("widgetTitle").toString());
+			}
+		} catch (Exception e) {
+			System.out.println("The exception is" + e);
+		}
+		
+		return widgetNames;
+	}	
 	public String deleteDynamicDashboard(String dashboardId) {
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
-
 		try {
 			String sql = "delete from widget where dashId = ?";
 			jdbcTemplate.update(sql, new Object[] { dashboardId });
@@ -126,7 +170,6 @@ public class DashboardDAO {
 		Map<String, List<GraphParams>> countryMap = new HashMap<String, List<GraphParams>>();
 		if (null != filterData.getFromDate() && null != filterData.getToDate()
 				&& (filterData.getCountries().length != 0)) {
-
 			try {
 				SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
 				parsedFrom = format.parse(filterData.getFromDate());
@@ -210,7 +253,7 @@ public class DashboardDAO {
 		AxisLayout y_AxisLayout = new AxisLayout("Number of Customers", y_TitleFont);
 
 		WidgetLayout widgetLayout = new WidgetLayout("How old are they ?", x_AxisLayout, y_AxisLayout, true);
-
+		widgetLayout.setShowlegend(true);
 		String[] modeBarButtonsToRemove = { "sendDataToCloud" };
 		WidgetConfig widgetConfig = new WidgetConfig(modeBarButtonsToRemove);
 		WidgetContent widgetContent = new WidgetContent(widgetsDataList, widgetLayout, widgetConfig);
@@ -223,17 +266,17 @@ public class DashboardDAO {
 
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 		// String sql = "SELECT * FROM crmxsdashboard.demosalesitem";
-		String sql = "select Trans_ID,Customer_Name,Quantity,Price from demosalesitemTest";
+		String sql = "select Product,Customer_Name,(Quantity*Price) as Spend from demosalesitemTest group by Spend,Product,Customer_Name";
 		List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql);
 		Map<String, List<GraphParams>> productListMap = new HashMap<String, List<GraphParams>>();
-		List<GraphParams> graphParamsList = new ArrayList<GraphParams>();
-		for (Map<String, Object> rs : rows) {
-			GraphParams graphParam = new GraphParams();
-			Float quantity = (Float) (rs.get("Quantity"));
+		List<GraphParams> graphParamsList = new LinkedList<GraphParams>();
+		for (Map<String, Object> rs : rows) {			
+			/*Float quantity = (Float) (rs.get("Quantity"));
 			Float price = (Float) (rs.get("Price"));
-			Float spend = (price * quantity);
-			graphParam.setyValue(rs.get("Trans_ID").toString());
-			graphParam.setxValue(spend.toString());
+			Float spend = (price * quantity);*/
+			GraphParams graphParam = new GraphParams();
+			graphParam.setyValue(rs.get("Spend").toString());
+			graphParam.setxValue(rs.get("Product").toString());
 			String customerName = rs.get("Customer_Name").toString();
 			if (productListMap.isEmpty()) {
 				graphParamsList.add(graphParam);
@@ -250,13 +293,44 @@ public class DashboardDAO {
 		}
 		return productListMap;
 	}
-	public String insertWidgetConfig(String widgetJson, String widgetId, String dashboardId) {
+	public Map<String, List<GraphParams>> createWidgetProductListActual() {
 
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
-		String sql = "INSERT INTO crmxsdashboard.widget (widgetId,widgetContent,dashId) VALUES (?,?,?)";
+		// String sql = "SELECT * FROM crmxsdashboard.demosalesitem";
+		String sql = "select Product,Customer_Name,(Quantity*Price) as Spend from demosalesitem group by Spend";
+		List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql);
+		Map<String, List<GraphParams>> productListMap = new HashMap<String, List<GraphParams>>();
+		List<GraphParams> graphParamsList = new LinkedList<GraphParams>();
+		for (Map<String, Object> rs : rows) {			
+			/*Float quantity = (Float) (rs.get("Quantity"));
+			Float price = (Float) (rs.get("Price"));
+			Float spend = (price * quantity);*/
+			GraphParams graphParam = new GraphParams();
+			graphParam.setyValue(rs.get("Spend").toString());
+			graphParam.setxValue(rs.get("Product").toString());
+			String customerName = rs.get("Customer_Name").toString();
+			if (productListMap.isEmpty()) {
+				graphParamsList.add(graphParam);
+				productListMap.put(customerName, graphParamsList);
+			} else {
+				if (productListMap.containsKey(customerName)) {
+					productListMap.get(customerName).add(graphParam);
+				} else {
+					List<GraphParams> graphParamsListNew = new ArrayList<GraphParams>();
+					graphParamsListNew.add(graphParam);
+					productListMap.put(customerName, graphParamsListNew);
+				}
+			}
+		}
+		return productListMap;
+	}
+	public String insertWidgetConfig(String widgetJson, String widgetId, String dashboardId,String widgetTitle) {
+
+		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+		String sql = "INSERT INTO crmxsdashboard.widget (widgetId,widgetContent,dashId,widgetTitle) VALUES (?,?,?,?)";
 		try {
 
-			jdbcTemplate.update(sql, new Object[] { widgetId, widgetJson, dashboardId });
+			jdbcTemplate.update(sql, new Object[] { widgetId, widgetJson, dashboardId, widgetTitle});
 
 		} catch (Exception ex) {
 			System.out.println("The exception is " + ex);
