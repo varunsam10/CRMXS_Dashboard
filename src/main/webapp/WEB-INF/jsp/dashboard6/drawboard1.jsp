@@ -467,32 +467,40 @@ $(window).load(function() {
 							 <!-- <div class="form-group"> -->
 							 <div id="tabs">
 							  <ul>
-							    <li><a href="#fragment-1"><span>One</span></a></li>
-							    <li><a href="#fragment-2"><span>Two</span></a></li>
-							    <li><a href="#fragment-3"><span>Three</span></a></li>
+							  	<li></li>
+							    <li><a href="#fragment-1"><span>Custom</span></a></li>
+							    <li><a href="#fragment-2"><span>Years</span></a></li>
+							    <li><a href="#fragment-3"><span>Quarters</span></a></li>
+							    <li><a href="#fragment-4"><span>Months</span></a></li>
+							    <li><a href="#fragment-5"><span>Weeks</span></a></li>
+							    <li><a href="#fragment-6"><span>Days</span></a></li>
+							    
 							  </ul>
 							  <div id="fragment-1">
-							    <div class="col-md-4" style="padding-left:150px">
-								<label>From</label>
-								</div>
-								<div class="col-md-6">
-								<input class="date-picker" size="16" type="text" value="" id="from" name="from"/>
+							    
+								<div class="col-md-8">
+								<label style="padding-left:30px;padding-right:18px">From</label>
+								
+								<input class="date-picker" size="16" type="text" value="" id="from2" name="from"/>
 								</div>
 								<hr>
+								
 						     <!-- </div> -->
 							<!-- <div class="form-group"> -->
-							<div class="col-md-4" style="padding-left:150px">
-								<label>To</label>
-							</div>
-							<div class="col-md-6">
-								<span><input class="date-picker" size="16" type="text" value="" id="to" name="to"/></span>
-							</div>							
-							<hr>
-							<hr>
+							
+								<div class="col-md-8"><label style="padding-right:36px;padding-left:30px">To</label>
+							
+							
+								<input class="date-picker" size="16" type="text" value="" id="to" name="to"/>
+								</div>
+							
 							<!-- </div> -->  
-							<!-- <div class="form-group"> -->							
-							<label class="col-md-4" style="padding-left:150px">Select Country</label>
-							<div class="col-md-8">	
+							<!-- <div class="form-group"> -->
+									<hr>
+									<hr>
+							<div class="col-md-8">
+							<label style="padding-left:30px">Country</label>
+							
 							<select id="country-select" multiple="multiple">					            
 					            <option value="US">United States</option>
 					            <option value="UK">United Kingdom</option>
@@ -546,18 +554,136 @@ $(window).load(function() {
 					            <option value="Sudan">Sudan</option>
 					          </select>					       	
 					       	</div>
+					       	
 							  </div>
 							  <div id="fragment-2">
-							    
+								<div class="col-md-8">
+							     <div class="col-md-4"><input type="radio" name="previous_year" value="Previous Year"> Previous Year </div> 
+								
+
+								
+								
+								<div class="col-md-2"><input type="radio" name="last_year" value="Last" checked> Last </div>
+								<input class="col-xs-2" class="form-control" type="number" name="years">years
+								
+								</div>	
+								<hr>
+								<div class="col-md-8">
+							     <div class="col-md-4"><input type="radio" name="this_year" value="This Year"> This year </div> 
+								
+
+								
+								
+								<div class="col-md-2"><input type="radio" name="next_year" value="Next" checked> Next </div>
+								<input class="col-xs-2" type="number" name="years">years
+								
+								</div>									
+								<hr>
+								<hr>
+								<div class="col-md-8">
+							     <div class="col-md-4"><input type="radio" name="next_year" value="Next Year"> Next year </div> 
+								
+
+								
+								
+								<div class="col-md-3"><input type="radio" name="year_to_date" value="Year to date" checked> Year to date </div>
+								
+								
+								</div>									
+																
+						     <!-- </div> -->
+							<!-- <div class="form-group"> -->
+										
 							  </div>
 							  <div id="fragment-3">
+							  
+							  
+							  <div class="col-md-8">
+							     <div class="col-md-4"><input type="radio" name="previous_quarter" value="Previous Quarter"> Previous Quarter </div> 
+								
+
+								
+								
+								<div class="col-md-2"><input type="radio" name="last_quarter" value="Last" checked> Last </div>
+								<input class="col-xs-2" class="form-control" type="number" name="quarters">quarters
+								
+								</div>	
+								<hr>
+								<div class="col-md-8">
+							     <div class="col-md-4"><input type="radio" name="this_quarter" value="This Quarter"> This quarter </div> 
+								
+
+								
+								
+								<div class="col-md-2"><input type="radio" name="next_quarter" value="Next" checked> Next </div>
+								<input class="col-xs-2" type="number" name="quarters">quarters
+								
+								</div>									
+								<hr>
+								<hr>
+								<div class="col-md-8">
+							     <div class="col-md-4"><input type="radio" name="next_quarter" value="Next Quarter"> Next quarter </div> 
+								
+
+								
+								
+								<div class="col-md-4"><input type="radio" name="quarter_to_date" value="Quarter to date" checked> Quarter to date </div>
+								
+								
+								</div>	
+							  
+							  
+							  </div>
+							  <div id="fragment-4">
+							  
+							  
+							  <div class="col-md-8">
+							     <div class="col-md-4"><input type="radio" name="previous_month" value="Previous Month"> Previous Month </div> 
+								
+
+								
+								
+								<div class="col-md-2"><input type="radio" name="last_month" value="Last" checked> Last </div>
+								<input class="col-xs-2" class="form-control" type="number" name="months">months
+								
+								</div>	
+								<hr>
+								<div class="col-md-8">
+							     <div class="col-md-4"><input type="radio" name="this_month" value="This Month"> This month </div> 
+								
+
+								
+								
+								<div class="col-md-2"><input type="radio" name="next_month" value="Next" checked> Next </div>
+								<input class="col-xs-2" type="number" name="months">months
+								
+								</div>									
+								<hr>
+								<hr>
+								<div class="col-md-8">
+							     <div class="col-md-4"><input type="radio" name="next_month" value="Next Month"> Next month </div> 
+								
+
+								
+								
+								<div class="col-md-4"><input type="radio" name="month_to_date" value="Month to date" checked> Month to date </div>
+								
+								
+								</div>	
+							  	
+							  
+							  
+							  </div>
+							   <div id="fragment-5">
+							  </div>
+							   <div id="fragment-6">
 							  </div>
 							</div>
 								
 					        <!-- </div> -->					          
 						<%-- </form> --%>						
 					</div>
-					<hr>					
+									
 					<div class="modal-footer">
 						<button class="btn dark btn-outline buttonFilterModal" data-dismiss="modal" aria-hidden="true">Close</button>
 						<button id="resetFilter" class="btn green buttonFilterModal" data-dismiss="modal">Reset</button>
@@ -700,6 +826,18 @@ $(window).load(function() {
 	<!-- END FOOTER -->
 	</div>	
 <!-- END CONTAINER -->
+
+
+ <style>
+  .ui-tabs-vertical { width: 55em; }
+  .ui-tabs-vertical .ui-tabs-nav { padding: .2em .1em .2em .2em; float: left; width: 12em; }
+  .ui-tabs-vertical .ui-tabs-nav li { clear: left; width: 100%; border-bottom-width: 1px !important; border-right-width: 0 !important; margin: 0 -1px .2em 0; }
+  .ui-tabs-vertical .ui-tabs-nav li a { display:block; }
+  .ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active { padding-bottom: 0; padding-right: .1em; border-right-width: 1px; }
+  .ui-tabs-vertical .ui-tabs-panel { padding: 1em; float: center; width: 60em;}
+  </style>
+
+
 <!-- BEGIN CORE PLUGINS -->
 <!-- <script src="assets/dash6/global/plugins/jquery.min.js"	type="text/javascript"></script>  -->
 <!-- remove -->
@@ -786,10 +924,15 @@ $(document).ready(function() {
          maxHeight: 200
 	 });
 	 
-	 $("#tabs").tabs({
-		 collapsible: true
-	 });
-	 
+	var tabs = $("#tabs").tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" ).removeClass("ui-widget-content");
+	    $("#tabs li").removeClass( "ui-corner-top ui-widget-content" ).addClass( "ui-corner-left" );
+	  $("fragment-1").removeClass("ui-widget-content");
+	  tabs.find( ".ui-tabs-nav" ).sortable({
+	      axis: "y",
+	      stop: function() {
+	        tabs.tabs( "refresh" );
+	      }
+	    });
 	  var dateFormat = "mm/dd/yy",
 		      from = $("#from").datepicker({
 		          showOn: "button",
