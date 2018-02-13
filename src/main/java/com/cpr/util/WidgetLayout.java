@@ -23,6 +23,10 @@ public class WidgetLayout {
 	// title for the Y-Axis
 	private AxisLayout yaxis;
 
+	private String paper_bgcolor;
+
+	private String plot_bgcolor;
+
 	public WidgetLayout(String main_title, boolean showLegend, int height, int width, AxisLayout x_axis,
 			AxisLayout y_axis) {
 		// TODO Auto-generated constructor stub
@@ -99,6 +103,22 @@ public class WidgetLayout {
 
 	public void setWidth(int width) {
 		this.width = width;
+	}
+
+	public String getPaper_bgcolor() {
+		return paper_bgcolor;
+	}
+
+	public void setPaper_bgcolor(String paper_bgcolor) {
+		this.paper_bgcolor = paper_bgcolor;
+	}
+
+	public String getPlot_bgcolor() {
+		return plot_bgcolor;
+	}
+
+	public void setPlot_bgcolor(String plot_bgcolor) {
+		this.plot_bgcolor = plot_bgcolor;
 	}
 
 }

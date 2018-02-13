@@ -324,6 +324,62 @@ public class DashboardDAO {
 		}
 		return productListMap;
 	}
+	
+	public Map<String, List<GraphParams>> createWidgetTopOutletActual() {
+
+		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+		String sql = "select count(Trans_ID) as Sales,Outlet_Name as Outlet from demosalesitem group by Outlet_Name";
+		List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql);
+		Map<String, List<GraphParams>> topOutletListMap = new HashMap<String, List<GraphParams>>();
+		List<GraphParams> graphParamsList = new LinkedList<GraphParams>();
+		for (Map<String, Object> rs : rows) {			
+			GraphParams graphParam = new GraphParams();
+			graphParam.setyValue(rs.get("Sales").toString());
+			graphParam.setxValue(rs.get("Outlet").toString());
+			String customerName = rs.get("Outlet").toString();
+			if (topOutletListMap.isEmpty()) {
+				graphParamsList.add(graphParam);
+				topOutletListMap.put(customerName, graphParamsList);
+			} else {
+				if (topOutletListMap.containsKey(customerName)) {
+					topOutletListMap.get(customerName).add(graphParam);
+				} else {
+					List<GraphParams> graphParamsListNew = new ArrayList<GraphParams>();
+					graphParamsListNew.add(graphParam);
+					topOutletListMap.put(customerName, graphParamsListNew);
+				}
+			}
+		}
+		return topOutletListMap;
+	}
+	
+	public Map<String, List<GraphParams>> createWidgetTopProductActual() {
+
+		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+		String sql = "select count(Trans_ID) as Sales,Product from demosalesitem group by Product order by Sales DESC LIMIT 25";
+		List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql);
+		Map<String, List<GraphParams>> topProductListMap = new HashMap<String, List<GraphParams>>();
+		List<GraphParams> graphParamsList = new LinkedList<GraphParams>();
+		for (Map<String, Object> rs : rows) {			
+			GraphParams graphParam = new GraphParams();
+			graphParam.setyValue(rs.get("Sales").toString());
+			graphParam.setxValue(rs.get("Product").toString());
+			String customerName = rs.get("Product").toString();
+			if (topProductListMap.isEmpty()) {
+				graphParamsList.add(graphParam);
+				topProductListMap.put(customerName, graphParamsList);
+			} else {
+				if (topProductListMap.containsKey(customerName)) {
+					topProductListMap.get(customerName).add(graphParam);
+				} else {
+					List<GraphParams> graphParamsListNew = new ArrayList<GraphParams>();
+					graphParamsListNew.add(graphParam);
+					topProductListMap.put(customerName, graphParamsListNew);
+				}
+			}
+		}
+		return topProductListMap;
+	}
 	public String insertWidgetConfig(String widgetJson, String widgetId, String dashboardId,String widgetTitle) {
 
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
