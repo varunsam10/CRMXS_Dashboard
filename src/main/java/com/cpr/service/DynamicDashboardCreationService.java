@@ -97,7 +97,7 @@ public class DynamicDashboardCreationService {
 				widgetData.setType("scatter");
 				widgetData.setName(entry.getKey());
 				Marker marker =new Marker();
-				marker.setColor("#32c5d2");
+				//marker.setColor(" ");
 				marker.setOpacity(0.6);
 				widgetData.setMarker(marker);
 				widgetDataList.add(widgetData);
@@ -248,6 +248,7 @@ public class DynamicDashboardCreationService {
 			widgetLayout.setXaxis(x_AxisLayout);
 			widgetLayout.setYaxis(y_AxisLayout);
 			widgetLayout.setAutosize(true);	
+			widgetLayout.setShowlegend(true);
 			widgetLayout.setPaper_bgcolor("#FFFFFF");
 			widgetLayout.setPlot_bgcolor("#FFFFFF");
 			String[] modeBarButtonsToRemove = {"sendDataToCloud"};
