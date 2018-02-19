@@ -338,6 +338,12 @@ $(window).load(function() {
 	<!--     CPR Dashboard -->
 	<ul id="cprDashboard"></ul>
 	</div>
+	<!-- BEGIN FOOTER -->
+	<p class="copyright-v2">2017 &copy; CPR Vision</p>
+
+	<a href="#index" class="go2top"> <i class="icon-arrow-up"></i>
+	</a>
+	<!-- END FOOTER -->
 	<div id="changeChartModal" class="modal fade" role="dialog" aria-hidden="true">
 	<div class="modal-dialog">
 			<div class="modal-content">
@@ -803,12 +809,7 @@ $(window).load(function() {
 		</div>
 		<!-- END PAGE BASE CONTENT -->
 	</div>
-	<!-- BEGIN FOOTER -->
-	<p class="copyright-v2">2017 &copy; CPR Vision</p>
-
-	<a href="#index" class="go2top"> <i class="icon-arrow-up"></i>
-	</a>
-	<!-- END FOOTER -->
+	
 	</div>	
 <!-- END CONTAINER -->
 
@@ -1221,7 +1222,7 @@ var dashboardJSON = [
 				widgetClick:"disable",
 				widgetEdit:"disable",
 				widgetDimension : "small",
-				widgetContent : "Redemptions : 4,636"
+				widgetContentText : "Redemptions : 4,636"
 
 			},
 			{
@@ -1249,7 +1250,7 @@ var dashboardJSON = [
 				widgetClick:"disable",
 				widgetEdit:"disable",
 				widgetDimension : "small",
-				widgetContent : "231,800$"
+				widgetContentText : "231,800$"
 			},
 			{
 				widgetTitle : "Where the customers are ",

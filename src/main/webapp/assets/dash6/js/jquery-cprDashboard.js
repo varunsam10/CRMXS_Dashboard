@@ -472,7 +472,7 @@
 					widgetContent.append(map);
 				} 			
 				else {
-					widgetContent.append(widgetDefinition.widgetContent);
+					widgetContent.append(widgetDefinition.widgetContentText);
 				}
 				//add widgetHeader to widgetContainer
 				widgetContainer.append(widgetHeader);
