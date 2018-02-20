@@ -16,6 +16,8 @@ import java.util.Set;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.InvalidResultSetAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -197,7 +199,15 @@ public class DashboardDAO {
 				parameters.addValue("countries", countriesList);
 				parameters.addValue("fromDate", fromDate);
 				parameters.addValue("toDate", toDate);
-				rows = template.queryForList(sql, parameters);
+				try{
+					rows = template.queryForList(sql, parameters);
+				}
+				catch (InvalidResultSetAccessException  e) {
+					System.out.println("Exception"+e);
+				}
+				catch (DataAccessException   e) {
+					System.out.println("Exception"+e);
+				}
 
 			}
 			resultSize = rows.size();
