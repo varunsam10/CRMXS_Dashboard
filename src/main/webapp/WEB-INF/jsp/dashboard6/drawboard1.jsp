@@ -466,7 +466,7 @@ $(window).load(function() {
 								<div class="col-md-8">
 								<label style="padding-left:30px;padding-right:18px">From</label>
 								
-								<input class="date-picker" size="16" type="text" value="" id="from2" name="from"/>
+								<input class="date-picker" size="16" type="text" value="" id="from" name="from"/>
 								</div>
 								<hr>
 								
@@ -542,36 +542,36 @@ $(window).load(function() {
 					       	
 							  </div>
 							  <div id="fragment-2">
-								<div class="col-md-8">
-							     <div class="col-md-4"><input type="radio" name="previous_year" value="Previous Year"> Previous Year </div> 
+								<div class="col-md-9">
+							     <div class="col-md-3"><input type="radio" name="year" value="Previous Year"> Prev. Year </div> 
 								
 
 								
 								
-								<div class="col-md-2"><input type="radio" name="last_year" value="Last" checked> Last </div>
-								<input class="col-xs-2" class="form-control" type="number" name="years">years
+								<div class="col-md-2"><input type="radio" name="year" value="Last" checked> Last </div>
+								<input class="col-xs-2" id="last_years" type="number" name="years">years
 								
 								</div>	
 								<hr>
-								<div class="col-md-8">
-							     <div class="col-md-4"><input type="radio" name="this_year" value="This Year"> This year </div> 
+								<div class="col-md-9">
+							     <div class="col-md-3"><input type="radio" name="year" value="This Year"> This year </div> 
 								
 
 								
 								
-								<div class="col-md-2"><input type="radio" name="next_year" value="Next" checked> Next </div>
-								<input class="col-xs-2" type="number" name="years">years
+								<div class="col-md-2"><input type="radio" name="year" value="Next"> Next </div>
+								<input class="col-xs-2" id="next_years" type="number" name="years">years
 								
 								</div>									
 								<hr>
 								<hr>
-								<div class="col-md-8">
-							     <div class="col-md-4"><input type="radio" name="next_year" value="Next Year"> Next year </div> 
+								<div class="col-md-9">
+							     <div class="col-md-4"><input type="radio" name="year" value="Next Year"> Next year </div> 
 								
 
 								
 								
-								<div class="col-md-3"><input type="radio" name="year_to_date" value="Year to date" checked> Year to date </div>
+								
 								
 								
 								</div>									
@@ -583,36 +583,34 @@ $(window).load(function() {
 							  <div id="fragment-3">
 							  
 							  
-							  <div class="col-md-8">
-							     <div class="col-md-4"><input type="radio" name="previous_quarter" value="Previous Quarter"> Previous Quarter </div> 
+							  <div class="col-md-9">
+							     <div class="col-md-3"><input type="radio" name="quarter" value="Previous Quarter"> Prev. Quarter </div> 
 								
 
 								
 								
-								<div class="col-md-2"><input type="radio" name="last_quarter" value="Last" checked> Last </div>
+								<div class="col-md-2"><input type="radio" name="quarter" value="Last" checked> Last </div>
 								<input class="col-xs-2" class="form-control" type="number" name="quarters">quarters
 								
 								</div>	
 								<hr>
-								<div class="col-md-8">
-							     <div class="col-md-4"><input type="radio" name="this_quarter" value="This Quarter"> This quarter </div> 
+								<div class="col-md-9">
+							     <div class="col-md-3"><input type="radio" name="quarter" value="This Quarter"> This quarter </div> 
 								
 
 								
 								
-								<div class="col-md-2"><input type="radio" name="next_quarter" value="Next" checked> Next </div>
+								<div class="col-md-2"><input type="radio" name="quarter" value="Next"> Next </div>
 								<input class="col-xs-2" type="number" name="quarters">quarters
 								
 								</div>									
 								<hr>
 								<hr>
-								<div class="col-md-8">
-							     <div class="col-md-4"><input type="radio" name="next_quarter" value="Next Quarter"> Next quarter </div> 
+								<div class="col-md-9">
+							     <div class="col-md-3"><input type="radio" name="quarter" value="Next Quarter"> Next quarter </div> 
 								
 
 								
-								
-								<div class="col-md-4"><input type="radio" name="quarter_to_date" value="Quarter to date" checked> Quarter to date </div>
 								
 								
 								</div>	
@@ -622,36 +620,32 @@ $(window).load(function() {
 							  <div id="fragment-4">
 							  
 							  
-							  <div class="col-md-8">
-							     <div class="col-md-4"><input type="radio" name="previous_month" value="Previous Month"> Previous Month </div> 
+							  <div class="col-md-9">
+							     <div class="col-md-3"><input type="radio" name="month" value="Previous Month"> Prev. Month </div> 
 								
 
 								
 								
-								<div class="col-md-2"><input type="radio" name="last_month" value="Last" checked> Last </div>
+								<div class="col-md-2"><input type="radio" name="month" value="Last" checked> Last </div>
 								<input class="col-xs-2" class="form-control" type="number" name="months">months
 								
 								</div>	
 								<hr>
-								<div class="col-md-8">
-							     <div class="col-md-4"><input type="radio" name="this_month" value="This Month"> This month </div> 
+								<div class="col-md-9">
+							     <div class="col-md-3"><input type="radio" name="month" value="This Month"> This month </div> 
 								
 
 								
 								
-								<div class="col-md-2"><input type="radio" name="next_month" value="Next" checked> Next </div>
+								<div class="col-md-2"><input type="radio" name="month" value="Next"> Next </div>
 								<input class="col-xs-2" type="number" name="months">months
 								
 								</div>									
 								<hr>
 								<hr>
-								<div class="col-md-8">
-							     <div class="col-md-4"><input type="radio" name="next_month" value="Next Month"> Next month </div> 
+								<div class="col-md-9">
+							     <div class="col-md-3"><input type="radio" name="month" value="Next Month"> Next month </div> 
 								
-
-								
-								
-								<div class="col-md-4"><input type="radio" name="month_to_date" value="Month to date" checked> Month to date </div>
 								
 								
 								</div>	
@@ -1455,7 +1449,24 @@ var dashboardJSON = [
 				layout : myExampleData.plotlylineFilterlayout,
 				config : myExampleData.plotlylineconfig
 			}
-		}];
+		},
+		{
+			widgetTitle : "Revenue with date range slider",
+			widgetId : "id032",
+			widgetType : "chart",	
+			widgetClick:"disable",
+			widgetEdit:"disable",
+			graphType : "exploratory",
+			widgetDimension : "large",
+			chartType : "line",
+			widgetContent: {
+				data : myExampleData.plotlylineFilterdata,
+				layout : myExampleData.plotlylineRangelayout,
+				config : myExampleData.plotlylineconfig
+			}
+		}
+		
+		];
 	/* 	{
 	 		widgetTitle: "Items Sold Grid",
 	 		widgetId: "id010",
@@ -1688,8 +1699,20 @@ $("#cprDashboard").cprDashboard({
 		};
 		$("#cprDashboard").cprDashboard("resetFilter",widgetId);			
 	});	
+	
 	$('#applyFilter').on('click', function (e) {
 		e.preventDefault();
+		var today = new Date();
+		var dd = today.getDate();
+		var mm = today.getMonth()+1;
+		var yyyy = today.getFullYear();
+		var val = $('#last_years').val();
+		if(val!=null)
+			{
+				console.log(val);
+			}
+		//console.log("year:" + year);
+		
 		var widgetConfig;
 		var widgetId =$("#fgwidgetId").text();
 		var fromDate = $("#from").val();
