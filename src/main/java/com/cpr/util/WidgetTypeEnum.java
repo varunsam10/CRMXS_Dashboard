@@ -3,7 +3,7 @@ package com.cpr.util;
 public enum WidgetTypeEnum {
 	CHART("chart"),
 	TABLE("table"),
-	TEXT("text");
+	TEXT("Text");
 	
 	private String widgetType;
 	

@@ -357,6 +357,12 @@ $(window).load(function() {
 	<!--     CPR Dashboard -->
 	<ul id="cprDashboard"></ul>
 	</div>
+	<!-- BEGIN FOOTER -->
+	<p class="copyright-v2">2017 &copy; CPR Vision</p>
+
+	<a href="#index" class="go2top"> <i class="icon-arrow-up"></i>
+	</a>
+	<!-- END FOOTER -->
 	<div id="changeChartModal" class="modal fade" role="dialog" aria-hidden="true">
 	<div class="modal-dialog">
 			<div class="modal-content">
@@ -582,13 +588,7 @@ $(window).load(function() {
 		</div>
 		<!-- END PAGE BASE CONTENT -->
 		<!-- <button type="button" id="loadWidgets" class="btn btn-primary">Load Widgets</button> -->
-	</div>
-	<!-- BEGIN FOOTER -->
-	<p class="copyright-v2">2017 &copy; CPR Vision</p>
-
-	<a href="#index" class="go2top"> <i class="icon-arrow-up"></i>
-	</a>
-	<!-- END FOOTER -->
+	</div>	
 	</div>	
 <!-- END CONTAINER -->
 <!-- BEGIN CORE PLUGINS -->
