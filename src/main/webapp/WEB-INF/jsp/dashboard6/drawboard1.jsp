@@ -565,26 +565,12 @@ $(window).load(function() {
 
 								
 								
-								<div class="col-md-2"><input type="radio" name="year" value="Next"> Next </div>
-								<input class="col-xs-2" id="next_years" type="number" name="years">years
-								
-								</div>									
-								<hr>
-								<hr>
-								<div class="col-md-9">
-							     <div class="col-md-4"><input type="radio" name="year" value="Next Year"> Next year </div> 
-								
-
-								
-								
-								
-								
-								
-								</div>									
-																
+																	
+																								
 						     <!-- </div> -->
 							<!-- <div class="form-group"> -->
 										
+							  </div>
 							  </div>
 							  <div id="fragment-3">
 							  
@@ -601,25 +587,10 @@ $(window).load(function() {
 								</div>	
 								<hr>
 								<div class="col-md-9">
-							     <div class="col-md-3"><input type="radio" name="quarter" value="This Quarter"> This quarter </div> 
-								
-
-								
-								
-								<div class="col-md-2"><input type="radio" name="quarter" value="Next"> Next </div>
-								<input class="col-xs-2" type="number" name="quarters">quarters
+							     <div class="col-md-3"><input type="radio" name="quarter" value="This Quarter"> This quarter </div> 						
 								
 								</div>									
-								<hr>
-								<hr>
-								<div class="col-md-9">
-							     <div class="col-md-3"><input type="radio" name="quarter" value="Next Quarter"> Next quarter </div> 
-								
-
-								
-								
-								
-								</div>	
+							
 							  
 							  
 							  </div>
@@ -643,19 +614,10 @@ $(window).load(function() {
 
 								
 								
-								<div class="col-md-2"><input type="radio" name="month" value="Next"> Next </div>
-								<input class="col-xs-2" type="number" name="months">months
+							
 								
 								</div>									
-								<hr>
-								<hr>
-								<div class="col-md-9">
-							     <div class="col-md-3"><input type="radio" name="month" value="Next Month"> Next month </div> 
 								
-								
-								
-								</div>	
-							  	
 							  
 							  
 							  </div>
@@ -1707,18 +1669,31 @@ $("#cprDashboard").cprDashboard({
 		var dd = today.getDate();
 		var mm = today.getMonth()+1;
 		var yyyy = today.getFullYear();
-		var val = yyyy - $('#last_years').val() - 1;
-		if(val!=null)
-		{
-			console.log(val);
-		}
-		//console.log("year:" + year);
-		
 		var widgetConfig;
+		
+		var fromDate;
+		var toDate;
+		var countriesSelected;
+		var val = $('#last_years').val();
+		var from = yyyy - val - 1;
+		var to = yyyy - 1
 		var widgetId =$("#fgwidgetId").text();
-		var fromDate = $("#from").val();
-		var toDate = $("#to").val();
-		var countriesSelected = $("#country-select").val();
+		if(val != "")
+		{
+			console.log(val)
+			fromDate = mm+'/'+dd+'/'+from
+			toDate = mm+'/'+dd+'/'+to
+			console.log(fromDate);
+			console.log(toDate);
+		}
+		else
+		{
+			console.log("here")
+			fromDate = $("#from").val();
+			toDate = $("#to").val();
+			countriesSelected = $("#country-select").val();			
+		}
+		
 		var filterData ={
 				fromDate:fromDate,
 				toDate:toDate,
