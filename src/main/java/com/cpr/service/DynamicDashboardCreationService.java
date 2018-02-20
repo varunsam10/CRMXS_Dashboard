@@ -84,7 +84,7 @@ public class DynamicDashboardCreationService {
 			widget.setWidgetTitle("Test Widget1");
 			widget.setWidgetId("wd001");
 			widget.setEnableRefresh(false);
-			widget.setChartType(ChartTypeEnum.LINE.toString().toLowerCase());
+			widget.setChartType(ChartTypeEnum.BAR.toString().toLowerCase());
 			widget.setWidgetDimension(WidgetDimensionEnum.LARGE.toString().toLowerCase());
 			widget.setGraphType(GraphTypeEnum.EXPLORATORY.toString().toLowerCase());
 			widget.setWidgetType(WidgetTypeEnum.CHART.toString().toLowerCase());
@@ -109,7 +109,7 @@ public class DynamicDashboardCreationService {
 				}
 				widgetData.setY(y);
 				widgetData.setX(x);
-				widgetData.setType("scatter");
+				widgetData.setType("bar");
 				widgetData.setName(entry.getKey());
 				Marker marker =new Marker();
 				//marker.setColor(" ");
