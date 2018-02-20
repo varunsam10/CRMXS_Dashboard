@@ -1683,6 +1683,7 @@ $("#cprDashboard").cprDashboard({
 			console.log(val)
 			fromDate = mm+'/'+dd+'/'+from
 			toDate = mm+'/'+dd+'/'+to
+			countriesSelected = ["US","UK","India"]
 			console.log(fromDate);
 			console.log(toDate);
 		}
