@@ -1707,11 +1707,11 @@ $("#cprDashboard").cprDashboard({
 		var dd = today.getDate();
 		var mm = today.getMonth()+1;
 		var yyyy = today.getFullYear();
-		var val = $('#last_years').val();
+		var val = yyyy - $('#last_years').val() - 1;
 		if(val!=null)
-			{
-				console.log(val);
-			}
+		{
+			console.log(val);
+		}
 		//console.log("year:" + year);
 		
 		var widgetConfig;
