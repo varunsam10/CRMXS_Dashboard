@@ -13,17 +13,14 @@ import junit.framework.TestCase;
 public class DashboardTest extends TestCase{
 	private ArrayList<Widget> widgets = new ArrayList<Widget>();
 	private Dashboard dashboard = new Dashboard();	
-	
-	
+		
 	@Before
 	public void initialize() {
-
-		// dashboardService = new DashboardService();
+		
 	}
 	@Test
 	private void testCreateDashboard(){
 		
-		//assertEquals(2, dashboard.createDashboard().size());
 		
 	}
 

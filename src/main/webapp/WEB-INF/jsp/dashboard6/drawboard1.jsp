@@ -246,21 +246,6 @@ $(window).load(function() {
 				<li><a href="#">Customer BI Insights</a></li>
 			</ul>
 			<!-- END BREADCRUMBS -->
-			<div class="dropdown-ajax-menu btn-group">
-    			<button class="btn dropdown-toggle" type="button" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" style="margin-top:3px;margin-left: 1080px">
-    			<span class=""></span>
-    			<img src="assets/dash6/css/images/ic_add_circle_black_24dp_2x.png" height="35"/>
-    			</button>
-    			<ul class="dropdown-menu-v2">
-      			<li><a>Add Widget</a>
-      			<ul>
-    			<li><a id="btnAddWidget">Pie Chart</a></li>
-			    <li><a id="btnAddWidgetbubble">Bubble Chart</a></li>
-    			<li><a id="btnAddWidgetarea">Area Graph</a></li>
-    			</ul>
-      			</li>
-				</ul>
-  			</div>  
 			<div class="content-header-menu">
 				<!-- BEGIN DROPDOWN AJAX MENU -->
 				<div class="dropdown-ajax-menu btn-group">
@@ -353,6 +338,12 @@ $(window).load(function() {
 	<!--     CPR Dashboard -->
 	<ul id="cprDashboard"></ul>
 	</div>
+	<!-- BEGIN FOOTER -->
+	<p class="copyright-v2">2017 &copy; CPR Vision</p>
+
+	<a href="#index" class="go2top"> <i class="icon-arrow-up"></i>
+	</a>
+	<!-- END FOOTER -->
 	<div id="changeChartModal" class="modal fade" role="dialog" aria-hidden="true">
 	<div class="modal-dialog">
 			<div class="modal-content">
@@ -465,27 +456,42 @@ $(window).load(function() {
 					</div>
 					<div class="modal-body">
 							 <!-- <div class="form-group"> -->
-								<div class="col-md-4" style="padding-left:150px">
-								<label>From</label>
-								</div>
-								<div class="col-md-6">
+							 <div id="tabs">
+							  <ul>
+							  	<li></li>
+							    <li><a href="#fragment-1"><span>Custom</span></a></li>
+							    <li><a href="#fragment-2"><span>Years</span></a></li>
+							    <li><a href="#fragment-3"><span>Quarters</span></a></li>
+							    <li><a href="#fragment-4"><span>Months</span></a></li>
+							    <li><a href="#fragment-5"><span>Weeks</span></a></li>
+							    <li><a href="#fragment-6"><span>Days</span></a></li>
+							    
+							  </ul>
+							  <div id="fragment-1">
+							    
+								<div class="col-md-8">
+								<label style="padding-left:30px;padding-right:18px">From</label>
+								
 								<input class="date-picker" size="16" type="text" value="" id="from" name="from"/>
 								</div>
 								<hr>
+								
 						     <!-- </div> -->
 							<!-- <div class="form-group"> -->
-							<div class="col-md-4" style="padding-left:150px">
-								<label>To</label>
-							</div>
-							<div class="col-md-6">
-								<span><input class="date-picker" size="16" type="text" value="" id="to" name="to"/></span>
-							</div>							
-							<hr>
-							<hr>
+							
+								<div class="col-md-8"><label style="padding-right:36px;padding-left:30px">To</label>
+							
+							
+								<input class="date-picker" size="16" type="text" value="" id="to" name="to"/>
+								</div>
+							
 							<!-- </div> -->  
-							<!-- <div class="form-group"> -->							
-							<label class="col-md-4" style="padding-left:150px">Select Country</label>
-							<div class="col-md-8">	
+							<!-- <div class="form-group"> -->
+									<hr>
+									<hr>
+							<div class="col-md-8">
+							<label style="padding-left:30px">Country</label>
+							
 							<select id="country-select" multiple="multiple">					            
 					            <option value="US">United States</option>
 					            <option value="UK">United Kingdom</option>
@@ -539,10 +545,92 @@ $(window).load(function() {
 					            <option value="Sudan">Sudan</option>
 					          </select>					       	
 					       	</div>
+					       	
+							  </div>
+							  <div id="fragment-2">
+								<div class="col-md-9">
+							     <div class="col-md-3"><input type="radio" name="year" value="Previous Year"> Prev. Year </div> 
+								
+
+								
+								
+								<div class="col-md-2"><input type="radio" name="year" value="Last" checked> Last </div>
+								<input class="col-xs-2" id="last_years" type="number" name="years">years
+								
+								</div>	
+								<hr>
+								<div class="col-md-9">
+							     <div class="col-md-3"><input type="radio" name="year" value="This Year"> This year </div> 
+								
+
+								
+								
+																	
+																								
+						     <!-- </div> -->
+							<!-- <div class="form-group"> -->
+										
+							  </div>
+							  </div>
+							  <div id="fragment-3">
+							  
+							  
+							  <div class="col-md-9">
+							     <div class="col-md-3"><input type="radio" name="quarter" value="Previous Quarter"> Prev. Quarter </div> 
+								
+
+								
+								
+								<div class="col-md-2"><input type="radio" name="quarter" value="Last" checked> Last </div>
+								<input class="col-xs-2" class="form-control" type="number" name="quarters">quarters
+								
+								</div>	
+								<hr>
+								<div class="col-md-9">
+							     <div class="col-md-3"><input type="radio" name="quarter" value="This Quarter"> This quarter </div> 						
+								
+								</div>									
+							
+							  
+							  
+							  </div>
+							  <div id="fragment-4">
+							  
+							  
+							  <div class="col-md-9">
+							     <div class="col-md-3"><input type="radio" name="month" value="Previous Month"> Prev. Month </div> 
+								
+
+								
+								
+								<div class="col-md-2"><input type="radio" name="month" value="Last" checked> Last </div>
+								<input class="col-xs-2" class="form-control" type="number" name="months">months
+								
+								</div>	
+								<hr>
+								<div class="col-md-9">
+							     <div class="col-md-3"><input type="radio" name="month" value="This Month"> This month </div> 
+								
+
+								
+								
+							
+								
+								</div>									
+								
+							  
+							  
+							  </div>
+							   <div id="fragment-5">
+							  </div>
+							   <div id="fragment-6">
+							  </div>
+							</div>
+								
 					        <!-- </div> -->					          
 						<%-- </form> --%>						
 					</div>
-					<hr>					
+									
 					<div class="modal-footer">
 						<button class="btn dark btn-outline buttonFilterModal" data-dismiss="modal" aria-hidden="true">Close</button>
 						<button id="resetFilter" class="btn green buttonFilterModal" data-dismiss="modal">Reset</button>
@@ -677,14 +765,21 @@ $(window).load(function() {
 		</div>
 		<!-- END PAGE BASE CONTENT -->
 	</div>
-	<!-- BEGIN FOOTER -->
-	<p class="copyright-v2">2017 &copy; CPR Vision</p>
-
-	<a href="#index" class="go2top"> <i class="icon-arrow-up"></i>
-	</a>
-	<!-- END FOOTER -->
+	
 	</div>	
 <!-- END CONTAINER -->
+
+
+ <style>
+  .ui-tabs-vertical { width: 55em; }
+  .ui-tabs-vertical .ui-tabs-nav { padding: .2em .1em .2em .2em; float: left; width: 12em; }
+  .ui-tabs-vertical .ui-tabs-nav li { clear: left; width: 100%; border-bottom-width: 1px !important; border-right-width: 0 !important; margin: 0 -1px .2em 0; }
+  .ui-tabs-vertical .ui-tabs-nav li a { display:block; }
+  .ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active { padding-bottom: 0; padding-right: .1em; border-right-width: 1px; }
+  .ui-tabs-vertical .ui-tabs-panel { padding: 1em; float: center; width: 60em;}
+  </style>
+
+
 <!-- BEGIN CORE PLUGINS -->
 <!-- <script src="assets/dash6/global/plugins/jquery.min.js"	type="text/javascript"></script>  -->
 <!-- remove -->
@@ -766,11 +861,20 @@ $(document).ready(function() {
 		 
 	 });	
 	 $('#countries-select').multiselect({
-		  includeSelectAllOption: true,
+		 includeSelectAllOption: true,
          enableFiltering: true,
          maxHeight: 200
-		 
 	 });
+	 
+	var tabs = $("#tabs").tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" ).removeClass("ui-widget-content");
+	    $("#tabs li").removeClass( "ui-corner-top ui-widget-content" ).addClass( "ui-corner-left" );
+	  $("fragment-1").removeClass("ui-widget-content");
+	  tabs.find( ".ui-tabs-nav" ).sortable({
+	      axis: "y",
+	      stop: function() {
+	        tabs.tabs( "refresh" );
+	      }
+	    });
 	  var dateFormat = "mm/dd/yy",
 		      from = $("#from").datepicker({
 		          showOn: "button",
@@ -1074,7 +1178,7 @@ var dashboardJSON = [
 				widgetClick:"disable",
 				widgetEdit:"disable",
 				widgetDimension : "small",
-				widgetContent : "Redemptions : 4,636"
+				widgetContentText : "Redemptions : 4,636"
 
 			},
 			{
@@ -1102,7 +1206,7 @@ var dashboardJSON = [
 				widgetClick:"disable",
 				widgetEdit:"disable",
 				widgetDimension : "small",
-				widgetContent : "231,800$"
+				widgetContentText : "231,800$"
 			},
 			{
 				widgetTitle : "Where the customers are ",
@@ -1308,7 +1412,24 @@ var dashboardJSON = [
 				layout : myExampleData.plotlylineFilterlayout,
 				config : myExampleData.plotlylineconfig
 			}
-		}];
+		},
+		{
+			widgetTitle : "Revenue with date range slider",
+			widgetId : "id032",
+			widgetType : "chart",	
+			widgetClick:"disable",
+			widgetEdit:"disable",
+			graphType : "exploratory",
+			widgetDimension : "large",
+			chartType : "line",
+			widgetContent: {
+				data : myExampleData.plotlylineFilterdata,
+				layout : myExampleData.plotlylineRangelayout,
+				config : myExampleData.plotlylineconfig
+			}
+		}
+		
+		];
 	/* 	{
 	 		widgetTitle: "Items Sold Grid",
 	 		widgetId: "id010",
@@ -1541,13 +1662,39 @@ $("#cprDashboard").cprDashboard({
 		};
 		$("#cprDashboard").cprDashboard("resetFilter",widgetId);			
 	});	
+	
 	$('#applyFilter').on('click', function (e) {
 		e.preventDefault();
+		var today = new Date();
+		var dd = today.getDate();
+		var mm = today.getMonth()+1;
+		var yyyy = today.getFullYear();
 		var widgetConfig;
+		
+		var fromDate;
+		var toDate;
+		var countriesSelected;
+		var val = $('#last_years').val();
+		var from = yyyy - val - 1;
+		var to = yyyy - 1
 		var widgetId =$("#fgwidgetId").text();
-		var fromDate = $("#from").val();
-		var toDate = $("#to").val();
-		var countriesSelected = $("#country-select").val();
+		if(val != "")
+		{
+			console.log(val)
+			fromDate = mm+'/'+dd+'/'+from
+			toDate = mm+'/'+dd+'/'+to
+			countriesSelected = ["US","UK","India"]
+			console.log(fromDate);
+			console.log(toDate);
+		}
+		else
+		{
+			console.log("here")
+			fromDate = $("#from").val();
+			toDate = $("#to").val();
+			countriesSelected = $("#country-select").val();			
+		}
+		
 		var filterData ={
 				fromDate:fromDate,
 				toDate:toDate,

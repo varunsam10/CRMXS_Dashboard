@@ -1,4 +1,4 @@
-package com.cpr.Dao;
+package com.cpr.dao;
 
 import java.sql.Blob;
 import java.sql.Date;
@@ -8,6 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -15,6 +16,8 @@ import java.util.Set;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.InvalidResultSetAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -41,15 +44,7 @@ public class DashboardDAO {
 	@Autowired
 	private DataSource dataSource;
 
-	/*
-	 * public void setDataSource(DataSource dataSource) { this.dataSource =
-	 * dataSource; }
-	 * 
-	 * public DataSource getDataSource() { return dataSource; }
-	 */
-
 	public String getDashboardJson() {
-
 		Gson gson = new Gson();
 		// java.sql.Connection con = FetchData.getConnection();
 		try {
@@ -109,9 +104,53 @@ public class DashboardDAO {
 		return widgetContent;
 	}
 
+	public String getWidgetDefinition(String widgetName) {
+
+		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+		List<Map<String, Object>> rows = null;
+		String retrieveBlobAsString = null;
+		List<WidgetContentMap> widgetContentMaps = new ArrayList<WidgetContentMap>();
+		try {
+			StringBuilder sqlQuery = new StringBuilder("SELECT * FROM widget");
+			sqlQuery.append(" WHERE widgetTitle ='").append(widgetName).append("'");
+			widgetContentMaps = jdbcTemplate.query(sqlQuery.toString(), new RowMapper<WidgetContentMap>() {
+				public WidgetContentMap mapRow(ResultSet rs, int rowNum) throws SQLException {
+					WidgetContentMap widgetContentMap = new WidgetContentMap();
+					Blob blob = rs.getBlob("widgetContent");
+					String retrieveBlobAsString = new String(blob.getBytes(1, (int) blob.length()));
+					widgetContentMap.setWidgetContent(retrieveBlobAsString);
+					return widgetContentMap;
+				}
+			});
+
+		} catch (Exception e) {
+			System.out.println("The exception is" + e);
+		}
+		String widgetContent = widgetContentMaps.get(0).getWidgetContent();
+		return widgetContent;
+
+	}
+
+	public List<String> getDynamicDashboardWidgetNamesJson(String dashboardID) {
+		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+		List<Map<String, Object>> rows = null;
+		List<String> widgetNames = new ArrayList<String>();
+		List<WidgetContentMap> widgetContentMaps = new ArrayList<WidgetContentMap>();
+		try {
+			String sql = "select widgetTitle from widget where dashId = ?";
+			rows = jdbcTemplate.queryForList(sql, dashboardID);
+			for (Map<String, Object> rs : rows) {
+				widgetNames.add(rs.get("widgetTitle").toString());
+			}
+		} catch (Exception e) {
+			System.out.println("The exception is" + e);
+		}
+
+		return widgetNames;
+	}
+
 	public String deleteDynamicDashboard(String dashboardId) {
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
-
 		try {
 			String sql = "delete from widget where dashId = ?";
 			jdbcTemplate.update(sql, new Object[] { dashboardId });
@@ -130,14 +169,12 @@ public class DashboardDAO {
 		Date toDate = null;
 		String[] countryInFilter = null;
 		List<Map<String, Object>> rows = null;
-		// String[] countriesInFilter = null;
 		Integer resultSize = 0;
 		java.util.Date parsedFrom = null;
 		java.util.Date parsedTo = null;
 		Map<String, List<GraphParams>> countryMap = new HashMap<String, List<GraphParams>>();
 		if (null != filterData.getFromDate() && null != filterData.getToDate()
 				&& (filterData.getCountries().length != 0)) {
-
 			try {
 				SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
 				parsedFrom = format.parse(filterData.getFromDate());
@@ -162,7 +199,15 @@ public class DashboardDAO {
 				parameters.addValue("countries", countriesList);
 				parameters.addValue("fromDate", fromDate);
 				parameters.addValue("toDate", toDate);
-				rows = template.queryForList(sql, parameters);
+				try{
+					rows = template.queryForList(sql, parameters);
+				}
+				catch (InvalidResultSetAccessException  e) {
+					System.out.println("Exception"+e);
+				}
+				catch (DataAccessException   e) {
+					System.out.println("Exception"+e);
+				}
 
 			}
 			resultSize = rows.size();
@@ -222,7 +267,7 @@ public class DashboardDAO {
 		AxisLayout y_AxisLayout = new AxisLayout("Number of Customers", y_TitleFont);
 
 		WidgetLayout widgetLayout = new WidgetLayout("How old are they ?", x_AxisLayout, y_AxisLayout, true);
-
+		widgetLayout.setShowlegend(true);
 		String[] modeBarButtonsToRemove = { "sendDataToCloud" };
 		WidgetConfig widgetConfig = new WidgetConfig(modeBarButtonsToRemove);
 		WidgetContent widgetContent = new WidgetContent(widgetsDataList, widgetLayout, widgetConfig);
@@ -230,27 +275,24 @@ public class DashboardDAO {
 		JsonElement element = gson.toJsonTree(widgetContent);
 		String response = gson.toJson(element);
 		return response;
-
 	}
 
 	public Map<String, List<GraphParams>> createWidgetproductList() {
 
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 		// String sql = "SELECT * FROM crmxsdashboard.demosalesitem";
-		String sql = "select Trans_ID,Customer_Name,Quantity,Price from demosalesitemTest";
+		String sql = "select Product,Customer_Name,(Quantity*Price) as Spend from demosalesitemTest group by Product,Customer_Name order by Spend DESC";
 		List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql);
 		Map<String, List<GraphParams>> productListMap = new HashMap<String, List<GraphParams>>();
-		List<GraphParams> graphParamsList = new ArrayList<GraphParams>();
+		List<GraphParams> graphParamsList = new LinkedList<GraphParams>();
 		for (Map<String, Object> rs : rows) {
+			/*
+			 * Float quantity = (Float) (rs.get("Quantity")); Float price =
+			 * (Float) (rs.get("Price")); Float spend = (price * quantity);
+			 */
 			GraphParams graphParam = new GraphParams();
-			// graphParam.setyValue(rs.get("Product").toString());
-			// graphParam.setxValue(rs.get("Quantity").toString());
-			// String product = rs.get("Product").toString();
-			Float quantity = (Float) (rs.get("Quantity"));
-			Float price = (Float) (rs.get("Price"));
-			Float spend = (price * quantity);
-			graphParam.setyValue(rs.get("Trans_ID").toString());
-			graphParam.setxValue(spend.toString());
+			graphParam.setyValue(rs.get("Spend").toString());
+			graphParam.setxValue(rs.get("Product").toString());
 			String customerName = rs.get("Customer_Name").toString();
 			if (productListMap.isEmpty()) {
 				graphParamsList.add(graphParam);
@@ -268,13 +310,131 @@ public class DashboardDAO {
 		return productListMap;
 	}
 
-	public String insertWidgetConfig(String widgetJson, String widgetId, String dashboardId) {
+	public Map<String, List<GraphParams>> createWidgetProductListActual() {
 
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
-		String sql = "INSERT INTO crmxsdashboard.widget (widgetId,widgetContent,dashId) VALUES (?,?,?)";
+		// String sql = "SELECT * FROM crmxsdashboard.demosalesitem";
+		String sql = "select Product,Customer_Name,(Quantity*Price) as Spend from demosalesitem group by Spend";
+		List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql);
+		Map<String, List<GraphParams>> productListMap = new HashMap<String, List<GraphParams>>();
+		List<GraphParams> graphParamsList = new LinkedList<GraphParams>();
+		for (Map<String, Object> rs : rows) {
+			/*
+			 * Float quantity = (Float) (rs.get("Quantity")); Float price =
+			 * (Float) (rs.get("Price")); Float spend = (price * quantity);
+			 */
+			GraphParams graphParam = new GraphParams();
+			graphParam.setyValue(rs.get("Spend").toString());
+			graphParam.setxValue(rs.get("Product").toString());
+			String customerName = rs.get("Customer_Name").toString();
+			if (productListMap.isEmpty()) {
+				graphParamsList.add(graphParam);
+				productListMap.put(customerName, graphParamsList);
+			} else {
+				if (productListMap.containsKey(customerName)) {
+					productListMap.get(customerName).add(graphParam);
+				} else {
+					List<GraphParams> graphParamsListNew = new ArrayList<GraphParams>();
+					graphParamsListNew.add(graphParam);
+					productListMap.put(customerName, graphParamsListNew);
+				}
+			}
+		}
+		return productListMap;
+	}
+
+	public Map<String, List<GraphParams>> createWidgetTopOutletActual() {
+
+		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+		String sql = "select count(Trans_ID) as Sales,Outlet_Name as Outlet from demosalesitem group by Outlet_Name";
+		List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql);
+		Map<String, List<GraphParams>> topOutletListMap = new HashMap<String, List<GraphParams>>();
+		List<GraphParams> graphParamsList = new LinkedList<GraphParams>();
+		for (Map<String, Object> rs : rows) {
+			GraphParams graphParam = new GraphParams();
+			graphParam.setyValue(rs.get("Sales").toString());
+			graphParam.setxValue(rs.get("Outlet").toString());
+			String customerName = rs.get("Outlet").toString();
+			if (topOutletListMap.isEmpty()) {
+				graphParamsList.add(graphParam);
+				topOutletListMap.put(customerName, graphParamsList);
+			} else {
+				if (topOutletListMap.containsKey(customerName)) {
+					topOutletListMap.get(customerName).add(graphParam);
+				} else {
+					List<GraphParams> graphParamsListNew = new ArrayList<GraphParams>();
+					graphParamsListNew.add(graphParam);
+					topOutletListMap.put(customerName, graphParamsListNew);
+				}
+			}
+		}
+		return topOutletListMap;
+	}
+
+	public Map<String, List<GraphParams>> createWidgetTopProductActual() {
+
+		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+		String sql = "select count(Trans_ID) as Sales,Product from demosalesitem group by Product order by Sales DESC LIMIT 25";
+		List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql);
+		Map<String, List<GraphParams>> topProductListMap = new HashMap<String, List<GraphParams>>();
+		List<GraphParams> graphParamsList = new LinkedList<GraphParams>();
+		for (Map<String, Object> rs : rows) {
+			GraphParams graphParam = new GraphParams();
+			graphParam.setyValue(rs.get("Sales").toString());
+			graphParam.setxValue(rs.get("Product").toString());
+			String customerName = rs.get("Product").toString();
+			if (topProductListMap.isEmpty()) {
+				graphParamsList.add(graphParam);
+				topProductListMap.put(customerName, graphParamsList);
+			} else {
+				if (topProductListMap.containsKey(customerName)) {
+					topProductListMap.get(customerName).add(graphParam);
+				} else {
+					List<GraphParams> graphParamsListNew = new ArrayList<GraphParams>();
+					graphParamsListNew.add(graphParam);
+					topProductListMap.put(customerName, graphParamsListNew);
+				}
+			}
+		}
+		return topProductListMap;
+	}
+
+	public Map<String, String> averageCustomerSpend() {
+
+		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+		//String sql = "select FLOOR(AVG(Quantity*Price)) as Avg_Spend,REPLACE(Customer_Name,'Retail Customer','') as Customer_Name  from demosalesitem group by Customer_Name order by Avg_Spend DESC LIMIT 150";
+		String sql ="select FLOOR(AVG(Quantity*Price)) as Avg_Spend from demosalesitem group by Customer_Name order by Avg_Spend DESC LIMIT 1";
+		List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql);
+		Map<String, List<GraphParams>> averageCustomerSpendMap = new HashMap<String, List<GraphParams>>();
+		Map<String, String> averageSpendMap = new HashMap<String, String>();
+		List<GraphParams> graphParamsList = new LinkedList<GraphParams>();
+		for (Map<String, Object> rs : rows) {
+			String averageSpend = rs.get("Avg_Spend").toString();
+			averageSpendMap.put("Avg_Spend", averageSpend);
+		}
+		return averageSpendMap;
+	}
+
+	public Map<String, String> topProduct() {
+		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+		String sql = "select count(Trans_ID) as transactions,Product from demosalesitem group by Product order by transactions DESC LIMIT 1";
+		List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql);
+		Map<String, String> topProductMap = new HashMap<String, String>();
+		for (Map<String, Object> rs : rows) {
+			String countTransactions = rs.get("transactions").toString();
+			String customerName = rs.get("Product").toString();
+			topProductMap.put(customerName, countTransactions);
+		}
+		return topProductMap;
+	}
+
+	public String insertWidgetConfig(String widgetJson, String widgetId, String dashboardId, String widgetTitle) {
+
+		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+		String sql = "INSERT INTO crmxsdashboard.widget (widgetId,widgetContent,dashId,widgetTitle) VALUES (?,?,?,?)";
 		try {
 
-			jdbcTemplate.update(sql, new Object[] { widgetId, widgetJson, dashboardId });
+			jdbcTemplate.update(sql, new Object[] { widgetId, widgetJson, dashboardId, widgetTitle });
 
 		} catch (Exception ex) {
 			System.out.println("The exception is " + ex);

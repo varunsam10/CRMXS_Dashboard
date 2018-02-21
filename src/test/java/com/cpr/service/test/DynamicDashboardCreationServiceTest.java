@@ -17,22 +17,18 @@ import junit.framework.Assert;
 @ContextConfiguration("classpath:test_crmxsDashboard.xml")
 public class DynamicDashboardCreationServiceTest {
 	@Autowired
-	private DynamicDashboardCreationService dynamicDashboardService;
-	
+	private DynamicDashboardCreationService dynamicDashboardService;	
 	@Before
 	public void setup(){
 		
-	}
-	
+	}	
 	@Test
 	public void testcreateDashboard2(){
-		assertEquals("Success", dynamicDashboardService.createDashboard2());
-	}
-	
+		assertEquals("Success", dynamicDashboardService.createDynamicDashboard());
+	}	
 	@After
 	public void tearDown()
 	{
-		//dynamicDashboardService = null;
+		
 	}
-
 }

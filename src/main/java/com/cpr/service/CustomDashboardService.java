@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cpr.Dao.DashboardDAO;
+import com.cpr.dao.DashboardDAO;
 import com.cpr.util.AxisLayout;
 import com.cpr.util.ChartTypeEnum;
 import com.cpr.util.ColumnValue;
@@ -29,42 +29,29 @@ public class CustomDashboardService {
 
 	@Autowired
 	private Dashboard dashboard;
-
 	@Autowired
 	private DashboardDAO dashboardDAO;
-
 	public String changeGraphForId(String widgetId) {
-
 		String response = dashboardDAO.changeGraph(widgetId);
 		return response;
 	}
-
 	public String getWidgetBoards(String dashboardId) {
-
 		String response = dashboardDAO.getWidgetForDashboard(dashboardId);
 		return response;
 	}
-
 	public String updateWidgetById(String widgetId) {
-
 		String response = dashboardDAO.updateWidget(widgetId);
 		return response;
 	}
-
 	public String deleteWidgetById(String widgetId) {
-
 		String response = dashboardDAO.deleteWidget(widgetId);
 		return response;
 	}
-
 	public String addWidgetById(String widgetId) {
-
 		String response = dashboardDAO.addWidget(widgetId);
 		return response;
 	}
-
 	public String editWidgetTitleById(String widgetId) {
-
 		String response = dashboardDAO.editWidgetTitle(widgetId);
 		return response;
 	}
@@ -72,28 +59,21 @@ public class CustomDashboardService {
 		String response = dashboardDAO.downloadWidgetData(widgetId);
 		return response;
 	}
-	/*
-	 * public Dashboard getDashboard() { return dashboard; }
-	 */
-
 	public void setDashboard(Dashboard dashboard) {
 		this.dashboard = dashboard;
 	}
-
 	public String createDashboardJson() {
 		Gson gson = new GsonBuilder().create();
 		JsonElement element = gson.toJsonTree(createDashboard());
 		String response = gson.toJson(element);
 		return response;
 	}
-
 	public String createDashboardJson(ArrayList<Widget> widgets) {
 		Gson gson = new GsonBuilder().create();
 		JsonElement element = gson.toJsonTree(widgets);
 		String response = gson.toJson(element);
 		return response;
 	}
-
 	private ArrayList<Widget> createDashboard() {
 		ArrayList<Widget> widgets = new ArrayList<Widget>();
 		ArrayList<WidgetData> widgetData = new ArrayList<WidgetData>();
@@ -107,8 +87,6 @@ public class CustomDashboardService {
 		Object[] y2 = { 10, 15, 60, 22, 25, 80, 28, 36, 48, 18, 26, 48 };
 		WidgetData trace2 = new WidgetData(x2, y2, "Tiger", "scatter");
 		widgetData.add(trace2);
-
-		// WidgetData widgetData = new WidgetData(plotlylinedata);
 
 		TitleFont x_TitleFont = new TitleFont("Courier New, monospace", 18, "#7f7f7f");
 		AxisLayout x_AxisLayout = new AxisLayout("Age", x_TitleFont);
@@ -124,8 +102,7 @@ public class CustomDashboardService {
 		WidgetContent widgetContent = new WidgetContent(widgetData, widgetLayout, widgetConfig);
 
 		Widget widgetLine = new Widget("Items sold", "id001", WidgetTypeEnum.CHART, GraphTypeEnum.EXPLORATORY,
-				WidgetDimensionEnum.LARGE, ChartTypeEnum.LINE, widgetContent
-				);
+				WidgetDimensionEnum.LARGE, ChartTypeEnum.LINE, widgetContent);
 
 		ArrayList<Widget> widgetList = new ArrayList<Widget>();
 
@@ -183,8 +160,6 @@ public class CustomDashboardService {
 				GraphTypeEnum.EXPLORATORY, WidgetDimensionEnum.MEDIUM, ChartTypeEnum.BARLINE, barlineContent);
 
 		widgetList.add(widgetBarLine);
-
-//----------------------------------------------------------------------------------------------------------------------
 		//Table widget config
 		TableData browserTable = new TableData();
 		ArrayList<Object[]> rows = new ArrayList<Object[]>();
@@ -193,10 +168,8 @@ public class CustomDashboardService {
 			Object[] row = {"Trident" + Math.ceil(Math.random() * 20), "IE" + Math.ceil(Math.random() * 20),
 			    			"Win" + Math.ceil(Math.random() * 20)};
 			rows.add(row);
-		}
-		
-		browserTable.setAaData(rows);
-		
+		}		
+		browserTable.setAaData(rows);		
 		ArrayList<ColumnValue> columnValues = new ArrayList<ColumnValue>();
 		ColumnValue col1 = new ColumnValue();
 	    col1.setsTitle("Engine");
@@ -231,11 +204,8 @@ public class CustomDashboardService {
 //		tableWidget.setRefreshCallBack("function(widgetId){"
 //				+ "notification('info', 'Inside the refresh callback of '+widgetId+'!');"
 //				+ "}");
-		tableWidget.setWidgetContent(browserTable);
-		
-		widgetList.add(tableWidget);
-		
+		tableWidget.setWidgetContent(browserTable);		
+		widgetList.add(tableWidget);		
 		return widgetList;
-
 	}
 }

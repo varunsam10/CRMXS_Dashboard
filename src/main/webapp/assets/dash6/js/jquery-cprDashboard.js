@@ -472,7 +472,7 @@
 					widgetContent.append(map);
 				} 			
 				else {
-					widgetContent.append(widgetDefinition.widgetContent);
+					widgetContent.append(widgetDefinition.widgetContentText);
 				}
 				//add widgetHeader to widgetContainer
 				widgetContainer.append(widgetHeader);
@@ -776,7 +776,7 @@
 				if (widgetDefinition.widgetType === 'chart') {
 					
 					data = widgetConfig.data;
-					widgetDefinition.widgetContent.layout.xaxis.range = widgetConfig.widgetLayout.xaxis.range;
+					widgetDefinition.widgetContent.layout.xaxis.range = widgetConfig.layout.xaxis.range;
 					layout = widgetDefinition.widgetContent.layout;
 					config = widgetDefinition.widgetContent.config;
 					
