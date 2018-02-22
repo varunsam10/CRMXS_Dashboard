@@ -85,8 +85,7 @@ $(window).load(function() {
 				<!-- BEGIN TOPBAR ACTIONS -->
 				<div class="topbar-actions">
 					<!-- DOC: Apply "search-form-expanded" right after the "search-form" class to have half expanded search box -->
-					<form class="search-form" action="extra_search.html" method="GET">
-						
+					<form class="search-form" action="extra_search.html" method="GET">						
 						<div class="input-group">
 							<input type="text" class="form-control"
 								placeholder="Search here" name="query"> <span
@@ -114,67 +113,22 @@ $(window).load(function() {
 					<li>
 						<ul class="dropdown-menu-list scroller"
 							style="height: 250px; padding: 0;" data-handle-color="#637283">
-							<li><a href="javascript:;"> <span class="details">
-										<span
-										class="label label-sm label-icon label-success md-skip">
+							<li><a href="javascript:;"> 
+							<span class="details">
+								<span class="label label-sm label-icon label-success md-skip">
 											<i class="fa fa-plus"></i>
-									</span> New user registered.
-								</span> <span class="time">just now</span>
-							</a></li>
-							<li><a href="javascript:;"> <span class="details">
-										<span
-										class="label label-sm label-icon label-danger md-skip">
-											<i class="fa fa-bolt"></i>
-									</span> Server #12 overloaded.
-								</span> <span class="time">3 mins</span>
-							</a></li>
-							<li><a href="javascript:;"> <span class="details">
-										<span
-										class="label label-sm label-icon label-warning md-skip">
-											<i class="fa fa-bell-o"></i>
-									</span> Server #2 not responding.
-								</span> <span class="time">10 mins</span>
-							</a></li>
+								</span> New user registered.
+							</span> 
+								<span class="time">just now</span>
+							</a>
+							</li>
 							<li><a href="javascript:;"> <span class="details">
 										<span class="label label-sm label-icon label-info md-skip">
 											<i class="fa fa-bullhorn"></i>
 									</span> Application error.
 								</span> <span class="time">14 hrs</span>
-							</a></li>
-							<li><a href="javascript:;"> <span class="details">
-										<span
-										class="label label-sm label-icon label-danger md-skip">
-											<i class="fa fa-bolt"></i>
-									</span> Database overloaded 68%.
-								</span> <span class="time">2 days</span>
-							</a></li>
-							<li><a href="javascript:;"> <span class="details">
-										<span
-										class="label label-sm label-icon label-danger md-skip">
-											<i class="fa fa-bolt"></i>
-									</span> A user IP blocked.
-								</span> <span class="time">3 days</span>
-							</a></li>
-							<li><a href="javascript:;"> <span class="details">
-										<span
-										class="label label-sm label-icon label-warning md-skip">
-											<i class="fa fa-bell-o"></i>
-									</span> Storage Server #4 not responding dfdfdfd.
-								</span> <span class="time">4 days</span>
-							</a></li>
-							<li><a href="javascript:;"> <span class="details">
-										<span class="label label-sm label-icon label-info md-skip">
-											<i class="fa fa-bullhorn"></i>
-									</span> System Error.
-								</span> <span class="time">5 days</span>
-							</a></li>
-							<li><a href="javascript:;"> <span class="details">
-										<span
-										class="label label-sm label-icon label-danger md-skip">
-											<i class="fa fa-bolt"></i>
-									</span> Storage server failed.
-								</span> <span class="time">9 days</span>
-							</a></li>
+								</a>
+							</li>					
 						</ul>
 					</li>
 				</ul>
@@ -496,48 +450,20 @@ $(window).load(function() {
 					            <option value="US">United States</option>
 					            <option value="UK">United Kingdom</option>
 					         	<option value="Afghanistan">Afghanistan</option>
-					            <option value="Aland Islands">Aland Islands</option>
 					            <option value="Albania">Albania</option>					        
 					            <option value="Bahrain">Bahrain</option>
-					            <option value="Bangladesh">Bangladesh</option>
-					            <option value="Barbados">Barbados</option>
-					            <option value="Belarus">Belarus</option>
 					            <option value="Belgium">Belgium</option>
 					            <option value="Chad">Chad</option>
 					            <option value="Chile">Chile</option>
 					            <option value="China">China</option>
 					            <option value="Denmark">Denmark</option>
-					            <option value="Djibouti">Djibouti</option>
-					            <option value="Dominica">Dominica</option>
-					            <option value="Fiji">Fiji</option>
 					            <option value="Finland">Finland</option>
 					            <option value="France">France</option>
-					            <option value="Guam">Guam</option>
-					            <option value="Guatemala">Guatemala</option>
-					            <option value="Guernsey">Guernsey</option>
 					            <option value="Guinea">Guinea</option>
 					            <option value="Hungary">Hungary</option>
 					            <option value="Iceland">Iceland</option>
 					            <option value="India">India</option>
-					            <option value="Israel">Israel</option>
-					            <option value="Italy">Italy</option>
-					            <option value="Jamaica">Jamaica</option>
-					            <option value="Japan">Japan</option>
-					            <option value="Jersey">Jersey</option>
-					            <option value="Jordan">Jordan</option>
-					            <option value="Myanmar">Myanmar</option>
-					            <option value="Namibia">Namibia</option>
-					            <option value="Nauru">Nauru</option>
-					            <option value="Nepal">Nepal</option>
-					            <option value="Netherlands">Netherlands</option>
-					            <option value="New Caledonia">New Caledonia</option>
-					            <option value="Paraguay">Paraguay</option>
-					            <option value="Peru">Peru</option>
-					            <option value="Philippines">Philippines</option>
-					            <option value="Pitcairn">Pitcairn</option>
-					            <option value="Poland">Poland</option>
-					            <option value="Portugal">Portugal</option>
-					            <option value="Puerto Rico">Puerto Rico</option>
+					            <option value="Israel">Israel</option>					
 					            <option value="Qatar">Qatar</option>
 					            <option value="Reunion">Reunion</option>
 					            <option value="Spain">Spain</option>
@@ -550,10 +476,7 @@ $(window).load(function() {
 							  <div id="fragment-2">
 								<div class="col-md-9">
 							     <div class="col-md-3"><input type="radio" name="year" value="Previous Year"> Prev. Year </div> 
-								
-
-								
-								
+							
 								<div class="col-md-2"><input type="radio" name="year" value="Last" checked> Last </div>
 								<input class="col-xs-2" id="last_years" type="number" name="years">years
 								
@@ -561,26 +484,16 @@ $(window).load(function() {
 								<hr>
 								<div class="col-md-9">
 							     <div class="col-md-3"><input type="radio" name="year" value="This Year"> This year </div> 
-								
-
-								
-								
-																	
-																								
+													
 						     <!-- </div> -->
 							<!-- <div class="form-group"> -->
-										
 							  </div>
 							  </div>
-							  <div id="fragment-3">
-							  
+							  <div id="fragment-3">						  
 							  
 							  <div class="col-md-9">
 							     <div class="col-md-3"><input type="radio" name="quarter" value="Previous Quarter"> Prev. Quarter </div> 
-								
-
-								
-								
+							
 								<div class="col-md-2"><input type="radio" name="quarter" value="Last" checked> Last </div>
 								<input class="col-xs-2" class="form-control" type="number" name="quarters">quarters
 								
@@ -590,19 +503,13 @@ $(window).load(function() {
 							     <div class="col-md-3"><input type="radio" name="quarter" value="This Quarter"> This quarter </div> 						
 								
 								</div>									
-							
-							  
-							  
+					
 							  </div>
 							  <div id="fragment-4">
-							  
-							  
+				
 							  <div class="col-md-9">
 							     <div class="col-md-3"><input type="radio" name="month" value="Previous Month"> Prev. Month </div> 
-								
-
-								
-								
+					
 								<div class="col-md-2"><input type="radio" name="month" value="Last" checked> Last </div>
 								<input class="col-xs-2" class="form-control" type="number" name="months">months
 								
@@ -610,25 +517,15 @@ $(window).load(function() {
 								<hr>
 								<div class="col-md-9">
 							     <div class="col-md-3"><input type="radio" name="month" value="This Month"> This month </div> 
-								
-
-								
-								
-							
-								
+					
 								</div>									
-								
-							  
-							  
 							  </div>
 							   <div id="fragment-5">
 							  </div>
 							   <div id="fragment-6">
 							  </div>
 							</div>
-								
-					        <!-- </div> -->					          
-						<%-- </form> --%>						
+									
 					</div>
 									
 					<div class="modal-footer">
@@ -677,23 +574,11 @@ $(window).load(function() {
 					            <option value="Aland Islands">Aland Islands</option>
 					            <option value="Albania">Albania</option>					        
 					            <option value="Bahrain">Bahrain</option>
-					            <option value="Bangladesh">Bangladesh</option>
-					            <option value="Barbados">Barbados</option>
-					            <option value="Belarus">Belarus</option>
-					            <option value="Belgium">Belgium</option>
-					            <option value="Chad">Chad</option>
 					            <option value="Chile">Chile</option>
 					            <option value="China">China</option>
-					            <option value="Denmark">Denmark</option>
-					            <option value="Djibouti">Djibouti</option>
-					            <option value="Dominica">Dominica</option>
 					            <option value="Fiji">Fiji</option>
 					            <option value="Finland">Finland</option>
 					            <option value="France">France</option>
-					            <option value="Guam">Guam</option>
-					            <option value="Guatemala">Guatemala</option>
-					            <option value="Guernsey">Guernsey</option>
-					            <option value="Guinea">Guinea</option>
 					            <option value="Hungary">Hungary</option>
 					            <option value="Iceland">Iceland</option>
 					            <option value="India">India</option>
@@ -701,30 +586,10 @@ $(window).load(function() {
 					            <option value="Italy">Italy</option>
 					            <option value="Jamaica">Jamaica</option>
 					            <option value="Japan">Japan</option>
-					            <option value="Jersey">Jersey</option>
-					            <option value="Jordan">Jordan</option>
-					            <option value="Myanmar">Myanmar</option>
-					            <option value="Namibia">Namibia</option>
-					            <option value="Nauru">Nauru</option>
-					            <option value="Nepal">Nepal</option>
-					            <option value="Netherlands">Netherlands</option>
-					            <option value="New Caledonia">New Caledonia</option>
-					            <option value="Paraguay">Paraguay</option>
-					            <option value="Peru">Peru</option>
-					            <option value="Philippines">Philippines</option>
-					            <option value="Pitcairn">Pitcairn</option>
-					            <option value="Poland">Poland</option>
-					            <option value="Portugal">Portugal</option>
-					            <option value="Puerto Rico">Puerto Rico</option>
-					            <option value="Qatar">Qatar</option>
-					            <option value="Reunion">Reunion</option>
-					            <option value="Spain">Spain</option>
-					            <option value="Sri Lanka">Sri Lanka</option>
-					            <option value="Sudan">Sudan</option>
+					            <option value="Nepal">Nepal</option>			
 					          </select>					       	
 					       	</div>
-					        <!-- </div> -->					          
-						<%-- </form> --%>						
+		
 					</div>
 					<hr>					
 					<div class="modal-footer">
@@ -867,14 +732,14 @@ $(document).ready(function() {
 	 });
 	 
 	var tabs = $("#tabs").tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" ).removeClass("ui-widget-content");
-	    $("#tabs li").removeClass( "ui-corner-top ui-widget-content" ).addClass( "ui-corner-left" );
+	  $("#tabs li").removeClass( "ui-corner-top ui-widget-content" ).addClass( "ui-corner-left" );
 	  $("fragment-1").removeClass("ui-widget-content");
 	  tabs.find( ".ui-tabs-nav" ).sortable({
 	      axis: "y",
 	      stop: function() {
 	        tabs.tabs( "refresh" );
 	      }
-	    });
+	  });
 	  var dateFormat = "mm/dd/yy",
 		      from = $("#from").datepicker({
 		          showOn: "button",
@@ -903,8 +768,7 @@ $(document).ready(function() {
 		      })
 		      .on( "change", function() {
 		        from.datepicker( "option", "maxDate", getDate( this ) );
-		      });
-		  
+	});		  
 	var dateFormat2 = "mm/dd/yy",
 	      from = $("#from2").datepicker({
 	          showOn: "button",
@@ -1160,17 +1024,6 @@ var dashboardJSON = [
 					config : myExampleData.plotlylineconfig
 				}
 			},
-			/* {
-				widgetTitle: "Sales Figures",
-				widgetId: "id006",
-				widgetType: "chart",
-				graphType: "normal",
-				widgetDimension: "normal",
-				chartType: "pie",
-				widgetContent: {
-					data: myExampleData.c3piedata
-				}
-			}, */
 			{
 				widgetTitle : "Stats",
 				widgetId : "id010",
@@ -1297,22 +1150,7 @@ var dashboardJSON = [
 					config: myExampleData.plotlybarconfig
 			}
 			}, 
-			/* {
-				widgetTitle: "Items sold",
-				widgetId: "id018",
-				widgetType: "chart",
-				widgetClick:"details",
-				graphType: "exploratory",
-				widgetDimension: "large",
-				chartType: "line",
-				getDataBySelection: true,
-				widgetContent: {
-					data: myExampleData.plotlylinedata,
-					layout: myExampleData.plotlylinelayout,
-					config: myExampleData.plotlylineconfig
-				}
-		}, */
-		{
+			{
 			widgetTitle : "Age group",
 			widgetId : "id019",
 			widgetType : "chart",
@@ -1427,8 +1265,7 @@ var dashboardJSON = [
 				layout : myExampleData.plotlylineRangelayout,
 				config : myExampleData.plotlylineconfig
 			}
-		}
-		
+		}		
 		];
 	/* 	{
 	 		widgetTitle: "Items Sold Grid",
@@ -1451,7 +1288,6 @@ var dashboardJSON = [
 			buttons:myExampleData.tableWidgetButtonNw
 		}
 	}, */	
-//console.log(dashboardJSON);
 //basic initialization example mn.sDashboard
 $("#cprDashboard").cprDashboard({
 	dashboardData : dashboardJSON
@@ -1499,14 +1335,6 @@ $("#cprDashboard").cprDashboard({
 			console.log("chart range selected, for widget: "+ data.selectedWidgetId);
 		}
 	});
-	//plot click event example
-	/* 	$("#cprDashboard").bind("cprdashboardplotclicked",function(e, data) {
-	notification('info','chart clicked, for widget:'+ data.clickedWidgetId
-		+ ' the data passed is'+ data.dataPoints+ '!');
-	if (console) {
-		console.log("chart clicked, for widget: "+ data.selectedWidgetId);
-	}
-	}); */
 	//Drawboard 4
 	$("#cprDashboard").bind("cprdashboardplotclicked",function(e, data) {
 	/* 	 $.ajax({
@@ -1524,25 +1352,18 @@ $("#cprDashboard").cprDashboard({
 	});	
 	//widget order changes event example
 	$("#cprDashboard").bind("cprdashboardorderchanged",function(e, data) {
-		/*if (console) {
-			console.log("Sorted Array");
-			console.log("+++++++++++++++++++++++++");
-			console.log(data.sortedDefinitions);
-			console.log("+++++++++++++++++++++++++");
-		} */
+
 	});
 	$("#cprDashboard").bind("cprdashboardstatechanged",function(e, data) {
 		if(data.triggerAction === "orderChanged"){
 	
-			$.notify({
-				// options
+			$.notify({				
 				icon: 'glyphicon glyphicon-warning-sign',
 				title: 'Widget Order Changed!',
 				message: 'Would you like to save the current ordering ?',
 				url: 'https://github.com/mouse0270/bootstrap-notify',
 				target: '_blank'
 			},{
-				// settings
 				element: 'body',
 				position: null,
 				type: "info",
@@ -1707,7 +1528,6 @@ $("#cprDashboard").cprDashboard({
          dataType: 'json',
    		 url : 'applyFilters.html',
    		 data: JSON.stringify(filterData),
-   	 	// async: false,.//Cross-domain requests and dataType: "jsonp" requests do not support synchronous operation
    		 cache: false,        
 		 timeout : 100000,
          success : function(data) {
@@ -1716,15 +1536,6 @@ $("#cprDashboard").cprDashboard({
        	 	}
          });	
 		});	
-		//Handling on Change event
-		/*	$("#changeGraphForm input:checkbox[value='bar']").change(function() {
-		  	//$(this).prop('checked');
-		  	$("#changeGraphForm input:checkbox[value='line']").bootstrapSwitch('state', false, true);
-		})
-		$("#changeGraphForm input:checkbox[value='line']").change(function() {
-		 	 //$(this).prop('checked');
-		  	$("#changeGraphForm input:checkbox[value='bar']").bootstrapSwitch('state', false, true);
-		}) */
 
 	});
 	});
