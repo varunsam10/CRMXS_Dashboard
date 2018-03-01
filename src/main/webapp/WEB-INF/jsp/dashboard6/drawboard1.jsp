@@ -428,21 +428,14 @@ $(window).load(function() {
 								
 								<input class="date-picker" size="16" type="text" value="" id="from" name="from"/>
 								</div>
-								<hr>
-								
-						     <!-- </div> -->
-							<!-- <div class="form-group"> -->
-							
+								<hr>								
+						
 								<div class="col-md-8"><label style="padding-right:36px;padding-left:30px">To</label>
-							
-							
+									
 								<input class="date-picker" size="16" type="text" value="" id="to" name="to"/>
 								</div>
-							
-							<!-- </div> -->  
-							<!-- <div class="form-group"> -->
-									<hr>
-									<hr>
+								<hr>
+								<hr>
 							<div class="col-md-8">
 							<label style="padding-left:30px">Country</label>
 							
@@ -633,8 +626,6 @@ $(window).load(function() {
 	
 	</div>	
 <!-- END CONTAINER -->
-
-
  <style>
   .ui-tabs-vertical { width: 55em; }
   .ui-tabs-vertical .ui-tabs-nav { padding: .2em .1em .2em .2em; float: left; width: 12em; }
@@ -643,8 +634,6 @@ $(window).load(function() {
   .ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active { padding-bottom: 0; padding-right: .1em; border-right-width: 1px; }
   .ui-tabs-vertical .ui-tabs-panel { padding: 1em; float: center; width: 60em;}
   </style>
-
-
 <!-- BEGIN CORE PLUGINS -->
 <!-- <script src="assets/dash6/global/plugins/jquery.min.js"	type="text/javascript"></script>  -->
 <!-- remove -->
