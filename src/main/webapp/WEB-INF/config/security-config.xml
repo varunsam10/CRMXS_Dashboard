@@ -23,10 +23,6 @@
 	</http>
 	<beans:bean id="myAuthenticationSuccessHandlers"
 		class="com.cpr.model.CprAuthenticationSuccessHandler" />
-	<!-- <authentication-manager> <authentication-provider> <user-service> <user 
-		name="sree" password="secret" authorities="ROLE_USER"/> <user name="sree" 
-		password="secret2" authorities="ROLE_USER"/> </user-service> </authentication-provider> 
-		</authentication-manager> -->
 	<authentication-manager>
 		<authentication-provider>
 			<password-encoder hash="md5"></password-encoder>

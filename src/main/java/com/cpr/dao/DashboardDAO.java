@@ -46,32 +46,8 @@ public class DashboardDAO {
 
 	public String getDashboardJson() {
 		Gson gson = new Gson();
-		// java.sql.Connection con = FetchData.getConnection();
 		try {
 			String sql = "select * from widget";
-			// Statement statement = con.prepareStatement(sql);
-			// ResultSet rs = statement.executeQuery(sql);
-			/*
-			 * List<String> widgetContent = new ArrayList<String>();
-			 * JsonArrayBuilder widgetConfig = Json.createArrayBuilder();
-			 * widgetConfig.add(str); String dashboardJson =
-			 * widgetConfig.build().toString() while(rs.next()) { java.sql.Blob
-			 * widgetBlob = rs.getBlob(2); String str = new
-			 * String(widgetBlob.getBytes(1l, (int) widgetBlob.length()));
-			 * //System.out.println(str); //String widgetJson =
-			 * gson.toJson(str); widgetContent.add(str);
-			 */
-			// widgetConfig.add(str); //Json.createArrayBuilder() }
-
-			// String dashboardJson = widgetConfig.build().toString();
-			/*
-			 * JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource); String
-			 * dashboardJson = widgetContent.toString();
-			 */
-			// String dashboardJson = gson.toJson(widgetContent);
-			/*
-			 * System.out.println(dashboardJson); return dashboardJson;
-			 */
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -199,14 +175,12 @@ public class DashboardDAO {
 				parameters.addValue("countries", countriesList);
 				parameters.addValue("fromDate", fromDate);
 				parameters.addValue("toDate", toDate);
-				try{
+				try {
 					rows = template.queryForList(sql, parameters);
-				}
-				catch (InvalidResultSetAccessException  e) {
-					System.out.println("Exception"+e);
-				}
-				catch (DataAccessException   e) {
-					System.out.println("Exception"+e);
+				} catch (InvalidResultSetAccessException e) {
+					System.out.println("Exception" + e);
+				} catch (DataAccessException e) {
+					System.out.println("Exception" + e);
 				}
 
 			}
@@ -262,7 +236,6 @@ public class DashboardDAO {
 		}
 		TitleFont x_TitleFont = new TitleFont("Courier New, monospace", 18, "#7f7f7f");
 		AxisLayout x_AxisLayout = new AxisLayout("Age", x_TitleFont, range);
-		// AxisLayout x_AxisLayout = new AxisLayout("Age", x_TitleFont);
 		TitleFont y_TitleFont = new TitleFont("Courier New, monospace", 18, "#7f7f7f");
 		AxisLayout y_AxisLayout = new AxisLayout("Number of Customers", y_TitleFont);
 
@@ -280,16 +253,11 @@ public class DashboardDAO {
 	public Map<String, List<GraphParams>> createWidgetproductList() {
 
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
-		// String sql = "SELECT * FROM crmxsdashboard.demosalesitem";
 		String sql = "select Product,Customer_Name,(Quantity*Price) as Spend from demosalesitemTest group by Product,Customer_Name order by Spend DESC";
 		List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql);
 		Map<String, List<GraphParams>> productListMap = new HashMap<String, List<GraphParams>>();
 		List<GraphParams> graphParamsList = new LinkedList<GraphParams>();
 		for (Map<String, Object> rs : rows) {
-			/*
-			 * Float quantity = (Float) (rs.get("Quantity")); Float price =
-			 * (Float) (rs.get("Price")); Float spend = (price * quantity);
-			 */
 			GraphParams graphParam = new GraphParams();
 			graphParam.setyValue(rs.get("Spend").toString());
 			graphParam.setxValue(rs.get("Product").toString());
@@ -313,16 +281,11 @@ public class DashboardDAO {
 	public Map<String, List<GraphParams>> createWidgetProductListActual() {
 
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
-		// String sql = "SELECT * FROM crmxsdashboard.demosalesitem";
 		String sql = "select Product,Customer_Name,(Quantity*Price) as Spend from demosalesitem group by Spend";
 		List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql);
 		Map<String, List<GraphParams>> productListMap = new HashMap<String, List<GraphParams>>();
 		List<GraphParams> graphParamsList = new LinkedList<GraphParams>();
 		for (Map<String, Object> rs : rows) {
-			/*
-			 * Float quantity = (Float) (rs.get("Quantity")); Float price =
-			 * (Float) (rs.get("Price")); Float spend = (price * quantity);
-			 */
 			GraphParams graphParam = new GraphParams();
 			graphParam.setyValue(rs.get("Spend").toString());
 			graphParam.setxValue(rs.get("Product").toString());
@@ -402,8 +365,7 @@ public class DashboardDAO {
 	public Map<String, String> averageCustomerSpend() {
 
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
-		//String sql = "select FLOOR(AVG(Quantity*Price)) as Avg_Spend,REPLACE(Customer_Name,'Retail Customer','') as Customer_Name  from demosalesitem group by Customer_Name order by Avg_Spend DESC LIMIT 150";
-		String sql ="select FLOOR(AVG(Quantity*Price)) as Avg_Spend from demosalesitem group by Customer_Name order by Avg_Spend DESC LIMIT 1";
+		String sql = "select FLOOR(AVG(Quantity*Price)) as Avg_Spend from demosalesitem group by Customer_Name order by Avg_Spend DESC LIMIT 1";
 		List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql);
 		Map<String, List<GraphParams>> averageCustomerSpendMap = new HashMap<String, List<GraphParams>>();
 		Map<String, String> averageSpendMap = new HashMap<String, String>();

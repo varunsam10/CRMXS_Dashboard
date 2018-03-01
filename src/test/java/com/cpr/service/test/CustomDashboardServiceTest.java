@@ -13,6 +13,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
 import com.cpr.service.CustomDashboardService;
+
 @ContextConfiguration
 @WebAppConfiguration
 public class CustomDashboardServiceTest {
@@ -62,6 +63,7 @@ public class CustomDashboardServiceTest {
 	public void testdownloadWidgetDataofWidget() {
 		assertEquals("Success", customDashboardService.downloadWidgetDataofWidget(widgetId));
 	}
+
 	@After
 	public void tearDown() {
 		customDashboardService = null;

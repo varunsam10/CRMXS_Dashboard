@@ -31,49 +31,60 @@ public class CustomDashboardService {
 	private Dashboard dashboard;
 	@Autowired
 	private DashboardDAO dashboardDAO;
+
 	public String changeGraphForId(String widgetId) {
 		String response = dashboardDAO.changeGraph(widgetId);
 		return response;
 	}
+
 	public String getWidgetBoards(String dashboardId) {
 		String response = dashboardDAO.getWidgetForDashboard(dashboardId);
 		return response;
 	}
+
 	public String updateWidgetById(String widgetId) {
 		String response = dashboardDAO.updateWidget(widgetId);
 		return response;
 	}
+
 	public String deleteWidgetById(String widgetId) {
 		String response = dashboardDAO.deleteWidget(widgetId);
 		return response;
 	}
+
 	public String addWidgetById(String widgetId) {
 		String response = dashboardDAO.addWidget(widgetId);
 		return response;
 	}
+
 	public String editWidgetTitleById(String widgetId) {
 		String response = dashboardDAO.editWidgetTitle(widgetId);
 		return response;
 	}
+
 	public String downloadWidgetDataofWidget(String widgetId) {
 		String response = dashboardDAO.downloadWidgetData(widgetId);
 		return response;
 	}
+
 	public void setDashboard(Dashboard dashboard) {
 		this.dashboard = dashboard;
 	}
+
 	public String createDashboardJson() {
 		Gson gson = new GsonBuilder().create();
 		JsonElement element = gson.toJsonTree(createDashboard());
 		String response = gson.toJson(element);
 		return response;
 	}
+
 	public String createDashboardJson(ArrayList<Widget> widgets) {
 		Gson gson = new GsonBuilder().create();
 		JsonElement element = gson.toJsonTree(widgets);
 		String response = gson.toJson(element);
 		return response;
 	}
+
 	private ArrayList<Widget> createDashboard() {
 		ArrayList<Widget> widgets = new ArrayList<Widget>();
 		ArrayList<WidgetData> widgetData = new ArrayList<WidgetData>();
@@ -107,11 +118,9 @@ public class CustomDashboardService {
 		ArrayList<Widget> widgetList = new ArrayList<Widget>();
 
 		widgetList.add(widgetLine);
-//----------------------------------------------------------------------------------------------------------------------
-		// Creating Pie widget config
+
 		ArrayList<WidgetData> pieWidgetDataList = new ArrayList<WidgetData>();
 
-		// Pie Data
 		Object[] pieValues = { 19, 26, 35, 10, 10 };
 		Object[] pieLabels = { "Tiger", "Heiniken", "Brand1", "Brand", "Brand3" };
 
@@ -120,8 +129,6 @@ public class CustomDashboardService {
 		pieWidgetData.setLabels(pieLabels);
 		pieWidgetData.setType("pie");
 		pieWidgetDataList.add(pieWidgetData);
-
-		// Pie Layput
 		WidgetLayout pieLayout = new WidgetLayout();
 		pieLayout.setTitle("Revenue in US $");
 		pieLayout.setAutosize(true);
@@ -160,52 +167,47 @@ public class CustomDashboardService {
 				GraphTypeEnum.EXPLORATORY, WidgetDimensionEnum.MEDIUM, ChartTypeEnum.BARLINE, barlineContent);
 
 		widgetList.add(widgetBarLine);
-		//Table widget config
 		TableData browserTable = new TableData();
 		ArrayList<Object[]> rows = new ArrayList<Object[]>();
-		for(int i=0;i<=25;i++)
-		{
-			Object[] row = {"Trident" + Math.ceil(Math.random() * 20), "IE" + Math.ceil(Math.random() * 20),
-			    			"Win" + Math.ceil(Math.random() * 20)};
+		for (int i = 0; i <= 25; i++) {
+			Object[] row = { "Trident" + Math.ceil(Math.random() * 20), "IE" + Math.ceil(Math.random() * 20),
+					"Win" + Math.ceil(Math.random() * 20) };
 			rows.add(row);
-		}		
-		browserTable.setAaData(rows);		
+		}
+		browserTable.setAaData(rows);
 		ArrayList<ColumnValue> columnValues = new ArrayList<ColumnValue>();
 		ColumnValue col1 = new ColumnValue();
-	    col1.setsTitle("Engine");
+		col1.setsTitle("Engine");
 		columnValues.add(col1);
 		ColumnValue col2 = new ColumnValue();
 		col2.setsTitle("Browser");
 		columnValues.add(col2);
 		ColumnValue col3 = new ColumnValue();
-	    col3.setsTitle("Platform");
+		col3.setsTitle("Platform");
 		columnValues.add(col3);
-		
+
 		browserTable.setAoColumns(columnValues);
 		browserTable.setiDisplayLength(25);
-		Object[] lengthMenu1 = {5, 15, 20, -1};
-		Object[] lengthMenu2 = {5, 15, 20, "All"};
-		
+		Object[] lengthMenu1 = { 5, 15, 20, -1 };
+		Object[] lengthMenu2 = { 5, 15, 20, "All" };
+
 		ArrayList<Object[]> menus = new ArrayList<Object[]>();
 		menus.add(lengthMenu1);
 		menus.add(lengthMenu2);
-		
+
 		browserTable.setaLengthMenu(menus);
 		browserTable.setbPaginate(true);
 		browserTable.setbAutoWidth(false);
 		browserTable.setbLengthChange(true);
-		
+
 		Widget tableWidget = new Widget();
 		tableWidget.setWidgetTitle("Table");
 		tableWidget.setWidgetId("id009");
 		tableWidget.setWidgetType(WidgetTypeEnum.TABLE.getWidgetType());
 		tableWidget.setSetJqueryStyle(true);
 		tableWidget.setEnableRefresh(true);
-//		tableWidget.setRefreshCallBack("function(widgetId){"
-//				+ "notification('info', 'Inside the refresh callback of '+widgetId+'!');"
-//				+ "}");
-		tableWidget.setWidgetContent(browserTable);		
-		widgetList.add(tableWidget);		
+		tableWidget.setWidgetContent(browserTable);
+		widgetList.add(tableWidget);
 		return widgetList;
 	}
 }

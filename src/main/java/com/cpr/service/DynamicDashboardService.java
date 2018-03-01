@@ -14,11 +14,13 @@ import com.google.gson.JsonElement;
 public class DynamicDashboardService {
 	@Autowired
 	private DashboardDAO dashboardDAO;
+
 	public String fetchDashboard2Widgets(String dashboardID) {
 
 		String dashboardJson = dashboardDAO.getDynamicDashboardJson(dashboardID);
 		return dashboardJson;
 	}
+
 	public String fetchDashboard2WidgetsNames(String dashboardID) {
 
 		List<String> dashboardWidgetNamesJson = dashboardDAO.getDynamicDashboardWidgetNamesJson(dashboardID);
@@ -27,8 +29,9 @@ public class DynamicDashboardService {
 		String response = gson.toJson(element);
 		return response;
 	}
+
 	public String getWidgetDefinition(String widgetName) {
-		
+
 		String widgetresponse = dashboardDAO.getWidgetDefinition(widgetName);
 		return widgetresponse;
 	}

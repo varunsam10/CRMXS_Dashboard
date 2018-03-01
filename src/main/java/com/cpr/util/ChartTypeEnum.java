@@ -5,8 +5,7 @@ import java.util.List;
 
 public enum ChartTypeEnum {
 
-	COLOUMN("column"), BARLINE("barline"), BUBBLE("bubble"), BAR("bar"), LINE(
-			"line"), PIE("pie");
+	COLOUMN("column"), BARLINE("barline"), BUBBLE("bubble"), BAR("bar"), LINE("line"), PIE("pie");
 
 	private String chartName;
 
@@ -21,13 +20,13 @@ public enum ChartTypeEnum {
 	public void setChartName(String chartName) {
 		this.chartName = chartName;
 	}
-	
+
 	public static List<String> getChartNames() {
-	        List<String> list = new ArrayList<String>();
-	        for(ChartTypeEnum ct : ChartTypeEnum.values()){
-	            list.add(ct.chartName);
-	        }
-	        return list;
+		List<String> list = new ArrayList<String>();
+		for (ChartTypeEnum ct : ChartTypeEnum.values()) {
+			list.add(ct.chartName);
+		}
+		return list;
 	}
 
 }
