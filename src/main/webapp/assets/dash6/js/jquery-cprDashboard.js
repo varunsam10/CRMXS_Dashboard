@@ -87,7 +87,6 @@
 				
 				this.element.on("click", ".cprDashboardWidgetHeader div.cprDashboard-iconcustomZoom.cprDashboard-maximize-icon", function(e) {
 
-					
 					var widgetListItem = $(e.currentTarget).parents("li:first");					
 					var widget = $(e.currentTarget).parents(".cprDashboardWidget:first");				
 					var widgetContainer = widget.find(".cprDashboardWidgetContent");
@@ -121,7 +120,6 @@
 					
 					widget.toggleClass("cprDashboardWidgetContainerMaximized");
 					widgetContainer.toggleClass("cprDashboardWidgetContentMaximized ");
-
 					if (widgetDefinition.widgetType === "chart") {
 					var chartArea = widgetContainer.find(" div.cprDashboardChart");
 					var layout = {
@@ -140,9 +138,6 @@
 							Plotly.redraw(chartArea[0]);
 						}
 						if (!widgetDefinition.getDataBySelection) {
-							/*when redrawing the widget, the click event 
-							listener is getting destroyed, we need to re-register it here again
-							need to find out if its a bug on flotr2 library.*/
 							self._bindChartEvents(chartArea[0], widgetListItem.attr("id"), widgetDefinition, self);
 						}
 					}
@@ -151,7 +146,6 @@
 					var widget = $(e.currentTarget).parents("li:first");
 					var widgetId = widget.attr("id");
 					var widgetDefinition = self._getWidgetContentForId(widgetId, self);
-					//Adding refresh callback
 					var refreshedData = widgetDefinition.refreshCallBack.apply(self, [widgetId]);
 					widgetDefinition.widgetContent = refreshedData;
 					if (widgetDefinition.widgetType === 'chart') {
@@ -166,7 +160,6 @@
 			
 				this.element.on("click", ".cprDashboardWidgetHeader div.cprDashboard-iconcustomDel.cprDashboard-trash-icon ", function(e) {
 					var widget = $(e.currentTarget).parents("li:first");
-					//show hide effect
 					widget.hide("fold", {}, 300, function() {
 						self._removeWidgetFromWidgetDefinitions(this.id);
 						$(this).remove();
@@ -448,14 +441,12 @@
 					table = this.element.find(id + " table.cprDashboardTableView");
 					var buttonCommon = {
 					        exportOptions: {
-					            format: {
-					            
+					            format: {					            
 					            }
 					        }
 					};
 					var tableDef = {};
 					$.extend(tableDef,widgetDefinition.widgetContent);
-
 					if (widgetDefinition.setJqueryStyle) {
 						tableDef["bJQueryUI"] = true;
 					}		
@@ -463,24 +454,22 @@
 					tableDef["buttons"] =  [  					
 						{"extend": 'pdf', "text":' <a href="javascript:;"><i class="fa fa-file-pdf-o"></i>Pdf</a>',"className": 'btn  btn-outline' },
 		                {"extend": 'excelHtml5', "text":' <a href="javascript:;"><i class="fa fa-file-excel-o"></i>Excel</a>',"className": 'btn btn-outline' }
-			         ];
+			        ];
 					tableDef["pageLength"] = 5;
 					tableDef["paging"] = true;
 					tableDef["lengthMenu"] = [[5, 15, 20, -1], [5, 15, 20, "All"]];
-					table.dataTable(tableDef);	 
-				
+					table.dataTable(tableDef);	 				
 				}else if(widgetDefinition.widgetType === 'grid'){
-
 					var dataAdapter = new $.jqx.dataAdapter(widgetDefinition.widgetContent.data);
 					   $("#cprDashboardGridView").jqxGrid(
-					            {
-					                width: widgetDefinition.widgetContent.width,
-					                source: dataAdapter,                
-					                altrows: true,
-					                sortable: true,
-					                selectionmode: 'multiplecellsextended',
-					                columns: widgetDefinition.widgetContent.coloumns
-					            });
+					   {
+					       width: widgetDefinition.widgetContent.width,
+					       source: dataAdapter,                
+					       altrows: true,
+					       sortable: true,
+					       selectionmode: 'multiplecellsextended',
+					       columns: widgetDefinition.widgetContent.coloumns
+					    });
 				}
 			},
 			redrawChart:function(chartArea,data,layout,config)
@@ -538,8 +527,6 @@
 							||widgetDefinition.chartType === 'barline' 
 							||widgetDefinition.chartType === 'area'
 							||widgetDefinition.chartType === 'column'
-//							||widgetDefinition.chartType === 'pie'
-							//||widgetDefinition.chartType === 'donut'	
 							||widgetDefinition.chartType === 'bubble'){
 							if(typeof widgetDefinition.widgetContent.data[j].marker != 'undefined'){
 								if(themeSelected==="theme1"){
@@ -643,10 +630,6 @@
 						}
 					}				
 				}			
-			},
-			widgetClick:function(interactionType) {
-			
-			
 			},
 			resetFilter:function(widgetId) {				
 				var widgetDefinition = this._getWidgetContentForId(widgetId, this);
@@ -963,8 +946,7 @@
 						} else {
 							this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
 						}
-					}
-				//location.reload(true);				
+					}					
 			},
 			_interactMap: function(widgetDefinition,dataPoint) {
 				var _dashboardData = this.options.dashboardData;
@@ -1158,9 +1140,6 @@
 				}
 				
 			},
-			_bindSelectEvent : function(chartArea, widgetId, widgetDefinition, context) {
-				
-			},
 			_bindMapEvents : function(mapArea, widgetId, widgetDefinition, context) {		
 				var id = "li#" + widgetDefinition.widgetId;				
 				mapArea.addListener("click", event => {
@@ -1231,7 +1210,6 @@
 					}
 				}
 			},
-
 			_ifWidgetAlreadyExists : function(widgetId) {
 				if (!widgetId) {
 					throw "Expected widgetId to be defined";
@@ -1247,7 +1225,6 @@
 				if (!widgetDefinition.widgetId) {
 					throw "Expected widgetId to be defined";
 				}
-
 				if (this._ifWidgetAlreadyExists(widgetDefinition.widgetId)) {
 					this.element.find("li#" + widgetDefinition.widgetId).effect("shake", {
 						times : 3
@@ -1283,6 +1260,4 @@
 				$.Widget.prototype.destroy.call(this);
 			}
 		});
-
 	}));
-
