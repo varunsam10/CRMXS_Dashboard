@@ -188,6 +188,16 @@ div#users-contain table td, div#users-contain table th {
 	transition: border-color .3s all ease;
 }
 
+.cprDashboardWidgetInteract {
+	margin: 0 1em 1em 0;
+	border-radius: 25px;
+	border: 2px solid #32c5d2 !important;
+	background-color: #fff;
+	-webkit-transition: border-color 0.3s;
+	-moz-transition: border-color 0.3s;
+	transition: border-color .3s all ease;
+}
+
 .filterSection {
 	margin: 0 1em 1em 0;
 	border-radius: 25px;
@@ -595,16 +605,13 @@ div#users-contain table td, div#users-contain table th {
 	background-position: -3px -186px;
 }
 
-
-
 /* .sDashboard-iconcustomFilter.sDashboard-filter-icon {
 	background-position: -4px -248px;
 } */
 
 .js-plotly-plot .plotly .modebar {
-	        background: #FFFFF !important;
+	background: #FFFFF !important;
 }
-
 
 .cprDashboard-icon.cprDashboard-circle-plus-icon {
 	background-position: -2px -3px;

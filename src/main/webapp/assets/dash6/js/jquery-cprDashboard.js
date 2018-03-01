@@ -332,8 +332,13 @@
 					 widget.addClass("cprDashboardNormal");
 				 }else if(widgetDefinition.widgetDimension === 'small'){
 					 widget.addClass("cprDashboardSmall");
-				 }			
-				var widgetContainer = $("<div/>").addClass("cprDashboardWidget");
+				 }
+				if(widgetDefinition.widgetClick === 'interact' || widgetDefinition.widgetClick === 'details'  ){
+					var widgetContainer = $("<div/>").addClass("cprDashboardWidgetInteract");
+				}else{
+					var widgetContainer = $("<div/>").addClass("cprDashboardWidget");
+				}			
+				var widgetContainerInteract = $("<div/>").addClass("cprDashboardWidget");
 				var widgetHeader = $("<div/>").addClass("cprDashboardWidgetHeader cprDashboard-clearfix");
 				var maximizeButton = $('<div title="Maximize" class="cprDashboard-iconcustomZoom cprDashboard-maximize-icon "></span>');
 				var settingsButton = $('<div title="Setting" class="cprDashboard-iconcustom cprDashboard-settings "></span>');
@@ -997,7 +1002,13 @@
 					}					
 				}
 			},
-			_interactChart: function(widgetDefinition,dataPoint) {
+			interactChart: function(widgetDefinition,dataPoint) {				
+				var id = "li#" + WidgetDefinitionToChange.widgetId;
+				var chartArea;
+				var data;
+				var layout;
+				var config;
+				var chart;						
 				var _dashboardData = this.options.dashboardData;
 				var i;
 				var WidgetDefinitionToChange;
@@ -1011,13 +1022,6 @@
 						WidgetDefinitionToChange = _dashboardData[i];
 					}					
 				}
-				var id = "li#" + WidgetDefinitionToChange.widgetId;
-				var chartArea;
-				var data;
-				var layout;
-				var config;
-				var chart;						
-			
 				chartArea = this.element.find(id + " div.cprDashboardChart");
 				if (WidgetDefinitionToChange.widgetType === 'chart') {
 					
@@ -1074,15 +1078,7 @@
 						
 						}
 						
-					}					
-					if (widgetDefinition.getDataBySelection) {
-						
-						this._bindSelectEvent(chartArea[0], WidgetDefinitionToChange.widgetId, WidgetDefinitionToChange, this);
-					} else {
-						if(widgetDefinition.graphType === 'exploratory'){
-							this._bindChartEvents(chartArea[0], WidgetDefinitionToChange.widgetId, WidgetDefinitionToChange, this);
-						}
-					}
+					}	
 				}
 				else if(widgetDefinition.widgetType === 'static')
 					{
@@ -1095,8 +1091,6 @@
 						}
 					}
 				}
-				//location.reload(true);
-				
 			},
 			_renderChart : function(widgetDefinition) {
 				var id = "li#" + widgetDefinition.widgetId;
@@ -1211,7 +1205,7 @@
 						
 					}else if(widgetDefinition.widgetClick === "interact"){
 						
-							context._interactChart(widgetDefinition,evtObj);
+							context.interactChart(widgetDefinition,evtObj);
 						}
 					}									
 				});				
