@@ -10,11 +10,7 @@ public class WidgetData {
 
 	// the array values for the pie chart widget
 	private Object[] values;
-
-	// the array of labels for the pie chart widget
 	private Object[] labels;
-
-	// the label for the data plotted
 	private String name;
 	private String type;
 	private Marker marker;
@@ -31,7 +27,6 @@ public class WidgetData {
 	}
 
 	public WidgetData(Object[] x_axis, Object[] y_axis, String name, String type, Marker marker, String mode) {
-		// TODO Auto-generated constructor stub
 		this.setX(x_axis);
 		this.setY(y_axis);
 		this.setName(name);

@@ -1,6 +1,5 @@
 package com.cpr.util;
 
-//Main class for configuring the widget
 public class Widget {
 
 	// the widget title
@@ -14,42 +13,26 @@ public class Widget {
 
 	// the size of the widget
 	private String widgetDimension;
-	
-	//Widget content for the text widget
+
+	// Widget content for the text widget
 	private String widgetContentText;
 
-	// the chartType - graph/table
 	private String chartType;
 
-	// the graphType - pie/bar/line
 	private String graphType;
-
-	// set jQuery styling on/off for datatable
 	private boolean setJqueryStyle;
-
-	// enable the refresh callback
 	private boolean enableRefresh;
-
-	// the refresh callback function - yet to be implemented
 	private String refreshCallBack;
-
-	// the widgetContent Composite consists of widgetData, widgetLayout and
-	// widgetConfig
 	private WidgetContent widgetContent;
-
-	//Handling the widget click property
 	private String widgetClick;
-
-	//Handling the widget Edit property
 	private String widgetEdit;
-	
+
 	public Widget() {
 
 	}
-	
+
 	public Widget(String widgetTitle, String widgetId, WidgetTypeEnum widgetType, GraphTypeEnum graphType,
 			WidgetDimensionEnum widgetDimension, ChartTypeEnum chartType, WidgetContent widgetContent) {
-		// TODO Auto-generated constructor stub
 		this.setWidgetTitle(widgetTitle);
 		this.setWidgetId(widgetId);
 		this.setWidgetType(widgetType.getWidgetType());
@@ -161,5 +144,5 @@ public class Widget {
 
 	public void setWidgetType(String widgetType) {
 		this.widgetType = widgetType;
-	}	
+	}
 }

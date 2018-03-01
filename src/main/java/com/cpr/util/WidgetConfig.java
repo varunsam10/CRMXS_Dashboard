@@ -1,7 +1,7 @@
 package com.cpr.util;
 
 public class WidgetConfig {
-	
+
 	public WidgetConfig() {
 
 	}

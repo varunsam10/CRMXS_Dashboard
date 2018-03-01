@@ -4,13 +4,8 @@ import java.util.ArrayList;
 
 public class WidgetContent {
 
-	// the data to be visualized in the widget
 	private ArrayList<WidgetData> data;
-
-	// the layout of the graph/chart contained in the widget
 	private WidgetLayout layout;
-
-	// additional configs for the graph/chart plotted
 	private WidgetConfig config;
 
 	public WidgetContent(ArrayList<WidgetData> widgetData, WidgetLayout widgetLayout, WidgetConfig widgetConfig) {
