@@ -24,15 +24,10 @@
 				}
 			},
 			_createView : function() {
-
 				var docHeight = $(document).height();
-
 				$("body").append("<div class='cprDashboard-overlay'></div>");
-
 				$(".cprDashboard-overlay").height(docHeight);
-
 				$(".cprDashboard-overlay").hide();
-
 				var _dashboardData = this.options.dashboardData;
 				var i;	
 				for ( i = 0; i < _dashboardData.length; i++) {
@@ -42,9 +37,7 @@
 					this._renderChart(_dashboardData[i]);
 					this._renderMap(_dashboardData[i]);
 				}
-
 				var that = this;
-				//call the jquery ui sortable on the columns
 				this.element.sortable({
 					handle : ".cprDashboardWidgetHeader",
 					start : function(event, ui) {
@@ -56,21 +49,18 @@
 							_dashboardData,
 							[newPosition, 0].concat(_dashboardData.splice(ui.item.startPosition, 1))
 						);
-
 						that._trigger("stateChanged", null, {
 							triggerAction: 'orderChanged',
 							affectedWidget: _dashboardData[newPosition]}
 						);
 					}
 				});
-
 				var disableSelection = this.options.hasOwnProperty("disableSelection") ? this.options.disableSelection : true;
 				if (disableSelection) {
 					this.element.disableSelection();
 				}			
 				this._bindEvents();
 				this._trigger("creationComplete", null);
-
 			},
 			_getWidgetContentForId : function(id, context) {
 				var widgetData = context.getDashboardData();
@@ -83,18 +73,14 @@
 				return [];
 			},
 			_bindEvents : function() {
-				var self = this;
-				
+				var self = this;				
 				this.element.on("click", ".cprDashboardWidgetHeader div.cprDashboard-iconcustomZoom.cprDashboard-maximize-icon", function(e) {
-
-					var widgetListItem = $(e.currentTarget).parents("li:first");					
-					var widget = $(e.currentTarget).parents(".cprDashboardWidget:first");				
-					var widgetContainer = widget.find(".cprDashboardWidgetContent");
-
-					var widgetDefinition = self._getWidgetContentForId(widgetListItem.attr("id"), self);
-
-					$(e.currentTarget).toggleClass("cprDashboard-minimize-icon");					
-					if ($(e.currentTarget).attr("title") === "Maximize") {
+				var widgetListItem = $(e.currentTarget).parents("li:first");					
+				var widget = $(e.currentTarget).parents(".cprDashboardWidget:first");				
+				var widgetContainer = widget.find(".cprDashboardWidgetContent");
+				var widgetDefinition = self._getWidgetContentForId(widgetListItem.attr("id"), self);
+				$(e.currentTarget).toggleClass("cprDashboard-minimize-icon");					
+				if ($(e.currentTarget).attr("title") === "Maximize") {
 						$(".cprDashboard-overlay").hide();
 						$(e.currentTarget).attr("title", "Minimize");
 						$(".cprDashboardWidgetHeader div.cprDashboard-iconcustomDel.cprDashboard-trash-icon ").hide();
@@ -105,7 +91,7 @@
 						self._trigger("widgetMaximized", null, {
 							"widgetDefinition" : widgetDefinition
 						});
-					} else {
+				} else {
 						$(".cprDashboard-overlay").show();
 						$(e.currentTarget).attr("title", "Maximize");
 						$(".cprDashboardWidgetHeader div.cprDashboard-iconcustomDel.cprDashboard-trash-icon ").show();
@@ -116,8 +102,7 @@
 						self._trigger("widgetMinimized", null, {
 							"widgetDefinition" : widgetDefinition
 						});
-					}
-					
+				}				
 					widget.toggleClass("cprDashboardWidgetContainerMaximized");
 					widgetContainer.toggleClass("cprDashboardWidgetContentMaximized ");
 					if (widgetDefinition.widgetType === "chart") {
@@ -693,8 +678,7 @@
 						if(widgetDefinition.graphType === 'exploratory'){
 							this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
 						}
-					}						
-					
+					}
 				}
 			},
 			_disableEdit:function(widgetDefinition,widgetId){
@@ -720,8 +704,7 @@
 						if(widgetDefinition.graphType === 'exploratory'){
 							this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
 						}
-					}						
-					
+					}
 				}
 			},
 			changeChart: function(changeChartObject) {			
@@ -743,11 +726,8 @@
 							  },
 							  barmode: 'group'
 							};
-
-					if(widgetDefinition.graphType === 'normal'){
-						
+					if(widgetDefinition.graphType === 'normal'){						
 						var chart = c3.generate({bindto:chartArea[0],data:widgetDefinition.widgetContent.data});
-						
 					}else{				
 					if(widgetDefinition.chartType === 'bar' && changeChartObject.chartTo ==='line'
 						||widgetDefinition.chartType === 'area' && changeChartObject.chartTo ==='line'
@@ -895,8 +875,7 @@
 						} else {
 							this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
 						}
-					}	
-				
+					}					
 			},
 			_refreshChart: function(widgetDefinition) {
 				var id = "li#" + widgetDefinition.widgetId;
@@ -908,7 +887,6 @@
 				chartArea = this.element.find(id + " div.cprDashboardChart");
 				
 				if (widgetDefinition.widgetType === 'chart') {
-					
 					data = widgetDefinition.widgetContent.data;
 					layout = widgetDefinition.widgetContent.layout;
 					config = widgetDefinition.widgetContent.config;
@@ -1028,20 +1006,17 @@
 							data   = WidgetDefinitionToChange.widgetContentNew.data;
 							layout = WidgetDefinitionToChange.widgetContent.layout;
 							config = WidgetDefinitionToChange.widgetContent.config;
-						}else if(dataPoint.dataPoints === 2014){
-							data   = WidgetDefinitionToChange.widgetContentNew1.data;
-							layout = WidgetDefinitionToChange.widgetContent.layout;
-							config = WidgetDefinitionToChange.widgetContent.config;
-							
 						}else if(dataPoint.dataPoints === 2015){
 							data   = WidgetDefinitionToChange.widgetContentNew2.data;
 							layout = WidgetDefinitionToChange.widgetContent.layout;
-							config = WidgetDefinitionToChange.widgetContent.config;
-							
+							config = WidgetDefinitionToChange.widgetContent.config;							
+						}else if(dataPoint.dataPoints === 2014){
+							data   = WidgetDefinitionToChange.widgetContentNew1.data;
+							layout = WidgetDefinitionToChange.widgetContent.layout;
+							config = WidgetDefinitionToChange.widgetContent.config;							
 						}						
 					}
 					if(WidgetDefinitionToChange.graphType === 'normal'){
-						
 						var chart = c3.generate({bindto:chartArea[0],data:WidgetDefinitionToChange.widgetContent.data});
 						
 					}else{						
@@ -1059,7 +1034,6 @@
 							Plotly.redraw(chartArea[0]);
 						
 						}
-						
 					}	
 				}
 				else if(widgetDefinition.widgetType === 'static')
@@ -1192,8 +1166,7 @@
 			_bindChartEventsC3 : function(chartArea, widgetId, widgetDefinition, context) {
 				var myPlot = chartArea;
 				var id = "li#" + widgetDefinition.widgetId;
-				var chartArea = this.element.find(id + " div.cprDashboardChart");		
-						
+				var chartArea = this.element.find(id + " div.cprDashboardChart");					
 			},
 			_removeWidgetFromWidgetDefinitions : function(widgetId) {
 				var widgetDefs = this.options.dashboardData;
