@@ -17,8 +17,6 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 
 public class CprAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
 
-	//protected Log logger = LogFactory.getLog(this.getClass());
-
 	private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
 	
 	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
@@ -34,7 +32,6 @@ public class CprAuthenticationSuccessHandler implements AuthenticationSuccessHan
 		String targetUrl = determineTargetUrl(authentication);
 
 		if (response.isCommitted()) {
-			//logger.debug("Response has already been committed. Unable to redirect to " + targetUrl);
 			return;
 		}
 

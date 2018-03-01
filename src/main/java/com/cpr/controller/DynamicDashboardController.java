@@ -28,6 +28,7 @@ public class DynamicDashboardController {
 	private DynamicDashboardCreationService dashboardCreationService;
 	@Autowired
 	private DashboardDAO dashboardDAO;
+
 	@RequestMapping("/dynamic/create")
 	public ResponseEntity createInitialDynamicBoard() {
 		Dashboard3 dashboard3 = new Dashboard3();
@@ -38,6 +39,7 @@ public class DynamicDashboardController {
 			return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
+
 	@RequestMapping("/dynamic/delete")
 	public ResponseEntity deleteInitialDynamicBoard() {
 		String response = dashboardCreationService.deleteDynamicDashboard();
@@ -47,6 +49,7 @@ public class DynamicDashboardController {
 			return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
+
 	@RequestMapping(value = "/getDynamicWidgetNames", method = RequestMethod.GET)
 	@ResponseBody
 	public String getDynamicWidgetNames() {
@@ -54,6 +57,7 @@ public class DynamicDashboardController {
 		System.out.println("The response is" + dashboardJsonResponse);
 		return dashboardJsonResponse;
 	}
+
 	@RequestMapping(value = "/getDynamicWidgets", method = RequestMethod.GET)
 	@ResponseBody
 	public String getDynamicWidgets() {
@@ -61,7 +65,8 @@ public class DynamicDashboardController {
 		System.out.println("The response is" + dashboardJsonResponse);
 		return dashboardJsonResponse;
 	}
-	@RequestMapping(value ="/getWidgetDefinition", method = RequestMethod.GET)
+
+	@RequestMapping(value = "/getWidgetDefinition", method = RequestMethod.GET)
 	@ResponseBody
 	public String getWidgetDefinition(@RequestParam("widgetName") String widgetName) {
 		String widgetDefinitionJsonResponse = dynamicDashboardService.getWidgetDefinition(widgetName);

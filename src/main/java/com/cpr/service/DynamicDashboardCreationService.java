@@ -35,6 +35,7 @@ public class DynamicDashboardCreationService {
 	private CustomDashboardService dashboardService;
 	@Autowired
 	private DashboardDAO dashboardDAO;
+
 	public String createDynamicDashboard() {
 
 		ArrayList<Widget> widgets = new ArrayList<Widget>();
@@ -47,9 +48,10 @@ public class DynamicDashboardCreationService {
 		Map<String, List<GraphParams>> productListMapOriginal = dashboardDAO.createWidgetProductListActual();
 		Map<String, List<GraphParams>> topOutletListMap = dashboardDAO.createWidgetTopOutletActual();
 		Map<String, List<GraphParams>> topProductListMap = dashboardDAO.createWidgetTopProductActual();
-		//Map<String, List<GraphParams>> averageCustomerSpendMap = dashboardDAO.averageCustomerSpend();
-		Map<String,String> averageCustomerSpendMap = dashboardDAO.averageCustomerSpend();
-		Map<String,String> topProductMap = dashboardDAO.topProduct();
+		// Map<String, List<GraphParams>> averageCustomerSpendMap =
+		// dashboardDAO.averageCustomerSpend();
+		Map<String, String> averageCustomerSpendMap = dashboardDAO.averageCustomerSpend();
+		Map<String, String> topProductMap = dashboardDAO.topProduct();
 		Widget widget = null;
 		Widget widget2 = null;
 		Widget widget3 = null;
@@ -77,8 +79,8 @@ public class DynamicDashboardCreationService {
 		ArrayList<WidgetData> widgetDataList3 = new ArrayList<WidgetData>();
 		ArrayList<WidgetData> widgetDataList4 = new ArrayList<WidgetData>();
 		ArrayList<WidgetData> widgetDataList5 = new ArrayList<WidgetData>();
-	
-		//Widget 1
+
+		// Widget 1
 		if (!productListMap.isEmpty()) {
 			widget = new Widget();
 			widget.setWidgetTitle("Test Widget1");
@@ -96,31 +98,31 @@ public class DynamicDashboardCreationService {
 			List<Map.Entry<String, List<GraphParams>>> maplist = new ArrayList<Map.Entry<String, List<GraphParams>>>(
 					mapset);
 			for (Map.Entry<String, List<GraphParams>> entry : maplist) {
-				widgetData = new WidgetData();				
+				widgetData = new WidgetData();
 				int i = 0;
 				int j = 0;
 				Object[] x = new Object[entry.getValue().size()];
 				Object[] y = new Object[entry.getValue().size()];
-				for (GraphParams params : entry.getValue()) {					
-						x[i] = params.getxValue();
-						y[j] = params.getyValue();
-						i++;
-						j++;
+				for (GraphParams params : entry.getValue()) {
+					x[i] = params.getxValue();
+					y[j] = params.getyValue();
+					i++;
+					j++;
 				}
 				widgetData.setY(y);
 				widgetData.setX(x);
 				widgetData.setType("bar");
 				widgetData.setName(entry.getKey());
-				Marker marker =new Marker();
-				//marker.setColor(" ");
+				Marker marker = new Marker();
+				// marker.setColor(" ");
 				marker.setOpacity(0.6);
 				widgetData.setMarker(marker);
 				widgetDataList.add(widgetData);
 			}
 
 		}
-		
-		//widget 2
+
+		// widget 2
 		if (!productListMapOriginal.isEmpty()) {
 			widget2 = new Widget();
 			widget2.setWidgetTitle("Actual Data Test");
@@ -143,25 +145,25 @@ public class DynamicDashboardCreationService {
 				int j = 0;
 				Object[] x = new Object[entry.getValue().size()];
 				Object[] y = new Object[entry.getValue().size()];
-				for (GraphParams params : entry.getValue()) {					
-						x[i] = params.getxValue();
-						y[j] = params.getyValue();
-						i++;
-						j++;
+				for (GraphParams params : entry.getValue()) {
+					x[i] = params.getxValue();
+					y[j] = params.getyValue();
+					i++;
+					j++;
 				}
 				widgetData2.setY(y);
 				widgetData2.setX(x);
 				widgetData2.setType("bar");
 				widgetData2.setName(entry.getKey());
-				Marker marker =new Marker();
+				Marker marker = new Marker();
 				marker.setColor("#32c5d2");
 				marker.setOpacity(0.6);
-				widgetData2.setMarker(marker);				
+				widgetData2.setMarker(marker);
 				widgetDataList2.add(widgetData2);
 			}
 
 		}
-		//Widget 3
+		// Widget 3
 		if (!topOutletListMap.isEmpty()) {
 			widget3 = new Widget();
 			widget3.setWidgetTitle("Top Outlet by sales");
@@ -184,26 +186,26 @@ public class DynamicDashboardCreationService {
 				int j = 0;
 				Object[] x = new Object[entry.getValue().size()];
 				Object[] y = new Object[entry.getValue().size()];
-				for (GraphParams params : entry.getValue()) {					
-						x[i] = params.getxValue();
-						y[j] = params.getyValue();
-						i++;
-						j++;
+				for (GraphParams params : entry.getValue()) {
+					x[i] = params.getxValue();
+					y[j] = params.getyValue();
+					i++;
+					j++;
 				}
 				widgetData3.setY(y);
 				widgetData3.setX(x);
 				widgetData3.setType("bar");
 				widgetData3.setName(entry.getKey());
-				Marker marker =new Marker();
+				Marker marker = new Marker();
 				marker.setColor("#32c5d2");
 				marker.setOpacity(0.6);
-				widgetData3.setMarker(marker);	
+				widgetData3.setMarker(marker);
 				widgetDataList3.add(widgetData3);
 			}
 
 		}
-		
-		//Widget 4 
+
+		// Widget 4
 		if (!topProductListMap.isEmpty()) {
 			widget4 = new Widget();
 			widget4.setWidgetTitle("Top 25 Products");
@@ -226,67 +228,58 @@ public class DynamicDashboardCreationService {
 				int j = 0;
 				Object[] x = new Object[entry.getValue().size()];
 				Object[] y = new Object[entry.getValue().size()];
-				for (GraphParams params : entry.getValue()) {					
-						x[i] = params.getxValue();
-						y[j] = params.getyValue();
-						i++;
-						j++;
+				for (GraphParams params : entry.getValue()) {
+					x[i] = params.getxValue();
+					y[j] = params.getyValue();
+					i++;
+					j++;
 				}
 				widgetData4.setY(y);
 				widgetData4.setX(x);
 				widgetData4.setType("bar");
 				widgetData4.setName(entry.getKey());
-				Marker marker =new Marker();
+				Marker marker = new Marker();
 				marker.setColor("#32c5d2");
 				marker.setOpacity(0.6);
-				widgetData4.setMarker(marker);	
+				widgetData4.setMarker(marker);
 				widgetDataList4.add(widgetData4);
 			}
 
 		}
-		
-		//Widget 5
-		/*if (!averageCustomerSpendMap.isEmpty()) {
-					widget5 = new Widget();
-					widget5.setWidgetTitle("Average Spend by Customer");
-					widget5.setWidgetId("wd005");
-					widget5.setEnableRefresh(false);
-					widget5.setChartType(ChartTypeEnum.LINE.toString().toLowerCase());
-					widget5.setWidgetDimension(WidgetDimensionEnum.LARGE.toString().toLowerCase());
-					widget5.setGraphType(GraphTypeEnum.EXPLORATORY.toString().toLowerCase());
-					widget5.setWidgetType(WidgetTypeEnum.CHART.toString().toLowerCase());
-					widget5.setWidgetClick(WidgetClickEnum.DISABLE.toString().toLowerCase());
-					widget5.setWidgetEdit(WidgetEditEnum.ENABLE.toString().toLowerCase());
-					widgetContent5 = new WidgetContent();
-					Set<Map.Entry<String, List<GraphParams>>> mapset = averageCustomerSpendMap.entrySet();
 
-					List<Map.Entry<String, List<GraphParams>>> maplist = new LinkedList<Map.Entry<String, List<GraphParams>>>(
-							mapset);
-					for (Map.Entry<String, List<GraphParams>> entry : maplist) {
-						widgetData5 = new WidgetData();
-						int i = 0;
-						int j = 0;
-						Object[] x = new Object[entry.getValue().size()];
-						Object[] y = new Object[entry.getValue().size()];
-						for (GraphParams params : entry.getValue()) {					
-								x[i] = params.getxValue();
-								y[j] = params.getyValue();
-								i++;
-								j++;
-						}
-						widgetData5.setY(y);
-						widgetData5.setX(x);
-						widgetData5.setType("bar");
-						//widgetData5.setName(entry.getKey());
-						Marker marker =new Marker();
-						marker.setColor("#32c5d2");
-						marker.setOpacity(0.6);
-						widgetData5.setMarker(marker);	
-						widgetDataList5.add(widgetData5);
-					}
-
-		}*/
-		//Widget 5
+		// Widget 5
+		/*
+		 * if (!averageCustomerSpendMap.isEmpty()) { widget5 = new Widget();
+		 * widget5.setWidgetTitle("Average Spend by Customer");
+		 * widget5.setWidgetId("wd005"); widget5.setEnableRefresh(false);
+		 * widget5.setChartType(ChartTypeEnum.LINE.toString().toLowerCase());
+		 * widget5.setWidgetDimension(WidgetDimensionEnum.LARGE.toString().
+		 * toLowerCase());
+		 * widget5.setGraphType(GraphTypeEnum.EXPLORATORY.toString().toLowerCase
+		 * ());
+		 * widget5.setWidgetType(WidgetTypeEnum.CHART.toString().toLowerCase());
+		 * widget5.setWidgetClick(WidgetClickEnum.DISABLE.toString().toLowerCase
+		 * ());
+		 * widget5.setWidgetEdit(WidgetEditEnum.ENABLE.toString().toLowerCase())
+		 * ; widgetContent5 = new WidgetContent(); Set<Map.Entry<String,
+		 * List<GraphParams>>> mapset = averageCustomerSpendMap.entrySet();
+		 * 
+		 * List<Map.Entry<String, List<GraphParams>>> maplist = new
+		 * LinkedList<Map.Entry<String, List<GraphParams>>>( mapset); for
+		 * (Map.Entry<String, List<GraphParams>> entry : maplist) { widgetData5
+		 * = new WidgetData(); int i = 0; int j = 0; Object[] x = new
+		 * Object[entry.getValue().size()]; Object[] y = new
+		 * Object[entry.getValue().size()]; for (GraphParams params :
+		 * entry.getValue()) { x[i] = params.getxValue(); y[j] =
+		 * params.getyValue(); i++; j++; } widgetData5.setY(y);
+		 * widgetData5.setX(x); widgetData5.setType("bar");
+		 * //widgetData5.setName(entry.getKey()); Marker marker =new Marker();
+		 * marker.setColor("#32c5d2"); marker.setOpacity(0.6);
+		 * widgetData5.setMarker(marker); widgetDataList5.add(widgetData5); }
+		 * 
+		 * }
+		 */
+		// Widget 5
 		if (!averageCustomerSpendMap.isEmpty()) {
 			widget5 = new Widget();
 			widget5.setWidgetTitle("Average Spend");
@@ -295,51 +288,51 @@ public class DynamicDashboardCreationService {
 			widget5.setWidgetClick(WidgetClickEnum.DISABLE.toString().toLowerCase());
 			widget5.setWidgetEdit(WidgetEditEnum.DISABLE.toString().toLowerCase());
 			widget5.setWidgetDimension(WidgetDimensionEnum.SMALL.toString().toLowerCase());
-			for(Map.Entry<String, String> entry: averageCustomerSpendMap.entrySet()){
-				widget5.setWidgetContentText(entry.getValue()+" $");
+			for (Map.Entry<String, String> entry : averageCustomerSpendMap.entrySet()) {
+				widget5.setWidgetContentText(entry.getValue() + " $");
 			}
 
 		}
-		//widget 6 
-		if(!topProductMap.isEmpty()){
-					widget6 = new Widget();
-					widget6.setWidgetTitle("Top Product");
-					widget6.setWidgetId("wd006");
-					widget6.setWidgetType(WidgetTypeEnum.TEXT.toString());
-					widget6.setWidgetClick(WidgetClickEnum.DISABLE.toString().toLowerCase());
-					widget6.setWidgetEdit(WidgetEditEnum.DISABLE.toString().toLowerCase());
-					widget6.setWidgetDimension(WidgetDimensionEnum.SMALL.toString().toLowerCase());
-					for(Map.Entry<String, String> entry: topProductMap.entrySet()){
-						widget6.setWidgetContentText(entry.getKey()+":"+entry.getValue()+" transactions");
-					}
-		}		
+		// widget 6
+		if (!topProductMap.isEmpty()) {
+			widget6 = new Widget();
+			widget6.setWidgetTitle("Top Product");
+			widget6.setWidgetId("wd006");
+			widget6.setWidgetType(WidgetTypeEnum.TEXT.toString());
+			widget6.setWidgetClick(WidgetClickEnum.DISABLE.toString().toLowerCase());
+			widget6.setWidgetEdit(WidgetEditEnum.DISABLE.toString().toLowerCase());
+			widget6.setWidgetDimension(WidgetDimensionEnum.SMALL.toString().toLowerCase());
+			for (Map.Entry<String, String> entry : topProductMap.entrySet()) {
+				widget6.setWidgetContentText(entry.getKey() + ":" + entry.getValue() + " transactions");
+			}
+		}
 		TitleFont x_TitleFont = new TitleFont("Courier New, monospace", 18, "#7f7f7f");
 		AxisLayout x_AxisLayout = new AxisLayout("Products", x_TitleFont);
 		TitleFont y_TitleFont = new TitleFont("Courier New, monospace", 18, "#7f7f7f");
 		AxisLayout y_AxisLayout = new AxisLayout("Spend", y_TitleFont);
-		
-		
+
 		AxisLayout x_AxisLayout3 = new AxisLayout("Outlet", x_TitleFont);
 		AxisLayout y_AxisLayout3 = new AxisLayout("Sales in $", y_TitleFont);
 
 		AxisLayout x_AxisLayout4 = new AxisLayout("Product", x_TitleFont);
 		AxisLayout y_AxisLayout4 = new AxisLayout("Sales in $", y_TitleFont);
-		
-		//AxisLayout x_AxisLayout5 = new AxisLayout("Customer", x_TitleFont);
-		//AxisLayout y_AxisLayout5 = new AxisLayout("Average Spend", y_TitleFont);
-		
-		if (null != widget && null!=widget2) {
+
+		// AxisLayout x_AxisLayout5 = new AxisLayout("Customer", x_TitleFont);
+		// AxisLayout y_AxisLayout5 = new AxisLayout("Average Spend",
+		// y_TitleFont);
+
+		if (null != widget && null != widget2) {
 			widgetLayout = new WidgetLayout();
 			widgetLayout.setTitle("Spend by products");
 			widgetLayout.setXaxis(x_AxisLayout);
 			widgetLayout.setYaxis(y_AxisLayout);
-			widgetLayout.setAutosize(true);	
+			widgetLayout.setAutosize(true);
 			widgetLayout.setShowlegend(true);
 			widgetLayout.setPaper_bgcolor("#FFFFFF");
 			widgetLayout.setPlot_bgcolor("#FFFFFF");
-			String[] modeBarButtonsToRemove = {"sendDataToCloud"};
+			String[] modeBarButtonsToRemove = { "sendDataToCloud" };
 			widgetConfig = new WidgetConfig();
-			widgetConfig.setModeBarButtonsToRemove(modeBarButtonsToRemove);		
+			widgetConfig.setModeBarButtonsToRemove(modeBarButtonsToRemove);
 		}
 
 		if (null != widget3) {
@@ -360,16 +353,15 @@ public class DynamicDashboardCreationService {
 			widgetLayout4.setPaper_bgcolor("#FFFFFF");
 			widgetLayout4.setPlot_bgcolor("#FFFFFF");
 		}
-	/*	if (null != widget5) {
-			widgetLayout5 = new WidgetLayout();
-			widgetLayout5.setTitle("Average Spend by Customer");
-			widgetLayout5.setXaxis(x_AxisLayout5);
-			widgetLayout5.setYaxis(y_AxisLayout5);
-			widgetLayout5.setAutosize(true);
-			widgetLayout.setShowlegend(true);
-			widgetLayout5.setPaper_bgcolor("#FFFFFF");
-			widgetLayout5.setPlot_bgcolor("#FFFFFF");
-		}*/
+		/*
+		 * if (null != widget5) { widgetLayout5 = new WidgetLayout();
+		 * widgetLayout5.setTitle("Average Spend by Customer");
+		 * widgetLayout5.setXaxis(x_AxisLayout5);
+		 * widgetLayout5.setYaxis(y_AxisLayout5);
+		 * widgetLayout5.setAutosize(true); widgetLayout.setShowlegend(true);
+		 * widgetLayout5.setPaper_bgcolor("#FFFFFF");
+		 * widgetLayout5.setPlot_bgcolor("#FFFFFF"); }
+		 */
 		widgetContent.setData(widgetDataList);
 		widgetContent.setLayout(widgetLayout);
 		widgetContent.setConfig(widgetConfig);
@@ -382,10 +374,10 @@ public class DynamicDashboardCreationService {
 		widgetContent4.setData(widgetDataList4);
 		widgetContent4.setLayout(widgetLayout4);
 		widgetContent4.setConfig(widgetConfig);
-		//widgetContent5.setData(widgetDataList5);
-		//widgetContent5.setLayout(widgetLayout5);
-		//widgetContent5.setConfig(widgetConfig);
-		
+		// widgetContent5.setData(widgetDataList5);
+		// widgetContent5.setLayout(widgetLayout5);
+		// widgetContent5.setConfig(widgetConfig);
+
 		widget.setWidgetContent(widgetContent);
 		widget2.setWidgetContent(widgetContent2);
 		widget3.setWidgetContent(widgetContent3);
@@ -404,17 +396,19 @@ public class DynamicDashboardCreationService {
 		String widgetConfigGenerated4 = dashboardService.createDashboardJson(widgets4);
 		String widgetConfigGenerated5 = dashboardService.createDashboardJson(widgets5);
 		String widgetConfigGenerated6 = dashboardService.createDashboardJson(widgets6);
-		String response = dashboardDAO.insertWidgetConfig(widgetConfigGenerated, "wd001", "dd001",widget.getWidgetTitle());
-		dashboardDAO.insertWidgetConfig(widgetConfigGenerated2, "wd002", "dd001",widget2.getWidgetTitle());
-		dashboardDAO.insertWidgetConfig(widgetConfigGenerated3, "wd003", "dd001",widget3.getWidgetTitle());
-		dashboardDAO.insertWidgetConfig(widgetConfigGenerated4, "wd004", "dd001",widget4.getWidgetTitle());
-		dashboardDAO.insertWidgetConfig(widgetConfigGenerated5, "wd005", "dd001",widget5.getWidgetTitle());
-		dashboardDAO.insertWidgetConfig(widgetConfigGenerated6, "wd006", "dd001",widget6.getWidgetTitle());
+		String response = dashboardDAO.insertWidgetConfig(widgetConfigGenerated, "wd001", "dd001",
+				widget.getWidgetTitle());
+		dashboardDAO.insertWidgetConfig(widgetConfigGenerated2, "wd002", "dd001", widget2.getWidgetTitle());
+		dashboardDAO.insertWidgetConfig(widgetConfigGenerated3, "wd003", "dd001", widget3.getWidgetTitle());
+		dashboardDAO.insertWidgetConfig(widgetConfigGenerated4, "wd004", "dd001", widget4.getWidgetTitle());
+		dashboardDAO.insertWidgetConfig(widgetConfigGenerated5, "wd005", "dd001", widget5.getWidgetTitle());
+		dashboardDAO.insertWidgetConfig(widgetConfigGenerated6, "wd006", "dd001", widget6.getWidgetTitle());
 		return response;
-	}	
+	}
+
 	public String deleteDynamicDashboard() {
-		
+
 		String response = dashboardDAO.deleteDynamicDashboard("dd001");
 		return response;
-	}	
+	}
 }

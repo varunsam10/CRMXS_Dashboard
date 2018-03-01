@@ -42,8 +42,6 @@ public class Dashboard6Controller {
 	@RequestMapping(value = "/getWidgets", method = RequestMethod.GET)
 	@ResponseBody
 	public String getWidgets() {
-		// DashboardService dashboardJSON = new DashboardService();
-		// return dashboardJSON.createDashboardJson();
 		String response = dashboardDAO.getDashboardJson();
 		System.out.println("The response is" + response);
 		return response;

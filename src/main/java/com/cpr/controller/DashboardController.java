@@ -17,43 +17,49 @@ public class DashboardController {
 
 	@Autowired
 	private CustomDashboardService dashboardService;
+
 	@RequestMapping("/changeGraph")
 	public ResponseEntity changeGraphForWidgets(@RequestBody String widgetId) {
 		Dashboard3 dashboard3 = new Dashboard3();
 		String response = dashboardService.changeGraphForId(widgetId);
 		return new ResponseEntity(HttpStatus.OK);
 	}
+
 	@RequestMapping("/getWidgetBoards")
 	public ResponseEntity getWidgetBoards(@RequestBody String dashboardId) {
 		Dashboard3 dashboard3 = new Dashboard3();
 		String response = dashboardService.getWidgetBoards(dashboardId);
 		return new ResponseEntity(HttpStatus.OK);
 	}
+
 	@RequestMapping("/updateWidget")
 	public ResponseEntity updateWidgetDetails(@RequestBody String widgetId) {
 		Dashboard3 dashboard3 = new Dashboard3();
 		String response = dashboardService.addWidgetById(widgetId);
 		return new ResponseEntity(HttpStatus.OK);
 	}
+
 	@RequestMapping("/deleteWidget")
 	public ResponseEntity deleteWidgetFromDashboard(@RequestBody String widgetId) {
 		Dashboard3 dashboard3 = new Dashboard3();
 		String response = dashboardService.deleteWidgetById(widgetId);
 		return new ResponseEntity(HttpStatus.OK);
 	}
-	
+
 	@RequestMapping("/addWidget")
 	public ResponseEntity addWidgetToDashboard(@RequestBody String widgetId) {
 		Dashboard3 dashboard3 = new Dashboard3();
 		String response = dashboardService.addWidgetById(widgetId);
 		return new ResponseEntity(HttpStatus.OK);
 	}
+
 	@RequestMapping("/editWidget")
 	public ResponseEntity editWidgetTitleForWidget(@RequestBody String widgetId) {
 		Dashboard3 dashboard3 = new Dashboard3();
 		String response = dashboardService.editWidgetTitleById(widgetId);
 		return new ResponseEntity(HttpStatus.OK);
 	}
+
 	@RequestMapping("/downloadData")
 	public ResponseEntity downloadWidgetDataOfWidget(@RequestBody String widgetId) {
 		Dashboard3 dashboard3 = new Dashboard3();
