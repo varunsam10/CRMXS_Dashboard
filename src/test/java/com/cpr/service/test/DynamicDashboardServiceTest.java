@@ -1,16 +1,14 @@
 package com.cpr.service.test;
 
+import static org.junit.Assert.assertNotNull;
+
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
-import junit.framework.TestCase;
-import static org.junit.Assert.*;
-
-import org.junit.After;
 
 import com.cpr.service.DynamicDashboardService;
 @RunWith(SpringJUnit4ClassRunner.class)

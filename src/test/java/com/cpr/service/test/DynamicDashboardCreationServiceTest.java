@@ -1,6 +1,6 @@
 package com.cpr.service.test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.After;
 import org.junit.Before;
@@ -11,8 +11,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.cpr.service.DynamicDashboardCreationService;
-
-import junit.framework.Assert;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:test_crmxsDashboard.xml")
 public class DynamicDashboardCreationServiceTest {
