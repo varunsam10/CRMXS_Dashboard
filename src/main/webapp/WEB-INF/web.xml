@@ -11,13 +11,6 @@
 		<filter-name>springSecurityFilterChain</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listener>
-	<context-param>
-		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/config/security-config.xml</param-value>
-	</context-param>
 	<servlet>
 		<servlet-name>biSuiteServlet</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -27,6 +20,13 @@
 			<param-value>/WEB-INF/config/servlet-config.xml</param-value>
 		</init-param>
 	</servlet>
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/config/security-config.xml</param-value>
+	</context-param>
 	<servlet-mapping>
 		<servlet-name>biSuiteServlet</servlet-name>
 		<url-pattern>*.html</url-pattern>

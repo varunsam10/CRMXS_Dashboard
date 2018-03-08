@@ -136,9 +136,7 @@ public class DashboardDAO {
 		}
 		return "Success";
 	}
-
 	public String getDateFilteredData(FilterData filterData) {
-
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 		String sql = null;
 		Date fromDate = null;
@@ -164,7 +162,6 @@ public class DashboardDAO {
 			}
 			countryInFilter = filterData.getCountries();
 			NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(dataSource);
-
 			if (filterData.getCountries().length == 0) {
 				sql = "SELECT * FROM crmxsdashboard.redemption where date >= ? and date <= ?  order by date asc";
 				rows = jdbcTemplate.queryForList(sql, fromDate, toDate);
@@ -182,11 +179,9 @@ public class DashboardDAO {
 				} catch (DataAccessException e) {
 					System.out.println("Exception" + e);
 				}
-
 			}
 			resultSize = rows.size();
 			List<GraphParams> graphParamsList = new ArrayList<GraphParams>();
-
 			for (Map<String, Object> rs : rows) {
 				GraphParams graphParam = new GraphParams();
 				graphParam.setyValue(rs.get("revenue").toString());
@@ -208,12 +203,9 @@ public class DashboardDAO {
 		}
 		String widgetContentConfig = getFilteredWidgetConfig(resultSize, countryMap, parsedFrom, parsedTo);
 		return widgetContentConfig;
-
 	}
-
 	public String getFilteredWidgetConfig(Integer resultSize, Map<String, List<GraphParams>> countryMap,
 			java.util.Date parsedFrom, java.util.Date parsedTo) {
-
 		ArrayList<WidgetData> widgetsDataList = new ArrayList<WidgetData>();
 		Set<String> keys = countryMap.keySet();
 		int i = 0;
@@ -238,7 +230,6 @@ public class DashboardDAO {
 		AxisLayout x_AxisLayout = new AxisLayout("Age", x_TitleFont, range);
 		TitleFont y_TitleFont = new TitleFont("Courier New, monospace", 18, "#7f7f7f");
 		AxisLayout y_AxisLayout = new AxisLayout("Number of Customers", y_TitleFont);
-
 		WidgetLayout widgetLayout = new WidgetLayout("How old are they ?", x_AxisLayout, y_AxisLayout, true);
 		widgetLayout.setShowlegend(true);
 		String[] modeBarButtonsToRemove = { "sendDataToCloud" };
@@ -249,9 +240,7 @@ public class DashboardDAO {
 		String response = gson.toJson(element);
 		return response;
 	}
-
 	public Map<String, List<GraphParams>> createWidgetproductList() {
-
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 		String sql = "select Product,Customer_Name,(Quantity*Price) as Spend from demosalesitemTest group by Product,Customer_Name order by Spend DESC";
 		List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql);
@@ -277,7 +266,6 @@ public class DashboardDAO {
 		}
 		return productListMap;
 	}
-
 	public Map<String, List<GraphParams>> createWidgetProductListActual() {
 
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
@@ -305,9 +293,7 @@ public class DashboardDAO {
 		}
 		return productListMap;
 	}
-
 	public Map<String, List<GraphParams>> createWidgetTopOutletActual() {
-
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 		String sql = "select count(Trans_ID) as Sales,Outlet_Name as Outlet from demosalesitem group by Outlet_Name";
 		List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql);
@@ -333,9 +319,7 @@ public class DashboardDAO {
 		}
 		return topOutletListMap;
 	}
-
 	public Map<String, List<GraphParams>> createWidgetTopProductActual() {
-
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 		String sql = "select count(Trans_ID) as Sales,Product from demosalesitem group by Product order by Sales DESC LIMIT 25";
 		List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql);
@@ -361,7 +345,6 @@ public class DashboardDAO {
 		}
 		return topProductListMap;
 	}
-
 	public Map<String, String> averageCustomerSpend() {
 
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
@@ -376,7 +359,6 @@ public class DashboardDAO {
 		}
 		return averageSpendMap;
 	}
-
 	public Map<String, String> topProduct() {
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 		String sql = "select count(Trans_ID) as transactions,Product from demosalesitem group by Product order by transactions DESC LIMIT 1";
@@ -404,37 +386,30 @@ public class DashboardDAO {
 		}
 		return "Success";
 	}
-
 	public String changeGraph(String widgetId) {
 
 		return "Success";
 	}
-
 	public String getWidgetForDashboard(String dashboardId) {
 
 		return "Success";
 	}
-
 	public String updateWidget(String widgetId) {
 
 		return "Success";
 	}
-
 	public String deleteWidget(String widgetId) {
 
 		return "Success";
 	}
-
 	public String addWidget(String widgetId) {
 
 		return "Success";
 	}
-
 	public String editWidgetTitle(String widgetId) {
 
 		return "Success";
 	}
-
 	public String downloadWidgetData(String widgetId) {
 
 		return "Success";

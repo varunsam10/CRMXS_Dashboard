@@ -11,23 +11,27 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.cpr.service.DynamicDashboardService;
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:test_crmxsDashboard.xml")
 public class DynamicDashboardServiceTest {
 
 	@Autowired
-	private DynamicDashboardService dynamicDashboardService;	
+	private DynamicDashboardService dynamicDashboardService;
+
 	@Before
-	public void setup(){
-		
-	}	
+	public void setup() {
+
+	}
+
 	@Test
-	public void testfetchDashboard2Widgets(){
+	public void testfetchDashboard2Widgets() {
 		String response = dynamicDashboardService.fetchDashboard2Widgets("dd01");
-		assertNotNull(dynamicDashboardService.fetchDashboard2Widgets("dd01"));
-	}	
+		assertNotNull(response);
+	}
+
 	@After
-	public void tearDown(){
-		
+	public void tearDown() {
+
 	}
 }

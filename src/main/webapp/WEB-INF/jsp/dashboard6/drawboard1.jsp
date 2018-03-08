@@ -1344,8 +1344,7 @@ $("#cprDashboard").cprDashboard({
 
 	});
 	$("#cprDashboard").bind("cprdashboardstatechanged",function(e, data) {
-		if(data.triggerAction === "orderChanged"){
-	
+		if(data.triggerAction === "orderChanged"){	
 			$.notify({				
 				icon: 'glyphicon glyphicon-warning-sign',
 				title: 'Widget Order Changed!',
@@ -1389,14 +1388,12 @@ $("#cprDashboard").cprDashboard({
 					'</div>' +
 					'<div class="col-xs-2"><button type="button" aria-hidden="true" class="btn btn-primary btn-xs" id="saveOrder" data-notify="dismiss">Save</button></div>' +
 				'</div>' 
-			});
-				
-				$("#saveOrder").click(function() {
-					 swal("Widget Order Saved!"," ", "success");
-				});
+			});			
+			$("#saveOrder").click(function() {
+				 swal("Widget Order Saved!"," ", "success");
+			});	
 			
 		}else if(data.triggerAction === "widgetRemoved"){
-			//notification('info', 'The below widget with widgetID:'+ data.affectedWidget.widgetTitle+'deleted');
 			swal({
 				  title: "Do you want to save the change?",
 				  text: "The Changes made will not be saved!",
@@ -1440,7 +1437,6 @@ $("#cprDashboard").cprDashboard({
 	});
 	$("li.menuItem.filters").click(function(e) {
 		e.preventDefault();
-		//$("#changeThemeModal").modal('show');
 		$("#filterAllModal").modal('show');
 	});
 	$('#applyThemes').on('click', function (e) {
@@ -1471,16 +1467,14 @@ $("#cprDashboard").cprDashboard({
 				widgetId:widgetId
 		};
 		$("#cprDashboard").cprDashboard("resetFilter",widgetId);			
-	});	
-	
+	});		
 	$('#applyFilter').on('click', function (e) {
 		e.preventDefault();
 		var today = new Date();
 		var dd = today.getDate();
 		var mm = today.getMonth()+1;
 		var yyyy = today.getFullYear();
-		var widgetConfig;
-		
+		var widgetConfig;		
 		var fromDate;
 		var toDate;
 		var countriesSelected;
@@ -1489,8 +1483,7 @@ $("#cprDashboard").cprDashboard({
 		var to = yyyy - 1
 		var widgetId =$("#fgwidgetId").text();
 		if(val != "")
-		{
-			console.log(val)
+		{	console.log(val)
 			fromDate = mm+'/'+dd+'/'+from
 			toDate = mm+'/'+dd+'/'+to
 			countriesSelected = ["US","UK","India"]
@@ -1498,13 +1491,11 @@ $("#cprDashboard").cprDashboard({
 			console.log(toDate);
 		}
 		else
-		{
-			console.log("here")
+		{	console.log("here")
 			fromDate = $("#from").val();
 			toDate = $("#to").val();
 			countriesSelected = $("#country-select").val();			
-		}
-		
+		}		
 		var filterData ={
 				fromDate:fromDate,
 				toDate:toDate,

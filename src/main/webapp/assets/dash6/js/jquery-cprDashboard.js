@@ -385,7 +385,11 @@
 				}	else if (widgetDefinition.widgetType === 'chart') {
 				
 					var chart = $('<div/>').addClass("cprDashboardChart");
-					chart.addClass("cprDashboardChartClickable");
+					if (widgetDefinition.getDataBySelection) {
+						chart.addClass("cprDashboardChartSelectable");
+					} else {
+						chart.addClass("cprDashboardChartClickable");
+					}
 					widgetContent.append(chart);
 				} else if (widgetDefinition.widgetType === 'map') {
 					var map = $('<div/>').addClass("cprDashboardMap");
@@ -630,7 +634,6 @@
 				
 			},
 			applyFilter:function(widgetConfig,widgetId) {
-				
 				var widgetDefinition = this._getWidgetContentForId(widgetId, this);
 				var id = "li#" + widgetDefinition.widgetId;
 				var chartArea;
@@ -638,18 +641,14 @@
 				var layout;
 				var config;
 				var chart;
-				chartArea = this.element.find(id + " div.cprDashboardChart");
-				
-				if (widgetDefinition.widgetType === 'chart') {
-					
+				chartArea = this.element.find(id + " div.cprDashboardChart");				
+				if (widgetDefinition.widgetType === 'chart') {					
 					data = widgetConfig.data;
 					widgetDefinition.widgetContent.layout.xaxis.range = widgetConfig.layout.xaxis.range;
 					layout = widgetDefinition.widgetContent.layout;
-					config = widgetDefinition.widgetContent.config;
-					
+					config = widgetDefinition.widgetContent.config;					
 					this.renderNewChart(chartArea,data,layout,config);
-				}
-				
+				}				
 			},
 			_enableEdit:function(widgetDefinition,widgetId){
 				var id = "li#" + widgetDefinition.widgetId;
@@ -659,17 +658,19 @@
 				var chart;
 				var chartArea = this.element.find(id + " div.cprDashboardChart");
 				if (widgetDefinition.widgetType === 'chart') {
-					
 					data = widgetDefinition.widgetContent.data;
 					layout = widgetDefinition.widgetContent.layout;
 					config = widgetDefinition.widgetContent.config;
-					
 					config.editable=true;
 					widgetDefinition.widgetContent.config = config;				
 					this.renderNewChart(chartArea,data,layout,config);						
+					if (widgetDefinition.getDataBySelection) {
+						this._bindSelectEvent(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+					} else {
 						if(widgetDefinition.graphType === 'exploratory'){
 							this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
-						}			
+						}
+					}
 				}
 			},
 			_disableEdit:function(widgetDefinition,widgetId){
@@ -680,17 +681,19 @@
 				var chart;
 				var chartArea = this.element.find(id + " div.cprDashboardChart");
 				if (widgetDefinition.widgetType === 'chart') {
-					
 					data = widgetDefinition.widgetContent.data;
 					layout = widgetDefinition.widgetContent.layout;
 					config = widgetDefinition.widgetContent.config;
-					
 					config.editable=false;
 					widgetDefinition.widgetContent.config = config;				
 					this.renderNewChart(chartArea,data,layout,config);						
-							if(widgetDefinition.graphType === 'exploratory'){
+					if (widgetDefinition.getDataBySelection) {
+						this._bindSelectEvent(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+					} else {
+						if(widgetDefinition.graphType === 'exploratory'){
 							this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
-						}				
+						}
+					}
 				}
 			},
 			changeChart: function(changeChartObject) {			
@@ -843,15 +846,24 @@
 						this.redrawChart(chartArea,data,layout,config);
 						
 					}					
-					if(widgetDefinition.graphType === 'exploratory'){
+					if (widgetDefinition.getDataBySelection) {
+						
+						this._bindSelectEvent(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+					} else {
+						if(widgetDefinition.graphType === 'exploratory'){
 							this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+						}
 					}
-					
 				}
 				else if(widgetDefinition.widgetType === 'static')
 					{
 						chart = new Chart(chartArea[0], widgetDefinition.widgetId, widgetDefinition.widgetContent.data);
-						this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+						
+						if (widgetDefinition.getDataBySelection) {
+							this._bindSelectEvent(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+						} else {
+							this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+						}
 					}					
 			},
 			_refreshChart: function(widgetDefinition) {
@@ -883,15 +895,24 @@
 						this.redrawChart(chartArea,data,layout,config);
 						
 					}					
-					if(widgetDefinition.graphType === 'exploratory'){
+					if (widgetDefinition.getDataBySelection) {
+						
+						this._bindSelectEvent(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+					} else {
+						if(widgetDefinition.graphType === 'exploratory'){
 							this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
 						}
-			
+					}
 				}
 				else if(widgetDefinition.widgetType === 'static')
 					{
 						chart = new Chart(chartArea[0], widgetDefinition.widgetId, widgetDefinition.widgetContent.data);
-						this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+						
+						if (widgetDefinition.getDataBySelection) {
+							this._bindSelectEvent(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+						} else {
+							this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+						}
 					}					
 			},
 			_interactMap: function(widgetDefinition,dataPoint) {
@@ -906,15 +927,13 @@
 							
 							WidgetDefinitionToChange = _dashboardData[i];
 						}					
-					}
-					
+					}					
 					var id = "li#" + WidgetDefinitionToChange.widgetId;
 					var mapArea;
 					var mapRedraw;
 					var WidgetContentToChange = WidgetDefinitionToChange.widgetContent;
 					var cust=0;
-					mapArea = this.element.find(id + " div.cprDashboardMap");
-									
+					mapArea = this.element.find(id + " div.cprDashboardMap");									
 					if(dataPoint.id==="Atmosphere"){
 						cust = 3;
 					}else if(dataPoint.id=="CafeFootball"){
@@ -922,8 +941,7 @@
 					}else if(dataPoint.id==="Serenity"){
 						cust = 1;
 					}					
-					if (widgetDefinition.widgetType === 'map') {
-						
+					if (widgetDefinition.widgetType === 'map') {						
 						WidgetContentToChange.dataProvider.areas = widgetDefinition.linkedData[cust];
 						mapRedraw =AmCharts.makeChart(mapArea[0], WidgetContentToChange);
 						mapRedraw.validateData();										
@@ -940,19 +958,16 @@
 				var _dashboardData = this.options.dashboardData;
 				var i;
 				var WidgetDefinitionToChange;
-				var linkedWidget ;
-				
+				var linkedWidget ;				
 				for (var j =0; j<widgetDefinition.linkedWidgets.length;j++){
 					linkedWidget = widgetDefinition.linkedWidgets[j];
 				for ( i = 0; i < _dashboardData.length; i++) {
-					if(_dashboardData[i].widgetId === linkedWidget){
-						
+					if(_dashboardData[i].widgetId === linkedWidget){						
 						WidgetDefinitionToChange = _dashboardData[i];
 					}					
 				}
 				chartArea = this.element.find(id + " div.cprDashboardChart");
-				if (WidgetDefinitionToChange.widgetType === 'chart') {
-					
+				if (WidgetDefinitionToChange.widgetType === 'chart') {					
 					if(WidgetDefinitionToChange.chartType === 'bar'){
 						if(dataPoint.dataPoints === 2013){
 							data = WidgetDefinitionToChange.widgetContentNew.data;
@@ -961,13 +976,11 @@
 						}else if(dataPoint.dataPoints === 2014){
 							data = WidgetDefinitionToChange.widgetContentNew1.data;
 							layout = WidgetDefinitionToChange.widgetContentNew.layout;
-							config = WidgetDefinitionToChange.widgetContent.config;
-							
+							config = WidgetDefinitionToChange.widgetContent.config;							
 						}else if(dataPoint.dataPoints === 2015){
 							data = WidgetDefinitionToChange.widgetContentNew2.data;
 							layout = WidgetDefinitionToChange.widgetContentNew.layout;
-							config = WidgetDefinitionToChange.widgetContent.config;
-							
+							config = WidgetDefinitionToChange.widgetContent.config;							
 						}
 					}else if(WidgetDefinitionToChange.chartType === 'line'){
 						if(dataPoint.dataPoints === 2013){
@@ -981,12 +994,11 @@
 						}else if(dataPoint.dataPoints === 2014){
 							data   = WidgetDefinitionToChange.widgetContentNew1.data;
 							layout = WidgetDefinitionToChange.widgetContent.layout;
-							config = WidgetDefinitionToChange.widgetContent.config;							
+							config = WidgetDefinitionToChange.widgetContent.config;					
 						}						
 					}
 					if(WidgetDefinitionToChange.graphType === 'normal'){
 						var chart = c3.generate({bindto:chartArea[0],data:WidgetDefinitionToChange.widgetContent.data});
-						
 					}else{						
 						if(WidgetDefinitionToChange.chartType === 'line'){
 							Plotly.animate(chartArea[0], { data, layout,config} ,{
@@ -1007,7 +1019,12 @@
 				else if(widgetDefinition.widgetType === 'static')
 					{
 						chart = new Chart(chartArea[0], WidgetDefinitionToChange.widgetId, WidgetDefinitionToChange.widgetContent.data);
-						this._bindChartEvents(chartArea[0], WidgetDefinitionToChange.widgetId, WidgetDefinitionToChange, this);
+						
+						if (widgetDefinition.getDataBySelection) {
+							this._bindSelectEvent(chartArea[0], WidgetDefinitionToChange.widgetId, WidgetDefinitionToChange, this);
+						} else {
+							this._bindChartEvents(chartArea[0], WidgetDefinitionToChange.widgetId, WidgetDefinitionToChange, this);
+						}
 					}
 				}
 			},
@@ -1038,17 +1055,26 @@
 						Plotly.newPlot(chartArea[0],  widgetDefinition.widgetContent.data, widgetDefinition.widgetContent.layout,widgetDefinition.widgetContent.config);
 						Plotly.redraw(chartArea[0]);
 					}					
-					if(widgetDefinition.graphType === 'exploratory'){
+					if (widgetDefinition.getDataBySelection) {
+						
+						this._bindSelectEvent(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+					} else {
+						if(widgetDefinition.graphType === 'exploratory'){
 							this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
 						}else if(widgetDefinition.graphType === 'normal'){
 							this._bindChartEventsC3(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
 						}
-
+					}
 				}
 				else if(widgetDefinition.widgetType === 'static')
 					{
 						chart = new Chart(chartArea[0], widgetDefinition.widgetId, widgetDefinition.widgetContent.data);
-						this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+						
+						if (widgetDefinition.getDataBySelection) {
+							this._bindSelectEvent(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+						} else {
+							this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+						}
 					}
 
 			},
