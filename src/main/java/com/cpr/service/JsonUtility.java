@@ -34,7 +34,6 @@ public class JsonUtility {
 		String jsonValue = null;
 		ObjectMapper mapper = new ObjectMapper();
 		try {
-			// mapper.setSerializationInclusion(Inclusion.NON_EMPTY);
 			jsonValue = mapper.writeValueAsString(obj);
 		} catch (JsonGenerationException jge) {
 			System.out.println(jge.getMessage());
