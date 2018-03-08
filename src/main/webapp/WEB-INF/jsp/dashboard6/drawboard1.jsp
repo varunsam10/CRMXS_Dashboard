@@ -1483,7 +1483,7 @@ $("#cprDashboard").cprDashboard({
 		var to = yyyy - 1
 		var widgetId =$("#fgwidgetId").text();
 		if(val != "")
-		{s	console.log(val)
+		{	console.log(val)
 			fromDate = mm+'/'+dd+'/'+from
 			toDate = mm+'/'+dd+'/'+to
 			countriesSelected = ["US","UK","India"]
