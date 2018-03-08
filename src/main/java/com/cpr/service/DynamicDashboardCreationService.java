@@ -11,6 +11,7 @@ import javax.swing.text.html.parser.Entity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.cpr.dao.CustomDashboardDAO;
 import com.cpr.dao.DashboardDAO;
 import com.cpr.model.GraphParams;
 import com.cpr.util.AxisLayout;
@@ -34,6 +35,9 @@ public class DynamicDashboardCreationService {
 	@Autowired
 	private CustomDashboardService dashboardService;
 	@Autowired
+	private CustomDashboardDAO customDashboardDAO;
+	
+	@Autowired
 	private DashboardDAO dashboardDAO;
 
 	public String createDynamicDashboard() {
@@ -44,14 +48,12 @@ public class DynamicDashboardCreationService {
 		ArrayList<Widget> widgets4 = new ArrayList<Widget>();
 		ArrayList<Widget> widgets5 = new ArrayList<Widget>();
 		ArrayList<Widget> widgets6 = new ArrayList<Widget>();
-		Map<String, List<GraphParams>> productListMap = dashboardDAO.createWidgetproductList();
-		Map<String, List<GraphParams>> productListMapOriginal = dashboardDAO.createWidgetProductListActual();
-		Map<String, List<GraphParams>> topOutletListMap = dashboardDAO.createWidgetTopOutletActual();
-		Map<String, List<GraphParams>> topProductListMap = dashboardDAO.createWidgetTopProductActual();
-		// Map<String, List<GraphParams>> averageCustomerSpendMap =
-		// dashboardDAO.averageCustomerSpend();
-		Map<String, String> averageCustomerSpendMap = dashboardDAO.averageCustomerSpend();
-		Map<String, String> topProductMap = dashboardDAO.topProduct();
+		Map<String, List<GraphParams>> productListMap = customDashboardDAO.createWidgetproductList();
+		Map<String, List<GraphParams>> productListMapOriginal = customDashboardDAO.createWidgetProductListActual();
+		Map<String, List<GraphParams>> topOutletListMap = customDashboardDAO.createWidgetTopOutletActual();
+		Map<String, List<GraphParams>> topProductListMap = customDashboardDAO.createWidgetTopProductActual();
+		Map<String, String> averageCustomerSpendMap = customDashboardDAO.averageCustomerSpend();
+		Map<String, String> topProductMap = customDashboardDAO.topProduct();
 		Widget widget = null;
 		Widget widget2 = null;
 		Widget widget3 = null;
@@ -121,7 +123,6 @@ public class DynamicDashboardCreationService {
 			}
 
 		}
-
 		// widget 2
 		if (!productListMapOriginal.isEmpty()) {
 			widget2 = new Widget();
@@ -246,39 +247,6 @@ public class DynamicDashboardCreationService {
 			}
 
 		}
-
-		// Widget 5
-		/*
-		 * if (!averageCustomerSpendMap.isEmpty()) { widget5 = new Widget();
-		 * widget5.setWidgetTitle("Average Spend by Customer");
-		 * widget5.setWidgetId("wd005"); widget5.setEnableRefresh(false);
-		 * widget5.setChartType(ChartTypeEnum.LINE.toString().toLowerCase());
-		 * widget5.setWidgetDimension(WidgetDimensionEnum.LARGE.toString().
-		 * toLowerCase());
-		 * widget5.setGraphType(GraphTypeEnum.EXPLORATORY.toString().toLowerCase
-		 * ());
-		 * widget5.setWidgetType(WidgetTypeEnum.CHART.toString().toLowerCase());
-		 * widget5.setWidgetClick(WidgetClickEnum.DISABLE.toString().toLowerCase
-		 * ());
-		 * widget5.setWidgetEdit(WidgetEditEnum.ENABLE.toString().toLowerCase())
-		 * ; widgetContent5 = new WidgetContent(); Set<Map.Entry<String,
-		 * List<GraphParams>>> mapset = averageCustomerSpendMap.entrySet();
-		 * 
-		 * List<Map.Entry<String, List<GraphParams>>> maplist = new
-		 * LinkedList<Map.Entry<String, List<GraphParams>>>( mapset); for
-		 * (Map.Entry<String, List<GraphParams>> entry : maplist) { widgetData5
-		 * = new WidgetData(); int i = 0; int j = 0; Object[] x = new
-		 * Object[entry.getValue().size()]; Object[] y = new
-		 * Object[entry.getValue().size()]; for (GraphParams params :
-		 * entry.getValue()) { x[i] = params.getxValue(); y[j] =
-		 * params.getyValue(); i++; j++; } widgetData5.setY(y);
-		 * widgetData5.setX(x); widgetData5.setType("bar");
-		 * //widgetData5.setName(entry.getKey()); Marker marker =new Marker();
-		 * marker.setColor("#32c5d2"); marker.setOpacity(0.6);
-		 * widgetData5.setMarker(marker); widgetDataList5.add(widgetData5); }
-		 * 
-		 * }
-		 */
 		// Widget 5
 		if (!averageCustomerSpendMap.isEmpty()) {
 			widget5 = new Widget();
@@ -353,15 +321,7 @@ public class DynamicDashboardCreationService {
 			widgetLayout4.setPaper_bgcolor("#FFFFFF");
 			widgetLayout4.setPlot_bgcolor("#FFFFFF");
 		}
-		/*
-		 * if (null != widget5) { widgetLayout5 = new WidgetLayout();
-		 * widgetLayout5.setTitle("Average Spend by Customer");
-		 * widgetLayout5.setXaxis(x_AxisLayout5);
-		 * widgetLayout5.setYaxis(y_AxisLayout5);
-		 * widgetLayout5.setAutosize(true); widgetLayout.setShowlegend(true);
-		 * widgetLayout5.setPaper_bgcolor("#FFFFFF");
-		 * widgetLayout5.setPlot_bgcolor("#FFFFFF"); }
-		 */
+
 		widgetContent.setData(widgetDataList);
 		widgetContent.setLayout(widgetLayout);
 		widgetContent.setConfig(widgetConfig);
@@ -374,9 +334,6 @@ public class DynamicDashboardCreationService {
 		widgetContent4.setData(widgetDataList4);
 		widgetContent4.setLayout(widgetLayout4);
 		widgetContent4.setConfig(widgetConfig);
-		// widgetContent5.setData(widgetDataList5);
-		// widgetContent5.setLayout(widgetLayout5);
-		// widgetContent5.setConfig(widgetConfig);
 
 		widget.setWidgetContent(widgetContent);
 		widget2.setWidgetContent(widgetContent2);

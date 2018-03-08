@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cpr.dao.DashboardDAO;
+import com.cpr.dao.DynamicDashboardDAO;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
@@ -13,7 +13,7 @@ import com.google.gson.JsonElement;
 @Service
 public class DynamicDashboardService {
 	@Autowired
-	private DashboardDAO dashboardDAO;
+	private DynamicDashboardDAO dashboardDAO;
 
 	public String fetchDashboard2Widgets(String dashboardID) {
 
@@ -35,4 +35,5 @@ public class DynamicDashboardService {
 		String widgetresponse = dashboardDAO.getWidgetDefinition(widgetName);
 		return widgetresponse;
 	}
+
 }
