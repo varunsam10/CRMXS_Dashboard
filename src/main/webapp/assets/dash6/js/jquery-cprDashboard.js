@@ -385,11 +385,7 @@
 				}	else if (widgetDefinition.widgetType === 'chart') {
 				
 					var chart = $('<div/>').addClass("cprDashboardChart");
-					if (widgetDefinition.getDataBySelection) {
-						chart.addClass("cprDashboardChartSelectable");
-					} else {
-						chart.addClass("cprDashboardChartClickable");
-					}
+					chart.addClass("cprDashboardChartClickable");
 					widgetContent.append(chart);
 				} else if (widgetDefinition.widgetType === 'map') {
 					var map = $('<div/>').addClass("cprDashboardMap");
@@ -664,13 +660,10 @@
 					config.editable=true;
 					widgetDefinition.widgetContent.config = config;				
 					this.renderNewChart(chartArea,data,layout,config);						
-					if (widgetDefinition.getDataBySelection) {
-						this._bindSelectEvent(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
-					} else {
-						if(widgetDefinition.graphType === 'exploratory'){
+					if(widgetDefinition.graphType === 'exploratory'){
 							this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
-						}
 					}
+					
 				}
 			},
 			_disableEdit:function(widgetDefinition,widgetId){
@@ -687,13 +680,10 @@
 					config.editable=false;
 					widgetDefinition.widgetContent.config = config;				
 					this.renderNewChart(chartArea,data,layout,config);						
-					if (widgetDefinition.getDataBySelection) {
-						this._bindSelectEvent(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
-					} else {
-						if(widgetDefinition.graphType === 'exploratory'){
-							this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
-						}
+					if(widgetDefinition.graphType === 'exploratory'){
+						this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
 					}
+				
 				}
 			},
 			changeChart: function(changeChartObject) {			
@@ -846,24 +836,16 @@
 						this.redrawChart(chartArea,data,layout,config);
 						
 					}					
-					if (widgetDefinition.getDataBySelection) {
-						
-						this._bindSelectEvent(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
-					} else {
-						if(widgetDefinition.graphType === 'exploratory'){
-							this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
-						}
+					if(widgetDefinition.graphType === 'exploratory'){
+						this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
 					}
+				
 				}
 				else if(widgetDefinition.widgetType === 'static')
 					{
 						chart = new Chart(chartArea[0], widgetDefinition.widgetId, widgetDefinition.widgetContent.data);
+						this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
 						
-						if (widgetDefinition.getDataBySelection) {
-							this._bindSelectEvent(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
-						} else {
-							this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
-						}
 					}					
 			},
 			_refreshChart: function(widgetDefinition) {
@@ -895,24 +877,14 @@
 						this.redrawChart(chartArea,data,layout,config);
 						
 					}					
-					if (widgetDefinition.getDataBySelection) {
-						
-						this._bindSelectEvent(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
-					} else {
-						if(widgetDefinition.graphType === 'exploratory'){
+					if(widgetDefinition.graphType === 'exploratory'){
 							this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
-						}
-					}
+					}					
 				}
 				else if(widgetDefinition.widgetType === 'static')
 					{
 						chart = new Chart(chartArea[0], widgetDefinition.widgetId, widgetDefinition.widgetContent.data);
-						
-						if (widgetDefinition.getDataBySelection) {
-							this._bindSelectEvent(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
-						} else {
-							this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
-						}
+						this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
 					}					
 			},
 			_interactMap: function(widgetDefinition,dataPoint) {
@@ -1019,12 +991,8 @@
 				else if(widgetDefinition.widgetType === 'static')
 					{
 						chart = new Chart(chartArea[0], WidgetDefinitionToChange.widgetId, WidgetDefinitionToChange.widgetContent.data);
+						this._bindChartEvents(chartArea[0], WidgetDefinitionToChange.widgetId, WidgetDefinitionToChange, this);
 						
-						if (widgetDefinition.getDataBySelection) {
-							this._bindSelectEvent(chartArea[0], WidgetDefinitionToChange.widgetId, WidgetDefinitionToChange, this);
-						} else {
-							this._bindChartEvents(chartArea[0], WidgetDefinitionToChange.widgetId, WidgetDefinitionToChange, this);
-						}
 					}
 				}
 			},
@@ -1055,26 +1023,18 @@
 						Plotly.newPlot(chartArea[0],  widgetDefinition.widgetContent.data, widgetDefinition.widgetContent.layout,widgetDefinition.widgetContent.config);
 						Plotly.redraw(chartArea[0]);
 					}					
-					if (widgetDefinition.getDataBySelection) {
-						
-						this._bindSelectEvent(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
-					} else {
-						if(widgetDefinition.graphType === 'exploratory'){
+					if(widgetDefinition.graphType === 'exploratory'){
 							this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
-						}else if(widgetDefinition.graphType === 'normal'){
+					}else if(widgetDefinition.graphType === 'normal'){
 							this._bindChartEventsC3(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
-						}
 					}
+					
 				}
 				else if(widgetDefinition.widgetType === 'static')
 					{
 						chart = new Chart(chartArea[0], widgetDefinition.widgetId, widgetDefinition.widgetContent.data);
-						
-						if (widgetDefinition.getDataBySelection) {
-							this._bindSelectEvent(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
-						} else {
-							this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
-						}
+						this._bindChartEvents(chartArea[0], widgetDefinition.widgetId, widgetDefinition, this);
+
 					}
 
 			},
