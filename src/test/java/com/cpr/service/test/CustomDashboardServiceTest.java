@@ -2,7 +2,6 @@ package com.cpr.service.test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,12 +9,10 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
-
 import com.cpr.service.CustomDashboardService;
 
-@ContextConfiguration
-@WebAppConfiguration
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration("classpath:test_crmxsDashboard.xml")
 public class CustomDashboardServiceTest {
 	@Autowired
 	private CustomDashboardService customDashboardService;
@@ -31,7 +28,7 @@ public class CustomDashboardServiceTest {
 	@Test
 	public void testCreateDashboardJson() {
 		String result = customDashboardService.createDashboardJson();
-		assertNotNull(customDashboardService.createDashboardJson());
+		assertNotNull(result);
 	}
 
 	@Test
@@ -66,7 +63,6 @@ public class CustomDashboardServiceTest {
 
 	@After
 	public void tearDown() {
-		customDashboardService = null;
 		dashboardId = null;
 		widgetId = null;
 	}
