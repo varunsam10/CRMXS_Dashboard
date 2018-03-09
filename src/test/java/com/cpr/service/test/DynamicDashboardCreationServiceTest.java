@@ -18,10 +18,15 @@ public class DynamicDashboardCreationServiceTest {
 	private DynamicDashboardCreationService dynamicDashboardService;	
 	@Before
 	public void setup(){
-		
+		 dynamicDashboardService.deleteDynamicDashboard();
+	}	
+	
+	@Test
+	public void testdeleteDynamicDashboard(){
+		assertEquals("Success", dynamicDashboardService.deleteDynamicDashboard());
 	}	
 	@Test
-	public void testcreateDashboard2(){
+	public void testcreateDynamicDashboard(){
 		assertEquals("Success", dynamicDashboardService.createDynamicDashboard());
 	}	
 	@After

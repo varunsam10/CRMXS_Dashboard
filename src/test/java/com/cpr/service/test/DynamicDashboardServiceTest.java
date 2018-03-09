@@ -23,10 +23,19 @@ public class DynamicDashboardServiceTest {
 	public void setup() {
 
 	}
-
 	@Test
 	public void testfetchDashboard2Widgets() {
 		String response = dynamicDashboardService.fetchDashboard2Widgets("dd01");
+		assertNotNull(response);
+	}
+	@Test
+	public void testfetchDashboard2WidgetsNames() {
+		String response = dynamicDashboardService.fetchDashboard2WidgetsNames("dd01");
+		assertNotNull(response);
+	}
+	@Test
+	public void testgetWidgetDefinition() {
+		String response = dynamicDashboardService.getWidgetDefinition("dd01");
 		assertNotNull(response);
 	}
 
