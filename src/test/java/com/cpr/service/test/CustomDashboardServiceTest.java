@@ -2,6 +2,7 @@ package com.cpr.service.test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -9,11 +10,11 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import com.cpr.service.CustomDashboardService;
 
+import com.cpr.service.CustomDashboardService;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:test_crmxsDashboard.xml")
-public class CustomDashboardServiceTest {
+public class CustomDashboardServiceTest{
 	@Autowired
 	private CustomDashboardService customDashboardService;
 	private String dashboardId;

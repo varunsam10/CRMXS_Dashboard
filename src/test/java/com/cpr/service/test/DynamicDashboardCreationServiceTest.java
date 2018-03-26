@@ -15,23 +15,25 @@ import com.cpr.service.DynamicDashboardCreationService;
 @ContextConfiguration("classpath:test_crmxsDashboard.xml")
 public class DynamicDashboardCreationServiceTest {
 	@Autowired
-	private DynamicDashboardCreationService dynamicDashboardService;	
+	private DynamicDashboardCreationService dynamicDashboardService;
+
 	@Before
-	public void setup(){
+	public void setup() {
 		dynamicDashboardService.deleteDynamicDashboard();
-	}	
-	
+	}
+
 	@Test
-	public void testdeleteDynamicDashboard(){
+	public void testdeleteDynamicDashboard() {
 		assertEquals("Success", dynamicDashboardService.deleteDynamicDashboard());
-	}	
+	}
+
 	@Test
-	public void testcreateDynamicDashboard(){
+	public void testcreateDynamicDashboard() {
 		assertEquals("Success", dynamicDashboardService.createDynamicDashboard());
-	}	
+	}
+
 	@After
-	public void tearDown()
-	{
-		
+	public void tearDown() {
+
 	}
 }

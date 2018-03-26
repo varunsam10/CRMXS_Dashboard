@@ -1,5 +1,7 @@
 package com.cpr.controller.test;
+
 import java.nio.charset.Charset;
+
 import org.apache.commons.codec.binary.Base64;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,22 +14,33 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.cpr.model.CprAuthenticationSuccessHandler;
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:test_crmxsDashboard.xml")
-public class DashboardControllerTest{
+public class Dashboard6ControllerTest {
 	private HttpHeaders httpHeaders;
 	private HttpEntity<?> entity;
 	private UriComponentsBuilder builder;
 	private String url;
-
+	private String filterData;
 	@Before
 	public void Setup() {
 		httpHeaders = createHeaders("sree", "secret");
 		entity = new HttpEntity<>(httpHeaders);
-
+		
+		Gson gson = new Gson();
+		JsonArray list = new JsonArray();
+		list.add("US");
+		list.add("UK");
+		JsonObject filterdata = new JsonObject();
+		filterdata.addProperty("fromDate", "02/01/2014");
+		filterdata.addProperty("toDate", "04/02/2015");
+		filterdata.addProperty("widgetId", "wd001");
+		filterdata.add("countries", list);
+		filterData = filterdata.toString();
 	}
-
 	public HttpHeaders createHeaders(String username, String password) {
 		final String user = username;
 		final String passwd = password;
@@ -40,78 +53,77 @@ public class DashboardControllerTest{
 			}
 		};
 	}
-
-	@Test(timeout = 3000)
-	public void testChangeGraphForWidgets() {
-		url = "http://localhost:8080/Crmxs-Dashboard/changeGraph.html";
+	@Test
+	public void testgetWidgets() {
+		url = "http://localhost:8080/Crmxs-Dashboard/getWidgets.html";
 		builder = UriComponentsBuilder.fromHttpUrl(url);
 		RestTemplate restTemplate = new RestTemplate();
 		HttpEntity<String> response = restTemplate.exchange(builder.build().encode().toUri(), HttpMethod.GET, entity,
 				String.class);
 	}
-
-	@Test(timeout = 3000)
-	public void testGetWidgetBoards() {
-		url = "http://localhost:8080/Crmxs-Dashboard/getWidgetBoards.html";
+	/*@Test
+	public void testapplyFilter() {
+		url = "http://localhost:8080/Crmxs-Dashboard/applyFilters.html";
+		builder = UriComponentsBuilder.fromHttpUrl(url);
+		builder.queryParam("filterData", filterData);
+		RestTemplate restTemplate = new RestTemplate();
+		HttpEntity<String> response = restTemplate.exchange(builder.build().encode().toUri(), HttpMethod.GET, entity,
+				String.class);
+	}*/
+	@Test
+	public void testgetInteractiveWidgets() {
+		url = "http://localhost:8080/Crmxs-Dashboard/getWidgetsInteract.html";
 		builder = UriComponentsBuilder.fromHttpUrl(url);
 		RestTemplate restTemplate = new RestTemplate();
 		HttpEntity<String> response = restTemplate.exchange(builder.build().encode().toUri(), HttpMethod.GET, entity,
 				String.class);
 	}
-
-	@Test(timeout = 3000)
-	public void testUpdateWidgetDetails() {
-		url = "http://localhost:8080/Crmxs-Dashboard/updateWidget.html";
-		builder = UriComponentsBuilder.fromHttpUrl(url);
-		RestTemplate restTemplate = new RestTemplate();
-		HttpEntity<String> responseEntity = restTemplate.exchange(builder.build().encode().toUri(), HttpMethod.GET,
-				entity, String.class);
-	}
-
-	/*
-	 * @Test(timeout=3000) public void testDeleteWidgetFromDashboard() {
-	 * RestTemplate restTemplate = new RestTemplate(); ResponseEntity
-	 * responseEntity = restTemplate.exchange(
-	 * "http://localhost:8080/Crmxs-Dashboard/deleteWidget",
-	 * HttpMethod.GET,httpHeaders, new
-	 * ParameterizedTypeReference<List<String>>() { }); }
-	 */
-	@Test(timeout = 3000)
-	public void testDeleteWidgetFromDashboard() {
-		url = "http://localhost:8080/Crmxs-Dashboard/deleteWidget.html";
+	@Test
+	public void testinitializeFormDrawboard3() {
+		url = "http://localhost:8080/Crmxs-Dashboard/drawboard3.html";
 		builder = UriComponentsBuilder.fromHttpUrl(url);
 		RestTemplate restTemplate = new RestTemplate();
 		HttpEntity<String> response = restTemplate.exchange(builder.build().encode().toUri(), HttpMethod.GET, entity,
 				String.class);
 	}
-
-	@Test(timeout = 3000)
-	public void testAddWidgetToDashboard() {
-		url = "http://localhost:8080/Crmxs-Dashboard/addWidget.html";
+	@Test
+	public void testinitializeFormDrawboard4() {
+		url = "http://localhost:8080/Crmxs-Dashboard/drawboard4.html";
 		builder = UriComponentsBuilder.fromHttpUrl(url);
 		RestTemplate restTemplate = new RestTemplate();
 		HttpEntity<String> response = restTemplate.exchange(builder.build().encode().toUri(), HttpMethod.GET, entity,
 				String.class);
-
 	}
-
-	@Test(timeout = 3000)
-	public void testEditWidgetTitleForWidget() {
-		url = "http://localhost:8080/Crmxs-Dashboard/editWidget.html";
+	@Test
+	public void testinitializeFormDrawboard5() {
+		url = "http://localhost:8080/Crmxs-Dashboard/drawboard5.html";
 		builder = UriComponentsBuilder.fromHttpUrl(url);
 		RestTemplate restTemplate = new RestTemplate();
 		HttpEntity<String> response = restTemplate.exchange(builder.build().encode().toUri(), HttpMethod.GET, entity,
 				String.class);
-
 	}
-
-	@Test(timeout = 3000)
-	public void testDownloadWidgetDataOfWidget() {
-		url = "http://localhost:8080/Crmxs-Dashboard/downloadData.html";
+	@Test
+	public void testinitializeFormDrawboard6() {
+		url = "http://localhost:8080/Crmxs-Dashboard/drawboard6.html";
 		builder = UriComponentsBuilder.fromHttpUrl(url);
 		RestTemplate restTemplate = new RestTemplate();
 		HttpEntity<String> response = restTemplate.exchange(builder.build().encode().toUri(), HttpMethod.GET, entity,
 				String.class);
-
+	}
+	@Test
+	public void testgraphDetailsPage() {
+		url = "http://localhost:8080/Crmxs-Dashboard/graphDetails.html";
+		builder = UriComponentsBuilder.fromHttpUrl(url);
+		RestTemplate restTemplate = new RestTemplate();
+		HttpEntity<String> response = restTemplate.exchange(builder.build().encode().toUri(), HttpMethod.GET, entity,
+				String.class);
+	}
+	@Test
+	public void testwidgetClickDrawboard3() {
+		url = "http://localhost:8080/Crmxs-Dashboard/widgetClick.html";
+		builder = UriComponentsBuilder.fromHttpUrl(url);
+		RestTemplate restTemplate = new RestTemplate();
+		HttpEntity<String> response = restTemplate.exchange(builder.build().encode().toUri(), HttpMethod.GET, entity,
+				String.class);
 	}
 }

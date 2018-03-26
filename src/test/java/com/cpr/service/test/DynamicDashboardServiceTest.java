@@ -12,7 +12,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.cpr.service.DynamicDashboardCreationService;
 import com.cpr.service.DynamicDashboardService;
-
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:test_crmxsDashboard.xml")
 public class DynamicDashboardServiceTest {
