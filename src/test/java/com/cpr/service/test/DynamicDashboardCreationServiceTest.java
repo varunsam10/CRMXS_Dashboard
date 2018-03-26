@@ -18,7 +18,7 @@ public class DynamicDashboardCreationServiceTest {
 	private DynamicDashboardCreationService dynamicDashboardService;	
 	@Before
 	public void setup(){
-		 dynamicDashboardService.deleteDynamicDashboard();
+		dynamicDashboardService.deleteDynamicDashboard();
 	}	
 	
 	@Test
